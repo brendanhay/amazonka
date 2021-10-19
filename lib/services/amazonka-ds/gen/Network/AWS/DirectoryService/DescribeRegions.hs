@@ -202,7 +202,7 @@ describeRegionsResponse_nextToken = Lens.lens (\DescribeRegionsResponse' {nextTo
 -- | List of Region information related to the directory for each replicated
 -- Region.
 describeRegionsResponse_regionsDescription :: Lens.Lens' DescribeRegionsResponse (Prelude.Maybe [RegionDescription])
-describeRegionsResponse_regionsDescription = Lens.lens (\DescribeRegionsResponse' {regionsDescription} -> regionsDescription) (\s@DescribeRegionsResponse' {} a -> s {regionsDescription = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRegionsResponse_regionsDescription = Lens.lens (\DescribeRegionsResponse' {regionsDescription} -> regionsDescription) (\s@DescribeRegionsResponse' {} a -> s {regionsDescription = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int

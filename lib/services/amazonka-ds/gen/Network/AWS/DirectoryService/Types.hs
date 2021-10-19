@@ -17,40 +17,40 @@ module Network.AWS.DirectoryService.Types
     defaultService,
 
     -- * Errors
-    _DirectoryAlreadyInRegionException,
-    _EntityDoesNotExistException,
-    _ShareLimitExceededException,
-    _DirectoryAlreadySharedException,
-    _RegionLimitExceededException,
-    _CertificateInUseException,
-    _TagLimitExceededException,
-    _DomainControllerLimitExceededException,
-    _SnapshotLimitExceededException,
-    _DirectoryDoesNotExistException,
-    _UserDoesNotExistException,
-    _DirectoryNotSharedException,
-    _EntityAlreadyExistsException,
-    _InvalidNextTokenException,
-    _OrganizationsException,
-    _UnsupportedOperationException,
-    _InvalidTargetException,
-    _InvalidParameterException,
-    _AccessDeniedException,
     _CertificateLimitExceededException,
-    _AuthenticationFailedException,
     _CertificateAlreadyExistsException,
+    _AccessDeniedException,
     _DirectoryUnavailableException,
-    _CertificateDoesNotExistException,
-    _InvalidPasswordException,
-    _IpRouteLimitExceededException,
-    _ClientException,
-    _InvalidClientAuthStatusException,
-    _InvalidCertificateException,
+    _AuthenticationFailedException,
+    _InvalidParameterException,
+    _UnsupportedOperationException,
+    _EntityAlreadyExistsException,
+    _NoAvailableCertificateException,
+    _UserDoesNotExistException,
     _DirectoryLimitExceededException,
     _InvalidLDAPSStatusException,
-    _ServiceException,
+    _InvalidCertificateException,
+    _CertificateInUseException,
+    _RegionLimitExceededException,
+    _IpRouteLimitExceededException,
+    _ShareLimitExceededException,
+    _EntityDoesNotExistException,
+    _OrganizationsException,
+    _InvalidTargetException,
+    _DirectoryAlreadyInRegionException,
     _InsufficientPermissionsException,
-    _NoAvailableCertificateException,
+    _DirectoryNotSharedException,
+    _InvalidNextTokenException,
+    _ServiceException,
+    _SnapshotLimitExceededException,
+    _DomainControllerLimitExceededException,
+    _DirectoryDoesNotExistException,
+    _InvalidClientAuthStatusException,
+    _TagLimitExceededException,
+    _ClientException,
+    _DirectoryAlreadySharedException,
+    _CertificateDoesNotExistException,
+    _InvalidPasswordException,
 
     -- * CertificateState
     CertificateState (..),
@@ -136,28 +136,28 @@ module Network.AWS.DirectoryService.Types
     -- * Attribute
     Attribute (..),
     newAttribute,
-    attribute_name,
     attribute_value,
+    attribute_name,
 
     -- * Certificate
     Certificate (..),
     newCertificate,
     certificate_clientCertAuthSettings,
-    certificate_registeredDateTime,
-    certificate_stateReason,
-    certificate_commonName,
     certificate_state,
-    certificate_expiryDateTime,
+    certificate_commonName,
     certificate_certificateId,
+    certificate_expiryDateTime,
+    certificate_registeredDateTime,
     certificate_type,
+    certificate_stateReason,
 
     -- * CertificateInfo
     CertificateInfo (..),
     newCertificateInfo,
-    certificateInfo_commonName,
     certificateInfo_state,
-    certificateInfo_expiryDateTime,
+    certificateInfo_commonName,
     certificateInfo_certificateId,
+    certificateInfo_expiryDateTime,
     certificateInfo_type,
 
     -- * ClientAuthenticationSettingInfo
@@ -175,16 +175,16 @@ module Network.AWS.DirectoryService.Types
     -- * Computer
     Computer (..),
     newComputer,
+    computer_computerId,
     computer_computerAttributes,
     computer_computerName,
-    computer_computerId,
 
     -- * ConditionalForwarder
     ConditionalForwarder (..),
     newConditionalForwarder,
-    conditionalForwarder_replicationScope,
-    conditionalForwarder_remoteDomainName,
     conditionalForwarder_dnsIpAddrs,
+    conditionalForwarder_remoteDomainName,
+    conditionalForwarder_replicationScope,
 
     -- * DirectoryConnectSettings
     DirectoryConnectSettings (..),
@@ -197,54 +197,54 @@ module Network.AWS.DirectoryService.Types
     -- * DirectoryConnectSettingsDescription
     DirectoryConnectSettingsDescription (..),
     newDirectoryConnectSettingsDescription,
-    directoryConnectSettingsDescription_availabilityZones,
-    directoryConnectSettingsDescription_securityGroupId,
-    directoryConnectSettingsDescription_subnetIds,
     directoryConnectSettingsDescription_customerUserName,
-    directoryConnectSettingsDescription_connectIps,
+    directoryConnectSettingsDescription_subnetIds,
     directoryConnectSettingsDescription_vpcId,
+    directoryConnectSettingsDescription_securityGroupId,
+    directoryConnectSettingsDescription_connectIps,
+    directoryConnectSettingsDescription_availabilityZones,
 
     -- * DirectoryDescription
     DirectoryDescription (..),
     newDirectoryDescription,
-    directoryDescription_radiusStatus,
-    directoryDescription_alias,
-    directoryDescription_shareNotes,
-    directoryDescription_connectSettings,
-    directoryDescription_stageReason,
-    directoryDescription_launchTime,
-    directoryDescription_vpcSettings,
-    directoryDescription_regionsInfo,
-    directoryDescription_shortName,
-    directoryDescription_shareMethod,
-    directoryDescription_name,
-    directoryDescription_accessUrl,
-    directoryDescription_directoryId,
-    directoryDescription_stage,
     directoryDescription_edition,
-    directoryDescription_shareStatus,
-    directoryDescription_description,
-    directoryDescription_ownerDirectoryDescription,
-    directoryDescription_type,
-    directoryDescription_dnsIpAddrs,
-    directoryDescription_desiredNumberOfDomainControllers,
+    directoryDescription_radiusStatus,
+    directoryDescription_stage,
+    directoryDescription_directoryId,
+    directoryDescription_accessUrl,
+    directoryDescription_shortName,
+    directoryDescription_regionsInfo,
     directoryDescription_size,
+    directoryDescription_desiredNumberOfDomainControllers,
     directoryDescription_radiusSettings,
+    directoryDescription_launchTime,
+    directoryDescription_alias,
+    directoryDescription_shareStatus,
+    directoryDescription_name,
+    directoryDescription_shareMethod,
     directoryDescription_stageLastUpdatedDateTime,
     directoryDescription_ssoEnabled,
+    directoryDescription_dnsIpAddrs,
+    directoryDescription_vpcSettings,
+    directoryDescription_type,
+    directoryDescription_stageReason,
+    directoryDescription_connectSettings,
+    directoryDescription_ownerDirectoryDescription,
+    directoryDescription_description,
+    directoryDescription_shareNotes,
 
     -- * DirectoryLimits
     DirectoryLimits (..),
     newDirectoryLimits,
-    directoryLimits_cloudOnlyDirectoriesLimit,
-    directoryLimits_connectedDirectoriesLimitReached,
-    directoryLimits_cloudOnlyMicrosoftADCurrentCount,
-    directoryLimits_connectedDirectoriesLimit,
     directoryLimits_connectedDirectoriesCurrentCount,
-    directoryLimits_cloudOnlyMicrosoftADLimit,
-    directoryLimits_cloudOnlyDirectoriesLimitReached,
-    directoryLimits_cloudOnlyDirectoriesCurrentCount,
     directoryLimits_cloudOnlyMicrosoftADLimitReached,
+    directoryLimits_connectedDirectoriesLimit,
+    directoryLimits_connectedDirectoriesLimitReached,
+    directoryLimits_cloudOnlyMicrosoftADLimit,
+    directoryLimits_cloudOnlyDirectoriesLimit,
+    directoryLimits_cloudOnlyDirectoriesCurrentCount,
+    directoryLimits_cloudOnlyDirectoriesLimitReached,
+    directoryLimits_cloudOnlyMicrosoftADCurrentCount,
 
     -- * DirectoryVpcSettings
     DirectoryVpcSettings (..),
@@ -255,33 +255,33 @@ module Network.AWS.DirectoryService.Types
     -- * DirectoryVpcSettingsDescription
     DirectoryVpcSettingsDescription (..),
     newDirectoryVpcSettingsDescription,
-    directoryVpcSettingsDescription_availabilityZones,
-    directoryVpcSettingsDescription_securityGroupId,
     directoryVpcSettingsDescription_subnetIds,
     directoryVpcSettingsDescription_vpcId,
+    directoryVpcSettingsDescription_securityGroupId,
+    directoryVpcSettingsDescription_availabilityZones,
 
     -- * DomainController
     DomainController (..),
     newDomainController,
     domainController_status,
-    domainController_dnsIpAddr,
-    domainController_launchTime,
-    domainController_statusLastUpdatedDateTime,
-    domainController_availabilityZone,
     domainController_directoryId,
-    domainController_domainControllerId,
-    domainController_subnetId,
     domainController_vpcId,
+    domainController_launchTime,
+    domainController_subnetId,
+    domainController_availabilityZone,
+    domainController_statusLastUpdatedDateTime,
     domainController_statusReason,
+    domainController_dnsIpAddr,
+    domainController_domainControllerId,
 
     -- * EventTopic
     EventTopic (..),
     newEventTopic,
     eventTopic_status,
-    eventTopic_createdDateTime,
-    eventTopic_topicName,
     eventTopic_directoryId,
+    eventTopic_topicName,
     eventTopic_topicArn,
+    eventTopic_createdDateTime,
 
     -- * IpRoute
     IpRoute (..),
@@ -292,12 +292,12 @@ module Network.AWS.DirectoryService.Types
     -- * IpRouteInfo
     IpRouteInfo (..),
     newIpRouteInfo,
-    ipRouteInfo_ipRouteStatusMsg,
-    ipRouteInfo_cidrIp,
     ipRouteInfo_directoryId,
-    ipRouteInfo_addedDateTime,
-    ipRouteInfo_description,
     ipRouteInfo_ipRouteStatusReason,
+    ipRouteInfo_addedDateTime,
+    ipRouteInfo_cidrIp,
+    ipRouteInfo_ipRouteStatusMsg,
+    ipRouteInfo_description,
 
     -- * LDAPSSettingInfo
     LDAPSSettingInfo (..),
@@ -309,61 +309,61 @@ module Network.AWS.DirectoryService.Types
     -- * LogSubscription
     LogSubscription (..),
     newLogSubscription,
-    logSubscription_subscriptionCreatedDateTime,
     logSubscription_directoryId,
     logSubscription_logGroupName,
+    logSubscription_subscriptionCreatedDateTime,
 
     -- * OwnerDirectoryDescription
     OwnerDirectoryDescription (..),
     newOwnerDirectoryDescription,
     ownerDirectoryDescription_radiusStatus,
-    ownerDirectoryDescription_accountId,
-    ownerDirectoryDescription_vpcSettings,
     ownerDirectoryDescription_directoryId,
-    ownerDirectoryDescription_dnsIpAddrs,
     ownerDirectoryDescription_radiusSettings,
+    ownerDirectoryDescription_accountId,
+    ownerDirectoryDescription_dnsIpAddrs,
+    ownerDirectoryDescription_vpcSettings,
 
     -- * RadiusSettings
     RadiusSettings (..),
     newRadiusSettings,
-    radiusSettings_useSameUsername,
     radiusSettings_displayLabel,
     radiusSettings_radiusRetries,
-    radiusSettings_radiusServers,
-    radiusSettings_radiusTimeout,
-    radiusSettings_sharedSecret,
-    radiusSettings_radiusPort,
     radiusSettings_authenticationProtocol,
+    radiusSettings_radiusServers,
+    radiusSettings_useSameUsername,
+    radiusSettings_sharedSecret,
+    radiusSettings_radiusTimeout,
+    radiusSettings_radiusPort,
 
     -- * RegionDescription
     RegionDescription (..),
     newRegionDescription,
-    regionDescription_regionName,
     regionDescription_status,
-    regionDescription_lastUpdatedDateTime,
-    regionDescription_launchTime,
-    regionDescription_regionType,
-    regionDescription_vpcSettings,
-    regionDescription_statusLastUpdatedDateTime,
     regionDescription_directoryId,
+    regionDescription_regionName,
     regionDescription_desiredNumberOfDomainControllers,
+    regionDescription_regionType,
+    regionDescription_launchTime,
+    regionDescription_lastUpdatedDateTime,
+    regionDescription_statusLastUpdatedDateTime,
+    regionDescription_vpcSettings,
 
     -- * RegionsInfo
     RegionsInfo (..),
     newRegionsInfo,
-    regionsInfo_additionalRegions,
     regionsInfo_primaryRegion,
+    regionsInfo_additionalRegions,
 
     -- * SchemaExtensionInfo
     SchemaExtensionInfo (..),
     newSchemaExtensionInfo,
-    schemaExtensionInfo_schemaExtensionStatus,
-    schemaExtensionInfo_startDateTime,
-    schemaExtensionInfo_schemaExtensionId,
     schemaExtensionInfo_directoryId,
+    schemaExtensionInfo_schemaExtensionId,
+    schemaExtensionInfo_schemaExtensionStatusReason,
+    schemaExtensionInfo_schemaExtensionStatus,
     schemaExtensionInfo_description,
     schemaExtensionInfo_endDateTime,
-    schemaExtensionInfo_schemaExtensionStatusReason,
+    schemaExtensionInfo_startDateTime,
 
     -- * ShareTarget
     ShareTarget (..),
@@ -374,31 +374,31 @@ module Network.AWS.DirectoryService.Types
     -- * SharedDirectory
     SharedDirectory (..),
     newSharedDirectory,
-    sharedDirectory_createdDateTime,
-    sharedDirectory_lastUpdatedDateTime,
-    sharedDirectory_shareNotes,
     sharedDirectory_sharedAccountId,
-    sharedDirectory_ownerDirectoryId,
-    sharedDirectory_shareMethod,
-    sharedDirectory_shareStatus,
-    sharedDirectory_sharedDirectoryId,
     sharedDirectory_ownerAccountId,
+    sharedDirectory_lastUpdatedDateTime,
+    sharedDirectory_shareStatus,
+    sharedDirectory_shareMethod,
+    sharedDirectory_ownerDirectoryId,
+    sharedDirectory_sharedDirectoryId,
+    sharedDirectory_shareNotes,
+    sharedDirectory_createdDateTime,
 
     -- * Snapshot
     Snapshot (..),
     newSnapshot,
     snapshot_status,
+    snapshot_directoryId,
     snapshot_startTime,
     snapshot_name,
-    snapshot_directoryId,
-    snapshot_snapshotId,
     snapshot_type,
+    snapshot_snapshotId,
 
     -- * SnapshotLimits
     SnapshotLimits (..),
     newSnapshotLimits,
-    snapshotLimits_manualSnapshotsCurrentCount,
     snapshotLimits_manualSnapshotsLimitReached,
+    snapshotLimits_manualSnapshotsCurrentCount,
     snapshotLimits_manualSnapshotsLimit,
 
     -- * Tag
@@ -410,17 +410,17 @@ module Network.AWS.DirectoryService.Types
     -- * Trust
     Trust (..),
     newTrust,
-    trust_trustType,
+    trust_directoryId,
+    trust_trustState,
+    trust_lastUpdatedDateTime,
     trust_trustDirection,
     trust_stateLastUpdatedDateTime,
+    trust_trustType,
+    trust_trustStateReason,
+    trust_selectiveAuth,
+    trust_remoteDomainName,
     trust_trustId,
     trust_createdDateTime,
-    trust_lastUpdatedDateTime,
-    trust_trustState,
-    trust_selectiveAuth,
-    trust_trustStateReason,
-    trust_directoryId,
-    trust_remoteDomainName,
 
     -- * UnshareTarget
     UnshareTarget (..),
@@ -520,37 +520,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -563,150 +540,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The Region you specified is the same Region where the Managed Microsoft
--- AD directory was created. Specify a different Region and try again.
-_DirectoryAlreadyInRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryAlreadyInRegionException =
-  Core._MatchServiceError
-    defaultService
-    "DirectoryAlreadyInRegionException"
-
--- | The specified entity could not be found.
-_EntityDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "EntityDoesNotExistException"
-
--- | The maximum number of Amazon Web Services accounts that you can share
--- with this directory has been reached.
-_ShareLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ShareLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ShareLimitExceededException"
-
--- | The specified directory has already been shared with this Amazon Web
--- Services account.
-_DirectoryAlreadySharedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryAlreadySharedException =
-  Core._MatchServiceError
-    defaultService
-    "DirectoryAlreadySharedException"
-
--- | You have reached the limit for maximum number of simultaneous Region
--- replications per directory.
-_RegionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RegionLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "RegionLimitExceededException"
-
--- | The certificate is being used for the LDAP security connection and
--- cannot be removed without disabling LDAP security.
-_CertificateInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateInUseException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateInUseException"
-
--- | The maximum allowed number of tags was exceeded.
-_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "TagLimitExceededException"
-
--- | The maximum allowed number of domain controllers per directory was
--- exceeded. The default limit per directory is 20 domain controllers.
-_DomainControllerLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DomainControllerLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "DomainControllerLimitExceededException"
-
--- | The maximum number of manual snapshots for the directory has been
--- reached. You can use the GetSnapshotLimits operation to determine the
--- snapshot limits for a directory.
-_SnapshotLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotLimitExceededException"
-
--- | The specified directory does not exist in the system.
-_DirectoryDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "DirectoryDoesNotExistException"
-
--- | The user provided a username that does not exist in your directory.
-_UserDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "UserDoesNotExistException"
-
--- | The specified directory has not been shared with this Amazon Web
--- Services account.
-_DirectoryNotSharedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryNotSharedException =
-  Core._MatchServiceError
-    defaultService
-    "DirectoryNotSharedException"
-
--- | The specified entity already exists.
-_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "EntityAlreadyExistsException"
-
--- | The @NextToken@ value is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | Exception encountered while trying to access your Amazon Web Services
--- organization.
-_OrganizationsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationsException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationsException"
-
--- | The operation is not supported.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedOperationException"
-
--- | The specified shared target is not valid.
-_InvalidTargetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTargetException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTargetException"
-
--- | One or more parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-
--- | Client authentication is not available in this region at this time.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
 
 -- | The certificate could not be added because the certificate limit has
 -- been reached.
@@ -716,19 +573,19 @@ _CertificateLimitExceededException =
     defaultService
     "CertificateLimitExceededException"
 
--- | An authentication error occurred.
-_AuthenticationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AuthenticationFailedException =
-  Core._MatchServiceError
-    defaultService
-    "AuthenticationFailedException"
-
 -- | The certificate has already been registered into the system.
 _CertificateAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CertificateAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "CertificateAlreadyExistsException"
+
+-- | Client authentication is not available in this region at this time.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
 
 -- | The specified directory is unavailable or could not be found.
 _DirectoryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -737,50 +594,48 @@ _DirectoryUnavailableException =
     defaultService
     "DirectoryUnavailableException"
 
--- | The certificate is not present in the system for describe or deregister
--- activities.
-_CertificateDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateDoesNotExistException =
+-- | An authentication error occurred.
+_AuthenticationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthenticationFailedException =
   Core._MatchServiceError
     defaultService
-    "CertificateDoesNotExistException"
+    "AuthenticationFailedException"
 
--- | The new password provided by the user does not meet the password
--- complexity requirements defined in your directory.
-_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPasswordException =
+-- | One or more parameters are not valid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "InvalidPasswordException"
+    "InvalidParameterException"
 
--- | The maximum allowed number of IP addresses was exceeded. The default
--- limit is 100 IP address blocks.
-_IpRouteLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IpRouteLimitExceededException =
+-- | The operation is not supported.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
-    "IpRouteLimitExceededException"
+    "UnsupportedOperationException"
 
--- | A client exception has occurred.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClientException =
+-- | The specified entity already exists.
+_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "ClientException"
+    "EntityAlreadyExistsException"
 
--- | Client authentication is already enabled.
-_InvalidClientAuthStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClientAuthStatusException =
+-- | Client authentication setup could not be completed because at least one
+-- valid certificate must be registered in the system.
+_NoAvailableCertificateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoAvailableCertificateException =
   Core._MatchServiceError
     defaultService
-    "InvalidClientAuthStatusException"
+    "NoAvailableCertificateException"
 
--- | The certificate PEM that was provided has incorrect encoding.
-_InvalidCertificateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCertificateException =
+-- | The user provided a username that does not exist in your directory.
+_UserDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserDoesNotExistException =
   Core._MatchServiceError
     defaultService
-    "InvalidCertificateException"
+    "UserDoesNotExistException"
 
 -- | The maximum number of directories in the region has been reached. You
 -- can use the GetDirectoryLimits operation to determine your directory
@@ -799,12 +654,74 @@ _InvalidLDAPSStatusException =
     defaultService
     "InvalidLDAPSStatusException"
 
--- | An exception has occurred in Directory Service.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceException =
+-- | The certificate PEM that was provided has incorrect encoding.
+_InvalidCertificateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCertificateException =
   Core._MatchServiceError
     defaultService
-    "ServiceException"
+    "InvalidCertificateException"
+
+-- | The certificate is being used for the LDAP security connection and
+-- cannot be removed without disabling LDAP security.
+_CertificateInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateInUseException =
+  Core._MatchServiceError
+    defaultService
+    "CertificateInUseException"
+
+-- | You have reached the limit for maximum number of simultaneous Region
+-- replications per directory.
+_RegionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RegionLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "RegionLimitExceededException"
+
+-- | The maximum allowed number of IP addresses was exceeded. The default
+-- limit is 100 IP address blocks.
+_IpRouteLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IpRouteLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "IpRouteLimitExceededException"
+
+-- | The maximum number of Amazon Web Services accounts that you can share
+-- with this directory has been reached.
+_ShareLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ShareLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ShareLimitExceededException"
+
+-- | The specified entity could not be found.
+_EntityDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "EntityDoesNotExistException"
+
+-- | Exception encountered while trying to access your Amazon Web Services
+-- organization.
+_OrganizationsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationsException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationsException"
+
+-- | The specified shared target is not valid.
+_InvalidTargetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTargetException"
+
+-- | The Region you specified is the same Region where the Managed Microsoft
+-- AD directory was created. Specify a different Region and try again.
+_DirectoryAlreadyInRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryAlreadyInRegionException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryAlreadyInRegionException"
 
 -- | The account does not have sufficient permission to perform the
 -- operation.
@@ -814,10 +731,93 @@ _InsufficientPermissionsException =
     defaultService
     "InsufficientPermissionsException"
 
--- | Client authentication setup could not be completed because at least one
--- valid certificate must be registered in the system.
-_NoAvailableCertificateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoAvailableCertificateException =
+-- | The specified directory has not been shared with this Amazon Web
+-- Services account.
+_DirectoryNotSharedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryNotSharedException =
   Core._MatchServiceError
     defaultService
-    "NoAvailableCertificateException"
+    "DirectoryNotSharedException"
+
+-- | The @NextToken@ value is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | An exception has occurred in Directory Service.
+_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceException"
+
+-- | The maximum number of manual snapshots for the directory has been
+-- reached. You can use the GetSnapshotLimits operation to determine the
+-- snapshot limits for a directory.
+_SnapshotLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotLimitExceededException"
+
+-- | The maximum allowed number of domain controllers per directory was
+-- exceeded. The default limit per directory is 20 domain controllers.
+_DomainControllerLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DomainControllerLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "DomainControllerLimitExceededException"
+
+-- | The specified directory does not exist in the system.
+_DirectoryDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryDoesNotExistException"
+
+-- | Client authentication is already enabled.
+_InvalidClientAuthStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClientAuthStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClientAuthStatusException"
+
+-- | The maximum allowed number of tags was exceeded.
+_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TagLimitExceededException"
+
+-- | A client exception has occurred.
+_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException =
+  Core._MatchServiceError
+    defaultService
+    "ClientException"
+
+-- | The specified directory has already been shared with this Amazon Web
+-- Services account.
+_DirectoryAlreadySharedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryAlreadySharedException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryAlreadySharedException"
+
+-- | The certificate is not present in the system for describe or deregister
+-- activities.
+_CertificateDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "CertificateDoesNotExistException"
+
+-- | The new password provided by the user does not meet the password
+-- complexity requirements defined in your directory.
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPasswordException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPasswordException"

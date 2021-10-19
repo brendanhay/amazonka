@@ -38,9 +38,9 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     newDescribeSnapshots,
 
     -- * Request Lenses
+    describeSnapshots_directoryId,
     describeSnapshots_nextToken,
     describeSnapshots_snapshotIds,
-    describeSnapshots_directoryId,
     describeSnapshots_limit,
 
     -- * Destructuring the Response
@@ -48,8 +48,8 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     newDescribeSnapshotsResponse,
 
     -- * Response Lenses
-    describeSnapshotsResponse_snapshots,
     describeSnapshotsResponse_nextToken,
+    describeSnapshotsResponse_snapshots,
     describeSnapshotsResponse_httpStatus,
   )
 where
@@ -65,16 +65,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
+  { -- | The identifier of the directory for which to retrieve snapshot
+    -- information.
+    directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
     -- DescribeSnapshots. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of identifiers of the snapshots to obtain the information for. If
     -- this member is null or empty, all snapshots are returned using the
     -- /Limit/ and /NextToken/ members.
     snapshotIds :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of the directory for which to retrieve snapshot
-    -- information.
-    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return.
     limit :: Prelude.Maybe Prelude.Natural
   }
@@ -88,6 +88,9 @@ data DescribeSnapshots = DescribeSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'directoryId', 'describeSnapshots_directoryId' - The identifier of the directory for which to retrieve snapshot
+-- information.
+--
 -- 'nextToken', 'describeSnapshots_nextToken' - The /DescribeSnapshotsResult.NextToken/ value from a previous call to
 -- DescribeSnapshots. Pass null if this is the first call.
 --
@@ -95,19 +98,21 @@ data DescribeSnapshots = DescribeSnapshots'
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
 --
--- 'directoryId', 'describeSnapshots_directoryId' - The identifier of the directory for which to retrieve snapshot
--- information.
---
 -- 'limit', 'describeSnapshots_limit' - The maximum number of objects to return.
 newDescribeSnapshots ::
   DescribeSnapshots
 newDescribeSnapshots =
   DescribeSnapshots'
-    { nextToken = Prelude.Nothing,
+    { directoryId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       snapshotIds = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
       limit = Prelude.Nothing
     }
+
+-- | The identifier of the directory for which to retrieve snapshot
+-- information.
+describeSnapshots_directoryId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_directoryId = Lens.lens (\DescribeSnapshots' {directoryId} -> directoryId) (\s@DescribeSnapshots' {} a -> s {directoryId = a} :: DescribeSnapshots)
 
 -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
 -- DescribeSnapshots. Pass null if this is the first call.
@@ -118,12 +123,7 @@ describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> next
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
 describeSnapshots_snapshotIds :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [Prelude.Text])
-describeSnapshots_snapshotIds = Lens.lens (\DescribeSnapshots' {snapshotIds} -> snapshotIds) (\s@DescribeSnapshots' {} a -> s {snapshotIds = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of the directory for which to retrieve snapshot
--- information.
-describeSnapshots_directoryId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_directoryId = Lens.lens (\DescribeSnapshots' {directoryId} -> directoryId) (\s@DescribeSnapshots' {} a -> s {directoryId = a} :: DescribeSnapshots)
+describeSnapshots_snapshotIds = Lens.lens (\DescribeSnapshots' {snapshotIds} -> snapshotIds) (\s@DescribeSnapshots' {} a -> s {snapshotIds = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of objects to return.
 describeSnapshots_limit :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Natural)
@@ -160,8 +160,8 @@ instance Core.AWSRequest DescribeSnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeSnapshotsResponse'
-            Prelude.<$> (x Core..?> "Snapshots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,9 +188,9 @@ instance Core.ToJSON DescribeSnapshots where
   toJSON DescribeSnapshots' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SnapshotIds" Core..=) Prelude.<$> snapshotIds,
-            ("DirectoryId" Core..=) Prelude.<$> directoryId,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -205,16 +205,16 @@ instance Core.ToQuery DescribeSnapshots where
 --
 -- /See:/ 'newDescribeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { -- | The list of Snapshot objects that were retrieved.
+  { -- | If not null, more results are available. Pass this value in the
+    -- /NextToken/ member of a subsequent call to DescribeSnapshots.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of Snapshot objects that were retrieved.
     --
     -- It is possible that this list contains less than the number of items
     -- specified in the /Limit/ member of the request. This occurs if there are
     -- less than the requested number of items left to retrieve, or if the
     -- limitations of the operation have been exceeded.
     snapshots :: Prelude.Maybe [Snapshot],
-    -- | If not null, more results are available. Pass this value in the
-    -- /NextToken/ member of a subsequent call to DescribeSnapshots.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,15 +228,15 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeSnapshotsResponse_nextToken' - If not null, more results are available. Pass this value in the
+-- /NextToken/ member of a subsequent call to DescribeSnapshots.
+--
 -- 'snapshots', 'describeSnapshotsResponse_snapshots' - The list of Snapshot objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
---
--- 'nextToken', 'describeSnapshotsResponse_nextToken' - If not null, more results are available. Pass this value in the
--- /NextToken/ member of a subsequent call to DescribeSnapshots.
 --
 -- 'httpStatus', 'describeSnapshotsResponse_httpStatus' - The response's http status code.
 newDescribeSnapshotsResponse ::
@@ -245,11 +245,16 @@ newDescribeSnapshotsResponse ::
   DescribeSnapshotsResponse
 newDescribeSnapshotsResponse pHttpStatus_ =
   DescribeSnapshotsResponse'
-    { snapshots =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      snapshots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If not null, more results are available. Pass this value in the
+-- /NextToken/ member of a subsequent call to DescribeSnapshots.
+describeSnapshotsResponse_nextToken :: Lens.Lens' DescribeSnapshotsResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotsResponse_nextToken = Lens.lens (\DescribeSnapshotsResponse' {nextToken} -> nextToken) (\s@DescribeSnapshotsResponse' {} a -> s {nextToken = a} :: DescribeSnapshotsResponse)
 
 -- | The list of Snapshot objects that were retrieved.
 --
@@ -258,12 +263,7 @@ newDescribeSnapshotsResponse pHttpStatus_ =
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
 describeSnapshotsResponse_snapshots :: Lens.Lens' DescribeSnapshotsResponse (Prelude.Maybe [Snapshot])
-describeSnapshotsResponse_snapshots = Lens.lens (\DescribeSnapshotsResponse' {snapshots} -> snapshots) (\s@DescribeSnapshotsResponse' {} a -> s {snapshots = a} :: DescribeSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | If not null, more results are available. Pass this value in the
--- /NextToken/ member of a subsequent call to DescribeSnapshots.
-describeSnapshotsResponse_nextToken :: Lens.Lens' DescribeSnapshotsResponse (Prelude.Maybe Prelude.Text)
-describeSnapshotsResponse_nextToken = Lens.lens (\DescribeSnapshotsResponse' {nextToken} -> nextToken) (\s@DescribeSnapshotsResponse' {} a -> s {nextToken = a} :: DescribeSnapshotsResponse)
+describeSnapshotsResponse_snapshots = Lens.lens (\DescribeSnapshotsResponse' {snapshots} -> snapshots) (\s@DescribeSnapshotsResponse' {} a -> s {snapshots = a} :: DescribeSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSnapshotsResponse_httpStatus :: Lens.Lens' DescribeSnapshotsResponse Prelude.Int

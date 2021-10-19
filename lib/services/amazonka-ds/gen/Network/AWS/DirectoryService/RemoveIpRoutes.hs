@@ -85,7 +85,7 @@ removeIpRoutes_directoryId = Lens.lens (\RemoveIpRoutes' {directoryId} -> direct
 
 -- | IP address blocks that you want to remove.
 removeIpRoutes_cidrIps :: Lens.Lens' RemoveIpRoutes [Prelude.Text]
-removeIpRoutes_cidrIps = Lens.lens (\RemoveIpRoutes' {cidrIps} -> cidrIps) (\s@RemoveIpRoutes' {} a -> s {cidrIps = a} :: RemoveIpRoutes) Prelude.. Lens._Coerce
+removeIpRoutes_cidrIps = Lens.lens (\RemoveIpRoutes' {cidrIps} -> cidrIps) (\s@RemoveIpRoutes' {} a -> s {cidrIps = a} :: RemoveIpRoutes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveIpRoutes where
   type

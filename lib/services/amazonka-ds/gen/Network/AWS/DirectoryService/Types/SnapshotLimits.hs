@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSnapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
-  { -- | The current number of manual snapshots of the directory.
-    manualSnapshotsCurrentCount :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates if the manual snapshot limit has been reached.
+  { -- | Indicates if the manual snapshot limit has been reached.
     manualSnapshotsLimitReached :: Prelude.Maybe Prelude.Bool,
+    -- | The current number of manual snapshots of the directory.
+    manualSnapshotsCurrentCount :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of manual snapshots allowed.
     manualSnapshotsLimit :: Prelude.Maybe Prelude.Natural
   }
@@ -44,28 +44,28 @@ data SnapshotLimits = SnapshotLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manualSnapshotsCurrentCount', 'snapshotLimits_manualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
---
 -- 'manualSnapshotsLimitReached', 'snapshotLimits_manualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
+--
+-- 'manualSnapshotsCurrentCount', 'snapshotLimits_manualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
 --
 -- 'manualSnapshotsLimit', 'snapshotLimits_manualSnapshotsLimit' - The maximum number of manual snapshots allowed.
 newSnapshotLimits ::
   SnapshotLimits
 newSnapshotLimits =
   SnapshotLimits'
-    { manualSnapshotsCurrentCount =
+    { manualSnapshotsLimitReached =
         Prelude.Nothing,
-      manualSnapshotsLimitReached = Prelude.Nothing,
+      manualSnapshotsCurrentCount = Prelude.Nothing,
       manualSnapshotsLimit = Prelude.Nothing
     }
-
--- | The current number of manual snapshots of the directory.
-snapshotLimits_manualSnapshotsCurrentCount :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Natural)
-snapshotLimits_manualSnapshotsCurrentCount = Lens.lens (\SnapshotLimits' {manualSnapshotsCurrentCount} -> manualSnapshotsCurrentCount) (\s@SnapshotLimits' {} a -> s {manualSnapshotsCurrentCount = a} :: SnapshotLimits)
 
 -- | Indicates if the manual snapshot limit has been reached.
 snapshotLimits_manualSnapshotsLimitReached :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Bool)
 snapshotLimits_manualSnapshotsLimitReached = Lens.lens (\SnapshotLimits' {manualSnapshotsLimitReached} -> manualSnapshotsLimitReached) (\s@SnapshotLimits' {} a -> s {manualSnapshotsLimitReached = a} :: SnapshotLimits)
+
+-- | The current number of manual snapshots of the directory.
+snapshotLimits_manualSnapshotsCurrentCount :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Natural)
+snapshotLimits_manualSnapshotsCurrentCount = Lens.lens (\SnapshotLimits' {manualSnapshotsCurrentCount} -> manualSnapshotsCurrentCount) (\s@SnapshotLimits' {} a -> s {manualSnapshotsCurrentCount = a} :: SnapshotLimits)
 
 -- | The maximum number of manual snapshots allowed.
 snapshotLimits_manualSnapshotsLimit :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Natural)
@@ -77,8 +77,8 @@ instance Core.FromJSON SnapshotLimits where
       "SnapshotLimits"
       ( \x ->
           SnapshotLimits'
-            Prelude.<$> (x Core..:? "ManualSnapshotsCurrentCount")
-            Prelude.<*> (x Core..:? "ManualSnapshotsLimitReached")
+            Prelude.<$> (x Core..:? "ManualSnapshotsLimitReached")
+            Prelude.<*> (x Core..:? "ManualSnapshotsCurrentCount")
             Prelude.<*> (x Core..:? "ManualSnapshotsLimit")
       )
 

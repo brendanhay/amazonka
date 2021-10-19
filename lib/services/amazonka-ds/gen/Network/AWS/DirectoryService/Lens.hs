@@ -14,31 +14,6 @@
 module Network.AWS.DirectoryService.Lens
   ( -- * Operations
 
-    -- ** RejectSharedDirectory
-    rejectSharedDirectory_sharedDirectoryId,
-    rejectSharedDirectoryResponse_sharedDirectoryId,
-    rejectSharedDirectoryResponse_httpStatus,
-
-    -- ** ConnectDirectory
-    connectDirectory_shortName,
-    connectDirectory_tags,
-    connectDirectory_description,
-    connectDirectory_name,
-    connectDirectory_password,
-    connectDirectory_size,
-    connectDirectory_connectSettings,
-    connectDirectoryResponse_directoryId,
-    connectDirectoryResponse_httpStatus,
-
-    -- ** RegisterEventTopic
-    registerEventTopic_directoryId,
-    registerEventTopic_topicName,
-    registerEventTopicResponse_httpStatus,
-
-    -- ** DisableRadius
-    disableRadius_directoryId,
-    disableRadiusResponse_httpStatus,
-
     -- ** ShareDirectory
     shareDirectory_shareNotes,
     shareDirectory_directoryId,
@@ -47,210 +22,26 @@ module Network.AWS.DirectoryService.Lens
     shareDirectoryResponse_sharedDirectoryId,
     shareDirectoryResponse_httpStatus,
 
-    -- ** ListIpRoutes
-    listIpRoutes_nextToken,
-    listIpRoutes_limit,
-    listIpRoutes_directoryId,
-    listIpRoutesResponse_nextToken,
-    listIpRoutesResponse_ipRoutesInfo,
-    listIpRoutesResponse_httpStatus,
+    -- ** UpdateNumberOfDomainControllers
+    updateNumberOfDomainControllers_directoryId,
+    updateNumberOfDomainControllers_desiredNumber,
+    updateNumberOfDomainControllersResponse_httpStatus,
 
-    -- ** ListSchemaExtensions
-    listSchemaExtensions_nextToken,
-    listSchemaExtensions_limit,
-    listSchemaExtensions_directoryId,
-    listSchemaExtensionsResponse_nextToken,
-    listSchemaExtensionsResponse_schemaExtensionsInfo,
-    listSchemaExtensionsResponse_httpStatus,
+    -- ** DescribeConditionalForwarders
+    describeConditionalForwarders_remoteDomainNames,
+    describeConditionalForwarders_directoryId,
+    describeConditionalForwardersResponse_conditionalForwarders,
+    describeConditionalForwardersResponse_httpStatus,
 
-    -- ** DescribeClientAuthenticationSettings
-    describeClientAuthenticationSettings_nextToken,
-    describeClientAuthenticationSettings_type,
-    describeClientAuthenticationSettings_limit,
-    describeClientAuthenticationSettings_directoryId,
-    describeClientAuthenticationSettingsResponse_nextToken,
-    describeClientAuthenticationSettingsResponse_clientAuthenticationSettingsInfo,
-    describeClientAuthenticationSettingsResponse_httpStatus,
+    -- ** GetSnapshotLimits
+    getSnapshotLimits_directoryId,
+    getSnapshotLimitsResponse_snapshotLimits,
+    getSnapshotLimitsResponse_httpStatus,
 
-    -- ** EnableRadius
-    enableRadius_directoryId,
-    enableRadius_radiusSettings,
-    enableRadiusResponse_httpStatus,
-
-    -- ** AddRegion
-    addRegion_directoryId,
-    addRegion_regionName,
-    addRegion_vPCSettings,
-    addRegionResponse_httpStatus,
-
-    -- ** DeleteLogSubscription
-    deleteLogSubscription_directoryId,
-    deleteLogSubscriptionResponse_httpStatus,
-
-    -- ** RemoveRegion
-    removeRegion_directoryId,
-    removeRegionResponse_httpStatus,
-
-    -- ** EnableSso
-    enableSso_password,
-    enableSso_userName,
-    enableSso_directoryId,
-    enableSsoResponse_httpStatus,
-
-    -- ** CreateConditionalForwarder
-    createConditionalForwarder_directoryId,
-    createConditionalForwarder_remoteDomainName,
-    createConditionalForwarder_dnsIpAddrs,
-    createConditionalForwarderResponse_httpStatus,
-
-    -- ** CancelSchemaExtension
-    cancelSchemaExtension_directoryId,
-    cancelSchemaExtension_schemaExtensionId,
-    cancelSchemaExtensionResponse_httpStatus,
-
-    -- ** RemoveTagsFromResource
-    removeTagsFromResource_resourceId,
-    removeTagsFromResource_tagKeys,
-    removeTagsFromResourceResponse_httpStatus,
-
-    -- ** DeleteConditionalForwarder
-    deleteConditionalForwarder_directoryId,
-    deleteConditionalForwarder_remoteDomainName,
-    deleteConditionalForwarderResponse_httpStatus,
-
-    -- ** VerifyTrust
-    verifyTrust_trustId,
-    verifyTrustResponse_trustId,
-    verifyTrustResponse_httpStatus,
-
-    -- ** DescribeSharedDirectories
-    describeSharedDirectories_nextToken,
-    describeSharedDirectories_sharedDirectoryIds,
-    describeSharedDirectories_limit,
-    describeSharedDirectories_ownerDirectoryId,
-    describeSharedDirectoriesResponse_nextToken,
-    describeSharedDirectoriesResponse_sharedDirectories,
-    describeSharedDirectoriesResponse_httpStatus,
-
-    -- ** UpdateConditionalForwarder
-    updateConditionalForwarder_directoryId,
-    updateConditionalForwarder_remoteDomainName,
-    updateConditionalForwarder_dnsIpAddrs,
-    updateConditionalForwarderResponse_httpStatus,
-
-    -- ** EnableLDAPS
-    enableLDAPS_directoryId,
-    enableLDAPS_type,
-    enableLDAPSResponse_httpStatus,
-
-    -- ** CreateTrust
-    createTrust_trustType,
-    createTrust_selectiveAuth,
-    createTrust_conditionalForwarderIpAddrs,
-    createTrust_directoryId,
-    createTrust_remoteDomainName,
-    createTrust_trustPassword,
-    createTrust_trustDirection,
-    createTrustResponse_trustId,
-    createTrustResponse_httpStatus,
-
-    -- ** DescribeCertificate
-    describeCertificate_directoryId,
-    describeCertificate_certificateId,
-    describeCertificateResponse_certificate,
-    describeCertificateResponse_httpStatus,
-
-    -- ** DeleteDirectory
-    deleteDirectory_directoryId,
-    deleteDirectoryResponse_directoryId,
-    deleteDirectoryResponse_httpStatus,
-
-    -- ** RemoveIpRoutes
-    removeIpRoutes_directoryId,
-    removeIpRoutes_cidrIps,
-    removeIpRoutesResponse_httpStatus,
-
-    -- ** UpdateTrust
-    updateTrust_selectiveAuth,
-    updateTrust_trustId,
-    updateTrustResponse_trustId,
-    updateTrustResponse_requestId,
-    updateTrustResponse_httpStatus,
-
-    -- ** CreateMicrosoftAD
-    createMicrosoftAD_shortName,
-    createMicrosoftAD_edition,
-    createMicrosoftAD_tags,
-    createMicrosoftAD_description,
-    createMicrosoftAD_name,
-    createMicrosoftAD_password,
-    createMicrosoftAD_vpcSettings,
-    createMicrosoftADResponse_directoryId,
-    createMicrosoftADResponse_httpStatus,
-
-    -- ** CreateDirectory
-    createDirectory_vpcSettings,
-    createDirectory_shortName,
-    createDirectory_tags,
-    createDirectory_description,
-    createDirectory_name,
-    createDirectory_password,
-    createDirectory_size,
-    createDirectoryResponse_directoryId,
-    createDirectoryResponse_httpStatus,
-
-    -- ** DeleteSnapshot
-    deleteSnapshot_snapshotId,
-    deleteSnapshotResponse_snapshotId,
-    deleteSnapshotResponse_httpStatus,
-
-    -- ** DisableClientAuthentication
-    disableClientAuthentication_directoryId,
-    disableClientAuthentication_type,
-    disableClientAuthenticationResponse_httpStatus,
-
-    -- ** DeleteTrust
-    deleteTrust_deleteAssociatedConditionalForwarder,
-    deleteTrust_trustId,
-    deleteTrustResponse_trustId,
-    deleteTrustResponse_httpStatus,
-
-    -- ** RestoreFromSnapshot
-    restoreFromSnapshot_snapshotId,
-    restoreFromSnapshotResponse_httpStatus,
-
-    -- ** DescribeDomainControllers
-    describeDomainControllers_nextToken,
-    describeDomainControllers_domainControllerIds,
-    describeDomainControllers_limit,
-    describeDomainControllers_directoryId,
-    describeDomainControllersResponse_domainControllers,
-    describeDomainControllersResponse_nextToken,
-    describeDomainControllersResponse_httpStatus,
-
-    -- ** DescribeSnapshots
-    describeSnapshots_nextToken,
-    describeSnapshots_snapshotIds,
-    describeSnapshots_directoryId,
-    describeSnapshots_limit,
-    describeSnapshotsResponse_snapshots,
-    describeSnapshotsResponse_nextToken,
-    describeSnapshotsResponse_httpStatus,
-
-    -- ** DescribeTrusts
-    describeTrusts_nextToken,
-    describeTrusts_directoryId,
-    describeTrusts_limit,
-    describeTrusts_trustIds,
-    describeTrustsResponse_nextToken,
-    describeTrustsResponse_trusts,
-    describeTrustsResponse_httpStatus,
-
-    -- ** UnshareDirectory
-    unshareDirectory_directoryId,
-    unshareDirectory_unshareTarget,
-    unshareDirectoryResponse_sharedDirectoryId,
-    unshareDirectoryResponse_httpStatus,
+    -- ** RegisterEventTopic
+    registerEventTopic_directoryId,
+    registerEventTopic_topicName,
+    registerEventTopicResponse_httpStatus,
 
     -- ** RegisterCertificate
     registerCertificate_clientCertAuthSettings,
@@ -260,130 +51,40 @@ module Network.AWS.DirectoryService.Lens
     registerCertificateResponse_certificateId,
     registerCertificateResponse_httpStatus,
 
-    -- ** GetSnapshotLimits
-    getSnapshotLimits_directoryId,
-    getSnapshotLimitsResponse_snapshotLimits,
-    getSnapshotLimitsResponse_httpStatus,
+    -- ** ConnectDirectory
+    connectDirectory_shortName,
+    connectDirectory_description,
+    connectDirectory_tags,
+    connectDirectory_name,
+    connectDirectory_password,
+    connectDirectory_size,
+    connectDirectory_connectSettings,
+    connectDirectoryResponse_directoryId,
+    connectDirectoryResponse_httpStatus,
 
-    -- ** UpdateNumberOfDomainControllers
-    updateNumberOfDomainControllers_directoryId,
-    updateNumberOfDomainControllers_desiredNumber,
-    updateNumberOfDomainControllersResponse_httpStatus,
+    -- ** DescribeLDAPSSettings
+    describeLDAPSSettings_nextToken,
+    describeLDAPSSettings_limit,
+    describeLDAPSSettings_type,
+    describeLDAPSSettings_directoryId,
+    describeLDAPSSettingsResponse_lDAPSSettingsInfo,
+    describeLDAPSSettingsResponse_nextToken,
+    describeLDAPSSettingsResponse_httpStatus,
 
-    -- ** ListCertificates
-    listCertificates_nextToken,
-    listCertificates_limit,
-    listCertificates_directoryId,
-    listCertificatesResponse_nextToken,
-    listCertificatesResponse_certificatesInfo,
-    listCertificatesResponse_httpStatus,
+    -- ** CreateAlias
+    createAlias_directoryId,
+    createAlias_alias,
+    createAliasResponse_directoryId,
+    createAliasResponse_alias,
+    createAliasResponse_httpStatus,
 
-    -- ** DescribeConditionalForwarders
-    describeConditionalForwarders_remoteDomainNames,
-    describeConditionalForwarders_directoryId,
-    describeConditionalForwardersResponse_conditionalForwarders,
-    describeConditionalForwardersResponse_httpStatus,
-
-    -- ** AddTagsToResource
-    addTagsToResource_resourceId,
-    addTagsToResource_tags,
-    addTagsToResourceResponse_httpStatus,
-
-    -- ** UpdateRadius
-    updateRadius_directoryId,
-    updateRadius_radiusSettings,
-    updateRadiusResponse_httpStatus,
-
-    -- ** GetDirectoryLimits
-    getDirectoryLimitsResponse_directoryLimits,
-    getDirectoryLimitsResponse_httpStatus,
-
-    -- ** ListLogSubscriptions
-    listLogSubscriptions_nextToken,
-    listLogSubscriptions_directoryId,
-    listLogSubscriptions_limit,
-    listLogSubscriptionsResponse_nextToken,
-    listLogSubscriptionsResponse_logSubscriptions,
-    listLogSubscriptionsResponse_httpStatus,
-
-    -- ** DescribeRegions
-    describeRegions_regionName,
-    describeRegions_nextToken,
-    describeRegions_directoryId,
-    describeRegionsResponse_nextToken,
-    describeRegionsResponse_regionsDescription,
-    describeRegionsResponse_httpStatus,
-
-    -- ** DisableLDAPS
-    disableLDAPS_directoryId,
-    disableLDAPS_type,
-    disableLDAPSResponse_httpStatus,
-
-    -- ** CreateComputer
-    createComputer_organizationalUnitDistinguishedName,
-    createComputer_computerAttributes,
-    createComputer_directoryId,
-    createComputer_computerName,
-    createComputer_password,
-    createComputerResponse_computer,
-    createComputerResponse_httpStatus,
-
-    -- ** DisableSso
-    disableSso_password,
-    disableSso_userName,
-    disableSso_directoryId,
-    disableSsoResponse_httpStatus,
-
-    -- ** CreateLogSubscription
-    createLogSubscription_directoryId,
-    createLogSubscription_logGroupName,
-    createLogSubscriptionResponse_httpStatus,
-
-    -- ** DescribeEventTopics
-    describeEventTopics_directoryId,
-    describeEventTopics_topicNames,
-    describeEventTopicsResponse_eventTopics,
-    describeEventTopicsResponse_httpStatus,
-
-    -- ** ResetUserPassword
-    resetUserPassword_directoryId,
-    resetUserPassword_userName,
-    resetUserPassword_newPassword,
-    resetUserPasswordResponse_httpStatus,
-
-    -- ** EnableClientAuthentication
-    enableClientAuthentication_directoryId,
-    enableClientAuthentication_type,
-    enableClientAuthenticationResponse_httpStatus,
-
-    -- ** StartSchemaExtension
-    startSchemaExtension_directoryId,
-    startSchemaExtension_createSnapshotBeforeSchemaExtension,
-    startSchemaExtension_ldifContent,
-    startSchemaExtension_description,
-    startSchemaExtensionResponse_schemaExtensionId,
-    startSchemaExtensionResponse_httpStatus,
-
-    -- ** CreateSnapshot
-    createSnapshot_name,
-    createSnapshot_directoryId,
-    createSnapshotResponse_snapshotId,
-    createSnapshotResponse_httpStatus,
-
-    -- ** AcceptSharedDirectory
-    acceptSharedDirectory_sharedDirectoryId,
-    acceptSharedDirectoryResponse_sharedDirectory,
-    acceptSharedDirectoryResponse_httpStatus,
-
-    -- ** DeregisterEventTopic
-    deregisterEventTopic_directoryId,
-    deregisterEventTopic_topicName,
-    deregisterEventTopicResponse_httpStatus,
-
-    -- ** DeregisterCertificate
-    deregisterCertificate_directoryId,
-    deregisterCertificate_certificateId,
-    deregisterCertificateResponse_httpStatus,
+    -- ** DescribeDirectories
+    describeDirectories_nextToken,
+    describeDirectories_directoryIds,
+    describeDirectories_limit,
+    describeDirectoriesResponse_directoryDescriptions,
+    describeDirectoriesResponse_nextToken,
+    describeDirectoriesResponse_httpStatus,
 
     -- ** AddIpRoutes
     addIpRoutes_updateSecurityGroupForDirectoryControllers,
@@ -399,51 +100,350 @@ module Network.AWS.DirectoryService.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
-    -- ** DescribeDirectories
-    describeDirectories_nextToken,
-    describeDirectories_directoryIds,
-    describeDirectories_limit,
-    describeDirectoriesResponse_nextToken,
-    describeDirectoriesResponse_directoryDescriptions,
-    describeDirectoriesResponse_httpStatus,
+    -- ** DescribeTrusts
+    describeTrusts_directoryId,
+    describeTrusts_nextToken,
+    describeTrusts_trustIds,
+    describeTrusts_limit,
+    describeTrustsResponse_nextToken,
+    describeTrustsResponse_trusts,
+    describeTrustsResponse_httpStatus,
 
-    -- ** CreateAlias
-    createAlias_directoryId,
-    createAlias_alias,
-    createAliasResponse_alias,
-    createAliasResponse_directoryId,
-    createAliasResponse_httpStatus,
+    -- ** DeleteTrust
+    deleteTrust_deleteAssociatedConditionalForwarder,
+    deleteTrust_trustId,
+    deleteTrustResponse_trustId,
+    deleteTrustResponse_httpStatus,
 
-    -- ** DescribeLDAPSSettings
-    describeLDAPSSettings_nextToken,
-    describeLDAPSSettings_type,
-    describeLDAPSSettings_limit,
-    describeLDAPSSettings_directoryId,
-    describeLDAPSSettingsResponse_nextToken,
-    describeLDAPSSettingsResponse_lDAPSSettingsInfo,
-    describeLDAPSSettingsResponse_httpStatus,
+    -- ** UpdateTrust
+    updateTrust_selectiveAuth,
+    updateTrust_trustId,
+    updateTrustResponse_requestId,
+    updateTrustResponse_trustId,
+    updateTrustResponse_httpStatus,
+
+    -- ** CreateMicrosoftAD
+    createMicrosoftAD_edition,
+    createMicrosoftAD_shortName,
+    createMicrosoftAD_description,
+    createMicrosoftAD_tags,
+    createMicrosoftAD_name,
+    createMicrosoftAD_password,
+    createMicrosoftAD_vpcSettings,
+    createMicrosoftADResponse_directoryId,
+    createMicrosoftADResponse_httpStatus,
+
+    -- ** DisableClientAuthentication
+    disableClientAuthentication_directoryId,
+    disableClientAuthentication_type,
+    disableClientAuthenticationResponse_httpStatus,
+
+    -- ** DeregisterEventTopic
+    deregisterEventTopic_directoryId,
+    deregisterEventTopic_topicName,
+    deregisterEventTopicResponse_httpStatus,
+
+    -- ** CreateDirectory
+    createDirectory_shortName,
+    createDirectory_vpcSettings,
+    createDirectory_description,
+    createDirectory_tags,
+    createDirectory_name,
+    createDirectory_password,
+    createDirectory_size,
+    createDirectoryResponse_directoryId,
+    createDirectoryResponse_httpStatus,
+
+    -- ** AcceptSharedDirectory
+    acceptSharedDirectory_sharedDirectoryId,
+    acceptSharedDirectoryResponse_sharedDirectory,
+    acceptSharedDirectoryResponse_httpStatus,
+
+    -- ** CreateLogSubscription
+    createLogSubscription_directoryId,
+    createLogSubscription_logGroupName,
+    createLogSubscriptionResponse_httpStatus,
+
+    -- ** RemoveTagsFromResource
+    removeTagsFromResource_resourceId,
+    removeTagsFromResource_tagKeys,
+    removeTagsFromResourceResponse_httpStatus,
+
+    -- ** DescribeEventTopics
+    describeEventTopics_directoryId,
+    describeEventTopics_topicNames,
+    describeEventTopicsResponse_eventTopics,
+    describeEventTopicsResponse_httpStatus,
+
+    -- ** ResetUserPassword
+    resetUserPassword_directoryId,
+    resetUserPassword_userName,
+    resetUserPassword_newPassword,
+    resetUserPasswordResponse_httpStatus,
+
+    -- ** UpdateConditionalForwarder
+    updateConditionalForwarder_directoryId,
+    updateConditionalForwarder_remoteDomainName,
+    updateConditionalForwarder_dnsIpAddrs,
+    updateConditionalForwarderResponse_httpStatus,
+
+    -- ** DeleteConditionalForwarder
+    deleteConditionalForwarder_directoryId,
+    deleteConditionalForwarder_remoteDomainName,
+    deleteConditionalForwarderResponse_httpStatus,
+
+    -- ** DisableLDAPS
+    disableLDAPS_directoryId,
+    disableLDAPS_type,
+    disableLDAPSResponse_httpStatus,
+
+    -- ** DeleteLogSubscription
+    deleteLogSubscription_directoryId,
+    deleteLogSubscriptionResponse_httpStatus,
+
+    -- ** EnableSso
+    enableSso_userName,
+    enableSso_password,
+    enableSso_directoryId,
+    enableSsoResponse_httpStatus,
+
+    -- ** CancelSchemaExtension
+    cancelSchemaExtension_directoryId,
+    cancelSchemaExtension_schemaExtensionId,
+    cancelSchemaExtensionResponse_httpStatus,
+
+    -- ** ListLogSubscriptions
+    listLogSubscriptions_directoryId,
+    listLogSubscriptions_nextToken,
+    listLogSubscriptions_limit,
+    listLogSubscriptionsResponse_nextToken,
+    listLogSubscriptionsResponse_logSubscriptions,
+    listLogSubscriptionsResponse_httpStatus,
+
+    -- ** EnableRadius
+    enableRadius_directoryId,
+    enableRadius_radiusSettings,
+    enableRadiusResponse_httpStatus,
+
+    -- ** ListIpRoutes
+    listIpRoutes_nextToken,
+    listIpRoutes_limit,
+    listIpRoutes_directoryId,
+    listIpRoutesResponse_ipRoutesInfo,
+    listIpRoutesResponse_nextToken,
+    listIpRoutesResponse_httpStatus,
+
+    -- ** AddTagsToResource
+    addTagsToResource_resourceId,
+    addTagsToResource_tags,
+    addTagsToResourceResponse_httpStatus,
+
+    -- ** DescribeClientAuthenticationSettings
+    describeClientAuthenticationSettings_nextToken,
+    describeClientAuthenticationSettings_limit,
+    describeClientAuthenticationSettings_type,
+    describeClientAuthenticationSettings_directoryId,
+    describeClientAuthenticationSettingsResponse_nextToken,
+    describeClientAuthenticationSettingsResponse_clientAuthenticationSettingsInfo,
+    describeClientAuthenticationSettingsResponse_httpStatus,
+
+    -- ** ListSchemaExtensions
+    listSchemaExtensions_nextToken,
+    listSchemaExtensions_limit,
+    listSchemaExtensions_directoryId,
+    listSchemaExtensionsResponse_schemaExtensionsInfo,
+    listSchemaExtensionsResponse_nextToken,
+    listSchemaExtensionsResponse_httpStatus,
+
+    -- ** DisableRadius
+    disableRadius_directoryId,
+    disableRadiusResponse_httpStatus,
+
+    -- ** ListCertificates
+    listCertificates_nextToken,
+    listCertificates_limit,
+    listCertificates_directoryId,
+    listCertificatesResponse_nextToken,
+    listCertificatesResponse_certificatesInfo,
+    listCertificatesResponse_httpStatus,
+
+    -- ** RejectSharedDirectory
+    rejectSharedDirectory_sharedDirectoryId,
+    rejectSharedDirectoryResponse_sharedDirectoryId,
+    rejectSharedDirectoryResponse_httpStatus,
+
+    -- ** UnshareDirectory
+    unshareDirectory_directoryId,
+    unshareDirectory_unshareTarget,
+    unshareDirectoryResponse_sharedDirectoryId,
+    unshareDirectoryResponse_httpStatus,
+
+    -- ** RestoreFromSnapshot
+    restoreFromSnapshot_snapshotId,
+    restoreFromSnapshotResponse_httpStatus,
+
+    -- ** DescribeDomainControllers
+    describeDomainControllers_nextToken,
+    describeDomainControllers_domainControllerIds,
+    describeDomainControllers_limit,
+    describeDomainControllers_directoryId,
+    describeDomainControllersResponse_nextToken,
+    describeDomainControllersResponse_domainControllers,
+    describeDomainControllersResponse_httpStatus,
+
+    -- ** DescribeSnapshots
+    describeSnapshots_directoryId,
+    describeSnapshots_nextToken,
+    describeSnapshots_snapshotIds,
+    describeSnapshots_limit,
+    describeSnapshotsResponse_nextToken,
+    describeSnapshotsResponse_snapshots,
+    describeSnapshotsResponse_httpStatus,
+
+    -- ** RemoveIpRoutes
+    removeIpRoutes_directoryId,
+    removeIpRoutes_cidrIps,
+    removeIpRoutesResponse_httpStatus,
+
+    -- ** DeleteSnapshot
+    deleteSnapshot_snapshotId,
+    deleteSnapshotResponse_snapshotId,
+    deleteSnapshotResponse_httpStatus,
+
+    -- ** DeregisterCertificate
+    deregisterCertificate_directoryId,
+    deregisterCertificate_certificateId,
+    deregisterCertificateResponse_httpStatus,
+
+    -- ** StartSchemaExtension
+    startSchemaExtension_directoryId,
+    startSchemaExtension_createSnapshotBeforeSchemaExtension,
+    startSchemaExtension_ldifContent,
+    startSchemaExtension_description,
+    startSchemaExtensionResponse_schemaExtensionId,
+    startSchemaExtensionResponse_httpStatus,
+
+    -- ** CreateTrust
+    createTrust_conditionalForwarderIpAddrs,
+    createTrust_trustType,
+    createTrust_selectiveAuth,
+    createTrust_directoryId,
+    createTrust_remoteDomainName,
+    createTrust_trustPassword,
+    createTrust_trustDirection,
+    createTrustResponse_trustId,
+    createTrustResponse_httpStatus,
+
+    -- ** DeleteDirectory
+    deleteDirectory_directoryId,
+    deleteDirectoryResponse_directoryId,
+    deleteDirectoryResponse_httpStatus,
+
+    -- ** CreateSnapshot
+    createSnapshot_name,
+    createSnapshot_directoryId,
+    createSnapshotResponse_snapshotId,
+    createSnapshotResponse_httpStatus,
+
+    -- ** DescribeCertificate
+    describeCertificate_directoryId,
+    describeCertificate_certificateId,
+    describeCertificateResponse_certificate,
+    describeCertificateResponse_httpStatus,
+
+    -- ** EnableClientAuthentication
+    enableClientAuthentication_directoryId,
+    enableClientAuthentication_type,
+    enableClientAuthenticationResponse_httpStatus,
+
+    -- ** CreateComputer
+    createComputer_computerAttributes,
+    createComputer_organizationalUnitDistinguishedName,
+    createComputer_directoryId,
+    createComputer_computerName,
+    createComputer_password,
+    createComputerResponse_computer,
+    createComputerResponse_httpStatus,
+
+    -- ** DescribeSharedDirectories
+    describeSharedDirectories_sharedDirectoryIds,
+    describeSharedDirectories_nextToken,
+    describeSharedDirectories_limit,
+    describeSharedDirectories_ownerDirectoryId,
+    describeSharedDirectoriesResponse_sharedDirectories,
+    describeSharedDirectoriesResponse_nextToken,
+    describeSharedDirectoriesResponse_httpStatus,
+
+    -- ** EnableLDAPS
+    enableLDAPS_directoryId,
+    enableLDAPS_type,
+    enableLDAPSResponse_httpStatus,
+
+    -- ** DisableSso
+    disableSso_userName,
+    disableSso_password,
+    disableSso_directoryId,
+    disableSsoResponse_httpStatus,
+
+    -- ** VerifyTrust
+    verifyTrust_trustId,
+    verifyTrustResponse_trustId,
+    verifyTrustResponse_httpStatus,
+
+    -- ** RemoveRegion
+    removeRegion_directoryId,
+    removeRegionResponse_httpStatus,
+
+    -- ** CreateConditionalForwarder
+    createConditionalForwarder_directoryId,
+    createConditionalForwarder_remoteDomainName,
+    createConditionalForwarder_dnsIpAddrs,
+    createConditionalForwarderResponse_httpStatus,
+
+    -- ** DescribeRegions
+    describeRegions_regionName,
+    describeRegions_nextToken,
+    describeRegions_directoryId,
+    describeRegionsResponse_nextToken,
+    describeRegionsResponse_regionsDescription,
+    describeRegionsResponse_httpStatus,
+
+    -- ** AddRegion
+    addRegion_directoryId,
+    addRegion_regionName,
+    addRegion_vPCSettings,
+    addRegionResponse_httpStatus,
+
+    -- ** GetDirectoryLimits
+    getDirectoryLimitsResponse_directoryLimits,
+    getDirectoryLimitsResponse_httpStatus,
+
+    -- ** UpdateRadius
+    updateRadius_directoryId,
+    updateRadius_radiusSettings,
+    updateRadiusResponse_httpStatus,
 
     -- * Types
 
     -- ** Attribute
-    attribute_name,
     attribute_value,
+    attribute_name,
 
     -- ** Certificate
     certificate_clientCertAuthSettings,
-    certificate_registeredDateTime,
-    certificate_stateReason,
-    certificate_commonName,
     certificate_state,
-    certificate_expiryDateTime,
+    certificate_commonName,
     certificate_certificateId,
+    certificate_expiryDateTime,
+    certificate_registeredDateTime,
     certificate_type,
+    certificate_stateReason,
 
     -- ** CertificateInfo
-    certificateInfo_commonName,
     certificateInfo_state,
-    certificateInfo_expiryDateTime,
+    certificateInfo_commonName,
     certificateInfo_certificateId,
+    certificateInfo_expiryDateTime,
     certificateInfo_type,
 
     -- ** ClientAuthenticationSettingInfo
@@ -455,14 +455,14 @@ module Network.AWS.DirectoryService.Lens
     clientCertAuthSettings_oCSPUrl,
 
     -- ** Computer
+    computer_computerId,
     computer_computerAttributes,
     computer_computerName,
-    computer_computerId,
 
     -- ** ConditionalForwarder
-    conditionalForwarder_replicationScope,
-    conditionalForwarder_remoteDomainName,
     conditionalForwarder_dnsIpAddrs,
+    conditionalForwarder_remoteDomainName,
+    conditionalForwarder_replicationScope,
 
     -- ** DirectoryConnectSettings
     directoryConnectSettings_vpcId,
@@ -471,91 +471,91 @@ module Network.AWS.DirectoryService.Lens
     directoryConnectSettings_customerUserName,
 
     -- ** DirectoryConnectSettingsDescription
-    directoryConnectSettingsDescription_availabilityZones,
-    directoryConnectSettingsDescription_securityGroupId,
-    directoryConnectSettingsDescription_subnetIds,
     directoryConnectSettingsDescription_customerUserName,
-    directoryConnectSettingsDescription_connectIps,
+    directoryConnectSettingsDescription_subnetIds,
     directoryConnectSettingsDescription_vpcId,
+    directoryConnectSettingsDescription_securityGroupId,
+    directoryConnectSettingsDescription_connectIps,
+    directoryConnectSettingsDescription_availabilityZones,
 
     -- ** DirectoryDescription
-    directoryDescription_radiusStatus,
-    directoryDescription_alias,
-    directoryDescription_shareNotes,
-    directoryDescription_connectSettings,
-    directoryDescription_stageReason,
-    directoryDescription_launchTime,
-    directoryDescription_vpcSettings,
-    directoryDescription_regionsInfo,
-    directoryDescription_shortName,
-    directoryDescription_shareMethod,
-    directoryDescription_name,
-    directoryDescription_accessUrl,
-    directoryDescription_directoryId,
-    directoryDescription_stage,
     directoryDescription_edition,
-    directoryDescription_shareStatus,
-    directoryDescription_description,
-    directoryDescription_ownerDirectoryDescription,
-    directoryDescription_type,
-    directoryDescription_dnsIpAddrs,
-    directoryDescription_desiredNumberOfDomainControllers,
+    directoryDescription_radiusStatus,
+    directoryDescription_stage,
+    directoryDescription_directoryId,
+    directoryDescription_accessUrl,
+    directoryDescription_shortName,
+    directoryDescription_regionsInfo,
     directoryDescription_size,
+    directoryDescription_desiredNumberOfDomainControllers,
     directoryDescription_radiusSettings,
+    directoryDescription_launchTime,
+    directoryDescription_alias,
+    directoryDescription_shareStatus,
+    directoryDescription_name,
+    directoryDescription_shareMethod,
     directoryDescription_stageLastUpdatedDateTime,
     directoryDescription_ssoEnabled,
+    directoryDescription_dnsIpAddrs,
+    directoryDescription_vpcSettings,
+    directoryDescription_type,
+    directoryDescription_stageReason,
+    directoryDescription_connectSettings,
+    directoryDescription_ownerDirectoryDescription,
+    directoryDescription_description,
+    directoryDescription_shareNotes,
 
     -- ** DirectoryLimits
-    directoryLimits_cloudOnlyDirectoriesLimit,
-    directoryLimits_connectedDirectoriesLimitReached,
-    directoryLimits_cloudOnlyMicrosoftADCurrentCount,
-    directoryLimits_connectedDirectoriesLimit,
     directoryLimits_connectedDirectoriesCurrentCount,
-    directoryLimits_cloudOnlyMicrosoftADLimit,
-    directoryLimits_cloudOnlyDirectoriesLimitReached,
-    directoryLimits_cloudOnlyDirectoriesCurrentCount,
     directoryLimits_cloudOnlyMicrosoftADLimitReached,
+    directoryLimits_connectedDirectoriesLimit,
+    directoryLimits_connectedDirectoriesLimitReached,
+    directoryLimits_cloudOnlyMicrosoftADLimit,
+    directoryLimits_cloudOnlyDirectoriesLimit,
+    directoryLimits_cloudOnlyDirectoriesCurrentCount,
+    directoryLimits_cloudOnlyDirectoriesLimitReached,
+    directoryLimits_cloudOnlyMicrosoftADCurrentCount,
 
     -- ** DirectoryVpcSettings
     directoryVpcSettings_vpcId,
     directoryVpcSettings_subnetIds,
 
     -- ** DirectoryVpcSettingsDescription
-    directoryVpcSettingsDescription_availabilityZones,
-    directoryVpcSettingsDescription_securityGroupId,
     directoryVpcSettingsDescription_subnetIds,
     directoryVpcSettingsDescription_vpcId,
+    directoryVpcSettingsDescription_securityGroupId,
+    directoryVpcSettingsDescription_availabilityZones,
 
     -- ** DomainController
     domainController_status,
-    domainController_dnsIpAddr,
-    domainController_launchTime,
-    domainController_statusLastUpdatedDateTime,
-    domainController_availabilityZone,
     domainController_directoryId,
-    domainController_domainControllerId,
-    domainController_subnetId,
     domainController_vpcId,
+    domainController_launchTime,
+    domainController_subnetId,
+    domainController_availabilityZone,
+    domainController_statusLastUpdatedDateTime,
     domainController_statusReason,
+    domainController_dnsIpAddr,
+    domainController_domainControllerId,
 
     -- ** EventTopic
     eventTopic_status,
-    eventTopic_createdDateTime,
-    eventTopic_topicName,
     eventTopic_directoryId,
+    eventTopic_topicName,
     eventTopic_topicArn,
+    eventTopic_createdDateTime,
 
     -- ** IpRoute
     ipRoute_cidrIp,
     ipRoute_description,
 
     -- ** IpRouteInfo
-    ipRouteInfo_ipRouteStatusMsg,
-    ipRouteInfo_cidrIp,
     ipRouteInfo_directoryId,
-    ipRouteInfo_addedDateTime,
-    ipRouteInfo_description,
     ipRouteInfo_ipRouteStatusReason,
+    ipRouteInfo_addedDateTime,
+    ipRouteInfo_cidrIp,
+    ipRouteInfo_ipRouteStatusMsg,
+    ipRouteInfo_description,
 
     -- ** LDAPSSettingInfo
     lDAPSSettingInfo_lastUpdatedDateTime,
@@ -563,78 +563,78 @@ module Network.AWS.DirectoryService.Lens
     lDAPSSettingInfo_lDAPSStatus,
 
     -- ** LogSubscription
-    logSubscription_subscriptionCreatedDateTime,
     logSubscription_directoryId,
     logSubscription_logGroupName,
+    logSubscription_subscriptionCreatedDateTime,
 
     -- ** OwnerDirectoryDescription
     ownerDirectoryDescription_radiusStatus,
-    ownerDirectoryDescription_accountId,
-    ownerDirectoryDescription_vpcSettings,
     ownerDirectoryDescription_directoryId,
-    ownerDirectoryDescription_dnsIpAddrs,
     ownerDirectoryDescription_radiusSettings,
+    ownerDirectoryDescription_accountId,
+    ownerDirectoryDescription_dnsIpAddrs,
+    ownerDirectoryDescription_vpcSettings,
 
     -- ** RadiusSettings
-    radiusSettings_useSameUsername,
     radiusSettings_displayLabel,
     radiusSettings_radiusRetries,
-    radiusSettings_radiusServers,
-    radiusSettings_radiusTimeout,
-    radiusSettings_sharedSecret,
-    radiusSettings_radiusPort,
     radiusSettings_authenticationProtocol,
+    radiusSettings_radiusServers,
+    radiusSettings_useSameUsername,
+    radiusSettings_sharedSecret,
+    radiusSettings_radiusTimeout,
+    radiusSettings_radiusPort,
 
     -- ** RegionDescription
-    regionDescription_regionName,
     regionDescription_status,
-    regionDescription_lastUpdatedDateTime,
-    regionDescription_launchTime,
-    regionDescription_regionType,
-    regionDescription_vpcSettings,
-    regionDescription_statusLastUpdatedDateTime,
     regionDescription_directoryId,
+    regionDescription_regionName,
     regionDescription_desiredNumberOfDomainControllers,
+    regionDescription_regionType,
+    regionDescription_launchTime,
+    regionDescription_lastUpdatedDateTime,
+    regionDescription_statusLastUpdatedDateTime,
+    regionDescription_vpcSettings,
 
     -- ** RegionsInfo
-    regionsInfo_additionalRegions,
     regionsInfo_primaryRegion,
+    regionsInfo_additionalRegions,
 
     -- ** SchemaExtensionInfo
-    schemaExtensionInfo_schemaExtensionStatus,
-    schemaExtensionInfo_startDateTime,
-    schemaExtensionInfo_schemaExtensionId,
     schemaExtensionInfo_directoryId,
+    schemaExtensionInfo_schemaExtensionId,
+    schemaExtensionInfo_schemaExtensionStatusReason,
+    schemaExtensionInfo_schemaExtensionStatus,
     schemaExtensionInfo_description,
     schemaExtensionInfo_endDateTime,
-    schemaExtensionInfo_schemaExtensionStatusReason,
+    schemaExtensionInfo_startDateTime,
 
     -- ** ShareTarget
     shareTarget_id,
     shareTarget_type,
 
     -- ** SharedDirectory
-    sharedDirectory_createdDateTime,
-    sharedDirectory_lastUpdatedDateTime,
-    sharedDirectory_shareNotes,
     sharedDirectory_sharedAccountId,
-    sharedDirectory_ownerDirectoryId,
-    sharedDirectory_shareMethod,
-    sharedDirectory_shareStatus,
-    sharedDirectory_sharedDirectoryId,
     sharedDirectory_ownerAccountId,
+    sharedDirectory_lastUpdatedDateTime,
+    sharedDirectory_shareStatus,
+    sharedDirectory_shareMethod,
+    sharedDirectory_ownerDirectoryId,
+    sharedDirectory_sharedDirectoryId,
+    sharedDirectory_shareNotes,
+    sharedDirectory_createdDateTime,
 
     -- ** Snapshot
     snapshot_status,
+    snapshot_directoryId,
     snapshot_startTime,
     snapshot_name,
-    snapshot_directoryId,
-    snapshot_snapshotId,
     snapshot_type,
+    snapshot_snapshotId,
 
     -- ** SnapshotLimits
-    snapshotLimits_manualSnapshotsCurrentCount,
     snapshotLimits_manualSnapshotsLimitReached,
+    snapshotLimits_manualSnapshotsCurrentCount,
     snapshotLimits_manualSnapshotsLimit,
 
     -- ** Tag
@@ -642,17 +642,17 @@ module Network.AWS.DirectoryService.Lens
     tag_value,
 
     -- ** Trust
-    trust_trustType,
+    trust_directoryId,
+    trust_trustState,
+    trust_lastUpdatedDateTime,
     trust_trustDirection,
     trust_stateLastUpdatedDateTime,
+    trust_trustType,
+    trust_trustStateReason,
+    trust_selectiveAuth,
+    trust_remoteDomainName,
     trust_trustId,
     trust_createdDateTime,
-    trust_lastUpdatedDateTime,
-    trust_trustState,
-    trust_selectiveAuth,
-    trust_trustStateReason,
-    trust_directoryId,
-    trust_remoteDomainName,
 
     -- ** UnshareTarget
     unshareTarget_id,

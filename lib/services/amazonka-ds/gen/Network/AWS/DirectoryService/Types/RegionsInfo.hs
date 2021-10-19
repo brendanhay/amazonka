@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRegionsInfo' smart constructor.
 data RegionsInfo = RegionsInfo'
-  { -- | Lists the Regions where the directory has been replicated, excluding the
-    -- primary Region.
-    additionalRegions :: Prelude.Maybe [Prelude.Text],
-    -- | The Region where the Managed Microsoft AD directory was originally
+  { -- | The Region where the Managed Microsoft AD directory was originally
     -- created.
-    primaryRegion :: Prelude.Maybe Prelude.Text
+    primaryRegion :: Prelude.Maybe Prelude.Text,
+    -- | Lists the Regions where the directory has been replicated, excluding the
+    -- primary Region.
+    additionalRegions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data RegionsInfo = RegionsInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalRegions', 'regionsInfo_additionalRegions' - Lists the Regions where the directory has been replicated, excluding the
--- primary Region.
---
 -- 'primaryRegion', 'regionsInfo_primaryRegion' - The Region where the Managed Microsoft AD directory was originally
 -- created.
+--
+-- 'additionalRegions', 'regionsInfo_additionalRegions' - Lists the Regions where the directory has been replicated, excluding the
+-- primary Region.
 newRegionsInfo ::
   RegionsInfo
 newRegionsInfo =
   RegionsInfo'
-    { additionalRegions = Prelude.Nothing,
-      primaryRegion = Prelude.Nothing
+    { primaryRegion = Prelude.Nothing,
+      additionalRegions = Prelude.Nothing
     }
-
--- | Lists the Regions where the directory has been replicated, excluding the
--- primary Region.
-regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Prelude.Maybe [Prelude.Text])
-regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Region where the Managed Microsoft AD directory was originally
 -- created.
 regionsInfo_primaryRegion :: Lens.Lens' RegionsInfo (Prelude.Maybe Prelude.Text)
 regionsInfo_primaryRegion = Lens.lens (\RegionsInfo' {primaryRegion} -> primaryRegion) (\s@RegionsInfo' {} a -> s {primaryRegion = a} :: RegionsInfo)
+
+-- | Lists the Regions where the directory has been replicated, excluding the
+-- primary Region.
+regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Prelude.Maybe [Prelude.Text])
+regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON RegionsInfo where
   parseJSON =
@@ -74,10 +74,10 @@ instance Core.FromJSON RegionsInfo where
       "RegionsInfo"
       ( \x ->
           RegionsInfo'
-            Prelude.<$> ( x Core..:? "AdditionalRegions"
+            Prelude.<$> (x Core..:? "PrimaryRegion")
+            Prelude.<*> ( x Core..:? "AdditionalRegions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PrimaryRegion")
       )
 
 instance Prelude.Hashable RegionsInfo

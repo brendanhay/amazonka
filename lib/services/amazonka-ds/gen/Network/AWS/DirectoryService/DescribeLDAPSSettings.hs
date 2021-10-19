@@ -28,8 +28,8 @@ module Network.AWS.DirectoryService.DescribeLDAPSSettings
 
     -- * Request Lenses
     describeLDAPSSettings_nextToken,
-    describeLDAPSSettings_type,
     describeLDAPSSettings_limit,
+    describeLDAPSSettings_type,
     describeLDAPSSettings_directoryId,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Network.AWS.DirectoryService.DescribeLDAPSSettings
     newDescribeLDAPSSettingsResponse,
 
     -- * Response Lenses
-    describeLDAPSSettingsResponse_nextToken,
     describeLDAPSSettingsResponse_lDAPSSettingsInfo,
+    describeLDAPSSettingsResponse_nextToken,
     describeLDAPSSettingsResponse_httpStatus,
   )
 where
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data DescribeLDAPSSettings = DescribeLDAPSSettings'
   { -- | The type of next token used for pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the number of items that should be displayed on one page.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The type of LDAP security to enable. Currently only the value @Client@
     -- is supported.
     type' :: Prelude.Maybe LDAPSType,
-    -- | Specifies the number of items that should be displayed on one page.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the directory.
     directoryId :: Prelude.Text
   }
@@ -74,10 +74,10 @@ data DescribeLDAPSSettings = DescribeLDAPSSettings'
 --
 -- 'nextToken', 'describeLDAPSSettings_nextToken' - The type of next token used for pagination.
 --
+-- 'limit', 'describeLDAPSSettings_limit' - Specifies the number of items that should be displayed on one page.
+--
 -- 'type'', 'describeLDAPSSettings_type' - The type of LDAP security to enable. Currently only the value @Client@
 -- is supported.
---
--- 'limit', 'describeLDAPSSettings_limit' - Specifies the number of items that should be displayed on one page.
 --
 -- 'directoryId', 'describeLDAPSSettings_directoryId' - The identifier of the directory.
 newDescribeLDAPSSettings ::
@@ -87,8 +87,8 @@ newDescribeLDAPSSettings ::
 newDescribeLDAPSSettings pDirectoryId_ =
   DescribeLDAPSSettings'
     { nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
       limit = Prelude.Nothing,
+      type' = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
 
@@ -96,14 +96,14 @@ newDescribeLDAPSSettings pDirectoryId_ =
 describeLDAPSSettings_nextToken :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe Prelude.Text)
 describeLDAPSSettings_nextToken = Lens.lens (\DescribeLDAPSSettings' {nextToken} -> nextToken) (\s@DescribeLDAPSSettings' {} a -> s {nextToken = a} :: DescribeLDAPSSettings)
 
+-- | Specifies the number of items that should be displayed on one page.
+describeLDAPSSettings_limit :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe Prelude.Natural)
+describeLDAPSSettings_limit = Lens.lens (\DescribeLDAPSSettings' {limit} -> limit) (\s@DescribeLDAPSSettings' {} a -> s {limit = a} :: DescribeLDAPSSettings)
+
 -- | The type of LDAP security to enable. Currently only the value @Client@
 -- is supported.
 describeLDAPSSettings_type :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe LDAPSType)
 describeLDAPSSettings_type = Lens.lens (\DescribeLDAPSSettings' {type'} -> type') (\s@DescribeLDAPSSettings' {} a -> s {type' = a} :: DescribeLDAPSSettings)
-
--- | Specifies the number of items that should be displayed on one page.
-describeLDAPSSettings_limit :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe Prelude.Natural)
-describeLDAPSSettings_limit = Lens.lens (\DescribeLDAPSSettings' {limit} -> limit) (\s@DescribeLDAPSSettings' {} a -> s {limit = a} :: DescribeLDAPSSettings)
 
 -- | The identifier of the directory.
 describeLDAPSSettings_directoryId :: Lens.Lens' DescribeLDAPSSettings Prelude.Text
@@ -118,10 +118,10 @@ instance Core.AWSRequest DescribeLDAPSSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeLDAPSSettingsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LDAPSSettingsInfo"
+            Prelude.<$> ( x Core..?> "LDAPSSettingsInfo"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,8 +149,8 @@ instance Core.ToJSON DescribeLDAPSSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
             ("Limit" Core..=) Prelude.<$> limit,
+            ("Type" Core..=) Prelude.<$> type',
             Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )
@@ -163,13 +163,13 @@ instance Core.ToQuery DescribeLDAPSSettings where
 
 -- | /See:/ 'newDescribeLDAPSSettingsResponse' smart constructor.
 data DescribeLDAPSSettingsResponse = DescribeLDAPSSettingsResponse'
-  { -- | The next token used to retrieve the LDAPS settings if the number of
-    -- setting types exceeds page limit and there is another page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about LDAP security for the specified directory, including
+  { -- | Information about LDAP security for the specified directory, including
     -- status of enablement, state last updated date time, and the reason for
     -- the state.
     lDAPSSettingsInfo :: Prelude.Maybe [LDAPSSettingInfo],
+    -- | The next token used to retrieve the LDAPS settings if the number of
+    -- setting types exceeds page limit and there is another page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,12 +183,12 @@ data DescribeLDAPSSettingsResponse = DescribeLDAPSSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLDAPSSettingsResponse_nextToken' - The next token used to retrieve the LDAPS settings if the number of
--- setting types exceeds page limit and there is another page.
---
 -- 'lDAPSSettingsInfo', 'describeLDAPSSettingsResponse_lDAPSSettingsInfo' - Information about LDAP security for the specified directory, including
 -- status of enablement, state last updated date time, and the reason for
 -- the state.
+--
+-- 'nextToken', 'describeLDAPSSettingsResponse_nextToken' - The next token used to retrieve the LDAPS settings if the number of
+-- setting types exceeds page limit and there is another page.
 --
 -- 'httpStatus', 'describeLDAPSSettingsResponse_httpStatus' - The response's http status code.
 newDescribeLDAPSSettingsResponse ::
@@ -197,22 +197,22 @@ newDescribeLDAPSSettingsResponse ::
   DescribeLDAPSSettingsResponse
 newDescribeLDAPSSettingsResponse pHttpStatus_ =
   DescribeLDAPSSettingsResponse'
-    { nextToken =
+    { lDAPSSettingsInfo =
         Prelude.Nothing,
-      lDAPSSettingsInfo = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next token used to retrieve the LDAPS settings if the number of
--- setting types exceeds page limit and there is another page.
-describeLDAPSSettingsResponse_nextToken :: Lens.Lens' DescribeLDAPSSettingsResponse (Prelude.Maybe Prelude.Text)
-describeLDAPSSettingsResponse_nextToken = Lens.lens (\DescribeLDAPSSettingsResponse' {nextToken} -> nextToken) (\s@DescribeLDAPSSettingsResponse' {} a -> s {nextToken = a} :: DescribeLDAPSSettingsResponse)
 
 -- | Information about LDAP security for the specified directory, including
 -- status of enablement, state last updated date time, and the reason for
 -- the state.
 describeLDAPSSettingsResponse_lDAPSSettingsInfo :: Lens.Lens' DescribeLDAPSSettingsResponse (Prelude.Maybe [LDAPSSettingInfo])
-describeLDAPSSettingsResponse_lDAPSSettingsInfo = Lens.lens (\DescribeLDAPSSettingsResponse' {lDAPSSettingsInfo} -> lDAPSSettingsInfo) (\s@DescribeLDAPSSettingsResponse' {} a -> s {lDAPSSettingsInfo = a} :: DescribeLDAPSSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLDAPSSettingsResponse_lDAPSSettingsInfo = Lens.lens (\DescribeLDAPSSettingsResponse' {lDAPSSettingsInfo} -> lDAPSSettingsInfo) (\s@DescribeLDAPSSettingsResponse' {} a -> s {lDAPSSettingsInfo = a} :: DescribeLDAPSSettingsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next token used to retrieve the LDAPS settings if the number of
+-- setting types exceeds page limit and there is another page.
+describeLDAPSSettingsResponse_nextToken :: Lens.Lens' DescribeLDAPSSettingsResponse (Prelude.Maybe Prelude.Text)
+describeLDAPSSettingsResponse_nextToken = Lens.lens (\DescribeLDAPSSettingsResponse' {nextToken} -> nextToken) (\s@DescribeLDAPSSettingsResponse' {} a -> s {nextToken = a} :: DescribeLDAPSSettingsResponse)
 
 -- | The response's http status code.
 describeLDAPSSettingsResponse_httpStatus :: Lens.Lens' DescribeLDAPSSettingsResponse Prelude.Int

@@ -34,8 +34,8 @@ module Network.AWS.DirectoryService.ConnectDirectory
 
     -- * Request Lenses
     connectDirectory_shortName,
-    connectDirectory_tags,
     connectDirectory_description,
+    connectDirectory_tags,
     connectDirectory_name,
     connectDirectory_password,
     connectDirectory_size,
@@ -64,10 +64,10 @@ import qualified Network.AWS.Response as Response
 data ConnectDirectory = ConnectDirectory'
   { -- | The NetBIOS name of your self-managed directory, such as @CORP@.
     shortName :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be assigned to AD Connector.
-    tags :: Prelude.Maybe [Tag],
     -- | A description for the directory.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be assigned to AD Connector.
+    tags :: Prelude.Maybe [Tag],
     -- | The fully qualified name of your self-managed directory, such as
     -- @corp.example.com@.
     name :: Prelude.Text,
@@ -91,9 +91,9 @@ data ConnectDirectory = ConnectDirectory'
 --
 -- 'shortName', 'connectDirectory_shortName' - The NetBIOS name of your self-managed directory, such as @CORP@.
 --
--- 'tags', 'connectDirectory_tags' - The tags to be assigned to AD Connector.
---
 -- 'description', 'connectDirectory_description' - A description for the directory.
+--
+-- 'tags', 'connectDirectory_tags' - The tags to be assigned to AD Connector.
 --
 -- 'name', 'connectDirectory_name' - The fully qualified name of your self-managed directory, such as
 -- @corp.example.com@.
@@ -121,8 +121,8 @@ newConnectDirectory
   pConnectSettings_ =
     ConnectDirectory'
       { shortName = Prelude.Nothing,
-        tags = Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         password = Core._Sensitive Lens.# pPassword_,
         size = pSize_,
@@ -133,13 +133,13 @@ newConnectDirectory
 connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
 connectDirectory_shortName = Lens.lens (\ConnectDirectory' {shortName} -> shortName) (\s@ConnectDirectory' {} a -> s {shortName = a} :: ConnectDirectory)
 
--- | The tags to be assigned to AD Connector.
-connectDirectory_tags :: Lens.Lens' ConnectDirectory (Prelude.Maybe [Tag])
-connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A description for the directory.
 connectDirectory_description :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
 connectDirectory_description = Lens.lens (\ConnectDirectory' {description} -> description) (\s@ConnectDirectory' {} a -> s {description = a} :: ConnectDirectory)
+
+-- | The tags to be assigned to AD Connector.
+connectDirectory_tags :: Lens.Lens' ConnectDirectory (Prelude.Maybe [Tag])
+connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified name of your self-managed directory, such as
 -- @corp.example.com@.
@@ -196,8 +196,8 @@ instance Core.ToJSON ConnectDirectory where
     Core.object
       ( Prelude.catMaybes
           [ ("ShortName" Core..=) Prelude.<$> shortName,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Password" Core..= password),
             Prelude.Just ("Size" Core..= size),

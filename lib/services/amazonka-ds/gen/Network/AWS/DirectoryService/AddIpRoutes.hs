@@ -257,7 +257,7 @@ addIpRoutes_directoryId = Lens.lens (\AddIpRoutes' {directoryId} -> directoryId)
 -- often the IP address block of the DNS server used for your self-managed
 -- domain.
 addIpRoutes_ipRoutes :: Lens.Lens' AddIpRoutes [IpRoute]
-addIpRoutes_ipRoutes = Lens.lens (\AddIpRoutes' {ipRoutes} -> ipRoutes) (\s@AddIpRoutes' {} a -> s {ipRoutes = a} :: AddIpRoutes) Prelude.. Lens._Coerce
+addIpRoutes_ipRoutes = Lens.lens (\AddIpRoutes' {ipRoutes} -> ipRoutes) (\s@AddIpRoutes' {} a -> s {ipRoutes = a} :: AddIpRoutes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddIpRoutes where
   type AWSResponse AddIpRoutes = AddIpRoutesResponse

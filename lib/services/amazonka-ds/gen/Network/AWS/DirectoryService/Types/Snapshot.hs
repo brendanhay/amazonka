@@ -31,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 data Snapshot = Snapshot'
   { -- | The snapshot status.
     status :: Prelude.Maybe SnapshotStatus,
+    -- | The directory identifier.
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the snapshot was taken.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | The descriptive name of the snapshot.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The directory identifier.
-    directoryId :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot identifier.
-    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The snapshot type.
-    type' :: Prelude.Maybe SnapshotType
+    type' :: Prelude.Maybe SnapshotType,
+    -- | The snapshot identifier.
+    snapshotId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,30 +54,34 @@ data Snapshot = Snapshot'
 --
 -- 'status', 'snapshot_status' - The snapshot status.
 --
+-- 'directoryId', 'snapshot_directoryId' - The directory identifier.
+--
 -- 'startTime', 'snapshot_startTime' - The date and time that the snapshot was taken.
 --
 -- 'name', 'snapshot_name' - The descriptive name of the snapshot.
 --
--- 'directoryId', 'snapshot_directoryId' - The directory identifier.
+-- 'type'', 'snapshot_type' - The snapshot type.
 --
 -- 'snapshotId', 'snapshot_snapshotId' - The snapshot identifier.
---
--- 'type'', 'snapshot_type' - The snapshot type.
 newSnapshot ::
   Snapshot
 newSnapshot =
   Snapshot'
     { status = Prelude.Nothing,
+      directoryId = Prelude.Nothing,
       startTime = Prelude.Nothing,
       name = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      snapshotId = Prelude.Nothing
     }
 
 -- | The snapshot status.
 snapshot_status :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotStatus)
 snapshot_status = Lens.lens (\Snapshot' {status} -> status) (\s@Snapshot' {} a -> s {status = a} :: Snapshot)
+
+-- | The directory identifier.
+snapshot_directoryId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_directoryId = Lens.lens (\Snapshot' {directoryId} -> directoryId) (\s@Snapshot' {} a -> s {directoryId = a} :: Snapshot)
 
 -- | The date and time that the snapshot was taken.
 snapshot_startTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
@@ -87,17 +91,13 @@ snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapsho
 snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
 
--- | The directory identifier.
-snapshot_directoryId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_directoryId = Lens.lens (\Snapshot' {directoryId} -> directoryId) (\s@Snapshot' {} a -> s {directoryId = a} :: Snapshot)
+-- | The snapshot type.
+snapshot_type :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotType)
+snapshot_type = Lens.lens (\Snapshot' {type'} -> type') (\s@Snapshot' {} a -> s {type' = a} :: Snapshot)
 
 -- | The snapshot identifier.
 snapshot_snapshotId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_snapshotId = Lens.lens (\Snapshot' {snapshotId} -> snapshotId) (\s@Snapshot' {} a -> s {snapshotId = a} :: Snapshot)
-
--- | The snapshot type.
-snapshot_type :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotType)
-snapshot_type = Lens.lens (\Snapshot' {type'} -> type') (\s@Snapshot' {} a -> s {type' = a} :: Snapshot)
 
 instance Core.FromJSON Snapshot where
   parseJSON =
@@ -106,11 +106,11 @@ instance Core.FromJSON Snapshot where
       ( \x ->
           Snapshot'
             Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "SnapshotId")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "SnapshotId")
       )
 
 instance Prelude.Hashable Snapshot

@@ -33,10 +33,10 @@ module Network.AWS.DirectoryService.DescribeTrusts
     newDescribeTrusts,
 
     -- * Request Lenses
-    describeTrusts_nextToken,
     describeTrusts_directoryId,
-    describeTrusts_limit,
+    describeTrusts_nextToken,
     describeTrusts_trustIds,
+    describeTrusts_limit,
 
     -- * Destructuring the Response
     DescribeTrustsResponse (..),
@@ -62,20 +62,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeTrusts' smart constructor.
 data DescribeTrusts = DescribeTrusts'
-  { -- | The /DescribeTrustsResult.NextToken/ value from a previous call to
-    -- DescribeTrusts. Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Directory ID of the Amazon Web Services directory that is a part of
+  { -- | The Directory ID of the Amazon Web Services directory that is a part of
     -- the requested trust relationship.
     directoryId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return.
-    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The /DescribeTrustsResult.NextToken/ value from a previous call to
+    -- DescribeTrusts. Pass null if this is the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of identifiers of the trust relationships for which to obtain the
     -- information. If this member is null, all trust relationships that belong
     -- to the current account are returned.
     --
     -- An empty list results in an @InvalidParameterException@ being thrown.
-    trustIds :: Prelude.Maybe [Prelude.Text]
+    trustIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of objects to return.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,42 +87,38 @@ data DescribeTrusts = DescribeTrusts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeTrusts_nextToken' - The /DescribeTrustsResult.NextToken/ value from a previous call to
--- DescribeTrusts. Pass null if this is the first call.
---
 -- 'directoryId', 'describeTrusts_directoryId' - The Directory ID of the Amazon Web Services directory that is a part of
 -- the requested trust relationship.
 --
--- 'limit', 'describeTrusts_limit' - The maximum number of objects to return.
+-- 'nextToken', 'describeTrusts_nextToken' - The /DescribeTrustsResult.NextToken/ value from a previous call to
+-- DescribeTrusts. Pass null if this is the first call.
 --
 -- 'trustIds', 'describeTrusts_trustIds' - A list of identifiers of the trust relationships for which to obtain the
 -- information. If this member is null, all trust relationships that belong
 -- to the current account are returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
+--
+-- 'limit', 'describeTrusts_limit' - The maximum number of objects to return.
 newDescribeTrusts ::
   DescribeTrusts
 newDescribeTrusts =
   DescribeTrusts'
-    { nextToken = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      trustIds = Prelude.Nothing
+    { directoryId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      trustIds = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
-
--- | The /DescribeTrustsResult.NextToken/ value from a previous call to
--- DescribeTrusts. Pass null if this is the first call.
-describeTrusts_nextToken :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Text)
-describeTrusts_nextToken = Lens.lens (\DescribeTrusts' {nextToken} -> nextToken) (\s@DescribeTrusts' {} a -> s {nextToken = a} :: DescribeTrusts)
 
 -- | The Directory ID of the Amazon Web Services directory that is a part of
 -- the requested trust relationship.
 describeTrusts_directoryId :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Text)
 describeTrusts_directoryId = Lens.lens (\DescribeTrusts' {directoryId} -> directoryId) (\s@DescribeTrusts' {} a -> s {directoryId = a} :: DescribeTrusts)
 
--- | The maximum number of objects to return.
-describeTrusts_limit :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Natural)
-describeTrusts_limit = Lens.lens (\DescribeTrusts' {limit} -> limit) (\s@DescribeTrusts' {} a -> s {limit = a} :: DescribeTrusts)
+-- | The /DescribeTrustsResult.NextToken/ value from a previous call to
+-- DescribeTrusts. Pass null if this is the first call.
+describeTrusts_nextToken :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Text)
+describeTrusts_nextToken = Lens.lens (\DescribeTrusts' {nextToken} -> nextToken) (\s@DescribeTrusts' {} a -> s {nextToken = a} :: DescribeTrusts)
 
 -- | A list of identifiers of the trust relationships for which to obtain the
 -- information. If this member is null, all trust relationships that belong
@@ -130,7 +126,11 @@ describeTrusts_limit = Lens.lens (\DescribeTrusts' {limit} -> limit) (\s@Describ
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
 describeTrusts_trustIds :: Lens.Lens' DescribeTrusts (Prelude.Maybe [Prelude.Text])
-describeTrusts_trustIds = Lens.lens (\DescribeTrusts' {trustIds} -> trustIds) (\s@DescribeTrusts' {} a -> s {trustIds = a} :: DescribeTrusts) Prelude.. Lens.mapping Lens._Coerce
+describeTrusts_trustIds = Lens.lens (\DescribeTrusts' {trustIds} -> trustIds) (\s@DescribeTrusts' {} a -> s {trustIds = a} :: DescribeTrusts) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of objects to return.
+describeTrusts_limit :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Natural)
+describeTrusts_limit = Lens.lens (\DescribeTrusts' {limit} -> limit) (\s@DescribeTrusts' {} a -> s {limit = a} :: DescribeTrusts)
 
 instance Core.AWSPager DescribeTrusts where
   page rq rs
@@ -189,10 +189,10 @@ instance Core.ToJSON DescribeTrusts where
   toJSON DescribeTrusts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("TrustIds" Core..=) Prelude.<$> trustIds
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("TrustIds" Core..=) Prelude.<$> trustIds,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
@@ -267,7 +267,7 @@ describeTrustsResponse_nextToken = Lens.lens (\DescribeTrustsResponse' {nextToke
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
 describeTrustsResponse_trusts :: Lens.Lens' DescribeTrustsResponse (Prelude.Maybe [Trust])
-describeTrustsResponse_trusts = Lens.lens (\DescribeTrustsResponse' {trusts} -> trusts) (\s@DescribeTrustsResponse' {} a -> s {trusts = a} :: DescribeTrustsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTrustsResponse_trusts = Lens.lens (\DescribeTrustsResponse' {trusts} -> trusts) (\s@DescribeTrustsResponse' {} a -> s {trusts = a} :: DescribeTrustsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTrustsResponse_httpStatus :: Lens.Lens' DescribeTrustsResponse Prelude.Int

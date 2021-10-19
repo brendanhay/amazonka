@@ -76,7 +76,7 @@ newOriginRequestPolicyList pMaxItems_ pQuantity_ =
 
 -- | Contains the origin request policies in the list.
 originRequestPolicyList_items :: Lens.Lens' OriginRequestPolicyList (Prelude.Maybe [OriginRequestPolicySummary])
-originRequestPolicyList_items = Lens.lens (\OriginRequestPolicyList' {items} -> items) (\s@OriginRequestPolicyList' {} a -> s {items = a} :: OriginRequestPolicyList) Prelude.. Lens.mapping Lens._Coerce
+originRequestPolicyList_items = Lens.lens (\OriginRequestPolicyList' {items} -> items) (\s@OriginRequestPolicyList' {} a -> s {items = a} :: OriginRequestPolicyList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the

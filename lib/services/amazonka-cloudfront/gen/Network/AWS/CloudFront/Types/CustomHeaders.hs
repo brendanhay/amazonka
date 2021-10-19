@@ -64,7 +64,7 @@ newCustomHeaders pQuantity_ =
 -- each custom header that you want CloudFront to forward to the origin. If
 -- Quantity is @0@, omit @Items@.
 customHeaders_items :: Lens.Lens' CustomHeaders (Prelude.Maybe [OriginCustomHeader])
-customHeaders_items = Lens.lens (\CustomHeaders' {items} -> items) (\s@CustomHeaders' {} a -> s {items = a} :: CustomHeaders) Prelude.. Lens.mapping Lens._Coerce
+customHeaders_items = Lens.lens (\CustomHeaders' {items} -> items) (\s@CustomHeaders' {} a -> s {items = a} :: CustomHeaders) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of custom headers, if any, for this distribution.
 customHeaders_quantity :: Lens.Lens' CustomHeaders Prelude.Int

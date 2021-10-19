@@ -38,9 +38,9 @@ module Network.AWS.CloudFront.ListOriginRequestPolicies
     newListOriginRequestPolicies,
 
     -- * Request Lenses
-    listOriginRequestPolicies_type,
-    listOriginRequestPolicies_maxItems,
     listOriginRequestPolicies_marker,
+    listOriginRequestPolicies_maxItems,
+    listOriginRequestPolicies_type,
 
     -- * Destructuring the Response
     ListOriginRequestPoliciesResponse (..),
@@ -61,23 +61,23 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListOriginRequestPolicies' smart constructor.
 data ListOriginRequestPolicies = ListOriginRequestPolicies'
-  { -- | A filter to return only the specified kinds of origin request policies.
+  { -- | Use this field when paginating results to indicate where to begin in
+    -- your list of origin request policies. The response includes origin
+    -- request policies in the list that occur after the marker. To get the
+    -- next page of the list, set this field’s value to the value of
+    -- @NextMarker@ from the current page’s response.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of origin request policies that you want in the
+    -- response.
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | A filter to return only the specified kinds of origin request policies.
     -- Valid values are:
     --
     -- -   @managed@ – Returns only the managed policies created by Amazon Web
     --     Services.
     --
     -- -   @custom@ – Returns only the custom policies created in your account.
-    type' :: Prelude.Maybe OriginRequestPolicyType,
-    -- | The maximum number of origin request policies that you want in the
-    -- response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
-    -- your list of origin request policies. The response includes origin
-    -- request policies in the list that occur after the marker. To get the
-    -- next page of the list, set this field’s value to the value of
-    -- @NextMarker@ from the current page’s response.
-    marker :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe OriginRequestPolicyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +89,15 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listOriginRequestPolicies_marker' - Use this field when paginating results to indicate where to begin in
+-- your list of origin request policies. The response includes origin
+-- request policies in the list that occur after the marker. To get the
+-- next page of the list, set this field’s value to the value of
+-- @NextMarker@ from the current page’s response.
+--
+-- 'maxItems', 'listOriginRequestPolicies_maxItems' - The maximum number of origin request policies that you want in the
+-- response.
+--
 -- 'type'', 'listOriginRequestPolicies_type' - A filter to return only the specified kinds of origin request policies.
 -- Valid values are:
 --
@@ -96,23 +105,28 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 --     Services.
 --
 -- -   @custom@ – Returns only the custom policies created in your account.
---
--- 'maxItems', 'listOriginRequestPolicies_maxItems' - The maximum number of origin request policies that you want in the
--- response.
---
--- 'marker', 'listOriginRequestPolicies_marker' - Use this field when paginating results to indicate where to begin in
--- your list of origin request policies. The response includes origin
--- request policies in the list that occur after the marker. To get the
--- next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
 newListOriginRequestPolicies ::
   ListOriginRequestPolicies
 newListOriginRequestPolicies =
   ListOriginRequestPolicies'
-    { type' = Prelude.Nothing,
+    { marker =
+        Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      type' = Prelude.Nothing
     }
+
+-- | Use this field when paginating results to indicate where to begin in
+-- your list of origin request policies. The response includes origin
+-- request policies in the list that occur after the marker. To get the
+-- next page of the list, set this field’s value to the value of
+-- @NextMarker@ from the current page’s response.
+listOriginRequestPolicies_marker :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe Prelude.Text)
+listOriginRequestPolicies_marker = Lens.lens (\ListOriginRequestPolicies' {marker} -> marker) (\s@ListOriginRequestPolicies' {} a -> s {marker = a} :: ListOriginRequestPolicies)
+
+-- | The maximum number of origin request policies that you want in the
+-- response.
+listOriginRequestPolicies_maxItems :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe Prelude.Text)
+listOriginRequestPolicies_maxItems = Lens.lens (\ListOriginRequestPolicies' {maxItems} -> maxItems) (\s@ListOriginRequestPolicies' {} a -> s {maxItems = a} :: ListOriginRequestPolicies)
 
 -- | A filter to return only the specified kinds of origin request policies.
 -- Valid values are:
@@ -123,19 +137,6 @@ newListOriginRequestPolicies =
 -- -   @custom@ – Returns only the custom policies created in your account.
 listOriginRequestPolicies_type :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe OriginRequestPolicyType)
 listOriginRequestPolicies_type = Lens.lens (\ListOriginRequestPolicies' {type'} -> type') (\s@ListOriginRequestPolicies' {} a -> s {type' = a} :: ListOriginRequestPolicies)
-
--- | The maximum number of origin request policies that you want in the
--- response.
-listOriginRequestPolicies_maxItems :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe Prelude.Text)
-listOriginRequestPolicies_maxItems = Lens.lens (\ListOriginRequestPolicies' {maxItems} -> maxItems) (\s@ListOriginRequestPolicies' {} a -> s {maxItems = a} :: ListOriginRequestPolicies)
-
--- | Use this field when paginating results to indicate where to begin in
--- your list of origin request policies. The response includes origin
--- request policies in the list that occur after the marker. To get the
--- next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
-listOriginRequestPolicies_marker :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe Prelude.Text)
-listOriginRequestPolicies_marker = Lens.lens (\ListOriginRequestPolicies' {marker} -> marker) (\s@ListOriginRequestPolicies' {} a -> s {marker = a} :: ListOriginRequestPolicies)
 
 instance Core.AWSRequest ListOriginRequestPolicies where
   type
@@ -164,9 +165,9 @@ instance Core.ToPath ListOriginRequestPolicies where
 instance Core.ToQuery ListOriginRequestPolicies where
   toQuery ListOriginRequestPolicies' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
+      [ "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "Type" Core.=: type'
       ]
 
 -- | /See:/ 'newListOriginRequestPoliciesResponse' smart constructor.

@@ -57,7 +57,7 @@ newCookieNames pQuantity_ =
 
 -- | A list of cookie names.
 cookieNames_items :: Lens.Lens' CookieNames (Prelude.Maybe [Prelude.Text])
-cookieNames_items = Lens.lens (\CookieNames' {items} -> items) (\s@CookieNames' {} a -> s {items = a} :: CookieNames) Prelude.. Lens.mapping Lens._Coerce
+cookieNames_items = Lens.lens (\CookieNames' {items} -> items) (\s@CookieNames' {} a -> s {items = a} :: CookieNames) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of cookie names in the @Items@ list.
 cookieNames_quantity :: Lens.Lens' CookieNames Prelude.Int

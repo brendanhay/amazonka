@@ -55,7 +55,7 @@ newOrigins ::
 newOrigins pQuantity_ pItems_ =
   Origins'
     { quantity = pQuantity_,
-      items = Lens._Coerce Lens.# pItems_
+      items = Lens.coerced Lens.# pItems_
     }
 
 -- | The number of origins for this distribution.
@@ -64,7 +64,7 @@ origins_quantity = Lens.lens (\Origins' {quantity} -> quantity) (\s@Origins' {} 
 
 -- | A list of origins.
 origins_items :: Lens.Lens' Origins (Prelude.NonEmpty Origin)
-origins_items = Lens.lens (\Origins' {items} -> items) (\s@Origins' {} a -> s {items = a} :: Origins) Prelude.. Lens._Coerce
+origins_items = Lens.lens (\Origins' {items} -> items) (\s@Origins' {} a -> s {items = a} :: Origins) Prelude.. Lens.coerced
 
 instance Core.FromXML Origins where
   parseXML x =

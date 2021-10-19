@@ -14,257 +14,25 @@
 module Network.AWS.CloudFront.Lens
   ( -- * Operations
 
-    -- ** DeletePublicKey
-    deletePublicKey_ifMatch,
-    deletePublicKey_id,
+    -- ** DeleteOriginRequestPolicy
+    deleteOriginRequestPolicy_ifMatch,
+    deleteOriginRequestPolicy_id,
 
-    -- ** ListPublicKeys
-    listPublicKeys_maxItems,
-    listPublicKeys_marker,
-    listPublicKeysResponse_publicKeyList,
-    listPublicKeysResponse_httpStatus,
-
-    -- ** UpdatePublicKey
-    updatePublicKey_ifMatch,
-    updatePublicKey_publicKeyConfig,
-    updatePublicKey_id,
-    updatePublicKeyResponse_eTag,
-    updatePublicKeyResponse_publicKey,
-    updatePublicKeyResponse_httpStatus,
-
-    -- ** GetDistribution
-    getDistribution_id,
-    getDistributionResponse_eTag,
-    getDistributionResponse_distribution,
-    getDistributionResponse_httpStatus,
-
-    -- ** GetFunction
-    getFunction_stage,
-    getFunction_name,
-    getFunctionResponse_eTag,
-    getFunctionResponse_contentType,
-    getFunctionResponse_functionCode,
-    getFunctionResponse_httpStatus,
+    -- ** UpdateOriginRequestPolicy
+    updateOriginRequestPolicy_ifMatch,
+    updateOriginRequestPolicy_originRequestPolicyConfig,
+    updateOriginRequestPolicy_id,
+    updateOriginRequestPolicyResponse_eTag,
+    updateOriginRequestPolicyResponse_originRequestPolicy,
+    updateOriginRequestPolicyResponse_httpStatus,
 
     -- ** ListConflictingAliases
-    listConflictingAliases_maxItems,
     listConflictingAliases_marker,
+    listConflictingAliases_maxItems,
     listConflictingAliases_distributionId,
     listConflictingAliases_alias,
     listConflictingAliasesResponse_conflictingAliasesList,
     listConflictingAliasesResponse_httpStatus,
-
-    -- ** GetKeyGroupConfig
-    getKeyGroupConfig_id,
-    getKeyGroupConfigResponse_eTag,
-    getKeyGroupConfigResponse_keyGroupConfig,
-    getKeyGroupConfigResponse_httpStatus,
-
-    -- ** CreateFieldLevelEncryptionProfile
-    createFieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig,
-    createFieldLevelEncryptionProfileResponse_eTag,
-    createFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
-    createFieldLevelEncryptionProfileResponse_location,
-    createFieldLevelEncryptionProfileResponse_httpStatus,
-
-    -- ** ListKeyGroups
-    listKeyGroups_maxItems,
-    listKeyGroups_marker,
-    listKeyGroupsResponse_keyGroupList,
-    listKeyGroupsResponse_httpStatus,
-
-    -- ** GetMonitoringSubscription
-    getMonitoringSubscription_distributionId,
-    getMonitoringSubscriptionResponse_monitoringSubscription,
-    getMonitoringSubscriptionResponse_httpStatus,
-
-    -- ** ListDistributionsByCachePolicyId
-    listDistributionsByCachePolicyId_maxItems,
-    listDistributionsByCachePolicyId_marker,
-    listDistributionsByCachePolicyId_cachePolicyId,
-    listDistributionsByCachePolicyIdResponse_distributionIdList,
-    listDistributionsByCachePolicyIdResponse_httpStatus,
-
-    -- ** ListOriginRequestPolicies
-    listOriginRequestPolicies_type,
-    listOriginRequestPolicies_maxItems,
-    listOriginRequestPolicies_marker,
-    listOriginRequestPoliciesResponse_originRequestPolicyList,
-    listOriginRequestPoliciesResponse_httpStatus,
-
-    -- ** CreateOriginRequestPolicy
-    createOriginRequestPolicy_originRequestPolicyConfig,
-    createOriginRequestPolicyResponse_eTag,
-    createOriginRequestPolicyResponse_originRequestPolicy,
-    createOriginRequestPolicyResponse_location,
-    createOriginRequestPolicyResponse_httpStatus,
-
-    -- ** GetKeyGroup
-    getKeyGroup_id,
-    getKeyGroupResponse_eTag,
-    getKeyGroupResponse_keyGroup,
-    getKeyGroupResponse_httpStatus,
-
-    -- ** GetDistributionConfig
-    getDistributionConfig_id,
-    getDistributionConfigResponse_eTag,
-    getDistributionConfigResponse_distributionConfig,
-    getDistributionConfigResponse_httpStatus,
-
-    -- ** ListFunctions
-    listFunctions_stage,
-    listFunctions_maxItems,
-    listFunctions_marker,
-    listFunctionsResponse_functionList,
-    listFunctionsResponse_httpStatus,
-
-    -- ** ListDistributionsByWebACLId
-    listDistributionsByWebACLId_maxItems,
-    listDistributionsByWebACLId_marker,
-    listDistributionsByWebACLId_webACLId,
-    listDistributionsByWebACLIdResponse_distributionList,
-    listDistributionsByWebACLIdResponse_httpStatus,
-
-    -- ** ListDistributions
-    listDistributions_maxItems,
-    listDistributions_marker,
-    listDistributionsResponse_httpStatus,
-    listDistributionsResponse_distributionList,
-
-    -- ** PublishFunction
-    publishFunction_name,
-    publishFunction_ifMatch,
-    publishFunctionResponse_functionSummary,
-    publishFunctionResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resource,
-    untagResource_tagKeys,
-
-    -- ** TagResource
-    tagResource_resource,
-    tagResource_tags,
-
-    -- ** UpdateFieldLevelEncryptionConfig
-    updateFieldLevelEncryptionConfig_ifMatch,
-    updateFieldLevelEncryptionConfig_fieldLevelEncryptionConfig,
-    updateFieldLevelEncryptionConfig_id,
-    updateFieldLevelEncryptionConfigResponse_eTag,
-    updateFieldLevelEncryptionConfigResponse_fieldLevelEncryption,
-    updateFieldLevelEncryptionConfigResponse_httpStatus,
-
-    -- ** GetCloudFrontOriginAccessIdentity
-    getCloudFrontOriginAccessIdentity_id,
-    getCloudFrontOriginAccessIdentityResponse_eTag,
-    getCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
-    getCloudFrontOriginAccessIdentityResponse_httpStatus,
-
-    -- ** DeleteFieldLevelEncryptionConfig
-    deleteFieldLevelEncryptionConfig_ifMatch,
-    deleteFieldLevelEncryptionConfig_id,
-
-    -- ** ListRealtimeLogConfigs
-    listRealtimeLogConfigs_maxItems,
-    listRealtimeLogConfigs_marker,
-    listRealtimeLogConfigsResponse_realtimeLogConfigs,
-    listRealtimeLogConfigsResponse_httpStatus,
-
-    -- ** ListCachePolicies
-    listCachePolicies_type,
-    listCachePolicies_maxItems,
-    listCachePolicies_marker,
-    listCachePoliciesResponse_cachePolicyList,
-    listCachePoliciesResponse_httpStatus,
-
-    -- ** GetPublicKey
-    getPublicKey_id,
-    getPublicKeyResponse_eTag,
-    getPublicKeyResponse_publicKey,
-    getPublicKeyResponse_httpStatus,
-
-    -- ** CreateCachePolicy
-    createCachePolicy_cachePolicyConfig,
-    createCachePolicyResponse_eTag,
-    createCachePolicyResponse_cachePolicy,
-    createCachePolicyResponse_location,
-    createCachePolicyResponse_httpStatus,
-
-    -- ** ListDistributionsByKeyGroup
-    listDistributionsByKeyGroup_maxItems,
-    listDistributionsByKeyGroup_marker,
-    listDistributionsByKeyGroup_keyGroupId,
-    listDistributionsByKeyGroupResponse_distributionIdList,
-    listDistributionsByKeyGroupResponse_httpStatus,
-
-    -- ** ListDistributionsByOriginRequestPolicyId
-    listDistributionsByOriginRequestPolicyId_maxItems,
-    listDistributionsByOriginRequestPolicyId_marker,
-    listDistributionsByOriginRequestPolicyId_originRequestPolicyId,
-    listDistributionsByOriginRequestPolicyIdResponse_distributionIdList,
-    listDistributionsByOriginRequestPolicyIdResponse_httpStatus,
-
-    -- ** ListFieldLevelEncryptionConfigs
-    listFieldLevelEncryptionConfigs_maxItems,
-    listFieldLevelEncryptionConfigs_marker,
-    listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList,
-    listFieldLevelEncryptionConfigsResponse_httpStatus,
-
-    -- ** GetFieldLevelEncryption
-    getFieldLevelEncryption_id,
-    getFieldLevelEncryptionResponse_eTag,
-    getFieldLevelEncryptionResponse_fieldLevelEncryption,
-    getFieldLevelEncryptionResponse_httpStatus,
-
-    -- ** UpdateCachePolicy
-    updateCachePolicy_ifMatch,
-    updateCachePolicy_cachePolicyConfig,
-    updateCachePolicy_id,
-    updateCachePolicyResponse_eTag,
-    updateCachePolicyResponse_cachePolicy,
-    updateCachePolicyResponse_httpStatus,
-
-    -- ** DeleteCachePolicy
-    deleteCachePolicy_ifMatch,
-    deleteCachePolicy_id,
-
-    -- ** GetInvalidation
-    getInvalidation_distributionId,
-    getInvalidation_id,
-    getInvalidationResponse_invalidation,
-    getInvalidationResponse_httpStatus,
-
-    -- ** CreateStreamingDistribution
-    createStreamingDistribution_streamingDistributionConfig,
-    createStreamingDistributionResponse_eTag,
-    createStreamingDistributionResponse_streamingDistribution,
-    createStreamingDistributionResponse_location,
-    createStreamingDistributionResponse_httpStatus,
-
-    -- ** GetPublicKeyConfig
-    getPublicKeyConfig_id,
-    getPublicKeyConfigResponse_eTag,
-    getPublicKeyConfigResponse_publicKeyConfig,
-    getPublicKeyConfigResponse_httpStatus,
-
-    -- ** GetCloudFrontOriginAccessIdentityConfig
-    getCloudFrontOriginAccessIdentityConfig_id,
-    getCloudFrontOriginAccessIdentityConfigResponse_eTag,
-    getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig,
-    getCloudFrontOriginAccessIdentityConfigResponse_httpStatus,
-
-    -- ** UpdateCloudFrontOriginAccessIdentity
-    updateCloudFrontOriginAccessIdentity_ifMatch,
-    updateCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig,
-    updateCloudFrontOriginAccessIdentity_id,
-    updateCloudFrontOriginAccessIdentityResponse_eTag,
-    updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
-    updateCloudFrontOriginAccessIdentityResponse_httpStatus,
-
-    -- ** GetRealtimeLogConfig
-    getRealtimeLogConfig_arn,
-    getRealtimeLogConfig_name,
-    getRealtimeLogConfigResponse_realtimeLogConfig,
-    getRealtimeLogConfigResponse_httpStatus,
 
     -- ** DeleteStreamingDistribution
     deleteStreamingDistribution_ifMatch,
@@ -278,16 +46,11 @@ module Network.AWS.CloudFront.Lens
     updateStreamingDistributionResponse_streamingDistribution,
     updateStreamingDistributionResponse_httpStatus,
 
-    -- ** DescribeFunction
-    describeFunction_stage,
-    describeFunction_name,
-    describeFunctionResponse_eTag,
-    describeFunctionResponse_functionSummary,
-    describeFunctionResponse_httpStatus,
-
-    -- ** DeleteCloudFrontOriginAccessIdentity
-    deleteCloudFrontOriginAccessIdentity_ifMatch,
-    deleteCloudFrontOriginAccessIdentity_id,
+    -- ** ListPublicKeys
+    listPublicKeys_marker,
+    listPublicKeys_maxItems,
+    listPublicKeysResponse_publicKeyList,
+    listPublicKeysResponse_httpStatus,
 
     -- ** GetFieldLevelEncryptionConfig
     getFieldLevelEncryptionConfig_id,
@@ -295,197 +58,23 @@ module Network.AWS.CloudFront.Lens
     getFieldLevelEncryptionConfigResponse_fieldLevelEncryptionConfig,
     getFieldLevelEncryptionConfigResponse_httpStatus,
 
-    -- ** ListStreamingDistributions
-    listStreamingDistributions_maxItems,
-    listStreamingDistributions_marker,
-    listStreamingDistributionsResponse_httpStatus,
-    listStreamingDistributionsResponse_streamingDistributionList,
+    -- ** ListTagsForResource
+    listTagsForResource_resource,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
 
-    -- ** GetFieldLevelEncryptionProfileConfig
-    getFieldLevelEncryptionProfileConfig_id,
-    getFieldLevelEncryptionProfileConfigResponse_eTag,
-    getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig,
-    getFieldLevelEncryptionProfileConfigResponse_httpStatus,
+    -- ** CreatePublicKey
+    createPublicKey_publicKeyConfig,
+    createPublicKeyResponse_eTag,
+    createPublicKeyResponse_location,
+    createPublicKeyResponse_publicKey,
+    createPublicKeyResponse_httpStatus,
 
-    -- ** DeleteOriginRequestPolicy
-    deleteOriginRequestPolicy_ifMatch,
-    deleteOriginRequestPolicy_id,
-
-    -- ** TestFunction
-    testFunction_stage,
-    testFunction_name,
-    testFunction_ifMatch,
-    testFunction_eventObject,
-    testFunctionResponse_testResult,
-    testFunctionResponse_httpStatus,
-
-    -- ** CreateKeyGroup
-    createKeyGroup_keyGroupConfig,
-    createKeyGroupResponse_eTag,
-    createKeyGroupResponse_keyGroup,
-    createKeyGroupResponse_location,
-    createKeyGroupResponse_httpStatus,
-
-    -- ** UpdateOriginRequestPolicy
-    updateOriginRequestPolicy_ifMatch,
-    updateOriginRequestPolicy_originRequestPolicyConfig,
-    updateOriginRequestPolicy_id,
-    updateOriginRequestPolicyResponse_eTag,
-    updateOriginRequestPolicyResponse_originRequestPolicy,
-    updateOriginRequestPolicyResponse_httpStatus,
-
-    -- ** UpdateFieldLevelEncryptionProfile
-    updateFieldLevelEncryptionProfile_ifMatch,
-    updateFieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig,
-    updateFieldLevelEncryptionProfile_id,
-    updateFieldLevelEncryptionProfileResponse_eTag,
-    updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
-    updateFieldLevelEncryptionProfileResponse_httpStatus,
-
-    -- ** DeleteKeyGroup
-    deleteKeyGroup_ifMatch,
-    deleteKeyGroup_id,
-
-    -- ** GetOriginRequestPolicyConfig
-    getOriginRequestPolicyConfig_id,
-    getOriginRequestPolicyConfigResponse_eTag,
-    getOriginRequestPolicyConfigResponse_originRequestPolicyConfig,
-    getOriginRequestPolicyConfigResponse_httpStatus,
-
-    -- ** ListFieldLevelEncryptionProfiles
-    listFieldLevelEncryptionProfiles_maxItems,
-    listFieldLevelEncryptionProfiles_marker,
-    listFieldLevelEncryptionProfilesResponse_fieldLevelEncryptionProfileList,
-    listFieldLevelEncryptionProfilesResponse_httpStatus,
-
-    -- ** DeleteFieldLevelEncryptionProfile
-    deleteFieldLevelEncryptionProfile_ifMatch,
-    deleteFieldLevelEncryptionProfile_id,
-
-    -- ** UpdateKeyGroup
-    updateKeyGroup_ifMatch,
-    updateKeyGroup_keyGroupConfig,
-    updateKeyGroup_id,
-    updateKeyGroupResponse_eTag,
-    updateKeyGroupResponse_keyGroup,
-    updateKeyGroupResponse_httpStatus,
-
-    -- ** CreateStreamingDistributionWithTags
-    createStreamingDistributionWithTags_streamingDistributionConfigWithTags,
-    createStreamingDistributionWithTagsResponse_eTag,
-    createStreamingDistributionWithTagsResponse_streamingDistribution,
-    createStreamingDistributionWithTagsResponse_location,
-    createStreamingDistributionWithTagsResponse_httpStatus,
-
-    -- ** ListDistributionsByRealtimeLogConfig
-    listDistributionsByRealtimeLogConfig_realtimeLogConfigName,
-    listDistributionsByRealtimeLogConfig_realtimeLogConfigArn,
-    listDistributionsByRealtimeLogConfig_maxItems,
-    listDistributionsByRealtimeLogConfig_marker,
-    listDistributionsByRealtimeLogConfigResponse_distributionList,
-    listDistributionsByRealtimeLogConfigResponse_httpStatus,
-
-    -- ** CreateFunction
-    createFunction_name,
-    createFunction_functionConfig,
-    createFunction_functionCode,
-    createFunctionResponse_eTag,
-    createFunctionResponse_functionSummary,
-    createFunctionResponse_location,
-    createFunctionResponse_httpStatus,
-
-    -- ** DeleteMonitoringSubscription
-    deleteMonitoringSubscription_distributionId,
-    deleteMonitoringSubscriptionResponse_httpStatus,
-
-    -- ** GetFieldLevelEncryptionProfile
-    getFieldLevelEncryptionProfile_id,
-    getFieldLevelEncryptionProfileResponse_eTag,
-    getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
-    getFieldLevelEncryptionProfileResponse_httpStatus,
-
-    -- ** CreateDistribution
-    createDistribution_distributionConfig,
-    createDistributionResponse_eTag,
-    createDistributionResponse_distribution,
-    createDistributionResponse_location,
-    createDistributionResponse_httpStatus,
-
-    -- ** DeleteDistribution
-    deleteDistribution_ifMatch,
-    deleteDistribution_id,
-
-    -- ** DeleteFunction
-    deleteFunction_ifMatch,
-    deleteFunction_name,
-
-    -- ** UpdateDistribution
-    updateDistribution_ifMatch,
-    updateDistribution_distributionConfig,
-    updateDistribution_id,
-    updateDistributionResponse_eTag,
-    updateDistributionResponse_distribution,
-    updateDistributionResponse_httpStatus,
-
-    -- ** CreateMonitoringSubscription
-    createMonitoringSubscription_monitoringSubscription,
-    createMonitoringSubscription_distributionId,
-    createMonitoringSubscriptionResponse_monitoringSubscription,
-    createMonitoringSubscriptionResponse_httpStatus,
-
-    -- ** GetOriginRequestPolicy
-    getOriginRequestPolicy_id,
-    getOriginRequestPolicyResponse_eTag,
-    getOriginRequestPolicyResponse_originRequestPolicy,
-    getOriginRequestPolicyResponse_httpStatus,
-
-    -- ** UpdateFunction
-    updateFunction_ifMatch,
-    updateFunction_functionConfig,
-    updateFunction_functionCode,
-    updateFunction_name,
-    updateFunctionResponse_eTag,
-    updateFunctionResponse_functionSummary,
-    updateFunctionResponse_httpStatus,
-
-    -- ** GetCachePolicyConfig
-    getCachePolicyConfig_id,
-    getCachePolicyConfigResponse_eTag,
-    getCachePolicyConfigResponse_cachePolicyConfig,
-    getCachePolicyConfigResponse_httpStatus,
-
-    -- ** GetStreamingDistribution
-    getStreamingDistribution_id,
-    getStreamingDistributionResponse_eTag,
-    getStreamingDistributionResponse_streamingDistribution,
-    getStreamingDistributionResponse_httpStatus,
-
-    -- ** CreateInvalidation
-    createInvalidation_distributionId,
-    createInvalidation_invalidationBatch,
-    createInvalidationResponse_invalidation,
-    createInvalidationResponse_location,
-    createInvalidationResponse_httpStatus,
-
-    -- ** UpdateRealtimeLogConfig
-    updateRealtimeLogConfig_samplingRate,
-    updateRealtimeLogConfig_endPoints,
-    updateRealtimeLogConfig_arn,
-    updateRealtimeLogConfig_name,
-    updateRealtimeLogConfig_fields,
-    updateRealtimeLogConfigResponse_realtimeLogConfig,
-    updateRealtimeLogConfigResponse_httpStatus,
-
-    -- ** DeleteRealtimeLogConfig
-    deleteRealtimeLogConfig_arn,
-    deleteRealtimeLogConfig_name,
-
-    -- ** ListInvalidations
-    listInvalidations_maxItems,
-    listInvalidations_marker,
-    listInvalidations_distributionId,
-    listInvalidationsResponse_httpStatus,
-    listInvalidationsResponse_invalidationList,
+    -- ** GetPublicKeyConfig
+    getPublicKeyConfig_id,
+    getPublicKeyConfigResponse_eTag,
+    getPublicKeyConfigResponse_publicKeyConfig,
+    getPublicKeyConfigResponse_httpStatus,
 
     -- ** CreateDistributionWithTags
     createDistributionWithTags_distributionConfigWithTags,
@@ -497,9 +86,274 @@ module Network.AWS.CloudFront.Lens
     -- ** CreateFieldLevelEncryptionConfig
     createFieldLevelEncryptionConfig_fieldLevelEncryptionConfig,
     createFieldLevelEncryptionConfigResponse_eTag,
-    createFieldLevelEncryptionConfigResponse_fieldLevelEncryption,
     createFieldLevelEncryptionConfigResponse_location,
+    createFieldLevelEncryptionConfigResponse_fieldLevelEncryption,
     createFieldLevelEncryptionConfigResponse_httpStatus,
+
+    -- ** DeleteCachePolicy
+    deleteCachePolicy_ifMatch,
+    deleteCachePolicy_id,
+
+    -- ** UpdateCachePolicy
+    updateCachePolicy_ifMatch,
+    updateCachePolicy_cachePolicyConfig,
+    updateCachePolicy_id,
+    updateCachePolicyResponse_cachePolicy,
+    updateCachePolicyResponse_eTag,
+    updateCachePolicyResponse_httpStatus,
+
+    -- ** GetFieldLevelEncryption
+    getFieldLevelEncryption_id,
+    getFieldLevelEncryptionResponse_eTag,
+    getFieldLevelEncryptionResponse_fieldLevelEncryption,
+    getFieldLevelEncryptionResponse_httpStatus,
+
+    -- ** ListRealtimeLogConfigs
+    listRealtimeLogConfigs_marker,
+    listRealtimeLogConfigs_maxItems,
+    listRealtimeLogConfigsResponse_realtimeLogConfigs,
+    listRealtimeLogConfigsResponse_httpStatus,
+
+    -- ** GetPublicKey
+    getPublicKey_id,
+    getPublicKeyResponse_eTag,
+    getPublicKeyResponse_publicKey,
+    getPublicKeyResponse_httpStatus,
+
+    -- ** DeleteRealtimeLogConfig
+    deleteRealtimeLogConfig_arn,
+    deleteRealtimeLogConfig_name,
+
+    -- ** UpdateRealtimeLogConfig
+    updateRealtimeLogConfig_arn,
+    updateRealtimeLogConfig_samplingRate,
+    updateRealtimeLogConfig_name,
+    updateRealtimeLogConfig_endPoints,
+    updateRealtimeLogConfig_fields,
+    updateRealtimeLogConfigResponse_realtimeLogConfig,
+    updateRealtimeLogConfigResponse_httpStatus,
+
+    -- ** ListDistributionsByOriginRequestPolicyId
+    listDistributionsByOriginRequestPolicyId_marker,
+    listDistributionsByOriginRequestPolicyId_maxItems,
+    listDistributionsByOriginRequestPolicyId_originRequestPolicyId,
+    listDistributionsByOriginRequestPolicyIdResponse_distributionIdList,
+    listDistributionsByOriginRequestPolicyIdResponse_httpStatus,
+
+    -- ** DeleteFieldLevelEncryptionConfig
+    deleteFieldLevelEncryptionConfig_ifMatch,
+    deleteFieldLevelEncryptionConfig_id,
+
+    -- ** UpdateFieldLevelEncryptionConfig
+    updateFieldLevelEncryptionConfig_ifMatch,
+    updateFieldLevelEncryptionConfig_fieldLevelEncryptionConfig,
+    updateFieldLevelEncryptionConfig_id,
+    updateFieldLevelEncryptionConfigResponse_eTag,
+    updateFieldLevelEncryptionConfigResponse_fieldLevelEncryption,
+    updateFieldLevelEncryptionConfigResponse_httpStatus,
+
+    -- ** GetKeyGroup
+    getKeyGroup_id,
+    getKeyGroupResponse_eTag,
+    getKeyGroupResponse_keyGroup,
+    getKeyGroupResponse_httpStatus,
+
+    -- ** CreateDistribution
+    createDistribution_distributionConfig,
+    createDistributionResponse_eTag,
+    createDistributionResponse_distribution,
+    createDistributionResponse_location,
+    createDistributionResponse_httpStatus,
+
+    -- ** GetFieldLevelEncryptionProfile
+    getFieldLevelEncryptionProfile_id,
+    getFieldLevelEncryptionProfileResponse_eTag,
+    getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
+    getFieldLevelEncryptionProfileResponse_httpStatus,
+
+    -- ** DeleteMonitoringSubscription
+    deleteMonitoringSubscription_distributionId,
+    deleteMonitoringSubscriptionResponse_httpStatus,
+
+    -- ** CreateFunction
+    createFunction_name,
+    createFunction_functionConfig,
+    createFunction_functionCode,
+    createFunctionResponse_eTag,
+    createFunctionResponse_location,
+    createFunctionResponse_functionSummary,
+    createFunctionResponse_httpStatus,
+
+    -- ** GetDistributionConfig
+    getDistributionConfig_id,
+    getDistributionConfigResponse_eTag,
+    getDistributionConfigResponse_distributionConfig,
+    getDistributionConfigResponse_httpStatus,
+
+    -- ** CreateStreamingDistributionWithTags
+    createStreamingDistributionWithTags_streamingDistributionConfigWithTags,
+    createStreamingDistributionWithTagsResponse_eTag,
+    createStreamingDistributionWithTagsResponse_location,
+    createStreamingDistributionWithTagsResponse_streamingDistribution,
+    createStreamingDistributionWithTagsResponse_httpStatus,
+
+    -- ** DeleteFieldLevelEncryptionProfile
+    deleteFieldLevelEncryptionProfile_ifMatch,
+    deleteFieldLevelEncryptionProfile_id,
+
+    -- ** UpdateFieldLevelEncryptionProfile
+    updateFieldLevelEncryptionProfile_ifMatch,
+    updateFieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig,
+    updateFieldLevelEncryptionProfile_id,
+    updateFieldLevelEncryptionProfileResponse_eTag,
+    updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
+    updateFieldLevelEncryptionProfileResponse_httpStatus,
+
+    -- ** ListDistributionsByCachePolicyId
+    listDistributionsByCachePolicyId_marker,
+    listDistributionsByCachePolicyId_maxItems,
+    listDistributionsByCachePolicyId_cachePolicyId,
+    listDistributionsByCachePolicyIdResponse_distributionIdList,
+    listDistributionsByCachePolicyIdResponse_httpStatus,
+
+    -- ** TestFunction
+    testFunction_stage,
+    testFunction_name,
+    testFunction_ifMatch,
+    testFunction_eventObject,
+    testFunctionResponse_testResult,
+    testFunctionResponse_httpStatus,
+
+    -- ** CreateFieldLevelEncryptionProfile
+    createFieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig,
+    createFieldLevelEncryptionProfileResponse_eTag,
+    createFieldLevelEncryptionProfileResponse_location,
+    createFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
+    createFieldLevelEncryptionProfileResponse_httpStatus,
+
+    -- ** GetKeyGroupConfig
+    getKeyGroupConfig_id,
+    getKeyGroupConfigResponse_eTag,
+    getKeyGroupConfigResponse_keyGroupConfig,
+    getKeyGroupConfigResponse_httpStatus,
+
+    -- ** GetDistribution
+    getDistribution_id,
+    getDistributionResponse_eTag,
+    getDistributionResponse_distribution,
+    getDistributionResponse_httpStatus,
+
+    -- ** GetFieldLevelEncryptionProfileConfig
+    getFieldLevelEncryptionProfileConfig_id,
+    getFieldLevelEncryptionProfileConfigResponse_eTag,
+    getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig,
+    getFieldLevelEncryptionProfileConfigResponse_httpStatus,
+
+    -- ** GetFunction
+    getFunction_stage,
+    getFunction_name,
+    getFunctionResponse_eTag,
+    getFunctionResponse_functionCode,
+    getFunctionResponse_contentType,
+    getFunctionResponse_httpStatus,
+
+    -- ** CreateKeyGroup
+    createKeyGroup_keyGroupConfig,
+    createKeyGroupResponse_eTag,
+    createKeyGroupResponse_location,
+    createKeyGroupResponse_keyGroup,
+    createKeyGroupResponse_httpStatus,
+
+    -- ** UpdateCloudFrontOriginAccessIdentity
+    updateCloudFrontOriginAccessIdentity_ifMatch,
+    updateCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig,
+    updateCloudFrontOriginAccessIdentity_id,
+    updateCloudFrontOriginAccessIdentityResponse_eTag,
+    updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
+    updateCloudFrontOriginAccessIdentityResponse_httpStatus,
+
+    -- ** DeleteCloudFrontOriginAccessIdentity
+    deleteCloudFrontOriginAccessIdentity_ifMatch,
+    deleteCloudFrontOriginAccessIdentity_id,
+
+    -- ** ListStreamingDistributions
+    listStreamingDistributions_marker,
+    listStreamingDistributions_maxItems,
+    listStreamingDistributionsResponse_httpStatus,
+    listStreamingDistributionsResponse_streamingDistributionList,
+
+    -- ** DeletePublicKey
+    deletePublicKey_ifMatch,
+    deletePublicKey_id,
+
+    -- ** UpdatePublicKey
+    updatePublicKey_ifMatch,
+    updatePublicKey_publicKeyConfig,
+    updatePublicKey_id,
+    updatePublicKeyResponse_eTag,
+    updatePublicKeyResponse_publicKey,
+    updatePublicKeyResponse_httpStatus,
+
+    -- ** GetRealtimeLogConfig
+    getRealtimeLogConfig_arn,
+    getRealtimeLogConfig_name,
+    getRealtimeLogConfigResponse_realtimeLogConfig,
+    getRealtimeLogConfigResponse_httpStatus,
+
+    -- ** DescribeFunction
+    describeFunction_stage,
+    describeFunction_name,
+    describeFunctionResponse_eTag,
+    describeFunctionResponse_functionSummary,
+    describeFunctionResponse_httpStatus,
+
+    -- ** GetStreamingDistributionConfig
+    getStreamingDistributionConfig_id,
+    getStreamingDistributionConfigResponse_streamingDistributionConfig,
+    getStreamingDistributionConfigResponse_eTag,
+    getStreamingDistributionConfigResponse_httpStatus,
+
+    -- ** GetCloudFrontOriginAccessIdentityConfig
+    getCloudFrontOriginAccessIdentityConfig_id,
+    getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig,
+    getCloudFrontOriginAccessIdentityConfigResponse_eTag,
+    getCloudFrontOriginAccessIdentityConfigResponse_httpStatus,
+
+    -- ** CreateStreamingDistribution
+    createStreamingDistribution_streamingDistributionConfig,
+    createStreamingDistributionResponse_eTag,
+    createStreamingDistributionResponse_location,
+    createStreamingDistributionResponse_streamingDistribution,
+    createStreamingDistributionResponse_httpStatus,
+
+    -- ** CreateCloudFrontOriginAccessIdentity
+    createCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig,
+    createCloudFrontOriginAccessIdentityResponse_eTag,
+    createCloudFrontOriginAccessIdentityResponse_location,
+    createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
+    createCloudFrontOriginAccessIdentityResponse_httpStatus,
+
+    -- ** ListCloudFrontOriginAccessIdentities
+    listCloudFrontOriginAccessIdentities_marker,
+    listCloudFrontOriginAccessIdentities_maxItems,
+    listCloudFrontOriginAccessIdentitiesResponse_httpStatus,
+    listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList,
+
+    -- ** GetInvalidation
+    getInvalidation_distributionId,
+    getInvalidation_id,
+    getInvalidationResponse_invalidation,
+    getInvalidationResponse_httpStatus,
+
+    -- ** GetCachePolicy
+    getCachePolicy_id,
+    getCachePolicyResponse_cachePolicy,
+    getCachePolicyResponse_eTag,
+    getCachePolicyResponse_httpStatus,
+
+    -- ** AssociateAlias
+    associateAlias_targetDistributionId,
+    associateAlias_alias,
 
     -- ** CreateRealtimeLogConfig
     createRealtimeLogConfig_endPoints,
@@ -509,46 +363,192 @@ module Network.AWS.CloudFront.Lens
     createRealtimeLogConfigResponse_realtimeLogConfig,
     createRealtimeLogConfigResponse_httpStatus,
 
-    -- ** GetStreamingDistributionConfig
-    getStreamingDistributionConfig_id,
-    getStreamingDistributionConfigResponse_eTag,
-    getStreamingDistributionConfigResponse_streamingDistributionConfig,
-    getStreamingDistributionConfigResponse_httpStatus,
+    -- ** ListInvalidations
+    listInvalidations_marker,
+    listInvalidations_maxItems,
+    listInvalidations_distributionId,
+    listInvalidationsResponse_httpStatus,
+    listInvalidationsResponse_invalidationList,
 
-    -- ** GetCachePolicy
-    getCachePolicy_id,
-    getCachePolicyResponse_eTag,
-    getCachePolicyResponse_cachePolicy,
-    getCachePolicyResponse_httpStatus,
+    -- ** CreateInvalidation
+    createInvalidation_distributionId,
+    createInvalidation_invalidationBatch,
+    createInvalidationResponse_invalidation,
+    createInvalidationResponse_location,
+    createInvalidationResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resource,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
+    -- ** GetCloudFrontOriginAccessIdentity
+    getCloudFrontOriginAccessIdentity_id,
+    getCloudFrontOriginAccessIdentityResponse_eTag,
+    getCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
+    getCloudFrontOriginAccessIdentityResponse_httpStatus,
 
-    -- ** CreatePublicKey
-    createPublicKey_publicKeyConfig,
-    createPublicKeyResponse_eTag,
-    createPublicKeyResponse_publicKey,
-    createPublicKeyResponse_location,
-    createPublicKeyResponse_httpStatus,
+    -- ** ListCachePolicies
+    listCachePolicies_marker,
+    listCachePolicies_maxItems,
+    listCachePolicies_type,
+    listCachePoliciesResponse_cachePolicyList,
+    listCachePoliciesResponse_httpStatus,
 
-    -- ** CreateCloudFrontOriginAccessIdentity
-    createCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig,
-    createCloudFrontOriginAccessIdentityResponse_eTag,
-    createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
-    createCloudFrontOriginAccessIdentityResponse_location,
-    createCloudFrontOriginAccessIdentityResponse_httpStatus,
+    -- ** CreateCachePolicy
+    createCachePolicy_cachePolicyConfig,
+    createCachePolicyResponse_cachePolicy,
+    createCachePolicyResponse_eTag,
+    createCachePolicyResponse_location,
+    createCachePolicyResponse_httpStatus,
 
-    -- ** ListCloudFrontOriginAccessIdentities
-    listCloudFrontOriginAccessIdentities_maxItems,
-    listCloudFrontOriginAccessIdentities_marker,
-    listCloudFrontOriginAccessIdentitiesResponse_httpStatus,
-    listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList,
+    -- ** GetCachePolicyConfig
+    getCachePolicyConfig_id,
+    getCachePolicyConfigResponse_eTag,
+    getCachePolicyConfigResponse_cachePolicyConfig,
+    getCachePolicyConfigResponse_httpStatus,
 
-    -- ** AssociateAlias
-    associateAlias_targetDistributionId,
-    associateAlias_alias,
+    -- ** ListFieldLevelEncryptionConfigs
+    listFieldLevelEncryptionConfigs_marker,
+    listFieldLevelEncryptionConfigs_maxItems,
+    listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList,
+    listFieldLevelEncryptionConfigsResponse_httpStatus,
+
+    -- ** ListDistributionsByKeyGroup
+    listDistributionsByKeyGroup_marker,
+    listDistributionsByKeyGroup_maxItems,
+    listDistributionsByKeyGroup_keyGroupId,
+    listDistributionsByKeyGroupResponse_distributionIdList,
+    listDistributionsByKeyGroupResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resource,
+    tagResource_tags,
+
+    -- ** GetStreamingDistribution
+    getStreamingDistribution_id,
+    getStreamingDistributionResponse_eTag,
+    getStreamingDistributionResponse_streamingDistribution,
+    getStreamingDistributionResponse_httpStatus,
+
+    -- ** UpdateDistribution
+    updateDistribution_ifMatch,
+    updateDistribution_distributionConfig,
+    updateDistribution_id,
+    updateDistributionResponse_eTag,
+    updateDistributionResponse_distribution,
+    updateDistributionResponse_httpStatus,
+
+    -- ** UpdateFunction
+    updateFunction_ifMatch,
+    updateFunction_functionConfig,
+    updateFunction_functionCode,
+    updateFunction_name,
+    updateFunctionResponse_eTag,
+    updateFunctionResponse_functionSummary,
+    updateFunctionResponse_httpStatus,
+
+    -- ** DeleteDistribution
+    deleteDistribution_ifMatch,
+    deleteDistribution_id,
+
+    -- ** DeleteFunction
+    deleteFunction_ifMatch,
+    deleteFunction_name,
+
+    -- ** GetOriginRequestPolicy
+    getOriginRequestPolicy_id,
+    getOriginRequestPolicyResponse_eTag,
+    getOriginRequestPolicyResponse_originRequestPolicy,
+    getOriginRequestPolicyResponse_httpStatus,
+
+    -- ** PublishFunction
+    publishFunction_name,
+    publishFunction_ifMatch,
+    publishFunctionResponse_functionSummary,
+    publishFunctionResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resource,
+    untagResource_tagKeys,
+
+    -- ** CreateMonitoringSubscription
+    createMonitoringSubscription_monitoringSubscription,
+    createMonitoringSubscription_distributionId,
+    createMonitoringSubscriptionResponse_monitoringSubscription,
+    createMonitoringSubscriptionResponse_httpStatus,
+
+    -- ** ListDistributionsByWebACLId
+    listDistributionsByWebACLId_marker,
+    listDistributionsByWebACLId_maxItems,
+    listDistributionsByWebACLId_webACLId,
+    listDistributionsByWebACLIdResponse_distributionList,
+    listDistributionsByWebACLIdResponse_httpStatus,
+
+    -- ** ListDistributions
+    listDistributions_marker,
+    listDistributions_maxItems,
+    listDistributionsResponse_httpStatus,
+    listDistributionsResponse_distributionList,
+
+    -- ** ListFunctions
+    listFunctions_stage,
+    listFunctions_marker,
+    listFunctions_maxItems,
+    listFunctionsResponse_functionList,
+    listFunctionsResponse_httpStatus,
+
+    -- ** ListDistributionsByRealtimeLogConfig
+    listDistributionsByRealtimeLogConfig_realtimeLogConfigName,
+    listDistributionsByRealtimeLogConfig_realtimeLogConfigArn,
+    listDistributionsByRealtimeLogConfig_marker,
+    listDistributionsByRealtimeLogConfig_maxItems,
+    listDistributionsByRealtimeLogConfigResponse_distributionList,
+    listDistributionsByRealtimeLogConfigResponse_httpStatus,
+
+    -- ** CreateOriginRequestPolicy
+    createOriginRequestPolicy_originRequestPolicyConfig,
+    createOriginRequestPolicyResponse_eTag,
+    createOriginRequestPolicyResponse_location,
+    createOriginRequestPolicyResponse_originRequestPolicy,
+    createOriginRequestPolicyResponse_httpStatus,
+
+    -- ** ListKeyGroups
+    listKeyGroups_marker,
+    listKeyGroups_maxItems,
+    listKeyGroupsResponse_keyGroupList,
+    listKeyGroupsResponse_httpStatus,
+
+    -- ** ListFieldLevelEncryptionProfiles
+    listFieldLevelEncryptionProfiles_marker,
+    listFieldLevelEncryptionProfiles_maxItems,
+    listFieldLevelEncryptionProfilesResponse_fieldLevelEncryptionProfileList,
+    listFieldLevelEncryptionProfilesResponse_httpStatus,
+
+    -- ** GetMonitoringSubscription
+    getMonitoringSubscription_distributionId,
+    getMonitoringSubscriptionResponse_monitoringSubscription,
+    getMonitoringSubscriptionResponse_httpStatus,
+
+    -- ** UpdateKeyGroup
+    updateKeyGroup_ifMatch,
+    updateKeyGroup_keyGroupConfig,
+    updateKeyGroup_id,
+    updateKeyGroupResponse_eTag,
+    updateKeyGroupResponse_keyGroup,
+    updateKeyGroupResponse_httpStatus,
+
+    -- ** DeleteKeyGroup
+    deleteKeyGroup_ifMatch,
+    deleteKeyGroup_id,
+
+    -- ** ListOriginRequestPolicies
+    listOriginRequestPolicies_marker,
+    listOriginRequestPolicies_maxItems,
+    listOriginRequestPolicies_type,
+    listOriginRequestPoliciesResponse_originRequestPolicyList,
+    listOriginRequestPoliciesResponse_httpStatus,
+
+    -- ** GetOriginRequestPolicyConfig
+    getOriginRequestPolicyConfig_id,
+    getOriginRequestPolicyConfigResponse_eTag,
+    getOriginRequestPolicyConfigResponse_originRequestPolicyConfig,
+    getOriginRequestPolicyConfigResponse_httpStatus,
 
     -- * Types
 
@@ -563,8 +563,8 @@ module Network.AWS.CloudFront.Lens
     activeTrustedSigners_quantity,
 
     -- ** AliasICPRecordal
-    aliasICPRecordal_iCPRecordalStatus,
     aliasICPRecordal_cname,
+    aliasICPRecordal_iCPRecordalStatus,
 
     -- ** Aliases
     aliases_items,
@@ -576,21 +576,21 @@ module Network.AWS.CloudFront.Lens
     allowedMethods_items,
 
     -- ** CacheBehavior
-    cacheBehavior_lambdaFunctionAssociations,
     cacheBehavior_allowedMethods,
-    cacheBehavior_cachePolicyId,
-    cacheBehavior_smoothStreaming,
-    cacheBehavior_fieldLevelEncryptionId,
+    cacheBehavior_lambdaFunctionAssociations,
     cacheBehavior_maxTTL,
-    cacheBehavior_originRequestPolicyId,
-    cacheBehavior_forwardedValues,
-    cacheBehavior_defaultTTL,
-    cacheBehavior_realtimeLogConfigArn,
-    cacheBehavior_compress,
     cacheBehavior_minTTL,
+    cacheBehavior_compress,
+    cacheBehavior_smoothStreaming,
     cacheBehavior_trustedKeyGroups,
-    cacheBehavior_functionAssociations,
+    cacheBehavior_realtimeLogConfigArn,
+    cacheBehavior_defaultTTL,
+    cacheBehavior_forwardedValues,
     cacheBehavior_trustedSigners,
+    cacheBehavior_functionAssociations,
+    cacheBehavior_originRequestPolicyId,
+    cacheBehavior_fieldLevelEncryptionId,
+    cacheBehavior_cachePolicyId,
     cacheBehavior_pathPattern,
     cacheBehavior_targetOriginId,
     cacheBehavior_viewerProtocolPolicy,
@@ -605,10 +605,10 @@ module Network.AWS.CloudFront.Lens
     cachePolicy_cachePolicyConfig,
 
     -- ** CachePolicyConfig
-    cachePolicyConfig_comment,
-    cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin,
     cachePolicyConfig_maxTTL,
+    cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin,
     cachePolicyConfig_defaultTTL,
+    cachePolicyConfig_comment,
     cachePolicyConfig_name,
     cachePolicyConfig_minTTL,
 
@@ -661,15 +661,15 @@ module Network.AWS.CloudFront.Lens
     cloudFrontOriginAccessIdentitySummary_comment,
 
     -- ** ConflictingAlias
-    conflictingAlias_accountId,
     conflictingAlias_alias,
+    conflictingAlias_accountId,
     conflictingAlias_distributionId,
 
     -- ** ConflictingAliasesList
-    conflictingAliasesList_items,
     conflictingAliasesList_quantity,
-    conflictingAliasesList_nextMarker,
+    conflictingAliasesList_items,
     conflictingAliasesList_maxItems,
+    conflictingAliasesList_nextMarker,
 
     -- ** ContentTypeProfile
     contentTypeProfile_profileId,
@@ -693,9 +693,9 @@ module Network.AWS.CloudFront.Lens
     cookiePreference_forward,
 
     -- ** CustomErrorResponse
-    customErrorResponse_errorCachingMinTTL,
-    customErrorResponse_responseCode,
     customErrorResponse_responsePagePath,
+    customErrorResponse_responseCode,
+    customErrorResponse_errorCachingMinTTL,
     customErrorResponse_errorCode,
 
     -- ** CustomErrorResponses
@@ -708,35 +708,35 @@ module Network.AWS.CloudFront.Lens
 
     -- ** CustomOriginConfig
     customOriginConfig_originKeepaliveTimeout,
-    customOriginConfig_originSslProtocols,
     customOriginConfig_originReadTimeout,
+    customOriginConfig_originSslProtocols,
     customOriginConfig_hTTPPort,
     customOriginConfig_hTTPSPort,
     customOriginConfig_originProtocolPolicy,
 
     -- ** DefaultCacheBehavior
-    defaultCacheBehavior_lambdaFunctionAssociations,
     defaultCacheBehavior_allowedMethods,
-    defaultCacheBehavior_cachePolicyId,
-    defaultCacheBehavior_smoothStreaming,
-    defaultCacheBehavior_fieldLevelEncryptionId,
+    defaultCacheBehavior_lambdaFunctionAssociations,
     defaultCacheBehavior_maxTTL,
-    defaultCacheBehavior_originRequestPolicyId,
-    defaultCacheBehavior_forwardedValues,
-    defaultCacheBehavior_defaultTTL,
-    defaultCacheBehavior_realtimeLogConfigArn,
-    defaultCacheBehavior_compress,
     defaultCacheBehavior_minTTL,
+    defaultCacheBehavior_compress,
+    defaultCacheBehavior_smoothStreaming,
     defaultCacheBehavior_trustedKeyGroups,
-    defaultCacheBehavior_functionAssociations,
+    defaultCacheBehavior_realtimeLogConfigArn,
+    defaultCacheBehavior_defaultTTL,
+    defaultCacheBehavior_forwardedValues,
     defaultCacheBehavior_trustedSigners,
+    defaultCacheBehavior_functionAssociations,
+    defaultCacheBehavior_originRequestPolicyId,
+    defaultCacheBehavior_fieldLevelEncryptionId,
+    defaultCacheBehavior_cachePolicyId,
     defaultCacheBehavior_targetOriginId,
     defaultCacheBehavior_viewerProtocolPolicy,
 
     -- ** Distribution
+    distribution_activeTrustedKeyGroups,
     distribution_aliasICPRecordals,
     distribution_activeTrustedSigners,
-    distribution_activeTrustedKeyGroups,
     distribution_id,
     distribution_arn,
     distribution_status,
@@ -746,18 +746,18 @@ module Network.AWS.CloudFront.Lens
     distribution_distributionConfig,
 
     -- ** DistributionConfig
-    distributionConfig_viewerCertificate,
-    distributionConfig_priceClass,
-    distributionConfig_webACLId,
-    distributionConfig_logging,
-    distributionConfig_customErrorResponses,
+    distributionConfig_httpVersion,
     distributionConfig_originGroups,
-    distributionConfig_restrictions,
-    distributionConfig_isIPV6Enabled,
-    distributionConfig_cacheBehaviors,
     distributionConfig_aliases,
     distributionConfig_defaultRootObject,
-    distributionConfig_httpVersion,
+    distributionConfig_priceClass,
+    distributionConfig_customErrorResponses,
+    distributionConfig_webACLId,
+    distributionConfig_viewerCertificate,
+    distributionConfig_restrictions,
+    distributionConfig_logging,
+    distributionConfig_cacheBehaviors,
+    distributionConfig_isIPV6Enabled,
     distributionConfig_callerReference,
     distributionConfig_origins,
     distributionConfig_defaultCacheBehavior,
@@ -785,8 +785,8 @@ module Network.AWS.CloudFront.Lens
     distributionList_quantity,
 
     -- ** DistributionSummary
-    distributionSummary_aliasICPRecordals,
     distributionSummary_originGroups,
+    distributionSummary_aliasICPRecordals,
     distributionSummary_id,
     distributionSummary_arn,
     distributionSummary_status,
@@ -825,9 +825,9 @@ module Network.AWS.CloudFront.Lens
     fieldLevelEncryption_fieldLevelEncryptionConfig,
 
     -- ** FieldLevelEncryptionConfig
-    fieldLevelEncryptionConfig_comment,
-    fieldLevelEncryptionConfig_contentTypeProfileConfig,
     fieldLevelEncryptionConfig_queryArgProfileConfig,
+    fieldLevelEncryptionConfig_contentTypeProfileConfig,
+    fieldLevelEncryptionConfig_comment,
     fieldLevelEncryptionConfig_callerReference,
 
     -- ** FieldLevelEncryptionList
@@ -861,9 +861,9 @@ module Network.AWS.CloudFront.Lens
     fieldLevelEncryptionProfileSummary_encryptionEntities,
 
     -- ** FieldLevelEncryptionSummary
-    fieldLevelEncryptionSummary_comment,
-    fieldLevelEncryptionSummary_contentTypeProfileConfig,
     fieldLevelEncryptionSummary_queryArgProfileConfig,
+    fieldLevelEncryptionSummary_contentTypeProfileConfig,
+    fieldLevelEncryptionSummary_comment,
     fieldLevelEncryptionSummary_id,
     fieldLevelEncryptionSummary_lastModifiedTime,
 
@@ -896,8 +896,8 @@ module Network.AWS.CloudFront.Lens
     functionList_quantity,
 
     -- ** FunctionMetadata
-    functionMetadata_createdTime,
     functionMetadata_stage,
+    functionMetadata_createdTime,
     functionMetadata_functionARN,
     functionMetadata_lastModifiedTime,
 
@@ -989,13 +989,13 @@ module Network.AWS.CloudFront.Lens
     monitoringSubscription_realtimeMetricsSubscriptionConfig,
 
     -- ** Origin
-    origin_originPath,
-    origin_connectionAttempts,
-    origin_connectionTimeout,
     origin_customHeaders,
-    origin_s3OriginConfig,
-    origin_originShield,
     origin_customOriginConfig,
+    origin_connectionTimeout,
+    origin_connectionAttempts,
+    origin_s3OriginConfig,
+    origin_originPath,
+    origin_originShield,
     origin_id,
     origin_domainName,
 
@@ -1168,9 +1168,9 @@ module Network.AWS.CloudFront.Lens
     streamingDistribution_streamingDistributionConfig,
 
     -- ** StreamingDistributionConfig
+    streamingDistributionConfig_aliases,
     streamingDistributionConfig_priceClass,
     streamingDistributionConfig_logging,
-    streamingDistributionConfig_aliases,
     streamingDistributionConfig_callerReference,
     streamingDistributionConfig_s3Origin,
     streamingDistributionConfig_comment,
@@ -1219,10 +1219,10 @@ module Network.AWS.CloudFront.Lens
 
     -- ** TestResult
     testResult_computeUtilization,
-    testResult_functionOutput,
     testResult_functionExecutionLogs,
-    testResult_functionErrorMessage,
+    testResult_functionOutput,
     testResult_functionSummary,
+    testResult_functionErrorMessage,
 
     -- ** TrustedKeyGroups
     trustedKeyGroups_items,
@@ -1236,12 +1236,12 @@ module Network.AWS.CloudFront.Lens
 
     -- ** ViewerCertificate
     viewerCertificate_sSLSupportMethod,
-    viewerCertificate_cloudFrontDefaultCertificate,
-    viewerCertificate_iAMCertificateId,
     viewerCertificate_aCMCertificateArn,
     viewerCertificate_certificateSource,
-    viewerCertificate_certificate,
     viewerCertificate_minimumProtocolVersion,
+    viewerCertificate_certificate,
+    viewerCertificate_iAMCertificateId,
+    viewerCertificate_cloudFrontDefaultCertificate,
   )
 where
 

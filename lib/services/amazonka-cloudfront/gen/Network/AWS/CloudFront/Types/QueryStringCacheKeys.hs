@@ -77,7 +77,7 @@ newQueryStringCacheKeys pQuantity_ =
 -- CloudFront to use as a basis for caching for a cache behavior. If
 -- @Quantity@ is 0, you can omit @Items@.
 queryStringCacheKeys_items :: Lens.Lens' QueryStringCacheKeys (Prelude.Maybe [Prelude.Text])
-queryStringCacheKeys_items = Lens.lens (\QueryStringCacheKeys' {items} -> items) (\s@QueryStringCacheKeys' {} a -> s {items = a} :: QueryStringCacheKeys) Prelude.. Lens.mapping Lens._Coerce
+queryStringCacheKeys_items = Lens.lens (\QueryStringCacheKeys' {items} -> items) (\s@QueryStringCacheKeys' {} a -> s {items = a} :: QueryStringCacheKeys) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of @whitelisted@ query string parameters for a cache
 -- behavior.

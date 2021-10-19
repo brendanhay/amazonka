@@ -60,8 +60,8 @@ module Network.AWS.CloudFront.CreateOriginRequestPolicy
 
     -- * Response Lenses
     createOriginRequestPolicyResponse_eTag,
-    createOriginRequestPolicyResponse_originRequestPolicy,
     createOriginRequestPolicyResponse_location,
+    createOriginRequestPolicyResponse_originRequestPolicy,
     createOriginRequestPolicyResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest CreateOriginRequestPolicy where
       ( \s h x ->
           CreateOriginRequestPolicyResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,10 +143,10 @@ instance Core.ToQuery CreateOriginRequestPolicy where
 data CreateOriginRequestPolicyResponse = CreateOriginRequestPolicyResponse'
   { -- | The current version of the origin request policy.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | An origin request policy.
-    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
     -- | The fully qualified URI of the origin request policy just created.
     location :: Prelude.Maybe Prelude.Text,
+    -- | An origin request policy.
+    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,9 +162,9 @@ data CreateOriginRequestPolicyResponse = CreateOriginRequestPolicyResponse'
 --
 -- 'eTag', 'createOriginRequestPolicyResponse_eTag' - The current version of the origin request policy.
 --
--- 'originRequestPolicy', 'createOriginRequestPolicyResponse_originRequestPolicy' - An origin request policy.
---
 -- 'location', 'createOriginRequestPolicyResponse_location' - The fully qualified URI of the origin request policy just created.
+--
+-- 'originRequestPolicy', 'createOriginRequestPolicyResponse_originRequestPolicy' - An origin request policy.
 --
 -- 'httpStatus', 'createOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newCreateOriginRequestPolicyResponse ::
@@ -175,8 +175,8 @@ newCreateOriginRequestPolicyResponse pHttpStatus_ =
   CreateOriginRequestPolicyResponse'
     { eTag =
         Prelude.Nothing,
-      originRequestPolicy = Prelude.Nothing,
       location = Prelude.Nothing,
+      originRequestPolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -184,13 +184,13 @@ newCreateOriginRequestPolicyResponse pHttpStatus_ =
 createOriginRequestPolicyResponse_eTag :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 createOriginRequestPolicyResponse_eTag = Lens.lens (\CreateOriginRequestPolicyResponse' {eTag} -> eTag) (\s@CreateOriginRequestPolicyResponse' {} a -> s {eTag = a} :: CreateOriginRequestPolicyResponse)
 
--- | An origin request policy.
-createOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
-createOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\CreateOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@CreateOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: CreateOriginRequestPolicyResponse)
-
 -- | The fully qualified URI of the origin request policy just created.
 createOriginRequestPolicyResponse_location :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 createOriginRequestPolicyResponse_location = Lens.lens (\CreateOriginRequestPolicyResponse' {location} -> location) (\s@CreateOriginRequestPolicyResponse' {} a -> s {location = a} :: CreateOriginRequestPolicyResponse)
+
+-- | An origin request policy.
+createOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
+createOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\CreateOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@CreateOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: CreateOriginRequestPolicyResponse)
 
 -- | The response's http status code.
 createOriginRequestPolicyResponse_httpStatus :: Lens.Lens' CreateOriginRequestPolicyResponse Prelude.Int

@@ -123,7 +123,7 @@ newCloudFrontOriginAccessIdentityList
 -- element for each origin access identity that was created by the current
 -- account.
 cloudFrontOriginAccessIdentityList_items :: Lens.Lens' CloudFrontOriginAccessIdentityList (Prelude.Maybe [CloudFrontOriginAccessIdentitySummary])
-cloudFrontOriginAccessIdentityList_items = Lens.lens (\CloudFrontOriginAccessIdentityList' {items} -> items) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {items = a} :: CloudFrontOriginAccessIdentityList) Prelude.. Lens.mapping Lens._Coerce
+cloudFrontOriginAccessIdentityList_items = Lens.lens (\CloudFrontOriginAccessIdentityList' {items} -> items) (\s@CloudFrontOriginAccessIdentityList' {} a -> s {items = a} :: CloudFrontOriginAccessIdentityList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing

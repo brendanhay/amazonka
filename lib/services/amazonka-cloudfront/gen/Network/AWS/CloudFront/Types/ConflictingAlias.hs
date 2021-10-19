@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConflictingAlias' smart constructor.
 data ConflictingAlias = ConflictingAlias'
-  { -- | The (partially hidden) ID of the Amazon Web Services account that owns
+  { -- | An alias (also called a CNAME).
+    alias :: Prelude.Maybe Prelude.Text,
+    -- | The (partially hidden) ID of the Amazon Web Services account that owns
     -- the distribution that’s associated with the alias.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | An alias (also called a CNAME).
-    alias :: Prelude.Maybe Prelude.Text,
     -- | The (partially hidden) ID of the CloudFront distribution associated with
     -- the alias.
     distributionId :: Prelude.Maybe Prelude.Text
@@ -50,10 +50,10 @@ data ConflictingAlias = ConflictingAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alias', 'conflictingAlias_alias' - An alias (also called a CNAME).
+--
 -- 'accountId', 'conflictingAlias_accountId' - The (partially hidden) ID of the Amazon Web Services account that owns
 -- the distribution that’s associated with the alias.
---
--- 'alias', 'conflictingAlias_alias' - An alias (also called a CNAME).
 --
 -- 'distributionId', 'conflictingAlias_distributionId' - The (partially hidden) ID of the CloudFront distribution associated with
 -- the alias.
@@ -61,19 +61,19 @@ newConflictingAlias ::
   ConflictingAlias
 newConflictingAlias =
   ConflictingAlias'
-    { accountId = Prelude.Nothing,
-      alias = Prelude.Nothing,
+    { alias = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       distributionId = Prelude.Nothing
     }
+
+-- | An alias (also called a CNAME).
+conflictingAlias_alias :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
+conflictingAlias_alias = Lens.lens (\ConflictingAlias' {alias} -> alias) (\s@ConflictingAlias' {} a -> s {alias = a} :: ConflictingAlias)
 
 -- | The (partially hidden) ID of the Amazon Web Services account that owns
 -- the distribution that’s associated with the alias.
 conflictingAlias_accountId :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
 conflictingAlias_accountId = Lens.lens (\ConflictingAlias' {accountId} -> accountId) (\s@ConflictingAlias' {} a -> s {accountId = a} :: ConflictingAlias)
-
--- | An alias (also called a CNAME).
-conflictingAlias_alias :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
-conflictingAlias_alias = Lens.lens (\ConflictingAlias' {alias} -> alias) (\s@ConflictingAlias' {} a -> s {alias = a} :: ConflictingAlias)
 
 -- | The (partially hidden) ID of the CloudFront distribution associated with
 -- the alias.
@@ -83,8 +83,8 @@ conflictingAlias_distributionId = Lens.lens (\ConflictingAlias' {distributionId}
 instance Core.FromXML ConflictingAlias where
   parseXML x =
     ConflictingAlias'
-      Prelude.<$> (x Core..@? "AccountId")
-      Prelude.<*> (x Core..@? "Alias")
+      Prelude.<$> (x Core..@? "Alias")
+      Prelude.<*> (x Core..@? "AccountId")
       Prelude.<*> (x Core..@? "DistributionId")
 
 instance Prelude.Hashable ConflictingAlias

@@ -79,7 +79,7 @@ newCustomErrorResponses pQuantity_ =
 -- HTTP status code for which you want to specify a custom error page
 -- and\/or a caching duration.
 customErrorResponses_items :: Lens.Lens' CustomErrorResponses (Prelude.Maybe [CustomErrorResponse])
-customErrorResponses_items = Lens.lens (\CustomErrorResponses' {items} -> items) (\s@CustomErrorResponses' {} a -> s {items = a} :: CustomErrorResponses) Prelude.. Lens.mapping Lens._Coerce
+customErrorResponses_items = Lens.lens (\CustomErrorResponses' {items} -> items) (\s@CustomErrorResponses' {} a -> s {items = a} :: CustomErrorResponses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of HTTP status codes for which you want to specify a custom
 -- error page and\/or a caching duration. If @Quantity@ is @0@, you can

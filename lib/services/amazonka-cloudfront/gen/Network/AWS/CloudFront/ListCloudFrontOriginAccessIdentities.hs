@@ -29,8 +29,8 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     newListCloudFrontOriginAccessIdentities,
 
     -- * Request Lenses
-    listCloudFrontOriginAccessIdentities_maxItems,
     listCloudFrontOriginAccessIdentities_marker,
+    listCloudFrontOriginAccessIdentities_maxItems,
 
     -- * Destructuring the Response
     ListCloudFrontOriginAccessIdentitiesResponse (..),
@@ -53,15 +53,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListCloudFrontOriginAccessIdentities' smart constructor.
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-  { -- | The maximum number of origin access identities you want in the response
-    -- body.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this when paginating results to indicate where to begin in your list
+  { -- | Use this when paginating results to indicate where to begin in your list
     -- of origin access identities. The results include identities in the list
     -- that occur after the marker. To get the next page of results, set the
     -- @Marker@ to the value of the @NextMarker@ from the current page\'s
     -- response (which is also the ID of the last identity on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of origin access identities you want in the response
+    -- body.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,27 +73,22 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listCloudFrontOriginAccessIdentities_maxItems' - The maximum number of origin access identities you want in the response
--- body.
---
 -- 'marker', 'listCloudFrontOriginAccessIdentities_marker' - Use this when paginating results to indicate where to begin in your list
 -- of origin access identities. The results include identities in the list
 -- that occur after the marker. To get the next page of results, set the
 -- @Marker@ to the value of the @NextMarker@ from the current page\'s
 -- response (which is also the ID of the last identity on that page).
+--
+-- 'maxItems', 'listCloudFrontOriginAccessIdentities_maxItems' - The maximum number of origin access identities you want in the response
+-- body.
 newListCloudFrontOriginAccessIdentities ::
   ListCloudFrontOriginAccessIdentities
 newListCloudFrontOriginAccessIdentities =
   ListCloudFrontOriginAccessIdentities'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of origin access identities you want in the response
--- body.
-listCloudFrontOriginAccessIdentities_maxItems :: Lens.Lens' ListCloudFrontOriginAccessIdentities (Prelude.Maybe Prelude.Text)
-listCloudFrontOriginAccessIdentities_maxItems = Lens.lens (\ListCloudFrontOriginAccessIdentities' {maxItems} -> maxItems) (\s@ListCloudFrontOriginAccessIdentities' {} a -> s {maxItems = a} :: ListCloudFrontOriginAccessIdentities)
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of origin access identities. The results include identities in the list
@@ -102,6 +97,11 @@ listCloudFrontOriginAccessIdentities_maxItems = Lens.lens (\ListCloudFrontOrigin
 -- response (which is also the ID of the last identity on that page).
 listCloudFrontOriginAccessIdentities_marker :: Lens.Lens' ListCloudFrontOriginAccessIdentities (Prelude.Maybe Prelude.Text)
 listCloudFrontOriginAccessIdentities_marker = Lens.lens (\ListCloudFrontOriginAccessIdentities' {marker} -> marker) (\s@ListCloudFrontOriginAccessIdentities' {} a -> s {marker = a} :: ListCloudFrontOriginAccessIdentities)
+
+-- | The maximum number of origin access identities you want in the response
+-- body.
+listCloudFrontOriginAccessIdentities_maxItems :: Lens.Lens' ListCloudFrontOriginAccessIdentities (Prelude.Maybe Prelude.Text)
+listCloudFrontOriginAccessIdentities_maxItems = Lens.lens (\ListCloudFrontOriginAccessIdentities' {maxItems} -> maxItems) (\s@ListCloudFrontOriginAccessIdentities' {} a -> s {maxItems = a} :: ListCloudFrontOriginAccessIdentities)
 
 instance
   Core.AWSPager
@@ -174,8 +174,8 @@ instance
   where
   toQuery ListCloudFrontOriginAccessIdentities' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | The returned result of the corresponding request.

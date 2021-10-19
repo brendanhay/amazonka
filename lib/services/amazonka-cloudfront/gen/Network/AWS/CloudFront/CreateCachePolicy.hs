@@ -57,8 +57,8 @@ module Network.AWS.CloudFront.CreateCachePolicy
     newCreateCachePolicyResponse,
 
     -- * Response Lenses
-    createCachePolicyResponse_eTag,
     createCachePolicyResponse_cachePolicy,
+    createCachePolicyResponse_eTag,
     createCachePolicyResponse_location,
     createCachePolicyResponse_httpStatus,
   )
@@ -110,8 +110,8 @@ instance Core.AWSRequest CreateCachePolicy where
     Response.receiveXML
       ( \s h x ->
           CreateCachePolicyResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (h Core..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,10 +137,10 @@ instance Core.ToQuery CreateCachePolicy where
 
 -- | /See:/ 'newCreateCachePolicyResponse' smart constructor.
 data CreateCachePolicyResponse = CreateCachePolicyResponse'
-  { -- | The current version of the cache policy.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | A cache policy.
+  { -- | A cache policy.
     cachePolicy :: Prelude.Maybe CachePolicy,
+    -- | The current version of the cache policy.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified URI of the cache policy just created.
     location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -156,9 +156,9 @@ data CreateCachePolicyResponse = CreateCachePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'createCachePolicyResponse_eTag' - The current version of the cache policy.
---
 -- 'cachePolicy', 'createCachePolicyResponse_cachePolicy' - A cache policy.
+--
+-- 'eTag', 'createCachePolicyResponse_eTag' - The current version of the cache policy.
 --
 -- 'location', 'createCachePolicyResponse_location' - The fully qualified URI of the cache policy just created.
 --
@@ -169,19 +169,20 @@ newCreateCachePolicyResponse ::
   CreateCachePolicyResponse
 newCreateCachePolicyResponse pHttpStatus_ =
   CreateCachePolicyResponse'
-    { eTag = Prelude.Nothing,
-      cachePolicy = Prelude.Nothing,
+    { cachePolicy =
+        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current version of the cache policy.
-createCachePolicyResponse_eTag :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
-createCachePolicyResponse_eTag = Lens.lens (\CreateCachePolicyResponse' {eTag} -> eTag) (\s@CreateCachePolicyResponse' {} a -> s {eTag = a} :: CreateCachePolicyResponse)
-
 -- | A cache policy.
 createCachePolicyResponse_cachePolicy :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe CachePolicy)
 createCachePolicyResponse_cachePolicy = Lens.lens (\CreateCachePolicyResponse' {cachePolicy} -> cachePolicy) (\s@CreateCachePolicyResponse' {} a -> s {cachePolicy = a} :: CreateCachePolicyResponse)
+
+-- | The current version of the cache policy.
+createCachePolicyResponse_eTag :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
+createCachePolicyResponse_eTag = Lens.lens (\CreateCachePolicyResponse' {eTag} -> eTag) (\s@CreateCachePolicyResponse' {} a -> s {eTag = a} :: CreateCachePolicyResponse)
 
 -- | The fully qualified URI of the cache policy just created.
 createCachePolicyResponse_location :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)

@@ -76,7 +76,7 @@ newCachePolicyList pMaxItems_ pQuantity_ =
 
 -- | Contains the cache policies in the list.
 cachePolicyList_items :: Lens.Lens' CachePolicyList (Prelude.Maybe [CachePolicySummary])
-cachePolicyList_items = Lens.lens (\CachePolicyList' {items} -> items) (\s@CachePolicyList' {} a -> s {items = a} :: CachePolicyList) Prelude.. Lens.mapping Lens._Coerce
+cachePolicyList_items = Lens.lens (\CachePolicyList' {items} -> items) (\s@CachePolicyList' {} a -> s {items = a} :: CachePolicyList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the

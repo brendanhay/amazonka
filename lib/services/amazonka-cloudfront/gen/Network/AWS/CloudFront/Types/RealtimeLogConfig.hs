@@ -113,7 +113,7 @@ realtimeLogConfig_samplingRate = Lens.lens (\RealtimeLogConfig' {samplingRate} -
 -- | Contains information about the Amazon Kinesis data stream where you are
 -- sending real-time log data for this real-time log configuration.
 realtimeLogConfig_endPoints :: Lens.Lens' RealtimeLogConfig [EndPoint]
-realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endPoints) (\s@RealtimeLogConfig' {} a -> s {endPoints = a} :: RealtimeLogConfig) Prelude.. Lens._Coerce
+realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endPoints) (\s@RealtimeLogConfig' {} a -> s {endPoints = a} :: RealtimeLogConfig) Prelude.. Lens.coerced
 
 -- | A list of fields that are included in each real-time log record. In an
 -- API response, the fields are provided in the same order in which they
@@ -123,7 +123,7 @@ realtimeLogConfig_endPoints = Lens.lens (\RealtimeLogConfig' {endPoints} -> endP
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields>
 -- in the /Amazon CloudFront Developer Guide/.
 realtimeLogConfig_fields :: Lens.Lens' RealtimeLogConfig [Prelude.Text]
-realtimeLogConfig_fields = Lens.lens (\RealtimeLogConfig' {fields} -> fields) (\s@RealtimeLogConfig' {} a -> s {fields = a} :: RealtimeLogConfig) Prelude.. Lens._Coerce
+realtimeLogConfig_fields = Lens.lens (\RealtimeLogConfig' {fields} -> fields) (\s@RealtimeLogConfig' {} a -> s {fields = a} :: RealtimeLogConfig) Prelude.. Lens.coerced
 
 instance Core.FromXML RealtimeLogConfig where
   parseXML x =

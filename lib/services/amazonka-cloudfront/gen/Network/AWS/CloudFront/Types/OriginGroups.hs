@@ -58,7 +58,7 @@ newOriginGroups pQuantity_ =
 
 -- | The items (origin groups) in a distribution.
 originGroups_items :: Lens.Lens' OriginGroups (Prelude.Maybe [OriginGroup])
-originGroups_items = Lens.lens (\OriginGroups' {items} -> items) (\s@OriginGroups' {} a -> s {items = a} :: OriginGroups) Prelude.. Lens.mapping Lens._Coerce
+originGroups_items = Lens.lens (\OriginGroups' {items} -> items) (\s@OriginGroups' {} a -> s {items = a} :: OriginGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of origin groups.
 originGroups_quantity :: Lens.Lens' OriginGroups Prelude.Int

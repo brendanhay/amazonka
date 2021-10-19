@@ -28,8 +28,8 @@ module Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
     newListFieldLevelEncryptionProfiles,
 
     -- * Request Lenses
-    listFieldLevelEncryptionProfiles_maxItems,
     listFieldLevelEncryptionProfiles_marker,
+    listFieldLevelEncryptionProfiles_maxItems,
 
     -- * Destructuring the Response
     ListFieldLevelEncryptionProfilesResponse (..),
@@ -50,15 +50,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFieldLevelEncryptionProfiles' smart constructor.
 data ListFieldLevelEncryptionProfiles = ListFieldLevelEncryptionProfiles'
-  { -- | The maximum number of field-level encryption profiles you want in the
-    -- response body.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this when paginating results to indicate where to begin in your list
+  { -- | Use this when paginating results to indicate where to begin in your list
     -- of profiles. The results include profiles in the list that occur after
     -- the marker. To get the next page of results, set the @Marker@ to the
     -- value of the @NextMarker@ from the current page\'s response (which is
     -- also the ID of the last profile on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of field-level encryption profiles you want in the
+    -- response body.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,27 +70,22 @@ data ListFieldLevelEncryptionProfiles = ListFieldLevelEncryptionProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listFieldLevelEncryptionProfiles_maxItems' - The maximum number of field-level encryption profiles you want in the
--- response body.
---
 -- 'marker', 'listFieldLevelEncryptionProfiles_marker' - Use this when paginating results to indicate where to begin in your list
 -- of profiles. The results include profiles in the list that occur after
 -- the marker. To get the next page of results, set the @Marker@ to the
 -- value of the @NextMarker@ from the current page\'s response (which is
 -- also the ID of the last profile on that page).
+--
+-- 'maxItems', 'listFieldLevelEncryptionProfiles_maxItems' - The maximum number of field-level encryption profiles you want in the
+-- response body.
 newListFieldLevelEncryptionProfiles ::
   ListFieldLevelEncryptionProfiles
 newListFieldLevelEncryptionProfiles =
   ListFieldLevelEncryptionProfiles'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of field-level encryption profiles you want in the
--- response body.
-listFieldLevelEncryptionProfiles_maxItems :: Lens.Lens' ListFieldLevelEncryptionProfiles (Prelude.Maybe Prelude.Text)
-listFieldLevelEncryptionProfiles_maxItems = Lens.lens (\ListFieldLevelEncryptionProfiles' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionProfiles' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionProfiles)
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of profiles. The results include profiles in the list that occur after
@@ -99,6 +94,11 @@ listFieldLevelEncryptionProfiles_maxItems = Lens.lens (\ListFieldLevelEncryption
 -- also the ID of the last profile on that page).
 listFieldLevelEncryptionProfiles_marker :: Lens.Lens' ListFieldLevelEncryptionProfiles (Prelude.Maybe Prelude.Text)
 listFieldLevelEncryptionProfiles_marker = Lens.lens (\ListFieldLevelEncryptionProfiles' {marker} -> marker) (\s@ListFieldLevelEncryptionProfiles' {} a -> s {marker = a} :: ListFieldLevelEncryptionProfiles)
+
+-- | The maximum number of field-level encryption profiles you want in the
+-- response body.
+listFieldLevelEncryptionProfiles_maxItems :: Lens.Lens' ListFieldLevelEncryptionProfiles (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionProfiles_maxItems = Lens.lens (\ListFieldLevelEncryptionProfiles' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionProfiles' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionProfiles)
 
 instance
   Core.AWSRequest
@@ -141,8 +141,8 @@ instance
   where
   toQuery ListFieldLevelEncryptionProfiles' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListFieldLevelEncryptionProfilesResponse' smart constructor.

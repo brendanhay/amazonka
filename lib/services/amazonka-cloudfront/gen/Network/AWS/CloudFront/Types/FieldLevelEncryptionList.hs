@@ -74,7 +74,7 @@ newFieldLevelEncryptionList pMaxItems_ pQuantity_ =
 
 -- | An array of field-level encryption items.
 fieldLevelEncryptionList_items :: Lens.Lens' FieldLevelEncryptionList (Prelude.Maybe [FieldLevelEncryptionSummary])
-fieldLevelEncryptionList_items = Lens.lens (\FieldLevelEncryptionList' {items} -> items) (\s@FieldLevelEncryptionList' {} a -> s {items = a} :: FieldLevelEncryptionList) Prelude.. Lens.mapping Lens._Coerce
+fieldLevelEncryptionList_items = Lens.lens (\FieldLevelEncryptionList' {items} -> items) (\s@FieldLevelEncryptionList' {} a -> s {items = a} :: FieldLevelEncryptionList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more elements to be listed, this element is present and
 -- contains the value that you can use for the @Marker@ request parameter

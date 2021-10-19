@@ -58,7 +58,7 @@ newFieldPatterns pQuantity_ =
 
 -- | An array of the field-level encryption field patterns.
 fieldPatterns_items :: Lens.Lens' FieldPatterns (Prelude.Maybe [Prelude.Text])
-fieldPatterns_items = Lens.lens (\FieldPatterns' {items} -> items) (\s@FieldPatterns' {} a -> s {items = a} :: FieldPatterns) Prelude.. Lens.mapping Lens._Coerce
+fieldPatterns_items = Lens.lens (\FieldPatterns' {items} -> items) (\s@FieldPatterns' {} a -> s {items = a} :: FieldPatterns) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of field-level encryption field patterns.
 fieldPatterns_quantity :: Lens.Lens' FieldPatterns Prelude.Int

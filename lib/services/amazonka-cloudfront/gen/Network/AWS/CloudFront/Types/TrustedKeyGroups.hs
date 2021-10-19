@@ -69,7 +69,7 @@ newTrustedKeyGroups pEnabled_ pQuantity_ =
 
 -- | A list of key groups identifiers.
 trustedKeyGroups_items :: Lens.Lens' TrustedKeyGroups (Prelude.Maybe [Prelude.Text])
-trustedKeyGroups_items = Lens.lens (\TrustedKeyGroups' {items} -> items) (\s@TrustedKeyGroups' {} a -> s {items = a} :: TrustedKeyGroups) Prelude.. Lens.mapping Lens._Coerce
+trustedKeyGroups_items = Lens.lens (\TrustedKeyGroups' {items} -> items) (\s@TrustedKeyGroups' {} a -> s {items = a} :: TrustedKeyGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | This field is @true@ if any of the key groups in the list have public
 -- keys that CloudFront can use to verify the signatures of signed URLs and

@@ -92,7 +92,7 @@ newRealtimeLogConfigs
 
 -- | Contains the list of real-time log configurations.
 realtimeLogConfigs_items :: Lens.Lens' RealtimeLogConfigs (Prelude.Maybe [RealtimeLogConfig])
-realtimeLogConfigs_items = Lens.lens (\RealtimeLogConfigs' {items} -> items) (\s@RealtimeLogConfigs' {} a -> s {items = a} :: RealtimeLogConfigs) Prelude.. Lens.mapping Lens._Coerce
+realtimeLogConfigs_items = Lens.lens (\RealtimeLogConfigs' {items} -> items) (\s@RealtimeLogConfigs' {} a -> s {items = a} :: RealtimeLogConfigs) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the

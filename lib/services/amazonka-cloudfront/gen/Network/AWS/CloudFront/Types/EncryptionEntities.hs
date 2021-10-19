@@ -64,7 +64,7 @@ newEncryptionEntities pQuantity_ =
 -- | An array of field patterns in a field-level encryption content
 -- type-profile mapping.
 encryptionEntities_items :: Lens.Lens' EncryptionEntities (Prelude.Maybe [EncryptionEntity])
-encryptionEntities_items = Lens.lens (\EncryptionEntities' {items} -> items) (\s@EncryptionEntities' {} a -> s {items = a} :: EncryptionEntities) Prelude.. Lens.mapping Lens._Coerce
+encryptionEntities_items = Lens.lens (\EncryptionEntities' {items} -> items) (\s@EncryptionEntities' {} a -> s {items = a} :: EncryptionEntities) Prelude.. Lens.mapping Lens.coerced
 
 -- | Number of field pattern items in a field-level encryption content
 -- type-profile mapping.

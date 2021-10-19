@@ -34,8 +34,8 @@ module Network.AWS.CloudFront.ListKeyGroups
     newListKeyGroups,
 
     -- * Request Lenses
-    listKeyGroups_maxItems,
     listKeyGroups_marker,
+    listKeyGroups_maxItems,
 
     -- * Destructuring the Response
     ListKeyGroupsResponse (..),
@@ -56,14 +56,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListKeyGroups' smart constructor.
 data ListKeyGroups = ListKeyGroups'
-  { -- | The maximum number of key groups that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of key groups. The response includes key groups in the list
     -- that occur after the marker. To get the next page of the list, set this
     -- field’s value to the value of @NextMarker@ from the current page’s
     -- response.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of key groups that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,24 +75,20 @@ data ListKeyGroups = ListKeyGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listKeyGroups_maxItems' - The maximum number of key groups that you want in the response.
---
 -- 'marker', 'listKeyGroups_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of key groups. The response includes key groups in the list
 -- that occur after the marker. To get the next page of the list, set this
 -- field’s value to the value of @NextMarker@ from the current page’s
 -- response.
+--
+-- 'maxItems', 'listKeyGroups_maxItems' - The maximum number of key groups that you want in the response.
 newListKeyGroups ::
   ListKeyGroups
 newListKeyGroups =
   ListKeyGroups'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of key groups that you want in the response.
-listKeyGroups_maxItems :: Lens.Lens' ListKeyGroups (Prelude.Maybe Prelude.Text)
-listKeyGroups_maxItems = Lens.lens (\ListKeyGroups' {maxItems} -> maxItems) (\s@ListKeyGroups' {} a -> s {maxItems = a} :: ListKeyGroups)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of key groups. The response includes key groups in the list
@@ -101,6 +97,10 @@ listKeyGroups_maxItems = Lens.lens (\ListKeyGroups' {maxItems} -> maxItems) (\s@
 -- response.
 listKeyGroups_marker :: Lens.Lens' ListKeyGroups (Prelude.Maybe Prelude.Text)
 listKeyGroups_marker = Lens.lens (\ListKeyGroups' {marker} -> marker) (\s@ListKeyGroups' {} a -> s {marker = a} :: ListKeyGroups)
+
+-- | The maximum number of key groups that you want in the response.
+listKeyGroups_maxItems :: Lens.Lens' ListKeyGroups (Prelude.Maybe Prelude.Text)
+listKeyGroups_maxItems = Lens.lens (\ListKeyGroups' {maxItems} -> maxItems) (\s@ListKeyGroups' {} a -> s {maxItems = a} :: ListKeyGroups)
 
 instance Core.AWSRequest ListKeyGroups where
   type
@@ -128,8 +128,8 @@ instance Core.ToPath ListKeyGroups where
 instance Core.ToQuery ListKeyGroups where
   toQuery ListKeyGroups' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListKeyGroupsResponse' smart constructor.

@@ -40,14 +40,6 @@ data CustomOriginConfig = CustomOriginConfig'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
     -- in the /Amazon CloudFront Developer Guide/.
     originKeepaliveTimeout :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when
-    -- connecting to your origin over HTTPS. Valid values include @SSLv3@,
-    -- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
-    -- in the /Amazon CloudFront Developer Guide/.
-    originSslProtocols :: Prelude.Maybe OriginSslProtocols,
     -- | Specifies how long, in seconds, CloudFront waits for a response from the
     -- origin. This is also known as the /origin response timeout/. The minimum
     -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
@@ -57,6 +49,14 @@ data CustomOriginConfig = CustomOriginConfig'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>
     -- in the /Amazon CloudFront Developer Guide/.
     originReadTimeout :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when
+    -- connecting to your origin over HTTPS. Valid values include @SSLv3@,
+    -- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
+    -- in the /Amazon CloudFront Developer Guide/.
+    originSslProtocols :: Prelude.Maybe OriginSslProtocols,
     -- | The HTTP port that CloudFront uses to connect to the origin. Specify the
     -- HTTP port that the origin listens on.
     hTTPPort :: Prelude.Int,
@@ -93,14 +93,6 @@ data CustomOriginConfig = CustomOriginConfig'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- 'originSslProtocols', 'customOriginConfig_originSslProtocols' - Specifies the minimum SSL\/TLS protocol that CloudFront uses when
--- connecting to your origin over HTTPS. Valid values include @SSLv3@,
--- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
--- in the /Amazon CloudFront Developer Guide/.
---
 -- 'originReadTimeout', 'customOriginConfig_originReadTimeout' - Specifies how long, in seconds, CloudFront waits for a response from the
 -- origin. This is also known as the /origin response timeout/. The minimum
 -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
@@ -108,6 +100,14 @@ data CustomOriginConfig = CustomOriginConfig'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- 'originSslProtocols', 'customOriginConfig_originSslProtocols' - Specifies the minimum SSL\/TLS protocol that CloudFront uses when
+-- connecting to your origin over HTTPS. Valid values include @SSLv3@,
+-- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
 -- in the /Amazon CloudFront Developer Guide/.
 --
 -- 'hTTPPort', 'customOriginConfig_hTTPPort' - The HTTP port that CloudFront uses to connect to the origin. Specify the
@@ -141,8 +141,8 @@ newCustomOriginConfig
     CustomOriginConfig'
       { originKeepaliveTimeout =
           Prelude.Nothing,
-        originSslProtocols = Prelude.Nothing,
         originReadTimeout = Prelude.Nothing,
+        originSslProtocols = Prelude.Nothing,
         hTTPPort = pHTTPPort_,
         hTTPSPort = pHTTPSPort_,
         originProtocolPolicy = pOriginProtocolPolicy_
@@ -158,16 +158,6 @@ newCustomOriginConfig
 customOriginConfig_originKeepaliveTimeout :: Lens.Lens' CustomOriginConfig (Prelude.Maybe Prelude.Int)
 customOriginConfig_originKeepaliveTimeout = Lens.lens (\CustomOriginConfig' {originKeepaliveTimeout} -> originKeepaliveTimeout) (\s@CustomOriginConfig' {} a -> s {originKeepaliveTimeout = a} :: CustomOriginConfig)
 
--- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when
--- connecting to your origin over HTTPS. Valid values include @SSLv3@,
--- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
--- in the /Amazon CloudFront Developer Guide/.
-customOriginConfig_originSslProtocols :: Lens.Lens' CustomOriginConfig (Prelude.Maybe OriginSslProtocols)
-customOriginConfig_originSslProtocols = Lens.lens (\CustomOriginConfig' {originSslProtocols} -> originSslProtocols) (\s@CustomOriginConfig' {} a -> s {originSslProtocols = a} :: CustomOriginConfig)
-
 -- | Specifies how long, in seconds, CloudFront waits for a response from the
 -- origin. This is also known as the /origin response timeout/. The minimum
 -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
@@ -178,6 +168,16 @@ customOriginConfig_originSslProtocols = Lens.lens (\CustomOriginConfig' {originS
 -- in the /Amazon CloudFront Developer Guide/.
 customOriginConfig_originReadTimeout :: Lens.Lens' CustomOriginConfig (Prelude.Maybe Prelude.Int)
 customOriginConfig_originReadTimeout = Lens.lens (\CustomOriginConfig' {originReadTimeout} -> originReadTimeout) (\s@CustomOriginConfig' {} a -> s {originReadTimeout = a} :: CustomOriginConfig)
+
+-- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when
+-- connecting to your origin over HTTPS. Valid values include @SSLv3@,
+-- @TLSv1@, @TLSv1.1@, and @TLSv1.2@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols Minimum Origin SSL Protocol>
+-- in the /Amazon CloudFront Developer Guide/.
+customOriginConfig_originSslProtocols :: Lens.Lens' CustomOriginConfig (Prelude.Maybe OriginSslProtocols)
+customOriginConfig_originSslProtocols = Lens.lens (\CustomOriginConfig' {originSslProtocols} -> originSslProtocols) (\s@CustomOriginConfig' {} a -> s {originSslProtocols = a} :: CustomOriginConfig)
 
 -- | The HTTP port that CloudFront uses to connect to the origin. Specify the
 -- HTTP port that the origin listens on.
@@ -206,8 +206,8 @@ instance Core.FromXML CustomOriginConfig where
   parseXML x =
     CustomOriginConfig'
       Prelude.<$> (x Core..@? "OriginKeepaliveTimeout")
-      Prelude.<*> (x Core..@? "OriginSslProtocols")
       Prelude.<*> (x Core..@? "OriginReadTimeout")
+      Prelude.<*> (x Core..@? "OriginSslProtocols")
       Prelude.<*> (x Core..@ "HTTPPort")
       Prelude.<*> (x Core..@ "HTTPSPort")
       Prelude.<*> (x Core..@ "OriginProtocolPolicy")
@@ -221,8 +221,8 @@ instance Core.ToXML CustomOriginConfig where
     Prelude.mconcat
       [ "OriginKeepaliveTimeout"
           Core.@= originKeepaliveTimeout,
-        "OriginSslProtocols" Core.@= originSslProtocols,
         "OriginReadTimeout" Core.@= originReadTimeout,
+        "OriginSslProtocols" Core.@= originSslProtocols,
         "HTTPPort" Core.@= hTTPPort,
         "HTTPSPort" Core.@= hTTPSPort,
         "OriginProtocolPolicy" Core.@= originProtocolPolicy

@@ -24,218 +24,44 @@ module Network.AWS.CloudFront
     -- * Errors
     -- $errors
 
-    -- ** InvalidResponseCode
-    _InvalidResponseCode,
-
-    -- ** TestFunctionFailed
-    _TestFunctionFailed,
-
-    -- ** RealtimeLogConfigAlreadyExists
-    _RealtimeLogConfigAlreadyExists,
-
-    -- ** FieldLevelEncryptionConfigAlreadyExists
-    _FieldLevelEncryptionConfigAlreadyExists,
-
-    -- ** InvalidIfMatchVersion
-    _InvalidIfMatchVersion,
-
-    -- ** IllegalUpdate
-    _IllegalUpdate,
-
-    -- ** IllegalDelete
-    _IllegalDelete,
-
-    -- ** InvalidOriginReadTimeout
-    _InvalidOriginReadTimeout,
-
-    -- ** FunctionAlreadyExists
-    _FunctionAlreadyExists,
-
-    -- ** TooManyDistributionsWithFunctionAssociations
-    _TooManyDistributionsWithFunctionAssociations,
-
-    -- ** MissingBody
-    _MissingBody,
+    -- ** RealtimeLogConfigOwnerMismatch
+    _RealtimeLogConfigOwnerMismatch,
 
     -- ** TooManyOriginCustomHeaders
     _TooManyOriginCustomHeaders,
 
-    -- ** DistributionAlreadyExists
-    _DistributionAlreadyExists,
-
-    -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-    _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
-
-    -- ** FieldLevelEncryptionProfileInUse
-    _FieldLevelEncryptionProfileInUse,
-
     -- ** InvalidTagging
     _InvalidTagging,
-
-    -- ** RealtimeLogConfigOwnerMismatch
-    _RealtimeLogConfigOwnerMismatch,
 
     -- ** InvalidErrorCode
     _InvalidErrorCode,
 
-    -- ** InvalidLocationCode
-    _InvalidLocationCode,
+    -- ** NoSuchFieldLevelEncryptionProfile
+    _NoSuchFieldLevelEncryptionProfile,
 
-    -- ** TooManyDistributionsAssociatedToCachePolicy
-    _TooManyDistributionsAssociatedToCachePolicy,
+    -- ** FieldLevelEncryptionProfileInUse
+    _FieldLevelEncryptionProfileInUse,
 
-    -- ** TooManyHeadersInForwardedValues
-    _TooManyHeadersInForwardedValues,
+    -- ** TooManyDistributionsWithFunctionAssociations
+    _TooManyDistributionsWithFunctionAssociations,
 
-    -- ** InvalidViewerCertificate
-    _InvalidViewerCertificate,
+    -- ** InvalidOriginReadTimeout
+    _InvalidOriginReadTimeout,
 
-    -- ** InvalidRequiredProtocol
-    _InvalidRequiredProtocol,
+    -- ** TooManyFieldLevelEncryptionProfiles
+    _TooManyFieldLevelEncryptionProfiles,
 
-    -- ** TooManyFieldLevelEncryptionEncryptionEntities
-    _TooManyFieldLevelEncryptionEncryptionEntities,
-
-    -- ** NoSuchDistribution
-    _NoSuchDistribution,
-
-    -- ** NoSuchFunctionExists
-    _NoSuchFunctionExists,
-
-    -- ** ResourceInUse
-    _ResourceInUse,
-
-    -- ** TrustedKeyGroupDoesNotExist
-    _TrustedKeyGroupDoesNotExist,
-
-    -- ** KeyGroupAlreadyExists
-    _KeyGroupAlreadyExists,
-
-    -- ** OriginRequestPolicyAlreadyExists
-    _OriginRequestPolicyAlreadyExists,
-
-    -- ** StreamingDistributionNotDisabled
-    _StreamingDistributionNotDisabled,
-
-    -- ** TooManyCookiesInCachePolicy
-    _TooManyCookiesInCachePolicy,
-
-    -- ** InvalidMinimumProtocolVersion
-    _InvalidMinimumProtocolVersion,
-
-    -- ** InvalidRelativePath
-    _InvalidRelativePath,
-
-    -- ** TooManyLambdaFunctionAssociations
-    _TooManyLambdaFunctionAssociations,
-
-    -- ** CloudFrontOriginAccessIdentityAlreadyExists
-    _CloudFrontOriginAccessIdentityAlreadyExists,
-
-    -- ** CachePolicyInUse
-    _CachePolicyInUse,
-
-    -- ** NoSuchInvalidation
-    _NoSuchInvalidation,
-
-    -- ** NoSuchOrigin
-    _NoSuchOrigin,
-
-    -- ** UnsupportedOperation
-    _UnsupportedOperation,
-
-    -- ** PublicKeyAlreadyExists
-    _PublicKeyAlreadyExists,
-
-    -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
-    _TooManyDistributionsAssociatedToOriginRequestPolicy,
-
-    -- ** TooManyCookieNamesInWhiteList
-    _TooManyCookieNamesInWhiteList,
-
-    -- ** NoSuchFieldLevelEncryptionConfig
-    _NoSuchFieldLevelEncryptionConfig,
-
-    -- ** TooManyTrustedSigners
-    _TooManyTrustedSigners,
-
-    -- ** TooManyFieldLevelEncryptionConfigs
-    _TooManyFieldLevelEncryptionConfigs,
-
-    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
-    _TooManyFieldLevelEncryptionContentTypeProfiles,
-
-    -- ** TooManyCachePolicies
-    _TooManyCachePolicies,
-
-    -- ** TooManyFieldLevelEncryptionFieldPatterns
-    _TooManyFieldLevelEncryptionFieldPatterns,
-
-    -- ** InvalidOrigin
-    _InvalidOrigin,
-
-    -- ** BatchTooLarge
-    _BatchTooLarge,
-
-    -- ** RealtimeLogConfigInUse
-    _RealtimeLogConfigInUse,
-
-    -- ** InvalidForwardCookies
-    _InvalidForwardCookies,
-
-    -- ** FieldLevelEncryptionConfigInUse
-    _FieldLevelEncryptionConfigInUse,
-
-    -- ** NoSuchRealtimeLogConfig
-    _NoSuchRealtimeLogConfig,
-
-    -- ** TooManyPublicKeysInKeyGroup
-    _TooManyPublicKeysInKeyGroup,
-
-    -- ** InvalidHeadersForS3Origin
-    _InvalidHeadersForS3Origin,
-
-    -- ** TooManyCookiesInOriginRequestPolicy
-    _TooManyCookiesInOriginRequestPolicy,
-
-    -- ** TooManyPublicKeys
-    _TooManyPublicKeys,
-
-    -- ** TooManyInvalidationsInProgress
-    _TooManyInvalidationsInProgress,
-
-    -- ** TooManyQueryStringParameters
-    _TooManyQueryStringParameters,
-
-    -- ** InvalidFunctionAssociation
-    _InvalidFunctionAssociation,
-
-    -- ** TrustedSignerDoesNotExist
-    _TrustedSignerDoesNotExist,
-
-    -- ** NoSuchCloudFrontOriginAccessIdentity
-    _NoSuchCloudFrontOriginAccessIdentity,
-
-    -- ** CannotChangeImmutablePublicKeyFields
-    _CannotChangeImmutablePublicKeyFields,
-
-    -- ** InvalidProtocolSettings
-    _InvalidProtocolSettings,
-
-    -- ** InconsistentQuantities
-    _InconsistentQuantities,
-
-    -- ** NoSuchPublicKey
-    _NoSuchPublicKey,
-
-    -- ** PreconditionFailed
-    _PreconditionFailed,
-
-    -- ** DistributionNotDisabled
-    _DistributionNotDisabled,
+    -- ** TooManyCacheBehaviors
+    _TooManyCacheBehaviors,
 
     -- ** TooManyCloudFrontOriginAccessIdentities
     _TooManyCloudFrontOriginAccessIdentities,
+
+    -- ** RealtimeLogConfigAlreadyExists
+    _RealtimeLogConfigAlreadyExists,
+
+    -- ** TestFunctionFailed
+    _TestFunctionFailed,
 
     -- ** InvalidOriginAccessIdentity
     _InvalidOriginAccessIdentity,
@@ -243,92 +69,98 @@ module Network.AWS.CloudFront
     -- ** TooManyFunctionAssociations
     _TooManyFunctionAssociations,
 
-    -- ** NoSuchFieldLevelEncryptionProfile
-    _NoSuchFieldLevelEncryptionProfile,
+    -- ** DistributionNotDisabled
+    _DistributionNotDisabled,
 
-    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+    -- ** NoSuchStreamingDistribution
+    _NoSuchStreamingDistribution,
 
-    -- ** TooManyCacheBehaviors
-    _TooManyCacheBehaviors,
+    -- ** InconsistentQuantities
+    _InconsistentQuantities,
 
-    -- ** TooManyOriginRequestPolicies
-    _TooManyOriginRequestPolicies,
+    -- ** InvalidArgument
+    _InvalidArgument,
 
-    -- ** TooManyFieldLevelEncryptionProfiles
-    _TooManyFieldLevelEncryptionProfiles,
+    -- ** InvalidOriginKeepaliveTimeout
+    _InvalidOriginKeepaliveTimeout,
 
-    -- ** InvalidQueryStringParameters
-    _InvalidQueryStringParameters,
+    -- ** TooManyInvalidationsInProgress
+    _TooManyInvalidationsInProgress,
 
-    -- ** TooManyKeyGroups
-    _TooManyKeyGroups,
+    -- ** InvalidWebACLId
+    _InvalidWebACLId,
 
-    -- ** TooManyHeadersInOriginRequestPolicy
-    _TooManyHeadersInOriginRequestPolicy,
+    -- ** TooManyQueryStringParameters
+    _TooManyQueryStringParameters,
 
-    -- ** TooManyQueryStringsInOriginRequestPolicy
-    _TooManyQueryStringsInOriginRequestPolicy,
+    -- ** TooManyFieldLevelEncryptionQueryArgProfiles
+    _TooManyFieldLevelEncryptionQueryArgProfiles,
 
-    -- ** TooManyCertificates
-    _TooManyCertificates,
+    -- ** TooManyDistributionCNAMEs
+    _TooManyDistributionCNAMEs,
 
-    -- ** InvalidDefaultRootObject
-    _InvalidDefaultRootObject,
+    -- ** NoSuchCloudFrontOriginAccessIdentity
+    _NoSuchCloudFrontOriginAccessIdentity,
 
-    -- ** TooManyDistributionsWithSingleFunctionARN
-    _TooManyDistributionsWithSingleFunctionARN,
+    -- ** CloudFrontOriginAccessIdentityInUse
+    _CloudFrontOriginAccessIdentityInUse,
 
-    -- ** OriginRequestPolicyInUse
-    _OriginRequestPolicyInUse,
+    -- ** InvalidFunctionAssociation
+    _InvalidFunctionAssociation,
 
-    -- ** InvalidGeoRestrictionParameter
-    _InvalidGeoRestrictionParameter,
+    -- ** TooManyStreamingDistributions
+    _TooManyStreamingDistributions,
 
-    -- ** NoSuchOriginRequestPolicy
-    _NoSuchOriginRequestPolicy,
+    -- ** CannotChangeImmutablePublicKeyFields
+    _CannotChangeImmutablePublicKeyFields,
 
-    -- ** TooManyDistributionsWithLambdaAssociations
-    _TooManyDistributionsWithLambdaAssociations,
+    -- ** BatchTooLarge
+    _BatchTooLarge,
 
-    -- ** FunctionSizeLimitExceeded
-    _FunctionSizeLimitExceeded,
+    -- ** TooManyCookieNamesInWhiteList
+    _TooManyCookieNamesInWhiteList,
 
-    -- ** FieldLevelEncryptionProfileAlreadyExists
-    _FieldLevelEncryptionProfileAlreadyExists,
+    -- ** TooManyPublicKeysInKeyGroup
+    _TooManyPublicKeysInKeyGroup,
 
-    -- ** TooManyFunctions
-    _TooManyFunctions,
+    -- ** InvalidLambdaFunctionAssociation
+    _InvalidLambdaFunctionAssociation,
 
-    -- ** TooManyStreamingDistributionCNAMEs
-    _TooManyStreamingDistributionCNAMEs,
+    -- ** TooManyKeyGroupsAssociatedToDistribution
+    _TooManyKeyGroupsAssociatedToDistribution,
 
-    -- ** TooManyDistributions
-    _TooManyDistributions,
+    -- ** NoSuchRealtimeLogConfig
+    _NoSuchRealtimeLogConfig,
 
-    -- ** FunctionInUse
-    _FunctionInUse,
+    -- ** InvalidForwardCookies
+    _InvalidForwardCookies,
 
-    -- ** FieldLevelEncryptionProfileSizeExceeded
-    _FieldLevelEncryptionProfileSizeExceeded,
+    -- ** FieldLevelEncryptionConfigInUse
+    _FieldLevelEncryptionConfigInUse,
 
-    -- ** NoSuchResource
-    _NoSuchResource,
+    -- ** TooManyTrustedSigners
+    _TooManyTrustedSigners,
 
-    -- ** InvalidTTLOrder
-    _InvalidTTLOrder,
+    -- ** TooManyDistributionsAssociatedToKeyGroup
+    _TooManyDistributionsAssociatedToKeyGroup,
 
-    -- ** AccessDenied
-    _AccessDenied,
+    -- ** InvalidOrigin
+    _InvalidOrigin,
 
-    -- ** QueryArgProfileEmpty
-    _QueryArgProfileEmpty,
+    -- ** CachePolicyInUse
+    _CachePolicyInUse,
 
-    -- ** TooManyOrigins
-    _TooManyOrigins,
+    -- ** NoSuchInvalidation
+    _NoSuchInvalidation,
 
-    -- ** TooManyQueryStringsInCachePolicy
-    _TooManyQueryStringsInCachePolicy,
+    -- ** PublicKeyAlreadyExists
+    _PublicKeyAlreadyExists,
+
+    -- ** UnsupportedOperation
+    _UnsupportedOperation,
+
+    -- ** NoSuchOrigin
+    _NoSuchOrigin,
 
     -- ** TooManyHeadersInCachePolicy
     _TooManyHeadersInCachePolicy,
@@ -336,311 +168,257 @@ module Network.AWS.CloudFront
     -- ** NoSuchCachePolicy
     _NoSuchCachePolicy,
 
-    -- ** StreamingDistributionAlreadyExists
-    _StreamingDistributionAlreadyExists,
+    -- ** InvalidTTLOrder
+    _InvalidTTLOrder,
 
-    -- ** TooManyKeyGroupsAssociatedToDistribution
-    _TooManyKeyGroupsAssociatedToDistribution,
+    -- ** StreamingDistributionNotDisabled
+    _StreamingDistributionNotDisabled,
 
-    -- ** InvalidLambdaFunctionAssociation
-    _InvalidLambdaFunctionAssociation,
+    -- ** OriginRequestPolicyAlreadyExists
+    _OriginRequestPolicyAlreadyExists,
 
-    -- ** TooManyDistributionsAssociatedToKeyGroup
-    _TooManyDistributionsAssociatedToKeyGroup,
+    -- ** TooManyHeadersInForwardedValues
+    _TooManyHeadersInForwardedValues,
 
-    -- ** TooManyRealtimeLogConfigs
-    _TooManyRealtimeLogConfigs,
+    -- ** NoSuchResource
+    _NoSuchResource,
 
-    -- ** TooManyOriginGroupsPerDistribution
-    _TooManyOriginGroupsPerDistribution,
+    -- ** TooManyFieldLevelEncryptionEncryptionEntities
+    _TooManyFieldLevelEncryptionEncryptionEntities,
 
-    -- ** CloudFrontOriginAccessIdentityInUse
-    _CloudFrontOriginAccessIdentityInUse,
+    -- ** TooManyFunctions
+    _TooManyFunctions,
 
-    -- ** CachePolicyAlreadyExists
-    _CachePolicyAlreadyExists,
+    -- ** TooManyStreamingDistributionCNAMEs
+    _TooManyStreamingDistributionCNAMEs,
 
-    -- ** TooManyFieldLevelEncryptionQueryArgProfiles
-    _TooManyFieldLevelEncryptionQueryArgProfiles,
+    -- ** FieldLevelEncryptionProfileAlreadyExists
+    _FieldLevelEncryptionProfileAlreadyExists,
 
-    -- ** TooManyStreamingDistributions
-    _TooManyStreamingDistributions,
+    -- ** KeyGroupAlreadyExists
+    _KeyGroupAlreadyExists,
 
-    -- ** TooManyDistributionCNAMEs
-    _TooManyDistributionCNAMEs,
+    -- ** TrustedKeyGroupDoesNotExist
+    _TrustedKeyGroupDoesNotExist,
 
-    -- ** NoSuchStreamingDistribution
-    _NoSuchStreamingDistribution,
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** InvalidRequiredProtocol
+    _InvalidRequiredProtocol,
+
+    -- ** TooManyDistributions
+    _TooManyDistributions,
+
+    -- ** TooManyDistributionsWithSingleFunctionARN
+    _TooManyDistributionsWithSingleFunctionARN,
+
+    -- ** TooManyHeadersInOriginRequestPolicy
+    _TooManyHeadersInOriginRequestPolicy,
+
+    -- ** TooManyCertificates
+    _TooManyCertificates,
+
+    -- ** FunctionSizeLimitExceeded
+    _FunctionSizeLimitExceeded,
+
+    -- ** NoSuchOriginRequestPolicy
+    _NoSuchOriginRequestPolicy,
+
+    -- ** DistributionAlreadyExists
+    _DistributionAlreadyExists,
+
+    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+
+    -- ** TooManyKeyGroups
+    _TooManyKeyGroups,
+
+    -- ** InvalidQueryStringParameters
+    _InvalidQueryStringParameters,
+
+    -- ** MissingBody
+    _MissingBody,
+
+    -- ** FunctionAlreadyExists
+    _FunctionAlreadyExists,
+
+    -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+    _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+
+    -- ** TooManyOriginRequestPolicies
+    _TooManyOriginRequestPolicies,
+
+    -- ** IllegalDelete
+    _IllegalDelete,
+
+    -- ** IllegalUpdate
+    _IllegalUpdate,
+
+    -- ** InvalidIfMatchVersion
+    _InvalidIfMatchVersion,
+
+    -- ** FieldLevelEncryptionConfigAlreadyExists
+    _FieldLevelEncryptionConfigAlreadyExists,
+
+    -- ** PreconditionFailed
+    _PreconditionFailed,
+
+    -- ** InvalidResponseCode
+    _InvalidResponseCode,
+
+    -- ** InvalidHeadersForS3Origin
+    _InvalidHeadersForS3Origin,
 
     -- ** CNAMEAlreadyExists
     _CNAMEAlreadyExists,
 
-    -- ** InvalidWebACLId
-    _InvalidWebACLId,
-
-    -- ** InvalidOriginKeepaliveTimeout
-    _InvalidOriginKeepaliveTimeout,
+    -- ** NoSuchPublicKey
+    _NoSuchPublicKey,
 
     -- ** PublicKeyInUse
     _PublicKeyInUse,
 
-    -- ** InvalidArgument
-    _InvalidArgument,
+    -- ** TrustedSignerDoesNotExist
+    _TrustedSignerDoesNotExist,
+
+    -- ** InvalidProtocolSettings
+    _InvalidProtocolSettings,
+
+    -- ** CachePolicyAlreadyExists
+    _CachePolicyAlreadyExists,
+
+    -- ** TooManyCookiesInOriginRequestPolicy
+    _TooManyCookiesInOriginRequestPolicy,
+
+    -- ** TooManyOriginGroupsPerDistribution
+    _TooManyOriginGroupsPerDistribution,
+
+    -- ** TooManyPublicKeys
+    _TooManyPublicKeys,
+
+    -- ** NoSuchFieldLevelEncryptionConfig
+    _NoSuchFieldLevelEncryptionConfig,
+
+    -- ** TooManyRealtimeLogConfigs
+    _TooManyRealtimeLogConfigs,
+
+    -- ** RealtimeLogConfigInUse
+    _RealtimeLogConfigInUse,
+
+    -- ** TooManyCachePolicies
+    _TooManyCachePolicies,
+
+    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
+    _TooManyFieldLevelEncryptionContentTypeProfiles,
+
+    -- ** TooManyFieldLevelEncryptionFieldPatterns
+    _TooManyFieldLevelEncryptionFieldPatterns,
+
+    -- ** TooManyFieldLevelEncryptionConfigs
+    _TooManyFieldLevelEncryptionConfigs,
+
+    -- ** TooManyLambdaFunctionAssociations
+    _TooManyLambdaFunctionAssociations,
+
+    -- ** CloudFrontOriginAccessIdentityAlreadyExists
+    _CloudFrontOriginAccessIdentityAlreadyExists,
+
+    -- ** TooManyQueryStringsInCachePolicy
+    _TooManyQueryStringsInCachePolicy,
+
+    -- ** TooManyOrigins
+    _TooManyOrigins,
+
+    -- ** InvalidRelativePath
+    _InvalidRelativePath,
+
+    -- ** StreamingDistributionAlreadyExists
+    _StreamingDistributionAlreadyExists,
+
+    -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
+    _TooManyDistributionsAssociatedToOriginRequestPolicy,
+
+    -- ** QueryArgProfileEmpty
+    _QueryArgProfileEmpty,
+
+    -- ** TooManyCookiesInCachePolicy
+    _TooManyCookiesInCachePolicy,
+
+    -- ** InvalidMinimumProtocolVersion
+    _InvalidMinimumProtocolVersion,
+
+    -- ** AccessDenied
+    _AccessDenied,
+
+    -- ** InvalidViewerCertificate
+    _InvalidViewerCertificate,
+
+    -- ** NoSuchDistribution
+    _NoSuchDistribution,
+
+    -- ** NoSuchFunctionExists
+    _NoSuchFunctionExists,
+
+    -- ** FunctionInUse
+    _FunctionInUse,
+
+    -- ** FieldLevelEncryptionProfileSizeExceeded
+    _FieldLevelEncryptionProfileSizeExceeded,
+
+    -- ** TooManyQueryStringsInOriginRequestPolicy
+    _TooManyQueryStringsInOriginRequestPolicy,
+
+    -- ** InvalidDefaultRootObject
+    _InvalidDefaultRootObject,
+
+    -- ** TooManyDistributionsWithLambdaAssociations
+    _TooManyDistributionsWithLambdaAssociations,
+
+    -- ** TooManyDistributionsAssociatedToCachePolicy
+    _TooManyDistributionsAssociatedToCachePolicy,
+
+    -- ** InvalidGeoRestrictionParameter
+    _InvalidGeoRestrictionParameter,
+
+    -- ** OriginRequestPolicyInUse
+    _OriginRequestPolicyInUse,
+
+    -- ** InvalidLocationCode
+    _InvalidLocationCode,
 
     -- * Waiters
     -- $waiters
 
-    -- ** InvalidationCompleted
-    newInvalidationCompleted,
+    -- ** StreamingDistributionDeployed
+    newStreamingDistributionDeployed,
 
     -- ** DistributionDeployed
     newDistributionDeployed,
 
-    -- ** StreamingDistributionDeployed
-    newStreamingDistributionDeployed,
+    -- ** InvalidationCompleted
+    newInvalidationCompleted,
 
     -- * Operations
     -- $operations
 
-    -- ** DeletePublicKey
-    DeletePublicKey (DeletePublicKey'),
-    newDeletePublicKey,
-    DeletePublicKeyResponse (DeletePublicKeyResponse'),
-    newDeletePublicKeyResponse,
+    -- ** DeleteOriginRequestPolicy
+    DeleteOriginRequestPolicy (DeleteOriginRequestPolicy'),
+    newDeleteOriginRequestPolicy,
+    DeleteOriginRequestPolicyResponse (DeleteOriginRequestPolicyResponse'),
+    newDeleteOriginRequestPolicyResponse,
 
-    -- ** ListPublicKeys
-    ListPublicKeys (ListPublicKeys'),
-    newListPublicKeys,
-    ListPublicKeysResponse (ListPublicKeysResponse'),
-    newListPublicKeysResponse,
-
-    -- ** UpdatePublicKey
-    UpdatePublicKey (UpdatePublicKey'),
-    newUpdatePublicKey,
-    UpdatePublicKeyResponse (UpdatePublicKeyResponse'),
-    newUpdatePublicKeyResponse,
-
-    -- ** GetDistribution
-    GetDistribution (GetDistribution'),
-    newGetDistribution,
-    GetDistributionResponse (GetDistributionResponse'),
-    newGetDistributionResponse,
-
-    -- ** GetFunction
-    GetFunction (GetFunction'),
-    newGetFunction,
-    GetFunctionResponse (GetFunctionResponse'),
-    newGetFunctionResponse,
+    -- ** UpdateOriginRequestPolicy
+    UpdateOriginRequestPolicy (UpdateOriginRequestPolicy'),
+    newUpdateOriginRequestPolicy,
+    UpdateOriginRequestPolicyResponse (UpdateOriginRequestPolicyResponse'),
+    newUpdateOriginRequestPolicyResponse,
 
     -- ** ListConflictingAliases
     ListConflictingAliases (ListConflictingAliases'),
     newListConflictingAliases,
     ListConflictingAliasesResponse (ListConflictingAliasesResponse'),
     newListConflictingAliasesResponse,
-
-    -- ** GetKeyGroupConfig
-    GetKeyGroupConfig (GetKeyGroupConfig'),
-    newGetKeyGroupConfig,
-    GetKeyGroupConfigResponse (GetKeyGroupConfigResponse'),
-    newGetKeyGroupConfigResponse,
-
-    -- ** CreateFieldLevelEncryptionProfile
-    CreateFieldLevelEncryptionProfile (CreateFieldLevelEncryptionProfile'),
-    newCreateFieldLevelEncryptionProfile,
-    CreateFieldLevelEncryptionProfileResponse (CreateFieldLevelEncryptionProfileResponse'),
-    newCreateFieldLevelEncryptionProfileResponse,
-
-    -- ** ListKeyGroups
-    ListKeyGroups (ListKeyGroups'),
-    newListKeyGroups,
-    ListKeyGroupsResponse (ListKeyGroupsResponse'),
-    newListKeyGroupsResponse,
-
-    -- ** GetMonitoringSubscription
-    GetMonitoringSubscription (GetMonitoringSubscription'),
-    newGetMonitoringSubscription,
-    GetMonitoringSubscriptionResponse (GetMonitoringSubscriptionResponse'),
-    newGetMonitoringSubscriptionResponse,
-
-    -- ** ListDistributionsByCachePolicyId
-    ListDistributionsByCachePolicyId (ListDistributionsByCachePolicyId'),
-    newListDistributionsByCachePolicyId,
-    ListDistributionsByCachePolicyIdResponse (ListDistributionsByCachePolicyIdResponse'),
-    newListDistributionsByCachePolicyIdResponse,
-
-    -- ** ListOriginRequestPolicies
-    ListOriginRequestPolicies (ListOriginRequestPolicies'),
-    newListOriginRequestPolicies,
-    ListOriginRequestPoliciesResponse (ListOriginRequestPoliciesResponse'),
-    newListOriginRequestPoliciesResponse,
-
-    -- ** CreateOriginRequestPolicy
-    CreateOriginRequestPolicy (CreateOriginRequestPolicy'),
-    newCreateOriginRequestPolicy,
-    CreateOriginRequestPolicyResponse (CreateOriginRequestPolicyResponse'),
-    newCreateOriginRequestPolicyResponse,
-
-    -- ** GetKeyGroup
-    GetKeyGroup (GetKeyGroup'),
-    newGetKeyGroup,
-    GetKeyGroupResponse (GetKeyGroupResponse'),
-    newGetKeyGroupResponse,
-
-    -- ** GetDistributionConfig
-    GetDistributionConfig (GetDistributionConfig'),
-    newGetDistributionConfig,
-    GetDistributionConfigResponse (GetDistributionConfigResponse'),
-    newGetDistributionConfigResponse,
-
-    -- ** ListFunctions
-    ListFunctions (ListFunctions'),
-    newListFunctions,
-    ListFunctionsResponse (ListFunctionsResponse'),
-    newListFunctionsResponse,
-
-    -- ** ListDistributionsByWebACLId
-    ListDistributionsByWebACLId (ListDistributionsByWebACLId'),
-    newListDistributionsByWebACLId,
-    ListDistributionsByWebACLIdResponse (ListDistributionsByWebACLIdResponse'),
-    newListDistributionsByWebACLIdResponse,
-
-    -- ** ListDistributions (Paginated)
-    ListDistributions (ListDistributions'),
-    newListDistributions,
-    ListDistributionsResponse (ListDistributionsResponse'),
-    newListDistributionsResponse,
-
-    -- ** PublishFunction
-    PublishFunction (PublishFunction'),
-    newPublishFunction,
-    PublishFunctionResponse (PublishFunctionResponse'),
-    newPublishFunctionResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** UpdateFieldLevelEncryptionConfig
-    UpdateFieldLevelEncryptionConfig (UpdateFieldLevelEncryptionConfig'),
-    newUpdateFieldLevelEncryptionConfig,
-    UpdateFieldLevelEncryptionConfigResponse (UpdateFieldLevelEncryptionConfigResponse'),
-    newUpdateFieldLevelEncryptionConfigResponse,
-
-    -- ** GetCloudFrontOriginAccessIdentity
-    GetCloudFrontOriginAccessIdentity (GetCloudFrontOriginAccessIdentity'),
-    newGetCloudFrontOriginAccessIdentity,
-    GetCloudFrontOriginAccessIdentityResponse (GetCloudFrontOriginAccessIdentityResponse'),
-    newGetCloudFrontOriginAccessIdentityResponse,
-
-    -- ** DeleteFieldLevelEncryptionConfig
-    DeleteFieldLevelEncryptionConfig (DeleteFieldLevelEncryptionConfig'),
-    newDeleteFieldLevelEncryptionConfig,
-    DeleteFieldLevelEncryptionConfigResponse (DeleteFieldLevelEncryptionConfigResponse'),
-    newDeleteFieldLevelEncryptionConfigResponse,
-
-    -- ** ListRealtimeLogConfigs
-    ListRealtimeLogConfigs (ListRealtimeLogConfigs'),
-    newListRealtimeLogConfigs,
-    ListRealtimeLogConfigsResponse (ListRealtimeLogConfigsResponse'),
-    newListRealtimeLogConfigsResponse,
-
-    -- ** ListCachePolicies
-    ListCachePolicies (ListCachePolicies'),
-    newListCachePolicies,
-    ListCachePoliciesResponse (ListCachePoliciesResponse'),
-    newListCachePoliciesResponse,
-
-    -- ** GetPublicKey
-    GetPublicKey (GetPublicKey'),
-    newGetPublicKey,
-    GetPublicKeyResponse (GetPublicKeyResponse'),
-    newGetPublicKeyResponse,
-
-    -- ** CreateCachePolicy
-    CreateCachePolicy (CreateCachePolicy'),
-    newCreateCachePolicy,
-    CreateCachePolicyResponse (CreateCachePolicyResponse'),
-    newCreateCachePolicyResponse,
-
-    -- ** ListDistributionsByKeyGroup
-    ListDistributionsByKeyGroup (ListDistributionsByKeyGroup'),
-    newListDistributionsByKeyGroup,
-    ListDistributionsByKeyGroupResponse (ListDistributionsByKeyGroupResponse'),
-    newListDistributionsByKeyGroupResponse,
-
-    -- ** ListDistributionsByOriginRequestPolicyId
-    ListDistributionsByOriginRequestPolicyId (ListDistributionsByOriginRequestPolicyId'),
-    newListDistributionsByOriginRequestPolicyId,
-    ListDistributionsByOriginRequestPolicyIdResponse (ListDistributionsByOriginRequestPolicyIdResponse'),
-    newListDistributionsByOriginRequestPolicyIdResponse,
-
-    -- ** ListFieldLevelEncryptionConfigs
-    ListFieldLevelEncryptionConfigs (ListFieldLevelEncryptionConfigs'),
-    newListFieldLevelEncryptionConfigs,
-    ListFieldLevelEncryptionConfigsResponse (ListFieldLevelEncryptionConfigsResponse'),
-    newListFieldLevelEncryptionConfigsResponse,
-
-    -- ** GetFieldLevelEncryption
-    GetFieldLevelEncryption (GetFieldLevelEncryption'),
-    newGetFieldLevelEncryption,
-    GetFieldLevelEncryptionResponse (GetFieldLevelEncryptionResponse'),
-    newGetFieldLevelEncryptionResponse,
-
-    -- ** UpdateCachePolicy
-    UpdateCachePolicy (UpdateCachePolicy'),
-    newUpdateCachePolicy,
-    UpdateCachePolicyResponse (UpdateCachePolicyResponse'),
-    newUpdateCachePolicyResponse,
-
-    -- ** DeleteCachePolicy
-    DeleteCachePolicy (DeleteCachePolicy'),
-    newDeleteCachePolicy,
-    DeleteCachePolicyResponse (DeleteCachePolicyResponse'),
-    newDeleteCachePolicyResponse,
-
-    -- ** GetInvalidation
-    GetInvalidation (GetInvalidation'),
-    newGetInvalidation,
-    GetInvalidationResponse (GetInvalidationResponse'),
-    newGetInvalidationResponse,
-
-    -- ** CreateStreamingDistribution
-    CreateStreamingDistribution (CreateStreamingDistribution'),
-    newCreateStreamingDistribution,
-    CreateStreamingDistributionResponse (CreateStreamingDistributionResponse'),
-    newCreateStreamingDistributionResponse,
-
-    -- ** GetPublicKeyConfig
-    GetPublicKeyConfig (GetPublicKeyConfig'),
-    newGetPublicKeyConfig,
-    GetPublicKeyConfigResponse (GetPublicKeyConfigResponse'),
-    newGetPublicKeyConfigResponse,
-
-    -- ** GetCloudFrontOriginAccessIdentityConfig
-    GetCloudFrontOriginAccessIdentityConfig (GetCloudFrontOriginAccessIdentityConfig'),
-    newGetCloudFrontOriginAccessIdentityConfig,
-    GetCloudFrontOriginAccessIdentityConfigResponse (GetCloudFrontOriginAccessIdentityConfigResponse'),
-    newGetCloudFrontOriginAccessIdentityConfigResponse,
-
-    -- ** UpdateCloudFrontOriginAccessIdentity
-    UpdateCloudFrontOriginAccessIdentity (UpdateCloudFrontOriginAccessIdentity'),
-    newUpdateCloudFrontOriginAccessIdentity,
-    UpdateCloudFrontOriginAccessIdentityResponse (UpdateCloudFrontOriginAccessIdentityResponse'),
-    newUpdateCloudFrontOriginAccessIdentityResponse,
-
-    -- ** GetRealtimeLogConfig
-    GetRealtimeLogConfig (GetRealtimeLogConfig'),
-    newGetRealtimeLogConfig,
-    GetRealtimeLogConfigResponse (GetRealtimeLogConfigResponse'),
-    newGetRealtimeLogConfigResponse,
 
     -- ** DeleteStreamingDistribution
     DeleteStreamingDistribution (DeleteStreamingDistribution'),
@@ -654,233 +432,17 @@ module Network.AWS.CloudFront
     UpdateStreamingDistributionResponse (UpdateStreamingDistributionResponse'),
     newUpdateStreamingDistributionResponse,
 
-    -- ** DescribeFunction
-    DescribeFunction (DescribeFunction'),
-    newDescribeFunction,
-    DescribeFunctionResponse (DescribeFunctionResponse'),
-    newDescribeFunctionResponse,
-
-    -- ** DeleteCloudFrontOriginAccessIdentity
-    DeleteCloudFrontOriginAccessIdentity (DeleteCloudFrontOriginAccessIdentity'),
-    newDeleteCloudFrontOriginAccessIdentity,
-    DeleteCloudFrontOriginAccessIdentityResponse (DeleteCloudFrontOriginAccessIdentityResponse'),
-    newDeleteCloudFrontOriginAccessIdentityResponse,
+    -- ** ListPublicKeys
+    ListPublicKeys (ListPublicKeys'),
+    newListPublicKeys,
+    ListPublicKeysResponse (ListPublicKeysResponse'),
+    newListPublicKeysResponse,
 
     -- ** GetFieldLevelEncryptionConfig
     GetFieldLevelEncryptionConfig (GetFieldLevelEncryptionConfig'),
     newGetFieldLevelEncryptionConfig,
     GetFieldLevelEncryptionConfigResponse (GetFieldLevelEncryptionConfigResponse'),
     newGetFieldLevelEncryptionConfigResponse,
-
-    -- ** ListStreamingDistributions (Paginated)
-    ListStreamingDistributions (ListStreamingDistributions'),
-    newListStreamingDistributions,
-    ListStreamingDistributionsResponse (ListStreamingDistributionsResponse'),
-    newListStreamingDistributionsResponse,
-
-    -- ** GetFieldLevelEncryptionProfileConfig
-    GetFieldLevelEncryptionProfileConfig (GetFieldLevelEncryptionProfileConfig'),
-    newGetFieldLevelEncryptionProfileConfig,
-    GetFieldLevelEncryptionProfileConfigResponse (GetFieldLevelEncryptionProfileConfigResponse'),
-    newGetFieldLevelEncryptionProfileConfigResponse,
-
-    -- ** DeleteOriginRequestPolicy
-    DeleteOriginRequestPolicy (DeleteOriginRequestPolicy'),
-    newDeleteOriginRequestPolicy,
-    DeleteOriginRequestPolicyResponse (DeleteOriginRequestPolicyResponse'),
-    newDeleteOriginRequestPolicyResponse,
-
-    -- ** TestFunction
-    TestFunction (TestFunction'),
-    newTestFunction,
-    TestFunctionResponse (TestFunctionResponse'),
-    newTestFunctionResponse,
-
-    -- ** CreateKeyGroup
-    CreateKeyGroup (CreateKeyGroup'),
-    newCreateKeyGroup,
-    CreateKeyGroupResponse (CreateKeyGroupResponse'),
-    newCreateKeyGroupResponse,
-
-    -- ** UpdateOriginRequestPolicy
-    UpdateOriginRequestPolicy (UpdateOriginRequestPolicy'),
-    newUpdateOriginRequestPolicy,
-    UpdateOriginRequestPolicyResponse (UpdateOriginRequestPolicyResponse'),
-    newUpdateOriginRequestPolicyResponse,
-
-    -- ** UpdateFieldLevelEncryptionProfile
-    UpdateFieldLevelEncryptionProfile (UpdateFieldLevelEncryptionProfile'),
-    newUpdateFieldLevelEncryptionProfile,
-    UpdateFieldLevelEncryptionProfileResponse (UpdateFieldLevelEncryptionProfileResponse'),
-    newUpdateFieldLevelEncryptionProfileResponse,
-
-    -- ** DeleteKeyGroup
-    DeleteKeyGroup (DeleteKeyGroup'),
-    newDeleteKeyGroup,
-    DeleteKeyGroupResponse (DeleteKeyGroupResponse'),
-    newDeleteKeyGroupResponse,
-
-    -- ** GetOriginRequestPolicyConfig
-    GetOriginRequestPolicyConfig (GetOriginRequestPolicyConfig'),
-    newGetOriginRequestPolicyConfig,
-    GetOriginRequestPolicyConfigResponse (GetOriginRequestPolicyConfigResponse'),
-    newGetOriginRequestPolicyConfigResponse,
-
-    -- ** ListFieldLevelEncryptionProfiles
-    ListFieldLevelEncryptionProfiles (ListFieldLevelEncryptionProfiles'),
-    newListFieldLevelEncryptionProfiles,
-    ListFieldLevelEncryptionProfilesResponse (ListFieldLevelEncryptionProfilesResponse'),
-    newListFieldLevelEncryptionProfilesResponse,
-
-    -- ** DeleteFieldLevelEncryptionProfile
-    DeleteFieldLevelEncryptionProfile (DeleteFieldLevelEncryptionProfile'),
-    newDeleteFieldLevelEncryptionProfile,
-    DeleteFieldLevelEncryptionProfileResponse (DeleteFieldLevelEncryptionProfileResponse'),
-    newDeleteFieldLevelEncryptionProfileResponse,
-
-    -- ** UpdateKeyGroup
-    UpdateKeyGroup (UpdateKeyGroup'),
-    newUpdateKeyGroup,
-    UpdateKeyGroupResponse (UpdateKeyGroupResponse'),
-    newUpdateKeyGroupResponse,
-
-    -- ** CreateStreamingDistributionWithTags
-    CreateStreamingDistributionWithTags (CreateStreamingDistributionWithTags'),
-    newCreateStreamingDistributionWithTags,
-    CreateStreamingDistributionWithTagsResponse (CreateStreamingDistributionWithTagsResponse'),
-    newCreateStreamingDistributionWithTagsResponse,
-
-    -- ** ListDistributionsByRealtimeLogConfig
-    ListDistributionsByRealtimeLogConfig (ListDistributionsByRealtimeLogConfig'),
-    newListDistributionsByRealtimeLogConfig,
-    ListDistributionsByRealtimeLogConfigResponse (ListDistributionsByRealtimeLogConfigResponse'),
-    newListDistributionsByRealtimeLogConfigResponse,
-
-    -- ** CreateFunction
-    CreateFunction (CreateFunction'),
-    newCreateFunction,
-    CreateFunctionResponse (CreateFunctionResponse'),
-    newCreateFunctionResponse,
-
-    -- ** DeleteMonitoringSubscription
-    DeleteMonitoringSubscription (DeleteMonitoringSubscription'),
-    newDeleteMonitoringSubscription,
-    DeleteMonitoringSubscriptionResponse (DeleteMonitoringSubscriptionResponse'),
-    newDeleteMonitoringSubscriptionResponse,
-
-    -- ** GetFieldLevelEncryptionProfile
-    GetFieldLevelEncryptionProfile (GetFieldLevelEncryptionProfile'),
-    newGetFieldLevelEncryptionProfile,
-    GetFieldLevelEncryptionProfileResponse (GetFieldLevelEncryptionProfileResponse'),
-    newGetFieldLevelEncryptionProfileResponse,
-
-    -- ** CreateDistribution
-    CreateDistribution (CreateDistribution'),
-    newCreateDistribution,
-    CreateDistributionResponse (CreateDistributionResponse'),
-    newCreateDistributionResponse,
-
-    -- ** DeleteDistribution
-    DeleteDistribution (DeleteDistribution'),
-    newDeleteDistribution,
-    DeleteDistributionResponse (DeleteDistributionResponse'),
-    newDeleteDistributionResponse,
-
-    -- ** DeleteFunction
-    DeleteFunction (DeleteFunction'),
-    newDeleteFunction,
-    DeleteFunctionResponse (DeleteFunctionResponse'),
-    newDeleteFunctionResponse,
-
-    -- ** UpdateDistribution
-    UpdateDistribution (UpdateDistribution'),
-    newUpdateDistribution,
-    UpdateDistributionResponse (UpdateDistributionResponse'),
-    newUpdateDistributionResponse,
-
-    -- ** CreateMonitoringSubscription
-    CreateMonitoringSubscription (CreateMonitoringSubscription'),
-    newCreateMonitoringSubscription,
-    CreateMonitoringSubscriptionResponse (CreateMonitoringSubscriptionResponse'),
-    newCreateMonitoringSubscriptionResponse,
-
-    -- ** GetOriginRequestPolicy
-    GetOriginRequestPolicy (GetOriginRequestPolicy'),
-    newGetOriginRequestPolicy,
-    GetOriginRequestPolicyResponse (GetOriginRequestPolicyResponse'),
-    newGetOriginRequestPolicyResponse,
-
-    -- ** UpdateFunction
-    UpdateFunction (UpdateFunction'),
-    newUpdateFunction,
-    UpdateFunctionResponse (UpdateFunctionResponse'),
-    newUpdateFunctionResponse,
-
-    -- ** GetCachePolicyConfig
-    GetCachePolicyConfig (GetCachePolicyConfig'),
-    newGetCachePolicyConfig,
-    GetCachePolicyConfigResponse (GetCachePolicyConfigResponse'),
-    newGetCachePolicyConfigResponse,
-
-    -- ** GetStreamingDistribution
-    GetStreamingDistribution (GetStreamingDistribution'),
-    newGetStreamingDistribution,
-    GetStreamingDistributionResponse (GetStreamingDistributionResponse'),
-    newGetStreamingDistributionResponse,
-
-    -- ** CreateInvalidation
-    CreateInvalidation (CreateInvalidation'),
-    newCreateInvalidation,
-    CreateInvalidationResponse (CreateInvalidationResponse'),
-    newCreateInvalidationResponse,
-
-    -- ** UpdateRealtimeLogConfig
-    UpdateRealtimeLogConfig (UpdateRealtimeLogConfig'),
-    newUpdateRealtimeLogConfig,
-    UpdateRealtimeLogConfigResponse (UpdateRealtimeLogConfigResponse'),
-    newUpdateRealtimeLogConfigResponse,
-
-    -- ** DeleteRealtimeLogConfig
-    DeleteRealtimeLogConfig (DeleteRealtimeLogConfig'),
-    newDeleteRealtimeLogConfig,
-    DeleteRealtimeLogConfigResponse (DeleteRealtimeLogConfigResponse'),
-    newDeleteRealtimeLogConfigResponse,
-
-    -- ** ListInvalidations (Paginated)
-    ListInvalidations (ListInvalidations'),
-    newListInvalidations,
-    ListInvalidationsResponse (ListInvalidationsResponse'),
-    newListInvalidationsResponse,
-
-    -- ** CreateDistributionWithTags
-    CreateDistributionWithTags (CreateDistributionWithTags'),
-    newCreateDistributionWithTags,
-    CreateDistributionWithTagsResponse (CreateDistributionWithTagsResponse'),
-    newCreateDistributionWithTagsResponse,
-
-    -- ** CreateFieldLevelEncryptionConfig
-    CreateFieldLevelEncryptionConfig (CreateFieldLevelEncryptionConfig'),
-    newCreateFieldLevelEncryptionConfig,
-    CreateFieldLevelEncryptionConfigResponse (CreateFieldLevelEncryptionConfigResponse'),
-    newCreateFieldLevelEncryptionConfigResponse,
-
-    -- ** CreateRealtimeLogConfig
-    CreateRealtimeLogConfig (CreateRealtimeLogConfig'),
-    newCreateRealtimeLogConfig,
-    CreateRealtimeLogConfigResponse (CreateRealtimeLogConfigResponse'),
-    newCreateRealtimeLogConfigResponse,
-
-    -- ** GetStreamingDistributionConfig
-    GetStreamingDistributionConfig (GetStreamingDistributionConfig'),
-    newGetStreamingDistributionConfig,
-    GetStreamingDistributionConfigResponse (GetStreamingDistributionConfigResponse'),
-    newGetStreamingDistributionConfigResponse,
-
-    -- ** GetCachePolicy
-    GetCachePolicy (GetCachePolicy'),
-    newGetCachePolicy,
-    GetCachePolicyResponse (GetCachePolicyResponse'),
-    newGetCachePolicyResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -894,6 +456,246 @@ module Network.AWS.CloudFront
     CreatePublicKeyResponse (CreatePublicKeyResponse'),
     newCreatePublicKeyResponse,
 
+    -- ** GetPublicKeyConfig
+    GetPublicKeyConfig (GetPublicKeyConfig'),
+    newGetPublicKeyConfig,
+    GetPublicKeyConfigResponse (GetPublicKeyConfigResponse'),
+    newGetPublicKeyConfigResponse,
+
+    -- ** CreateDistributionWithTags
+    CreateDistributionWithTags (CreateDistributionWithTags'),
+    newCreateDistributionWithTags,
+    CreateDistributionWithTagsResponse (CreateDistributionWithTagsResponse'),
+    newCreateDistributionWithTagsResponse,
+
+    -- ** CreateFieldLevelEncryptionConfig
+    CreateFieldLevelEncryptionConfig (CreateFieldLevelEncryptionConfig'),
+    newCreateFieldLevelEncryptionConfig,
+    CreateFieldLevelEncryptionConfigResponse (CreateFieldLevelEncryptionConfigResponse'),
+    newCreateFieldLevelEncryptionConfigResponse,
+
+    -- ** DeleteCachePolicy
+    DeleteCachePolicy (DeleteCachePolicy'),
+    newDeleteCachePolicy,
+    DeleteCachePolicyResponse (DeleteCachePolicyResponse'),
+    newDeleteCachePolicyResponse,
+
+    -- ** UpdateCachePolicy
+    UpdateCachePolicy (UpdateCachePolicy'),
+    newUpdateCachePolicy,
+    UpdateCachePolicyResponse (UpdateCachePolicyResponse'),
+    newUpdateCachePolicyResponse,
+
+    -- ** GetFieldLevelEncryption
+    GetFieldLevelEncryption (GetFieldLevelEncryption'),
+    newGetFieldLevelEncryption,
+    GetFieldLevelEncryptionResponse (GetFieldLevelEncryptionResponse'),
+    newGetFieldLevelEncryptionResponse,
+
+    -- ** ListRealtimeLogConfigs
+    ListRealtimeLogConfigs (ListRealtimeLogConfigs'),
+    newListRealtimeLogConfigs,
+    ListRealtimeLogConfigsResponse (ListRealtimeLogConfigsResponse'),
+    newListRealtimeLogConfigsResponse,
+
+    -- ** GetPublicKey
+    GetPublicKey (GetPublicKey'),
+    newGetPublicKey,
+    GetPublicKeyResponse (GetPublicKeyResponse'),
+    newGetPublicKeyResponse,
+
+    -- ** DeleteRealtimeLogConfig
+    DeleteRealtimeLogConfig (DeleteRealtimeLogConfig'),
+    newDeleteRealtimeLogConfig,
+    DeleteRealtimeLogConfigResponse (DeleteRealtimeLogConfigResponse'),
+    newDeleteRealtimeLogConfigResponse,
+
+    -- ** UpdateRealtimeLogConfig
+    UpdateRealtimeLogConfig (UpdateRealtimeLogConfig'),
+    newUpdateRealtimeLogConfig,
+    UpdateRealtimeLogConfigResponse (UpdateRealtimeLogConfigResponse'),
+    newUpdateRealtimeLogConfigResponse,
+
+    -- ** ListDistributionsByOriginRequestPolicyId
+    ListDistributionsByOriginRequestPolicyId (ListDistributionsByOriginRequestPolicyId'),
+    newListDistributionsByOriginRequestPolicyId,
+    ListDistributionsByOriginRequestPolicyIdResponse (ListDistributionsByOriginRequestPolicyIdResponse'),
+    newListDistributionsByOriginRequestPolicyIdResponse,
+
+    -- ** DeleteFieldLevelEncryptionConfig
+    DeleteFieldLevelEncryptionConfig (DeleteFieldLevelEncryptionConfig'),
+    newDeleteFieldLevelEncryptionConfig,
+    DeleteFieldLevelEncryptionConfigResponse (DeleteFieldLevelEncryptionConfigResponse'),
+    newDeleteFieldLevelEncryptionConfigResponse,
+
+    -- ** UpdateFieldLevelEncryptionConfig
+    UpdateFieldLevelEncryptionConfig (UpdateFieldLevelEncryptionConfig'),
+    newUpdateFieldLevelEncryptionConfig,
+    UpdateFieldLevelEncryptionConfigResponse (UpdateFieldLevelEncryptionConfigResponse'),
+    newUpdateFieldLevelEncryptionConfigResponse,
+
+    -- ** GetKeyGroup
+    GetKeyGroup (GetKeyGroup'),
+    newGetKeyGroup,
+    GetKeyGroupResponse (GetKeyGroupResponse'),
+    newGetKeyGroupResponse,
+
+    -- ** CreateDistribution
+    CreateDistribution (CreateDistribution'),
+    newCreateDistribution,
+    CreateDistributionResponse (CreateDistributionResponse'),
+    newCreateDistributionResponse,
+
+    -- ** GetFieldLevelEncryptionProfile
+    GetFieldLevelEncryptionProfile (GetFieldLevelEncryptionProfile'),
+    newGetFieldLevelEncryptionProfile,
+    GetFieldLevelEncryptionProfileResponse (GetFieldLevelEncryptionProfileResponse'),
+    newGetFieldLevelEncryptionProfileResponse,
+
+    -- ** DeleteMonitoringSubscription
+    DeleteMonitoringSubscription (DeleteMonitoringSubscription'),
+    newDeleteMonitoringSubscription,
+    DeleteMonitoringSubscriptionResponse (DeleteMonitoringSubscriptionResponse'),
+    newDeleteMonitoringSubscriptionResponse,
+
+    -- ** CreateFunction
+    CreateFunction (CreateFunction'),
+    newCreateFunction,
+    CreateFunctionResponse (CreateFunctionResponse'),
+    newCreateFunctionResponse,
+
+    -- ** GetDistributionConfig
+    GetDistributionConfig (GetDistributionConfig'),
+    newGetDistributionConfig,
+    GetDistributionConfigResponse (GetDistributionConfigResponse'),
+    newGetDistributionConfigResponse,
+
+    -- ** CreateStreamingDistributionWithTags
+    CreateStreamingDistributionWithTags (CreateStreamingDistributionWithTags'),
+    newCreateStreamingDistributionWithTags,
+    CreateStreamingDistributionWithTagsResponse (CreateStreamingDistributionWithTagsResponse'),
+    newCreateStreamingDistributionWithTagsResponse,
+
+    -- ** DeleteFieldLevelEncryptionProfile
+    DeleteFieldLevelEncryptionProfile (DeleteFieldLevelEncryptionProfile'),
+    newDeleteFieldLevelEncryptionProfile,
+    DeleteFieldLevelEncryptionProfileResponse (DeleteFieldLevelEncryptionProfileResponse'),
+    newDeleteFieldLevelEncryptionProfileResponse,
+
+    -- ** UpdateFieldLevelEncryptionProfile
+    UpdateFieldLevelEncryptionProfile (UpdateFieldLevelEncryptionProfile'),
+    newUpdateFieldLevelEncryptionProfile,
+    UpdateFieldLevelEncryptionProfileResponse (UpdateFieldLevelEncryptionProfileResponse'),
+    newUpdateFieldLevelEncryptionProfileResponse,
+
+    -- ** ListDistributionsByCachePolicyId
+    ListDistributionsByCachePolicyId (ListDistributionsByCachePolicyId'),
+    newListDistributionsByCachePolicyId,
+    ListDistributionsByCachePolicyIdResponse (ListDistributionsByCachePolicyIdResponse'),
+    newListDistributionsByCachePolicyIdResponse,
+
+    -- ** TestFunction
+    TestFunction (TestFunction'),
+    newTestFunction,
+    TestFunctionResponse (TestFunctionResponse'),
+    newTestFunctionResponse,
+
+    -- ** CreateFieldLevelEncryptionProfile
+    CreateFieldLevelEncryptionProfile (CreateFieldLevelEncryptionProfile'),
+    newCreateFieldLevelEncryptionProfile,
+    CreateFieldLevelEncryptionProfileResponse (CreateFieldLevelEncryptionProfileResponse'),
+    newCreateFieldLevelEncryptionProfileResponse,
+
+    -- ** GetKeyGroupConfig
+    GetKeyGroupConfig (GetKeyGroupConfig'),
+    newGetKeyGroupConfig,
+    GetKeyGroupConfigResponse (GetKeyGroupConfigResponse'),
+    newGetKeyGroupConfigResponse,
+
+    -- ** GetDistribution
+    GetDistribution (GetDistribution'),
+    newGetDistribution,
+    GetDistributionResponse (GetDistributionResponse'),
+    newGetDistributionResponse,
+
+    -- ** GetFieldLevelEncryptionProfileConfig
+    GetFieldLevelEncryptionProfileConfig (GetFieldLevelEncryptionProfileConfig'),
+    newGetFieldLevelEncryptionProfileConfig,
+    GetFieldLevelEncryptionProfileConfigResponse (GetFieldLevelEncryptionProfileConfigResponse'),
+    newGetFieldLevelEncryptionProfileConfigResponse,
+
+    -- ** GetFunction
+    GetFunction (GetFunction'),
+    newGetFunction,
+    GetFunctionResponse (GetFunctionResponse'),
+    newGetFunctionResponse,
+
+    -- ** CreateKeyGroup
+    CreateKeyGroup (CreateKeyGroup'),
+    newCreateKeyGroup,
+    CreateKeyGroupResponse (CreateKeyGroupResponse'),
+    newCreateKeyGroupResponse,
+
+    -- ** UpdateCloudFrontOriginAccessIdentity
+    UpdateCloudFrontOriginAccessIdentity (UpdateCloudFrontOriginAccessIdentity'),
+    newUpdateCloudFrontOriginAccessIdentity,
+    UpdateCloudFrontOriginAccessIdentityResponse (UpdateCloudFrontOriginAccessIdentityResponse'),
+    newUpdateCloudFrontOriginAccessIdentityResponse,
+
+    -- ** DeleteCloudFrontOriginAccessIdentity
+    DeleteCloudFrontOriginAccessIdentity (DeleteCloudFrontOriginAccessIdentity'),
+    newDeleteCloudFrontOriginAccessIdentity,
+    DeleteCloudFrontOriginAccessIdentityResponse (DeleteCloudFrontOriginAccessIdentityResponse'),
+    newDeleteCloudFrontOriginAccessIdentityResponse,
+
+    -- ** ListStreamingDistributions (Paginated)
+    ListStreamingDistributions (ListStreamingDistributions'),
+    newListStreamingDistributions,
+    ListStreamingDistributionsResponse (ListStreamingDistributionsResponse'),
+    newListStreamingDistributionsResponse,
+
+    -- ** DeletePublicKey
+    DeletePublicKey (DeletePublicKey'),
+    newDeletePublicKey,
+    DeletePublicKeyResponse (DeletePublicKeyResponse'),
+    newDeletePublicKeyResponse,
+
+    -- ** UpdatePublicKey
+    UpdatePublicKey (UpdatePublicKey'),
+    newUpdatePublicKey,
+    UpdatePublicKeyResponse (UpdatePublicKeyResponse'),
+    newUpdatePublicKeyResponse,
+
+    -- ** GetRealtimeLogConfig
+    GetRealtimeLogConfig (GetRealtimeLogConfig'),
+    newGetRealtimeLogConfig,
+    GetRealtimeLogConfigResponse (GetRealtimeLogConfigResponse'),
+    newGetRealtimeLogConfigResponse,
+
+    -- ** DescribeFunction
+    DescribeFunction (DescribeFunction'),
+    newDescribeFunction,
+    DescribeFunctionResponse (DescribeFunctionResponse'),
+    newDescribeFunctionResponse,
+
+    -- ** GetStreamingDistributionConfig
+    GetStreamingDistributionConfig (GetStreamingDistributionConfig'),
+    newGetStreamingDistributionConfig,
+    GetStreamingDistributionConfigResponse (GetStreamingDistributionConfigResponse'),
+    newGetStreamingDistributionConfigResponse,
+
+    -- ** GetCloudFrontOriginAccessIdentityConfig
+    GetCloudFrontOriginAccessIdentityConfig (GetCloudFrontOriginAccessIdentityConfig'),
+    newGetCloudFrontOriginAccessIdentityConfig,
+    GetCloudFrontOriginAccessIdentityConfigResponse (GetCloudFrontOriginAccessIdentityConfigResponse'),
+    newGetCloudFrontOriginAccessIdentityConfigResponse,
+
+    -- ** CreateStreamingDistribution
+    CreateStreamingDistribution (CreateStreamingDistribution'),
+    newCreateStreamingDistribution,
+    CreateStreamingDistributionResponse (CreateStreamingDistributionResponse'),
+    newCreateStreamingDistributionResponse,
+
     -- ** CreateCloudFrontOriginAccessIdentity
     CreateCloudFrontOriginAccessIdentity (CreateCloudFrontOriginAccessIdentity'),
     newCreateCloudFrontOriginAccessIdentity,
@@ -906,11 +708,209 @@ module Network.AWS.CloudFront
     ListCloudFrontOriginAccessIdentitiesResponse (ListCloudFrontOriginAccessIdentitiesResponse'),
     newListCloudFrontOriginAccessIdentitiesResponse,
 
+    -- ** GetInvalidation
+    GetInvalidation (GetInvalidation'),
+    newGetInvalidation,
+    GetInvalidationResponse (GetInvalidationResponse'),
+    newGetInvalidationResponse,
+
+    -- ** GetCachePolicy
+    GetCachePolicy (GetCachePolicy'),
+    newGetCachePolicy,
+    GetCachePolicyResponse (GetCachePolicyResponse'),
+    newGetCachePolicyResponse,
+
     -- ** AssociateAlias
     AssociateAlias (AssociateAlias'),
     newAssociateAlias,
     AssociateAliasResponse (AssociateAliasResponse'),
     newAssociateAliasResponse,
+
+    -- ** CreateRealtimeLogConfig
+    CreateRealtimeLogConfig (CreateRealtimeLogConfig'),
+    newCreateRealtimeLogConfig,
+    CreateRealtimeLogConfigResponse (CreateRealtimeLogConfigResponse'),
+    newCreateRealtimeLogConfigResponse,
+
+    -- ** ListInvalidations (Paginated)
+    ListInvalidations (ListInvalidations'),
+    newListInvalidations,
+    ListInvalidationsResponse (ListInvalidationsResponse'),
+    newListInvalidationsResponse,
+
+    -- ** CreateInvalidation
+    CreateInvalidation (CreateInvalidation'),
+    newCreateInvalidation,
+    CreateInvalidationResponse (CreateInvalidationResponse'),
+    newCreateInvalidationResponse,
+
+    -- ** GetCloudFrontOriginAccessIdentity
+    GetCloudFrontOriginAccessIdentity (GetCloudFrontOriginAccessIdentity'),
+    newGetCloudFrontOriginAccessIdentity,
+    GetCloudFrontOriginAccessIdentityResponse (GetCloudFrontOriginAccessIdentityResponse'),
+    newGetCloudFrontOriginAccessIdentityResponse,
+
+    -- ** ListCachePolicies
+    ListCachePolicies (ListCachePolicies'),
+    newListCachePolicies,
+    ListCachePoliciesResponse (ListCachePoliciesResponse'),
+    newListCachePoliciesResponse,
+
+    -- ** CreateCachePolicy
+    CreateCachePolicy (CreateCachePolicy'),
+    newCreateCachePolicy,
+    CreateCachePolicyResponse (CreateCachePolicyResponse'),
+    newCreateCachePolicyResponse,
+
+    -- ** GetCachePolicyConfig
+    GetCachePolicyConfig (GetCachePolicyConfig'),
+    newGetCachePolicyConfig,
+    GetCachePolicyConfigResponse (GetCachePolicyConfigResponse'),
+    newGetCachePolicyConfigResponse,
+
+    -- ** ListFieldLevelEncryptionConfigs
+    ListFieldLevelEncryptionConfigs (ListFieldLevelEncryptionConfigs'),
+    newListFieldLevelEncryptionConfigs,
+    ListFieldLevelEncryptionConfigsResponse (ListFieldLevelEncryptionConfigsResponse'),
+    newListFieldLevelEncryptionConfigsResponse,
+
+    -- ** ListDistributionsByKeyGroup
+    ListDistributionsByKeyGroup (ListDistributionsByKeyGroup'),
+    newListDistributionsByKeyGroup,
+    ListDistributionsByKeyGroupResponse (ListDistributionsByKeyGroupResponse'),
+    newListDistributionsByKeyGroupResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetStreamingDistribution
+    GetStreamingDistribution (GetStreamingDistribution'),
+    newGetStreamingDistribution,
+    GetStreamingDistributionResponse (GetStreamingDistributionResponse'),
+    newGetStreamingDistributionResponse,
+
+    -- ** UpdateDistribution
+    UpdateDistribution (UpdateDistribution'),
+    newUpdateDistribution,
+    UpdateDistributionResponse (UpdateDistributionResponse'),
+    newUpdateDistributionResponse,
+
+    -- ** UpdateFunction
+    UpdateFunction (UpdateFunction'),
+    newUpdateFunction,
+    UpdateFunctionResponse (UpdateFunctionResponse'),
+    newUpdateFunctionResponse,
+
+    -- ** DeleteDistribution
+    DeleteDistribution (DeleteDistribution'),
+    newDeleteDistribution,
+    DeleteDistributionResponse (DeleteDistributionResponse'),
+    newDeleteDistributionResponse,
+
+    -- ** DeleteFunction
+    DeleteFunction (DeleteFunction'),
+    newDeleteFunction,
+    DeleteFunctionResponse (DeleteFunctionResponse'),
+    newDeleteFunctionResponse,
+
+    -- ** GetOriginRequestPolicy
+    GetOriginRequestPolicy (GetOriginRequestPolicy'),
+    newGetOriginRequestPolicy,
+    GetOriginRequestPolicyResponse (GetOriginRequestPolicyResponse'),
+    newGetOriginRequestPolicyResponse,
+
+    -- ** PublishFunction
+    PublishFunction (PublishFunction'),
+    newPublishFunction,
+    PublishFunctionResponse (PublishFunctionResponse'),
+    newPublishFunctionResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** CreateMonitoringSubscription
+    CreateMonitoringSubscription (CreateMonitoringSubscription'),
+    newCreateMonitoringSubscription,
+    CreateMonitoringSubscriptionResponse (CreateMonitoringSubscriptionResponse'),
+    newCreateMonitoringSubscriptionResponse,
+
+    -- ** ListDistributionsByWebACLId
+    ListDistributionsByWebACLId (ListDistributionsByWebACLId'),
+    newListDistributionsByWebACLId,
+    ListDistributionsByWebACLIdResponse (ListDistributionsByWebACLIdResponse'),
+    newListDistributionsByWebACLIdResponse,
+
+    -- ** ListDistributions (Paginated)
+    ListDistributions (ListDistributions'),
+    newListDistributions,
+    ListDistributionsResponse (ListDistributionsResponse'),
+    newListDistributionsResponse,
+
+    -- ** ListFunctions
+    ListFunctions (ListFunctions'),
+    newListFunctions,
+    ListFunctionsResponse (ListFunctionsResponse'),
+    newListFunctionsResponse,
+
+    -- ** ListDistributionsByRealtimeLogConfig
+    ListDistributionsByRealtimeLogConfig (ListDistributionsByRealtimeLogConfig'),
+    newListDistributionsByRealtimeLogConfig,
+    ListDistributionsByRealtimeLogConfigResponse (ListDistributionsByRealtimeLogConfigResponse'),
+    newListDistributionsByRealtimeLogConfigResponse,
+
+    -- ** CreateOriginRequestPolicy
+    CreateOriginRequestPolicy (CreateOriginRequestPolicy'),
+    newCreateOriginRequestPolicy,
+    CreateOriginRequestPolicyResponse (CreateOriginRequestPolicyResponse'),
+    newCreateOriginRequestPolicyResponse,
+
+    -- ** ListKeyGroups
+    ListKeyGroups (ListKeyGroups'),
+    newListKeyGroups,
+    ListKeyGroupsResponse (ListKeyGroupsResponse'),
+    newListKeyGroupsResponse,
+
+    -- ** ListFieldLevelEncryptionProfiles
+    ListFieldLevelEncryptionProfiles (ListFieldLevelEncryptionProfiles'),
+    newListFieldLevelEncryptionProfiles,
+    ListFieldLevelEncryptionProfilesResponse (ListFieldLevelEncryptionProfilesResponse'),
+    newListFieldLevelEncryptionProfilesResponse,
+
+    -- ** GetMonitoringSubscription
+    GetMonitoringSubscription (GetMonitoringSubscription'),
+    newGetMonitoringSubscription,
+    GetMonitoringSubscriptionResponse (GetMonitoringSubscriptionResponse'),
+    newGetMonitoringSubscriptionResponse,
+
+    -- ** UpdateKeyGroup
+    UpdateKeyGroup (UpdateKeyGroup'),
+    newUpdateKeyGroup,
+    UpdateKeyGroupResponse (UpdateKeyGroupResponse'),
+    newUpdateKeyGroupResponse,
+
+    -- ** DeleteKeyGroup
+    DeleteKeyGroup (DeleteKeyGroup'),
+    newDeleteKeyGroup,
+    DeleteKeyGroupResponse (DeleteKeyGroupResponse'),
+    newDeleteKeyGroupResponse,
+
+    -- ** ListOriginRequestPolicies
+    ListOriginRequestPolicies (ListOriginRequestPolicies'),
+    newListOriginRequestPolicies,
+    ListOriginRequestPoliciesResponse (ListOriginRequestPoliciesResponse'),
+    newListOriginRequestPoliciesResponse,
+
+    -- ** GetOriginRequestPolicyConfig
+    GetOriginRequestPolicyConfig (GetOriginRequestPolicyConfig'),
+    newGetOriginRequestPolicyConfig,
+    GetOriginRequestPolicyConfigResponse (GetOriginRequestPolicyConfigResponse'),
+    newGetOriginRequestPolicyConfigResponse,
 
     -- * Types
 

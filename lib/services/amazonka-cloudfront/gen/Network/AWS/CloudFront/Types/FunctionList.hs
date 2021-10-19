@@ -76,7 +76,7 @@ newFunctionList pMaxItems_ pQuantity_ =
 
 -- | Contains the functions in the list.
 functionList_items :: Lens.Lens' FunctionList (Prelude.Maybe [FunctionSummary])
-functionList_items = Lens.lens (\FunctionList' {items} -> items) (\s@FunctionList' {} a -> s {items = a} :: FunctionList) Prelude.. Lens.mapping Lens._Coerce
+functionList_items = Lens.lens (\FunctionList' {items} -> items) (\s@FunctionList' {} a -> s {items = a} :: FunctionList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the

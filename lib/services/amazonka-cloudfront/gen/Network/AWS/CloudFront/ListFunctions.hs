@@ -38,8 +38,8 @@ module Network.AWS.CloudFront.ListFunctions
 
     -- * Request Lenses
     listFunctions_stage,
-    listFunctions_maxItems,
     listFunctions_marker,
+    listFunctions_maxItems,
 
     -- * Destructuring the Response
     ListFunctionsResponse (..),
@@ -63,14 +63,14 @@ data ListFunctions = ListFunctions'
   { -- | An optional filter to return only the functions that are in the
     -- specified stage, either @DEVELOPMENT@ or @LIVE@.
     stage :: Prelude.Maybe FunctionStage,
-    -- | The maximum number of functions that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of functions. The response includes functions in the list that
     -- occur after the marker. To get the next page of the list, set this
     -- field’s value to the value of @NextMarker@ from the current page’s
     -- response.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of functions that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,30 +85,26 @@ data ListFunctions = ListFunctions'
 -- 'stage', 'listFunctions_stage' - An optional filter to return only the functions that are in the
 -- specified stage, either @DEVELOPMENT@ or @LIVE@.
 --
--- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions that you want in the response.
---
 -- 'marker', 'listFunctions_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of functions. The response includes functions in the list that
 -- occur after the marker. To get the next page of the list, set this
 -- field’s value to the value of @NextMarker@ from the current page’s
 -- response.
+--
+-- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions that you want in the response.
 newListFunctions ::
   ListFunctions
 newListFunctions =
   ListFunctions'
     { stage = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
 
 -- | An optional filter to return only the functions that are in the
 -- specified stage, either @DEVELOPMENT@ or @LIVE@.
 listFunctions_stage :: Lens.Lens' ListFunctions (Prelude.Maybe FunctionStage)
 listFunctions_stage = Lens.lens (\ListFunctions' {stage} -> stage) (\s@ListFunctions' {} a -> s {stage = a} :: ListFunctions)
-
--- | The maximum number of functions that you want in the response.
-listFunctions_maxItems :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
-listFunctions_maxItems = Lens.lens (\ListFunctions' {maxItems} -> maxItems) (\s@ListFunctions' {} a -> s {maxItems = a} :: ListFunctions)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of functions. The response includes functions in the list that
@@ -117,6 +113,10 @@ listFunctions_maxItems = Lens.lens (\ListFunctions' {maxItems} -> maxItems) (\s@
 -- response.
 listFunctions_marker :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_marker = Lens.lens (\ListFunctions' {marker} -> marker) (\s@ListFunctions' {} a -> s {marker = a} :: ListFunctions)
+
+-- | The maximum number of functions that you want in the response.
+listFunctions_maxItems :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
+listFunctions_maxItems = Lens.lens (\ListFunctions' {maxItems} -> maxItems) (\s@ListFunctions' {} a -> s {maxItems = a} :: ListFunctions)
 
 instance Core.AWSRequest ListFunctions where
   type
@@ -145,8 +145,8 @@ instance Core.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
     Prelude.mconcat
       [ "Stage" Core.=: stage,
-        "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListFunctionsResponse' smart constructor.

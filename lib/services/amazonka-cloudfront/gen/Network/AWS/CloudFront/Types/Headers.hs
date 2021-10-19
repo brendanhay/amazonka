@@ -57,7 +57,7 @@ newHeaders pQuantity_ =
 
 -- | A list of HTTP header names.
 headers_items :: Lens.Lens' Headers (Prelude.Maybe [Prelude.Text])
-headers_items = Lens.lens (\Headers' {items} -> items) (\s@Headers' {} a -> s {items = a} :: Headers) Prelude.. Lens.mapping Lens._Coerce
+headers_items = Lens.lens (\Headers' {items} -> items) (\s@Headers' {} a -> s {items = a} :: Headers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of header names in the @Items@ list.
 headers_quantity :: Lens.Lens' Headers Prelude.Int

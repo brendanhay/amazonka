@@ -78,7 +78,7 @@ newLambdaFunctionAssociations pQuantity_ =
 -- items for this cache behavior. If @Quantity@ is @0@, you can omit
 -- @Items@.
 lambdaFunctionAssociations_items :: Lens.Lens' LambdaFunctionAssociations (Prelude.Maybe [LambdaFunctionAssociation])
-lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {items} -> items) (\s@LambdaFunctionAssociations' {} a -> s {items = a} :: LambdaFunctionAssociations) Prelude.. Lens.mapping Lens._Coerce
+lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {items} -> items) (\s@LambdaFunctionAssociations' {} a -> s {items = a} :: LambdaFunctionAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of Lambda\@Edge function associations for this cache
 -- behavior.

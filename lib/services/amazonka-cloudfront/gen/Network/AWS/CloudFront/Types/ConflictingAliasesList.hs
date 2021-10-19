@@ -32,17 +32,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConflictingAliasesList' smart constructor.
 data ConflictingAliasesList = ConflictingAliasesList'
-  { -- | Contains the conflicting aliases in the list.
-    items :: Prelude.Maybe [ConflictingAlias],
-    -- | The number of conflicting aliases returned in the response.
+  { -- | The number of conflicting aliases returned in the response.
     quantity :: Prelude.Maybe Prelude.Int,
+    -- | Contains the conflicting aliases in the list.
+    items :: Prelude.Maybe [ConflictingAlias],
+    -- | The maximum number of conflicting aliases requested.
+    maxItems :: Prelude.Maybe Prelude.Int,
     -- | If there are more items in the list than are in this response, this
     -- element is present. It contains the value that you should use in the
     -- @Marker@ field of a subsequent request to continue listing conflicting
     -- aliases where you left off.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of conflicting aliases requested.
-    maxItems :: Prelude.Maybe Prelude.Int
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,33 +54,37 @@ data ConflictingAliasesList = ConflictingAliasesList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'quantity', 'conflictingAliasesList_quantity' - The number of conflicting aliases returned in the response.
+--
 -- 'items', 'conflictingAliasesList_items' - Contains the conflicting aliases in the list.
 --
--- 'quantity', 'conflictingAliasesList_quantity' - The number of conflicting aliases returned in the response.
+-- 'maxItems', 'conflictingAliasesList_maxItems' - The maximum number of conflicting aliases requested.
 --
 -- 'nextMarker', 'conflictingAliasesList_nextMarker' - If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the
 -- @Marker@ field of a subsequent request to continue listing conflicting
 -- aliases where you left off.
---
--- 'maxItems', 'conflictingAliasesList_maxItems' - The maximum number of conflicting aliases requested.
 newConflictingAliasesList ::
   ConflictingAliasesList
 newConflictingAliasesList =
   ConflictingAliasesList'
-    { items = Prelude.Nothing,
-      quantity = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+    { quantity = Prelude.Nothing,
+      items = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
-
--- | Contains the conflicting aliases in the list.
-conflictingAliasesList_items :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe [ConflictingAlias])
-conflictingAliasesList_items = Lens.lens (\ConflictingAliasesList' {items} -> items) (\s@ConflictingAliasesList' {} a -> s {items = a} :: ConflictingAliasesList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of conflicting aliases returned in the response.
 conflictingAliasesList_quantity :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Int)
 conflictingAliasesList_quantity = Lens.lens (\ConflictingAliasesList' {quantity} -> quantity) (\s@ConflictingAliasesList' {} a -> s {quantity = a} :: ConflictingAliasesList)
+
+-- | Contains the conflicting aliases in the list.
+conflictingAliasesList_items :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe [ConflictingAlias])
+conflictingAliasesList_items = Lens.lens (\ConflictingAliasesList' {items} -> items) (\s@ConflictingAliasesList' {} a -> s {items = a} :: ConflictingAliasesList) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of conflicting aliases requested.
+conflictingAliasesList_maxItems :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Int)
+conflictingAliasesList_maxItems = Lens.lens (\ConflictingAliasesList' {maxItems} -> maxItems) (\s@ConflictingAliasesList' {} a -> s {maxItems = a} :: ConflictingAliasesList)
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the
@@ -89,19 +93,15 @@ conflictingAliasesList_quantity = Lens.lens (\ConflictingAliasesList' {quantity}
 conflictingAliasesList_nextMarker :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Text)
 conflictingAliasesList_nextMarker = Lens.lens (\ConflictingAliasesList' {nextMarker} -> nextMarker) (\s@ConflictingAliasesList' {} a -> s {nextMarker = a} :: ConflictingAliasesList)
 
--- | The maximum number of conflicting aliases requested.
-conflictingAliasesList_maxItems :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Int)
-conflictingAliasesList_maxItems = Lens.lens (\ConflictingAliasesList' {maxItems} -> maxItems) (\s@ConflictingAliasesList' {} a -> s {maxItems = a} :: ConflictingAliasesList)
-
 instance Core.FromXML ConflictingAliasesList where
   parseXML x =
     ConflictingAliasesList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "Quantity")
+      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ConflictingAlias")
                   )
-      Prelude.<*> (x Core..@? "Quantity")
-      Prelude.<*> (x Core..@? "NextMarker")
       Prelude.<*> (x Core..@? "MaxItems")
+      Prelude.<*> (x Core..@? "NextMarker")
 
 instance Prelude.Hashable ConflictingAliasesList
 

@@ -38,9 +38,9 @@ module Network.AWS.CloudFront.ListCachePolicies
     newListCachePolicies,
 
     -- * Request Lenses
-    listCachePolicies_type,
-    listCachePolicies_maxItems,
     listCachePolicies_marker,
+    listCachePolicies_maxItems,
+    listCachePolicies_type,
 
     -- * Destructuring the Response
     ListCachePoliciesResponse (..),
@@ -61,22 +61,22 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListCachePolicies' smart constructor.
 data ListCachePolicies = ListCachePolicies'
-  { -- | A filter to return only the specified kinds of cache policies. Valid
+  { -- | Use this field when paginating results to indicate where to begin in
+    -- your list of cache policies. The response includes cache policies in the
+    -- list that occur after the marker. To get the next page of the list, set
+    -- this field’s value to the value of @NextMarker@ from the current page’s
+    -- response.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of cache policies that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | A filter to return only the specified kinds of cache policies. Valid
     -- values are:
     --
     -- -   @managed@ – Returns only the managed policies created by Amazon Web
     --     Services.
     --
     -- -   @custom@ – Returns only the custom policies created in your account.
-    type' :: Prelude.Maybe CachePolicyType,
-    -- | The maximum number of cache policies that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
-    -- your list of cache policies. The response includes cache policies in the
-    -- list that occur after the marker. To get the next page of the list, set
-    -- this field’s value to the value of @NextMarker@ from the current page’s
-    -- response.
-    marker :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe CachePolicyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,6 +88,14 @@ data ListCachePolicies = ListCachePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listCachePolicies_marker' - Use this field when paginating results to indicate where to begin in
+-- your list of cache policies. The response includes cache policies in the
+-- list that occur after the marker. To get the next page of the list, set
+-- this field’s value to the value of @NextMarker@ from the current page’s
+-- response.
+--
+-- 'maxItems', 'listCachePolicies_maxItems' - The maximum number of cache policies that you want in the response.
+--
 -- 'type'', 'listCachePolicies_type' - A filter to return only the specified kinds of cache policies. Valid
 -- values are:
 --
@@ -95,22 +103,26 @@ data ListCachePolicies = ListCachePolicies'
 --     Services.
 --
 -- -   @custom@ – Returns only the custom policies created in your account.
---
--- 'maxItems', 'listCachePolicies_maxItems' - The maximum number of cache policies that you want in the response.
---
--- 'marker', 'listCachePolicies_marker' - Use this field when paginating results to indicate where to begin in
--- your list of cache policies. The response includes cache policies in the
--- list that occur after the marker. To get the next page of the list, set
--- this field’s value to the value of @NextMarker@ from the current page’s
--- response.
 newListCachePolicies ::
   ListCachePolicies
 newListCachePolicies =
   ListCachePolicies'
-    { type' = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      type' = Prelude.Nothing
     }
+
+-- | Use this field when paginating results to indicate where to begin in
+-- your list of cache policies. The response includes cache policies in the
+-- list that occur after the marker. To get the next page of the list, set
+-- this field’s value to the value of @NextMarker@ from the current page’s
+-- response.
+listCachePolicies_marker :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
+listCachePolicies_marker = Lens.lens (\ListCachePolicies' {marker} -> marker) (\s@ListCachePolicies' {} a -> s {marker = a} :: ListCachePolicies)
+
+-- | The maximum number of cache policies that you want in the response.
+listCachePolicies_maxItems :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
+listCachePolicies_maxItems = Lens.lens (\ListCachePolicies' {maxItems} -> maxItems) (\s@ListCachePolicies' {} a -> s {maxItems = a} :: ListCachePolicies)
 
 -- | A filter to return only the specified kinds of cache policies. Valid
 -- values are:
@@ -121,18 +133,6 @@ newListCachePolicies =
 -- -   @custom@ – Returns only the custom policies created in your account.
 listCachePolicies_type :: Lens.Lens' ListCachePolicies (Prelude.Maybe CachePolicyType)
 listCachePolicies_type = Lens.lens (\ListCachePolicies' {type'} -> type') (\s@ListCachePolicies' {} a -> s {type' = a} :: ListCachePolicies)
-
--- | The maximum number of cache policies that you want in the response.
-listCachePolicies_maxItems :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
-listCachePolicies_maxItems = Lens.lens (\ListCachePolicies' {maxItems} -> maxItems) (\s@ListCachePolicies' {} a -> s {maxItems = a} :: ListCachePolicies)
-
--- | Use this field when paginating results to indicate where to begin in
--- your list of cache policies. The response includes cache policies in the
--- list that occur after the marker. To get the next page of the list, set
--- this field’s value to the value of @NextMarker@ from the current page’s
--- response.
-listCachePolicies_marker :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
-listCachePolicies_marker = Lens.lens (\ListCachePolicies' {marker} -> marker) (\s@ListCachePolicies' {} a -> s {marker = a} :: ListCachePolicies)
 
 instance Core.AWSRequest ListCachePolicies where
   type
@@ -160,9 +160,9 @@ instance Core.ToPath ListCachePolicies where
 instance Core.ToQuery ListCachePolicies where
   toQuery ListCachePolicies' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
+      [ "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "Type" Core.=: type'
       ]
 
 -- | /See:/ 'newListCachePoliciesResponse' smart constructor.

@@ -56,7 +56,7 @@ newStatusCodes ::
 newStatusCodes pQuantity_ pItems_ =
   StatusCodes'
     { quantity = pQuantity_,
-      items = Lens._Coerce Lens.# pItems_
+      items = Lens.coerced Lens.# pItems_
     }
 
 -- | The number of status codes.
@@ -65,7 +65,7 @@ statusCodes_quantity = Lens.lens (\StatusCodes' {quantity} -> quantity) (\s@Stat
 
 -- | The items (status codes) for an origin group.
 statusCodes_items :: Lens.Lens' StatusCodes (Prelude.NonEmpty Prelude.Int)
-statusCodes_items = Lens.lens (\StatusCodes' {items} -> items) (\s@StatusCodes' {} a -> s {items = a} :: StatusCodes) Prelude.. Lens._Coerce
+statusCodes_items = Lens.lens (\StatusCodes' {items} -> items) (\s@StatusCodes' {} a -> s {items = a} :: StatusCodes) Prelude.. Lens.coerced
 
 instance Core.FromXML StatusCodes where
   parseXML x =

@@ -63,7 +63,7 @@ newQueryArgProfiles pQuantity_ =
 -- | Number of items for query argument-profile mapping for field-level
 -- encryption.
 queryArgProfiles_items :: Lens.Lens' QueryArgProfiles (Prelude.Maybe [QueryArgProfile])
-queryArgProfiles_items = Lens.lens (\QueryArgProfiles' {items} -> items) (\s@QueryArgProfiles' {} a -> s {items = a} :: QueryArgProfiles) Prelude.. Lens.mapping Lens._Coerce
+queryArgProfiles_items = Lens.lens (\QueryArgProfiles' {items} -> items) (\s@QueryArgProfiles' {} a -> s {items = a} :: QueryArgProfiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | Number of profiles for query argument-profile mapping for field-level
 -- encryption.

@@ -40,8 +40,8 @@ module Network.AWS.CloudFront.GetFunction
 
     -- * Response Lenses
     getFunctionResponse_eTag,
-    getFunctionResponse_contentType,
     getFunctionResponse_functionCode,
+    getFunctionResponse_contentType,
     getFunctionResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetFunction where
       ( \s h x ->
           GetFunctionResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,10 +125,10 @@ data GetFunctionResponse = GetFunctionResponse'
   { -- | The version identifier for the current version of the CloudFront
     -- function.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The content type (media type) of the response.
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | The function code of a CloudFront function.
     functionCode :: Prelude.Maybe (Core.Sensitive Prelude.ByteString),
+    -- | The content type (media type) of the response.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,9 +145,9 @@ data GetFunctionResponse = GetFunctionResponse'
 -- 'eTag', 'getFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
 -- function.
 --
--- 'contentType', 'getFunctionResponse_contentType' - The content type (media type) of the response.
---
 -- 'functionCode', 'getFunctionResponse_functionCode' - The function code of a CloudFront function.
+--
+-- 'contentType', 'getFunctionResponse_contentType' - The content type (media type) of the response.
 --
 -- 'httpStatus', 'getFunctionResponse_httpStatus' - The response's http status code.
 newGetFunctionResponse ::
@@ -157,8 +157,8 @@ newGetFunctionResponse ::
 newGetFunctionResponse pHttpStatus_ =
   GetFunctionResponse'
     { eTag = Prelude.Nothing,
-      contentType = Prelude.Nothing,
       functionCode = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -167,13 +167,13 @@ newGetFunctionResponse pHttpStatus_ =
 getFunctionResponse_eTag :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.Text)
 getFunctionResponse_eTag = Lens.lens (\GetFunctionResponse' {eTag} -> eTag) (\s@GetFunctionResponse' {} a -> s {eTag = a} :: GetFunctionResponse)
 
--- | The content type (media type) of the response.
-getFunctionResponse_contentType :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.Text)
-getFunctionResponse_contentType = Lens.lens (\GetFunctionResponse' {contentType} -> contentType) (\s@GetFunctionResponse' {} a -> s {contentType = a} :: GetFunctionResponse)
-
 -- | The function code of a CloudFront function.
 getFunctionResponse_functionCode :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.ByteString)
 getFunctionResponse_functionCode = Lens.lens (\GetFunctionResponse' {functionCode} -> functionCode) (\s@GetFunctionResponse' {} a -> s {functionCode = a} :: GetFunctionResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The content type (media type) of the response.
+getFunctionResponse_contentType :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.Text)
+getFunctionResponse_contentType = Lens.lens (\GetFunctionResponse' {contentType} -> contentType) (\s@GetFunctionResponse' {} a -> s {contentType = a} :: GetFunctionResponse)
 
 -- | The response's http status code.
 getFunctionResponse_httpStatus :: Lens.Lens' GetFunctionResponse Prelude.Int

@@ -37,7 +37,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAliasICPRecordal' smart constructor.
 data AliasICPRecordal = AliasICPRecordal'
-  { -- | The Internet Content Provider (ICP) recordal status for a CNAME. The
+  { -- | A domain name associated with a distribution.
+    cname :: Prelude.Maybe Prelude.Text,
+    -- | The Internet Content Provider (ICP) recordal status for a CNAME. The
     -- ICPRecordalStatus is set to APPROVED for all CNAMEs (aliases) in regions
     -- outside of China.
     --
@@ -57,9 +59,7 @@ data AliasICPRecordal = AliasICPRecordal'
     --     because there was an error in trying to determine the status. You
     --     can try again to see if the error is resolved in which case
     --     CloudFront returns an APPROVED or SUSPENDED status.
-    iCPRecordalStatus :: Prelude.Maybe ICPRecordalStatus,
-    -- | A domain name associated with a distribution.
-    cname :: Prelude.Maybe Prelude.Text
+    iCPRecordalStatus :: Prelude.Maybe ICPRecordalStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,8 @@ data AliasICPRecordal = AliasICPRecordal'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cname', 'aliasICPRecordal_cname' - A domain name associated with a distribution.
 --
 -- 'iCPRecordalStatus', 'aliasICPRecordal_iCPRecordalStatus' - The Internet Content Provider (ICP) recordal status for a CNAME. The
 -- ICPRecordalStatus is set to APPROVED for all CNAMEs (aliases) in regions
@@ -91,16 +93,17 @@ data AliasICPRecordal = AliasICPRecordal'
 --     because there was an error in trying to determine the status. You
 --     can try again to see if the error is resolved in which case
 --     CloudFront returns an APPROVED or SUSPENDED status.
---
--- 'cname', 'aliasICPRecordal_cname' - A domain name associated with a distribution.
 newAliasICPRecordal ::
   AliasICPRecordal
 newAliasICPRecordal =
   AliasICPRecordal'
-    { iCPRecordalStatus =
-        Prelude.Nothing,
-      cname = Prelude.Nothing
+    { cname = Prelude.Nothing,
+      iCPRecordalStatus = Prelude.Nothing
     }
+
+-- | A domain name associated with a distribution.
+aliasICPRecordal_cname :: Lens.Lens' AliasICPRecordal (Prelude.Maybe Prelude.Text)
+aliasICPRecordal_cname = Lens.lens (\AliasICPRecordal' {cname} -> cname) (\s@AliasICPRecordal' {} a -> s {cname = a} :: AliasICPRecordal)
 
 -- | The Internet Content Provider (ICP) recordal status for a CNAME. The
 -- ICPRecordalStatus is set to APPROVED for all CNAMEs (aliases) in regions
@@ -125,15 +128,11 @@ newAliasICPRecordal =
 aliasICPRecordal_iCPRecordalStatus :: Lens.Lens' AliasICPRecordal (Prelude.Maybe ICPRecordalStatus)
 aliasICPRecordal_iCPRecordalStatus = Lens.lens (\AliasICPRecordal' {iCPRecordalStatus} -> iCPRecordalStatus) (\s@AliasICPRecordal' {} a -> s {iCPRecordalStatus = a} :: AliasICPRecordal)
 
--- | A domain name associated with a distribution.
-aliasICPRecordal_cname :: Lens.Lens' AliasICPRecordal (Prelude.Maybe Prelude.Text)
-aliasICPRecordal_cname = Lens.lens (\AliasICPRecordal' {cname} -> cname) (\s@AliasICPRecordal' {} a -> s {cname = a} :: AliasICPRecordal)
-
 instance Core.FromXML AliasICPRecordal where
   parseXML x =
     AliasICPRecordal'
-      Prelude.<$> (x Core..@? "ICPRecordalStatus")
-      Prelude.<*> (x Core..@? "CNAME")
+      Prelude.<$> (x Core..@? "CNAME")
+      Prelude.<*> (x Core..@? "ICPRecordalStatus")
 
 instance Prelude.Hashable AliasICPRecordal
 

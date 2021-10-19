@@ -66,7 +66,7 @@ newFunctionAssociations pQuantity_ =
 -- CloudFront distribution. CloudFront functions must be published to the
 -- @LIVE@ stage to associate them with a cache behavior.
 functionAssociations_items :: Lens.Lens' FunctionAssociations (Prelude.Maybe [FunctionAssociation])
-functionAssociations_items = Lens.lens (\FunctionAssociations' {items} -> items) (\s@FunctionAssociations' {} a -> s {items = a} :: FunctionAssociations) Prelude.. Lens.mapping Lens._Coerce
+functionAssociations_items = Lens.lens (\FunctionAssociations' {items} -> items) (\s@FunctionAssociations' {} a -> s {items = a} :: FunctionAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of CloudFront functions in the list.
 functionAssociations_quantity :: Lens.Lens' FunctionAssociations Prelude.Int

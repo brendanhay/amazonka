@@ -119,7 +119,7 @@ newCreateRealtimeLogConfig pName_ pSamplingRate_ =
 -- | Contains information about the Amazon Kinesis data stream where you are
 -- sending real-time log data.
 createRealtimeLogConfig_endPoints :: Lens.Lens' CreateRealtimeLogConfig [EndPoint]
-createRealtimeLogConfig_endPoints = Lens.lens (\CreateRealtimeLogConfig' {endPoints} -> endPoints) (\s@CreateRealtimeLogConfig' {} a -> s {endPoints = a} :: CreateRealtimeLogConfig) Prelude.. Lens._Coerce
+createRealtimeLogConfig_endPoints = Lens.lens (\CreateRealtimeLogConfig' {endPoints} -> endPoints) (\s@CreateRealtimeLogConfig' {} a -> s {endPoints = a} :: CreateRealtimeLogConfig) Prelude.. Lens.coerced
 
 -- | A list of fields to include in each real-time log record.
 --
@@ -127,7 +127,7 @@ createRealtimeLogConfig_endPoints = Lens.lens (\CreateRealtimeLogConfig' {endPoi
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields>
 -- in the /Amazon CloudFront Developer Guide/.
 createRealtimeLogConfig_fields :: Lens.Lens' CreateRealtimeLogConfig [Prelude.Text]
-createRealtimeLogConfig_fields = Lens.lens (\CreateRealtimeLogConfig' {fields} -> fields) (\s@CreateRealtimeLogConfig' {} a -> s {fields = a} :: CreateRealtimeLogConfig) Prelude.. Lens._Coerce
+createRealtimeLogConfig_fields = Lens.lens (\CreateRealtimeLogConfig' {fields} -> fields) (\s@CreateRealtimeLogConfig' {} a -> s {fields = a} :: CreateRealtimeLogConfig) Prelude.. Lens.coerced
 
 -- | A unique name to identify this real-time log configuration.
 createRealtimeLogConfig_name :: Lens.Lens' CreateRealtimeLogConfig Prelude.Text

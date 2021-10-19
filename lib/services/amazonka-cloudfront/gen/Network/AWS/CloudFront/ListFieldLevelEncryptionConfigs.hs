@@ -28,8 +28,8 @@ module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
     newListFieldLevelEncryptionConfigs,
 
     -- * Request Lenses
-    listFieldLevelEncryptionConfigs_maxItems,
     listFieldLevelEncryptionConfigs_marker,
+    listFieldLevelEncryptionConfigs_maxItems,
 
     -- * Destructuring the Response
     ListFieldLevelEncryptionConfigsResponse (..),
@@ -50,15 +50,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFieldLevelEncryptionConfigs' smart constructor.
 data ListFieldLevelEncryptionConfigs = ListFieldLevelEncryptionConfigs'
-  { -- | The maximum number of field-level encryption configurations you want in
-    -- the response body.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this when paginating results to indicate where to begin in your list
+  { -- | Use this when paginating results to indicate where to begin in your list
     -- of configurations. The results include configurations in the list that
     -- occur after the marker. To get the next page of results, set the
     -- @Marker@ to the value of the @NextMarker@ from the current page\'s
     -- response (which is also the ID of the last configuration on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of field-level encryption configurations you want in
+    -- the response body.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,27 +70,22 @@ data ListFieldLevelEncryptionConfigs = ListFieldLevelEncryptionConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listFieldLevelEncryptionConfigs_maxItems' - The maximum number of field-level encryption configurations you want in
--- the response body.
---
 -- 'marker', 'listFieldLevelEncryptionConfigs_marker' - Use this when paginating results to indicate where to begin in your list
 -- of configurations. The results include configurations in the list that
 -- occur after the marker. To get the next page of results, set the
 -- @Marker@ to the value of the @NextMarker@ from the current page\'s
 -- response (which is also the ID of the last configuration on that page).
+--
+-- 'maxItems', 'listFieldLevelEncryptionConfigs_maxItems' - The maximum number of field-level encryption configurations you want in
+-- the response body.
 newListFieldLevelEncryptionConfigs ::
   ListFieldLevelEncryptionConfigs
 newListFieldLevelEncryptionConfigs =
   ListFieldLevelEncryptionConfigs'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of field-level encryption configurations you want in
--- the response body.
-listFieldLevelEncryptionConfigs_maxItems :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
-listFieldLevelEncryptionConfigs_maxItems = Lens.lens (\ListFieldLevelEncryptionConfigs' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionConfigs)
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of configurations. The results include configurations in the list that
@@ -99,6 +94,11 @@ listFieldLevelEncryptionConfigs_maxItems = Lens.lens (\ListFieldLevelEncryptionC
 -- response (which is also the ID of the last configuration on that page).
 listFieldLevelEncryptionConfigs_marker :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
 listFieldLevelEncryptionConfigs_marker = Lens.lens (\ListFieldLevelEncryptionConfigs' {marker} -> marker) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {marker = a} :: ListFieldLevelEncryptionConfigs)
+
+-- | The maximum number of field-level encryption configurations you want in
+-- the response body.
+listFieldLevelEncryptionConfigs_maxItems :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionConfigs_maxItems = Lens.lens (\ListFieldLevelEncryptionConfigs' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionConfigs)
 
 instance
   Core.AWSRequest
@@ -137,8 +137,8 @@ instance Core.ToPath ListFieldLevelEncryptionConfigs where
 instance Core.ToQuery ListFieldLevelEncryptionConfigs where
   toQuery ListFieldLevelEncryptionConfigs' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListFieldLevelEncryptionConfigsResponse' smart constructor.

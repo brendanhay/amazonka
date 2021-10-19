@@ -32,15 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStreamingDistributionConfig' smart constructor.
 data StreamingDistributionConfig = StreamingDistributionConfig'
-  { -- | A complex type that contains information about price class for this
+  { -- | A complex type that contains information about CNAMEs (alternate domain
+    -- names), if any, for this streaming distribution.
+    aliases :: Prelude.Maybe Aliases,
+    -- | A complex type that contains information about price class for this
     -- streaming distribution.
     priceClass :: Prelude.Maybe PriceClass,
     -- | A complex type that controls whether access logs are written for the
     -- streaming distribution.
     logging :: Prelude.Maybe StreamingLoggingConfig,
-    -- | A complex type that contains information about CNAMEs (alternate domain
-    -- names), if any, for this streaming distribution.
-    aliases :: Prelude.Maybe Aliases,
     -- | A unique value (for example, a date-time stamp) that ensures that the
     -- request can\'t be replayed.
     --
@@ -78,14 +78,14 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aliases', 'streamingDistributionConfig_aliases' - A complex type that contains information about CNAMEs (alternate domain
+-- names), if any, for this streaming distribution.
+--
 -- 'priceClass', 'streamingDistributionConfig_priceClass' - A complex type that contains information about price class for this
 -- streaming distribution.
 --
 -- 'logging', 'streamingDistributionConfig_logging' - A complex type that controls whether access logs are written for the
 -- streaming distribution.
---
--- 'aliases', 'streamingDistributionConfig_aliases' - A complex type that contains information about CNAMEs (alternate domain
--- names), if any, for this streaming distribution.
 --
 -- 'callerReference', 'streamingDistributionConfig_callerReference' - A unique value (for example, a date-time stamp) that ensures that the
 -- request can\'t be replayed.
@@ -131,16 +131,21 @@ newStreamingDistributionConfig
   pTrustedSigners_
   pEnabled_ =
     StreamingDistributionConfig'
-      { priceClass =
+      { aliases =
           Prelude.Nothing,
+        priceClass = Prelude.Nothing,
         logging = Prelude.Nothing,
-        aliases = Prelude.Nothing,
         callerReference = pCallerReference_,
         s3Origin = pS3Origin_,
         comment = pComment_,
         trustedSigners = pTrustedSigners_,
         enabled = pEnabled_
       }
+
+-- | A complex type that contains information about CNAMEs (alternate domain
+-- names), if any, for this streaming distribution.
+streamingDistributionConfig_aliases :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe Aliases)
+streamingDistributionConfig_aliases = Lens.lens (\StreamingDistributionConfig' {aliases} -> aliases) (\s@StreamingDistributionConfig' {} a -> s {aliases = a} :: StreamingDistributionConfig)
 
 -- | A complex type that contains information about price class for this
 -- streaming distribution.
@@ -151,11 +156,6 @@ streamingDistributionConfig_priceClass = Lens.lens (\StreamingDistributionConfig
 -- streaming distribution.
 streamingDistributionConfig_logging :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe StreamingLoggingConfig)
 streamingDistributionConfig_logging = Lens.lens (\StreamingDistributionConfig' {logging} -> logging) (\s@StreamingDistributionConfig' {} a -> s {logging = a} :: StreamingDistributionConfig)
-
--- | A complex type that contains information about CNAMEs (alternate domain
--- names), if any, for this streaming distribution.
-streamingDistributionConfig_aliases :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe Aliases)
-streamingDistributionConfig_aliases = Lens.lens (\StreamingDistributionConfig' {aliases} -> aliases) (\s@StreamingDistributionConfig' {} a -> s {aliases = a} :: StreamingDistributionConfig)
 
 -- | A unique value (for example, a date-time stamp) that ensures that the
 -- request can\'t be replayed.
@@ -196,9 +196,9 @@ streamingDistributionConfig_enabled = Lens.lens (\StreamingDistributionConfig' {
 instance Core.FromXML StreamingDistributionConfig where
   parseXML x =
     StreamingDistributionConfig'
-      Prelude.<$> (x Core..@? "PriceClass")
+      Prelude.<$> (x Core..@? "Aliases")
+      Prelude.<*> (x Core..@? "PriceClass")
       Prelude.<*> (x Core..@? "Logging")
-      Prelude.<*> (x Core..@? "Aliases")
       Prelude.<*> (x Core..@ "CallerReference")
       Prelude.<*> (x Core..@ "S3Origin")
       Prelude.<*> (x Core..@ "Comment")
@@ -212,9 +212,9 @@ instance Prelude.NFData StreamingDistributionConfig
 instance Core.ToXML StreamingDistributionConfig where
   toXML StreamingDistributionConfig' {..} =
     Prelude.mconcat
-      [ "PriceClass" Core.@= priceClass,
+      [ "Aliases" Core.@= aliases,
+        "PriceClass" Core.@= priceClass,
         "Logging" Core.@= logging,
-        "Aliases" Core.@= aliases,
         "CallerReference" Core.@= callerReference,
         "S3Origin" Core.@= s3Origin,
         "Comment" Core.@= comment,

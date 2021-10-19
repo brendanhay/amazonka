@@ -29,8 +29,8 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     newListStreamingDistributions,
 
     -- * Request Lenses
-    listStreamingDistributions_maxItems,
     listStreamingDistributions_marker,
+    listStreamingDistributions_maxItems,
 
     -- * Destructuring the Response
     ListStreamingDistributionsResponse (..),
@@ -53,10 +53,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
-  { -- | The value that you provided for the @MaxItems@ request parameter.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | The value that you provided for the @Marker@ request parameter.
-    marker :: Prelude.Maybe Prelude.Text
+  { -- | The value that you provided for the @Marker@ request parameter.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The value that you provided for the @MaxItems@ request parameter.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,25 +68,25 @@ data ListStreamingDistributions = ListStreamingDistributions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listStreamingDistributions_maxItems' - The value that you provided for the @MaxItems@ request parameter.
---
 -- 'marker', 'listStreamingDistributions_marker' - The value that you provided for the @Marker@ request parameter.
+--
+-- 'maxItems', 'listStreamingDistributions_maxItems' - The value that you provided for the @MaxItems@ request parameter.
 newListStreamingDistributions ::
   ListStreamingDistributions
 newListStreamingDistributions =
   ListStreamingDistributions'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing
+      maxItems = Prelude.Nothing
     }
-
--- | The value that you provided for the @MaxItems@ request parameter.
-listStreamingDistributions_maxItems :: Lens.Lens' ListStreamingDistributions (Prelude.Maybe Prelude.Text)
-listStreamingDistributions_maxItems = Lens.lens (\ListStreamingDistributions' {maxItems} -> maxItems) (\s@ListStreamingDistributions' {} a -> s {maxItems = a} :: ListStreamingDistributions)
 
 -- | The value that you provided for the @Marker@ request parameter.
 listStreamingDistributions_marker :: Lens.Lens' ListStreamingDistributions (Prelude.Maybe Prelude.Text)
 listStreamingDistributions_marker = Lens.lens (\ListStreamingDistributions' {marker} -> marker) (\s@ListStreamingDistributions' {} a -> s {marker = a} :: ListStreamingDistributions)
+
+-- | The value that you provided for the @MaxItems@ request parameter.
+listStreamingDistributions_maxItems :: Lens.Lens' ListStreamingDistributions (Prelude.Maybe Prelude.Text)
+listStreamingDistributions_maxItems = Lens.lens (\ListStreamingDistributions' {maxItems} -> maxItems) (\s@ListStreamingDistributions' {} a -> s {maxItems = a} :: ListStreamingDistributions)
 
 instance Core.AWSPager ListStreamingDistributions where
   page rq rs
@@ -139,8 +139,8 @@ instance Core.ToPath ListStreamingDistributions where
 instance Core.ToQuery ListStreamingDistributions where
   toQuery ListStreamingDistributions' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | The returned result of the corresponding request.

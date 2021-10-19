@@ -74,7 +74,7 @@ newKeyGroupList pMaxItems_ pQuantity_ =
 
 -- | A list of key groups.
 keyGroupList_items :: Lens.Lens' KeyGroupList (Prelude.Maybe [KeyGroupSummary])
-keyGroupList_items = Lens.lens (\KeyGroupList' {items} -> items) (\s@KeyGroupList' {} a -> s {items = a} :: KeyGroupList) Prelude.. Lens.mapping Lens._Coerce
+keyGroupList_items = Lens.lens (\KeyGroupList' {items} -> items) (\s@KeyGroupList' {} a -> s {items = a} :: KeyGroupList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the

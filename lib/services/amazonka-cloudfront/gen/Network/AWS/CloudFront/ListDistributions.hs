@@ -29,8 +29,8 @@ module Network.AWS.CloudFront.ListDistributions
     newListDistributions,
 
     -- * Request Lenses
-    listDistributions_maxItems,
     listDistributions_marker,
+    listDistributions_maxItems,
 
     -- * Destructuring the Response
     ListDistributionsResponse (..),
@@ -53,14 +53,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListDistributions' smart constructor.
 data ListDistributions = ListDistributions'
-  { -- | The maximum number of distributions you want in the response body.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this when paginating results to indicate where to begin in your list
+  { -- | Use this when paginating results to indicate where to begin in your list
     -- of distributions. The results include distributions in the list that
     -- occur after the marker. To get the next page of results, set the
     -- @Marker@ to the value of the @NextMarker@ from the current page\'s
     -- response (which is also the ID of the last distribution on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of distributions you want in the response body.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,20 @@ data ListDistributions = ListDistributions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listDistributions_maxItems' - The maximum number of distributions you want in the response body.
---
 -- 'marker', 'listDistributions_marker' - Use this when paginating results to indicate where to begin in your list
 -- of distributions. The results include distributions in the list that
 -- occur after the marker. To get the next page of results, set the
 -- @Marker@ to the value of the @NextMarker@ from the current page\'s
 -- response (which is also the ID of the last distribution on that page).
+--
+-- 'maxItems', 'listDistributions_maxItems' - The maximum number of distributions you want in the response body.
 newListDistributions ::
   ListDistributions
 newListDistributions =
   ListDistributions'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of distributions you want in the response body.
-listDistributions_maxItems :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
-listDistributions_maxItems = Lens.lens (\ListDistributions' {maxItems} -> maxItems) (\s@ListDistributions' {} a -> s {maxItems = a} :: ListDistributions)
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of distributions. The results include distributions in the list that
@@ -98,6 +94,10 @@ listDistributions_maxItems = Lens.lens (\ListDistributions' {maxItems} -> maxIte
 -- response (which is also the ID of the last distribution on that page).
 listDistributions_marker :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
 listDistributions_marker = Lens.lens (\ListDistributions' {marker} -> marker) (\s@ListDistributions' {} a -> s {marker = a} :: ListDistributions)
+
+-- | The maximum number of distributions you want in the response body.
+listDistributions_maxItems :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
+listDistributions_maxItems = Lens.lens (\ListDistributions' {maxItems} -> maxItems) (\s@ListDistributions' {} a -> s {maxItems = a} :: ListDistributions)
 
 instance Core.AWSPager ListDistributions where
   page rq rs
@@ -149,8 +149,8 @@ instance Core.ToPath ListDistributions where
 instance Core.ToQuery ListDistributions where
   toQuery ListDistributions' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | The returned result of the corresponding request.

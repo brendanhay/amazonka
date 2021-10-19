@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.ListDistributionsByWebACLId
     newListDistributionsByWebACLId,
 
     -- * Request Lenses
-    listDistributionsByWebACLId_maxItems,
     listDistributionsByWebACLId_marker,
+    listDistributionsByWebACLId_maxItems,
     listDistributionsByWebACLId_webACLId,
 
     -- * Destructuring the Response
@@ -53,16 +53,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListDistributionsByWebACLId' smart constructor.
 data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
-  { -- | The maximum number of distributions that you want CloudFront to return
-    -- in the response body. The maximum and default values are both 100.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you
+  { -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you
     -- have more than @MaxItems@ distributions that satisfy the request, the
     -- response includes a @NextMarker@ element. To get the next page of
     -- results, submit another request. For the value of @Marker@, specify the
     -- value of @NextMarker@ from the last response. (For the first request,
     -- omit @Marker@.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of distributions that you want CloudFront to return
+    -- in the response body. The maximum and default values are both 100.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | The ID of the WAF web ACL that you want to list the associated
     -- distributions. If you specify \"null\" for the ID, the request returns a
     -- list of the distributions that aren\'t associated with a web ACL.
@@ -78,15 +78,15 @@ data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listDistributionsByWebACLId_maxItems' - The maximum number of distributions that you want CloudFront to return
--- in the response body. The maximum and default values are both 100.
---
 -- 'marker', 'listDistributionsByWebACLId_marker' - Use @Marker@ and @MaxItems@ to control pagination of results. If you
 -- have more than @MaxItems@ distributions that satisfy the request, the
 -- response includes a @NextMarker@ element. To get the next page of
 -- results, submit another request. For the value of @Marker@, specify the
 -- value of @NextMarker@ from the last response. (For the first request,
 -- omit @Marker@.)
+--
+-- 'maxItems', 'listDistributionsByWebACLId_maxItems' - The maximum number of distributions that you want CloudFront to return
+-- in the response body. The maximum and default values are both 100.
 --
 -- 'webACLId', 'listDistributionsByWebACLId_webACLId' - The ID of the WAF web ACL that you want to list the associated
 -- distributions. If you specify \"null\" for the ID, the request returns a
@@ -97,16 +97,11 @@ newListDistributionsByWebACLId ::
   ListDistributionsByWebACLId
 newListDistributionsByWebACLId pWebACLId_ =
   ListDistributionsByWebACLId'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       webACLId = pWebACLId_
     }
-
--- | The maximum number of distributions that you want CloudFront to return
--- in the response body. The maximum and default values are both 100.
-listDistributionsByWebACLId_maxItems :: Lens.Lens' ListDistributionsByWebACLId (Prelude.Maybe Prelude.Text)
-listDistributionsByWebACLId_maxItems = Lens.lens (\ListDistributionsByWebACLId' {maxItems} -> maxItems) (\s@ListDistributionsByWebACLId' {} a -> s {maxItems = a} :: ListDistributionsByWebACLId)
 
 -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you
 -- have more than @MaxItems@ distributions that satisfy the request, the
@@ -116,6 +111,11 @@ listDistributionsByWebACLId_maxItems = Lens.lens (\ListDistributionsByWebACLId' 
 -- omit @Marker@.)
 listDistributionsByWebACLId_marker :: Lens.Lens' ListDistributionsByWebACLId (Prelude.Maybe Prelude.Text)
 listDistributionsByWebACLId_marker = Lens.lens (\ListDistributionsByWebACLId' {marker} -> marker) (\s@ListDistributionsByWebACLId' {} a -> s {marker = a} :: ListDistributionsByWebACLId)
+
+-- | The maximum number of distributions that you want CloudFront to return
+-- in the response body. The maximum and default values are both 100.
+listDistributionsByWebACLId_maxItems :: Lens.Lens' ListDistributionsByWebACLId (Prelude.Maybe Prelude.Text)
+listDistributionsByWebACLId_maxItems = Lens.lens (\ListDistributionsByWebACLId' {maxItems} -> maxItems) (\s@ListDistributionsByWebACLId' {} a -> s {maxItems = a} :: ListDistributionsByWebACLId)
 
 -- | The ID of the WAF web ACL that you want to list the associated
 -- distributions. If you specify \"null\" for the ID, the request returns a
@@ -153,8 +153,8 @@ instance Core.ToPath ListDistributionsByWebACLId where
 instance Core.ToQuery ListDistributionsByWebACLId where
   toQuery ListDistributionsByWebACLId' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | The response to a request to list the distributions that are associated

@@ -65,7 +65,7 @@ newPaths pQuantity_ =
 -- | A complex type that contains a list of the paths that you want to
 -- invalidate.
 paths_items :: Lens.Lens' Paths (Prelude.Maybe [Prelude.Text])
-paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items = a} :: Paths) Prelude.. Lens.mapping Lens._Coerce
+paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items = a} :: Paths) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of invalidation paths specified for the objects that you want
 -- to invalidate.

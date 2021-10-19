@@ -77,7 +77,7 @@ newPublicKeyList pMaxItems_ pQuantity_ =
 
 -- | A list of public keys.
 publicKeyList_items :: Lens.Lens' PublicKeyList (Prelude.Maybe [PublicKeySummary])
-publicKeyList_items = Lens.lens (\PublicKeyList' {items} -> items) (\s@PublicKeyList' {} a -> s {items = a} :: PublicKeyList) Prelude.. Lens.mapping Lens._Coerce
+publicKeyList_items = Lens.lens (\PublicKeyList' {items} -> items) (\s@PublicKeyList' {} a -> s {items = a} :: PublicKeyList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more elements to be listed, this element is present and
 -- contains the value that you can use for the @Marker@ request parameter

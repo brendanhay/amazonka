@@ -89,7 +89,7 @@ newRunPipelineActivity pPipelineActivity_ pPayloads_ =
   RunPipelineActivity'
     { pipelineActivity =
         pPipelineActivity_,
-      payloads = Lens._Coerce Lens.# pPayloads_
+      payloads = Lens.coerced Lens.# pPayloads_
     }
 
 -- | The pipeline activity that is run. This must not be a channel activity
@@ -103,7 +103,7 @@ runPipelineActivity_pipelineActivity = Lens.lens (\RunPipelineActivity' {pipelin
 
 -- | The sample message payloads on which the pipeline activity is run.
 runPipelineActivity_payloads :: Lens.Lens' RunPipelineActivity (Prelude.NonEmpty Prelude.ByteString)
-runPipelineActivity_payloads = Lens.lens (\RunPipelineActivity' {payloads} -> payloads) (\s@RunPipelineActivity' {} a -> s {payloads = a} :: RunPipelineActivity) Prelude.. Lens._Coerce
+runPipelineActivity_payloads = Lens.lens (\RunPipelineActivity' {payloads} -> payloads) (\s@RunPipelineActivity' {} a -> s {payloads = a} :: RunPipelineActivity) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RunPipelineActivity where
   type
@@ -190,7 +190,7 @@ runPipelineActivityResponse_logResult = Lens.lens (\RunPipelineActivityResponse'
 -- strings. (The results of running the pipeline activity on each input
 -- sample message payload, encoded in base64.)
 runPipelineActivityResponse_payloads :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.ByteString))
-runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' {payloads} -> payloads) (\s@RunPipelineActivityResponse' {} a -> s {payloads = a} :: RunPipelineActivityResponse) Prelude.. Lens.mapping Lens._Coerce
+runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' {payloads} -> payloads) (\s@RunPipelineActivityResponse' {} a -> s {payloads = a} :: RunPipelineActivityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 runPipelineActivityResponse_httpStatus :: Lens.Lens' RunPipelineActivityResponse Prelude.Int

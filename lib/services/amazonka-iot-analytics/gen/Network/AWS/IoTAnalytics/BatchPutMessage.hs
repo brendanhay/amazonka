@@ -152,7 +152,7 @@ batchPutMessage_channelName = Lens.lens (\BatchPutMessage' {channelName} -> chan
 -- {\"temp-01\": 29}, {\"01_temp\": 29} or {\"__temp_01\": 29} are invalid
 -- in message payloads.
 batchPutMessage_messages :: Lens.Lens' BatchPutMessage [Message]
-batchPutMessage_messages = Lens.lens (\BatchPutMessage' {messages} -> messages) (\s@BatchPutMessage' {} a -> s {messages = a} :: BatchPutMessage) Prelude.. Lens._Coerce
+batchPutMessage_messages = Lens.lens (\BatchPutMessage' {messages} -> messages) (\s@BatchPutMessage' {} a -> s {messages = a} :: BatchPutMessage) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchPutMessage where
   type
@@ -227,7 +227,7 @@ newBatchPutMessageResponse pHttpStatus_ =
 -- | A list of any errors encountered when sending the messages to the
 -- channel.
 batchPutMessageResponse_batchPutMessageErrorEntries :: Lens.Lens' BatchPutMessageResponse (Prelude.Maybe [BatchPutMessageErrorEntry])
-batchPutMessageResponse_batchPutMessageErrorEntries = Lens.lens (\BatchPutMessageResponse' {batchPutMessageErrorEntries} -> batchPutMessageErrorEntries) (\s@BatchPutMessageResponse' {} a -> s {batchPutMessageErrorEntries = a} :: BatchPutMessageResponse) Prelude.. Lens.mapping Lens._Coerce
+batchPutMessageResponse_batchPutMessageErrorEntries = Lens.lens (\BatchPutMessageResponse' {batchPutMessageErrorEntries} -> batchPutMessageErrorEntries) (\s@BatchPutMessageResponse' {} a -> s {batchPutMessageErrorEntries = a} :: BatchPutMessageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchPutMessageResponse_httpStatus :: Lens.Lens' BatchPutMessageResponse Prelude.Int

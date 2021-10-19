@@ -58,7 +58,7 @@ newSchemaDefinition =
 -- Each schema can have up to 100 columns. Each column can have up to 100
 -- nested types.
 schemaDefinition_columns :: Lens.Lens' SchemaDefinition (Prelude.Maybe [Column])
-schemaDefinition_columns = Lens.lens (\SchemaDefinition' {columns} -> columns) (\s@SchemaDefinition' {} a -> s {columns = a} :: SchemaDefinition) Prelude.. Lens.mapping Lens._Coerce
+schemaDefinition_columns = Lens.lens (\SchemaDefinition' {columns} -> columns) (\s@SchemaDefinition' {} a -> s {columns = a} :: SchemaDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SchemaDefinition where
   parseJSON =

@@ -34,10 +34,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFileFormatConfiguration' smart constructor.
 data FileFormatConfiguration = FileFormatConfiguration'
-  { -- | Contains the configuration information of the Parquet format.
-    parquetConfiguration :: Prelude.Maybe ParquetConfiguration,
-    -- | Contains the configuration information of the JSON format.
-    jsonConfiguration :: Prelude.Maybe JsonConfiguration
+  { -- | Contains the configuration information of the JSON format.
+    jsonConfiguration :: Prelude.Maybe JsonConfiguration,
+    -- | Contains the configuration information of the Parquet format.
+    parquetConfiguration :: Prelude.Maybe ParquetConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,25 @@ data FileFormatConfiguration = FileFormatConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parquetConfiguration', 'fileFormatConfiguration_parquetConfiguration' - Contains the configuration information of the Parquet format.
---
 -- 'jsonConfiguration', 'fileFormatConfiguration_jsonConfiguration' - Contains the configuration information of the JSON format.
+--
+-- 'parquetConfiguration', 'fileFormatConfiguration_parquetConfiguration' - Contains the configuration information of the Parquet format.
 newFileFormatConfiguration ::
   FileFormatConfiguration
 newFileFormatConfiguration =
   FileFormatConfiguration'
-    { parquetConfiguration =
+    { jsonConfiguration =
         Prelude.Nothing,
-      jsonConfiguration = Prelude.Nothing
+      parquetConfiguration = Prelude.Nothing
     }
-
--- | Contains the configuration information of the Parquet format.
-fileFormatConfiguration_parquetConfiguration :: Lens.Lens' FileFormatConfiguration (Prelude.Maybe ParquetConfiguration)
-fileFormatConfiguration_parquetConfiguration = Lens.lens (\FileFormatConfiguration' {parquetConfiguration} -> parquetConfiguration) (\s@FileFormatConfiguration' {} a -> s {parquetConfiguration = a} :: FileFormatConfiguration)
 
 -- | Contains the configuration information of the JSON format.
 fileFormatConfiguration_jsonConfiguration :: Lens.Lens' FileFormatConfiguration (Prelude.Maybe JsonConfiguration)
 fileFormatConfiguration_jsonConfiguration = Lens.lens (\FileFormatConfiguration' {jsonConfiguration} -> jsonConfiguration) (\s@FileFormatConfiguration' {} a -> s {jsonConfiguration = a} :: FileFormatConfiguration)
+
+-- | Contains the configuration information of the Parquet format.
+fileFormatConfiguration_parquetConfiguration :: Lens.Lens' FileFormatConfiguration (Prelude.Maybe ParquetConfiguration)
+fileFormatConfiguration_parquetConfiguration = Lens.lens (\FileFormatConfiguration' {parquetConfiguration} -> parquetConfiguration) (\s@FileFormatConfiguration' {} a -> s {parquetConfiguration = a} :: FileFormatConfiguration)
 
 instance Core.FromJSON FileFormatConfiguration where
   parseJSON =
@@ -75,8 +75,8 @@ instance Core.FromJSON FileFormatConfiguration where
       "FileFormatConfiguration"
       ( \x ->
           FileFormatConfiguration'
-            Prelude.<$> (x Core..:? "parquetConfiguration")
-            Prelude.<*> (x Core..:? "jsonConfiguration")
+            Prelude.<$> (x Core..:? "jsonConfiguration")
+            Prelude.<*> (x Core..:? "parquetConfiguration")
       )
 
 instance Prelude.Hashable FileFormatConfiguration
@@ -87,9 +87,9 @@ instance Core.ToJSON FileFormatConfiguration where
   toJSON FileFormatConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("parquetConfiguration" Core..=)
-              Prelude.<$> parquetConfiguration,
-            ("jsonConfiguration" Core..=)
-              Prelude.<$> jsonConfiguration
+          [ ("jsonConfiguration" Core..=)
+              Prelude.<$> jsonConfiguration,
+            ("parquetConfiguration" Core..=)
+              Prelude.<$> parquetConfiguration
           ]
       )

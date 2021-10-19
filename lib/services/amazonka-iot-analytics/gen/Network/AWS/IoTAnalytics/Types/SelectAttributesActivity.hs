@@ -60,7 +60,7 @@ newSelectAttributesActivity pName_ pAttributes_ =
   SelectAttributesActivity'
     { next = Prelude.Nothing,
       name = pName_,
-      attributes = Lens._Coerce Lens.# pAttributes_
+      attributes = Lens.coerced Lens.# pAttributes_
     }
 
 -- | The next activity in the pipeline.
@@ -73,7 +73,7 @@ selectAttributesActivity_name = Lens.lens (\SelectAttributesActivity' {name} -> 
 
 -- | A list of the attributes to select from the message.
 selectAttributesActivity_attributes :: Lens.Lens' SelectAttributesActivity (Prelude.NonEmpty Prelude.Text)
-selectAttributesActivity_attributes = Lens.lens (\SelectAttributesActivity' {attributes} -> attributes) (\s@SelectAttributesActivity' {} a -> s {attributes = a} :: SelectAttributesActivity) Prelude.. Lens._Coerce
+selectAttributesActivity_attributes = Lens.lens (\SelectAttributesActivity' {attributes} -> attributes) (\s@SelectAttributesActivity' {} a -> s {attributes = a} :: SelectAttributesActivity) Prelude.. Lens.coerced
 
 instance Core.FromJSON SelectAttributesActivity where
   parseJSON =

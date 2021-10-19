@@ -14,32 +14,116 @@
 module Network.AWS.IoTAnalytics.Lens
   ( -- * Operations
 
-    -- ** CreateChannel
-    createChannel_retentionPeriod,
-    createChannel_tags,
-    createChannel_channelStorage,
-    createChannel_channelName,
-    createChannelResponse_channelName,
-    createChannelResponse_retentionPeriod,
-    createChannelResponse_channelArn,
-    createChannelResponse_httpStatus,
-
     -- ** DescribePipeline
     describePipeline_pipelineName,
     describePipelineResponse_pipeline,
     describePipelineResponse_httpStatus,
 
-    -- ** DescribeLoggingOptions
-    describeLoggingOptionsResponse_loggingOptions,
-    describeLoggingOptionsResponse_httpStatus,
+    -- ** DescribeDataset
+    describeDataset_datasetName,
+    describeDatasetResponse_dataset,
+    describeDatasetResponse_httpStatus,
+
+    -- ** ListChannels
+    listChannels_nextToken,
+    listChannels_maxResults,
+    listChannelsResponse_channelSummaries,
+    listChannelsResponse_nextToken,
+    listChannelsResponse_httpStatus,
+
+    -- ** ListDatasetContents
+    listDatasetContents_nextToken,
+    listDatasetContents_scheduledBefore,
+    listDatasetContents_maxResults,
+    listDatasetContents_scheduledOnOrAfter,
+    listDatasetContents_datasetName,
+    listDatasetContentsResponse_datasetContentSummaries,
+    listDatasetContentsResponse_nextToken,
+    listDatasetContentsResponse_httpStatus,
+
+    -- ** PutLoggingOptions
+    putLoggingOptions_loggingOptions,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** DeleteChannel
+    deleteChannel_channelName,
+
+    -- ** UpdateChannel
+    updateChannel_retentionPeriod,
+    updateChannel_channelStorage,
+    updateChannel_channelName,
+
+    -- ** SampleChannelData
+    sampleChannelData_startTime,
+    sampleChannelData_maxMessages,
+    sampleChannelData_endTime,
+    sampleChannelData_channelName,
+    sampleChannelDataResponse_payloads,
+    sampleChannelDataResponse_httpStatus,
+
+    -- ** CancelPipelineReprocessing
+    cancelPipelineReprocessing_pipelineName,
+    cancelPipelineReprocessing_reprocessingId,
+    cancelPipelineReprocessingResponse_httpStatus,
+
+    -- ** CreateDatastore
+    createDatastore_fileFormatConfiguration,
+    createDatastore_datastorePartitions,
+    createDatastore_retentionPeriod,
+    createDatastore_datastoreStorage,
+    createDatastore_tags,
+    createDatastore_datastoreName,
+    createDatastoreResponse_datastoreArn,
+    createDatastoreResponse_datastoreName,
+    createDatastoreResponse_retentionPeriod,
+    createDatastoreResponse_httpStatus,
+
+    -- ** UpdatePipeline
+    updatePipeline_pipelineName,
+    updatePipeline_pipelineActivities,
+
+    -- ** DeletePipeline
+    deletePipeline_pipelineName,
+
+    -- ** DeleteDataset
+    deleteDataset_datasetName,
+
+    -- ** UpdateDataset
+    updateDataset_versioningConfiguration,
+    updateDataset_triggers,
+    updateDataset_retentionPeriod,
+    updateDataset_lateDataRules,
+    updateDataset_contentDeliveryRules,
+    updateDataset_datasetName,
+    updateDataset_actions,
+
+    -- ** ListPipelines
+    listPipelines_nextToken,
+    listPipelines_maxResults,
+    listPipelinesResponse_pipelineSummaries,
+    listPipelinesResponse_nextToken,
+    listPipelinesResponse_httpStatus,
+
+    -- ** DeleteDatastore
+    deleteDatastore_datastoreName,
+
+    -- ** UpdateDatastore
+    updateDatastore_fileFormatConfiguration,
+    updateDatastore_retentionPeriod,
+    updateDatastore_datastoreStorage,
+    updateDatastore_datastoreName,
 
     -- ** CreateDataset
-    createDataset_triggers,
-    createDataset_lateDataRules,
-    createDataset_retentionPeriod,
-    createDataset_tags,
-    createDataset_contentDeliveryRules,
     createDataset_versioningConfiguration,
+    createDataset_triggers,
+    createDataset_retentionPeriod,
+    createDataset_lateDataRules,
+    createDataset_contentDeliveryRules,
+    createDataset_tags,
     createDataset_datasetName,
     createDataset_actions,
     createDatasetResponse_datasetArn,
@@ -47,105 +131,11 @@ module Network.AWS.IoTAnalytics.Lens
     createDatasetResponse_datasetName,
     createDatasetResponse_httpStatus,
 
-    -- ** UpdateDatastore
-    updateDatastore_datastoreStorage,
-    updateDatastore_fileFormatConfiguration,
-    updateDatastore_retentionPeriod,
-    updateDatastore_datastoreName,
-
-    -- ** DeleteDatastore
-    deleteDatastore_datastoreName,
-
     -- ** BatchPutMessage
     batchPutMessage_channelName,
     batchPutMessage_messages,
     batchPutMessageResponse_batchPutMessageErrorEntries,
     batchPutMessageResponse_httpStatus,
-
-    -- ** CreatePipeline
-    createPipeline_tags,
-    createPipeline_pipelineName,
-    createPipeline_pipelineActivities,
-    createPipelineResponse_pipelineArn,
-    createPipelineResponse_pipelineName,
-    createPipelineResponse_httpStatus,
-
-    -- ** DeletePipeline
-    deletePipeline_pipelineName,
-
-    -- ** UpdatePipeline
-    updatePipeline_pipelineName,
-    updatePipeline_pipelineActivities,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** CancelPipelineReprocessing
-    cancelPipelineReprocessing_pipelineName,
-    cancelPipelineReprocessing_reprocessingId,
-    cancelPipelineReprocessingResponse_httpStatus,
-
-    -- ** SampleChannelData
-    sampleChannelData_maxMessages,
-    sampleChannelData_startTime,
-    sampleChannelData_endTime,
-    sampleChannelData_channelName,
-    sampleChannelDataResponse_payloads,
-    sampleChannelDataResponse_httpStatus,
-
-    -- ** DescribeDatastore
-    describeDatastore_includeStatistics,
-    describeDatastore_datastoreName,
-    describeDatastoreResponse_datastore,
-    describeDatastoreResponse_statistics,
-    describeDatastoreResponse_httpStatus,
-
-    -- ** ListChannels
-    listChannels_nextToken,
-    listChannels_maxResults,
-    listChannelsResponse_nextToken,
-    listChannelsResponse_channelSummaries,
-    listChannelsResponse_httpStatus,
-
-    -- ** DescribeDataset
-    describeDataset_datasetName,
-    describeDatasetResponse_dataset,
-    describeDatasetResponse_httpStatus,
-
-    -- ** CreateDatasetContent
-    createDatasetContent_versionId,
-    createDatasetContent_datasetName,
-    createDatasetContentResponse_versionId,
-    createDatasetContentResponse_httpStatus,
-
-    -- ** DescribeChannel
-    describeChannel_includeStatistics,
-    describeChannel_channelName,
-    describeChannelResponse_statistics,
-    describeChannelResponse_channel,
-    describeChannelResponse_httpStatus,
-
-    -- ** StartPipelineReprocessing
-    startPipelineReprocessing_channelMessages,
-    startPipelineReprocessing_startTime,
-    startPipelineReprocessing_endTime,
-    startPipelineReprocessing_pipelineName,
-    startPipelineReprocessingResponse_reprocessingId,
-    startPipelineReprocessingResponse_httpStatus,
-
-    -- ** RunPipelineActivity
-    runPipelineActivity_pipelineActivity,
-    runPipelineActivity_payloads,
-    runPipelineActivityResponse_logResult,
-    runPipelineActivityResponse_payloads,
-    runPipelineActivityResponse_httpStatus,
 
     -- ** ListDatastores
     listDatastores_nextToken,
@@ -154,6 +144,46 @@ module Network.AWS.IoTAnalytics.Lens
     listDatastoresResponse_datastoreSummaries,
     listDatastoresResponse_httpStatus,
 
+    -- ** CreateDatasetContent
+    createDatasetContent_versionId,
+    createDatasetContent_datasetName,
+    createDatasetContentResponse_versionId,
+    createDatasetContentResponse_httpStatus,
+
+    -- ** CreateChannel
+    createChannel_retentionPeriod,
+    createChannel_channelStorage,
+    createChannel_tags,
+    createChannel_channelName,
+    createChannelResponse_channelArn,
+    createChannelResponse_retentionPeriod,
+    createChannelResponse_channelName,
+    createChannelResponse_httpStatus,
+
+    -- ** DeleteDatasetContent
+    deleteDatasetContent_versionId,
+    deleteDatasetContent_datasetName,
+
+    -- ** DescribeDatastore
+    describeDatastore_includeStatistics,
+    describeDatastore_datastoreName,
+    describeDatastoreResponse_datastore,
+    describeDatastoreResponse_statistics,
+    describeDatastoreResponse_httpStatus,
+
+    -- ** GetDatasetContent
+    getDatasetContent_versionId,
+    getDatasetContent_datasetName,
+    getDatasetContentResponse_status,
+    getDatasetContentResponse_entries,
+    getDatasetContentResponse_timestamp,
+    getDatasetContentResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** ListDatasets
     listDatasets_nextToken,
     listDatasets_maxResults,
@@ -161,74 +191,44 @@ module Network.AWS.IoTAnalytics.Lens
     listDatasetsResponse_datasetSummaries,
     listDatasetsResponse_httpStatus,
 
-    -- ** CreateDatastore
-    createDatastore_datastoreStorage,
-    createDatastore_datastorePartitions,
-    createDatastore_fileFormatConfiguration,
-    createDatastore_retentionPeriod,
-    createDatastore_tags,
-    createDatastore_datastoreName,
-    createDatastoreResponse_datastoreArn,
-    createDatastoreResponse_retentionPeriod,
-    createDatastoreResponse_datastoreName,
-    createDatastoreResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** DeleteDataset
-    deleteDataset_datasetName,
+    -- ** RunPipelineActivity
+    runPipelineActivity_pipelineActivity,
+    runPipelineActivity_payloads,
+    runPipelineActivityResponse_logResult,
+    runPipelineActivityResponse_payloads,
+    runPipelineActivityResponse_httpStatus,
 
-    -- ** ListPipelines
-    listPipelines_nextToken,
-    listPipelines_maxResults,
-    listPipelinesResponse_nextToken,
-    listPipelinesResponse_pipelineSummaries,
-    listPipelinesResponse_httpStatus,
+    -- ** DescribeChannel
+    describeChannel_includeStatistics,
+    describeChannel_channelName,
+    describeChannelResponse_channel,
+    describeChannelResponse_statistics,
+    describeChannelResponse_httpStatus,
 
-    -- ** UpdateDataset
-    updateDataset_triggers,
-    updateDataset_lateDataRules,
-    updateDataset_retentionPeriod,
-    updateDataset_contentDeliveryRules,
-    updateDataset_versioningConfiguration,
-    updateDataset_datasetName,
-    updateDataset_actions,
+    -- ** CreatePipeline
+    createPipeline_tags,
+    createPipeline_pipelineName,
+    createPipeline_pipelineActivities,
+    createPipelineResponse_pipelineName,
+    createPipelineResponse_pipelineArn,
+    createPipelineResponse_httpStatus,
 
-    -- ** GetDatasetContent
-    getDatasetContent_versionId,
-    getDatasetContent_datasetName,
-    getDatasetContentResponse_status,
-    getDatasetContentResponse_timestamp,
-    getDatasetContentResponse_entries,
-    getDatasetContentResponse_httpStatus,
+    -- ** StartPipelineReprocessing
+    startPipelineReprocessing_startTime,
+    startPipelineReprocessing_endTime,
+    startPipelineReprocessing_channelMessages,
+    startPipelineReprocessing_pipelineName,
+    startPipelineReprocessingResponse_reprocessingId,
+    startPipelineReprocessingResponse_httpStatus,
 
-    -- ** ListDatasetContents
-    listDatasetContents_nextToken,
-    listDatasetContents_maxResults,
-    listDatasetContents_scheduledBefore,
-    listDatasetContents_scheduledOnOrAfter,
-    listDatasetContents_datasetName,
-    listDatasetContentsResponse_nextToken,
-    listDatasetContentsResponse_datasetContentSummaries,
-    listDatasetContentsResponse_httpStatus,
-
-    -- ** UpdateChannel
-    updateChannel_retentionPeriod,
-    updateChannel_channelStorage,
-    updateChannel_channelName,
-
-    -- ** DeleteChannel
-    deleteChannel_channelName,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** PutLoggingOptions
-    putLoggingOptions_loggingOptions,
-
-    -- ** DeleteDatasetContent
-    deleteDatasetContent_versionId,
-    deleteDatasetContent_datasetName,
+    -- ** DescribeLoggingOptions
+    describeLoggingOptionsResponse_loggingOptions,
+    describeLoggingOptionsResponse_httpStatus,
 
     -- * Types
 
@@ -238,19 +238,19 @@ module Network.AWS.IoTAnalytics.Lens
     addAttributesActivity_attributes,
 
     -- ** BatchPutMessageErrorEntry
-    batchPutMessageErrorEntry_messageId,
-    batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_errorCode,
+    batchPutMessageErrorEntry_errorMessage,
+    batchPutMessageErrorEntry_messageId,
 
     -- ** Channel
-    channel_lastMessageArrivalTime,
-    channel_status,
     channel_creationTime,
-    channel_lastUpdateTime,
+    channel_status,
+    channel_lastMessageArrivalTime,
     channel_arn,
-    channel_name,
-    channel_retentionPeriod,
     channel_storage,
+    channel_retentionPeriod,
+    channel_name,
+    channel_lastUpdateTime,
 
     -- ** ChannelActivity
     channelActivity_next,
@@ -272,12 +272,12 @@ module Network.AWS.IoTAnalytics.Lens
     channelStorageSummary_customerManagedS3,
 
     -- ** ChannelSummary
-    channelSummary_lastMessageArrivalTime,
-    channelSummary_status,
-    channelSummary_channelName,
     channelSummary_creationTime,
-    channelSummary_lastUpdateTime,
+    channelSummary_status,
+    channelSummary_lastMessageArrivalTime,
+    channelSummary_channelName,
     channelSummary_channelStorage,
+    channelSummary_lastUpdateTime,
 
     -- ** Column
     column_name,
@@ -295,9 +295,9 @@ module Network.AWS.IoTAnalytics.Lens
     customerManagedChannelS3Storage_roleArn,
 
     -- ** CustomerManagedChannelS3StorageSummary
+    customerManagedChannelS3StorageSummary_bucket,
     customerManagedChannelS3StorageSummary_keyPrefix,
     customerManagedChannelS3StorageSummary_roleArn,
-    customerManagedChannelS3StorageSummary_bucket,
 
     -- ** CustomerManagedDatastoreS3Storage
     customerManagedDatastoreS3Storage_keyPrefix,
@@ -305,26 +305,26 @@ module Network.AWS.IoTAnalytics.Lens
     customerManagedDatastoreS3Storage_roleArn,
 
     -- ** CustomerManagedDatastoreS3StorageSummary
+    customerManagedDatastoreS3StorageSummary_bucket,
     customerManagedDatastoreS3StorageSummary_keyPrefix,
     customerManagedDatastoreS3StorageSummary_roleArn,
-    customerManagedDatastoreS3StorageSummary_bucket,
 
     -- ** Dataset
-    dataset_status,
     dataset_creationTime,
-    dataset_lastUpdateTime,
-    dataset_triggers,
+    dataset_status,
+    dataset_versioningConfiguration,
     dataset_arn,
     dataset_actions,
-    dataset_name,
-    dataset_lateDataRules,
+    dataset_triggers,
     dataset_retentionPeriod,
+    dataset_lateDataRules,
+    dataset_name,
     dataset_contentDeliveryRules,
-    dataset_versioningConfiguration,
+    dataset_lastUpdateTime,
 
     -- ** DatasetAction
-    datasetAction_actionName,
     datasetAction_queryAction,
+    datasetAction_actionName,
     datasetAction_containerAction,
 
     -- ** DatasetActionSummary
@@ -344,42 +344,42 @@ module Network.AWS.IoTAnalytics.Lens
     datasetContentStatus_reason,
 
     -- ** DatasetContentSummary
-    datasetContentSummary_status,
     datasetContentSummary_creationTime,
-    datasetContentSummary_completionTime,
+    datasetContentSummary_status,
     datasetContentSummary_scheduleTime,
+    datasetContentSummary_completionTime,
     datasetContentSummary_version,
 
     -- ** DatasetContentVersionValue
     datasetContentVersionValue_datasetName,
 
     -- ** DatasetEntry
-    datasetEntry_dataURI,
     datasetEntry_entryName,
+    datasetEntry_dataURI,
 
     -- ** DatasetSummary
-    datasetSummary_status,
     datasetSummary_creationTime,
-    datasetSummary_lastUpdateTime,
-    datasetSummary_triggers,
+    datasetSummary_status,
     datasetSummary_actions,
+    datasetSummary_triggers,
     datasetSummary_datasetName,
+    datasetSummary_lastUpdateTime,
 
     -- ** DatasetTrigger
-    datasetTrigger_schedule,
     datasetTrigger_dataset,
+    datasetTrigger_schedule,
 
     -- ** Datastore
-    datastore_lastMessageArrivalTime,
-    datastore_status,
     datastore_creationTime,
-    datastore_datastorePartitions,
-    datastore_lastUpdateTime,
-    datastore_fileFormatConfiguration,
+    datastore_status,
+    datastore_lastMessageArrivalTime,
     datastore_arn,
-    datastore_name,
-    datastore_retentionPeriod,
+    datastore_fileFormatConfiguration,
+    datastore_datastorePartitions,
     datastore_storage,
+    datastore_retentionPeriod,
+    datastore_name,
+    datastore_lastUpdateTime,
 
     -- ** DatastoreActivity
     datastoreActivity_name,
@@ -392,8 +392,8 @@ module Network.AWS.IoTAnalytics.Lens
     datastoreIotSiteWiseMultiLayerStorageSummary_customerManagedS3Storage,
 
     -- ** DatastorePartition
-    datastorePartition_timestampPartition,
     datastorePartition_attributePartition,
+    datastorePartition_timestampPartition,
 
     -- ** DatastorePartitions
     datastorePartitions_partitions,
@@ -412,14 +412,14 @@ module Network.AWS.IoTAnalytics.Lens
     datastoreStorageSummary_iotSiteWiseMultiLayerStorage,
 
     -- ** DatastoreSummary
-    datastoreSummary_lastMessageArrivalTime,
-    datastoreSummary_status,
     datastoreSummary_creationTime,
-    datastoreSummary_datastoreStorage,
-    datastoreSummary_datastorePartitions,
-    datastoreSummary_lastUpdateTime,
-    datastoreSummary_fileFormatType,
+    datastoreSummary_status,
+    datastoreSummary_lastMessageArrivalTime,
     datastoreSummary_datastoreName,
+    datastoreSummary_datastorePartitions,
+    datastoreSummary_fileFormatType,
+    datastoreSummary_lastUpdateTime,
+    datastoreSummary_datastoreStorage,
 
     -- ** DeltaTime
     deltaTime_offsetSeconds,
@@ -443,12 +443,12 @@ module Network.AWS.IoTAnalytics.Lens
     deviceShadowEnrichActivity_roleArn,
 
     -- ** EstimatedResourceSize
-    estimatedResourceSize_estimatedSizeInBytes,
     estimatedResourceSize_estimatedOn,
+    estimatedResourceSize_estimatedSizeInBytes,
 
     -- ** FileFormatConfiguration
-    fileFormatConfiguration_parquetConfiguration,
     fileFormatConfiguration_jsonConfiguration,
+    fileFormatConfiguration_parquetConfiguration,
 
     -- ** FilterActivity
     filterActivity_next,
@@ -468,8 +468,8 @@ module Network.AWS.IoTAnalytics.Lens
     iotSiteWiseCustomerManagedDatastoreS3Storage_bucket,
 
     -- ** IotSiteWiseCustomerManagedDatastoreS3StorageSummary
-    iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix,
     iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket,
+    iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix,
 
     -- ** JsonConfiguration
 
@@ -512,29 +512,29 @@ module Network.AWS.IoTAnalytics.Lens
 
     -- ** Pipeline
     pipeline_creationTime,
-    pipeline_lastUpdateTime,
-    pipeline_activities,
     pipeline_arn,
+    pipeline_activities,
     pipeline_name,
     pipeline_reprocessingSummaries,
+    pipeline_lastUpdateTime,
 
     -- ** PipelineActivity
     pipelineActivity_selectAttributes,
-    pipelineActivity_datastore,
-    pipelineActivity_removeAttributes,
-    pipelineActivity_addAttributes,
-    pipelineActivity_deviceShadowEnrich,
-    pipelineActivity_lambda,
-    pipelineActivity_deviceRegistryEnrich,
     pipelineActivity_channel,
-    pipelineActivity_math,
+    pipelineActivity_addAttributes,
+    pipelineActivity_deviceRegistryEnrich,
+    pipelineActivity_removeAttributes,
+    pipelineActivity_lambda,
+    pipelineActivity_datastore,
+    pipelineActivity_deviceShadowEnrich,
     pipelineActivity_filter,
+    pipelineActivity_math,
 
     -- ** PipelineSummary
     pipelineSummary_creationTime,
-    pipelineSummary_lastUpdateTime,
-    pipelineSummary_reprocessingSummaries,
     pipelineSummary_pipelineName,
+    pipelineSummary_reprocessingSummaries,
+    pipelineSummary_lastUpdateTime,
 
     -- ** QueryFilter
     queryFilter_deltaTime,
@@ -545,8 +545,8 @@ module Network.AWS.IoTAnalytics.Lens
     removeAttributesActivity_attributes,
 
     -- ** ReprocessingSummary
-    reprocessingSummary_status,
     reprocessingSummary_creationTime,
+    reprocessingSummary_status,
     reprocessingSummary_id,
 
     -- ** ResourceConfiguration
@@ -554,8 +554,8 @@ module Network.AWS.IoTAnalytics.Lens
     resourceConfiguration_volumeSizeInGB,
 
     -- ** RetentionPeriod
-    retentionPeriod_numberOfDays,
     retentionPeriod_unlimited,
+    retentionPeriod_numberOfDays,
 
     -- ** S3DestinationConfiguration
     s3DestinationConfiguration_glueConfiguration,
@@ -599,14 +599,14 @@ module Network.AWS.IoTAnalytics.Lens
 
     -- ** Variable
     variable_outputFileUriValue,
-    variable_stringValue,
     variable_doubleValue,
+    variable_stringValue,
     variable_datasetContentVersionValue,
     variable_name,
 
     -- ** VersioningConfiguration
-    versioningConfiguration_maxVersions,
     versioningConfiguration_unlimited,
+    versioningConfiguration_maxVersions,
   )
 where
 

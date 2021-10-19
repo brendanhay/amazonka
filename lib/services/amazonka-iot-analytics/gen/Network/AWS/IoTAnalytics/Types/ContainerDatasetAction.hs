@@ -97,7 +97,7 @@ newContainerDatasetAction
 -- application). Each variable must have a name and a value given by one of
 -- @stringValue@, @datasetContentVersionValue@, or @outputFileUriValue@.
 containerDatasetAction_variables :: Lens.Lens' ContainerDatasetAction (Prelude.Maybe [Variable])
-containerDatasetAction_variables = Lens.lens (\ContainerDatasetAction' {variables} -> variables) (\s@ContainerDatasetAction' {} a -> s {variables = a} :: ContainerDatasetAction) Prelude.. Lens.mapping Lens._Coerce
+containerDatasetAction_variables = Lens.lens (\ContainerDatasetAction' {variables} -> variables) (\s@ContainerDatasetAction' {} a -> s {variables = a} :: ContainerDatasetAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the Docker container stored in your account. The Docker
 -- container contains an application and required support libraries and is

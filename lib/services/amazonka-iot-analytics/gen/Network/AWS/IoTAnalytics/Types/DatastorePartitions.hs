@@ -49,7 +49,7 @@ newDatastorePartitions =
 
 -- | A list of partition dimensions in a data store.
 datastorePartitions_partitions :: Lens.Lens' DatastorePartitions (Prelude.Maybe [DatastorePartition])
-datastorePartitions_partitions = Lens.lens (\DatastorePartitions' {partitions} -> partitions) (\s@DatastorePartitions' {} a -> s {partitions = a} :: DatastorePartitions) Prelude.. Lens.mapping Lens._Coerce
+datastorePartitions_partitions = Lens.lens (\DatastorePartitions' {partitions} -> partitions) (\s@DatastorePartitions' {} a -> s {partitions = a} :: DatastorePartitions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DatastorePartitions where
   parseJSON =

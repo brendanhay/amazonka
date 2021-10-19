@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRetentionPeriod' smart constructor.
 data RetentionPeriod = RetentionPeriod'
-  { -- | The number of days that message data is kept. The @unlimited@ parameter
+  { -- | If true, message data is kept indefinitely.
+    unlimited :: Prelude.Maybe Prelude.Bool,
+    -- | The number of days that message data is kept. The @unlimited@ parameter
     -- must be false.
-    numberOfDays :: Prelude.Maybe Prelude.Natural,
-    -- | If true, message data is kept indefinitely.
-    unlimited :: Prelude.Maybe Prelude.Bool
+    numberOfDays :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data RetentionPeriod = RetentionPeriod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'unlimited', 'retentionPeriod_unlimited' - If true, message data is kept indefinitely.
+--
 -- 'numberOfDays', 'retentionPeriod_numberOfDays' - The number of days that message data is kept. The @unlimited@ parameter
 -- must be false.
---
--- 'unlimited', 'retentionPeriod_unlimited' - If true, message data is kept indefinitely.
 newRetentionPeriod ::
   RetentionPeriod
 newRetentionPeriod =
   RetentionPeriod'
-    { numberOfDays = Prelude.Nothing,
-      unlimited = Prelude.Nothing
+    { unlimited = Prelude.Nothing,
+      numberOfDays = Prelude.Nothing
     }
+
+-- | If true, message data is kept indefinitely.
+retentionPeriod_unlimited :: Lens.Lens' RetentionPeriod (Prelude.Maybe Prelude.Bool)
+retentionPeriod_unlimited = Lens.lens (\RetentionPeriod' {unlimited} -> unlimited) (\s@RetentionPeriod' {} a -> s {unlimited = a} :: RetentionPeriod)
 
 -- | The number of days that message data is kept. The @unlimited@ parameter
 -- must be false.
 retentionPeriod_numberOfDays :: Lens.Lens' RetentionPeriod (Prelude.Maybe Prelude.Natural)
 retentionPeriod_numberOfDays = Lens.lens (\RetentionPeriod' {numberOfDays} -> numberOfDays) (\s@RetentionPeriod' {} a -> s {numberOfDays = a} :: RetentionPeriod)
-
--- | If true, message data is kept indefinitely.
-retentionPeriod_unlimited :: Lens.Lens' RetentionPeriod (Prelude.Maybe Prelude.Bool)
-retentionPeriod_unlimited = Lens.lens (\RetentionPeriod' {unlimited} -> unlimited) (\s@RetentionPeriod' {} a -> s {unlimited = a} :: RetentionPeriod)
 
 instance Core.FromJSON RetentionPeriod where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON RetentionPeriod where
       "RetentionPeriod"
       ( \x ->
           RetentionPeriod'
-            Prelude.<$> (x Core..:? "numberOfDays")
-            Prelude.<*> (x Core..:? "unlimited")
+            Prelude.<$> (x Core..:? "unlimited")
+            Prelude.<*> (x Core..:? "numberOfDays")
       )
 
 instance Prelude.Hashable RetentionPeriod
@@ -82,7 +82,7 @@ instance Core.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("numberOfDays" Core..=) Prelude.<$> numberOfDays,
-            ("unlimited" Core..=) Prelude.<$> unlimited
+          [ ("unlimited" Core..=) Prelude.<$> unlimited,
+            ("numberOfDays" Core..=) Prelude.<$> numberOfDays
           ]
       )

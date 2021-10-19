@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatastorePartition' smart constructor.
 data DatastorePartition = DatastorePartition'
-  { -- | A partition dimension defined by a timestamp attribute.
-    timestampPartition :: Prelude.Maybe TimestampPartition,
-    -- | A partition dimension defined by an @attributeName@.
-    attributePartition :: Prelude.Maybe Partition
+  { -- | A partition dimension defined by an @attributeName@.
+    attributePartition :: Prelude.Maybe Partition,
+    -- | A partition dimension defined by a timestamp attribute.
+    timestampPartition :: Prelude.Maybe TimestampPartition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data DatastorePartition = DatastorePartition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestampPartition', 'datastorePartition_timestampPartition' - A partition dimension defined by a timestamp attribute.
---
 -- 'attributePartition', 'datastorePartition_attributePartition' - A partition dimension defined by an @attributeName@.
+--
+-- 'timestampPartition', 'datastorePartition_timestampPartition' - A partition dimension defined by a timestamp attribute.
 newDatastorePartition ::
   DatastorePartition
 newDatastorePartition =
   DatastorePartition'
-    { timestampPartition =
+    { attributePartition =
         Prelude.Nothing,
-      attributePartition = Prelude.Nothing
+      timestampPartition = Prelude.Nothing
     }
-
--- | A partition dimension defined by a timestamp attribute.
-datastorePartition_timestampPartition :: Lens.Lens' DatastorePartition (Prelude.Maybe TimestampPartition)
-datastorePartition_timestampPartition = Lens.lens (\DatastorePartition' {timestampPartition} -> timestampPartition) (\s@DatastorePartition' {} a -> s {timestampPartition = a} :: DatastorePartition)
 
 -- | A partition dimension defined by an @attributeName@.
 datastorePartition_attributePartition :: Lens.Lens' DatastorePartition (Prelude.Maybe Partition)
 datastorePartition_attributePartition = Lens.lens (\DatastorePartition' {attributePartition} -> attributePartition) (\s@DatastorePartition' {} a -> s {attributePartition = a} :: DatastorePartition)
+
+-- | A partition dimension defined by a timestamp attribute.
+datastorePartition_timestampPartition :: Lens.Lens' DatastorePartition (Prelude.Maybe TimestampPartition)
+datastorePartition_timestampPartition = Lens.lens (\DatastorePartition' {timestampPartition} -> timestampPartition) (\s@DatastorePartition' {} a -> s {timestampPartition = a} :: DatastorePartition)
 
 instance Core.FromJSON DatastorePartition where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON DatastorePartition where
       "DatastorePartition"
       ( \x ->
           DatastorePartition'
-            Prelude.<$> (x Core..:? "timestampPartition")
-            Prelude.<*> (x Core..:? "attributePartition")
+            Prelude.<$> (x Core..:? "attributePartition")
+            Prelude.<*> (x Core..:? "timestampPartition")
       )
 
 instance Prelude.Hashable DatastorePartition
@@ -83,9 +83,9 @@ instance Core.ToJSON DatastorePartition where
   toJSON DatastorePartition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timestampPartition" Core..=)
-              Prelude.<$> timestampPartition,
-            ("attributePartition" Core..=)
-              Prelude.<$> attributePartition
+          [ ("attributePartition" Core..=)
+              Prelude.<$> attributePartition,
+            ("timestampPartition" Core..=)
+              Prelude.<$> timestampPartition
           ]
       )

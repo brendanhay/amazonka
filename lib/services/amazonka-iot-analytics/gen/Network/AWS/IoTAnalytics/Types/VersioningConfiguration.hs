@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVersioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-  { -- | How many versions of dataset contents are kept. The @unlimited@
+  { -- | If true, unlimited versions of dataset contents are kept.
+    unlimited :: Prelude.Maybe Prelude.Bool,
+    -- | How many versions of dataset contents are kept. The @unlimited@
     -- parameter must be @false@.
-    maxVersions :: Prelude.Maybe Prelude.Natural,
-    -- | If true, unlimited versions of dataset contents are kept.
-    unlimited :: Prelude.Maybe Prelude.Bool
+    maxVersions :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data VersioningConfiguration = VersioningConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'unlimited', 'versioningConfiguration_unlimited' - If true, unlimited versions of dataset contents are kept.
+--
 -- 'maxVersions', 'versioningConfiguration_maxVersions' - How many versions of dataset contents are kept. The @unlimited@
 -- parameter must be @false@.
---
--- 'unlimited', 'versioningConfiguration_unlimited' - If true, unlimited versions of dataset contents are kept.
 newVersioningConfiguration ::
   VersioningConfiguration
 newVersioningConfiguration =
   VersioningConfiguration'
-    { maxVersions =
+    { unlimited =
         Prelude.Nothing,
-      unlimited = Prelude.Nothing
+      maxVersions = Prelude.Nothing
     }
+
+-- | If true, unlimited versions of dataset contents are kept.
+versioningConfiguration_unlimited :: Lens.Lens' VersioningConfiguration (Prelude.Maybe Prelude.Bool)
+versioningConfiguration_unlimited = Lens.lens (\VersioningConfiguration' {unlimited} -> unlimited) (\s@VersioningConfiguration' {} a -> s {unlimited = a} :: VersioningConfiguration)
 
 -- | How many versions of dataset contents are kept. The @unlimited@
 -- parameter must be @false@.
 versioningConfiguration_maxVersions :: Lens.Lens' VersioningConfiguration (Prelude.Maybe Prelude.Natural)
 versioningConfiguration_maxVersions = Lens.lens (\VersioningConfiguration' {maxVersions} -> maxVersions) (\s@VersioningConfiguration' {} a -> s {maxVersions = a} :: VersioningConfiguration)
-
--- | If true, unlimited versions of dataset contents are kept.
-versioningConfiguration_unlimited :: Lens.Lens' VersioningConfiguration (Prelude.Maybe Prelude.Bool)
-versioningConfiguration_unlimited = Lens.lens (\VersioningConfiguration' {unlimited} -> unlimited) (\s@VersioningConfiguration' {} a -> s {unlimited = a} :: VersioningConfiguration)
 
 instance Core.FromJSON VersioningConfiguration where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON VersioningConfiguration where
       "VersioningConfiguration"
       ( \x ->
           VersioningConfiguration'
-            Prelude.<$> (x Core..:? "maxVersions")
-            Prelude.<*> (x Core..:? "unlimited")
+            Prelude.<$> (x Core..:? "unlimited")
+            Prelude.<*> (x Core..:? "maxVersions")
       )
 
 instance Prelude.Hashable VersioningConfiguration
@@ -83,7 +83,7 @@ instance Core.ToJSON VersioningConfiguration where
   toJSON VersioningConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxVersions" Core..=) Prelude.<$> maxVersions,
-            ("unlimited" Core..=) Prelude.<$> unlimited
+          [ ("unlimited" Core..=) Prelude.<$> unlimited,
+            ("maxVersions" Core..=) Prelude.<$> maxVersions
           ]
       )

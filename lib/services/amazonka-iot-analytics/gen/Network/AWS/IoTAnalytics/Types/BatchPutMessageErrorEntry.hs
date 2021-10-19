@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchPutMessageErrorEntry' smart constructor.
 data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
-  { -- | The ID of the message that caused the error. See the value corresponding
-    -- to the @messageId@ key in the message object.
-    messageId :: Prelude.Maybe Prelude.Text,
+  { -- | The code associated with the error.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The message associated with the error.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The code associated with the error.
-    errorCode :: Prelude.Maybe Prelude.Text
+    -- | The ID of the message that caused the error. See the value corresponding
+    -- to the @messageId@ key in the message object.
+    messageId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,34 +45,34 @@ data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageId', 'batchPutMessageErrorEntry_messageId' - The ID of the message that caused the error. See the value corresponding
--- to the @messageId@ key in the message object.
+-- 'errorCode', 'batchPutMessageErrorEntry_errorCode' - The code associated with the error.
 --
 -- 'errorMessage', 'batchPutMessageErrorEntry_errorMessage' - The message associated with the error.
 --
--- 'errorCode', 'batchPutMessageErrorEntry_errorCode' - The code associated with the error.
+-- 'messageId', 'batchPutMessageErrorEntry_messageId' - The ID of the message that caused the error. See the value corresponding
+-- to the @messageId@ key in the message object.
 newBatchPutMessageErrorEntry ::
   BatchPutMessageErrorEntry
 newBatchPutMessageErrorEntry =
   BatchPutMessageErrorEntry'
-    { messageId =
+    { errorCode =
         Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      messageId = Prelude.Nothing
     }
 
--- | The ID of the message that caused the error. See the value corresponding
--- to the @messageId@ key in the message object.
-batchPutMessageErrorEntry_messageId :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
-batchPutMessageErrorEntry_messageId = Lens.lens (\BatchPutMessageErrorEntry' {messageId} -> messageId) (\s@BatchPutMessageErrorEntry' {} a -> s {messageId = a} :: BatchPutMessageErrorEntry)
+-- | The code associated with the error.
+batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
+batchPutMessageErrorEntry_errorCode = Lens.lens (\BatchPutMessageErrorEntry' {errorCode} -> errorCode) (\s@BatchPutMessageErrorEntry' {} a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
 
 -- | The message associated with the error.
 batchPutMessageErrorEntry_errorMessage :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
 batchPutMessageErrorEntry_errorMessage = Lens.lens (\BatchPutMessageErrorEntry' {errorMessage} -> errorMessage) (\s@BatchPutMessageErrorEntry' {} a -> s {errorMessage = a} :: BatchPutMessageErrorEntry)
 
--- | The code associated with the error.
-batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
-batchPutMessageErrorEntry_errorCode = Lens.lens (\BatchPutMessageErrorEntry' {errorCode} -> errorCode) (\s@BatchPutMessageErrorEntry' {} a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
+-- | The ID of the message that caused the error. See the value corresponding
+-- to the @messageId@ key in the message object.
+batchPutMessageErrorEntry_messageId :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
+batchPutMessageErrorEntry_messageId = Lens.lens (\BatchPutMessageErrorEntry' {messageId} -> messageId) (\s@BatchPutMessageErrorEntry' {} a -> s {messageId = a} :: BatchPutMessageErrorEntry)
 
 instance Core.FromJSON BatchPutMessageErrorEntry where
   parseJSON =
@@ -80,9 +80,9 @@ instance Core.FromJSON BatchPutMessageErrorEntry where
       "BatchPutMessageErrorEntry"
       ( \x ->
           BatchPutMessageErrorEntry'
-            Prelude.<$> (x Core..:? "messageId")
+            Prelude.<$> (x Core..:? "errorCode")
             Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<*> (x Core..:? "messageId")
       )
 
 instance Prelude.Hashable BatchPutMessageErrorEntry

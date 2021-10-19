@@ -59,7 +59,7 @@ newRemoveAttributesActivity pName_ pAttributes_ =
   RemoveAttributesActivity'
     { next = Prelude.Nothing,
       name = pName_,
-      attributes = Lens._Coerce Lens.# pAttributes_
+      attributes = Lens.coerced Lens.# pAttributes_
     }
 
 -- | The next activity in the pipeline.
@@ -72,7 +72,7 @@ removeAttributesActivity_name = Lens.lens (\RemoveAttributesActivity' {name} -> 
 
 -- | A list of 1-50 attributes to remove from the message.
 removeAttributesActivity_attributes :: Lens.Lens' RemoveAttributesActivity (Prelude.NonEmpty Prelude.Text)
-removeAttributesActivity_attributes = Lens.lens (\RemoveAttributesActivity' {attributes} -> attributes) (\s@RemoveAttributesActivity' {} a -> s {attributes = a} :: RemoveAttributesActivity) Prelude.. Lens._Coerce
+removeAttributesActivity_attributes = Lens.lens (\RemoveAttributesActivity' {attributes} -> attributes) (\s@RemoveAttributesActivity' {} a -> s {attributes = a} :: RemoveAttributesActivity) Prelude.. Lens.coerced
 
 instance Core.FromJSON RemoveAttributesActivity where
   parseJSON =

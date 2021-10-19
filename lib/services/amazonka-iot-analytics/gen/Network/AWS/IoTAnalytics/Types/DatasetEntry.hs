@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatasetEntry' smart constructor.
 data DatasetEntry = DatasetEntry'
-  { -- | The presigned URI of the dataset item.
-    dataURI :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset item.
-    entryName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the dataset item.
+    entryName :: Prelude.Maybe Prelude.Text,
+    -- | The presigned URI of the dataset item.
+    dataURI :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data DatasetEntry = DatasetEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataURI', 'datasetEntry_dataURI' - The presigned URI of the dataset item.
---
 -- 'entryName', 'datasetEntry_entryName' - The name of the dataset item.
+--
+-- 'dataURI', 'datasetEntry_dataURI' - The presigned URI of the dataset item.
 newDatasetEntry ::
   DatasetEntry
 newDatasetEntry =
   DatasetEntry'
-    { dataURI = Prelude.Nothing,
-      entryName = Prelude.Nothing
+    { entryName = Prelude.Nothing,
+      dataURI = Prelude.Nothing
     }
-
--- | The presigned URI of the dataset item.
-datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
-datasetEntry_dataURI = Lens.lens (\DatasetEntry' {dataURI} -> dataURI) (\s@DatasetEntry' {} a -> s {dataURI = a} :: DatasetEntry)
 
 -- | The name of the dataset item.
 datasetEntry_entryName :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
 datasetEntry_entryName = Lens.lens (\DatasetEntry' {entryName} -> entryName) (\s@DatasetEntry' {} a -> s {entryName = a} :: DatasetEntry)
+
+-- | The presigned URI of the dataset item.
+datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
+datasetEntry_dataURI = Lens.lens (\DatasetEntry' {dataURI} -> dataURI) (\s@DatasetEntry' {} a -> s {dataURI = a} :: DatasetEntry)
 
 instance Core.FromJSON DatasetEntry where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON DatasetEntry where
       "DatasetEntry"
       ( \x ->
           DatasetEntry'
-            Prelude.<$> (x Core..:? "dataURI")
-            Prelude.<*> (x Core..:? "entryName")
+            Prelude.<$> (x Core..:? "entryName")
+            Prelude.<*> (x Core..:? "dataURI")
       )
 
 instance Prelude.Hashable DatasetEntry

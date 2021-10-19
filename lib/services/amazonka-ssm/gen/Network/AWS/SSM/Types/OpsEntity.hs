@@ -56,7 +56,7 @@ newOpsEntity =
 
 -- | The data returned by the query.
 opsEntity_data :: Lens.Lens' OpsEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem))
-opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Prelude.. Lens.mapping Lens._Coerce
+opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The query ID.
 opsEntity_id :: Lens.Lens' OpsEntity (Prelude.Maybe Prelude.Text)

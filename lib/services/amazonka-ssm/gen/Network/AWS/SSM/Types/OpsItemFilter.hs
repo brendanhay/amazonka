@@ -70,7 +70,7 @@ opsItemFilter_key = Lens.lens (\OpsItemFilter' {key} -> key) (\s@OpsItemFilter' 
 
 -- | The filter value.
 opsItemFilter_values :: Lens.Lens' OpsItemFilter [Prelude.Text]
-opsItemFilter_values = Lens.lens (\OpsItemFilter' {values} -> values) (\s@OpsItemFilter' {} a -> s {values = a} :: OpsItemFilter) Prelude.. Lens._Coerce
+opsItemFilter_values = Lens.lens (\OpsItemFilter' {values} -> values) (\s@OpsItemFilter' {} a -> s {values = a} :: OpsItemFilter) Prelude.. Lens.coerced
 
 -- | The operator used by the filter call.
 opsItemFilter_operator :: Lens.Lens' OpsItemFilter OpsItemFilterOperator

@@ -30,10 +30,7 @@ import Network.AWS.SSM.Types.AttachmentsSourceKey
 --
 -- /See:/ 'newAttachmentsSource' smart constructor.
 data AttachmentsSource = AttachmentsSource'
-  { -- | The key of a key-value pair that identifies the location of an
-    -- attachment to a document.
-    key :: Prelude.Maybe AttachmentsSourceKey,
-    -- | The value of a key-value pair that identifies the location of an
+  { -- | The value of a key-value pair that identifies the location of an
     -- attachment to a document. The format for __Value__ depends on the type
     -- of key you specify.
     --
@@ -60,6 +57,9 @@ data AttachmentsSource = AttachmentsSource'
     --
     --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
     values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The key of a key-value pair that identifies the location of an
+    -- attachment to a document.
+    key :: Prelude.Maybe AttachmentsSourceKey,
     -- | The name of the document attachment file.
     name :: Prelude.Maybe Prelude.Text
   }
@@ -72,9 +72,6 @@ data AttachmentsSource = AttachmentsSource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'key', 'attachmentsSource_key' - The key of a key-value pair that identifies the location of an
--- attachment to a document.
 --
 -- 'values', 'attachmentsSource_values' - The value of a key-value pair that identifies the location of an
 -- attachment to a document. The format for __Value__ depends on the type
@@ -103,20 +100,18 @@ data AttachmentsSource = AttachmentsSource'
 --
 --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
 --
+-- 'key', 'attachmentsSource_key' - The key of a key-value pair that identifies the location of an
+-- attachment to a document.
+--
 -- 'name', 'attachmentsSource_name' - The name of the document attachment file.
 newAttachmentsSource ::
   AttachmentsSource
 newAttachmentsSource =
   AttachmentsSource'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing,
       name = Prelude.Nothing
     }
-
--- | The key of a key-value pair that identifies the location of an
--- attachment to a document.
-attachmentsSource_key :: Lens.Lens' AttachmentsSource (Prelude.Maybe AttachmentsSourceKey)
-attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@AttachmentsSource' {} a -> s {key = a} :: AttachmentsSource)
 
 -- | The value of a key-value pair that identifies the location of an
 -- attachment to a document. The format for __Value__ depends on the type
@@ -145,7 +140,12 @@ attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@Attachm
 --
 --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
 attachmentsSource_values :: Lens.Lens' AttachmentsSource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-attachmentsSource_values = Lens.lens (\AttachmentsSource' {values} -> values) (\s@AttachmentsSource' {} a -> s {values = a} :: AttachmentsSource) Prelude.. Lens.mapping Lens._Coerce
+attachmentsSource_values = Lens.lens (\AttachmentsSource' {values} -> values) (\s@AttachmentsSource' {} a -> s {values = a} :: AttachmentsSource) Prelude.. Lens.mapping Lens.coerced
+
+-- | The key of a key-value pair that identifies the location of an
+-- attachment to a document.
+attachmentsSource_key :: Lens.Lens' AttachmentsSource (Prelude.Maybe AttachmentsSourceKey)
+attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@AttachmentsSource' {} a -> s {key = a} :: AttachmentsSource)
 
 -- | The name of the document attachment file.
 attachmentsSource_name :: Lens.Lens' AttachmentsSource (Prelude.Maybe Prelude.Text)
@@ -159,8 +159,8 @@ instance Core.ToJSON AttachmentsSource where
   toJSON AttachmentsSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values,
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Key" Core..=) Prelude.<$> key,
             ("Name" Core..=) Prelude.<$> name
           ]
       )

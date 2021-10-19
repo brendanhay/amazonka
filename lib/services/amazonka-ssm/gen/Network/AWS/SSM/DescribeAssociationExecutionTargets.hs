@@ -29,9 +29,9 @@ module Network.AWS.SSM.DescribeAssociationExecutionTargets
     newDescribeAssociationExecutionTargets,
 
     -- * Request Lenses
+    describeAssociationExecutionTargets_filters,
     describeAssociationExecutionTargets_nextToken,
     describeAssociationExecutionTargets_maxResults,
-    describeAssociationExecutionTargets_filters,
     describeAssociationExecutionTargets_associationId,
     describeAssociationExecutionTargets_executionId,
 
@@ -55,14 +55,7 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeAssociationExecutionTargets' smart constructor.
 data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters for the request. You can specify the following filters and
+  { -- | Filters for the request. You can specify the following filters and
     -- values.
     --
     -- Status (EQUAL)
@@ -71,6 +64,13 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
     --
     -- ResourceType (EQUAL)
     filters :: Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter),
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The association ID that includes the execution for which you want to
     -- view details.
     associationId :: Prelude.Text,
@@ -87,13 +87,6 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAssociationExecutionTargets_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
--- 'maxResults', 'describeAssociationExecutionTargets_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
---
 -- 'filters', 'describeAssociationExecutionTargets_filters' - Filters for the request. You can specify the following filters and
 -- values.
 --
@@ -102,6 +95,13 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- ResourceId (EQUAL)
 --
 -- ResourceType (EQUAL)
+--
+-- 'nextToken', 'describeAssociationExecutionTargets_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
+--
+-- 'maxResults', 'describeAssociationExecutionTargets_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 --
 -- 'associationId', 'describeAssociationExecutionTargets_associationId' - The association ID that includes the execution for which you want to
 -- view details.
@@ -117,13 +117,24 @@ newDescribeAssociationExecutionTargets
   pAssociationId_
   pExecutionId_ =
     DescribeAssociationExecutionTargets'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        filters = Prelude.Nothing,
         associationId = pAssociationId_,
         executionId = pExecutionId_
       }
+
+-- | Filters for the request. You can specify the following filters and
+-- values.
+--
+-- Status (EQUAL)
+--
+-- ResourceId (EQUAL)
+--
+-- ResourceType (EQUAL)
+describeAssociationExecutionTargets_filters :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter))
+describeAssociationExecutionTargets_filters = Lens.lens (\DescribeAssociationExecutionTargets' {filters} -> filters) (\s@DescribeAssociationExecutionTargets' {} a -> s {filters = a} :: DescribeAssociationExecutionTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
@@ -135,17 +146,6 @@ describeAssociationExecutionTargets_nextToken = Lens.lens (\DescribeAssociationE
 -- next set of results.
 describeAssociationExecutionTargets_maxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Natural)
 describeAssociationExecutionTargets_maxResults = Lens.lens (\DescribeAssociationExecutionTargets' {maxResults} -> maxResults) (\s@DescribeAssociationExecutionTargets' {} a -> s {maxResults = a} :: DescribeAssociationExecutionTargets)
-
--- | Filters for the request. You can specify the following filters and
--- values.
---
--- Status (EQUAL)
---
--- ResourceId (EQUAL)
---
--- ResourceType (EQUAL)
-describeAssociationExecutionTargets_filters :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter))
-describeAssociationExecutionTargets_filters = Lens.lens (\DescribeAssociationExecutionTargets' {filters} -> filters) (\s@DescribeAssociationExecutionTargets' {} a -> s {filters = a} :: DescribeAssociationExecutionTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The association ID that includes the execution for which you want to
 -- view details.
@@ -233,9 +233,9 @@ instance
   toJSON DescribeAssociationExecutionTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters,
             Prelude.Just ("AssociationId" Core..= associationId),
             Prelude.Just ("ExecutionId" Core..= executionId)
           ]
@@ -300,7 +300,7 @@ describeAssociationExecutionTargetsResponse_nextToken = Lens.lens (\DescribeAsso
 
 -- | Information about the execution.
 describeAssociationExecutionTargetsResponse_associationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Prelude.Maybe [AssociationExecutionTarget])
-describeAssociationExecutionTargetsResponse_associationExecutionTargets = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {associationExecutionTargets} -> associationExecutionTargets) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAssociationExecutionTargetsResponse_associationExecutionTargets = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {associationExecutionTargets} -> associationExecutionTargets) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAssociationExecutionTargetsResponse_httpStatus :: Lens.Lens' DescribeAssociationExecutionTargetsResponse Prelude.Int

@@ -54,7 +54,7 @@ newOpsMetadataFilter ::
 newOpsMetadataFilter pKey_ pValues_ =
   OpsMetadataFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | A filter key.
@@ -63,7 +63,7 @@ opsMetadataFilter_key = Lens.lens (\OpsMetadataFilter' {key} -> key) (\s@OpsMeta
 
 -- | A filter value.
 opsMetadataFilter_values :: Lens.Lens' OpsMetadataFilter (Prelude.NonEmpty Prelude.Text)
-opsMetadataFilter_values = Lens.lens (\OpsMetadataFilter' {values} -> values) (\s@OpsMetadataFilter' {} a -> s {values = a} :: OpsMetadataFilter) Prelude.. Lens._Coerce
+opsMetadataFilter_values = Lens.lens (\OpsMetadataFilter' {values} -> values) (\s@OpsMetadataFilter' {} a -> s {values = a} :: OpsMetadataFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable OpsMetadataFilter
 

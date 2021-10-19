@@ -30,16 +30,16 @@ import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
 data MaintenanceWindowExecution = MaintenanceWindowExecution'
   { -- | The status of the execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
-    -- | The details explaining the status. Not available for all status values.
-    statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time the execution started.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the maintenance window execution.
+    windowExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The details explaining the status. Not available for all status values.
+    statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time the execution finished.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the maintenance window.
-    windowId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the maintenance window execution.
-    windowExecutionId :: Prelude.Maybe Prelude.Text
+    windowId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,39 +53,43 @@ data MaintenanceWindowExecution = MaintenanceWindowExecution'
 --
 -- 'status', 'maintenanceWindowExecution_status' - The status of the execution.
 --
--- 'statusDetails', 'maintenanceWindowExecution_statusDetails' - The details explaining the status. Not available for all status values.
---
 -- 'startTime', 'maintenanceWindowExecution_startTime' - The time the execution started.
+--
+-- 'windowExecutionId', 'maintenanceWindowExecution_windowExecutionId' - The ID of the maintenance window execution.
+--
+-- 'statusDetails', 'maintenanceWindowExecution_statusDetails' - The details explaining the status. Not available for all status values.
 --
 -- 'endTime', 'maintenanceWindowExecution_endTime' - The time the execution finished.
 --
 -- 'windowId', 'maintenanceWindowExecution_windowId' - The ID of the maintenance window.
---
--- 'windowExecutionId', 'maintenanceWindowExecution_windowExecutionId' - The ID of the maintenance window execution.
 newMaintenanceWindowExecution ::
   MaintenanceWindowExecution
 newMaintenanceWindowExecution =
   MaintenanceWindowExecution'
     { status =
         Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      windowExecutionId = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      windowId = Prelude.Nothing,
-      windowExecutionId = Prelude.Nothing
+      windowId = Prelude.Nothing
     }
 
 -- | The status of the execution.
 maintenanceWindowExecution_status :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe MaintenanceWindowExecutionStatus)
 maintenanceWindowExecution_status = Lens.lens (\MaintenanceWindowExecution' {status} -> status) (\s@MaintenanceWindowExecution' {} a -> s {status = a} :: MaintenanceWindowExecution)
 
--- | The details explaining the status. Not available for all status values.
-maintenanceWindowExecution_statusDetails :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecution_statusDetails = Lens.lens (\MaintenanceWindowExecution' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecution' {} a -> s {statusDetails = a} :: MaintenanceWindowExecution)
-
 -- | The time the execution started.
 maintenanceWindowExecution_startTime :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.UTCTime)
 maintenanceWindowExecution_startTime = Lens.lens (\MaintenanceWindowExecution' {startTime} -> startTime) (\s@MaintenanceWindowExecution' {} a -> s {startTime = a} :: MaintenanceWindowExecution) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the maintenance window execution.
+maintenanceWindowExecution_windowExecutionId :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecution_windowExecutionId = Lens.lens (\MaintenanceWindowExecution' {windowExecutionId} -> windowExecutionId) (\s@MaintenanceWindowExecution' {} a -> s {windowExecutionId = a} :: MaintenanceWindowExecution)
+
+-- | The details explaining the status. Not available for all status values.
+maintenanceWindowExecution_statusDetails :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecution_statusDetails = Lens.lens (\MaintenanceWindowExecution' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecution' {} a -> s {statusDetails = a} :: MaintenanceWindowExecution)
 
 -- | The time the execution finished.
 maintenanceWindowExecution_endTime :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.UTCTime)
@@ -95,10 +99,6 @@ maintenanceWindowExecution_endTime = Lens.lens (\MaintenanceWindowExecution' {en
 maintenanceWindowExecution_windowId :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecution_windowId = Lens.lens (\MaintenanceWindowExecution' {windowId} -> windowId) (\s@MaintenanceWindowExecution' {} a -> s {windowId = a} :: MaintenanceWindowExecution)
 
--- | The ID of the maintenance window execution.
-maintenanceWindowExecution_windowExecutionId :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecution_windowExecutionId = Lens.lens (\MaintenanceWindowExecution' {windowExecutionId} -> windowExecutionId) (\s@MaintenanceWindowExecution' {} a -> s {windowExecutionId = a} :: MaintenanceWindowExecution)
-
 instance Core.FromJSON MaintenanceWindowExecution where
   parseJSON =
     Core.withObject
@@ -106,11 +106,11 @@ instance Core.FromJSON MaintenanceWindowExecution where
       ( \x ->
           MaintenanceWindowExecution'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StatusDetails")
             Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "WindowExecutionId")
+            Prelude.<*> (x Core..:? "StatusDetails")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "WindowId")
-            Prelude.<*> (x Core..:? "WindowExecutionId")
       )
 
 instance Prelude.Hashable MaintenanceWindowExecution

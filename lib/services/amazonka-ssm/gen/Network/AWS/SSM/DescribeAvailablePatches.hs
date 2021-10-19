@@ -29,17 +29,17 @@ module Network.AWS.SSM.DescribeAvailablePatches
     newDescribeAvailablePatches,
 
     -- * Request Lenses
+    describeAvailablePatches_filters,
     describeAvailablePatches_nextToken,
     describeAvailablePatches_maxResults,
-    describeAvailablePatches_filters,
 
     -- * Destructuring the Response
     DescribeAvailablePatchesResponse (..),
     newDescribeAvailablePatchesResponse,
 
     -- * Response Lenses
-    describeAvailablePatchesResponse_nextToken,
     describeAvailablePatchesResponse_patches,
+    describeAvailablePatchesResponse_nextToken,
     describeAvailablePatchesResponse_httpStatus,
   )
 where
@@ -53,12 +53,7 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeAvailablePatches' smart constructor.
 data DescribeAvailablePatches = DescribeAvailablePatches'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of patches to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Each element in the array is a structure containing a key-value pair.
+  { -- | Each element in the array is a structure containing a key-value pair.
     --
     -- __Windows Server__
     --
@@ -148,7 +143,12 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
     -- -   __@BUGZILLA_ID@__
     --
     --     Sample values: @1463241@
-    filters :: Prelude.Maybe [PatchOrchestratorFilter]
+    filters :: Prelude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of patches to return (per page).
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -159,11 +159,6 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeAvailablePatches_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
--- 'maxResults', 'describeAvailablePatches_maxResults' - The maximum number of patches to return (per page).
 --
 -- 'filters', 'describeAvailablePatches_filters' - Each element in the array is a structure containing a key-value pair.
 --
@@ -255,24 +250,20 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 -- -   __@BUGZILLA_ID@__
 --
 --     Sample values: @1463241@
+--
+-- 'nextToken', 'describeAvailablePatches_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'maxResults', 'describeAvailablePatches_maxResults' - The maximum number of patches to return (per page).
 newDescribeAvailablePatches ::
   DescribeAvailablePatches
 newDescribeAvailablePatches =
   DescribeAvailablePatches'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeAvailablePatches_nextToken :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Text)
-describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {nextToken} -> nextToken) (\s@DescribeAvailablePatches' {} a -> s {nextToken = a} :: DescribeAvailablePatches)
-
--- | The maximum number of patches to return (per page).
-describeAvailablePatches_maxResults :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Natural)
-describeAvailablePatches_maxResults = Lens.lens (\DescribeAvailablePatches' {maxResults} -> maxResults) (\s@DescribeAvailablePatches' {} a -> s {maxResults = a} :: DescribeAvailablePatches)
 
 -- | Each element in the array is a structure containing a key-value pair.
 --
@@ -365,7 +356,16 @@ describeAvailablePatches_maxResults = Lens.lens (\DescribeAvailablePatches' {max
 --
 --     Sample values: @1463241@
 describeAvailablePatches_filters :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe [PatchOrchestratorFilter])
-describeAvailablePatches_filters = Lens.lens (\DescribeAvailablePatches' {filters} -> filters) (\s@DescribeAvailablePatches' {} a -> s {filters = a} :: DescribeAvailablePatches) Prelude.. Lens.mapping Lens._Coerce
+describeAvailablePatches_filters = Lens.lens (\DescribeAvailablePatches' {filters} -> filters) (\s@DescribeAvailablePatches' {} a -> s {filters = a} :: DescribeAvailablePatches) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeAvailablePatches_nextToken :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Text)
+describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {nextToken} -> nextToken) (\s@DescribeAvailablePatches' {} a -> s {nextToken = a} :: DescribeAvailablePatches)
+
+-- | The maximum number of patches to return (per page).
+describeAvailablePatches_maxResults :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Natural)
+describeAvailablePatches_maxResults = Lens.lens (\DescribeAvailablePatches' {maxResults} -> maxResults) (\s@DescribeAvailablePatches' {} a -> s {maxResults = a} :: DescribeAvailablePatches)
 
 instance Core.AWSPager DescribeAvailablePatches where
   page rq rs
@@ -398,8 +398,8 @@ instance Core.AWSRequest DescribeAvailablePatches where
     Response.receiveJSON
       ( \s h x ->
           DescribeAvailablePatchesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Patches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Patches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -426,9 +426,9 @@ instance Core.ToJSON DescribeAvailablePatches where
   toJSON DescribeAvailablePatches' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -440,11 +440,11 @@ instance Core.ToQuery DescribeAvailablePatches where
 
 -- | /See:/ 'newDescribeAvailablePatchesResponse' smart constructor.
 data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | An array of patches. Each entry in the array is a patch structure.
+    patches :: Prelude.Maybe [Patch],
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of patches. Each entry in the array is a patch structure.
-    patches :: Prelude.Maybe [Patch],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -458,10 +458,10 @@ data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'patches', 'describeAvailablePatchesResponse_patches' - An array of patches. Each entry in the array is a patch structure.
+--
 -- 'nextToken', 'describeAvailablePatchesResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'patches', 'describeAvailablePatchesResponse_patches' - An array of patches. Each entry in the array is a patch structure.
 --
 -- 'httpStatus', 'describeAvailablePatchesResponse_httpStatus' - The response's http status code.
 newDescribeAvailablePatchesResponse ::
@@ -470,20 +470,20 @@ newDescribeAvailablePatchesResponse ::
   DescribeAvailablePatchesResponse
 newDescribeAvailablePatchesResponse pHttpStatus_ =
   DescribeAvailablePatchesResponse'
-    { nextToken =
+    { patches =
         Prelude.Nothing,
-      patches = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of patches. Each entry in the array is a patch structure.
+describeAvailablePatchesResponse_patches :: Lens.Lens' DescribeAvailablePatchesResponse (Prelude.Maybe [Patch])
+describeAvailablePatchesResponse_patches = Lens.lens (\DescribeAvailablePatchesResponse' {patches} -> patches) (\s@DescribeAvailablePatchesResponse' {} a -> s {patches = a} :: DescribeAvailablePatchesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeAvailablePatchesResponse_nextToken :: Lens.Lens' DescribeAvailablePatchesResponse (Prelude.Maybe Prelude.Text)
 describeAvailablePatchesResponse_nextToken = Lens.lens (\DescribeAvailablePatchesResponse' {nextToken} -> nextToken) (\s@DescribeAvailablePatchesResponse' {} a -> s {nextToken = a} :: DescribeAvailablePatchesResponse)
-
--- | An array of patches. Each entry in the array is a patch structure.
-describeAvailablePatchesResponse_patches :: Lens.Lens' DescribeAvailablePatchesResponse (Prelude.Maybe [Patch])
-describeAvailablePatchesResponse_patches = Lens.lens (\DescribeAvailablePatchesResponse' {patches} -> patches) (\s@DescribeAvailablePatchesResponse' {} a -> s {patches = a} :: DescribeAvailablePatchesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeAvailablePatchesResponse_httpStatus :: Lens.Lens' DescribeAvailablePatchesResponse Prelude.Int

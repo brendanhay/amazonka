@@ -60,7 +60,7 @@ newOpsFilter pKey_ pValues_ =
   OpsFilter'
     { type' = Prelude.Nothing,
       key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The type of filter.
@@ -73,7 +73,7 @@ opsFilter_key = Lens.lens (\OpsFilter' {key} -> key) (\s@OpsFilter' {} a -> s {k
 
 -- | The filter value.
 opsFilter_values :: Lens.Lens' OpsFilter (Prelude.NonEmpty Prelude.Text)
-opsFilter_values = Lens.lens (\OpsFilter' {values} -> values) (\s@OpsFilter' {} a -> s {values = a} :: OpsFilter) Prelude.. Lens._Coerce
+opsFilter_values = Lens.lens (\OpsFilter' {values} -> values) (\s@OpsFilter' {} a -> s {values = a} :: OpsFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable OpsFilter
 

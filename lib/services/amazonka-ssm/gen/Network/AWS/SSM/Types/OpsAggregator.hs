@@ -32,16 +32,16 @@ import Network.AWS.SSM.Types.OpsFilter
 data OpsAggregator = OpsAggregator'
   { -- | The data type name to use for viewing counts of OpsData.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | The name of an OpsData attribute on which to limit the count of OpsData.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | A nested aggregator for viewing counts of OpsData.
+    aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator),
     -- | The aggregator value.
     values :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
-    aggregatorType :: Prelude.Maybe Prelude.Text,
     -- | The aggregator filters.
     filters :: Prelude.Maybe (Prelude.NonEmpty OpsFilter),
-    -- | A nested aggregator for viewing counts of OpsData.
-    aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator)
+    -- | The name of an OpsData attribute on which to limit the count of OpsData.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
+    aggregatorType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,50 +55,50 @@ data OpsAggregator = OpsAggregator'
 --
 -- 'typeName', 'opsAggregator_typeName' - The data type name to use for viewing counts of OpsData.
 --
--- 'attributeName', 'opsAggregator_attributeName' - The name of an OpsData attribute on which to limit the count of OpsData.
+-- 'aggregators', 'opsAggregator_aggregators' - A nested aggregator for viewing counts of OpsData.
 --
 -- 'values', 'opsAggregator_values' - The aggregator value.
 --
--- 'aggregatorType', 'opsAggregator_aggregatorType' - Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
---
 -- 'filters', 'opsAggregator_filters' - The aggregator filters.
 --
--- 'aggregators', 'opsAggregator_aggregators' - A nested aggregator for viewing counts of OpsData.
+-- 'attributeName', 'opsAggregator_attributeName' - The name of an OpsData attribute on which to limit the count of OpsData.
+--
+-- 'aggregatorType', 'opsAggregator_aggregatorType' - Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
 newOpsAggregator ::
   OpsAggregator
 newOpsAggregator =
   OpsAggregator'
     { typeName = Prelude.Nothing,
-      attributeName = Prelude.Nothing,
+      aggregators = Prelude.Nothing,
       values = Prelude.Nothing,
-      aggregatorType = Prelude.Nothing,
       filters = Prelude.Nothing,
-      aggregators = Prelude.Nothing
+      attributeName = Prelude.Nothing,
+      aggregatorType = Prelude.Nothing
     }
 
 -- | The data type name to use for viewing counts of OpsData.
 opsAggregator_typeName :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_typeName = Lens.lens (\OpsAggregator' {typeName} -> typeName) (\s@OpsAggregator' {} a -> s {typeName = a} :: OpsAggregator)
 
+-- | A nested aggregator for viewing counts of OpsData.
+opsAggregator_aggregators :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
+opsAggregator_aggregators = Lens.lens (\OpsAggregator' {aggregators} -> aggregators) (\s@OpsAggregator' {} a -> s {aggregators = a} :: OpsAggregator) Prelude.. Lens.mapping Lens.coerced
+
+-- | The aggregator value.
+opsAggregator_values :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+opsAggregator_values = Lens.lens (\OpsAggregator' {values} -> values) (\s@OpsAggregator' {} a -> s {values = a} :: OpsAggregator) Prelude.. Lens.mapping Lens.coerced
+
+-- | The aggregator filters.
+opsAggregator_filters :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
+opsAggregator_filters = Lens.lens (\OpsAggregator' {filters} -> filters) (\s@OpsAggregator' {} a -> s {filters = a} :: OpsAggregator) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of an OpsData attribute on which to limit the count of OpsData.
 opsAggregator_attributeName :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_attributeName = Lens.lens (\OpsAggregator' {attributeName} -> attributeName) (\s@OpsAggregator' {} a -> s {attributeName = a} :: OpsAggregator)
 
--- | The aggregator value.
-opsAggregator_values :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-opsAggregator_values = Lens.lens (\OpsAggregator' {values} -> values) (\s@OpsAggregator' {} a -> s {values = a} :: OpsAggregator) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
 opsAggregator_aggregatorType :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_aggregatorType = Lens.lens (\OpsAggregator' {aggregatorType} -> aggregatorType) (\s@OpsAggregator' {} a -> s {aggregatorType = a} :: OpsAggregator)
-
--- | The aggregator filters.
-opsAggregator_filters :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
-opsAggregator_filters = Lens.lens (\OpsAggregator' {filters} -> filters) (\s@OpsAggregator' {} a -> s {filters = a} :: OpsAggregator) Prelude.. Lens.mapping Lens._Coerce
-
--- | A nested aggregator for viewing counts of OpsData.
-opsAggregator_aggregators :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
-opsAggregator_aggregators = Lens.lens (\OpsAggregator' {aggregators} -> aggregators) (\s@OpsAggregator' {} a -> s {aggregators = a} :: OpsAggregator) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable OpsAggregator
 
@@ -109,11 +109,11 @@ instance Core.ToJSON OpsAggregator where
     Core.object
       ( Prelude.catMaybes
           [ ("TypeName" Core..=) Prelude.<$> typeName,
-            ("AttributeName" Core..=) Prelude.<$> attributeName,
+            ("Aggregators" Core..=) Prelude.<$> aggregators,
             ("Values" Core..=) Prelude.<$> values,
-            ("AggregatorType" Core..=)
-              Prelude.<$> aggregatorType,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("Aggregators" Core..=) Prelude.<$> aggregators
+            ("AttributeName" Core..=) Prelude.<$> attributeName,
+            ("AggregatorType" Core..=)
+              Prelude.<$> aggregatorType
           ]
       )

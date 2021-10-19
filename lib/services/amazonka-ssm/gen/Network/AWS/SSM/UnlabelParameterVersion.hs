@@ -36,8 +36,8 @@ module Network.AWS.SSM.UnlabelParameterVersion
     newUnlabelParameterVersionResponse,
 
     -- * Response Lenses
-    unlabelParameterVersionResponse_removedLabels,
     unlabelParameterVersionResponse_invalidLabels,
+    unlabelParameterVersionResponse_removedLabels,
     unlabelParameterVersionResponse_httpStatus,
   )
 where
@@ -92,7 +92,7 @@ newUnlabelParameterVersion
     UnlabelParameterVersion'
       { name = pName_,
         parameterVersion = pParameterVersion_,
-        labels = Lens._Coerce Lens.# pLabels_
+        labels = Lens.coerced Lens.# pLabels_
       }
 
 -- | The name of the parameter from which you want to delete one or more
@@ -107,7 +107,7 @@ unlabelParameterVersion_parameterVersion = Lens.lens (\UnlabelParameterVersion' 
 
 -- | One or more labels to delete from the specified parameter version.
 unlabelParameterVersion_labels :: Lens.Lens' UnlabelParameterVersion (Prelude.NonEmpty Prelude.Text)
-unlabelParameterVersion_labels = Lens.lens (\UnlabelParameterVersion' {labels} -> labels) (\s@UnlabelParameterVersion' {} a -> s {labels = a} :: UnlabelParameterVersion) Prelude.. Lens._Coerce
+unlabelParameterVersion_labels = Lens.lens (\UnlabelParameterVersion' {labels} -> labels) (\s@UnlabelParameterVersion' {} a -> s {labels = a} :: UnlabelParameterVersion) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UnlabelParameterVersion where
   type
@@ -118,8 +118,8 @@ instance Core.AWSRequest UnlabelParameterVersion where
     Response.receiveJSON
       ( \s h x ->
           UnlabelParameterVersionResponse'
-            Prelude.<$> (x Core..?> "RemovedLabels")
-            Prelude.<*> (x Core..?> "InvalidLabels")
+            Prelude.<$> (x Core..?> "InvalidLabels")
+            Prelude.<*> (x Core..?> "RemovedLabels")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,10 +161,10 @@ instance Core.ToQuery UnlabelParameterVersion where
 
 -- | /See:/ 'newUnlabelParameterVersionResponse' smart constructor.
 data UnlabelParameterVersionResponse = UnlabelParameterVersionResponse'
-  { -- | A list of all labels deleted from the parameter.
-    removedLabels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The labels that aren\'t attached to the given parameter version.
+  { -- | The labels that aren\'t attached to the given parameter version.
     invalidLabels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of all labels deleted from the parameter.
+    removedLabels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data UnlabelParameterVersionResponse = UnlabelParameterVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removedLabels', 'unlabelParameterVersionResponse_removedLabels' - A list of all labels deleted from the parameter.
---
 -- 'invalidLabels', 'unlabelParameterVersionResponse_invalidLabels' - The labels that aren\'t attached to the given parameter version.
+--
+-- 'removedLabels', 'unlabelParameterVersionResponse_removedLabels' - A list of all labels deleted from the parameter.
 --
 -- 'httpStatus', 'unlabelParameterVersionResponse_httpStatus' - The response's http status code.
 newUnlabelParameterVersionResponse ::
@@ -189,19 +189,19 @@ newUnlabelParameterVersionResponse ::
   UnlabelParameterVersionResponse
 newUnlabelParameterVersionResponse pHttpStatus_ =
   UnlabelParameterVersionResponse'
-    { removedLabels =
+    { invalidLabels =
         Prelude.Nothing,
-      invalidLabels = Prelude.Nothing,
+      removedLabels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of all labels deleted from the parameter.
-unlabelParameterVersionResponse_removedLabels :: Lens.Lens' UnlabelParameterVersionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-unlabelParameterVersionResponse_removedLabels = Lens.lens (\UnlabelParameterVersionResponse' {removedLabels} -> removedLabels) (\s@UnlabelParameterVersionResponse' {} a -> s {removedLabels = a} :: UnlabelParameterVersionResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The labels that aren\'t attached to the given parameter version.
 unlabelParameterVersionResponse_invalidLabels :: Lens.Lens' UnlabelParameterVersionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-unlabelParameterVersionResponse_invalidLabels = Lens.lens (\UnlabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@UnlabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: UnlabelParameterVersionResponse) Prelude.. Lens.mapping Lens._Coerce
+unlabelParameterVersionResponse_invalidLabels = Lens.lens (\UnlabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@UnlabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: UnlabelParameterVersionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of all labels deleted from the parameter.
+unlabelParameterVersionResponse_removedLabels :: Lens.Lens' UnlabelParameterVersionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+unlabelParameterVersionResponse_removedLabels = Lens.lens (\UnlabelParameterVersionResponse' {removedLabels} -> removedLabels) (\s@UnlabelParameterVersionResponse' {} a -> s {removedLabels = a} :: UnlabelParameterVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 unlabelParameterVersionResponse_httpStatus :: Lens.Lens' UnlabelParameterVersionResponse Prelude.Int

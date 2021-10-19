@@ -32,10 +32,10 @@ data PatchStatus = PatchStatus'
   { -- | The date the patch was approved (or will be approved if the status is
     -- @PENDING_APPROVAL@).
     approvalDate :: Prelude.Maybe Core.POSIX,
-    -- | The compliance severity level for a patch.
-    complianceLevel :: Prelude.Maybe PatchComplianceLevel,
     -- | The approval status of a patch.
-    deploymentStatus :: Prelude.Maybe PatchDeploymentStatus
+    deploymentStatus :: Prelude.Maybe PatchDeploymentStatus,
+    -- | The compliance severity level for a patch.
+    complianceLevel :: Prelude.Maybe PatchComplianceLevel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,16 +50,16 @@ data PatchStatus = PatchStatus'
 -- 'approvalDate', 'patchStatus_approvalDate' - The date the patch was approved (or will be approved if the status is
 -- @PENDING_APPROVAL@).
 --
--- 'complianceLevel', 'patchStatus_complianceLevel' - The compliance severity level for a patch.
---
 -- 'deploymentStatus', 'patchStatus_deploymentStatus' - The approval status of a patch.
+--
+-- 'complianceLevel', 'patchStatus_complianceLevel' - The compliance severity level for a patch.
 newPatchStatus ::
   PatchStatus
 newPatchStatus =
   PatchStatus'
     { approvalDate = Prelude.Nothing,
-      complianceLevel = Prelude.Nothing,
-      deploymentStatus = Prelude.Nothing
+      deploymentStatus = Prelude.Nothing,
+      complianceLevel = Prelude.Nothing
     }
 
 -- | The date the patch was approved (or will be approved if the status is
@@ -67,13 +67,13 @@ newPatchStatus =
 patchStatus_approvalDate :: Lens.Lens' PatchStatus (Prelude.Maybe Prelude.UTCTime)
 patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Core._Time
 
--- | The compliance severity level for a patch.
-patchStatus_complianceLevel :: Lens.Lens' PatchStatus (Prelude.Maybe PatchComplianceLevel)
-patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> complianceLevel) (\s@PatchStatus' {} a -> s {complianceLevel = a} :: PatchStatus)
-
 -- | The approval status of a patch.
 patchStatus_deploymentStatus :: Lens.Lens' PatchStatus (Prelude.Maybe PatchDeploymentStatus)
 patchStatus_deploymentStatus = Lens.lens (\PatchStatus' {deploymentStatus} -> deploymentStatus) (\s@PatchStatus' {} a -> s {deploymentStatus = a} :: PatchStatus)
+
+-- | The compliance severity level for a patch.
+patchStatus_complianceLevel :: Lens.Lens' PatchStatus (Prelude.Maybe PatchComplianceLevel)
+patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> complianceLevel) (\s@PatchStatus' {} a -> s {complianceLevel = a} :: PatchStatus)
 
 instance Core.FromJSON PatchStatus where
   parseJSON =
@@ -82,8 +82,8 @@ instance Core.FromJSON PatchStatus where
       ( \x ->
           PatchStatus'
             Prelude.<$> (x Core..:? "ApprovalDate")
-            Prelude.<*> (x Core..:? "ComplianceLevel")
             Prelude.<*> (x Core..:? "DeploymentStatus")
+            Prelude.<*> (x Core..:? "ComplianceLevel")
       )
 
 instance Prelude.Hashable PatchStatus

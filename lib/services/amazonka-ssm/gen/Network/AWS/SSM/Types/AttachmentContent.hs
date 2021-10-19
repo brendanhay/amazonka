@@ -31,12 +31,12 @@ import Network.AWS.SSM.Types.AttachmentHashType
 data AttachmentContent = AttachmentContent'
   { -- | The cryptographic hash value of the document content.
     hash :: Prelude.Maybe Prelude.Text,
-    -- | The name of an attachment.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The URL location of the attachment content.
-    url :: Prelude.Maybe Prelude.Text,
     -- | The size of an attachment in bytes.
     size :: Prelude.Maybe Prelude.Integer,
+    -- | The URL location of the attachment content.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The name of an attachment.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The hash algorithm used to calculate the hash value.
     hashType :: Prelude.Maybe AttachmentHashType
   }
@@ -52,11 +52,11 @@ data AttachmentContent = AttachmentContent'
 --
 -- 'hash', 'attachmentContent_hash' - The cryptographic hash value of the document content.
 --
--- 'name', 'attachmentContent_name' - The name of an attachment.
+-- 'size', 'attachmentContent_size' - The size of an attachment in bytes.
 --
 -- 'url', 'attachmentContent_url' - The URL location of the attachment content.
 --
--- 'size', 'attachmentContent_size' - The size of an attachment in bytes.
+-- 'name', 'attachmentContent_name' - The name of an attachment.
 --
 -- 'hashType', 'attachmentContent_hashType' - The hash algorithm used to calculate the hash value.
 newAttachmentContent ::
@@ -64,9 +64,9 @@ newAttachmentContent ::
 newAttachmentContent =
   AttachmentContent'
     { hash = Prelude.Nothing,
-      name = Prelude.Nothing,
-      url = Prelude.Nothing,
       size = Prelude.Nothing,
+      url = Prelude.Nothing,
+      name = Prelude.Nothing,
       hashType = Prelude.Nothing
     }
 
@@ -74,17 +74,17 @@ newAttachmentContent =
 attachmentContent_hash :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
 attachmentContent_hash = Lens.lens (\AttachmentContent' {hash} -> hash) (\s@AttachmentContent' {} a -> s {hash = a} :: AttachmentContent)
 
--- | The name of an attachment.
-attachmentContent_name :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
-attachmentContent_name = Lens.lens (\AttachmentContent' {name} -> name) (\s@AttachmentContent' {} a -> s {name = a} :: AttachmentContent)
+-- | The size of an attachment in bytes.
+attachmentContent_size :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Integer)
+attachmentContent_size = Lens.lens (\AttachmentContent' {size} -> size) (\s@AttachmentContent' {} a -> s {size = a} :: AttachmentContent)
 
 -- | The URL location of the attachment content.
 attachmentContent_url :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
 attachmentContent_url = Lens.lens (\AttachmentContent' {url} -> url) (\s@AttachmentContent' {} a -> s {url = a} :: AttachmentContent)
 
--- | The size of an attachment in bytes.
-attachmentContent_size :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Integer)
-attachmentContent_size = Lens.lens (\AttachmentContent' {size} -> size) (\s@AttachmentContent' {} a -> s {size = a} :: AttachmentContent)
+-- | The name of an attachment.
+attachmentContent_name :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
+attachmentContent_name = Lens.lens (\AttachmentContent' {name} -> name) (\s@AttachmentContent' {} a -> s {name = a} :: AttachmentContent)
 
 -- | The hash algorithm used to calculate the hash value.
 attachmentContent_hashType :: Lens.Lens' AttachmentContent (Prelude.Maybe AttachmentHashType)
@@ -97,9 +97,9 @@ instance Core.FromJSON AttachmentContent where
       ( \x ->
           AttachmentContent'
             Prelude.<$> (x Core..:? "Hash")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Url")
             Prelude.<*> (x Core..:? "Size")
+            Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "HashType")
       )
 

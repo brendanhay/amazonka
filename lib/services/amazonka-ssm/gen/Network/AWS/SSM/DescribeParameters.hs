@@ -42,10 +42,10 @@ module Network.AWS.SSM.DescribeParameters
     newDescribeParameters,
 
     -- * Request Lenses
-    describeParameters_nextToken,
-    describeParameters_maxResults,
     describeParameters_parameterFilters,
     describeParameters_filters,
+    describeParameters_nextToken,
+    describeParameters_maxResults,
 
     -- * Destructuring the Response
     DescribeParametersResponse (..),
@@ -67,17 +67,17 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { -- | The token for the next set of items to return. (You received this token
+  { -- | Filters to limit the request results.
+    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
+    -- | This data type is deprecated. Instead, use @ParameterFilters@.
+    filters :: Prelude.Maybe [ParametersFilter],
+    -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters to limit the request results.
-    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
-    -- | This data type is deprecated. Instead, use @ParameterFilters@.
-    filters :: Prelude.Maybe [ParametersFilter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,25 +89,34 @@ data DescribeParameters = DescribeParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parameterFilters', 'describeParameters_parameterFilters' - Filters to limit the request results.
+--
+-- 'filters', 'describeParameters_filters' - This data type is deprecated. Instead, use @ParameterFilters@.
+--
 -- 'nextToken', 'describeParameters_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
 -- 'maxResults', 'describeParameters_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'parameterFilters', 'describeParameters_parameterFilters' - Filters to limit the request results.
---
--- 'filters', 'describeParameters_filters' - This data type is deprecated. Instead, use @ParameterFilters@.
 newDescribeParameters ::
   DescribeParameters
 newDescribeParameters =
   DescribeParameters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      parameterFilters = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { parameterFilters =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Filters to limit the request results.
+describeParameters_parameterFilters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParameterStringFilter])
+describeParameters_parameterFilters = Lens.lens (\DescribeParameters' {parameterFilters} -> parameterFilters) (\s@DescribeParameters' {} a -> s {parameterFilters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens.coerced
+
+-- | This data type is deprecated. Instead, use @ParameterFilters@.
+describeParameters_filters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParametersFilter])
+describeParameters_filters = Lens.lens (\DescribeParameters' {filters} -> filters) (\s@DescribeParameters' {} a -> s {filters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -119,14 +128,6 @@ describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> ne
 -- next set of results.
 describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Natural)
 describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
-
--- | Filters to limit the request results.
-describeParameters_parameterFilters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParameterStringFilter])
-describeParameters_parameterFilters = Lens.lens (\DescribeParameters' {parameterFilters} -> parameterFilters) (\s@DescribeParameters' {} a -> s {parameterFilters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens._Coerce
-
--- | This data type is deprecated. Instead, use @ParameterFilters@.
-describeParameters_filters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParametersFilter])
-describeParameters_filters = Lens.lens (\DescribeParameters' {filters} -> filters) (\s@DescribeParameters' {} a -> s {filters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeParameters where
   page rq rs
@@ -187,11 +188,11 @@ instance Core.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ParameterFilters" Core..=)
+          [ ("ParameterFilters" Core..=)
               Prelude.<$> parameterFilters,
-            ("Filters" Core..=) Prelude.<$> filters
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -243,7 +244,7 @@ describeParametersResponse_nextToken = Lens.lens (\DescribeParametersResponse' {
 
 -- | Parameters returned by the request.
 describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe [ParameterMetadata])
-describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Prelude.Int

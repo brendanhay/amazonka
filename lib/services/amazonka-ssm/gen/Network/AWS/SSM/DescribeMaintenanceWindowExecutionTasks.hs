@@ -29,9 +29,9 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
     newDescribeMaintenanceWindowExecutionTasks,
 
     -- * Request Lenses
+    describeMaintenanceWindowExecutionTasks_filters,
     describeMaintenanceWindowExecutionTasks_nextToken,
     describeMaintenanceWindowExecutionTasks_maxResults,
-    describeMaintenanceWindowExecutionTasks_filters,
     describeMaintenanceWindowExecutionTasks_windowExecutionId,
 
     -- * Destructuring the Response
@@ -54,18 +54,18 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowExecutionTasks' smart constructor.
 data DescribeMaintenanceWindowExecutionTasks = DescribeMaintenanceWindowExecutionTasks'
-  { -- | The token for the next set of items to return. (You received this token
+  { -- | Optional filters used to scope down the returned tasks. The supported
+    -- filter key is @STATUS@ with the corresponding values @PENDING@,
+    -- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
+    -- @CANCELLED@.
+    filters :: Prelude.Maybe [MaintenanceWindowFilter],
+    -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Optional filters used to scope down the returned tasks. The supported
-    -- filter key is @STATUS@ with the corresponding values @PENDING@,
-    -- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
-    -- @CANCELLED@.
-    filters :: Prelude.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window execution whose task executions should
     -- be retrieved.
     windowExecutionId :: Prelude.Text
@@ -80,17 +80,17 @@ data DescribeMaintenanceWindowExecutionTasks = DescribeMaintenanceWindowExecutio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeMaintenanceWindowExecutionTasks_filters' - Optional filters used to scope down the returned tasks. The supported
+-- filter key is @STATUS@ with the corresponding values @PENDING@,
+-- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
+-- @CANCELLED@.
+--
 -- 'nextToken', 'describeMaintenanceWindowExecutionTasks_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
 -- 'maxResults', 'describeMaintenanceWindowExecutionTasks_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'filters', 'describeMaintenanceWindowExecutionTasks_filters' - Optional filters used to scope down the returned tasks. The supported
--- filter key is @STATUS@ with the corresponding values @PENDING@,
--- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
--- @CANCELLED@.
 --
 -- 'windowExecutionId', 'describeMaintenanceWindowExecutionTasks_windowExecutionId' - The ID of the maintenance window execution whose task executions should
 -- be retrieved.
@@ -101,13 +101,20 @@ newDescribeMaintenanceWindowExecutionTasks ::
 newDescribeMaintenanceWindowExecutionTasks
   pWindowExecutionId_ =
     DescribeMaintenanceWindowExecutionTasks'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        filters = Prelude.Nothing,
         windowExecutionId =
           pWindowExecutionId_
       }
+
+-- | Optional filters used to scope down the returned tasks. The supported
+-- filter key is @STATUS@ with the corresponding values @PENDING@,
+-- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
+-- @CANCELLED@.
+describeMaintenanceWindowExecutionTasks_filters :: Lens.Lens' DescribeMaintenanceWindowExecutionTasks (Prelude.Maybe [MaintenanceWindowFilter])
+describeMaintenanceWindowExecutionTasks_filters = Lens.lens (\DescribeMaintenanceWindowExecutionTasks' {filters} -> filters) (\s@DescribeMaintenanceWindowExecutionTasks' {} a -> s {filters = a} :: DescribeMaintenanceWindowExecutionTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -119,13 +126,6 @@ describeMaintenanceWindowExecutionTasks_nextToken = Lens.lens (\DescribeMaintena
 -- next set of results.
 describeMaintenanceWindowExecutionTasks_maxResults :: Lens.Lens' DescribeMaintenanceWindowExecutionTasks (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowExecutionTasks_maxResults = Lens.lens (\DescribeMaintenanceWindowExecutionTasks' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowExecutionTasks' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowExecutionTasks)
-
--- | Optional filters used to scope down the returned tasks. The supported
--- filter key is @STATUS@ with the corresponding values @PENDING@,
--- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
--- @CANCELLED@.
-describeMaintenanceWindowExecutionTasks_filters :: Lens.Lens' DescribeMaintenanceWindowExecutionTasks (Prelude.Maybe [MaintenanceWindowFilter])
-describeMaintenanceWindowExecutionTasks_filters = Lens.lens (\DescribeMaintenanceWindowExecutionTasks' {filters} -> filters) (\s@DescribeMaintenanceWindowExecutionTasks' {} a -> s {filters = a} :: DescribeMaintenanceWindowExecutionTasks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the maintenance window execution whose task executions should
 -- be retrieved.
@@ -210,9 +210,9 @@ instance
   toJSON DescribeMaintenanceWindowExecutionTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters,
             Prelude.Just
               ("WindowExecutionId" Core..= windowExecutionId)
           ]
@@ -277,7 +277,7 @@ describeMaintenanceWindowExecutionTasksResponse_nextToken = Lens.lens (\Describe
 
 -- | Information about the task executions.
 describeMaintenanceWindowExecutionTasksResponse_windowExecutionTaskIdentities :: Lens.Lens' DescribeMaintenanceWindowExecutionTasksResponse (Prelude.Maybe [MaintenanceWindowExecutionTaskIdentity])
-describeMaintenanceWindowExecutionTasksResponse_windowExecutionTaskIdentities = Lens.lens (\DescribeMaintenanceWindowExecutionTasksResponse' {windowExecutionTaskIdentities} -> windowExecutionTaskIdentities) (\s@DescribeMaintenanceWindowExecutionTasksResponse' {} a -> s {windowExecutionTaskIdentities = a} :: DescribeMaintenanceWindowExecutionTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeMaintenanceWindowExecutionTasksResponse_windowExecutionTaskIdentities = Lens.lens (\DescribeMaintenanceWindowExecutionTasksResponse' {windowExecutionTaskIdentities} -> windowExecutionTaskIdentities) (\s@DescribeMaintenanceWindowExecutionTasksResponse' {} a -> s {windowExecutionTaskIdentities = a} :: DescribeMaintenanceWindowExecutionTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMaintenanceWindowExecutionTasksResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowExecutionTasksResponse Prelude.Int

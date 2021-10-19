@@ -29,9 +29,9 @@ module Network.AWS.SSM.DescribePatchGroups
     newDescribePatchGroups,
 
     -- * Request Lenses
+    describePatchGroups_filters,
     describePatchGroups_nextToken,
     describePatchGroups_maxResults,
-    describePatchGroups_filters,
 
     -- * Destructuring the Response
     DescribePatchGroupsResponse (..),
@@ -53,12 +53,7 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of patch groups to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Each element in the array is a structure containing a key-value pair.
+  { -- | Each element in the array is a structure containing a key-value pair.
     --
     -- Supported keys for @DescribePatchGroups@ include the following:
     --
@@ -69,7 +64,12 @@ data DescribePatchGroups = DescribePatchGroups'
     -- -   __@OPERATING_SYSTEM@__
     --
     --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
-    filters :: Prelude.Maybe [PatchOrchestratorFilter]
+    filters :: Prelude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of patch groups to return (per page).
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,11 +80,6 @@ data DescribePatchGroups = DescribePatchGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describePatchGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
--- 'maxResults', 'describePatchGroups_maxResults' - The maximum number of patch groups to return (per page).
 --
 -- 'filters', 'describePatchGroups_filters' - Each element in the array is a structure containing a key-value pair.
 --
@@ -97,23 +92,19 @@ data DescribePatchGroups = DescribePatchGroups'
 -- -   __@OPERATING_SYSTEM@__
 --
 --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
+--
+-- 'nextToken', 'describePatchGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'maxResults', 'describePatchGroups_maxResults' - The maximum number of patch groups to return (per page).
 newDescribePatchGroups ::
   DescribePatchGroups
 newDescribePatchGroups =
   DescribePatchGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Text)
-describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> nextToken) (\s@DescribePatchGroups' {} a -> s {nextToken = a} :: DescribePatchGroups)
-
--- | The maximum number of patch groups to return (per page).
-describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Natural)
-describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -> maxResults) (\s@DescribePatchGroups' {} a -> s {maxResults = a} :: DescribePatchGroups)
 
 -- | Each element in the array is a structure containing a key-value pair.
 --
@@ -127,7 +118,16 @@ describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -
 --
 --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 describePatchGroups_filters :: Lens.Lens' DescribePatchGroups (Prelude.Maybe [PatchOrchestratorFilter])
-describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Prelude.. Lens.mapping Lens._Coerce
+describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Text)
+describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> nextToken) (\s@DescribePatchGroups' {} a -> s {nextToken = a} :: DescribePatchGroups)
+
+-- | The maximum number of patch groups to return (per page).
+describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Natural)
+describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -> maxResults) (\s@DescribePatchGroups' {} a -> s {maxResults = a} :: DescribePatchGroups)
 
 instance Core.AWSPager DescribePatchGroups where
   page rq rs
@@ -188,9 +188,9 @@ instance Core.ToJSON DescribePatchGroups where
   toJSON DescribePatchGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -255,7 +255,7 @@ newDescribePatchGroupsResponse pHttpStatus_ =
 --
 -- -   @PatchBaselineIdentity@: A @PatchBaselineIdentity@ element.
 describePatchGroupsResponse_mappings :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe [PatchGroupPatchBaselineMapping])
-describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

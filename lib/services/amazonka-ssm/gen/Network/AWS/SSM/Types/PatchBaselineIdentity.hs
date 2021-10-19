@@ -30,17 +30,17 @@ import Network.AWS.SSM.Types.OperatingSystem
 data PatchBaselineIdentity = PatchBaselineIdentity'
   { -- | The name of the patch baseline.
     baselineName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the patch baseline.
-    baselineId :: Prelude.Maybe Prelude.Text,
-    -- | Whether this is the default baseline. Amazon Web Services Systems
-    -- Manager supports creating multiple default patch baselines. For example,
-    -- you can create a default patch baseline for each operating system.
-    defaultBaseline :: Prelude.Maybe Prelude.Bool,
     -- | The description of the patch baseline.
     baselineDescription :: Prelude.Maybe Prelude.Text,
     -- | Defines the operating system the patch baseline applies to. The default
     -- value is @WINDOWS@.
-    operatingSystem :: Prelude.Maybe OperatingSystem
+    operatingSystem :: Prelude.Maybe OperatingSystem,
+    -- | Whether this is the default baseline. Amazon Web Services Systems
+    -- Manager supports creating multiple default patch baselines. For example,
+    -- you can create a default patch baseline for each operating system.
+    defaultBaseline :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the patch baseline.
+    baselineId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,41 +54,31 @@ data PatchBaselineIdentity = PatchBaselineIdentity'
 --
 -- 'baselineName', 'patchBaselineIdentity_baselineName' - The name of the patch baseline.
 --
--- 'baselineId', 'patchBaselineIdentity_baselineId' - The ID of the patch baseline.
+-- 'baselineDescription', 'patchBaselineIdentity_baselineDescription' - The description of the patch baseline.
+--
+-- 'operatingSystem', 'patchBaselineIdentity_operatingSystem' - Defines the operating system the patch baseline applies to. The default
+-- value is @WINDOWS@.
 --
 -- 'defaultBaseline', 'patchBaselineIdentity_defaultBaseline' - Whether this is the default baseline. Amazon Web Services Systems
 -- Manager supports creating multiple default patch baselines. For example,
 -- you can create a default patch baseline for each operating system.
 --
--- 'baselineDescription', 'patchBaselineIdentity_baselineDescription' - The description of the patch baseline.
---
--- 'operatingSystem', 'patchBaselineIdentity_operatingSystem' - Defines the operating system the patch baseline applies to. The default
--- value is @WINDOWS@.
+-- 'baselineId', 'patchBaselineIdentity_baselineId' - The ID of the patch baseline.
 newPatchBaselineIdentity ::
   PatchBaselineIdentity
 newPatchBaselineIdentity =
   PatchBaselineIdentity'
     { baselineName =
         Prelude.Nothing,
-      baselineId = Prelude.Nothing,
-      defaultBaseline = Prelude.Nothing,
       baselineDescription = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing
+      operatingSystem = Prelude.Nothing,
+      defaultBaseline = Prelude.Nothing,
+      baselineId = Prelude.Nothing
     }
 
 -- | The name of the patch baseline.
 patchBaselineIdentity_baselineName :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
 patchBaselineIdentity_baselineName = Lens.lens (\PatchBaselineIdentity' {baselineName} -> baselineName) (\s@PatchBaselineIdentity' {} a -> s {baselineName = a} :: PatchBaselineIdentity)
-
--- | The ID of the patch baseline.
-patchBaselineIdentity_baselineId :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
-patchBaselineIdentity_baselineId = Lens.lens (\PatchBaselineIdentity' {baselineId} -> baselineId) (\s@PatchBaselineIdentity' {} a -> s {baselineId = a} :: PatchBaselineIdentity)
-
--- | Whether this is the default baseline. Amazon Web Services Systems
--- Manager supports creating multiple default patch baselines. For example,
--- you can create a default patch baseline for each operating system.
-patchBaselineIdentity_defaultBaseline :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Bool)
-patchBaselineIdentity_defaultBaseline = Lens.lens (\PatchBaselineIdentity' {defaultBaseline} -> defaultBaseline) (\s@PatchBaselineIdentity' {} a -> s {defaultBaseline = a} :: PatchBaselineIdentity)
 
 -- | The description of the patch baseline.
 patchBaselineIdentity_baselineDescription :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
@@ -99,6 +89,16 @@ patchBaselineIdentity_baselineDescription = Lens.lens (\PatchBaselineIdentity' {
 patchBaselineIdentity_operatingSystem :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe OperatingSystem)
 patchBaselineIdentity_operatingSystem = Lens.lens (\PatchBaselineIdentity' {operatingSystem} -> operatingSystem) (\s@PatchBaselineIdentity' {} a -> s {operatingSystem = a} :: PatchBaselineIdentity)
 
+-- | Whether this is the default baseline. Amazon Web Services Systems
+-- Manager supports creating multiple default patch baselines. For example,
+-- you can create a default patch baseline for each operating system.
+patchBaselineIdentity_defaultBaseline :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Bool)
+patchBaselineIdentity_defaultBaseline = Lens.lens (\PatchBaselineIdentity' {defaultBaseline} -> defaultBaseline) (\s@PatchBaselineIdentity' {} a -> s {defaultBaseline = a} :: PatchBaselineIdentity)
+
+-- | The ID of the patch baseline.
+patchBaselineIdentity_baselineId :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
+patchBaselineIdentity_baselineId = Lens.lens (\PatchBaselineIdentity' {baselineId} -> baselineId) (\s@PatchBaselineIdentity' {} a -> s {baselineId = a} :: PatchBaselineIdentity)
+
 instance Core.FromJSON PatchBaselineIdentity where
   parseJSON =
     Core.withObject
@@ -106,10 +106,10 @@ instance Core.FromJSON PatchBaselineIdentity where
       ( \x ->
           PatchBaselineIdentity'
             Prelude.<$> (x Core..:? "BaselineName")
-            Prelude.<*> (x Core..:? "BaselineId")
-            Prelude.<*> (x Core..:? "DefaultBaseline")
             Prelude.<*> (x Core..:? "BaselineDescription")
             Prelude.<*> (x Core..:? "OperatingSystem")
+            Prelude.<*> (x Core..:? "DefaultBaseline")
+            Prelude.<*> (x Core..:? "BaselineId")
       )
 
 instance Prelude.Hashable PatchBaselineIdentity

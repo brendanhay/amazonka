@@ -34,34 +34,45 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'newAutomationExecutionMetadata' smart constructor.
 data AutomationExecutionMetadata = AutomationExecutionMetadata'
-  { -- | The @MaxErrors@ value specified by the user when starting the
-    -- automation.
-    maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | The action of the step that is currently running.
-    currentAction :: Prelude.Maybe Prelude.Text,
-    -- | The execution ID of the parent automation.
-    parentAutomationExecutionId :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time the Automation operation is scheduled to start.
+    scheduledTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of a State Manager association used in the Automation operation.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an OpsItem that is created to represent a Change Manager
+    -- change request.
+    opsItemId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the step that is currently running.
+    currentStepName :: Prelude.Maybe Prelude.Text,
     -- | The list of execution outputs as defined in the Automation runbook.
-    outputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The list of execution outputs as defined in the Automation runbook.
-    failureMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Automation execution mode.
-    mode :: Prelude.Maybe ExecutionMode,
-    -- | The time the execution finished. This isn\'t populated if the execution
-    -- is still in progress.
-    executionEndTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the Change Manager change request.
-    changeRequestName :: Prelude.Maybe Prelude.Text,
-    -- | The execution ID.
-    automationExecutionId :: Prelude.Maybe Prelude.Text,
+    targetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | An S3 bucket where execution information is stored.
+    logFile :: Prelude.Maybe Prelude.Text,
     -- | The IAM role ARN of the user who ran the automation.
     executedBy :: Prelude.Maybe Prelude.Text,
     -- | The name of the Automation runbook used during execution.
     documentName :: Prelude.Maybe Prelude.Text,
-    -- | The targets defined by the user when starting the automation.
-    targets :: Prelude.Maybe [Target],
-    -- | A list of targets that resolved during the execution.
-    resolvedTargets :: Prelude.Maybe ResolvedTargets,
+    -- | The time the execution finished. This isn\'t populated if the execution
+    -- is still in progress.
+    executionEndTime :: Prelude.Maybe Core.POSIX,
+    -- | The list of execution outputs as defined in the Automation runbook.
+    failureMessage :: Prelude.Maybe Prelude.Text,
+    -- | The subtype of the Automation operation. Currently, the only supported
+    -- value is @ChangeRequest@.
+    automationSubtype :: Prelude.Maybe AutomationSubtype,
+    -- | The Automation execution mode.
+    mode :: Prelude.Maybe ExecutionMode,
+    -- | The specified key-value mapping of document parameters to target
+    -- resources.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
+    -- | The status of the execution.
+    automationExecutionStatus :: Prelude.Maybe AutomationExecutionStatus,
+    -- | The execution ID of the parent automation.
+    parentAutomationExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The list of execution outputs as defined in the Automation runbook.
+    outputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The @MaxErrors@ value specified by the user when starting the
+    -- automation.
+    maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The time the execution started.
     executionStartTime :: Prelude.Maybe Core.POSIX,
     -- | Use this filter with DescribeAutomationExecutions. Specify either Local
@@ -71,40 +82,29 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and accounts>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     automationType :: Prelude.Maybe AutomationType,
-    -- | The list of execution outputs as defined in the Automation runbook.
-    targetParameterName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the step that is currently running.
-    currentStepName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an OpsItem that is created to represent a Change Manager
-    -- change request.
-    opsItemId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a State Manager association used in the Automation operation.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the Automation operation is scheduled to start.
-    scheduledTime :: Prelude.Maybe Core.POSIX,
-    -- | The @MaxConcurrency@ value specified by the user when starting the
-    -- automation.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | The list of execution outputs as defined in the Automation runbook.
-    target :: Prelude.Maybe Prelude.Text,
-    -- | The status of the execution.
-    automationExecutionStatus :: Prelude.Maybe AutomationExecutionStatus,
-    -- | The specified key-value mapping of document parameters to target
-    -- resources.
-    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
+    -- | The action of the step that is currently running.
+    currentAction :: Prelude.Maybe Prelude.Text,
+    -- | The targets defined by the user when starting the automation.
+    targets :: Prelude.Maybe [Target],
+    -- | A list of targets that resolved during the execution.
+    resolvedTargets :: Prelude.Maybe ResolvedTargets,
+    -- | The document version used during the execution.
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The execution ID.
+    automationExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Change Manager change request.
+    changeRequestName :: Prelude.Maybe Prelude.Text,
     -- | Information about the Automation runbooks that are run during a runbook
     -- workflow in Change Manager.
     --
     -- The Automation runbooks specified for the runbook workflow can\'t run
     -- until all required approvals for the change request have been received.
     runbooks :: Prelude.Maybe (Prelude.NonEmpty Runbook),
-    -- | The subtype of the Automation operation. Currently, the only supported
-    -- value is @ChangeRequest@.
-    automationSubtype :: Prelude.Maybe AutomationSubtype,
-    -- | The document version used during the execution.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | An S3 bucket where execution information is stored.
-    logFile :: Prelude.Maybe Prelude.Text
+    -- | The @MaxConcurrency@ value specified by the user when starting the
+    -- automation.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    -- | The list of execution outputs as defined in the Automation runbook.
+    target :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,33 +116,44 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxErrors', 'automationExecutionMetadata_maxErrors' - The @MaxErrors@ value specified by the user when starting the
--- automation.
+-- 'scheduledTime', 'automationExecutionMetadata_scheduledTime' - The date and time the Automation operation is scheduled to start.
 --
--- 'currentAction', 'automationExecutionMetadata_currentAction' - The action of the step that is currently running.
+-- 'associationId', 'automationExecutionMetadata_associationId' - The ID of a State Manager association used in the Automation operation.
 --
--- 'parentAutomationExecutionId', 'automationExecutionMetadata_parentAutomationExecutionId' - The execution ID of the parent automation.
+-- 'opsItemId', 'automationExecutionMetadata_opsItemId' - The ID of an OpsItem that is created to represent a Change Manager
+-- change request.
 --
--- 'outputs', 'automationExecutionMetadata_outputs' - The list of execution outputs as defined in the Automation runbook.
+-- 'currentStepName', 'automationExecutionMetadata_currentStepName' - The name of the step that is currently running.
 --
--- 'failureMessage', 'automationExecutionMetadata_failureMessage' - The list of execution outputs as defined in the Automation runbook.
+-- 'targetParameterName', 'automationExecutionMetadata_targetParameterName' - The list of execution outputs as defined in the Automation runbook.
 --
--- 'mode', 'automationExecutionMetadata_mode' - The Automation execution mode.
---
--- 'executionEndTime', 'automationExecutionMetadata_executionEndTime' - The time the execution finished. This isn\'t populated if the execution
--- is still in progress.
---
--- 'changeRequestName', 'automationExecutionMetadata_changeRequestName' - The name of the Change Manager change request.
---
--- 'automationExecutionId', 'automationExecutionMetadata_automationExecutionId' - The execution ID.
+-- 'logFile', 'automationExecutionMetadata_logFile' - An S3 bucket where execution information is stored.
 --
 -- 'executedBy', 'automationExecutionMetadata_executedBy' - The IAM role ARN of the user who ran the automation.
 --
 -- 'documentName', 'automationExecutionMetadata_documentName' - The name of the Automation runbook used during execution.
 --
--- 'targets', 'automationExecutionMetadata_targets' - The targets defined by the user when starting the automation.
+-- 'executionEndTime', 'automationExecutionMetadata_executionEndTime' - The time the execution finished. This isn\'t populated if the execution
+-- is still in progress.
 --
--- 'resolvedTargets', 'automationExecutionMetadata_resolvedTargets' - A list of targets that resolved during the execution.
+-- 'failureMessage', 'automationExecutionMetadata_failureMessage' - The list of execution outputs as defined in the Automation runbook.
+--
+-- 'automationSubtype', 'automationExecutionMetadata_automationSubtype' - The subtype of the Automation operation. Currently, the only supported
+-- value is @ChangeRequest@.
+--
+-- 'mode', 'automationExecutionMetadata_mode' - The Automation execution mode.
+--
+-- 'targetMaps', 'automationExecutionMetadata_targetMaps' - The specified key-value mapping of document parameters to target
+-- resources.
+--
+-- 'automationExecutionStatus', 'automationExecutionMetadata_automationExecutionStatus' - The status of the execution.
+--
+-- 'parentAutomationExecutionId', 'automationExecutionMetadata_parentAutomationExecutionId' - The execution ID of the parent automation.
+--
+-- 'outputs', 'automationExecutionMetadata_outputs' - The list of execution outputs as defined in the Automation runbook.
+--
+-- 'maxErrors', 'automationExecutionMetadata_maxErrors' - The @MaxErrors@ value specified by the user when starting the
+-- automation.
 --
 -- 'executionStartTime', 'automationExecutionMetadata_executionStartTime' - The time the execution started.
 --
@@ -153,26 +164,17 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and accounts>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'targetParameterName', 'automationExecutionMetadata_targetParameterName' - The list of execution outputs as defined in the Automation runbook.
+-- 'currentAction', 'automationExecutionMetadata_currentAction' - The action of the step that is currently running.
 --
--- 'currentStepName', 'automationExecutionMetadata_currentStepName' - The name of the step that is currently running.
+-- 'targets', 'automationExecutionMetadata_targets' - The targets defined by the user when starting the automation.
 --
--- 'opsItemId', 'automationExecutionMetadata_opsItemId' - The ID of an OpsItem that is created to represent a Change Manager
--- change request.
+-- 'resolvedTargets', 'automationExecutionMetadata_resolvedTargets' - A list of targets that resolved during the execution.
 --
--- 'associationId', 'automationExecutionMetadata_associationId' - The ID of a State Manager association used in the Automation operation.
+-- 'documentVersion', 'automationExecutionMetadata_documentVersion' - The document version used during the execution.
 --
--- 'scheduledTime', 'automationExecutionMetadata_scheduledTime' - The date and time the Automation operation is scheduled to start.
+-- 'automationExecutionId', 'automationExecutionMetadata_automationExecutionId' - The execution ID.
 --
--- 'maxConcurrency', 'automationExecutionMetadata_maxConcurrency' - The @MaxConcurrency@ value specified by the user when starting the
--- automation.
---
--- 'target', 'automationExecutionMetadata_target' - The list of execution outputs as defined in the Automation runbook.
---
--- 'automationExecutionStatus', 'automationExecutionMetadata_automationExecutionStatus' - The status of the execution.
---
--- 'targetMaps', 'automationExecutionMetadata_targetMaps' - The specified key-value mapping of document parameters to target
--- resources.
+-- 'changeRequestName', 'automationExecutionMetadata_changeRequestName' - The name of the Change Manager change request.
 --
 -- 'runbooks', 'automationExecutionMetadata_runbooks' - Information about the Automation runbooks that are run during a runbook
 -- workflow in Change Manager.
@@ -180,84 +182,69 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
 -- The Automation runbooks specified for the runbook workflow can\'t run
 -- until all required approvals for the change request have been received.
 --
--- 'automationSubtype', 'automationExecutionMetadata_automationSubtype' - The subtype of the Automation operation. Currently, the only supported
--- value is @ChangeRequest@.
+-- 'maxConcurrency', 'automationExecutionMetadata_maxConcurrency' - The @MaxConcurrency@ value specified by the user when starting the
+-- automation.
 --
--- 'documentVersion', 'automationExecutionMetadata_documentVersion' - The document version used during the execution.
---
--- 'logFile', 'automationExecutionMetadata_logFile' - An S3 bucket where execution information is stored.
+-- 'target', 'automationExecutionMetadata_target' - The list of execution outputs as defined in the Automation runbook.
 newAutomationExecutionMetadata ::
   AutomationExecutionMetadata
 newAutomationExecutionMetadata =
   AutomationExecutionMetadata'
-    { maxErrors =
+    { scheduledTime =
         Prelude.Nothing,
-      currentAction = Prelude.Nothing,
-      parentAutomationExecutionId = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      failureMessage = Prelude.Nothing,
-      mode = Prelude.Nothing,
-      executionEndTime = Prelude.Nothing,
-      changeRequestName = Prelude.Nothing,
-      automationExecutionId = Prelude.Nothing,
+      associationId = Prelude.Nothing,
+      opsItemId = Prelude.Nothing,
+      currentStepName = Prelude.Nothing,
+      targetParameterName = Prelude.Nothing,
+      logFile = Prelude.Nothing,
       executedBy = Prelude.Nothing,
       documentName = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      resolvedTargets = Prelude.Nothing,
+      executionEndTime = Prelude.Nothing,
+      failureMessage = Prelude.Nothing,
+      automationSubtype = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
+      automationExecutionStatus = Prelude.Nothing,
+      parentAutomationExecutionId = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      maxErrors = Prelude.Nothing,
       executionStartTime = Prelude.Nothing,
       automationType = Prelude.Nothing,
-      targetParameterName = Prelude.Nothing,
-      currentStepName = Prelude.Nothing,
-      opsItemId = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      scheduledTime = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      target = Prelude.Nothing,
-      automationExecutionStatus = Prelude.Nothing,
-      targetMaps = Prelude.Nothing,
-      runbooks = Prelude.Nothing,
-      automationSubtype = Prelude.Nothing,
+      currentAction = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      resolvedTargets = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
-      logFile = Prelude.Nothing
+      automationExecutionId = Prelude.Nothing,
+      changeRequestName = Prelude.Nothing,
+      runbooks = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
+      target = Prelude.Nothing
     }
 
--- | The @MaxErrors@ value specified by the user when starting the
--- automation.
-automationExecutionMetadata_maxErrors :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_maxErrors = Lens.lens (\AutomationExecutionMetadata' {maxErrors} -> maxErrors) (\s@AutomationExecutionMetadata' {} a -> s {maxErrors = a} :: AutomationExecutionMetadata)
+-- | The date and time the Automation operation is scheduled to start.
+automationExecutionMetadata_scheduledTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
+automationExecutionMetadata_scheduledTime = Lens.lens (\AutomationExecutionMetadata' {scheduledTime} -> scheduledTime) (\s@AutomationExecutionMetadata' {} a -> s {scheduledTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The action of the step that is currently running.
-automationExecutionMetadata_currentAction :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_currentAction = Lens.lens (\AutomationExecutionMetadata' {currentAction} -> currentAction) (\s@AutomationExecutionMetadata' {} a -> s {currentAction = a} :: AutomationExecutionMetadata)
+-- | The ID of a State Manager association used in the Automation operation.
+automationExecutionMetadata_associationId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_associationId = Lens.lens (\AutomationExecutionMetadata' {associationId} -> associationId) (\s@AutomationExecutionMetadata' {} a -> s {associationId = a} :: AutomationExecutionMetadata)
 
--- | The execution ID of the parent automation.
-automationExecutionMetadata_parentAutomationExecutionId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_parentAutomationExecutionId = Lens.lens (\AutomationExecutionMetadata' {parentAutomationExecutionId} -> parentAutomationExecutionId) (\s@AutomationExecutionMetadata' {} a -> s {parentAutomationExecutionId = a} :: AutomationExecutionMetadata)
+-- | The ID of an OpsItem that is created to represent a Change Manager
+-- change request.
+automationExecutionMetadata_opsItemId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_opsItemId = Lens.lens (\AutomationExecutionMetadata' {opsItemId} -> opsItemId) (\s@AutomationExecutionMetadata' {} a -> s {opsItemId = a} :: AutomationExecutionMetadata)
+
+-- | The name of the step that is currently running.
+automationExecutionMetadata_currentStepName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_currentStepName = Lens.lens (\AutomationExecutionMetadata' {currentStepName} -> currentStepName) (\s@AutomationExecutionMetadata' {} a -> s {currentStepName = a} :: AutomationExecutionMetadata)
 
 -- | The list of execution outputs as defined in the Automation runbook.
-automationExecutionMetadata_outputs :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-automationExecutionMetadata_outputs = Lens.lens (\AutomationExecutionMetadata' {outputs} -> outputs) (\s@AutomationExecutionMetadata' {} a -> s {outputs = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens._Coerce
+automationExecutionMetadata_targetParameterName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_targetParameterName = Lens.lens (\AutomationExecutionMetadata' {targetParameterName} -> targetParameterName) (\s@AutomationExecutionMetadata' {} a -> s {targetParameterName = a} :: AutomationExecutionMetadata)
 
--- | The list of execution outputs as defined in the Automation runbook.
-automationExecutionMetadata_failureMessage :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_failureMessage = Lens.lens (\AutomationExecutionMetadata' {failureMessage} -> failureMessage) (\s@AutomationExecutionMetadata' {} a -> s {failureMessage = a} :: AutomationExecutionMetadata)
-
--- | The Automation execution mode.
-automationExecutionMetadata_mode :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe ExecutionMode)
-automationExecutionMetadata_mode = Lens.lens (\AutomationExecutionMetadata' {mode} -> mode) (\s@AutomationExecutionMetadata' {} a -> s {mode = a} :: AutomationExecutionMetadata)
-
--- | The time the execution finished. This isn\'t populated if the execution
--- is still in progress.
-automationExecutionMetadata_executionEndTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-automationExecutionMetadata_executionEndTime = Lens.lens (\AutomationExecutionMetadata' {executionEndTime} -> executionEndTime) (\s@AutomationExecutionMetadata' {} a -> s {executionEndTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
-
--- | The name of the Change Manager change request.
-automationExecutionMetadata_changeRequestName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_changeRequestName = Lens.lens (\AutomationExecutionMetadata' {changeRequestName} -> changeRequestName) (\s@AutomationExecutionMetadata' {} a -> s {changeRequestName = a} :: AutomationExecutionMetadata)
-
--- | The execution ID.
-automationExecutionMetadata_automationExecutionId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_automationExecutionId = Lens.lens (\AutomationExecutionMetadata' {automationExecutionId} -> automationExecutionId) (\s@AutomationExecutionMetadata' {} a -> s {automationExecutionId = a} :: AutomationExecutionMetadata)
+-- | An S3 bucket where execution information is stored.
+automationExecutionMetadata_logFile :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_logFile = Lens.lens (\AutomationExecutionMetadata' {logFile} -> logFile) (\s@AutomationExecutionMetadata' {} a -> s {logFile = a} :: AutomationExecutionMetadata)
 
 -- | The IAM role ARN of the user who ran the automation.
 automationExecutionMetadata_executedBy :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
@@ -267,13 +254,45 @@ automationExecutionMetadata_executedBy = Lens.lens (\AutomationExecutionMetadata
 automationExecutionMetadata_documentName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
 automationExecutionMetadata_documentName = Lens.lens (\AutomationExecutionMetadata' {documentName} -> documentName) (\s@AutomationExecutionMetadata' {} a -> s {documentName = a} :: AutomationExecutionMetadata)
 
--- | The targets defined by the user when starting the automation.
-automationExecutionMetadata_targets :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe [Target])
-automationExecutionMetadata_targets = Lens.lens (\AutomationExecutionMetadata' {targets} -> targets) (\s@AutomationExecutionMetadata' {} a -> s {targets = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens._Coerce
+-- | The time the execution finished. This isn\'t populated if the execution
+-- is still in progress.
+automationExecutionMetadata_executionEndTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
+automationExecutionMetadata_executionEndTime = Lens.lens (\AutomationExecutionMetadata' {executionEndTime} -> executionEndTime) (\s@AutomationExecutionMetadata' {} a -> s {executionEndTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
 
--- | A list of targets that resolved during the execution.
-automationExecutionMetadata_resolvedTargets :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe ResolvedTargets)
-automationExecutionMetadata_resolvedTargets = Lens.lens (\AutomationExecutionMetadata' {resolvedTargets} -> resolvedTargets) (\s@AutomationExecutionMetadata' {} a -> s {resolvedTargets = a} :: AutomationExecutionMetadata)
+-- | The list of execution outputs as defined in the Automation runbook.
+automationExecutionMetadata_failureMessage :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_failureMessage = Lens.lens (\AutomationExecutionMetadata' {failureMessage} -> failureMessage) (\s@AutomationExecutionMetadata' {} a -> s {failureMessage = a} :: AutomationExecutionMetadata)
+
+-- | The subtype of the Automation operation. Currently, the only supported
+-- value is @ChangeRequest@.
+automationExecutionMetadata_automationSubtype :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe AutomationSubtype)
+automationExecutionMetadata_automationSubtype = Lens.lens (\AutomationExecutionMetadata' {automationSubtype} -> automationSubtype) (\s@AutomationExecutionMetadata' {} a -> s {automationSubtype = a} :: AutomationExecutionMetadata)
+
+-- | The Automation execution mode.
+automationExecutionMetadata_mode :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe ExecutionMode)
+automationExecutionMetadata_mode = Lens.lens (\AutomationExecutionMetadata' {mode} -> mode) (\s@AutomationExecutionMetadata' {} a -> s {mode = a} :: AutomationExecutionMetadata)
+
+-- | The specified key-value mapping of document parameters to target
+-- resources.
+automationExecutionMetadata_targetMaps :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+automationExecutionMetadata_targetMaps = Lens.lens (\AutomationExecutionMetadata' {targetMaps} -> targetMaps) (\s@AutomationExecutionMetadata' {} a -> s {targetMaps = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the execution.
+automationExecutionMetadata_automationExecutionStatus :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe AutomationExecutionStatus)
+automationExecutionMetadata_automationExecutionStatus = Lens.lens (\AutomationExecutionMetadata' {automationExecutionStatus} -> automationExecutionStatus) (\s@AutomationExecutionMetadata' {} a -> s {automationExecutionStatus = a} :: AutomationExecutionMetadata)
+
+-- | The execution ID of the parent automation.
+automationExecutionMetadata_parentAutomationExecutionId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_parentAutomationExecutionId = Lens.lens (\AutomationExecutionMetadata' {parentAutomationExecutionId} -> parentAutomationExecutionId) (\s@AutomationExecutionMetadata' {} a -> s {parentAutomationExecutionId = a} :: AutomationExecutionMetadata)
+
+-- | The list of execution outputs as defined in the Automation runbook.
+automationExecutionMetadata_outputs :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+automationExecutionMetadata_outputs = Lens.lens (\AutomationExecutionMetadata' {outputs} -> outputs) (\s@AutomationExecutionMetadata' {} a -> s {outputs = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @MaxErrors@ value specified by the user when starting the
+-- automation.
+automationExecutionMetadata_maxErrors :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_maxErrors = Lens.lens (\AutomationExecutionMetadata' {maxErrors} -> maxErrors) (\s@AutomationExecutionMetadata' {} a -> s {maxErrors = a} :: AutomationExecutionMetadata)
 
 -- | The time the execution started.
 automationExecutionMetadata_executionStartTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
@@ -288,26 +307,37 @@ automationExecutionMetadata_executionStartTime = Lens.lens (\AutomationExecution
 automationExecutionMetadata_automationType :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe AutomationType)
 automationExecutionMetadata_automationType = Lens.lens (\AutomationExecutionMetadata' {automationType} -> automationType) (\s@AutomationExecutionMetadata' {} a -> s {automationType = a} :: AutomationExecutionMetadata)
 
--- | The list of execution outputs as defined in the Automation runbook.
-automationExecutionMetadata_targetParameterName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_targetParameterName = Lens.lens (\AutomationExecutionMetadata' {targetParameterName} -> targetParameterName) (\s@AutomationExecutionMetadata' {} a -> s {targetParameterName = a} :: AutomationExecutionMetadata)
+-- | The action of the step that is currently running.
+automationExecutionMetadata_currentAction :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_currentAction = Lens.lens (\AutomationExecutionMetadata' {currentAction} -> currentAction) (\s@AutomationExecutionMetadata' {} a -> s {currentAction = a} :: AutomationExecutionMetadata)
 
--- | The name of the step that is currently running.
-automationExecutionMetadata_currentStepName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_currentStepName = Lens.lens (\AutomationExecutionMetadata' {currentStepName} -> currentStepName) (\s@AutomationExecutionMetadata' {} a -> s {currentStepName = a} :: AutomationExecutionMetadata)
+-- | The targets defined by the user when starting the automation.
+automationExecutionMetadata_targets :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe [Target])
+automationExecutionMetadata_targets = Lens.lens (\AutomationExecutionMetadata' {targets} -> targets) (\s@AutomationExecutionMetadata' {} a -> s {targets = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of an OpsItem that is created to represent a Change Manager
--- change request.
-automationExecutionMetadata_opsItemId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_opsItemId = Lens.lens (\AutomationExecutionMetadata' {opsItemId} -> opsItemId) (\s@AutomationExecutionMetadata' {} a -> s {opsItemId = a} :: AutomationExecutionMetadata)
+-- | A list of targets that resolved during the execution.
+automationExecutionMetadata_resolvedTargets :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe ResolvedTargets)
+automationExecutionMetadata_resolvedTargets = Lens.lens (\AutomationExecutionMetadata' {resolvedTargets} -> resolvedTargets) (\s@AutomationExecutionMetadata' {} a -> s {resolvedTargets = a} :: AutomationExecutionMetadata)
 
--- | The ID of a State Manager association used in the Automation operation.
-automationExecutionMetadata_associationId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_associationId = Lens.lens (\AutomationExecutionMetadata' {associationId} -> associationId) (\s@AutomationExecutionMetadata' {} a -> s {associationId = a} :: AutomationExecutionMetadata)
+-- | The document version used during the execution.
+automationExecutionMetadata_documentVersion :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_documentVersion = Lens.lens (\AutomationExecutionMetadata' {documentVersion} -> documentVersion) (\s@AutomationExecutionMetadata' {} a -> s {documentVersion = a} :: AutomationExecutionMetadata)
 
--- | The date and time the Automation operation is scheduled to start.
-automationExecutionMetadata_scheduledTime :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-automationExecutionMetadata_scheduledTime = Lens.lens (\AutomationExecutionMetadata' {scheduledTime} -> scheduledTime) (\s@AutomationExecutionMetadata' {} a -> s {scheduledTime = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Core._Time
+-- | The execution ID.
+automationExecutionMetadata_automationExecutionId :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_automationExecutionId = Lens.lens (\AutomationExecutionMetadata' {automationExecutionId} -> automationExecutionId) (\s@AutomationExecutionMetadata' {} a -> s {automationExecutionId = a} :: AutomationExecutionMetadata)
+
+-- | The name of the Change Manager change request.
+automationExecutionMetadata_changeRequestName :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
+automationExecutionMetadata_changeRequestName = Lens.lens (\AutomationExecutionMetadata' {changeRequestName} -> changeRequestName) (\s@AutomationExecutionMetadata' {} a -> s {changeRequestName = a} :: AutomationExecutionMetadata)
+
+-- | Information about the Automation runbooks that are run during a runbook
+-- workflow in Change Manager.
+--
+-- The Automation runbooks specified for the runbook workflow can\'t run
+-- until all required approvals for the change request have been received.
+automationExecutionMetadata_runbooks :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe (Prelude.NonEmpty Runbook))
+automationExecutionMetadata_runbooks = Lens.lens (\AutomationExecutionMetadata' {runbooks} -> runbooks) (\s@AutomationExecutionMetadata' {} a -> s {runbooks = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @MaxConcurrency@ value specified by the user when starting the
 -- automation.
@@ -318,70 +348,40 @@ automationExecutionMetadata_maxConcurrency = Lens.lens (\AutomationExecutionMeta
 automationExecutionMetadata_target :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
 automationExecutionMetadata_target = Lens.lens (\AutomationExecutionMetadata' {target} -> target) (\s@AutomationExecutionMetadata' {} a -> s {target = a} :: AutomationExecutionMetadata)
 
--- | The status of the execution.
-automationExecutionMetadata_automationExecutionStatus :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe AutomationExecutionStatus)
-automationExecutionMetadata_automationExecutionStatus = Lens.lens (\AutomationExecutionMetadata' {automationExecutionStatus} -> automationExecutionStatus) (\s@AutomationExecutionMetadata' {} a -> s {automationExecutionStatus = a} :: AutomationExecutionMetadata)
-
--- | The specified key-value mapping of document parameters to target
--- resources.
-automationExecutionMetadata_targetMaps :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
-automationExecutionMetadata_targetMaps = Lens.lens (\AutomationExecutionMetadata' {targetMaps} -> targetMaps) (\s@AutomationExecutionMetadata' {} a -> s {targetMaps = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens._Coerce
-
--- | Information about the Automation runbooks that are run during a runbook
--- workflow in Change Manager.
---
--- The Automation runbooks specified for the runbook workflow can\'t run
--- until all required approvals for the change request have been received.
-automationExecutionMetadata_runbooks :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe (Prelude.NonEmpty Runbook))
-automationExecutionMetadata_runbooks = Lens.lens (\AutomationExecutionMetadata' {runbooks} -> runbooks) (\s@AutomationExecutionMetadata' {} a -> s {runbooks = a} :: AutomationExecutionMetadata) Prelude.. Lens.mapping Lens._Coerce
-
--- | The subtype of the Automation operation. Currently, the only supported
--- value is @ChangeRequest@.
-automationExecutionMetadata_automationSubtype :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe AutomationSubtype)
-automationExecutionMetadata_automationSubtype = Lens.lens (\AutomationExecutionMetadata' {automationSubtype} -> automationSubtype) (\s@AutomationExecutionMetadata' {} a -> s {automationSubtype = a} :: AutomationExecutionMetadata)
-
--- | The document version used during the execution.
-automationExecutionMetadata_documentVersion :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_documentVersion = Lens.lens (\AutomationExecutionMetadata' {documentVersion} -> documentVersion) (\s@AutomationExecutionMetadata' {} a -> s {documentVersion = a} :: AutomationExecutionMetadata)
-
--- | An S3 bucket where execution information is stored.
-automationExecutionMetadata_logFile :: Lens.Lens' AutomationExecutionMetadata (Prelude.Maybe Prelude.Text)
-automationExecutionMetadata_logFile = Lens.lens (\AutomationExecutionMetadata' {logFile} -> logFile) (\s@AutomationExecutionMetadata' {} a -> s {logFile = a} :: AutomationExecutionMetadata)
-
 instance Core.FromJSON AutomationExecutionMetadata where
   parseJSON =
     Core.withObject
       "AutomationExecutionMetadata"
       ( \x ->
           AutomationExecutionMetadata'
-            Prelude.<$> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "CurrentAction")
-            Prelude.<*> (x Core..:? "ParentAutomationExecutionId")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "ExecutionEndTime")
-            Prelude.<*> (x Core..:? "ChangeRequestName")
-            Prelude.<*> (x Core..:? "AutomationExecutionId")
+            Prelude.<$> (x Core..:? "ScheduledTime")
+            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<*> (x Core..:? "OpsItemId")
+            Prelude.<*> (x Core..:? "CurrentStepName")
+            Prelude.<*> (x Core..:? "TargetParameterName")
+            Prelude.<*> (x Core..:? "LogFile")
             Prelude.<*> (x Core..:? "ExecutedBy")
             Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResolvedTargets")
+            Prelude.<*> (x Core..:? "ExecutionEndTime")
+            Prelude.<*> (x Core..:? "FailureMessage")
+            Prelude.<*> (x Core..:? "AutomationSubtype")
+            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AutomationExecutionStatus")
+            Prelude.<*> (x Core..:? "ParentAutomationExecutionId")
+            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MaxErrors")
             Prelude.<*> (x Core..:? "ExecutionStartTime")
             Prelude.<*> (x Core..:? "AutomationType")
-            Prelude.<*> (x Core..:? "TargetParameterName")
-            Prelude.<*> (x Core..:? "CurrentStepName")
-            Prelude.<*> (x Core..:? "OpsItemId")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "ScheduledTime")
+            Prelude.<*> (x Core..:? "CurrentAction")
+            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ResolvedTargets")
+            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "AutomationExecutionId")
+            Prelude.<*> (x Core..:? "ChangeRequestName")
+            Prelude.<*> (x Core..:? "Runbooks")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "AutomationExecutionStatus")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Runbooks")
-            Prelude.<*> (x Core..:? "AutomationSubtype")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "LogFile")
       )
 
 instance Prelude.Hashable AutomationExecutionMetadata

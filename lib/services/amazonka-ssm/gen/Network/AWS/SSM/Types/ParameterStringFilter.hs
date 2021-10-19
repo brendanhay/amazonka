@@ -107,7 +107,7 @@ newParameterStringFilter pKey_ =
 
 -- | The value you want to search for.
 parameterStringFilter_values :: Lens.Lens' ParameterStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> values) (\s@ParameterStringFilter' {} a -> s {values = a} :: ParameterStringFilter) Prelude.. Lens.mapping Lens._Coerce
+parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> values) (\s@ParameterStringFilter' {} a -> s {values = a} :: ParameterStringFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | For all filters used with DescribeParameters, valid options include
 -- @Equals@ and @BeginsWith@. The @Name@ filter additionally supports the

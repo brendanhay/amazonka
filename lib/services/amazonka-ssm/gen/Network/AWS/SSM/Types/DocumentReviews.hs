@@ -62,7 +62,7 @@ newDocumentReviews pAction_ =
 -- | A comment entered by a user in your organization about the document
 -- review request.
 documentReviews_comment :: Lens.Lens' DocumentReviews (Prelude.Maybe [DocumentReviewCommentSource])
-documentReviews_comment = Lens.lens (\DocumentReviews' {comment} -> comment) (\s@DocumentReviews' {} a -> s {comment = a} :: DocumentReviews) Prelude.. Lens.mapping Lens._Coerce
+documentReviews_comment = Lens.lens (\DocumentReviews' {comment} -> comment) (\s@DocumentReviews' {} a -> s {comment = a} :: DocumentReviews) Prelude.. Lens.mapping Lens.coerced
 
 -- | The action to take on a document approval review request.
 documentReviews_action :: Lens.Lens' DocumentReviews DocumentReviewAction

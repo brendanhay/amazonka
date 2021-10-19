@@ -29,9 +29,9 @@ module Network.AWS.SSM.DescribeMaintenanceWindowTargets
     newDescribeMaintenanceWindowTargets,
 
     -- * Request Lenses
+    describeMaintenanceWindowTargets_filters,
     describeMaintenanceWindowTargets_nextToken,
     describeMaintenanceWindowTargets_maxResults,
-    describeMaintenanceWindowTargets_filters,
     describeMaintenanceWindowTargets_windowId,
 
     -- * Destructuring the Response
@@ -54,17 +54,17 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowTargets' smart constructor.
 data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
-  { -- | The token for the next set of items to return. (You received this token
+  { -- | Optional filters that can be used to narrow down the scope of the
+    -- returned window targets. The supported filter keys are @Type@,
+    -- @WindowTargetId@, and @OwnerInformation@.
+    filters :: Prelude.Maybe [MaintenanceWindowFilter],
+    -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Optional filters that can be used to narrow down the scope of the
-    -- returned window targets. The supported filter keys are @Type@,
-    -- @WindowTargetId@, and @OwnerInformation@.
-    filters :: Prelude.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window whose targets should be retrieved.
     windowId :: Prelude.Text
   }
@@ -78,16 +78,16 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeMaintenanceWindowTargets_filters' - Optional filters that can be used to narrow down the scope of the
+-- returned window targets. The supported filter keys are @Type@,
+-- @WindowTargetId@, and @OwnerInformation@.
+--
 -- 'nextToken', 'describeMaintenanceWindowTargets_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
 -- 'maxResults', 'describeMaintenanceWindowTargets_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'filters', 'describeMaintenanceWindowTargets_filters' - Optional filters that can be used to narrow down the scope of the
--- returned window targets. The supported filter keys are @Type@,
--- @WindowTargetId@, and @OwnerInformation@.
 --
 -- 'windowId', 'describeMaintenanceWindowTargets_windowId' - The ID of the maintenance window whose targets should be retrieved.
 newDescribeMaintenanceWindowTargets ::
@@ -96,12 +96,18 @@ newDescribeMaintenanceWindowTargets ::
   DescribeMaintenanceWindowTargets
 newDescribeMaintenanceWindowTargets pWindowId_ =
   DescribeMaintenanceWindowTargets'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
       windowId = pWindowId_
     }
+
+-- | Optional filters that can be used to narrow down the scope of the
+-- returned window targets. The supported filter keys are @Type@,
+-- @WindowTargetId@, and @OwnerInformation@.
+describeMaintenanceWindowTargets_filters :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe [MaintenanceWindowFilter])
+describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindowTargets' {filters} -> filters) (\s@DescribeMaintenanceWindowTargets' {} a -> s {filters = a} :: DescribeMaintenanceWindowTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -113,12 +119,6 @@ describeMaintenanceWindowTargets_nextToken = Lens.lens (\DescribeMaintenanceWind
 -- next set of results.
 describeMaintenanceWindowTargets_maxResults :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowTargets_maxResults = Lens.lens (\DescribeMaintenanceWindowTargets' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTargets' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTargets)
-
--- | Optional filters that can be used to narrow down the scope of the
--- returned window targets. The supported filter keys are @Type@,
--- @WindowTargetId@, and @OwnerInformation@.
-describeMaintenanceWindowTargets_filters :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe [MaintenanceWindowFilter])
-describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindowTargets' {filters} -> filters) (\s@DescribeMaintenanceWindowTargets' {} a -> s {filters = a} :: DescribeMaintenanceWindowTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the maintenance window whose targets should be retrieved.
 describeMaintenanceWindowTargets_windowId :: Lens.Lens' DescribeMaintenanceWindowTargets Prelude.Text
@@ -196,9 +196,9 @@ instance Core.ToJSON DescribeMaintenanceWindowTargets where
   toJSON DescribeMaintenanceWindowTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters,
             Prelude.Just ("WindowId" Core..= windowId)
           ]
       )
@@ -258,7 +258,7 @@ describeMaintenanceWindowTargetsResponse_nextToken = Lens.lens (\DescribeMainten
 
 -- | Information about the targets in the maintenance window.
 describeMaintenanceWindowTargetsResponse_targets :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Prelude.Maybe [MaintenanceWindowTarget])
-describeMaintenanceWindowTargetsResponse_targets = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {targets} -> targets) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {targets = a} :: DescribeMaintenanceWindowTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeMaintenanceWindowTargetsResponse_targets = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {targets} -> targets) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {targets = a} :: DescribeMaintenanceWindowTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMaintenanceWindowTargetsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse Prelude.Int

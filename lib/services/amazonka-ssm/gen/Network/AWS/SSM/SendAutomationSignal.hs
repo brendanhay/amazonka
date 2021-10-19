@@ -139,7 +139,7 @@ newSendAutomationSignal
 --
 -- @StepExecutionId=\"97fff367-fc5a-4299-aed8-0123456789ab\"@
 sendAutomationSignal_payload :: Lens.Lens' SendAutomationSignal (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-sendAutomationSignal_payload = Lens.lens (\SendAutomationSignal' {payload} -> payload) (\s@SendAutomationSignal' {} a -> s {payload = a} :: SendAutomationSignal) Prelude.. Lens.mapping Lens._Coerce
+sendAutomationSignal_payload = Lens.lens (\SendAutomationSignal' {payload} -> payload) (\s@SendAutomationSignal' {} a -> s {payload = a} :: SendAutomationSignal) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for an existing Automation execution that you want
 -- to send the signal to.

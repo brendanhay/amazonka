@@ -105,7 +105,7 @@ newCreateOpsMetadata pResourceId_ =
 
 -- | Metadata for a new Application Manager application.
 createOpsMetadata_metadata :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
-createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
+createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional metadata that you assign to a resource. You can specify a
 -- maximum of five tags for an OpsMetadata object. Tags enable you to
@@ -118,7 +118,7 @@ createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metada
 --
 -- -   @Key=Region,Value=us-east-2@
 createOpsMetadata_tags :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe [Tag])
-createOpsMetadata_tags = Lens.lens (\CreateOpsMetadata' {tags} -> tags) (\s@CreateOpsMetadata' {} a -> s {tags = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
+createOpsMetadata_tags = Lens.lens (\CreateOpsMetadata' {tags} -> tags) (\s@CreateOpsMetadata' {} a -> s {tags = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A resource ID for a new Application Manager application.
 createOpsMetadata_resourceId :: Lens.Lens' CreateOpsMetadata Prelude.Text

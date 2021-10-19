@@ -39,10 +39,10 @@ module Network.AWS.SSM.GetParametersByPath
 
     -- * Request Lenses
     getParametersByPath_withDecryption,
-    getParametersByPath_nextToken,
-    getParametersByPath_maxResults,
     getParametersByPath_parameterFilters,
+    getParametersByPath_nextToken,
     getParametersByPath_recursive,
+    getParametersByPath_maxResults,
     getParametersByPath_path,
 
     -- * Destructuring the Response
@@ -67,13 +67,6 @@ import Network.AWS.SSM.Types
 data GetParametersByPath = GetParametersByPath'
   { -- | Retrieve all parameters in a hierarchy with their value decrypted.
     withDecryption :: Prelude.Maybe Prelude.Bool,
-    -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters to limit the request results.
     --
     -- The following @Key@ values are supported for @GetParametersByPath@:
@@ -82,6 +75,9 @@ data GetParametersByPath = GetParametersByPath'
     -- The following @Key@ values aren\'t supported for @GetParametersByPath@:
     -- @tag@, @DataType@, @Name@, @Path@, and @Tier@.
     parameterFilters :: Prelude.Maybe [ParameterStringFilter],
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Retrieve all parameters within a hierarchy.
     --
     -- If a user has access to a path, then the user can access all levels of
@@ -91,6 +87,10 @@ data GetParametersByPath = GetParametersByPath'
     -- the GetParametersByPath API operation recursively for @\/a@ and view
     -- @\/a\/b@.
     recursive :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The hierarchy for the parameter. Hierarchies start with a forward slash
     -- (\/). The hierachy is the parameter name except the last part of the
     -- parameter. For the API call to succeeed, the last part of the parameter
@@ -111,13 +111,6 @@ data GetParametersByPath = GetParametersByPath'
 --
 -- 'withDecryption', 'getParametersByPath_withDecryption' - Retrieve all parameters in a hierarchy with their value decrypted.
 --
--- 'nextToken', 'getParametersByPath_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
--- 'maxResults', 'getParametersByPath_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
---
 -- 'parameterFilters', 'getParametersByPath_parameterFilters' - Filters to limit the request results.
 --
 -- The following @Key@ values are supported for @GetParametersByPath@:
@@ -125,6 +118,9 @@ data GetParametersByPath = GetParametersByPath'
 --
 -- The following @Key@ values aren\'t supported for @GetParametersByPath@:
 -- @tag@, @DataType@, @Name@, @Path@, and @Tier@.
+--
+-- 'nextToken', 'getParametersByPath_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 --
 -- 'recursive', 'getParametersByPath_recursive' - Retrieve all parameters within a hierarchy.
 --
@@ -134,6 +130,10 @@ data GetParametersByPath = GetParametersByPath'
 -- been denied access in IAM for parameter @\/a\/b@, they can still call
 -- the GetParametersByPath API operation recursively for @\/a@ and view
 -- @\/a\/b@.
+--
+-- 'maxResults', 'getParametersByPath_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 --
 -- 'path', 'getParametersByPath_path' - The hierarchy for the parameter. Hierarchies start with a forward slash
 -- (\/). The hierachy is the parameter name except the last part of the
@@ -149,27 +149,16 @@ newGetParametersByPath pPath_ =
   GetParametersByPath'
     { withDecryption =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       parameterFilters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       recursive = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       path = pPath_
     }
 
 -- | Retrieve all parameters in a hierarchy with their value decrypted.
 getParametersByPath_withDecryption :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
 getParametersByPath_withDecryption = Lens.lens (\GetParametersByPath' {withDecryption} -> withDecryption) (\s@GetParametersByPath' {} a -> s {withDecryption = a} :: GetParametersByPath)
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-getParametersByPath_nextToken :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Text)
-getParametersByPath_nextToken = Lens.lens (\GetParametersByPath' {nextToken} -> nextToken) (\s@GetParametersByPath' {} a -> s {nextToken = a} :: GetParametersByPath)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Natural)
-getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -> maxResults) (\s@GetParametersByPath' {} a -> s {maxResults = a} :: GetParametersByPath)
 
 -- | Filters to limit the request results.
 --
@@ -179,7 +168,12 @@ getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -
 -- The following @Key@ values aren\'t supported for @GetParametersByPath@:
 -- @tag@, @DataType@, @Name@, @Path@, and @Tier@.
 getParametersByPath_parameterFilters :: Lens.Lens' GetParametersByPath (Prelude.Maybe [ParameterStringFilter])
-getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {parameterFilters} -> parameterFilters) (\s@GetParametersByPath' {} a -> s {parameterFilters = a} :: GetParametersByPath) Prelude.. Lens.mapping Lens._Coerce
+getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {parameterFilters} -> parameterFilters) (\s@GetParametersByPath' {} a -> s {parameterFilters = a} :: GetParametersByPath) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+getParametersByPath_nextToken :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Text)
+getParametersByPath_nextToken = Lens.lens (\GetParametersByPath' {nextToken} -> nextToken) (\s@GetParametersByPath' {} a -> s {nextToken = a} :: GetParametersByPath)
 
 -- | Retrieve all parameters within a hierarchy.
 --
@@ -191,6 +185,12 @@ getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {paramet
 -- @\/a\/b@.
 getParametersByPath_recursive :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
 getParametersByPath_recursive = Lens.lens (\GetParametersByPath' {recursive} -> recursive) (\s@GetParametersByPath' {} a -> s {recursive = a} :: GetParametersByPath)
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Natural)
+getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -> maxResults) (\s@GetParametersByPath' {} a -> s {maxResults = a} :: GetParametersByPath)
 
 -- | The hierarchy for the parameter. Hierarchies start with a forward slash
 -- (\/). The hierachy is the parameter name except the last part of the
@@ -262,11 +262,11 @@ instance Core.ToJSON GetParametersByPath where
       ( Prelude.catMaybes
           [ ("WithDecryption" Core..=)
               Prelude.<$> withDecryption,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ParameterFilters" Core..=)
               Prelude.<$> parameterFilters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Recursive" Core..=) Prelude.<$> recursive,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("Path" Core..= path)
           ]
       )
@@ -322,7 +322,7 @@ getParametersByPathResponse_nextToken = Lens.lens (\GetParametersByPathResponse'
 
 -- | A list of parameters found in the specified hierarchy.
 getParametersByPathResponse_parameters :: Lens.Lens' GetParametersByPathResponse (Prelude.Maybe [Parameter])
-getParametersByPathResponse_parameters = Lens.lens (\GetParametersByPathResponse' {parameters} -> parameters) (\s@GetParametersByPathResponse' {} a -> s {parameters = a} :: GetParametersByPathResponse) Prelude.. Lens.mapping Lens._Coerce
+getParametersByPathResponse_parameters = Lens.lens (\GetParametersByPathResponse' {parameters} -> parameters) (\s@GetParametersByPathResponse' {} a -> s {parameters = a} :: GetParametersByPathResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getParametersByPathResponse_httpStatus :: Lens.Lens' GetParametersByPathResponse Prelude.Int

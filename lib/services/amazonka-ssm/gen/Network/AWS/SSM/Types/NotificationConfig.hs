@@ -29,10 +29,11 @@ import Network.AWS.SSM.Types.NotificationType
 --
 -- /See:/ 'newNotificationConfig' smart constructor.
 data NotificationConfig = NotificationConfig'
-  { -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
-    -- (Amazon SNS) topic. Run Command pushes notifications about command
-    -- status changes to this topic.
-    notificationArn :: Prelude.Maybe Prelude.Text,
+  { -- | The different events for which you can receive notifications. To learn
+    -- more about these events, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    notificationEvents :: Prelude.Maybe [NotificationEvent],
     -- | The type of notification.
     --
     -- -   @Command@: Receive notification when the status of a command
@@ -42,11 +43,10 @@ data NotificationConfig = NotificationConfig'
     --     notification on a per-instance basis when the status of a command
     --     changes.
     notificationType :: Prelude.Maybe NotificationType,
-    -- | The different events for which you can receive notifications. To learn
-    -- more about these events, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    notificationEvents :: Prelude.Maybe [NotificationEvent]
+    -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
+    -- (Amazon SNS) topic. Run Command pushes notifications about command
+    -- status changes to this topic.
+    notificationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,9 +58,10 @@ data NotificationConfig = NotificationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationArn', 'notificationConfig_notificationArn' - An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
--- (Amazon SNS) topic. Run Command pushes notifications about command
--- status changes to this topic.
+-- 'notificationEvents', 'notificationConfig_notificationEvents' - The different events for which you can receive notifications. To learn
+-- more about these events, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'notificationType', 'notificationConfig_notificationType' - The type of notification.
 --
@@ -71,25 +72,25 @@ data NotificationConfig = NotificationConfig'
 --     notification on a per-instance basis when the status of a command
 --     changes.
 --
--- 'notificationEvents', 'notificationConfig_notificationEvents' - The different events for which you can receive notifications. To learn
--- more about these events, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
--- in the /Amazon Web Services Systems Manager User Guide/.
+-- 'notificationArn', 'notificationConfig_notificationArn' - An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
+-- (Amazon SNS) topic. Run Command pushes notifications about command
+-- status changes to this topic.
 newNotificationConfig ::
   NotificationConfig
 newNotificationConfig =
   NotificationConfig'
-    { notificationArn =
+    { notificationEvents =
         Prelude.Nothing,
       notificationType = Prelude.Nothing,
-      notificationEvents = Prelude.Nothing
+      notificationArn = Prelude.Nothing
     }
 
--- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
--- (Amazon SNS) topic. Run Command pushes notifications about command
--- status changes to this topic.
-notificationConfig_notificationArn :: Lens.Lens' NotificationConfig (Prelude.Maybe Prelude.Text)
-notificationConfig_notificationArn = Lens.lens (\NotificationConfig' {notificationArn} -> notificationArn) (\s@NotificationConfig' {} a -> s {notificationArn = a} :: NotificationConfig)
+-- | The different events for which you can receive notifications. To learn
+-- more about these events, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+notificationConfig_notificationEvents :: Lens.Lens' NotificationConfig (Prelude.Maybe [NotificationEvent])
+notificationConfig_notificationEvents = Lens.lens (\NotificationConfig' {notificationEvents} -> notificationEvents) (\s@NotificationConfig' {} a -> s {notificationEvents = a} :: NotificationConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of notification.
 --
@@ -102,12 +103,11 @@ notificationConfig_notificationArn = Lens.lens (\NotificationConfig' {notificati
 notificationConfig_notificationType :: Lens.Lens' NotificationConfig (Prelude.Maybe NotificationType)
 notificationConfig_notificationType = Lens.lens (\NotificationConfig' {notificationType} -> notificationType) (\s@NotificationConfig' {} a -> s {notificationType = a} :: NotificationConfig)
 
--- | The different events for which you can receive notifications. To learn
--- more about these events, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
--- in the /Amazon Web Services Systems Manager User Guide/.
-notificationConfig_notificationEvents :: Lens.Lens' NotificationConfig (Prelude.Maybe [NotificationEvent])
-notificationConfig_notificationEvents = Lens.lens (\NotificationConfig' {notificationEvents} -> notificationEvents) (\s@NotificationConfig' {} a -> s {notificationEvents = a} :: NotificationConfig) Prelude.. Lens.mapping Lens._Coerce
+-- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
+-- (Amazon SNS) topic. Run Command pushes notifications about command
+-- status changes to this topic.
+notificationConfig_notificationArn :: Lens.Lens' NotificationConfig (Prelude.Maybe Prelude.Text)
+notificationConfig_notificationArn = Lens.lens (\NotificationConfig' {notificationArn} -> notificationArn) (\s@NotificationConfig' {} a -> s {notificationArn = a} :: NotificationConfig)
 
 instance Core.FromJSON NotificationConfig where
   parseJSON =
@@ -115,11 +115,11 @@ instance Core.FromJSON NotificationConfig where
       "NotificationConfig"
       ( \x ->
           NotificationConfig'
-            Prelude.<$> (x Core..:? "NotificationArn")
-            Prelude.<*> (x Core..:? "NotificationType")
-            Prelude.<*> ( x Core..:? "NotificationEvents"
+            Prelude.<$> ( x Core..:? "NotificationEvents"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "NotificationType")
+            Prelude.<*> (x Core..:? "NotificationArn")
       )
 
 instance Prelude.Hashable NotificationConfig
@@ -130,11 +130,11 @@ instance Core.ToJSON NotificationConfig where
   toJSON NotificationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationArn" Core..=)
-              Prelude.<$> notificationArn,
+          [ ("NotificationEvents" Core..=)
+              Prelude.<$> notificationEvents,
             ("NotificationType" Core..=)
               Prelude.<$> notificationType,
-            ("NotificationEvents" Core..=)
-              Prelude.<$> notificationEvents
+            ("NotificationArn" Core..=)
+              Prelude.<$> notificationArn
           ]
       )

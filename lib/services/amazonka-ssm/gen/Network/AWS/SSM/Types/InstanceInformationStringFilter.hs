@@ -70,7 +70,7 @@ newInstanceInformationStringFilter ::
 newInstanceInformationStringFilter pKey_ pValues_ =
   InstanceInformationStringFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The filter key name to describe your instances. For example:
@@ -87,7 +87,7 @@ instanceInformationStringFilter_key = Lens.lens (\InstanceInformationStringFilte
 
 -- | The filter values.
 instanceInformationStringFilter_values :: Lens.Lens' InstanceInformationStringFilter (Prelude.NonEmpty Prelude.Text)
-instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFilter' {values} -> values) (\s@InstanceInformationStringFilter' {} a -> s {values = a} :: InstanceInformationStringFilter) Prelude.. Lens._Coerce
+instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFilter' {values} -> values) (\s@InstanceInformationStringFilter' {} a -> s {values = a} :: InstanceInformationStringFilter) Prelude.. Lens.coerced
 
 instance
   Prelude.Hashable

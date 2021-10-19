@@ -31,9 +31,9 @@ module Network.AWS.SSM.ListOpsItemEvents
     newListOpsItemEvents,
 
     -- * Request Lenses
+    listOpsItemEvents_filters,
     listOpsItemEvents_nextToken,
     listOpsItemEvents_maxResults,
-    listOpsItemEvents_filters,
 
     -- * Destructuring the Response
     ListOpsItemEventsResponse (..),
@@ -55,16 +55,16 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newListOpsItemEvents' smart constructor.
 data ListOpsItemEvents = ListOpsItemEvents'
-  { -- | A token to start the list. Use this token to get the next set of
+  { -- | One or more OpsItem filters. Use a filter to return a more specific list
+    -- of results.
+    filters :: Prelude.Maybe [OpsItemEventFilter],
+    -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more OpsItem filters. Use a filter to return a more specific list
-    -- of results.
-    filters :: Prelude.Maybe [OpsItemEventFilter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,23 +76,28 @@ data ListOpsItemEvents = ListOpsItemEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'listOpsItemEvents_filters' - One or more OpsItem filters. Use a filter to return a more specific list
+-- of results.
+--
 -- 'nextToken', 'listOpsItemEvents_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
 --
 -- 'maxResults', 'listOpsItemEvents_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'filters', 'listOpsItemEvents_filters' - One or more OpsItem filters. Use a filter to return a more specific list
--- of results.
 newListOpsItemEvents ::
   ListOpsItemEvents
 newListOpsItemEvents =
   ListOpsItemEvents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | One or more OpsItem filters. Use a filter to return a more specific list
+-- of results.
+listOpsItemEvents_filters :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe [OpsItemEventFilter])
+listOpsItemEvents_filters = Lens.lens (\ListOpsItemEvents' {filters} -> filters) (\s@ListOpsItemEvents' {} a -> s {filters = a} :: ListOpsItemEvents) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
@@ -104,11 +109,6 @@ listOpsItemEvents_nextToken = Lens.lens (\ListOpsItemEvents' {nextToken} -> next
 -- next set of results.
 listOpsItemEvents_maxResults :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe Prelude.Natural)
 listOpsItemEvents_maxResults = Lens.lens (\ListOpsItemEvents' {maxResults} -> maxResults) (\s@ListOpsItemEvents' {} a -> s {maxResults = a} :: ListOpsItemEvents)
-
--- | One or more OpsItem filters. Use a filter to return a more specific list
--- of results.
-listOpsItemEvents_filters :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe [OpsItemEventFilter])
-listOpsItemEvents_filters = Lens.lens (\ListOpsItemEvents' {filters} -> filters) (\s@ListOpsItemEvents' {} a -> s {filters = a} :: ListOpsItemEvents) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListOpsItemEvents where
   page rq rs
@@ -169,9 +169,9 @@ instance Core.ToJSON ListOpsItemEvents where
   toJSON ListOpsItemEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -226,7 +226,7 @@ listOpsItemEventsResponse_nextToken = Lens.lens (\ListOpsItemEventsResponse' {ne
 
 -- | A list of event information for the specified OpsItems.
 listOpsItemEventsResponse_summaries :: Lens.Lens' ListOpsItemEventsResponse (Prelude.Maybe [OpsItemEventSummary])
-listOpsItemEventsResponse_summaries = Lens.lens (\ListOpsItemEventsResponse' {summaries} -> summaries) (\s@ListOpsItemEventsResponse' {} a -> s {summaries = a} :: ListOpsItemEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+listOpsItemEventsResponse_summaries = Lens.lens (\ListOpsItemEventsResponse' {summaries} -> summaries) (\s@ListOpsItemEventsResponse' {} a -> s {summaries = a} :: ListOpsItemEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOpsItemEventsResponse_httpStatus :: Lens.Lens' ListOpsItemEventsResponse Prelude.Int

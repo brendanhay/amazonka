@@ -33,28 +33,28 @@ import Network.AWS.SSM.Types.TargetLocation
 --
 -- /See:/ 'newRunbook' smart constructor.
 data Runbook = Runbook'
-  { -- | The @MaxErrors@ value specified by the user when the execution started,
+  { -- | The name of the parameter used as the target resource for the
+    -- rate-controlled runbook workflow. Required if you specify @Targets@.
+    targetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | Information about the Amazon Web Services Regions and Amazon Web
+    -- Services accounts targeted by the current Runbook operation.
+    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    -- | The @MaxErrors@ value specified by the user when the execution started,
     -- indicating the maximum number of errors that can occur during the
     -- operation before the updates are stopped or rolled back.
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | A key-value mapping to target resources that the runbook operation
     -- performs tasks on. Required if you specify @TargetParameterName@.
     targets :: Prelude.Maybe [Target],
-    -- | Information about the Amazon Web Services Regions and Amazon Web
-    -- Services accounts targeted by the current Runbook operation.
-    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
-    -- | The name of the parameter used as the target resource for the
-    -- rate-controlled runbook workflow. Required if you specify @Targets@.
-    targetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | The key-value map of execution parameters, which were supplied when
+    -- calling @StartChangeRequestExecution@.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The version of the Automation runbook used in a runbook workflow.
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The @MaxConcurrency@ value specified by the user when the operation
     -- started, indicating the maximum number of resources that the runbook
     -- operation can run on at the same time.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | The version of the Automation runbook used in a runbook workflow.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The key-value map of execution parameters, which were supplied when
-    -- calling @StartChangeRequestExecution@.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The name of the Automation runbook used in a runbook workflow.
     documentName :: Prelude.Text
   }
@@ -68,6 +68,12 @@ data Runbook = Runbook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetParameterName', 'runbook_targetParameterName' - The name of the parameter used as the target resource for the
+-- rate-controlled runbook workflow. Required if you specify @Targets@.
+--
+-- 'targetLocations', 'runbook_targetLocations' - Information about the Amazon Web Services Regions and Amazon Web
+-- Services accounts targeted by the current Runbook operation.
+--
 -- 'maxErrors', 'runbook_maxErrors' - The @MaxErrors@ value specified by the user when the execution started,
 -- indicating the maximum number of errors that can occur during the
 -- operation before the updates are stopped or rolled back.
@@ -75,20 +81,14 @@ data Runbook = Runbook'
 -- 'targets', 'runbook_targets' - A key-value mapping to target resources that the runbook operation
 -- performs tasks on. Required if you specify @TargetParameterName@.
 --
--- 'targetLocations', 'runbook_targetLocations' - Information about the Amazon Web Services Regions and Amazon Web
--- Services accounts targeted by the current Runbook operation.
+-- 'parameters', 'runbook_parameters' - The key-value map of execution parameters, which were supplied when
+-- calling @StartChangeRequestExecution@.
 --
--- 'targetParameterName', 'runbook_targetParameterName' - The name of the parameter used as the target resource for the
--- rate-controlled runbook workflow. Required if you specify @Targets@.
+-- 'documentVersion', 'runbook_documentVersion' - The version of the Automation runbook used in a runbook workflow.
 --
 -- 'maxConcurrency', 'runbook_maxConcurrency' - The @MaxConcurrency@ value specified by the user when the operation
 -- started, indicating the maximum number of resources that the runbook
 -- operation can run on at the same time.
---
--- 'documentVersion', 'runbook_documentVersion' - The version of the Automation runbook used in a runbook workflow.
---
--- 'parameters', 'runbook_parameters' - The key-value map of execution parameters, which were supplied when
--- calling @StartChangeRequestExecution@.
 --
 -- 'documentName', 'runbook_documentName' - The name of the Automation runbook used in a runbook workflow.
 newRunbook ::
@@ -97,15 +97,25 @@ newRunbook ::
   Runbook
 newRunbook pDocumentName_ =
   Runbook'
-    { maxErrors = Prelude.Nothing,
-      targets = Prelude.Nothing,
+    { targetParameterName = Prelude.Nothing,
       targetLocations = Prelude.Nothing,
-      targetParameterName = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
+      maxErrors = Prelude.Nothing,
+      targets = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
       documentName = pDocumentName_
     }
+
+-- | The name of the parameter used as the target resource for the
+-- rate-controlled runbook workflow. Required if you specify @Targets@.
+runbook_targetParameterName :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
+runbook_targetParameterName = Lens.lens (\Runbook' {targetParameterName} -> targetParameterName) (\s@Runbook' {} a -> s {targetParameterName = a} :: Runbook)
+
+-- | Information about the Amazon Web Services Regions and Amazon Web
+-- Services accounts targeted by the current Runbook operation.
+runbook_targetLocations :: Lens.Lens' Runbook (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
+runbook_targetLocations = Lens.lens (\Runbook' {targetLocations} -> targetLocations) (\s@Runbook' {} a -> s {targetLocations = a} :: Runbook) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @MaxErrors@ value specified by the user when the execution started,
 -- indicating the maximum number of errors that can occur during the
@@ -116,32 +126,22 @@ runbook_maxErrors = Lens.lens (\Runbook' {maxErrors} -> maxErrors) (\s@Runbook' 
 -- | A key-value mapping to target resources that the runbook operation
 -- performs tasks on. Required if you specify @TargetParameterName@.
 runbook_targets :: Lens.Lens' Runbook (Prelude.Maybe [Target])
-runbook_targets = Lens.lens (\Runbook' {targets} -> targets) (\s@Runbook' {} a -> s {targets = a} :: Runbook) Prelude.. Lens.mapping Lens._Coerce
+runbook_targets = Lens.lens (\Runbook' {targets} -> targets) (\s@Runbook' {} a -> s {targets = a} :: Runbook) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the Amazon Web Services Regions and Amazon Web
--- Services accounts targeted by the current Runbook operation.
-runbook_targetLocations :: Lens.Lens' Runbook (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
-runbook_targetLocations = Lens.lens (\Runbook' {targetLocations} -> targetLocations) (\s@Runbook' {} a -> s {targetLocations = a} :: Runbook) Prelude.. Lens.mapping Lens._Coerce
+-- | The key-value map of execution parameters, which were supplied when
+-- calling @StartChangeRequestExecution@.
+runbook_parameters :: Lens.Lens' Runbook (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+runbook_parameters = Lens.lens (\Runbook' {parameters} -> parameters) (\s@Runbook' {} a -> s {parameters = a} :: Runbook) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the parameter used as the target resource for the
--- rate-controlled runbook workflow. Required if you specify @Targets@.
-runbook_targetParameterName :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
-runbook_targetParameterName = Lens.lens (\Runbook' {targetParameterName} -> targetParameterName) (\s@Runbook' {} a -> s {targetParameterName = a} :: Runbook)
+-- | The version of the Automation runbook used in a runbook workflow.
+runbook_documentVersion :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
+runbook_documentVersion = Lens.lens (\Runbook' {documentVersion} -> documentVersion) (\s@Runbook' {} a -> s {documentVersion = a} :: Runbook)
 
 -- | The @MaxConcurrency@ value specified by the user when the operation
 -- started, indicating the maximum number of resources that the runbook
 -- operation can run on at the same time.
 runbook_maxConcurrency :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
 runbook_maxConcurrency = Lens.lens (\Runbook' {maxConcurrency} -> maxConcurrency) (\s@Runbook' {} a -> s {maxConcurrency = a} :: Runbook)
-
--- | The version of the Automation runbook used in a runbook workflow.
-runbook_documentVersion :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
-runbook_documentVersion = Lens.lens (\Runbook' {documentVersion} -> documentVersion) (\s@Runbook' {} a -> s {documentVersion = a} :: Runbook)
-
--- | The key-value map of execution parameters, which were supplied when
--- calling @StartChangeRequestExecution@.
-runbook_parameters :: Lens.Lens' Runbook (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-runbook_parameters = Lens.lens (\Runbook' {parameters} -> parameters) (\s@Runbook' {} a -> s {parameters = a} :: Runbook) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Automation runbook used in a runbook workflow.
 runbook_documentName :: Lens.Lens' Runbook Prelude.Text
@@ -153,13 +153,13 @@ instance Core.FromJSON Runbook where
       "Runbook"
       ( \x ->
           Runbook'
-            Prelude.<$> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "TargetParameterName")
             Prelude.<*> (x Core..:? "TargetLocations")
-            Prelude.<*> (x Core..:? "TargetParameterName")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "MaxErrors")
+            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..: "DocumentName")
       )
 
@@ -171,17 +171,17 @@ instance Core.ToJSON Runbook where
   toJSON Runbook' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("Targets" Core..=) Prelude.<$> targets,
+          [ ("TargetParameterName" Core..=)
+              Prelude.<$> targetParameterName,
             ("TargetLocations" Core..=)
               Prelude.<$> targetLocations,
-            ("TargetParameterName" Core..=)
-              Prelude.<$> targetParameterName,
-            ("MaxConcurrency" Core..=)
-              Prelude.<$> maxConcurrency,
+            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             ("DocumentVersion" Core..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("MaxConcurrency" Core..=)
+              Prelude.<$> maxConcurrency,
             Prelude.Just ("DocumentName" Core..= documentName)
           ]
       )

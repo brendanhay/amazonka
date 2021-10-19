@@ -33,9 +33,9 @@ module Network.AWS.SSM.ListAssociations
     newListAssociations,
 
     -- * Request Lenses
+    listAssociations_associationFilterList,
     listAssociations_nextToken,
     listAssociations_maxResults,
-    listAssociations_associationFilterList,
 
     -- * Destructuring the Response
     ListAssociationsResponse (..),
@@ -57,21 +57,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newListAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more filters. Use a filter to return a more specific list of
+  { -- | One or more filters. Use a filter to return a more specific list of
     -- results.
     --
     -- Filtering associations using the @InstanceID@ attribute only returns
     -- legacy associations created using the @InstanceID@ attribute.
     -- Associations targeting the instance that are part of the Target
     -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
-    associationFilterList :: Prelude.Maybe (Prelude.NonEmpty AssociationFilter)
+    associationFilterList :: Prelude.Maybe (Prelude.NonEmpty AssociationFilter),
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,13 +83,6 @@ data ListAssociations = ListAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
--- 'maxResults', 'listAssociations_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
---
 -- 'associationFilterList', 'listAssociations_associationFilterList' - One or more filters. Use a filter to return a more specific list of
 -- results.
 --
@@ -97,14 +90,32 @@ data ListAssociations = ListAssociations'
 -- legacy associations created using the @InstanceID@ attribute.
 -- Associations targeting the instance that are part of the Target
 -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
+--
+-- 'nextToken', 'listAssociations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'maxResults', 'listAssociations_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 newListAssociations ::
   ListAssociations
 newListAssociations =
   ListAssociations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      associationFilterList = Prelude.Nothing
+    { associationFilterList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | One or more filters. Use a filter to return a more specific list of
+-- results.
+--
+-- Filtering associations using the @InstanceID@ attribute only returns
+-- legacy associations created using the @InstanceID@ attribute.
+-- Associations targeting the instance that are part of the Target
+-- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
+listAssociations_associationFilterList :: Lens.Lens' ListAssociations (Prelude.Maybe (Prelude.NonEmpty AssociationFilter))
+listAssociations_associationFilterList = Lens.lens (\ListAssociations' {associationFilterList} -> associationFilterList) (\s@ListAssociations' {} a -> s {associationFilterList = a} :: ListAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -116,16 +127,6 @@ listAssociations_nextToken = Lens.lens (\ListAssociations' {nextToken} -> nextTo
 -- next set of results.
 listAssociations_maxResults :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Natural)
 listAssociations_maxResults = Lens.lens (\ListAssociations' {maxResults} -> maxResults) (\s@ListAssociations' {} a -> s {maxResults = a} :: ListAssociations)
-
--- | One or more filters. Use a filter to return a more specific list of
--- results.
---
--- Filtering associations using the @InstanceID@ attribute only returns
--- legacy associations created using the @InstanceID@ attribute.
--- Associations targeting the instance that are part of the Target
--- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
-listAssociations_associationFilterList :: Lens.Lens' ListAssociations (Prelude.Maybe (Prelude.NonEmpty AssociationFilter))
-listAssociations_associationFilterList = Lens.lens (\ListAssociations' {associationFilterList} -> associationFilterList) (\s@ListAssociations' {} a -> s {associationFilterList = a} :: ListAssociations) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListAssociations where
   page rq rs
@@ -184,10 +185,10 @@ instance Core.ToJSON ListAssociations where
   toJSON ListAssociations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("AssociationFilterList" Core..=)
-              Prelude.<$> associationFilterList
+          [ ("AssociationFilterList" Core..=)
+              Prelude.<$> associationFilterList,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -242,7 +243,7 @@ listAssociationsResponse_nextToken = Lens.lens (\ListAssociationsResponse' {next
 
 -- | The associations.
 listAssociationsResponse_associations :: Lens.Lens' ListAssociationsResponse (Prelude.Maybe [Association])
-listAssociationsResponse_associations = Lens.lens (\ListAssociationsResponse' {associations} -> associations) (\s@ListAssociationsResponse' {} a -> s {associations = a} :: ListAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listAssociationsResponse_associations = Lens.lens (\ListAssociationsResponse' {associations} -> associations) (\s@ListAssociationsResponse' {} a -> s {associations = a} :: ListAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssociationsResponse_httpStatus :: Lens.Lens' ListAssociationsResponse Prelude.Int

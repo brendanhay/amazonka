@@ -75,7 +75,7 @@ newInventoryFilter pKey_ pValues_ =
   InventoryFilter'
     { type' = Prelude.Nothing,
       key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The type of filter.
@@ -95,7 +95,7 @@ inventoryFilter_key = Lens.lens (\InventoryFilter' {key} -> key) (\s@InventoryFi
 -- are specified as values
 -- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
 inventoryFilter_values :: Lens.Lens' InventoryFilter (Prelude.NonEmpty Prelude.Text)
-inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Prelude.. Lens._Coerce
+inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable InventoryFilter
 

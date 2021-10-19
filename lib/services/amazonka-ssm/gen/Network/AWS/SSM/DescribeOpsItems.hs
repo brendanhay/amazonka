@@ -39,9 +39,9 @@ module Network.AWS.SSM.DescribeOpsItems
     newDescribeOpsItems,
 
     -- * Request Lenses
+    describeOpsItems_opsItemFilters,
     describeOpsItems_nextToken,
     describeOpsItems_maxResults,
-    describeOpsItems_opsItemFilters,
 
     -- * Destructuring the Response
     DescribeOpsItemsResponse (..),
@@ -63,14 +63,7 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeOpsItems' smart constructor.
 data DescribeOpsItems = DescribeOpsItems'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more filters to limit the response.
+  { -- | One or more filters to limit the response.
     --
     -- -   Key: CreatedTime
     --
@@ -131,7 +124,14 @@ data DescribeOpsItems = DescribeOpsItems'
     -- **If you filter the response by using the OperationalData operator,
     -- specify a key-value pair by using the following JSON format:
     -- {\"key\":\"key_name\",\"value\":\"a_value\"}
-    opsItemFilters :: Prelude.Maybe [OpsItemFilter]
+    opsItemFilters :: Prelude.Maybe [OpsItemFilter],
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,13 +142,6 @@ data DescribeOpsItems = DescribeOpsItems'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeOpsItems_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
--- 'maxResults', 'describeOpsItems_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
 --
 -- 'opsItemFilters', 'describeOpsItems_opsItemFilters' - One or more filters to limit the response.
 --
@@ -211,25 +204,21 @@ data DescribeOpsItems = DescribeOpsItems'
 -- **If you filter the response by using the OperationalData operator,
 -- specify a key-value pair by using the following JSON format:
 -- {\"key\":\"key_name\",\"value\":\"a_value\"}
+--
+-- 'nextToken', 'describeOpsItems_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
+--
+-- 'maxResults', 'describeOpsItems_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 newDescribeOpsItems ::
   DescribeOpsItems
 newDescribeOpsItems =
   DescribeOpsItems'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      opsItemFilters = Prelude.Nothing
+    { opsItemFilters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-describeOpsItems_nextToken :: Lens.Lens' DescribeOpsItems (Prelude.Maybe Prelude.Text)
-describeOpsItems_nextToken = Lens.lens (\DescribeOpsItems' {nextToken} -> nextToken) (\s@DescribeOpsItems' {} a -> s {nextToken = a} :: DescribeOpsItems)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-describeOpsItems_maxResults :: Lens.Lens' DescribeOpsItems (Prelude.Maybe Prelude.Natural)
-describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxResults) (\s@DescribeOpsItems' {} a -> s {maxResults = a} :: DescribeOpsItems)
 
 -- | One or more filters to limit the response.
 --
@@ -293,7 +282,18 @@ describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxR
 -- specify a key-value pair by using the following JSON format:
 -- {\"key\":\"key_name\",\"value\":\"a_value\"}
 describeOpsItems_opsItemFilters :: Lens.Lens' DescribeOpsItems (Prelude.Maybe [OpsItemFilter])
-describeOpsItems_opsItemFilters = Lens.lens (\DescribeOpsItems' {opsItemFilters} -> opsItemFilters) (\s@DescribeOpsItems' {} a -> s {opsItemFilters = a} :: DescribeOpsItems) Prelude.. Lens.mapping Lens._Coerce
+describeOpsItems_opsItemFilters = Lens.lens (\DescribeOpsItems' {opsItemFilters} -> opsItemFilters) (\s@DescribeOpsItems' {} a -> s {opsItemFilters = a} :: DescribeOpsItems) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+describeOpsItems_nextToken :: Lens.Lens' DescribeOpsItems (Prelude.Maybe Prelude.Text)
+describeOpsItems_nextToken = Lens.lens (\DescribeOpsItems' {nextToken} -> nextToken) (\s@DescribeOpsItems' {} a -> s {nextToken = a} :: DescribeOpsItems)
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeOpsItems_maxResults :: Lens.Lens' DescribeOpsItems (Prelude.Maybe Prelude.Natural)
+describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxResults) (\s@DescribeOpsItems' {} a -> s {maxResults = a} :: DescribeOpsItems)
 
 instance Core.AWSPager DescribeOpsItems where
   page rq rs
@@ -354,10 +354,10 @@ instance Core.ToJSON DescribeOpsItems where
   toJSON DescribeOpsItems' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("OpsItemFilters" Core..=)
-              Prelude.<$> opsItemFilters
+          [ ("OpsItemFilters" Core..=)
+              Prelude.<$> opsItemFilters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -412,7 +412,7 @@ describeOpsItemsResponse_nextToken = Lens.lens (\DescribeOpsItemsResponse' {next
 
 -- | A list of OpsItems.
 describeOpsItemsResponse_opsItemSummaries :: Lens.Lens' DescribeOpsItemsResponse (Prelude.Maybe [OpsItemSummary])
-describeOpsItemsResponse_opsItemSummaries = Lens.lens (\DescribeOpsItemsResponse' {opsItemSummaries} -> opsItemSummaries) (\s@DescribeOpsItemsResponse' {} a -> s {opsItemSummaries = a} :: DescribeOpsItemsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeOpsItemsResponse_opsItemSummaries = Lens.lens (\DescribeOpsItemsResponse' {opsItemSummaries} -> opsItemSummaries) (\s@DescribeOpsItemsResponse' {} a -> s {opsItemSummaries = a} :: DescribeOpsItemsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeOpsItemsResponse_httpStatus :: Lens.Lens' DescribeOpsItemsResponse Prelude.Int

@@ -30,10 +30,10 @@ import Network.AWS.SSM.Types.ReviewStatus
 data ReviewInformation = ReviewInformation'
   { -- | The current status of the document review request.
     status :: Prelude.Maybe ReviewStatus,
-    -- | The time that the reviewer took action on the document review request.
-    reviewedTime :: Prelude.Maybe Core.POSIX,
     -- | The reviewer assigned to take action on the document review request.
-    reviewer :: Prelude.Maybe Prelude.Text
+    reviewer :: Prelude.Maybe Prelude.Text,
+    -- | The time that the reviewer took action on the document review request.
+    reviewedTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data ReviewInformation = ReviewInformation'
 --
 -- 'status', 'reviewInformation_status' - The current status of the document review request.
 --
--- 'reviewedTime', 'reviewInformation_reviewedTime' - The time that the reviewer took action on the document review request.
---
 -- 'reviewer', 'reviewInformation_reviewer' - The reviewer assigned to take action on the document review request.
+--
+-- 'reviewedTime', 'reviewInformation_reviewedTime' - The time that the reviewer took action on the document review request.
 newReviewInformation ::
   ReviewInformation
 newReviewInformation =
   ReviewInformation'
     { status = Prelude.Nothing,
-      reviewedTime = Prelude.Nothing,
-      reviewer = Prelude.Nothing
+      reviewer = Prelude.Nothing,
+      reviewedTime = Prelude.Nothing
     }
 
 -- | The current status of the document review request.
 reviewInformation_status :: Lens.Lens' ReviewInformation (Prelude.Maybe ReviewStatus)
 reviewInformation_status = Lens.lens (\ReviewInformation' {status} -> status) (\s@ReviewInformation' {} a -> s {status = a} :: ReviewInformation)
 
--- | The time that the reviewer took action on the document review request.
-reviewInformation_reviewedTime :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.UTCTime)
-reviewInformation_reviewedTime = Lens.lens (\ReviewInformation' {reviewedTime} -> reviewedTime) (\s@ReviewInformation' {} a -> s {reviewedTime = a} :: ReviewInformation) Prelude.. Lens.mapping Core._Time
-
 -- | The reviewer assigned to take action on the document review request.
 reviewInformation_reviewer :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.Text)
 reviewInformation_reviewer = Lens.lens (\ReviewInformation' {reviewer} -> reviewer) (\s@ReviewInformation' {} a -> s {reviewer = a} :: ReviewInformation)
+
+-- | The time that the reviewer took action on the document review request.
+reviewInformation_reviewedTime :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.UTCTime)
+reviewInformation_reviewedTime = Lens.lens (\ReviewInformation' {reviewedTime} -> reviewedTime) (\s@ReviewInformation' {} a -> s {reviewedTime = a} :: ReviewInformation) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReviewInformation where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON ReviewInformation where
       ( \x ->
           ReviewInformation'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ReviewedTime")
             Prelude.<*> (x Core..:? "Reviewer")
+            Prelude.<*> (x Core..:? "ReviewedTime")
       )
 
 instance Prelude.Hashable ReviewInformation

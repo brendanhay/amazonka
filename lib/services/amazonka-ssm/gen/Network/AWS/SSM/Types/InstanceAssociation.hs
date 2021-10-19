@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
-  { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The association ID.
+  { -- | The association ID.
     associationId :: Prelude.Maybe Prelude.Text,
+    -- | The instance ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The content of the association document for the instance(s).
     content :: Prelude.Maybe Prelude.Text,
     -- | Version information for the association on the instance.
@@ -46,9 +46,9 @@ data InstanceAssociation = InstanceAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'instanceAssociation_instanceId' - The instance ID.
---
 -- 'associationId', 'instanceAssociation_associationId' - The association ID.
+--
+-- 'instanceId', 'instanceAssociation_instanceId' - The instance ID.
 --
 -- 'content', 'instanceAssociation_content' - The content of the association document for the instance(s).
 --
@@ -57,19 +57,20 @@ newInstanceAssociation ::
   InstanceAssociation
 newInstanceAssociation =
   InstanceAssociation'
-    { instanceId = Prelude.Nothing,
-      associationId = Prelude.Nothing,
+    { associationId =
+        Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       content = Prelude.Nothing,
       associationVersion = Prelude.Nothing
     }
 
--- | The instance ID.
-instanceAssociation_instanceId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
-instanceAssociation_instanceId = Lens.lens (\InstanceAssociation' {instanceId} -> instanceId) (\s@InstanceAssociation' {} a -> s {instanceId = a} :: InstanceAssociation)
-
 -- | The association ID.
 instanceAssociation_associationId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
 instanceAssociation_associationId = Lens.lens (\InstanceAssociation' {associationId} -> associationId) (\s@InstanceAssociation' {} a -> s {associationId = a} :: InstanceAssociation)
+
+-- | The instance ID.
+instanceAssociation_instanceId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
+instanceAssociation_instanceId = Lens.lens (\InstanceAssociation' {instanceId} -> instanceId) (\s@InstanceAssociation' {} a -> s {instanceId = a} :: InstanceAssociation)
 
 -- | The content of the association document for the instance(s).
 instanceAssociation_content :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
@@ -85,8 +86,8 @@ instance Core.FromJSON InstanceAssociation where
       "InstanceAssociation"
       ( \x ->
           InstanceAssociation'
-            Prelude.<$> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Core..:? "AssociationId")
+            Prelude.<*> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "Content")
             Prelude.<*> (x Core..:? "AssociationVersion")
       )

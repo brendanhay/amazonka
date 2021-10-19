@@ -40,9 +40,9 @@ module Network.AWS.SSM.ResumeSession
     newResumeSessionResponse,
 
     -- * Response Lenses
-    resumeSessionResponse_sessionId,
     resumeSessionResponse_streamUrl,
     resumeSessionResponse_tokenValue,
+    resumeSessionResponse_sessionId,
     resumeSessionResponse_httpStatus,
   )
 where
@@ -90,9 +90,9 @@ instance Core.AWSRequest ResumeSession where
     Response.receiveJSON
       ( \s h x ->
           ResumeSessionResponse'
-            Prelude.<$> (x Core..?> "SessionId")
-            Prelude.<*> (x Core..?> "StreamUrl")
+            Prelude.<$> (x Core..?> "StreamUrl")
             Prelude.<*> (x Core..?> "TokenValue")
+            Prelude.<*> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,9 +128,7 @@ instance Core.ToQuery ResumeSession where
 
 -- | /See:/ 'newResumeSessionResponse' smart constructor.
 data ResumeSessionResponse = ResumeSessionResponse'
-  { -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
-    -- | A URL back to SSM Agent on the instance that the Session Manager client
+  { -- | A URL back to SSM Agent on the instance that the Session Manager client
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
     --
@@ -147,6 +145,8 @@ data ResumeSessionResponse = ResumeSessionResponse'
     -- | An encrypted token value containing session and caller information. Used
     -- to authenticate the connection to the instance.
     tokenValue :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,8 +159,6 @@ data ResumeSessionResponse = ResumeSessionResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'sessionId', 'resumeSessionResponse_sessionId' - The ID of the session.
 --
 -- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client
 -- uses to send commands and receive output from the instance. Format:
@@ -179,6 +177,8 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- 'tokenValue', 'resumeSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
 -- to authenticate the connection to the instance.
 --
+-- 'sessionId', 'resumeSessionResponse_sessionId' - The ID of the session.
+--
 -- 'httpStatus', 'resumeSessionResponse_httpStatus' - The response's http status code.
 newResumeSessionResponse ::
   -- | 'httpStatus'
@@ -186,15 +186,11 @@ newResumeSessionResponse ::
   ResumeSessionResponse
 newResumeSessionResponse pHttpStatus_ =
   ResumeSessionResponse'
-    { sessionId = Prelude.Nothing,
-      streamUrl = Prelude.Nothing,
+    { streamUrl = Prelude.Nothing,
       tokenValue = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the session.
-resumeSessionResponse_sessionId :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
-resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId} -> sessionId) (\s@ResumeSessionResponse' {} a -> s {sessionId = a} :: ResumeSessionResponse)
 
 -- | A URL back to SSM Agent on the instance that the Session Manager client
 -- uses to send commands and receive output from the instance. Format:
@@ -216,6 +212,10 @@ resumeSessionResponse_streamUrl = Lens.lens (\ResumeSessionResponse' {streamUrl}
 -- to authenticate the connection to the instance.
 resumeSessionResponse_tokenValue :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
 resumeSessionResponse_tokenValue = Lens.lens (\ResumeSessionResponse' {tokenValue} -> tokenValue) (\s@ResumeSessionResponse' {} a -> s {tokenValue = a} :: ResumeSessionResponse)
+
+-- | The ID of the session.
+resumeSessionResponse_sessionId :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
+resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId} -> sessionId) (\s@ResumeSessionResponse' {} a -> s {sessionId = a} :: ResumeSessionResponse)
 
 -- | The response's http status code.
 resumeSessionResponse_httpStatus :: Lens.Lens' ResumeSessionResponse Prelude.Int

@@ -31,25 +31,25 @@ import Network.AWS.SSM.Types.SessionStatus
 data Session = Session'
   { -- | The status of the session. For example, \"Connected\" or \"Terminated\".
     status :: Prelude.Maybe SessionStatus,
-    -- | The date and time, in ISO-8601 Extended format, when the session began.
-    startDate :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | Reserved for future use.
+    outputUrl :: Prelude.Maybe SessionManagerOutputUrl,
     -- | The name of the Session Manager SSM document used to define the
     -- parameters and plugin settings for the session. For example,
     -- @SSM-SessionManagerRunShell@.
     documentName :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use.
-    details :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use.
-    outputUrl :: Prelude.Maybe SessionManagerOutputUrl,
-    -- | The ID of the Amazon Web Services user account that started the session.
-    owner :: Prelude.Maybe Prelude.Text,
-    -- | The instance that the Session Manager session connected to.
-    target :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in ISO-8601 Extended format, when the session was
     -- terminated.
-    endDate :: Prelude.Maybe Core.POSIX
+    endDate :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Amazon Web Services user account that started the session.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in ISO-8601 Extended format, when the session began.
+    startDate :: Prelude.Maybe Core.POSIX,
+    -- | Reserved for future use.
+    details :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | The instance that the Session Manager session connected to.
+    target :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,50 +63,46 @@ data Session = Session'
 --
 -- 'status', 'session_status' - The status of the session. For example, \"Connected\" or \"Terminated\".
 --
--- 'startDate', 'session_startDate' - The date and time, in ISO-8601 Extended format, when the session began.
---
--- 'sessionId', 'session_sessionId' - The ID of the session.
+-- 'outputUrl', 'session_outputUrl' - Reserved for future use.
 --
 -- 'documentName', 'session_documentName' - The name of the Session Manager SSM document used to define the
 -- parameters and plugin settings for the session. For example,
 -- @SSM-SessionManagerRunShell@.
 --
--- 'details', 'session_details' - Reserved for future use.
---
--- 'outputUrl', 'session_outputUrl' - Reserved for future use.
+-- 'endDate', 'session_endDate' - The date and time, in ISO-8601 Extended format, when the session was
+-- terminated.
 --
 -- 'owner', 'session_owner' - The ID of the Amazon Web Services user account that started the session.
 --
--- 'target', 'session_target' - The instance that the Session Manager session connected to.
+-- 'startDate', 'session_startDate' - The date and time, in ISO-8601 Extended format, when the session began.
 --
--- 'endDate', 'session_endDate' - The date and time, in ISO-8601 Extended format, when the session was
--- terminated.
+-- 'details', 'session_details' - Reserved for future use.
+--
+-- 'sessionId', 'session_sessionId' - The ID of the session.
+--
+-- 'target', 'session_target' - The instance that the Session Manager session connected to.
 newSession ::
   Session
 newSession =
   Session'
     { status = Prelude.Nothing,
-      startDate = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
-      documentName = Prelude.Nothing,
-      details = Prelude.Nothing,
       outputUrl = Prelude.Nothing,
+      documentName = Prelude.Nothing,
+      endDate = Prelude.Nothing,
       owner = Prelude.Nothing,
-      target = Prelude.Nothing,
-      endDate = Prelude.Nothing
+      startDate = Prelude.Nothing,
+      details = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
+      target = Prelude.Nothing
     }
 
 -- | The status of the session. For example, \"Connected\" or \"Terminated\".
 session_status :: Lens.Lens' Session (Prelude.Maybe SessionStatus)
 session_status = Lens.lens (\Session' {status} -> status) (\s@Session' {} a -> s {status = a} :: Session)
 
--- | The date and time, in ISO-8601 Extended format, when the session began.
-session_startDate :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_startDate = Lens.lens (\Session' {startDate} -> startDate) (\s@Session' {} a -> s {startDate = a} :: Session) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the session.
-session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
+-- | Reserved for future use.
+session_outputUrl :: Lens.Lens' Session (Prelude.Maybe SessionManagerOutputUrl)
+session_outputUrl = Lens.lens (\Session' {outputUrl} -> outputUrl) (\s@Session' {} a -> s {outputUrl = a} :: Session)
 
 -- | The name of the Session Manager SSM document used to define the
 -- parameters and plugin settings for the session. For example,
@@ -114,26 +110,30 @@ session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' 
 session_documentName :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_documentName = Lens.lens (\Session' {documentName} -> documentName) (\s@Session' {} a -> s {documentName = a} :: Session)
 
--- | Reserved for future use.
-session_details :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_details = Lens.lens (\Session' {details} -> details) (\s@Session' {} a -> s {details = a} :: Session)
-
--- | Reserved for future use.
-session_outputUrl :: Lens.Lens' Session (Prelude.Maybe SessionManagerOutputUrl)
-session_outputUrl = Lens.lens (\Session' {outputUrl} -> outputUrl) (\s@Session' {} a -> s {outputUrl = a} :: Session)
+-- | The date and time, in ISO-8601 Extended format, when the session was
+-- terminated.
+session_endDate :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
+session_endDate = Lens.lens (\Session' {endDate} -> endDate) (\s@Session' {} a -> s {endDate = a} :: Session) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the Amazon Web Services user account that started the session.
 session_owner :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_owner = Lens.lens (\Session' {owner} -> owner) (\s@Session' {} a -> s {owner = a} :: Session)
 
+-- | The date and time, in ISO-8601 Extended format, when the session began.
+session_startDate :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
+session_startDate = Lens.lens (\Session' {startDate} -> startDate) (\s@Session' {} a -> s {startDate = a} :: Session) Prelude.. Lens.mapping Core._Time
+
+-- | Reserved for future use.
+session_details :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_details = Lens.lens (\Session' {details} -> details) (\s@Session' {} a -> s {details = a} :: Session)
+
+-- | The ID of the session.
+session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
+
 -- | The instance that the Session Manager session connected to.
 session_target :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_target = Lens.lens (\Session' {target} -> target) (\s@Session' {} a -> s {target = a} :: Session)
-
--- | The date and time, in ISO-8601 Extended format, when the session was
--- terminated.
-session_endDate :: Lens.Lens' Session (Prelude.Maybe Prelude.UTCTime)
-session_endDate = Lens.lens (\Session' {endDate} -> endDate) (\s@Session' {} a -> s {endDate = a} :: Session) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Session where
   parseJSON =
@@ -142,14 +142,14 @@ instance Core.FromJSON Session where
       ( \x ->
           Session'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "SessionId")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "Details")
             Prelude.<*> (x Core..:? "OutputUrl")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Target")
+            Prelude.<*> (x Core..:? "DocumentName")
             Prelude.<*> (x Core..:? "EndDate")
+            Prelude.<*> (x Core..:? "Owner")
+            Prelude.<*> (x Core..:? "StartDate")
+            Prelude.<*> (x Core..:? "Details")
+            Prelude.<*> (x Core..:? "SessionId")
+            Prelude.<*> (x Core..:? "Target")
       )
 
 instance Prelude.Hashable Session

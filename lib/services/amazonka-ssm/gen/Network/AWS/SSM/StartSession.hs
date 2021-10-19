@@ -48,9 +48,9 @@ module Network.AWS.SSM.StartSession
     newStartSessionResponse,
 
     -- * Response Lenses
-    startSessionResponse_sessionId,
     startSessionResponse_streamUrl,
     startSessionResponse_tokenValue,
+    startSessionResponse_sessionId,
     startSessionResponse_httpStatus,
   )
 where
@@ -115,7 +115,7 @@ startSession_documentName = Lens.lens (\StartSession' {documentName} -> document
 
 -- | Reserved for future use.
 startSession_parameters :: Lens.Lens' StartSession (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-startSession_parameters = Lens.lens (\StartSession' {parameters} -> parameters) (\s@StartSession' {} a -> s {parameters = a} :: StartSession) Prelude.. Lens.mapping Lens._Coerce
+startSession_parameters = Lens.lens (\StartSession' {parameters} -> parameters) (\s@StartSession' {} a -> s {parameters = a} :: StartSession) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance to connect to for the session.
 startSession_target :: Lens.Lens' StartSession Prelude.Text
@@ -128,9 +128,9 @@ instance Core.AWSRequest StartSession where
     Response.receiveJSON
       ( \s h x ->
           StartSessionResponse'
-            Prelude.<$> (x Core..?> "SessionId")
-            Prelude.<*> (x Core..?> "StreamUrl")
+            Prelude.<$> (x Core..?> "StreamUrl")
             Prelude.<*> (x Core..?> "TokenValue")
+            Prelude.<*> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,9 +169,7 @@ instance Core.ToQuery StartSession where
 
 -- | /See:/ 'newStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
-  { -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
-    -- | A URL back to SSM Agent on the instance that the Session Manager client
+  { -- | A URL back to SSM Agent on the instance that the Session Manager client
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
     --
@@ -188,6 +186,8 @@ data StartSessionResponse = StartSessionResponse'
     -- | An encrypted token value containing session and caller information. Used
     -- to authenticate the connection to the instance.
     tokenValue :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,8 +200,6 @@ data StartSessionResponse = StartSessionResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'sessionId', 'startSessionResponse_sessionId' - The ID of the session.
 --
 -- 'streamUrl', 'startSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client
 -- uses to send commands and receive output from the instance. Format:
@@ -220,6 +218,8 @@ data StartSessionResponse = StartSessionResponse'
 -- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
 -- to authenticate the connection to the instance.
 --
+-- 'sessionId', 'startSessionResponse_sessionId' - The ID of the session.
+--
 -- 'httpStatus', 'startSessionResponse_httpStatus' - The response's http status code.
 newStartSessionResponse ::
   -- | 'httpStatus'
@@ -227,15 +227,11 @@ newStartSessionResponse ::
   StartSessionResponse
 newStartSessionResponse pHttpStatus_ =
   StartSessionResponse'
-    { sessionId = Prelude.Nothing,
-      streamUrl = Prelude.Nothing,
+    { streamUrl = Prelude.Nothing,
       tokenValue = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the session.
-startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
-startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -> sessionId) (\s@StartSessionResponse' {} a -> s {sessionId = a} :: StartSessionResponse)
 
 -- | A URL back to SSM Agent on the instance that the Session Manager client
 -- uses to send commands and receive output from the instance. Format:
@@ -257,6 +253,10 @@ startSessionResponse_streamUrl = Lens.lens (\StartSessionResponse' {streamUrl} -
 -- to authenticate the connection to the instance.
 startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
 startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
+
+-- | The ID of the session.
+startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -> sessionId) (\s@StartSessionResponse' {} a -> s {sessionId = a} :: StartSessionResponse)
 
 -- | The response's http status code.
 startSessionResponse_httpStatus :: Lens.Lens' StartSessionResponse Prelude.Int

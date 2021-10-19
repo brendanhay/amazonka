@@ -27,12 +27,12 @@ module Network.AWS.SSM.UpdateDocument
     newUpdateDocument,
 
     -- * Request Lenses
-    updateDocument_targetType,
+    updateDocument_attachments,
     updateDocument_versionName,
+    updateDocument_targetType,
     updateDocument_documentFormat,
     updateDocument_documentVersion,
     updateDocument_displayName,
-    updateDocument_attachments,
     updateDocument_content,
     updateDocument_name,
 
@@ -55,13 +55,16 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { -- | Specify a new target type for the document.
-    targetType :: Prelude.Maybe Prelude.Text,
+  { -- | A list of key-value pairs that describe attachments to a version of a
+    -- document.
+    attachments :: Prelude.Maybe [AttachmentsSource],
     -- | An optional field specifying the version of the artifact you are
     -- updating with the document. For example, \"Release 12, Update 6\". This
     -- value is unique across all versions of a document, and can\'t be
     -- changed.
     versionName :: Prelude.Maybe Prelude.Text,
+    -- | Specify a new target type for the document.
+    targetType :: Prelude.Maybe Prelude.Text,
     -- | Specify the document format for the new document version. Systems
     -- Manager supports JSON and YAML documents. JSON is the default format.
     documentFormat :: Prelude.Maybe DocumentFormat,
@@ -75,9 +78,6 @@ data UpdateDocument = UpdateDocument'
     -- a value for this parameter in your request, the existing value is
     -- applied to the new document version.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that describe attachments to a version of a
-    -- document.
-    attachments :: Prelude.Maybe [AttachmentsSource],
     -- | A valid JSON or YAML string.
     content :: Prelude.Text,
     -- | The name of the SSM document that you want to update.
@@ -93,12 +93,15 @@ data UpdateDocument = UpdateDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetType', 'updateDocument_targetType' - Specify a new target type for the document.
+-- 'attachments', 'updateDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
+-- document.
 --
 -- 'versionName', 'updateDocument_versionName' - An optional field specifying the version of the artifact you are
 -- updating with the document. For example, \"Release 12, Update 6\". This
 -- value is unique across all versions of a document, and can\'t be
 -- changed.
+--
+-- 'targetType', 'updateDocument_targetType' - Specify a new target type for the document.
 --
 -- 'documentFormat', 'updateDocument_documentFormat' - Specify the document format for the new document version. Systems
 -- Manager supports JSON and YAML documents. JSON is the default format.
@@ -113,9 +116,6 @@ data UpdateDocument = UpdateDocument'
 -- a value for this parameter in your request, the existing value is
 -- applied to the new document version.
 --
--- 'attachments', 'updateDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
--- document.
---
 -- 'content', 'updateDocument_content' - A valid JSON or YAML string.
 --
 -- 'name', 'updateDocument_name' - The name of the SSM document that you want to update.
@@ -127,19 +127,20 @@ newUpdateDocument ::
   UpdateDocument
 newUpdateDocument pContent_ pName_ =
   UpdateDocument'
-    { targetType = Prelude.Nothing,
+    { attachments = Prelude.Nothing,
       versionName = Prelude.Nothing,
+      targetType = Prelude.Nothing,
       documentFormat = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      attachments = Prelude.Nothing,
       content = pContent_,
       name = pName_
     }
 
--- | Specify a new target type for the document.
-updateDocument_targetType :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
-updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetType) (\s@UpdateDocument' {} a -> s {targetType = a} :: UpdateDocument)
+-- | A list of key-value pairs that describe attachments to a version of a
+-- document.
+updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
+updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional field specifying the version of the artifact you are
 -- updating with the document. For example, \"Release 12, Update 6\". This
@@ -147,6 +148,10 @@ updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetTy
 -- changed.
 updateDocument_versionName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versionName) (\s@UpdateDocument' {} a -> s {versionName = a} :: UpdateDocument)
+
+-- | Specify a new target type for the document.
+updateDocument_targetType :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetType) (\s@UpdateDocument' {} a -> s {targetType = a} :: UpdateDocument)
 
 -- | Specify the document format for the new document version. Systems
 -- Manager supports JSON and YAML documents. JSON is the default format.
@@ -166,11 +171,6 @@ updateDocument_documentVersion = Lens.lens (\UpdateDocument' {documentVersion} -
 -- applied to the new document version.
 updateDocument_displayName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_displayName = Lens.lens (\UpdateDocument' {displayName} -> displayName) (\s@UpdateDocument' {} a -> s {displayName = a} :: UpdateDocument)
-
--- | A list of key-value pairs that describe attachments to a version of a
--- document.
-updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
-updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A valid JSON or YAML string.
 updateDocument_content :: Lens.Lens' UpdateDocument Prelude.Text
@@ -214,14 +214,14 @@ instance Core.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetType" Core..=) Prelude.<$> targetType,
+          [ ("Attachments" Core..=) Prelude.<$> attachments,
             ("VersionName" Core..=) Prelude.<$> versionName,
+            ("TargetType" Core..=) Prelude.<$> targetType,
             ("DocumentFormat" Core..=)
               Prelude.<$> documentFormat,
             ("DocumentVersion" Core..=)
               Prelude.<$> documentVersion,
             ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Attachments" Core..=) Prelude.<$> attachments,
             Prelude.Just ("Content" Core..= content),
             Prelude.Just ("Name" Core..= name)
           ]

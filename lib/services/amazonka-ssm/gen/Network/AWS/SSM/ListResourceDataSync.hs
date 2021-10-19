@@ -48,8 +48,8 @@ module Network.AWS.SSM.ListResourceDataSync
     newListResourceDataSyncResponse,
 
     -- * Response Lenses
-    listResourceDataSyncResponse_nextToken,
     listResourceDataSyncResponse_resourceDataSyncItems,
+    listResourceDataSyncResponse_nextToken,
     listResourceDataSyncResponse_httpStatus,
   )
 where
@@ -155,10 +155,10 @@ instance Core.AWSRequest ListResourceDataSync where
     Response.receiveJSON
       ( \s h x ->
           ListResourceDataSyncResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResourceDataSyncItems"
+            Prelude.<$> ( x Core..?> "ResourceDataSyncItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,12 +199,12 @@ instance Core.ToQuery ListResourceDataSync where
 
 -- | /See:/ 'newListResourceDataSyncResponse' smart constructor.
 data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
-  { -- | The token for the next set of items to return. Use this token to get the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of your current resource data sync configurations and their
+  { -- | A list of your current resource data sync configurations and their
     -- statuses.
     resourceDataSyncItems :: Prelude.Maybe [ResourceDataSyncItem],
+    -- | The token for the next set of items to return. Use this token to get the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,11 +218,11 @@ data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceDataSyncResponse_nextToken' - The token for the next set of items to return. Use this token to get the
--- next set of results.
---
 -- 'resourceDataSyncItems', 'listResourceDataSyncResponse_resourceDataSyncItems' - A list of your current resource data sync configurations and their
 -- statuses.
+--
+-- 'nextToken', 'listResourceDataSyncResponse_nextToken' - The token for the next set of items to return. Use this token to get the
+-- next set of results.
 --
 -- 'httpStatus', 'listResourceDataSyncResponse_httpStatus' - The response's http status code.
 newListResourceDataSyncResponse ::
@@ -231,21 +231,21 @@ newListResourceDataSyncResponse ::
   ListResourceDataSyncResponse
 newListResourceDataSyncResponse pHttpStatus_ =
   ListResourceDataSyncResponse'
-    { nextToken =
+    { resourceDataSyncItems =
         Prelude.Nothing,
-      resourceDataSyncItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of your current resource data sync configurations and their
+-- statuses.
+listResourceDataSyncResponse_resourceDataSyncItems :: Lens.Lens' ListResourceDataSyncResponse (Prelude.Maybe [ResourceDataSyncItem])
+listResourceDataSyncResponse_resourceDataSyncItems = Lens.lens (\ListResourceDataSyncResponse' {resourceDataSyncItems} -> resourceDataSyncItems) (\s@ListResourceDataSyncResponse' {} a -> s {resourceDataSyncItems = a} :: ListResourceDataSyncResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
 listResourceDataSyncResponse_nextToken :: Lens.Lens' ListResourceDataSyncResponse (Prelude.Maybe Prelude.Text)
 listResourceDataSyncResponse_nextToken = Lens.lens (\ListResourceDataSyncResponse' {nextToken} -> nextToken) (\s@ListResourceDataSyncResponse' {} a -> s {nextToken = a} :: ListResourceDataSyncResponse)
-
--- | A list of your current resource data sync configurations and their
--- statuses.
-listResourceDataSyncResponse_resourceDataSyncItems :: Lens.Lens' ListResourceDataSyncResponse (Prelude.Maybe [ResourceDataSyncItem])
-listResourceDataSyncResponse_resourceDataSyncItems = Lens.lens (\ListResourceDataSyncResponse' {resourceDataSyncItems} -> resourceDataSyncItems) (\s@ListResourceDataSyncResponse' {} a -> s {resourceDataSyncItems = a} :: ListResourceDataSyncResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listResourceDataSyncResponse_httpStatus :: Lens.Lens' ListResourceDataSyncResponse Prelude.Int

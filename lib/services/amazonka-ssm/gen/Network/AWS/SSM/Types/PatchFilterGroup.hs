@@ -49,7 +49,7 @@ newPatchFilterGroup =
 
 -- | The set of patch filters that make up the group.
 patchFilterGroup_patchFilters :: Lens.Lens' PatchFilterGroup [PatchFilter]
-patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Prelude.. Lens._Coerce
+patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Prelude.. Lens.coerced
 
 instance Core.FromJSON PatchFilterGroup where
   parseJSON =

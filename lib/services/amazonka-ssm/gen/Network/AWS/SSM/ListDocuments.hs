@@ -31,18 +31,18 @@ module Network.AWS.SSM.ListDocuments
     newListDocuments,
 
     -- * Request Lenses
+    listDocuments_documentFilterList,
+    listDocuments_filters,
     listDocuments_nextToken,
     listDocuments_maxResults,
-    listDocuments_filters,
-    listDocuments_documentFilterList,
 
     -- * Destructuring the Response
     ListDocumentsResponse (..),
     newListDocumentsResponse,
 
     -- * Response Lenses
-    listDocumentsResponse_nextToken,
     listDocumentsResponse_documentIdentifiers,
+    listDocumentsResponse_nextToken,
     listDocumentsResponse_httpStatus,
   )
 where
@@ -56,13 +56,8 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newListDocuments' smart constructor.
 data ListDocuments = ListDocuments'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | This data type is deprecated. Instead, use @Filters@.
+    documentFilterList :: Prelude.Maybe (Prelude.NonEmpty DocumentFilter),
     -- | One or more @DocumentKeyValuesFilter@ objects. Use a filter to return a
     -- more specific list of results. For keys, you can specify one or more
     -- key-value pair tags that have been applied to a document. Other valid
@@ -75,8 +70,13 @@ data ListDocuments = ListDocuments'
     -- tag key and one or more tag values. For example:
     -- @Key=tag:tagName,Values=valueName1,valueName2@
     filters :: Prelude.Maybe [DocumentKeyValuesFilter],
-    -- | This data type is deprecated. Instead, use @Filters@.
-    documentFilterList :: Prelude.Maybe (Prelude.NonEmpty DocumentFilter)
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,12 +88,7 @@ data ListDocuments = ListDocuments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDocuments_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
--- 'maxResults', 'listDocuments_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- 'documentFilterList', 'listDocuments_documentFilterList' - This data type is deprecated. Instead, use @Filters@.
 --
 -- 'filters', 'listDocuments_filters' - One or more @DocumentKeyValuesFilter@ objects. Use a filter to return a
 -- more specific list of results. For keys, you can specify one or more
@@ -107,27 +102,26 @@ data ListDocuments = ListDocuments'
 -- tag key and one or more tag values. For example:
 -- @Key=tag:tagName,Values=valueName1,valueName2@
 --
--- 'documentFilterList', 'listDocuments_documentFilterList' - This data type is deprecated. Instead, use @Filters@.
+-- 'nextToken', 'listDocuments_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'maxResults', 'listDocuments_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 newListDocuments ::
   ListDocuments
 newListDocuments =
   ListDocuments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { documentFilterList =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
-      documentFilterList = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-listDocuments_nextToken :: Lens.Lens' ListDocuments (Prelude.Maybe Prelude.Text)
-listDocuments_nextToken = Lens.lens (\ListDocuments' {nextToken} -> nextToken) (\s@ListDocuments' {} a -> s {nextToken = a} :: ListDocuments)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-listDocuments_maxResults :: Lens.Lens' ListDocuments (Prelude.Maybe Prelude.Natural)
-listDocuments_maxResults = Lens.lens (\ListDocuments' {maxResults} -> maxResults) (\s@ListDocuments' {} a -> s {maxResults = a} :: ListDocuments)
+-- | This data type is deprecated. Instead, use @Filters@.
+listDocuments_documentFilterList :: Lens.Lens' ListDocuments (Prelude.Maybe (Prelude.NonEmpty DocumentFilter))
+listDocuments_documentFilterList = Lens.lens (\ListDocuments' {documentFilterList} -> documentFilterList) (\s@ListDocuments' {} a -> s {documentFilterList = a} :: ListDocuments) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more @DocumentKeyValuesFilter@ objects. Use a filter to return a
 -- more specific list of results. For keys, you can specify one or more
@@ -141,11 +135,18 @@ listDocuments_maxResults = Lens.lens (\ListDocuments' {maxResults} -> maxResults
 -- tag key and one or more tag values. For example:
 -- @Key=tag:tagName,Values=valueName1,valueName2@
 listDocuments_filters :: Lens.Lens' ListDocuments (Prelude.Maybe [DocumentKeyValuesFilter])
-listDocuments_filters = Lens.lens (\ListDocuments' {filters} -> filters) (\s@ListDocuments' {} a -> s {filters = a} :: ListDocuments) Prelude.. Lens.mapping Lens._Coerce
+listDocuments_filters = Lens.lens (\ListDocuments' {filters} -> filters) (\s@ListDocuments' {} a -> s {filters = a} :: ListDocuments) Prelude.. Lens.mapping Lens.coerced
 
--- | This data type is deprecated. Instead, use @Filters@.
-listDocuments_documentFilterList :: Lens.Lens' ListDocuments (Prelude.Maybe (Prelude.NonEmpty DocumentFilter))
-listDocuments_documentFilterList = Lens.lens (\ListDocuments' {documentFilterList} -> documentFilterList) (\s@ListDocuments' {} a -> s {documentFilterList = a} :: ListDocuments) Prelude.. Lens.mapping Lens._Coerce
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+listDocuments_nextToken :: Lens.Lens' ListDocuments (Prelude.Maybe Prelude.Text)
+listDocuments_nextToken = Lens.lens (\ListDocuments' {nextToken} -> nextToken) (\s@ListDocuments' {} a -> s {nextToken = a} :: ListDocuments)
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+listDocuments_maxResults :: Lens.Lens' ListDocuments (Prelude.Maybe Prelude.Natural)
+listDocuments_maxResults = Lens.lens (\ListDocuments' {maxResults} -> maxResults) (\s@ListDocuments' {} a -> s {maxResults = a} :: ListDocuments)
 
 instance Core.AWSPager ListDocuments where
   page rq rs
@@ -176,10 +177,10 @@ instance Core.AWSRequest ListDocuments where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DocumentIdentifiers"
+            Prelude.<$> ( x Core..?> "DocumentIdentifiers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,11 +205,11 @@ instance Core.ToJSON ListDocuments where
   toJSON ListDocuments' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("DocumentFilterList" Core..=)
+              Prelude.<$> documentFilterList,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("DocumentFilterList" Core..=)
-              Prelude.<$> documentFilterList
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -220,11 +221,11 @@ instance Core.ToQuery ListDocuments where
 
 -- | /See:/ 'newListDocumentsResponse' smart constructor.
 data ListDocumentsResponse = ListDocumentsResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | The names of the SSM documents.
+    documentIdentifiers :: Prelude.Maybe [DocumentIdentifier],
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the SSM documents.
-    documentIdentifiers :: Prelude.Maybe [DocumentIdentifier],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,10 +239,10 @@ data ListDocumentsResponse = ListDocumentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentIdentifiers', 'listDocumentsResponse_documentIdentifiers' - The names of the SSM documents.
+--
 -- 'nextToken', 'listDocumentsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'documentIdentifiers', 'listDocumentsResponse_documentIdentifiers' - The names of the SSM documents.
 --
 -- 'httpStatus', 'listDocumentsResponse_httpStatus' - The response's http status code.
 newListDocumentsResponse ::
@@ -250,19 +251,20 @@ newListDocumentsResponse ::
   ListDocumentsResponse
 newListDocumentsResponse pHttpStatus_ =
   ListDocumentsResponse'
-    { nextToken = Prelude.Nothing,
-      documentIdentifiers = Prelude.Nothing,
+    { documentIdentifiers =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The names of the SSM documents.
+listDocumentsResponse_documentIdentifiers :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe [DocumentIdentifier])
+listDocumentsResponse_documentIdentifiers = Lens.lens (\ListDocumentsResponse' {documentIdentifiers} -> documentIdentifiers) (\s@ListDocumentsResponse' {} a -> s {documentIdentifiers = a} :: ListDocumentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 listDocumentsResponse_nextToken :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe Prelude.Text)
 listDocumentsResponse_nextToken = Lens.lens (\ListDocumentsResponse' {nextToken} -> nextToken) (\s@ListDocumentsResponse' {} a -> s {nextToken = a} :: ListDocumentsResponse)
-
--- | The names of the SSM documents.
-listDocumentsResponse_documentIdentifiers :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe [DocumentIdentifier])
-listDocumentsResponse_documentIdentifiers = Lens.lens (\ListDocumentsResponse' {documentIdentifiers} -> documentIdentifiers) (\s@ListDocumentsResponse' {} a -> s {documentIdentifiers = a} :: ListDocumentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDocumentsResponse_httpStatus :: Lens.Lens' ListDocumentsResponse Prelude.Int

@@ -58,7 +58,7 @@ newAutomationExecutionFilter ::
 newAutomationExecutionFilter pKey_ pValues_ =
   AutomationExecutionFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | One or more keys to limit the results.
@@ -68,7 +68,7 @@ automationExecutionFilter_key = Lens.lens (\AutomationExecutionFilter' {key} -> 
 -- | The values used to limit the execution information associated with the
 -- filter\'s key.
 automationExecutionFilter_values :: Lens.Lens' AutomationExecutionFilter (Prelude.NonEmpty Prelude.Text)
-automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Prelude.. Lens._Coerce
+automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable AutomationExecutionFilter
 

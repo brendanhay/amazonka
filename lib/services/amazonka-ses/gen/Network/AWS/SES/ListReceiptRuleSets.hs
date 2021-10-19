@@ -199,7 +199,7 @@ newListReceiptRuleSetsResponse pHttpStatus_ =
 -- consists of the rule set name and the timestamp of when the rule set was
 -- created.
 listReceiptRuleSetsResponse_ruleSets :: Lens.Lens' ListReceiptRuleSetsResponse (Prelude.Maybe [ReceiptRuleSetMetadata])
-listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' {ruleSets} -> ruleSets) (\s@ListReceiptRuleSetsResponse' {} a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' {ruleSets} -> ruleSets) (\s@ListReceiptRuleSetsResponse' {} a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token indicating that there are additional receipt rule sets available
 -- to be listed. Pass this token to successive calls of

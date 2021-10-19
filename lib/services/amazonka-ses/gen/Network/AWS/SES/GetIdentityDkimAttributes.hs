@@ -104,7 +104,7 @@ newGetIdentityDkimAttributes =
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
 getIdentityDkimAttributes_identities :: Lens.Lens' GetIdentityDkimAttributes [Prelude.Text]
-getIdentityDkimAttributes_identities = Lens.lens (\GetIdentityDkimAttributes' {identities} -> identities) (\s@GetIdentityDkimAttributes' {} a -> s {identities = a} :: GetIdentityDkimAttributes) Prelude.. Lens._Coerce
+getIdentityDkimAttributes_identities = Lens.lens (\GetIdentityDkimAttributes' {identities} -> identities) (\s@GetIdentityDkimAttributes' {} a -> s {identities = a} :: GetIdentityDkimAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetIdentityDkimAttributes where
   type
@@ -185,7 +185,7 @@ getIdentityDkimAttributesResponse_httpStatus = Lens.lens (\GetIdentityDkimAttrib
 
 -- | The DKIM attributes for an email address or a domain.
 getIdentityDkimAttributesResponse_dkimAttributes :: Lens.Lens' GetIdentityDkimAttributesResponse (Prelude.HashMap Prelude.Text IdentityDkimAttributes)
-getIdentityDkimAttributesResponse_dkimAttributes = Lens.lens (\GetIdentityDkimAttributesResponse' {dkimAttributes} -> dkimAttributes) (\s@GetIdentityDkimAttributesResponse' {} a -> s {dkimAttributes = a} :: GetIdentityDkimAttributesResponse) Prelude.. Lens._Coerce
+getIdentityDkimAttributesResponse_dkimAttributes = Lens.lens (\GetIdentityDkimAttributesResponse' {dkimAttributes} -> dkimAttributes) (\s@GetIdentityDkimAttributesResponse' {} a -> s {dkimAttributes = a} :: GetIdentityDkimAttributesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

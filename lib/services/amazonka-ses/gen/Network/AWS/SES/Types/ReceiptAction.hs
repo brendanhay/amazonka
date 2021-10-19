@@ -39,15 +39,10 @@ import Network.AWS.SES.Types.WorkmailAction
 --
 -- /See:/ 'newReceiptAction' smart constructor.
 data ReceiptAction = ReceiptAction'
-  { -- | Calls an AWS Lambda function, and optionally, publishes a notification
-    -- to Amazon SNS.
-    lambdaAction :: Prelude.Maybe LambdaAction,
-    -- | Saves the received message to an Amazon Simple Storage Service (Amazon
-    -- S3) bucket and, optionally, publishes a notification to Amazon SNS.
-    s3Action :: Prelude.Maybe S3Action,
-    -- | Terminates the evaluation of the receipt rule set and optionally
-    -- publishes a notification to Amazon SNS.
-    stopAction :: Prelude.Maybe StopAction,
+  { -- | Adds a header to the received email.
+    addHeaderAction :: Prelude.Maybe AddHeaderAction,
+    -- | Publishes the email content within a notification to Amazon SNS.
+    sNSAction :: Prelude.Maybe SNSAction,
     -- | Calls Amazon WorkMail and, optionally, publishes a notification to
     -- Amazon Amazon SNS.
     workmailAction :: Prelude.Maybe WorkmailAction,
@@ -55,10 +50,15 @@ data ReceiptAction = ReceiptAction'
     -- and, optionally, publishes a notification to Amazon Simple Notification
     -- Service (Amazon SNS).
     bounceAction :: Prelude.Maybe BounceAction,
-    -- | Adds a header to the received email.
-    addHeaderAction :: Prelude.Maybe AddHeaderAction,
-    -- | Publishes the email content within a notification to Amazon SNS.
-    sNSAction :: Prelude.Maybe SNSAction
+    -- | Calls an AWS Lambda function, and optionally, publishes a notification
+    -- to Amazon SNS.
+    lambdaAction :: Prelude.Maybe LambdaAction,
+    -- | Terminates the evaluation of the receipt rule set and optionally
+    -- publishes a notification to Amazon SNS.
+    stopAction :: Prelude.Maybe StopAction,
+    -- | Saves the received message to an Amazon Simple Storage Service (Amazon
+    -- S3) bucket and, optionally, publishes a notification to Amazon SNS.
+    s3Action :: Prelude.Maybe S3Action
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,14 +70,9 @@ data ReceiptAction = ReceiptAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaAction', 'receiptAction_lambdaAction' - Calls an AWS Lambda function, and optionally, publishes a notification
--- to Amazon SNS.
+-- 'addHeaderAction', 'receiptAction_addHeaderAction' - Adds a header to the received email.
 --
--- 's3Action', 'receiptAction_s3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon
--- S3) bucket and, optionally, publishes a notification to Amazon SNS.
---
--- 'stopAction', 'receiptAction_stopAction' - Terminates the evaluation of the receipt rule set and optionally
--- publishes a notification to Amazon SNS.
+-- 'sNSAction', 'receiptAction_sNSAction' - Publishes the email content within a notification to Amazon SNS.
 --
 -- 'workmailAction', 'receiptAction_workmailAction' - Calls Amazon WorkMail and, optionally, publishes a notification to
 -- Amazon Amazon SNS.
@@ -86,36 +81,34 @@ data ReceiptAction = ReceiptAction'
 -- and, optionally, publishes a notification to Amazon Simple Notification
 -- Service (Amazon SNS).
 --
--- 'addHeaderAction', 'receiptAction_addHeaderAction' - Adds a header to the received email.
+-- 'lambdaAction', 'receiptAction_lambdaAction' - Calls an AWS Lambda function, and optionally, publishes a notification
+-- to Amazon SNS.
 --
--- 'sNSAction', 'receiptAction_sNSAction' - Publishes the email content within a notification to Amazon SNS.
+-- 'stopAction', 'receiptAction_stopAction' - Terminates the evaluation of the receipt rule set and optionally
+-- publishes a notification to Amazon SNS.
+--
+-- 's3Action', 'receiptAction_s3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon
+-- S3) bucket and, optionally, publishes a notification to Amazon SNS.
 newReceiptAction ::
   ReceiptAction
 newReceiptAction =
   ReceiptAction'
-    { lambdaAction = Prelude.Nothing,
-      s3Action = Prelude.Nothing,
-      stopAction = Prelude.Nothing,
+    { addHeaderAction = Prelude.Nothing,
+      sNSAction = Prelude.Nothing,
       workmailAction = Prelude.Nothing,
       bounceAction = Prelude.Nothing,
-      addHeaderAction = Prelude.Nothing,
-      sNSAction = Prelude.Nothing
+      lambdaAction = Prelude.Nothing,
+      stopAction = Prelude.Nothing,
+      s3Action = Prelude.Nothing
     }
 
--- | Calls an AWS Lambda function, and optionally, publishes a notification
--- to Amazon SNS.
-receiptAction_lambdaAction :: Lens.Lens' ReceiptAction (Prelude.Maybe LambdaAction)
-receiptAction_lambdaAction = Lens.lens (\ReceiptAction' {lambdaAction} -> lambdaAction) (\s@ReceiptAction' {} a -> s {lambdaAction = a} :: ReceiptAction)
+-- | Adds a header to the received email.
+receiptAction_addHeaderAction :: Lens.Lens' ReceiptAction (Prelude.Maybe AddHeaderAction)
+receiptAction_addHeaderAction = Lens.lens (\ReceiptAction' {addHeaderAction} -> addHeaderAction) (\s@ReceiptAction' {} a -> s {addHeaderAction = a} :: ReceiptAction)
 
--- | Saves the received message to an Amazon Simple Storage Service (Amazon
--- S3) bucket and, optionally, publishes a notification to Amazon SNS.
-receiptAction_s3Action :: Lens.Lens' ReceiptAction (Prelude.Maybe S3Action)
-receiptAction_s3Action = Lens.lens (\ReceiptAction' {s3Action} -> s3Action) (\s@ReceiptAction' {} a -> s {s3Action = a} :: ReceiptAction)
-
--- | Terminates the evaluation of the receipt rule set and optionally
--- publishes a notification to Amazon SNS.
-receiptAction_stopAction :: Lens.Lens' ReceiptAction (Prelude.Maybe StopAction)
-receiptAction_stopAction = Lens.lens (\ReceiptAction' {stopAction} -> stopAction) (\s@ReceiptAction' {} a -> s {stopAction = a} :: ReceiptAction)
+-- | Publishes the email content within a notification to Amazon SNS.
+receiptAction_sNSAction :: Lens.Lens' ReceiptAction (Prelude.Maybe SNSAction)
+receiptAction_sNSAction = Lens.lens (\ReceiptAction' {sNSAction} -> sNSAction) (\s@ReceiptAction' {} a -> s {sNSAction = a} :: ReceiptAction)
 
 -- | Calls Amazon WorkMail and, optionally, publishes a notification to
 -- Amazon Amazon SNS.
@@ -128,24 +121,31 @@ receiptAction_workmailAction = Lens.lens (\ReceiptAction' {workmailAction} -> wo
 receiptAction_bounceAction :: Lens.Lens' ReceiptAction (Prelude.Maybe BounceAction)
 receiptAction_bounceAction = Lens.lens (\ReceiptAction' {bounceAction} -> bounceAction) (\s@ReceiptAction' {} a -> s {bounceAction = a} :: ReceiptAction)
 
--- | Adds a header to the received email.
-receiptAction_addHeaderAction :: Lens.Lens' ReceiptAction (Prelude.Maybe AddHeaderAction)
-receiptAction_addHeaderAction = Lens.lens (\ReceiptAction' {addHeaderAction} -> addHeaderAction) (\s@ReceiptAction' {} a -> s {addHeaderAction = a} :: ReceiptAction)
+-- | Calls an AWS Lambda function, and optionally, publishes a notification
+-- to Amazon SNS.
+receiptAction_lambdaAction :: Lens.Lens' ReceiptAction (Prelude.Maybe LambdaAction)
+receiptAction_lambdaAction = Lens.lens (\ReceiptAction' {lambdaAction} -> lambdaAction) (\s@ReceiptAction' {} a -> s {lambdaAction = a} :: ReceiptAction)
 
--- | Publishes the email content within a notification to Amazon SNS.
-receiptAction_sNSAction :: Lens.Lens' ReceiptAction (Prelude.Maybe SNSAction)
-receiptAction_sNSAction = Lens.lens (\ReceiptAction' {sNSAction} -> sNSAction) (\s@ReceiptAction' {} a -> s {sNSAction = a} :: ReceiptAction)
+-- | Terminates the evaluation of the receipt rule set and optionally
+-- publishes a notification to Amazon SNS.
+receiptAction_stopAction :: Lens.Lens' ReceiptAction (Prelude.Maybe StopAction)
+receiptAction_stopAction = Lens.lens (\ReceiptAction' {stopAction} -> stopAction) (\s@ReceiptAction' {} a -> s {stopAction = a} :: ReceiptAction)
+
+-- | Saves the received message to an Amazon Simple Storage Service (Amazon
+-- S3) bucket and, optionally, publishes a notification to Amazon SNS.
+receiptAction_s3Action :: Lens.Lens' ReceiptAction (Prelude.Maybe S3Action)
+receiptAction_s3Action = Lens.lens (\ReceiptAction' {s3Action} -> s3Action) (\s@ReceiptAction' {} a -> s {s3Action = a} :: ReceiptAction)
 
 instance Core.FromXML ReceiptAction where
   parseXML x =
     ReceiptAction'
-      Prelude.<$> (x Core..@? "LambdaAction")
-      Prelude.<*> (x Core..@? "S3Action")
-      Prelude.<*> (x Core..@? "StopAction")
+      Prelude.<$> (x Core..@? "AddHeaderAction")
+      Prelude.<*> (x Core..@? "SNSAction")
       Prelude.<*> (x Core..@? "WorkmailAction")
       Prelude.<*> (x Core..@? "BounceAction")
-      Prelude.<*> (x Core..@? "AddHeaderAction")
-      Prelude.<*> (x Core..@? "SNSAction")
+      Prelude.<*> (x Core..@? "LambdaAction")
+      Prelude.<*> (x Core..@? "StopAction")
+      Prelude.<*> (x Core..@? "S3Action")
 
 instance Prelude.Hashable ReceiptAction
 
@@ -154,11 +154,11 @@ instance Prelude.NFData ReceiptAction
 instance Core.ToQuery ReceiptAction where
   toQuery ReceiptAction' {..} =
     Prelude.mconcat
-      [ "LambdaAction" Core.=: lambdaAction,
-        "S3Action" Core.=: s3Action,
-        "StopAction" Core.=: stopAction,
+      [ "AddHeaderAction" Core.=: addHeaderAction,
+        "SNSAction" Core.=: sNSAction,
         "WorkmailAction" Core.=: workmailAction,
         "BounceAction" Core.=: bounceAction,
-        "AddHeaderAction" Core.=: addHeaderAction,
-        "SNSAction" Core.=: sNSAction
+        "LambdaAction" Core.=: lambdaAction,
+        "StopAction" Core.=: stopAction,
+        "S3Action" Core.=: s3Action
       ]

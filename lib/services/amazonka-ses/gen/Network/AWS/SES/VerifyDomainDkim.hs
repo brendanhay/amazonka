@@ -227,6 +227,6 @@ verifyDomainDkimResponse_httpStatus = Lens.lens (\VerifyDomainDkimResponse' {htt
 -- the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
 verifyDomainDkimResponse_dkimTokens :: Lens.Lens' VerifyDomainDkimResponse [Prelude.Text]
-verifyDomainDkimResponse_dkimTokens = Lens.lens (\VerifyDomainDkimResponse' {dkimTokens} -> dkimTokens) (\s@VerifyDomainDkimResponse' {} a -> s {dkimTokens = a} :: VerifyDomainDkimResponse) Prelude.. Lens._Coerce
+verifyDomainDkimResponse_dkimTokens = Lens.lens (\VerifyDomainDkimResponse' {dkimTokens} -> dkimTokens) (\s@VerifyDomainDkimResponse' {} a -> s {dkimTokens = a} :: VerifyDomainDkimResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData VerifyDomainDkimResponse

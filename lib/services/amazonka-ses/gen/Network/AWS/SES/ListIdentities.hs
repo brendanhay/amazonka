@@ -33,8 +33,8 @@ module Network.AWS.SES.ListIdentities
     newListIdentities,
 
     -- * Request Lenses
-    listIdentities_nextToken,
     listIdentities_identityType,
+    listIdentities_nextToken,
     listIdentities_maxItems,
 
     -- * Destructuring the Response
@@ -61,12 +61,12 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'newListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { -- | The token to use for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of the identities to list. Possible values are \"EmailAddress\"
+  { -- | The type of the identities to list. Possible values are \"EmailAddress\"
     -- and \"Domain\". If this parameter is omitted, then all identities will
     -- be listed.
     identityType :: Prelude.Maybe IdentityType,
+    -- | The token to use for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of identities per page. Possible values are 1-1000
     -- inclusive.
     maxItems :: Prelude.Maybe Prelude.Int
@@ -81,11 +81,11 @@ data ListIdentities = ListIdentities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIdentities_nextToken' - The token to use for pagination.
---
 -- 'identityType', 'listIdentities_identityType' - The type of the identities to list. Possible values are \"EmailAddress\"
 -- and \"Domain\". If this parameter is omitted, then all identities will
 -- be listed.
+--
+-- 'nextToken', 'listIdentities_nextToken' - The token to use for pagination.
 --
 -- 'maxItems', 'listIdentities_maxItems' - The maximum number of identities per page. Possible values are 1-1000
 -- inclusive.
@@ -93,20 +93,20 @@ newListIdentities ::
   ListIdentities
 newListIdentities =
   ListIdentities'
-    { nextToken = Prelude.Nothing,
-      identityType = Prelude.Nothing,
+    { identityType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxItems = Prelude.Nothing
     }
-
--- | The token to use for pagination.
-listIdentities_nextToken :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Text)
-listIdentities_nextToken = Lens.lens (\ListIdentities' {nextToken} -> nextToken) (\s@ListIdentities' {} a -> s {nextToken = a} :: ListIdentities)
 
 -- | The type of the identities to list. Possible values are \"EmailAddress\"
 -- and \"Domain\". If this parameter is omitted, then all identities will
 -- be listed.
 listIdentities_identityType :: Lens.Lens' ListIdentities (Prelude.Maybe IdentityType)
 listIdentities_identityType = Lens.lens (\ListIdentities' {identityType} -> identityType) (\s@ListIdentities' {} a -> s {identityType = a} :: ListIdentities)
+
+-- | The token to use for pagination.
+listIdentities_nextToken :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Text)
+listIdentities_nextToken = Lens.lens (\ListIdentities' {nextToken} -> nextToken) (\s@ListIdentities' {} a -> s {nextToken = a} :: ListIdentities)
 
 -- | The maximum number of identities per page. Possible values are 1-1000
 -- inclusive.
@@ -165,8 +165,8 @@ instance Core.ToQuery ListIdentities where
           Core.=: ("ListIdentities" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
         "IdentityType" Core.=: identityType,
+        "NextToken" Core.=: nextToken,
         "MaxItems" Core.=: maxItems
       ]
 
@@ -219,6 +219,6 @@ listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpSta
 
 -- | A list of identities.
 listIdentitiesResponse_identities :: Lens.Lens' ListIdentitiesResponse [Prelude.Text]
-listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Prelude.. Lens._Coerce
+listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListIdentitiesResponse

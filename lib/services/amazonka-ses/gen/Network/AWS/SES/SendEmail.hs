@@ -65,11 +65,11 @@ module Network.AWS.SES.SendEmail
 
     -- * Request Lenses
     sendEmail_returnPath,
+    sendEmail_configurationSetName,
+    sendEmail_sourceArn,
     sendEmail_returnPathArn,
     sendEmail_tags,
     sendEmail_replyToAddresses,
-    sendEmail_sourceArn,
-    sendEmail_configurationSetName,
     sendEmail_source,
     sendEmail_destination,
     sendEmail_message,
@@ -106,6 +106,24 @@ data SendEmail = SendEmail'
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
     returnPath :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set to use when you send an email using
+    -- @SendEmail@.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to send for the email address specified in the @Source@
+    -- parameter.
+    --
+    -- For example, if the owner of @example.com@ (which has ARN
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+    -- policy to it that authorizes you to send from @user\@example.com@, then
+    -- you would specify the @SourceArn@ to be
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+    -- @Source@ to be @user\@example.com@.
+    --
+    -- For more information about sending authorization, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -128,24 +146,6 @@ data SendEmail = SendEmail'
     -- | The reply-to email address(es) for the message. If the recipient replies
     -- to the message, each reply-to address will receive the reply.
     replyToAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to send for the email address specified in the @Source@
-    -- parameter.
-    --
-    -- For example, if the owner of @example.com@ (which has ARN
-    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
-    -- policy to it that authorizes you to send from @user\@example.com@, then
-    -- you would specify the @SourceArn@ to be
-    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
-    -- @Source@ to be @user\@example.com@.
-    --
-    -- For more information about sending authorization, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use when you send an email using
-    -- @SendEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -196,6 +196,24 @@ data SendEmail = SendEmail'
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
 --
+-- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when you send an email using
+-- @SendEmail@.
+--
+-- 'sourceArn', 'sendEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to send for the email address specified in the @Source@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to send from @user\@example.com@, then
+-- you would specify the @SourceArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @Source@ to be @user\@example.com@.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
 -- 'returnPathArn', 'sendEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
 -- that permits you to use the email address specified in the @ReturnPath@
@@ -217,24 +235,6 @@ data SendEmail = SendEmail'
 --
 -- 'replyToAddresses', 'sendEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
---
--- 'sourceArn', 'sendEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to send for the email address specified in the @Source@
--- parameter.
---
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to send from @user\@example.com@, then
--- you would specify the @SourceArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @Source@ to be @user\@example.com@.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when you send an email using
--- @SendEmail@.
 --
 -- 'source', 'sendEmail_source' - The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -276,11 +276,11 @@ newSendEmail ::
 newSendEmail pSource_ pDestination_ pMessage_ =
   SendEmail'
     { returnPath = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
       returnPathArn = Prelude.Nothing,
       tags = Prelude.Nothing,
       replyToAddresses = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
       source = pSource_,
       destination = pDestination_,
       message = pMessage_
@@ -296,6 +296,28 @@ newSendEmail pSource_ pDestination_ pMessage_ =
 -- verified with Amazon SES.
 sendEmail_returnPath :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_returnPath = Lens.lens (\SendEmail' {returnPath} -> returnPath) (\s@SendEmail' {} a -> s {returnPath = a} :: SendEmail)
+
+-- | The name of the configuration set to use when you send an email using
+-- @SendEmail@.
+sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
+
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to send for the email address specified in the @Source@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to send from @user\@example.com@, then
+-- you would specify the @SourceArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @Source@ to be @user\@example.com@.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+sendEmail_sourceArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_sourceArn = Lens.lens (\SendEmail' {sourceArn} -> sourceArn) (\s@SendEmail' {} a -> s {sourceArn = a} :: SendEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -318,34 +340,12 @@ sendEmail_returnPathArn = Lens.lens (\SendEmail' {returnPathArn} -> returnPathAr
 -- that you send using @SendEmail@. Tags correspond to characteristics of
 -- the email that you define, so that you can publish email sending events.
 sendEmail_tags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
-sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
+sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
 sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
-sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
-
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to send for the email address specified in the @Source@
--- parameter.
---
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to send from @user\@example.com@, then
--- you would specify the @SourceArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @Source@ to be @user\@example.com@.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendEmail_sourceArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_sourceArn = Lens.lens (\SendEmail' {sourceArn} -> sourceArn) (\s@SendEmail' {} a -> s {sourceArn = a} :: SendEmail)
-
--- | The name of the configuration set to use when you send an email using
--- @SendEmail@.
-sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
+sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -413,6 +413,8 @@ instance Core.ToQuery SendEmail where
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ReturnPath" Core.=: returnPath,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "SourceArn" Core.=: sourceArn,
         "ReturnPathArn" Core.=: returnPathArn,
         "Tags"
           Core.=: Core.toQuery
@@ -422,8 +424,6 @@ instance Core.ToQuery SendEmail where
             ( Core.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "SourceArn" Core.=: sourceArn,
-        "ConfigurationSetName" Core.=: configurationSetName,
         "Source" Core.=: source,
         "Destination" Core.=: destination,
         "Message" Core.=: message

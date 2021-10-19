@@ -33,12 +33,12 @@ import Network.AWS.SES.Types.ExtensionField
 --
 -- /See:/ 'newMessageDsn' smart constructor.
 data MessageDsn = MessageDsn'
-  { -- | Additional X-headers to include in the DSN.
-    extensionFields :: Prelude.Maybe [ExtensionField],
-    -- | When the message was received by the reporting mail transfer agent
+  { -- | When the message was received by the reporting mail transfer agent
     -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
     -- format.
     arrivalDate :: Prelude.Maybe Core.ISO8601,
+    -- | Additional X-headers to include in the DSN.
+    extensionFields :: Prelude.Maybe [ExtensionField],
     -- | The reporting MTA that attempted to deliver the message, formatted as
     -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
     -- (@mta-name-type; mta-name@). The default value is
@@ -55,11 +55,11 @@ data MessageDsn = MessageDsn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'extensionFields', 'messageDsn_extensionFields' - Additional X-headers to include in the DSN.
---
 -- 'arrivalDate', 'messageDsn_arrivalDate' - When the message was received by the reporting mail transfer agent
 -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
 -- format.
+--
+-- 'extensionFields', 'messageDsn_extensionFields' - Additional X-headers to include in the DSN.
 --
 -- 'reportingMta', 'messageDsn_reportingMta' - The reporting MTA that attempted to deliver the message, formatted as
 -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
@@ -71,20 +71,20 @@ newMessageDsn ::
   MessageDsn
 newMessageDsn pReportingMta_ =
   MessageDsn'
-    { extensionFields = Prelude.Nothing,
-      arrivalDate = Prelude.Nothing,
+    { arrivalDate = Prelude.Nothing,
+      extensionFields = Prelude.Nothing,
       reportingMta = pReportingMta_
     }
-
--- | Additional X-headers to include in the DSN.
-messageDsn_extensionFields :: Lens.Lens' MessageDsn (Prelude.Maybe [ExtensionField])
-messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extensionFields) (\s@MessageDsn' {} a -> s {extensionFields = a} :: MessageDsn) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When the message was received by the reporting mail transfer agent
 -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
 -- format.
 messageDsn_arrivalDate :: Lens.Lens' MessageDsn (Prelude.Maybe Prelude.UTCTime)
 messageDsn_arrivalDate = Lens.lens (\MessageDsn' {arrivalDate} -> arrivalDate) (\s@MessageDsn' {} a -> s {arrivalDate = a} :: MessageDsn) Prelude.. Lens.mapping Core._Time
+
+-- | Additional X-headers to include in the DSN.
+messageDsn_extensionFields :: Lens.Lens' MessageDsn (Prelude.Maybe [ExtensionField])
+messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extensionFields) (\s@MessageDsn' {} a -> s {extensionFields = a} :: MessageDsn) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reporting MTA that attempted to deliver the message, formatted as
 -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
@@ -100,11 +100,11 @@ instance Prelude.NFData MessageDsn
 instance Core.ToQuery MessageDsn where
   toQuery MessageDsn' {..} =
     Prelude.mconcat
-      [ "ExtensionFields"
+      [ "ArrivalDate" Core.=: arrivalDate,
+        "ExtensionFields"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> extensionFields
             ),
-        "ArrivalDate" Core.=: arrivalDate,
         "ReportingMta" Core.=: reportingMta
       ]

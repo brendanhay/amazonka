@@ -99,7 +99,7 @@ reorderReceiptRuleSet_ruleSetName = Lens.lens (\ReorderReceiptRuleSet' {ruleSetN
 -- | A list of the specified receipt rule set\'s receipt rules in the order
 -- that you want to put them.
 reorderReceiptRuleSet_ruleNames :: Lens.Lens' ReorderReceiptRuleSet [Prelude.Text]
-reorderReceiptRuleSet_ruleNames = Lens.lens (\ReorderReceiptRuleSet' {ruleNames} -> ruleNames) (\s@ReorderReceiptRuleSet' {} a -> s {ruleNames = a} :: ReorderReceiptRuleSet) Prelude.. Lens._Coerce
+reorderReceiptRuleSet_ruleNames = Lens.lens (\ReorderReceiptRuleSet' {ruleNames} -> ruleNames) (\s@ReorderReceiptRuleSet' {} a -> s {ruleNames = a} :: ReorderReceiptRuleSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ReorderReceiptRuleSet where
   type

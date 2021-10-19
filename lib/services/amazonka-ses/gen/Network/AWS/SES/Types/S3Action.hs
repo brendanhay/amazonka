@@ -43,11 +43,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3Action' smart constructor.
 data S3Action = S3Action'
-  { -- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a
-    -- directory name that enables you to store similar data under the same
-    -- directory in a bucket.
-    objectKeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The customer master key that Amazon SES should use to encrypt your
+  { -- | The customer master key that Amazon SES should use to encrypt your
     -- emails before saving them to the Amazon S3 bucket. You can use the
     -- default master key or a custom master key you created in AWS KMS as
     -- follows:
@@ -91,6 +87,10 @@ data S3Action = S3Action'
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
     topicArn :: Prelude.Maybe Prelude.Text,
+    -- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a
+    -- directory name that enables you to store similar data under the same
+    -- directory in a bucket.
+    objectKeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket that incoming email will be saved to.
     bucketName :: Prelude.Text
   }
@@ -103,10 +103,6 @@ data S3Action = S3Action'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'objectKeyPrefix', 's3Action_objectKeyPrefix' - The key prefix of the Amazon S3 bucket. The key prefix is similar to a
--- directory name that enables you to store similar data under the same
--- directory in a bucket.
 --
 -- 'kmsKeyArn', 's3Action_kmsKeyArn' - The customer master key that Amazon SES should use to encrypt your
 -- emails before saving them to the Amazon S3 bucket. You can use the
@@ -152,6 +148,10 @@ data S3Action = S3Action'
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
 --
+-- 'objectKeyPrefix', 's3Action_objectKeyPrefix' - The key prefix of the Amazon S3 bucket. The key prefix is similar to a
+-- directory name that enables you to store similar data under the same
+-- directory in a bucket.
+--
 -- 'bucketName', 's3Action_bucketName' - The name of the Amazon S3 bucket that incoming email will be saved to.
 newS3Action ::
   -- | 'bucketName'
@@ -159,17 +159,11 @@ newS3Action ::
   S3Action
 newS3Action pBucketName_ =
   S3Action'
-    { objectKeyPrefix = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
+    { kmsKeyArn = Prelude.Nothing,
       topicArn = Prelude.Nothing,
+      objectKeyPrefix = Prelude.Nothing,
       bucketName = pBucketName_
     }
-
--- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a
--- directory name that enables you to store similar data under the same
--- directory in a bucket.
-s3Action_objectKeyPrefix :: Lens.Lens' S3Action (Prelude.Maybe Prelude.Text)
-s3Action_objectKeyPrefix = Lens.lens (\S3Action' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Action' {} a -> s {objectKeyPrefix = a} :: S3Action)
 
 -- | The customer master key that Amazon SES should use to encrypt your
 -- emails before saving them to the Amazon S3 bucket. You can use the
@@ -219,6 +213,12 @@ s3Action_kmsKeyArn = Lens.lens (\S3Action' {kmsKeyArn} -> kmsKeyArn) (\s@S3Actio
 s3Action_topicArn :: Lens.Lens' S3Action (Prelude.Maybe Prelude.Text)
 s3Action_topicArn = Lens.lens (\S3Action' {topicArn} -> topicArn) (\s@S3Action' {} a -> s {topicArn = a} :: S3Action)
 
+-- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a
+-- directory name that enables you to store similar data under the same
+-- directory in a bucket.
+s3Action_objectKeyPrefix :: Lens.Lens' S3Action (Prelude.Maybe Prelude.Text)
+s3Action_objectKeyPrefix = Lens.lens (\S3Action' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Action' {} a -> s {objectKeyPrefix = a} :: S3Action)
+
 -- | The name of the Amazon S3 bucket that incoming email will be saved to.
 s3Action_bucketName :: Lens.Lens' S3Action Prelude.Text
 s3Action_bucketName = Lens.lens (\S3Action' {bucketName} -> bucketName) (\s@S3Action' {} a -> s {bucketName = a} :: S3Action)
@@ -226,9 +226,9 @@ s3Action_bucketName = Lens.lens (\S3Action' {bucketName} -> bucketName) (\s@S3Ac
 instance Core.FromXML S3Action where
   parseXML x =
     S3Action'
-      Prelude.<$> (x Core..@? "ObjectKeyPrefix")
-      Prelude.<*> (x Core..@? "KmsKeyArn")
+      Prelude.<$> (x Core..@? "KmsKeyArn")
       Prelude.<*> (x Core..@? "TopicArn")
+      Prelude.<*> (x Core..@? "ObjectKeyPrefix")
       Prelude.<*> (x Core..@ "BucketName")
 
 instance Prelude.Hashable S3Action
@@ -238,8 +238,8 @@ instance Prelude.NFData S3Action
 instance Core.ToQuery S3Action where
   toQuery S3Action' {..} =
     Prelude.mconcat
-      [ "ObjectKeyPrefix" Core.=: objectKeyPrefix,
-        "KmsKeyArn" Core.=: kmsKeyArn,
+      [ "KmsKeyArn" Core.=: kmsKeyArn,
         "TopicArn" Core.=: topicArn,
+        "ObjectKeyPrefix" Core.=: objectKeyPrefix,
         "BucketName" Core.=: bucketName
       ]

@@ -135,7 +135,7 @@ newGetSendStatisticsResponse pHttpStatus_ =
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 getSendStatisticsResponse_sendDataPoints :: Lens.Lens' GetSendStatisticsResponse (Prelude.Maybe [SendDataPoint])
-getSendStatisticsResponse_sendDataPoints = Lens.lens (\GetSendStatisticsResponse' {sendDataPoints} -> sendDataPoints) (\s@GetSendStatisticsResponse' {} a -> s {sendDataPoints = a} :: GetSendStatisticsResponse) Prelude.. Lens.mapping Lens._Coerce
+getSendStatisticsResponse_sendDataPoints = Lens.lens (\GetSendStatisticsResponse' {sendDataPoints} -> sendDataPoints) (\s@GetSendStatisticsResponse' {} a -> s {sendDataPoints = a} :: GetSendStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSendStatisticsResponse_httpStatus :: Lens.Lens' GetSendStatisticsResponse Prelude.Int

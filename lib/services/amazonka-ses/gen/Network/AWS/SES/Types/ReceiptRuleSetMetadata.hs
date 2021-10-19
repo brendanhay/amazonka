@@ -34,9 +34,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReceiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
-  { -- | The date and time the receipt rule set was created.
-    createdTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The name of the receipt rule set. The name must:
+  { -- | The name of the receipt rule set. The name must:
     --
     -- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
     --     underscores (_), or dashes (-).
@@ -44,7 +42,9 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
     -- -   Start and end with a letter or number.
     --
     -- -   Contain less than 64 characters.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the receipt rule set was created.
+    createdTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,8 +56,6 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'receiptRuleSetMetadata_createdTimestamp' - The date and time the receipt rule set was created.
---
 -- 'name', 'receiptRuleSetMetadata_name' - The name of the receipt rule set. The name must:
 --
 -- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
@@ -66,18 +64,15 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
 -- -   Start and end with a letter or number.
 --
 -- -   Contain less than 64 characters.
+--
+-- 'createdTimestamp', 'receiptRuleSetMetadata_createdTimestamp' - The date and time the receipt rule set was created.
 newReceiptRuleSetMetadata ::
   ReceiptRuleSetMetadata
 newReceiptRuleSetMetadata =
   ReceiptRuleSetMetadata'
-    { createdTimestamp =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing
     }
-
--- | The date and time the receipt rule set was created.
-receiptRuleSetMetadata_createdTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Prelude.Maybe Prelude.UTCTime)
-receiptRuleSetMetadata_createdTimestamp = Lens.lens (\ReceiptRuleSetMetadata' {createdTimestamp} -> createdTimestamp) (\s@ReceiptRuleSetMetadata' {} a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the receipt rule set. The name must:
 --
@@ -90,11 +85,15 @@ receiptRuleSetMetadata_createdTimestamp = Lens.lens (\ReceiptRuleSetMetadata' {c
 receiptRuleSetMetadata_name :: Lens.Lens' ReceiptRuleSetMetadata (Prelude.Maybe Prelude.Text)
 receiptRuleSetMetadata_name = Lens.lens (\ReceiptRuleSetMetadata' {name} -> name) (\s@ReceiptRuleSetMetadata' {} a -> s {name = a} :: ReceiptRuleSetMetadata)
 
+-- | The date and time the receipt rule set was created.
+receiptRuleSetMetadata_createdTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Prelude.Maybe Prelude.UTCTime)
+receiptRuleSetMetadata_createdTimestamp = Lens.lens (\ReceiptRuleSetMetadata' {createdTimestamp} -> createdTimestamp) (\s@ReceiptRuleSetMetadata' {} a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML ReceiptRuleSetMetadata where
   parseXML x =
     ReceiptRuleSetMetadata'
-      Prelude.<$> (x Core..@? "CreatedTimestamp")
-      Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "CreatedTimestamp")
 
 instance Prelude.Hashable ReceiptRuleSetMetadata
 

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTemplateMetadata' smart constructor.
 data TemplateMetadata = TemplateMetadata'
-  { -- | The time and date the template was created.
-    createdTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The name of the template.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time and date the template was created.
+    createdTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,31 +42,30 @@ data TemplateMetadata = TemplateMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'templateMetadata_createdTimestamp' - The time and date the template was created.
---
 -- 'name', 'templateMetadata_name' - The name of the template.
+--
+-- 'createdTimestamp', 'templateMetadata_createdTimestamp' - The time and date the template was created.
 newTemplateMetadata ::
   TemplateMetadata
 newTemplateMetadata =
   TemplateMetadata'
-    { createdTimestamp =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing
     }
-
--- | The time and date the template was created.
-templateMetadata_createdTimestamp :: Lens.Lens' TemplateMetadata (Prelude.Maybe Prelude.UTCTime)
-templateMetadata_createdTimestamp = Lens.lens (\TemplateMetadata' {createdTimestamp} -> createdTimestamp) (\s@TemplateMetadata' {} a -> s {createdTimestamp = a} :: TemplateMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the template.
 templateMetadata_name :: Lens.Lens' TemplateMetadata (Prelude.Maybe Prelude.Text)
 templateMetadata_name = Lens.lens (\TemplateMetadata' {name} -> name) (\s@TemplateMetadata' {} a -> s {name = a} :: TemplateMetadata)
 
+-- | The time and date the template was created.
+templateMetadata_createdTimestamp :: Lens.Lens' TemplateMetadata (Prelude.Maybe Prelude.UTCTime)
+templateMetadata_createdTimestamp = Lens.lens (\TemplateMetadata' {createdTimestamp} -> createdTimestamp) (\s@TemplateMetadata' {} a -> s {createdTimestamp = a} :: TemplateMetadata) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML TemplateMetadata where
   parseXML x =
     TemplateMetadata'
-      Prelude.<$> (x Core..@? "CreatedTimestamp")
-      Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "CreatedTimestamp")
 
 instance Prelude.Hashable TemplateMetadata
 

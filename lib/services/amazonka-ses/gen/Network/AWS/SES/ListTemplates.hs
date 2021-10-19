@@ -40,8 +40,8 @@ module Network.AWS.SES.ListTemplates
     newListTemplatesResponse,
 
     -- * Response Lenses
-    listTemplatesResponse_nextToken,
     listTemplatesResponse_templatesMetadata,
+    listTemplatesResponse_nextToken,
     listTemplatesResponse_httpStatus,
   )
 where
@@ -131,11 +131,11 @@ instance Core.AWSRequest ListTemplates where
       "ListTemplatesResult"
       ( \s h x ->
           ListTemplatesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "TemplatesMetadata"
+            Prelude.<$> ( x Core..@? "TemplatesMetadata"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,13 +162,13 @@ instance Core.ToQuery ListTemplates where
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
-  { -- | A token indicating that there are additional email templates available
+  { -- | An array the contains the name and creation time stamp for each template
+    -- in your Amazon SES account.
+    templatesMetadata :: Prelude.Maybe [TemplateMetadata],
+    -- | A token indicating that there are additional email templates available
     -- to be listed. Pass this token to a subsequent call to @ListTemplates@ to
     -- retrieve the next 50 email templates.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array the contains the name and creation time stamp for each template
-    -- in your Amazon SES account.
-    templatesMetadata :: Prelude.Maybe [TemplateMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,12 +182,12 @@ data ListTemplatesResponse = ListTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'templatesMetadata', 'listTemplatesResponse_templatesMetadata' - An array the contains the name and creation time stamp for each template
+-- in your Amazon SES account.
+--
 -- 'nextToken', 'listTemplatesResponse_nextToken' - A token indicating that there are additional email templates available
 -- to be listed. Pass this token to a subsequent call to @ListTemplates@ to
 -- retrieve the next 50 email templates.
---
--- 'templatesMetadata', 'listTemplatesResponse_templatesMetadata' - An array the contains the name and creation time stamp for each template
--- in your Amazon SES account.
 --
 -- 'httpStatus', 'listTemplatesResponse_httpStatus' - The response's http status code.
 newListTemplatesResponse ::
@@ -196,21 +196,22 @@ newListTemplatesResponse ::
   ListTemplatesResponse
 newListTemplatesResponse pHttpStatus_ =
   ListTemplatesResponse'
-    { nextToken = Prelude.Nothing,
-      templatesMetadata = Prelude.Nothing,
+    { templatesMetadata =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array the contains the name and creation time stamp for each template
+-- in your Amazon SES account.
+listTemplatesResponse_templatesMetadata :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe [TemplateMetadata])
+listTemplatesResponse_templatesMetadata = Lens.lens (\ListTemplatesResponse' {templatesMetadata} -> templatesMetadata) (\s@ListTemplatesResponse' {} a -> s {templatesMetadata = a} :: ListTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token indicating that there are additional email templates available
 -- to be listed. Pass this token to a subsequent call to @ListTemplates@ to
 -- retrieve the next 50 email templates.
 listTemplatesResponse_nextToken :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe Prelude.Text)
 listTemplatesResponse_nextToken = Lens.lens (\ListTemplatesResponse' {nextToken} -> nextToken) (\s@ListTemplatesResponse' {} a -> s {nextToken = a} :: ListTemplatesResponse)
-
--- | An array the contains the name and creation time stamp for each template
--- in your Amazon SES account.
-listTemplatesResponse_templatesMetadata :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe [TemplateMetadata])
-listTemplatesResponse_templatesMetadata = Lens.lens (\ListTemplatesResponse' {templatesMetadata} -> templatesMetadata) (\s@ListTemplatesResponse' {} a -> s {templatesMetadata = a} :: ListTemplatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTemplatesResponse_httpStatus :: Lens.Lens' ListTemplatesResponse Prelude.Int

@@ -133,7 +133,7 @@ newListVerifiedEmailAddressesResponse pHttpStatus_ =
 
 -- | A list of email addresses that have been verified.
 listVerifiedEmailAddressesResponse_verifiedEmailAddresses :: Lens.Lens' ListVerifiedEmailAddressesResponse (Prelude.Maybe [Prelude.Text])
-listVerifiedEmailAddressesResponse_verifiedEmailAddresses = Lens.lens (\ListVerifiedEmailAddressesResponse' {verifiedEmailAddresses} -> verifiedEmailAddresses) (\s@ListVerifiedEmailAddressesResponse' {} a -> s {verifiedEmailAddresses = a} :: ListVerifiedEmailAddressesResponse) Prelude.. Lens.mapping Lens._Coerce
+listVerifiedEmailAddressesResponse_verifiedEmailAddresses = Lens.lens (\ListVerifiedEmailAddressesResponse' {verifiedEmailAddresses} -> verifiedEmailAddresses) (\s@ListVerifiedEmailAddressesResponse' {} a -> s {verifiedEmailAddresses = a} :: ListVerifiedEmailAddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVerifiedEmailAddressesResponse_httpStatus :: Lens.Lens' ListVerifiedEmailAddressesResponse Prelude.Int

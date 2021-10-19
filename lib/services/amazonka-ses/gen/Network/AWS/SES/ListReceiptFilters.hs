@@ -143,7 +143,7 @@ newListReceiptFiltersResponse pHttpStatus_ =
 -- | A list of IP address filter data structures, which each consist of a
 -- name, an IP address range, and whether to allow or block mail from it.
 listReceiptFiltersResponse_filters :: Lens.Lens' ListReceiptFiltersResponse (Prelude.Maybe [ReceiptFilter])
-listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
+listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Prelude.Int

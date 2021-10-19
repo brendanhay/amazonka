@@ -100,7 +100,7 @@ newGetIdentityVerificationAttributes =
 
 -- | A list of identities.
 getIdentityVerificationAttributes_identities :: Lens.Lens' GetIdentityVerificationAttributes [Prelude.Text]
-getIdentityVerificationAttributes_identities = Lens.lens (\GetIdentityVerificationAttributes' {identities} -> identities) (\s@GetIdentityVerificationAttributes' {} a -> s {identities = a} :: GetIdentityVerificationAttributes) Prelude.. Lens._Coerce
+getIdentityVerificationAttributes_identities = Lens.lens (\GetIdentityVerificationAttributes' {identities} -> identities) (\s@GetIdentityVerificationAttributes' {} a -> s {identities = a} :: GetIdentityVerificationAttributes) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -200,7 +200,7 @@ getIdentityVerificationAttributesResponse_httpStatus = Lens.lens (\GetIdentityVe
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 getIdentityVerificationAttributesResponse_verificationAttributes :: Lens.Lens' GetIdentityVerificationAttributesResponse (Prelude.HashMap Prelude.Text IdentityVerificationAttributes)
-getIdentityVerificationAttributesResponse_verificationAttributes = Lens.lens (\GetIdentityVerificationAttributesResponse' {verificationAttributes} -> verificationAttributes) (\s@GetIdentityVerificationAttributesResponse' {} a -> s {verificationAttributes = a} :: GetIdentityVerificationAttributesResponse) Prelude.. Lens._Coerce
+getIdentityVerificationAttributesResponse_verificationAttributes = Lens.lens (\GetIdentityVerificationAttributesResponse' {verificationAttributes} -> verificationAttributes) (\s@GetIdentityVerificationAttributesResponse' {} a -> s {verificationAttributes = a} :: GetIdentityVerificationAttributesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

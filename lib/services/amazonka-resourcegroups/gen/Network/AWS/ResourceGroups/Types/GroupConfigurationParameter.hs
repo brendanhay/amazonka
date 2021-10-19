@@ -70,7 +70,7 @@ newGroupConfigurationParameter pName_ =
 -- of values you can use with each parameter, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
 groupConfigurationParameter_values :: Lens.Lens' GroupConfigurationParameter (Prelude.Maybe [Prelude.Text])
-groupConfigurationParameter_values = Lens.lens (\GroupConfigurationParameter' {values} -> values) (\s@GroupConfigurationParameter' {} a -> s {values = a} :: GroupConfigurationParameter) Prelude.. Lens.mapping Lens._Coerce
+groupConfigurationParameter_values = Lens.lens (\GroupConfigurationParameter' {values} -> values) (\s@GroupConfigurationParameter' {} a -> s {values = a} :: GroupConfigurationParameter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the group configuration parameter. For the list of
 -- parameters that you can use with each configuration item type, see

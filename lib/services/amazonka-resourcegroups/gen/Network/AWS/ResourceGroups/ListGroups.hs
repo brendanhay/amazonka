@@ -35,9 +35,9 @@ module Network.AWS.ResourceGroups.ListGroups
     newListGroups,
 
     -- * Request Lenses
+    listGroups_filters,
     listGroups_nextToken,
     listGroups_maxResults,
-    listGroups_filters,
 
     -- * Destructuring the Response
     ListGroupsResponse (..),
@@ -60,7 +60,23 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { -- | The parameter for receiving additional results if you receive a
+  { -- | Filters, formatted as GroupFilter objects, that you want to apply to a
+    -- @ListGroups@ operation.
+    --
+    -- -   @resource-type@ - Filter the results to include only those of the
+    --     specified resource types. Specify up to five resource types in the
+    --     format @AWS::ServiceCode::ResourceType @. For example,
+    --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
+    --
+    -- -   @configuration-type@ - Filter the results to include only those
+    --     groups that have the specified configuration types attached. The
+    --     current supported values are:
+    --
+    --     -   @AWS:EC2::CapacityReservationPool@
+    --
+    --     -   @AWS:EC2::HostManagement@
+    filters :: Prelude.Maybe [GroupFilter],
+    -- | The parameter for receiving additional results if you receive a
     -- @NextToken@ response in a previous request. A @NextToken@ response
     -- indicates that more output is available. Set this parameter to the value
     -- provided by a previous call\'s @NextToken@ response to indicate where
@@ -76,23 +92,7 @@ data ListGroups = ListGroups'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters, formatted as GroupFilter objects, that you want to apply to a
-    -- @ListGroups@ operation.
-    --
-    -- -   @resource-type@ - Filter the results to include only those of the
-    --     specified resource types. Specify up to five resource types in the
-    --     format @AWS::ServiceCode::ResourceType @. For example,
-    --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
-    --
-    -- -   @configuration-type@ - Filter the results to include only those
-    --     groups that have the specified configuration types attached. The
-    --     current supported values are:
-    --
-    --     -   @AWS:EC2::CapacityReservationPool@
-    --
-    --     -   @AWS:EC2::HostManagement@
-    filters :: Prelude.Maybe [GroupFilter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,6 +103,22 @@ data ListGroups = ListGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filters', 'listGroups_filters' - Filters, formatted as GroupFilter objects, that you want to apply to a
+-- @ListGroups@ operation.
+--
+-- -   @resource-type@ - Filter the results to include only those of the
+--     specified resource types. Specify up to five resource types in the
+--     format @AWS::ServiceCode::ResourceType @. For example,
+--     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
+--
+-- -   @configuration-type@ - Filter the results to include only those
+--     groups that have the specified configuration types attached. The
+--     current supported values are:
+--
+--     -   @AWS:EC2::CapacityReservationPool@
+--
+--     -   @AWS:EC2::HostManagement@
 --
 -- 'nextToken', 'listGroups_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -120,8 +136,16 @@ data ListGroups = ListGroups'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
---
--- 'filters', 'listGroups_filters' - Filters, formatted as GroupFilter objects, that you want to apply to a
+newListGroups ::
+  ListGroups
+newListGroups =
+  ListGroups'
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | Filters, formatted as GroupFilter objects, that you want to apply to a
 -- @ListGroups@ operation.
 --
 -- -   @resource-type@ - Filter the results to include only those of the
@@ -136,14 +160,8 @@ data ListGroups = ListGroups'
 --     -   @AWS:EC2::CapacityReservationPool@
 --
 --     -   @AWS:EC2::HostManagement@
-newListGroups ::
-  ListGroups
-newListGroups =
-  ListGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
-    }
+listGroups_filters :: Lens.Lens' ListGroups (Prelude.Maybe [GroupFilter])
+listGroups_filters = Lens.lens (\ListGroups' {filters} -> filters) (\s@ListGroups' {} a -> s {filters = a} :: ListGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -165,24 +183,6 @@ listGroups_nextToken = Lens.lens (\ListGroups' {nextToken} -> nextToken) (\s@Lis
 -- results.
 listGroups_maxResults :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
 listGroups_maxResults = Lens.lens (\ListGroups' {maxResults} -> maxResults) (\s@ListGroups' {} a -> s {maxResults = a} :: ListGroups)
-
--- | Filters, formatted as GroupFilter objects, that you want to apply to a
--- @ListGroups@ operation.
---
--- -   @resource-type@ - Filter the results to include only those of the
---     specified resource types. Specify up to five resource types in the
---     format @AWS::ServiceCode::ResourceType @. For example,
---     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
---
--- -   @configuration-type@ - Filter the results to include only those
---     groups that have the specified configuration types attached. The
---     current supported values are:
---
---     -   @AWS:EC2::CapacityReservationPool@
---
---     -   @AWS:EC2::HostManagement@
-listGroups_filters :: Lens.Lens' ListGroups (Prelude.Maybe [GroupFilter])
-listGroups_filters = Lens.lens (\ListGroups' {filters} -> filters) (\s@ListGroups' {} a -> s {filters = a} :: ListGroups) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListGroups where
   page rq rs
@@ -303,7 +303,7 @@ newListGroupsResponse pHttpStatus_ =
 -- | /__Deprecated - don\'t use this field. Use the @GroupIdentifiers@
 -- response field instead.__/
 listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [Group])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -316,7 +316,7 @@ listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> ne
 -- | A list of GroupIdentifier objects. Each identifier is an object that
 -- contains both the @Name@ and the @GroupArn@.
 listGroupsResponse_groupIdentifiers :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupIdentifier])
-listGroupsResponse_groupIdentifiers = Lens.lens (\ListGroupsResponse' {groupIdentifiers} -> groupIdentifiers) (\s@ListGroupsResponse' {} a -> s {groupIdentifiers = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+listGroupsResponse_groupIdentifiers = Lens.lens (\ListGroupsResponse' {groupIdentifiers} -> groupIdentifiers) (\s@ListGroupsResponse' {} a -> s {groupIdentifiers = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int

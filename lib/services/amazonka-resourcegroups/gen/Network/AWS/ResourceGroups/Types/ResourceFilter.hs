@@ -58,7 +58,7 @@ newResourceFilter ::
 newResourceFilter pName_ pValues_ =
   ResourceFilter'
     { name = pName_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The name of the filter. Filter names are case-sensitive.
@@ -68,7 +68,7 @@ resourceFilter_name = Lens.lens (\ResourceFilter' {name} -> name) (\s@ResourceFi
 -- | One or more filter values. Allowed filter values vary by resource filter
 -- name, and are case-sensitive.
 resourceFilter_values :: Lens.Lens' ResourceFilter (Prelude.NonEmpty Prelude.Text)
-resourceFilter_values = Lens.lens (\ResourceFilter' {values} -> values) (\s@ResourceFilter' {} a -> s {values = a} :: ResourceFilter) Prelude.. Lens._Coerce
+resourceFilter_values = Lens.lens (\ResourceFilter' {values} -> values) (\s@ResourceFilter' {} a -> s {values = a} :: ResourceFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ResourceFilter
 

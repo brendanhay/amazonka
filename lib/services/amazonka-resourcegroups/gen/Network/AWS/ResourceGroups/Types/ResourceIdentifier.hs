@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { -- | The ARN of a resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The resource type of a resource, such as @AWS::EC2::Instance@.
-    resourceType :: Prelude.Maybe Prelude.Text
+  { -- | The resource type of a resource, such as @AWS::EC2::Instance@.
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a resource.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ResourceIdentifier = ResourceIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'resourceIdentifier_resourceArn' - The ARN of a resource.
---
 -- 'resourceType', 'resourceIdentifier_resourceType' - The resource type of a resource, such as @AWS::EC2::Instance@.
+--
+-- 'resourceArn', 'resourceIdentifier_resourceArn' - The ARN of a resource.
 newResourceIdentifier ::
   ResourceIdentifier
 newResourceIdentifier =
   ResourceIdentifier'
-    { resourceArn = Prelude.Nothing,
-      resourceType = Prelude.Nothing
+    { resourceType = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
-
--- | The ARN of a resource.
-resourceIdentifier_resourceArn :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
-resourceIdentifier_resourceArn = Lens.lens (\ResourceIdentifier' {resourceArn} -> resourceArn) (\s@ResourceIdentifier' {} a -> s {resourceArn = a} :: ResourceIdentifier)
 
 -- | The resource type of a resource, such as @AWS::EC2::Instance@.
 resourceIdentifier_resourceType :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
 resourceIdentifier_resourceType = Lens.lens (\ResourceIdentifier' {resourceType} -> resourceType) (\s@ResourceIdentifier' {} a -> s {resourceType = a} :: ResourceIdentifier)
+
+-- | The ARN of a resource.
+resourceIdentifier_resourceArn :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
+resourceIdentifier_resourceArn = Lens.lens (\ResourceIdentifier' {resourceArn} -> resourceArn) (\s@ResourceIdentifier' {} a -> s {resourceArn = a} :: ResourceIdentifier)
 
 instance Core.FromJSON ResourceIdentifier where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON ResourceIdentifier where
       "ResourceIdentifier"
       ( \x ->
           ResourceIdentifier'
-            Prelude.<$> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ResourceType")
+            Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "ResourceArn")
       )
 
 instance Prelude.Hashable ResourceIdentifier

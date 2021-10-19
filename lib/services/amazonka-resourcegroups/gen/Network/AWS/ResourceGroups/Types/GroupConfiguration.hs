@@ -37,14 +37,14 @@ import Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
 data GroupConfiguration = GroupConfiguration'
   { -- | The current status of an attempt to update the group configuration.
     status :: Prelude.Maybe GroupConfigurationStatus,
-    -- | The configuration currently associated with the group and in effect.
-    configuration :: Prelude.Maybe [GroupConfigurationItem],
     -- | If present, the reason why a request to update the group configuration
     -- failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | If present, the new configuration that is in the process of being
     -- applied to the group.
-    proposedConfiguration :: Prelude.Maybe [GroupConfigurationItem]
+    proposedConfiguration :: Prelude.Maybe [GroupConfigurationItem],
+    -- | The configuration currently associated with the group and in effect.
+    configuration :: Prelude.Maybe [GroupConfigurationItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,30 +58,26 @@ data GroupConfiguration = GroupConfiguration'
 --
 -- 'status', 'groupConfiguration_status' - The current status of an attempt to update the group configuration.
 --
--- 'configuration', 'groupConfiguration_configuration' - The configuration currently associated with the group and in effect.
---
 -- 'failureReason', 'groupConfiguration_failureReason' - If present, the reason why a request to update the group configuration
 -- failed.
 --
 -- 'proposedConfiguration', 'groupConfiguration_proposedConfiguration' - If present, the new configuration that is in the process of being
 -- applied to the group.
+--
+-- 'configuration', 'groupConfiguration_configuration' - The configuration currently associated with the group and in effect.
 newGroupConfiguration ::
   GroupConfiguration
 newGroupConfiguration =
   GroupConfiguration'
     { status = Prelude.Nothing,
-      configuration = Prelude.Nothing,
       failureReason = Prelude.Nothing,
-      proposedConfiguration = Prelude.Nothing
+      proposedConfiguration = Prelude.Nothing,
+      configuration = Prelude.Nothing
     }
 
 -- | The current status of an attempt to update the group configuration.
 groupConfiguration_status :: Lens.Lens' GroupConfiguration (Prelude.Maybe GroupConfigurationStatus)
 groupConfiguration_status = Lens.lens (\GroupConfiguration' {status} -> status) (\s@GroupConfiguration' {} a -> s {status = a} :: GroupConfiguration)
-
--- | The configuration currently associated with the group and in effect.
-groupConfiguration_configuration :: Lens.Lens' GroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
-groupConfiguration_configuration = Lens.lens (\GroupConfiguration' {configuration} -> configuration) (\s@GroupConfiguration' {} a -> s {configuration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If present, the reason why a request to update the group configuration
 -- failed.
@@ -91,7 +87,11 @@ groupConfiguration_failureReason = Lens.lens (\GroupConfiguration' {failureReaso
 -- | If present, the new configuration that is in the process of being
 -- applied to the group.
 groupConfiguration_proposedConfiguration :: Lens.Lens' GroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
-groupConfiguration_proposedConfiguration = Lens.lens (\GroupConfiguration' {proposedConfiguration} -> proposedConfiguration) (\s@GroupConfiguration' {} a -> s {proposedConfiguration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens._Coerce
+groupConfiguration_proposedConfiguration = Lens.lens (\GroupConfiguration' {proposedConfiguration} -> proposedConfiguration) (\s@GroupConfiguration' {} a -> s {proposedConfiguration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration currently associated with the group and in effect.
+groupConfiguration_configuration :: Lens.Lens' GroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
+groupConfiguration_configuration = Lens.lens (\GroupConfiguration' {configuration} -> configuration) (\s@GroupConfiguration' {} a -> s {configuration = a} :: GroupConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON GroupConfiguration where
   parseJSON =
@@ -100,11 +100,11 @@ instance Core.FromJSON GroupConfiguration where
       ( \x ->
           GroupConfiguration'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Configuration" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> ( x Core..:? "ProposedConfiguration"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Configuration" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable GroupConfiguration

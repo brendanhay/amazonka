@@ -93,7 +93,7 @@ untag_arn = Lens.lens (\Untag' {arn} -> arn) (\s@Untag' {} a -> s {arn = a} :: U
 
 -- | The keys of the tags to be removed.
 untag_keys :: Lens.Lens' Untag [Prelude.Text]
-untag_keys = Lens.lens (\Untag' {keys} -> keys) (\s@Untag' {} a -> s {keys = a} :: Untag) Prelude.. Lens._Coerce
+untag_keys = Lens.lens (\Untag' {keys} -> keys) (\s@Untag' {} a -> s {keys = a} :: Untag) Prelude.. Lens.coerced
 
 instance Core.AWSRequest Untag where
   type AWSResponse Untag = UntagResponse
@@ -170,7 +170,7 @@ untagResponse_arn = Lens.lens (\UntagResponse' {arn} -> arn) (\s@UntagResponse' 
 
 -- | The keys of the tags that were removed.
 untagResponse_keys :: Lens.Lens' UntagResponse (Prelude.Maybe [Prelude.Text])
-untagResponse_keys = Lens.lens (\UntagResponse' {keys} -> keys) (\s@UntagResponse' {} a -> s {keys = a} :: UntagResponse) Prelude.. Lens.mapping Lens._Coerce
+untagResponse_keys = Lens.lens (\UntagResponse' {keys} -> keys) (\s@UntagResponse' {} a -> s {keys = a} :: UntagResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 untagResponse_httpStatus :: Lens.Lens' UntagResponse Prelude.Int

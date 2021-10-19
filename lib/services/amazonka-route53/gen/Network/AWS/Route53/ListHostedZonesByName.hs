@@ -83,18 +83,18 @@ module Network.AWS.Route53.ListHostedZonesByName
 
     -- * Request Lenses
     listHostedZonesByName_hostedZoneId,
-    listHostedZonesByName_dNSName,
     listHostedZonesByName_maxItems,
+    listHostedZonesByName_dNSName,
 
     -- * Destructuring the Response
     ListHostedZonesByNameResponse (..),
     newListHostedZonesByNameResponse,
 
     -- * Response Lenses
-    listHostedZonesByNameResponse_nextDNSName,
     listHostedZonesByNameResponse_hostedZoneId,
-    listHostedZonesByNameResponse_dNSName,
     listHostedZonesByNameResponse_nextHostedZoneId,
+    listHostedZonesByNameResponse_dNSName,
+    listHostedZonesByNameResponse_nextDNSName,
     listHostedZonesByNameResponse_httpStatus,
     listHostedZonesByNameResponse_hostedZones,
     listHostedZonesByNameResponse_isTruncated,
@@ -125,6 +125,12 @@ data ListHostedZonesByName = ListHostedZonesByName'
     -- parameters. For the value of @hostedzoneid@, specify the value of the
     -- @NextHostedZoneId@ element from the previous response.
     hostedZoneId :: Prelude.Maybe ResourceId,
+    -- | The maximum number of hosted zones to be included in the response body
+    -- for this request. If you have more than @maxitems@ hosted zones, then
+    -- the value of the @IsTruncated@ element in the response is true, and the
+    -- values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted
+    -- zone in the next group of @maxitems@ hosted zones.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | (Optional) For your first request to @ListHostedZonesByName@, include
     -- the @dnsname@ parameter only if you want to specify the name of the
     -- first hosted zone in the response. If you don\'t include the @dnsname@
@@ -133,13 +139,7 @@ data ListHostedZonesByName = ListHostedZonesByName'
     -- subsequent requests, include both @dnsname@ and @hostedzoneid@
     -- parameters. For @dnsname@, specify the value of @NextDNSName@ from the
     -- previous response.
-    dNSName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of hosted zones to be included in the response body
-    -- for this request. If you have more than @maxitems@ hosted zones, then
-    -- the value of the @IsTruncated@ element in the response is true, and the
-    -- values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted
-    -- zone in the next group of @maxitems@ hosted zones.
-    maxItems :: Prelude.Maybe Prelude.Text
+    dNSName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -161,6 +161,12 @@ data ListHostedZonesByName = ListHostedZonesByName'
 -- parameters. For the value of @hostedzoneid@, specify the value of the
 -- @NextHostedZoneId@ element from the previous response.
 --
+-- 'maxItems', 'listHostedZonesByName_maxItems' - The maximum number of hosted zones to be included in the response body
+-- for this request. If you have more than @maxitems@ hosted zones, then
+-- the value of the @IsTruncated@ element in the response is true, and the
+-- values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted
+-- zone in the next group of @maxitems@ hosted zones.
+--
 -- 'dNSName', 'listHostedZonesByName_dNSName' - (Optional) For your first request to @ListHostedZonesByName@, include
 -- the @dnsname@ parameter only if you want to specify the name of the
 -- first hosted zone in the response. If you don\'t include the @dnsname@
@@ -169,20 +175,14 @@ data ListHostedZonesByName = ListHostedZonesByName'
 -- subsequent requests, include both @dnsname@ and @hostedzoneid@
 -- parameters. For @dnsname@, specify the value of @NextDNSName@ from the
 -- previous response.
---
--- 'maxItems', 'listHostedZonesByName_maxItems' - The maximum number of hosted zones to be included in the response body
--- for this request. If you have more than @maxitems@ hosted zones, then
--- the value of the @IsTruncated@ element in the response is true, and the
--- values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted
--- zone in the next group of @maxitems@ hosted zones.
 newListHostedZonesByName ::
   ListHostedZonesByName
 newListHostedZonesByName =
   ListHostedZonesByName'
     { hostedZoneId =
         Prelude.Nothing,
-      dNSName = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      dNSName = Prelude.Nothing
     }
 
 -- | (Optional) For your first request to @ListHostedZonesByName@, do not
@@ -197,6 +197,14 @@ newListHostedZonesByName =
 listHostedZonesByName_hostedZoneId :: Lens.Lens' ListHostedZonesByName (Prelude.Maybe ResourceId)
 listHostedZonesByName_hostedZoneId = Lens.lens (\ListHostedZonesByName' {hostedZoneId} -> hostedZoneId) (\s@ListHostedZonesByName' {} a -> s {hostedZoneId = a} :: ListHostedZonesByName)
 
+-- | The maximum number of hosted zones to be included in the response body
+-- for this request. If you have more than @maxitems@ hosted zones, then
+-- the value of the @IsTruncated@ element in the response is true, and the
+-- values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted
+-- zone in the next group of @maxitems@ hosted zones.
+listHostedZonesByName_maxItems :: Lens.Lens' ListHostedZonesByName (Prelude.Maybe Prelude.Text)
+listHostedZonesByName_maxItems = Lens.lens (\ListHostedZonesByName' {maxItems} -> maxItems) (\s@ListHostedZonesByName' {} a -> s {maxItems = a} :: ListHostedZonesByName)
+
 -- | (Optional) For your first request to @ListHostedZonesByName@, include
 -- the @dnsname@ parameter only if you want to specify the name of the
 -- first hosted zone in the response. If you don\'t include the @dnsname@
@@ -208,14 +216,6 @@ listHostedZonesByName_hostedZoneId = Lens.lens (\ListHostedZonesByName' {hostedZ
 listHostedZonesByName_dNSName :: Lens.Lens' ListHostedZonesByName (Prelude.Maybe Prelude.Text)
 listHostedZonesByName_dNSName = Lens.lens (\ListHostedZonesByName' {dNSName} -> dNSName) (\s@ListHostedZonesByName' {} a -> s {dNSName = a} :: ListHostedZonesByName)
 
--- | The maximum number of hosted zones to be included in the response body
--- for this request. If you have more than @maxitems@ hosted zones, then
--- the value of the @IsTruncated@ element in the response is true, and the
--- values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted
--- zone in the next group of @maxitems@ hosted zones.
-listHostedZonesByName_maxItems :: Lens.Lens' ListHostedZonesByName (Prelude.Maybe Prelude.Text)
-listHostedZonesByName_maxItems = Lens.lens (\ListHostedZonesByName' {maxItems} -> maxItems) (\s@ListHostedZonesByName' {} a -> s {maxItems = a} :: ListHostedZonesByName)
-
 instance Core.AWSRequest ListHostedZonesByName where
   type
     AWSResponse ListHostedZonesByName =
@@ -225,10 +225,10 @@ instance Core.AWSRequest ListHostedZonesByName where
     Response.receiveXML
       ( \s h x ->
           ListHostedZonesByNameResponse'
-            Prelude.<$> (x Core..@? "NextDNSName")
-            Prelude.<*> (x Core..@? "HostedZoneId")
-            Prelude.<*> (x Core..@? "DNSName")
+            Prelude.<$> (x Core..@? "HostedZoneId")
             Prelude.<*> (x Core..@? "NextHostedZoneId")
+            Prelude.<*> (x Core..@? "DNSName")
+            Prelude.<*> (x Core..@? "NextDNSName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "HostedZones" Core..!@ Prelude.mempty
                             Prelude.>>= Core.parseXMLList "HostedZone"
@@ -252,29 +252,17 @@ instance Core.ToQuery ListHostedZonesByName where
   toQuery ListHostedZonesByName' {..} =
     Prelude.mconcat
       [ "hostedzoneid" Core.=: hostedZoneId,
-        "dnsname" Core.=: dNSName,
-        "maxitems" Core.=: maxItems
+        "maxitems" Core.=: maxItems,
+        "dnsname" Core.=: dNSName
       ]
 
 -- | A complex type that contains the response information for the request.
 --
 -- /See:/ 'newListHostedZonesByNameResponse' smart constructor.
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-  { -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
-    -- first hosted zone in the next group of @maxitems@ hosted zones. Call
-    -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
-    -- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
-    -- respectively.
-    --
-    -- This element is present only if @IsTruncated@ is @true@.
-    nextDNSName :: Prelude.Maybe Prelude.Text,
-    -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
+  { -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
     -- it.
     hostedZoneId :: Prelude.Maybe ResourceId,
-    -- | For the second and subsequent calls to @ListHostedZonesByName@,
-    -- @DNSName@ is the value that you specified for the @dnsname@ parameter in
-    -- the request that produced the current response.
-    dNSName :: Prelude.Maybe Prelude.Text,
     -- | If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
     -- the first hosted zone in the next group of @maxitems@ hosted zones. Call
     -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
@@ -283,6 +271,18 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     --
     -- This element is present only if @IsTruncated@ is @true@.
     nextHostedZoneId :: Prelude.Maybe ResourceId,
+    -- | For the second and subsequent calls to @ListHostedZonesByName@,
+    -- @DNSName@ is the value that you specified for the @dnsname@ parameter in
+    -- the request that produced the current response.
+    dNSName :: Prelude.Maybe Prelude.Text,
+    -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
+    -- first hosted zone in the next group of @maxitems@ hosted zones. Call
+    -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
+    -- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
+    -- respectively.
+    --
+    -- This element is present only if @IsTruncated@ is @true@.
+    nextDNSName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains general information about the hosted zone.
@@ -307,23 +307,23 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextDNSName', 'listHostedZonesByNameResponse_nextDNSName' - If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
--- first hosted zone in the next group of @maxitems@ hosted zones. Call
+-- 'hostedZoneId', 'listHostedZonesByNameResponse_hostedZoneId' - The ID that Amazon Route 53 assigned to the hosted zone when you created
+-- it.
+--
+-- 'nextHostedZoneId', 'listHostedZonesByNameResponse_nextHostedZoneId' - If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
+-- the first hosted zone in the next group of @maxitems@ hosted zones. Call
 -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
 -- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
 -- respectively.
 --
 -- This element is present only if @IsTruncated@ is @true@.
 --
--- 'hostedZoneId', 'listHostedZonesByNameResponse_hostedZoneId' - The ID that Amazon Route 53 assigned to the hosted zone when you created
--- it.
---
 -- 'dNSName', 'listHostedZonesByNameResponse_dNSName' - For the second and subsequent calls to @ListHostedZonesByName@,
 -- @DNSName@ is the value that you specified for the @dnsname@ parameter in
 -- the request that produced the current response.
 --
--- 'nextHostedZoneId', 'listHostedZonesByNameResponse_nextHostedZoneId' - If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
--- the first hosted zone in the next group of @maxitems@ hosted zones. Call
+-- 'nextDNSName', 'listHostedZonesByNameResponse_nextDNSName' - If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
+-- first hosted zone in the next group of @maxitems@ hosted zones. Call
 -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
 -- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
 -- respectively.
@@ -355,37 +355,21 @@ newListHostedZonesByNameResponse
   pIsTruncated_
   pMaxItems_ =
     ListHostedZonesByNameResponse'
-      { nextDNSName =
+      { hostedZoneId =
           Prelude.Nothing,
-        hostedZoneId = Prelude.Nothing,
-        dNSName = Prelude.Nothing,
         nextHostedZoneId = Prelude.Nothing,
+        dNSName = Prelude.Nothing,
+        nextDNSName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         hostedZones = Prelude.mempty,
         isTruncated = pIsTruncated_,
         maxItems = pMaxItems_
       }
 
--- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
--- first hosted zone in the next group of @maxitems@ hosted zones. Call
--- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
--- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
--- respectively.
---
--- This element is present only if @IsTruncated@ is @true@.
-listHostedZonesByNameResponse_nextDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
-listHostedZonesByNameResponse_nextDNSName = Lens.lens (\ListHostedZonesByNameResponse' {nextDNSName} -> nextDNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {nextDNSName = a} :: ListHostedZonesByNameResponse)
-
 -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
 -- it.
 listHostedZonesByNameResponse_hostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe ResourceId)
 listHostedZonesByNameResponse_hostedZoneId = Lens.lens (\ListHostedZonesByNameResponse' {hostedZoneId} -> hostedZoneId) (\s@ListHostedZonesByNameResponse' {} a -> s {hostedZoneId = a} :: ListHostedZonesByNameResponse)
-
--- | For the second and subsequent calls to @ListHostedZonesByName@,
--- @DNSName@ is the value that you specified for the @dnsname@ parameter in
--- the request that produced the current response.
-listHostedZonesByNameResponse_dNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
-listHostedZonesByNameResponse_dNSName = Lens.lens (\ListHostedZonesByNameResponse' {dNSName} -> dNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {dNSName = a} :: ListHostedZonesByNameResponse)
 
 -- | If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
 -- the first hosted zone in the next group of @maxitems@ hosted zones. Call
@@ -397,13 +381,29 @@ listHostedZonesByNameResponse_dNSName = Lens.lens (\ListHostedZonesByNameRespons
 listHostedZonesByNameResponse_nextHostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe ResourceId)
 listHostedZonesByNameResponse_nextHostedZoneId = Lens.lens (\ListHostedZonesByNameResponse' {nextHostedZoneId} -> nextHostedZoneId) (\s@ListHostedZonesByNameResponse' {} a -> s {nextHostedZoneId = a} :: ListHostedZonesByNameResponse)
 
+-- | For the second and subsequent calls to @ListHostedZonesByName@,
+-- @DNSName@ is the value that you specified for the @dnsname@ parameter in
+-- the request that produced the current response.
+listHostedZonesByNameResponse_dNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
+listHostedZonesByNameResponse_dNSName = Lens.lens (\ListHostedZonesByNameResponse' {dNSName} -> dNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {dNSName = a} :: ListHostedZonesByNameResponse)
+
+-- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
+-- first hosted zone in the next group of @maxitems@ hosted zones. Call
+-- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
+-- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
+-- respectively.
+--
+-- This element is present only if @IsTruncated@ is @true@.
+listHostedZonesByNameResponse_nextDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
+listHostedZonesByNameResponse_nextDNSName = Lens.lens (\ListHostedZonesByNameResponse' {nextDNSName} -> nextDNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {nextDNSName = a} :: ListHostedZonesByNameResponse)
+
 -- | The response's http status code.
 listHostedZonesByNameResponse_httpStatus :: Lens.Lens' ListHostedZonesByNameResponse Prelude.Int
 listHostedZonesByNameResponse_httpStatus = Lens.lens (\ListHostedZonesByNameResponse' {httpStatus} -> httpStatus) (\s@ListHostedZonesByNameResponse' {} a -> s {httpStatus = a} :: ListHostedZonesByNameResponse)
 
 -- | A complex type that contains general information about the hosted zone.
 listHostedZonesByNameResponse_hostedZones :: Lens.Lens' ListHostedZonesByNameResponse [HostedZone]
-listHostedZonesByNameResponse_hostedZones = Lens.lens (\ListHostedZonesByNameResponse' {hostedZones} -> hostedZones) (\s@ListHostedZonesByNameResponse' {} a -> s {hostedZones = a} :: ListHostedZonesByNameResponse) Prelude.. Lens._Coerce
+listHostedZonesByNameResponse_hostedZones = Lens.lens (\ListHostedZonesByNameResponse' {hostedZones} -> hostedZones) (\s@ListHostedZonesByNameResponse' {} a -> s {hostedZones = a} :: ListHostedZonesByNameResponse) Prelude.. Lens.coerced
 
 -- | A flag that indicates whether there are more hosted zones to be listed.
 -- If the response was truncated, you can get the next group of @maxitems@

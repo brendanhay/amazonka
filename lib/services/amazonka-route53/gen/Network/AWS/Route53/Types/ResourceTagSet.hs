@@ -83,7 +83,7 @@ resourceTagSet_resourceType = Lens.lens (\ResourceTagSet' {resourceType} -> reso
 
 -- | The tags associated with the specified resource.
 resourceTagSet_tags :: Lens.Lens' ResourceTagSet (Prelude.Maybe (Prelude.NonEmpty Tag))
-resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTagSet' {} a -> s {tags = a} :: ResourceTagSet) Prelude.. Lens.mapping Lens._Coerce
+resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTagSet' {} a -> s {tags = a} :: ResourceTagSet) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ResourceTagSet where
   parseXML x =

@@ -28,11 +28,7 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'newDNSSECStatus' smart constructor.
 data DNSSECStatus = DNSSECStatus'
-  { -- | The status message provided for the following DNSSEC signing status:
-    -- @INTERNAL_FAILURE@. The status message includes information about what
-    -- the problem might be and steps that you can take to correct the issue.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | A string that represents the current hosted zone signing status.
+  { -- | A string that represents the current hosted zone signing status.
     --
     -- Status can have one of the following values:
     --
@@ -57,7 +53,11 @@ data DNSSECStatus = DNSSECStatus'
     --     with DNSSEC signing, including with key-signing keys (KSKs), you
     --     must correct the problem by enabling or disabling DNSSEC signing for
     --     the hosted zone.
-    serveSignature :: Prelude.Maybe Prelude.Text
+    serveSignature :: Prelude.Maybe Prelude.Text,
+    -- | The status message provided for the following DNSSEC signing status:
+    -- @INTERNAL_FAILURE@. The status message includes information about what
+    -- the problem might be and steps that you can take to correct the issue.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,10 +68,6 @@ data DNSSECStatus = DNSSECStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'statusMessage', 'dNSSECStatus_statusMessage' - The status message provided for the following DNSSEC signing status:
--- @INTERNAL_FAILURE@. The status message includes information about what
--- the problem might be and steps that you can take to correct the issue.
 --
 -- 'serveSignature', 'dNSSECStatus_serveSignature' - A string that represents the current hosted zone signing status.
 --
@@ -98,19 +94,17 @@ data DNSSECStatus = DNSSECStatus'
 --     with DNSSEC signing, including with key-signing keys (KSKs), you
 --     must correct the problem by enabling or disabling DNSSEC signing for
 --     the hosted zone.
+--
+-- 'statusMessage', 'dNSSECStatus_statusMessage' - The status message provided for the following DNSSEC signing status:
+-- @INTERNAL_FAILURE@. The status message includes information about what
+-- the problem might be and steps that you can take to correct the issue.
 newDNSSECStatus ::
   DNSSECStatus
 newDNSSECStatus =
   DNSSECStatus'
-    { statusMessage = Prelude.Nothing,
-      serveSignature = Prelude.Nothing
+    { serveSignature = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
-
--- | The status message provided for the following DNSSEC signing status:
--- @INTERNAL_FAILURE@. The status message includes information about what
--- the problem might be and steps that you can take to correct the issue.
-dNSSECStatus_statusMessage :: Lens.Lens' DNSSECStatus (Prelude.Maybe Prelude.Text)
-dNSSECStatus_statusMessage = Lens.lens (\DNSSECStatus' {statusMessage} -> statusMessage) (\s@DNSSECStatus' {} a -> s {statusMessage = a} :: DNSSECStatus)
 
 -- | A string that represents the current hosted zone signing status.
 --
@@ -140,11 +134,17 @@ dNSSECStatus_statusMessage = Lens.lens (\DNSSECStatus' {statusMessage} -> status
 dNSSECStatus_serveSignature :: Lens.Lens' DNSSECStatus (Prelude.Maybe Prelude.Text)
 dNSSECStatus_serveSignature = Lens.lens (\DNSSECStatus' {serveSignature} -> serveSignature) (\s@DNSSECStatus' {} a -> s {serveSignature = a} :: DNSSECStatus)
 
+-- | The status message provided for the following DNSSEC signing status:
+-- @INTERNAL_FAILURE@. The status message includes information about what
+-- the problem might be and steps that you can take to correct the issue.
+dNSSECStatus_statusMessage :: Lens.Lens' DNSSECStatus (Prelude.Maybe Prelude.Text)
+dNSSECStatus_statusMessage = Lens.lens (\DNSSECStatus' {statusMessage} -> statusMessage) (\s@DNSSECStatus' {} a -> s {statusMessage = a} :: DNSSECStatus)
+
 instance Core.FromXML DNSSECStatus where
   parseXML x =
     DNSSECStatus'
-      Prelude.<$> (x Core..@? "StatusMessage")
-      Prelude.<*> (x Core..@? "ServeSignature")
+      Prelude.<$> (x Core..@? "ServeSignature")
+      Prelude.<*> (x Core..@? "StatusMessage")
 
 instance Prelude.Hashable DNSSECStatus
 

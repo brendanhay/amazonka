@@ -254,7 +254,7 @@ listTrafficPoliciesResponse_httpStatus = Lens.lens (\ListTrafficPoliciesResponse
 -- | A list that contains one @TrafficPolicySummary@ element for each traffic
 -- policy that was created by the current Amazon Web Services account.
 listTrafficPoliciesResponse_trafficPolicySummaries :: Lens.Lens' ListTrafficPoliciesResponse [TrafficPolicySummary]
-listTrafficPoliciesResponse_trafficPolicySummaries = Lens.lens (\ListTrafficPoliciesResponse' {trafficPolicySummaries} -> trafficPolicySummaries) (\s@ListTrafficPoliciesResponse' {} a -> s {trafficPolicySummaries = a} :: ListTrafficPoliciesResponse) Prelude.. Lens._Coerce
+listTrafficPoliciesResponse_trafficPolicySummaries = Lens.lens (\ListTrafficPoliciesResponse' {trafficPolicySummaries} -> trafficPolicySummaries) (\s@ListTrafficPoliciesResponse' {} a -> s {trafficPolicySummaries = a} :: ListTrafficPoliciesResponse) Prelude.. Lens.coerced
 
 -- | A flag that indicates whether there are more traffic policies to be
 -- listed. If the response was truncated, you can get the next group of

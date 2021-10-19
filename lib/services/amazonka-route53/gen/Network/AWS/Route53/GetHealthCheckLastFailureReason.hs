@@ -188,7 +188,7 @@ getHealthCheckLastFailureReasonResponse_httpStatus = Lens.lens (\GetHealthCheckL
 -- | A list that contains one @Observation@ element for each Amazon Route 53
 -- health checker that is reporting a last failure reason.
 getHealthCheckLastFailureReasonResponse_healthCheckObservations :: Lens.Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
-getHealthCheckLastFailureReasonResponse_healthCheckObservations = Lens.lens (\GetHealthCheckLastFailureReasonResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckLastFailureReasonResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckLastFailureReasonResponse) Prelude.. Lens._Coerce
+getHealthCheckLastFailureReasonResponse_healthCheckObservations = Lens.lens (\GetHealthCheckLastFailureReasonResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckLastFailureReasonResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckLastFailureReasonResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

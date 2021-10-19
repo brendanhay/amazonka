@@ -28,8 +28,8 @@ module Network.AWS.Route53.ListReusableDelegationSets
     newListReusableDelegationSets,
 
     -- * Request Lenses
-    listReusableDelegationSets_maxItems,
     listReusableDelegationSets_marker,
+    listReusableDelegationSets_maxItems,
 
     -- * Destructuring the Response
     ListReusableDelegationSetsResponse (..),
@@ -57,11 +57,7 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'newListReusableDelegationSets' smart constructor.
 data ListReusableDelegationSets = ListReusableDelegationSets'
-  { -- | The number of reusable delegation sets that you want Amazon Route 53 to
-    -- return in the response to this request. If you specify a value greater
-    -- than 100, Route 53 returns only the first 100 reusable delegation sets.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | If the value of @IsTruncated@ in the previous response was @true@, you
+  { -- | If the value of @IsTruncated@ in the previous response was @true@, you
     -- have more reusable delegation sets. To get another group, submit another
     -- @ListReusableDelegationSets@ request.
     --
@@ -71,7 +67,11 @@ data ListReusableDelegationSets = ListReusableDelegationSets'
     --
     -- If the value of @IsTruncated@ in the previous response was @false@,
     -- there are no more reusable delegation sets to get.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The number of reusable delegation sets that you want Amazon Route 53 to
+    -- return in the response to this request. If you specify a value greater
+    -- than 100, Route 53 returns only the first 100 reusable delegation sets.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,10 +83,6 @@ data ListReusableDelegationSets = ListReusableDelegationSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listReusableDelegationSets_maxItems' - The number of reusable delegation sets that you want Amazon Route 53 to
--- return in the response to this request. If you specify a value greater
--- than 100, Route 53 returns only the first 100 reusable delegation sets.
---
 -- 'marker', 'listReusableDelegationSets_marker' - If the value of @IsTruncated@ in the previous response was @true@, you
 -- have more reusable delegation sets. To get another group, submit another
 -- @ListReusableDelegationSets@ request.
@@ -97,20 +93,18 @@ data ListReusableDelegationSets = ListReusableDelegationSets'
 --
 -- If the value of @IsTruncated@ in the previous response was @false@,
 -- there are no more reusable delegation sets to get.
+--
+-- 'maxItems', 'listReusableDelegationSets_maxItems' - The number of reusable delegation sets that you want Amazon Route 53 to
+-- return in the response to this request. If you specify a value greater
+-- than 100, Route 53 returns only the first 100 reusable delegation sets.
 newListReusableDelegationSets ::
   ListReusableDelegationSets
 newListReusableDelegationSets =
   ListReusableDelegationSets'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing
+      maxItems = Prelude.Nothing
     }
-
--- | The number of reusable delegation sets that you want Amazon Route 53 to
--- return in the response to this request. If you specify a value greater
--- than 100, Route 53 returns only the first 100 reusable delegation sets.
-listReusableDelegationSets_maxItems :: Lens.Lens' ListReusableDelegationSets (Prelude.Maybe Prelude.Text)
-listReusableDelegationSets_maxItems = Lens.lens (\ListReusableDelegationSets' {maxItems} -> maxItems) (\s@ListReusableDelegationSets' {} a -> s {maxItems = a} :: ListReusableDelegationSets)
 
 -- | If the value of @IsTruncated@ in the previous response was @true@, you
 -- have more reusable delegation sets. To get another group, submit another
@@ -124,6 +118,12 @@ listReusableDelegationSets_maxItems = Lens.lens (\ListReusableDelegationSets' {m
 -- there are no more reusable delegation sets to get.
 listReusableDelegationSets_marker :: Lens.Lens' ListReusableDelegationSets (Prelude.Maybe Prelude.Text)
 listReusableDelegationSets_marker = Lens.lens (\ListReusableDelegationSets' {marker} -> marker) (\s@ListReusableDelegationSets' {} a -> s {marker = a} :: ListReusableDelegationSets)
+
+-- | The number of reusable delegation sets that you want Amazon Route 53 to
+-- return in the response to this request. If you specify a value greater
+-- than 100, Route 53 returns only the first 100 reusable delegation sets.
+listReusableDelegationSets_maxItems :: Lens.Lens' ListReusableDelegationSets (Prelude.Maybe Prelude.Text)
+listReusableDelegationSets_maxItems = Lens.lens (\ListReusableDelegationSets' {maxItems} -> maxItems) (\s@ListReusableDelegationSets' {} a -> s {maxItems = a} :: ListReusableDelegationSets)
 
 instance Core.AWSRequest ListReusableDelegationSets where
   type
@@ -157,8 +157,8 @@ instance Core.ToPath ListReusableDelegationSets where
 instance Core.ToQuery ListReusableDelegationSets where
   toQuery ListReusableDelegationSets' {..} =
     Prelude.mconcat
-      [ "maxitems" Core.=: maxItems,
-        "marker" Core.=: marker
+      [ "marker" Core.=: marker,
+        "maxitems" Core.=: maxItems
       ]
 
 -- | A complex type that contains information about the reusable delegation
@@ -258,7 +258,7 @@ listReusableDelegationSetsResponse_httpStatus = Lens.lens (\ListReusableDelegati
 -- reusable delegation set that was created by the current Amazon Web
 -- Services account.
 listReusableDelegationSetsResponse_delegationSets :: Lens.Lens' ListReusableDelegationSetsResponse [DelegationSet]
-listReusableDelegationSetsResponse_delegationSets = Lens.lens (\ListReusableDelegationSetsResponse' {delegationSets} -> delegationSets) (\s@ListReusableDelegationSetsResponse' {} a -> s {delegationSets = a} :: ListReusableDelegationSetsResponse) Prelude.. Lens._Coerce
+listReusableDelegationSetsResponse_delegationSets = Lens.lens (\ListReusableDelegationSetsResponse' {delegationSets} -> delegationSets) (\s@ListReusableDelegationSetsResponse' {} a -> s {delegationSets = a} :: ListReusableDelegationSetsResponse) Prelude.. Lens.coerced
 
 -- | For the second and subsequent calls to @ListReusableDelegationSets@,
 -- @Marker@ is the value that you specified for the @marker@ parameter in

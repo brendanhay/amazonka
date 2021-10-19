@@ -38,9 +38,9 @@ module Network.AWS.Route53.ListQueryLoggingConfigs
     newListQueryLoggingConfigs,
 
     -- * Request Lenses
+    listQueryLoggingConfigs_hostedZoneId,
     listQueryLoggingConfigs_nextToken,
     listQueryLoggingConfigs_maxResults,
-    listQueryLoggingConfigs_hostedZoneId,
 
     -- * Destructuring the Response
     ListQueryLoggingConfigsResponse (..),
@@ -62,7 +62,14 @@ import Network.AWS.Route53.Types
 
 -- | /See:/ 'newListQueryLoggingConfigs' smart constructor.
 data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
-  { -- | (Optional) If the current Amazon Web Services account has more than
+  { -- | (Optional) If you want to list the query logging configuration that is
+    -- associated with a hosted zone, specify the ID in @HostedZoneId@.
+    --
+    -- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
+    -- returns all of the configurations that are associated with the current
+    -- Amazon Web Services account.
+    hostedZoneId :: Prelude.Maybe ResourceId,
+    -- | (Optional) If the current Amazon Web Services account has more than
     -- @MaxResults@ query logging configurations, use @NextToken@ to get the
     -- second and subsequent pages of results.
     --
@@ -81,14 +88,7 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
     --
     -- If you don\'t specify a value for @MaxResults@, Route 53 returns up to
     -- 100 configurations.
-    maxResults :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) If you want to list the query logging configuration that is
-    -- associated with a hosted zone, specify the ID in @HostedZoneId@.
-    --
-    -- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
-    -- returns all of the configurations that are associated with the current
-    -- Amazon Web Services account.
-    hostedZoneId :: Prelude.Maybe ResourceId
+    maxResults :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,6 +99,13 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'hostedZoneId', 'listQueryLoggingConfigs_hostedZoneId' - (Optional) If you want to list the query logging configuration that is
+-- associated with a hosted zone, specify the ID in @HostedZoneId@.
+--
+-- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
+-- returns all of the configurations that are associated with the current
+-- Amazon Web Services account.
 --
 -- 'nextToken', 'listQueryLoggingConfigs_nextToken' - (Optional) If the current Amazon Web Services account has more than
 -- @MaxResults@ query logging configurations, use @NextToken@ to get the
@@ -119,22 +126,24 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
 --
 -- If you don\'t specify a value for @MaxResults@, Route 53 returns up to
 -- 100 configurations.
---
--- 'hostedZoneId', 'listQueryLoggingConfigs_hostedZoneId' - (Optional) If you want to list the query logging configuration that is
+newListQueryLoggingConfigs ::
+  ListQueryLoggingConfigs
+newListQueryLoggingConfigs =
+  ListQueryLoggingConfigs'
+    { hostedZoneId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | (Optional) If you want to list the query logging configuration that is
 -- associated with a hosted zone, specify the ID in @HostedZoneId@.
 --
 -- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
 -- returns all of the configurations that are associated with the current
 -- Amazon Web Services account.
-newListQueryLoggingConfigs ::
-  ListQueryLoggingConfigs
-newListQueryLoggingConfigs =
-  ListQueryLoggingConfigs'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      hostedZoneId = Prelude.Nothing
-    }
+listQueryLoggingConfigs_hostedZoneId :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe ResourceId)
+listQueryLoggingConfigs_hostedZoneId = Lens.lens (\ListQueryLoggingConfigs' {hostedZoneId} -> hostedZoneId) (\s@ListQueryLoggingConfigs' {} a -> s {hostedZoneId = a} :: ListQueryLoggingConfigs)
 
 -- | (Optional) If the current Amazon Web Services account has more than
 -- @MaxResults@ query logging configurations, use @NextToken@ to get the
@@ -159,15 +168,6 @@ listQueryLoggingConfigs_nextToken = Lens.lens (\ListQueryLoggingConfigs' {nextTo
 -- 100 configurations.
 listQueryLoggingConfigs_maxResults :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe Prelude.Text)
 listQueryLoggingConfigs_maxResults = Lens.lens (\ListQueryLoggingConfigs' {maxResults} -> maxResults) (\s@ListQueryLoggingConfigs' {} a -> s {maxResults = a} :: ListQueryLoggingConfigs)
-
--- | (Optional) If you want to list the query logging configuration that is
--- associated with a hosted zone, specify the ID in @HostedZoneId@.
---
--- If you don\'t specify a hosted zone ID, @ListQueryLoggingConfigs@
--- returns all of the configurations that are associated with the current
--- Amazon Web Services account.
-listQueryLoggingConfigs_hostedZoneId :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe ResourceId)
-listQueryLoggingConfigs_hostedZoneId = Lens.lens (\ListQueryLoggingConfigs' {hostedZoneId} -> hostedZoneId) (\s@ListQueryLoggingConfigs' {} a -> s {hostedZoneId = a} :: ListQueryLoggingConfigs)
 
 instance Core.AWSPager ListQueryLoggingConfigs where
   page rq rs
@@ -221,9 +221,9 @@ instance Core.ToPath ListQueryLoggingConfigs where
 instance Core.ToQuery ListQueryLoggingConfigs where
   toQuery ListQueryLoggingConfigs' {..} =
     Prelude.mconcat
-      [ "nexttoken" Core.=: nextToken,
-        "maxresults" Core.=: maxResults,
-        "hostedzoneid" Core.=: hostedZoneId
+      [ "hostedzoneid" Core.=: hostedZoneId,
+        "nexttoken" Core.=: nextToken,
+        "maxresults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListQueryLoggingConfigsResponse' smart constructor.
@@ -305,7 +305,7 @@ listQueryLoggingConfigsResponse_httpStatus = Lens.lens (\ListQueryLoggingConfigs
 -- element for each configuration for DNS query logging that is associated
 -- with the current Amazon Web Services account.
 listQueryLoggingConfigsResponse_queryLoggingConfigs :: Lens.Lens' ListQueryLoggingConfigsResponse [QueryLoggingConfig]
-listQueryLoggingConfigsResponse_queryLoggingConfigs = Lens.lens (\ListQueryLoggingConfigsResponse' {queryLoggingConfigs} -> queryLoggingConfigs) (\s@ListQueryLoggingConfigsResponse' {} a -> s {queryLoggingConfigs = a} :: ListQueryLoggingConfigsResponse) Prelude.. Lens._Coerce
+listQueryLoggingConfigsResponse_queryLoggingConfigs = Lens.lens (\ListQueryLoggingConfigsResponse' {queryLoggingConfigs} -> queryLoggingConfigs) (\s@ListQueryLoggingConfigsResponse' {} a -> s {queryLoggingConfigs = a} :: ListQueryLoggingConfigsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

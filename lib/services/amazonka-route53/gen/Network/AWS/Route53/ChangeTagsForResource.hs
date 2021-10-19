@@ -31,8 +31,8 @@ module Network.AWS.Route53.ChangeTagsForResource
     newChangeTagsForResource,
 
     -- * Request Lenses
-    changeTagsForResource_addTags,
     changeTagsForResource_removeTagKeys,
+    changeTagsForResource_addTags,
     changeTagsForResource_resourceType,
     changeTagsForResource_resourceId,
 
@@ -57,16 +57,16 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'newChangeTagsForResource' smart constructor.
 data ChangeTagsForResource = ChangeTagsForResource'
-  { -- | A complex type that contains a list of the tags that you want to add to
+  { -- | A complex type that contains a list of the tags that you want to delete
+    -- from the specified health check or hosted zone. You can specify up to 10
+    -- keys.
+    removeTagKeys :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A complex type that contains a list of the tags that you want to add to
     -- the specified health check or hosted zone and\/or the tags that you want
     -- to edit @Value@ for.
     --
     -- You can add a maximum of 10 tags to a health check or a hosted zone.
     addTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A complex type that contains a list of the tags that you want to delete
-    -- from the specified health check or hosted zone. You can specify up to 10
-    -- keys.
-    removeTagKeys :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The type of the resource.
     --
     -- -   The resource type for health checks is @healthcheck@.
@@ -87,15 +87,15 @@ data ChangeTagsForResource = ChangeTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'removeTagKeys', 'changeTagsForResource_removeTagKeys' - A complex type that contains a list of the tags that you want to delete
+-- from the specified health check or hosted zone. You can specify up to 10
+-- keys.
+--
 -- 'addTags', 'changeTagsForResource_addTags' - A complex type that contains a list of the tags that you want to add to
 -- the specified health check or hosted zone and\/or the tags that you want
 -- to edit @Value@ for.
 --
 -- You can add a maximum of 10 tags to a health check or a hosted zone.
---
--- 'removeTagKeys', 'changeTagsForResource_removeTagKeys' - A complex type that contains a list of the tags that you want to delete
--- from the specified health check or hosted zone. You can specify up to 10
--- keys.
 --
 -- 'resourceType', 'changeTagsForResource_resourceType' - The type of the resource.
 --
@@ -113,11 +113,18 @@ newChangeTagsForResource ::
   ChangeTagsForResource
 newChangeTagsForResource pResourceType_ pResourceId_ =
   ChangeTagsForResource'
-    { addTags = Prelude.Nothing,
-      removeTagKeys = Prelude.Nothing,
+    { removeTagKeys =
+        Prelude.Nothing,
+      addTags = Prelude.Nothing,
       resourceType = pResourceType_,
       resourceId = pResourceId_
     }
+
+-- | A complex type that contains a list of the tags that you want to delete
+-- from the specified health check or hosted zone. You can specify up to 10
+-- keys.
+changeTagsForResource_removeTagKeys :: Lens.Lens' ChangeTagsForResource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+changeTagsForResource_removeTagKeys = Lens.lens (\ChangeTagsForResource' {removeTagKeys} -> removeTagKeys) (\s@ChangeTagsForResource' {} a -> s {removeTagKeys = a} :: ChangeTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | A complex type that contains a list of the tags that you want to add to
 -- the specified health check or hosted zone and\/or the tags that you want
@@ -125,13 +132,7 @@ newChangeTagsForResource pResourceType_ pResourceId_ =
 --
 -- You can add a maximum of 10 tags to a health check or a hosted zone.
 changeTagsForResource_addTags :: Lens.Lens' ChangeTagsForResource (Prelude.Maybe (Prelude.NonEmpty Tag))
-changeTagsForResource_addTags = Lens.lens (\ChangeTagsForResource' {addTags} -> addTags) (\s@ChangeTagsForResource' {} a -> s {addTags = a} :: ChangeTagsForResource) Prelude.. Lens.mapping Lens._Coerce
-
--- | A complex type that contains a list of the tags that you want to delete
--- from the specified health check or hosted zone. You can specify up to 10
--- keys.
-changeTagsForResource_removeTagKeys :: Lens.Lens' ChangeTagsForResource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-changeTagsForResource_removeTagKeys = Lens.lens (\ChangeTagsForResource' {removeTagKeys} -> removeTagKeys) (\s@ChangeTagsForResource' {} a -> s {removeTagKeys = a} :: ChangeTagsForResource) Prelude.. Lens.mapping Lens._Coerce
+changeTagsForResource_addTags = Lens.lens (\ChangeTagsForResource' {addTags} -> addTags) (\s@ChangeTagsForResource' {} a -> s {addTags = a} :: ChangeTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the resource.
 --
@@ -185,12 +186,12 @@ instance Core.ToQuery ChangeTagsForResource where
 instance Core.ToXML ChangeTagsForResource where
   toXML ChangeTagsForResource' {..} =
     Prelude.mconcat
-      [ "AddTags"
+      [ "RemoveTagKeys"
           Core.@= Core.toXML
-            (Core.toXMLList "Tag" Prelude.<$> addTags),
-        "RemoveTagKeys"
+            (Core.toXMLList "Key" Prelude.<$> removeTagKeys),
+        "AddTags"
           Core.@= Core.toXML
-            (Core.toXMLList "Key" Prelude.<$> removeTagKeys)
+            (Core.toXMLList "Tag" Prelude.<$> addTags)
       ]
 
 -- | Empty response for the request.

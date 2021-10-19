@@ -94,7 +94,7 @@ newListTagsForResources pResourceType_ pResourceIds_ =
   ListTagsForResources'
     { resourceType =
         pResourceType_,
-      resourceIds = Lens._Coerce Lens.# pResourceIds_
+      resourceIds = Lens.coerced Lens.# pResourceIds_
     }
 
 -- | The type of the resources.
@@ -108,7 +108,7 @@ listTagsForResources_resourceType = Lens.lens (\ListTagsForResources' {resourceT
 -- | A complex type that contains the ResourceId element for each resource
 -- for which you want to get a list of tags.
 listTagsForResources_resourceIds :: Lens.Lens' ListTagsForResources (Prelude.NonEmpty Prelude.Text)
-listTagsForResources_resourceIds = Lens.lens (\ListTagsForResources' {resourceIds} -> resourceIds) (\s@ListTagsForResources' {} a -> s {resourceIds = a} :: ListTagsForResources) Prelude.. Lens._Coerce
+listTagsForResources_resourceIds = Lens.lens (\ListTagsForResources' {resourceIds} -> resourceIds) (\s@ListTagsForResources' {} a -> s {resourceIds = a} :: ListTagsForResources) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ListTagsForResources where
   type
@@ -194,6 +194,6 @@ listTagsForResourcesResponse_httpStatus = Lens.lens (\ListTagsForResourcesRespon
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
 listTagsForResourcesResponse_resourceTagSets :: Lens.Lens' ListTagsForResourcesResponse [ResourceTagSet]
-listTagsForResourcesResponse_resourceTagSets = Lens.lens (\ListTagsForResourcesResponse' {resourceTagSets} -> resourceTagSets) (\s@ListTagsForResourcesResponse' {} a -> s {resourceTagSets = a} :: ListTagsForResourcesResponse) Prelude.. Lens._Coerce
+listTagsForResourcesResponse_resourceTagSets = Lens.lens (\ListTagsForResourcesResponse' {resourceTagSets} -> resourceTagSets) (\s@ListTagsForResourcesResponse' {} a -> s {resourceTagSets = a} :: ListTagsForResourcesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListTagsForResourcesResponse

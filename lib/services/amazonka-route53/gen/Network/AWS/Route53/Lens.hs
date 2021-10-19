@@ -14,17 +14,6 @@
 module Network.AWS.Route53.Lens
   ( -- * Operations
 
-    -- ** CreateReusableDelegationSet
-    createReusableDelegationSet_hostedZoneId,
-    createReusableDelegationSet_callerReference,
-    createReusableDelegationSetResponse_httpStatus,
-    createReusableDelegationSetResponse_delegationSet,
-    createReusableDelegationSetResponse_location,
-
-    -- ** GetHealthCheckCount
-    getHealthCheckCountResponse_httpStatus,
-    getHealthCheckCountResponse_healthCheckCount,
-
     -- ** GetHostedZoneLimit
     getHostedZoneLimit_type,
     getHostedZoneLimit_hostedZoneId,
@@ -39,180 +28,10 @@ module Network.AWS.Route53.Lens
     associateVPCWithHostedZoneResponse_httpStatus,
     associateVPCWithHostedZoneResponse_changeInfo,
 
-    -- ** CreateTrafficPolicy
-    createTrafficPolicy_comment,
-    createTrafficPolicy_name,
-    createTrafficPolicy_document,
-    createTrafficPolicyResponse_httpStatus,
-    createTrafficPolicyResponse_trafficPolicy,
-    createTrafficPolicyResponse_location,
-
-    -- ** ListGeoLocations
-    listGeoLocations_startSubdivisionCode,
-    listGeoLocations_startCountryCode,
-    listGeoLocations_startContinentCode,
-    listGeoLocations_maxItems,
-    listGeoLocationsResponse_nextSubdivisionCode,
-    listGeoLocationsResponse_nextContinentCode,
-    listGeoLocationsResponse_nextCountryCode,
-    listGeoLocationsResponse_httpStatus,
-    listGeoLocationsResponse_geoLocationDetailsList,
-    listGeoLocationsResponse_isTruncated,
-    listGeoLocationsResponse_maxItems,
-
-    -- ** ListTrafficPolicies
-    listTrafficPolicies_trafficPolicyIdMarker,
-    listTrafficPolicies_maxItems,
-    listTrafficPoliciesResponse_httpStatus,
-    listTrafficPoliciesResponse_trafficPolicySummaries,
-    listTrafficPoliciesResponse_isTruncated,
-    listTrafficPoliciesResponse_trafficPolicyIdMarker,
-    listTrafficPoliciesResponse_maxItems,
-
-    -- ** GetGeoLocation
-    getGeoLocation_continentCode,
-    getGeoLocation_subdivisionCode,
-    getGeoLocation_countryCode,
-    getGeoLocationResponse_httpStatus,
-    getGeoLocationResponse_geoLocationDetails,
-
-    -- ** ChangeTagsForResource
-    changeTagsForResource_addTags,
-    changeTagsForResource_removeTagKeys,
-    changeTagsForResource_resourceType,
-    changeTagsForResource_resourceId,
-    changeTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteHostedZone
-    deleteHostedZone_id,
-    deleteHostedZoneResponse_httpStatus,
-    deleteHostedZoneResponse_changeInfo,
-
-    -- ** CreateHealthCheck
-    createHealthCheck_callerReference,
-    createHealthCheck_healthCheckConfig,
-    createHealthCheckResponse_httpStatus,
-    createHealthCheckResponse_healthCheck,
-    createHealthCheckResponse_location,
-
-    -- ** DeleteVPCAssociationAuthorization
-    deleteVPCAssociationAuthorization_hostedZoneId,
-    deleteVPCAssociationAuthorization_vpc,
-    deleteVPCAssociationAuthorizationResponse_httpStatus,
-
-    -- ** DisassociateVPCFromHostedZone
-    disassociateVPCFromHostedZone_comment,
-    disassociateVPCFromHostedZone_hostedZoneId,
-    disassociateVPCFromHostedZone_vpc,
-    disassociateVPCFromHostedZoneResponse_httpStatus,
-    disassociateVPCFromHostedZoneResponse_changeInfo,
-
-    -- ** ListHostedZones
-    listHostedZones_delegationSetId,
-    listHostedZones_maxItems,
-    listHostedZones_marker,
-    listHostedZonesResponse_nextMarker,
-    listHostedZonesResponse_marker,
-    listHostedZonesResponse_httpStatus,
-    listHostedZonesResponse_hostedZones,
-    listHostedZonesResponse_isTruncated,
-    listHostedZonesResponse_maxItems,
-
-    -- ** CreateHostedZone
-    createHostedZone_hostedZoneConfig,
-    createHostedZone_delegationSetId,
-    createHostedZone_vpc,
-    createHostedZone_name,
-    createHostedZone_callerReference,
-    createHostedZoneResponse_vpc,
-    createHostedZoneResponse_httpStatus,
-    createHostedZoneResponse_hostedZone,
-    createHostedZoneResponse_changeInfo,
-    createHostedZoneResponse_delegationSet,
-    createHostedZoneResponse_location,
-
-    -- ** DeactivateKeySigningKey
-    deactivateKeySigningKey_hostedZoneId,
-    deactivateKeySigningKey_name,
-    deactivateKeySigningKeyResponse_httpStatus,
-    deactivateKeySigningKeyResponse_changeInfo,
-
-    -- ** TestDNSAnswer
-    testDNSAnswer_resolverIP,
-    testDNSAnswer_eDNS0ClientSubnetMask,
-    testDNSAnswer_eDNS0ClientSubnetIP,
-    testDNSAnswer_hostedZoneId,
-    testDNSAnswer_recordName,
-    testDNSAnswer_recordType,
-    testDNSAnswerResponse_httpStatus,
-    testDNSAnswerResponse_nameserver,
-    testDNSAnswerResponse_recordName,
-    testDNSAnswerResponse_recordType,
-    testDNSAnswerResponse_recordData,
-    testDNSAnswerResponse_responseCode,
-    testDNSAnswerResponse_protocol,
-
-    -- ** ChangeResourceRecordSets
-    changeResourceRecordSets_hostedZoneId,
-    changeResourceRecordSets_changeBatch,
-    changeResourceRecordSetsResponse_httpStatus,
-    changeResourceRecordSetsResponse_changeInfo,
-
-    -- ** GetReusableDelegationSetLimit
-    getReusableDelegationSetLimit_type,
-    getReusableDelegationSetLimit_delegationSetId,
-    getReusableDelegationSetLimitResponse_httpStatus,
-    getReusableDelegationSetLimitResponse_limit,
-    getReusableDelegationSetLimitResponse_count,
-
-    -- ** GetReusableDelegationSet
-    getReusableDelegationSet_id,
-    getReusableDelegationSetResponse_httpStatus,
-    getReusableDelegationSetResponse_delegationSet,
-
-    -- ** GetAccountLimit
-    getAccountLimit_type,
-    getAccountLimitResponse_httpStatus,
-    getAccountLimitResponse_limit,
-    getAccountLimitResponse_count,
-
-    -- ** GetDNSSEC
-    getDNSSEC_hostedZoneId,
-    getDNSSECResponse_httpStatus,
-    getDNSSECResponse_status,
-    getDNSSECResponse_keySigningKeys,
-
-    -- ** GetCheckerIpRanges
-    getCheckerIpRangesResponse_httpStatus,
-    getCheckerIpRangesResponse_checkerIpRanges,
-
-    -- ** ListReusableDelegationSets
-    listReusableDelegationSets_maxItems,
-    listReusableDelegationSets_marker,
-    listReusableDelegationSetsResponse_nextMarker,
-    listReusableDelegationSetsResponse_httpStatus,
-    listReusableDelegationSetsResponse_delegationSets,
-    listReusableDelegationSetsResponse_marker,
-    listReusableDelegationSetsResponse_isTruncated,
-    listReusableDelegationSetsResponse_maxItems,
-
-    -- ** DeleteKeySigningKey
-    deleteKeySigningKey_hostedZoneId,
-    deleteKeySigningKey_name,
-    deleteKeySigningKeyResponse_httpStatus,
-    deleteKeySigningKeyResponse_changeInfo,
-
-    -- ** GetTrafficPolicyInstance
-    getTrafficPolicyInstance_id,
-    getTrafficPolicyInstanceResponse_httpStatus,
-    getTrafficPolicyInstanceResponse_trafficPolicyInstance,
-
-    -- ** CreateQueryLoggingConfig
-    createQueryLoggingConfig_hostedZoneId,
-    createQueryLoggingConfig_cloudWatchLogsLogGroupArn,
-    createQueryLoggingConfigResponse_httpStatus,
-    createQueryLoggingConfigResponse_queryLoggingConfig,
-    createQueryLoggingConfigResponse_location,
+    -- ** DeleteTrafficPolicy
+    deleteTrafficPolicy_id,
+    deleteTrafficPolicy_version,
+    deleteTrafficPolicyResponse_httpStatus,
 
     -- ** DisableHostedZoneDNSSEC
     disableHostedZoneDNSSEC_hostedZoneId,
@@ -230,65 +49,145 @@ module Network.AWS.Route53.Lens
     createKeySigningKeyResponse_keySigningKey,
     createKeySigningKeyResponse_location,
 
-    -- ** UpdateTrafficPolicyComment
-    updateTrafficPolicyComment_id,
-    updateTrafficPolicyComment_version,
-    updateTrafficPolicyComment_comment,
-    updateTrafficPolicyCommentResponse_httpStatus,
-    updateTrafficPolicyCommentResponse_trafficPolicy,
+    -- ** GetCheckerIpRanges
+    getCheckerIpRangesResponse_httpStatus,
+    getCheckerIpRangesResponse_checkerIpRanges,
 
-    -- ** ListResourceRecordSets
-    listResourceRecordSets_startRecordIdentifier,
-    listResourceRecordSets_startRecordType,
-    listResourceRecordSets_maxItems,
-    listResourceRecordSets_startRecordName,
-    listResourceRecordSets_hostedZoneId,
-    listResourceRecordSetsResponse_nextRecordType,
-    listResourceRecordSetsResponse_nextRecordIdentifier,
-    listResourceRecordSetsResponse_nextRecordName,
-    listResourceRecordSetsResponse_httpStatus,
-    listResourceRecordSetsResponse_resourceRecordSets,
-    listResourceRecordSetsResponse_isTruncated,
-    listResourceRecordSetsResponse_maxItems,
+    -- ** GetTrafficPolicyInstance
+    getTrafficPolicyInstance_id,
+    getTrafficPolicyInstanceResponse_httpStatus,
+    getTrafficPolicyInstanceResponse_trafficPolicyInstance,
 
-    -- ** GetHealthCheck
-    getHealthCheck_healthCheckId,
-    getHealthCheckResponse_httpStatus,
-    getHealthCheckResponse_healthCheck,
+    -- ** GetHealthCheckLastFailureReason
+    getHealthCheckLastFailureReason_healthCheckId,
+    getHealthCheckLastFailureReasonResponse_httpStatus,
+    getHealthCheckLastFailureReasonResponse_healthCheckObservations,
 
-    -- ** DeleteTrafficPolicy
-    deleteTrafficPolicy_id,
-    deleteTrafficPolicy_version,
-    deleteTrafficPolicyResponse_httpStatus,
+    -- ** DeleteReusableDelegationSet
+    deleteReusableDelegationSet_id,
+    deleteReusableDelegationSetResponse_httpStatus,
 
-    -- ** GetHostedZone
-    getHostedZone_id,
-    getHostedZoneResponse_delegationSet,
-    getHostedZoneResponse_vPCs,
-    getHostedZoneResponse_httpStatus,
-    getHostedZoneResponse_hostedZone,
+    -- ** ListHostedZonesByName
+    listHostedZonesByName_hostedZoneId,
+    listHostedZonesByName_maxItems,
+    listHostedZonesByName_dNSName,
+    listHostedZonesByNameResponse_hostedZoneId,
+    listHostedZonesByNameResponse_nextHostedZoneId,
+    listHostedZonesByNameResponse_dNSName,
+    listHostedZonesByNameResponse_nextDNSName,
+    listHostedZonesByNameResponse_httpStatus,
+    listHostedZonesByNameResponse_hostedZones,
+    listHostedZonesByNameResponse_isTruncated,
+    listHostedZonesByNameResponse_maxItems,
 
-    -- ** GetTrafficPolicyInstanceCount
-    getTrafficPolicyInstanceCountResponse_httpStatus,
-    getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount,
+    -- ** ActivateKeySigningKey
+    activateKeySigningKey_hostedZoneId,
+    activateKeySigningKey_name,
+    activateKeySigningKeyResponse_httpStatus,
+    activateKeySigningKeyResponse_changeInfo,
 
-    -- ** ListTagsForResources
-    listTagsForResources_resourceType,
-    listTagsForResources_resourceIds,
-    listTagsForResourcesResponse_httpStatus,
-    listTagsForResourcesResponse_resourceTagSets,
+    -- ** ListReusableDelegationSets
+    listReusableDelegationSets_marker,
+    listReusableDelegationSets_maxItems,
+    listReusableDelegationSetsResponse_nextMarker,
+    listReusableDelegationSetsResponse_httpStatus,
+    listReusableDelegationSetsResponse_delegationSets,
+    listReusableDelegationSetsResponse_marker,
+    listReusableDelegationSetsResponse_isTruncated,
+    listReusableDelegationSetsResponse_maxItems,
 
-    -- ** ListTrafficPolicyInstancesByHostedZone
-    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
-    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesByHostedZone_maxItems,
-    listTrafficPolicyInstancesByHostedZone_hostedZoneId,
-    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker,
-    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesByHostedZoneResponse_httpStatus,
-    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstances,
-    listTrafficPolicyInstancesByHostedZoneResponse_isTruncated,
-    listTrafficPolicyInstancesByHostedZoneResponse_maxItems,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceType,
+    listTagsForResource_resourceId,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_resourceTagSet,
+
+    -- ** ListQueryLoggingConfigs
+    listQueryLoggingConfigs_hostedZoneId,
+    listQueryLoggingConfigs_nextToken,
+    listQueryLoggingConfigs_maxResults,
+    listQueryLoggingConfigsResponse_nextToken,
+    listQueryLoggingConfigsResponse_httpStatus,
+    listQueryLoggingConfigsResponse_queryLoggingConfigs,
+
+    -- ** ListTrafficPolicyInstances
+    listTrafficPolicyInstances_trafficPolicyInstanceTypeMarker,
+    listTrafficPolicyInstances_maxItems,
+    listTrafficPolicyInstances_hostedZoneIdMarker,
+    listTrafficPolicyInstances_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesResponse_trafficPolicyInstanceTypeMarker,
+    listTrafficPolicyInstancesResponse_hostedZoneIdMarker,
+    listTrafficPolicyInstancesResponse_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesResponse_httpStatus,
+    listTrafficPolicyInstancesResponse_trafficPolicyInstances,
+    listTrafficPolicyInstancesResponse_isTruncated,
+    listTrafficPolicyInstancesResponse_maxItems,
+
+    -- ** CreateTrafficPolicyInstance
+    createTrafficPolicyInstance_hostedZoneId,
+    createTrafficPolicyInstance_name,
+    createTrafficPolicyInstance_ttl,
+    createTrafficPolicyInstance_trafficPolicyId,
+    createTrafficPolicyInstance_trafficPolicyVersion,
+    createTrafficPolicyInstanceResponse_httpStatus,
+    createTrafficPolicyInstanceResponse_trafficPolicyInstance,
+    createTrafficPolicyInstanceResponse_location,
+
+    -- ** GetChange
+    getChange_id,
+    getChangeResponse_httpStatus,
+    getChangeResponse_changeInfo,
+
+    -- ** ChangeResourceRecordSets
+    changeResourceRecordSets_hostedZoneId,
+    changeResourceRecordSets_changeBatch,
+    changeResourceRecordSetsResponse_httpStatus,
+    changeResourceRecordSetsResponse_changeInfo,
+
+    -- ** DeleteHealthCheck
+    deleteHealthCheck_healthCheckId,
+    deleteHealthCheckResponse_httpStatus,
+
+    -- ** UpdateHealthCheck
+    updateHealthCheck_failureThreshold,
+    updateHealthCheck_iPAddress,
+    updateHealthCheck_enableSNI,
+    updateHealthCheck_disabled,
+    updateHealthCheck_resetElements,
+    updateHealthCheck_searchString,
+    updateHealthCheck_healthThreshold,
+    updateHealthCheck_regions,
+    updateHealthCheck_resourcePath,
+    updateHealthCheck_insufficientDataHealthStatus,
+    updateHealthCheck_healthCheckVersion,
+    updateHealthCheck_alarmIdentifier,
+    updateHealthCheck_inverted,
+    updateHealthCheck_fullyQualifiedDomainName,
+    updateHealthCheck_childHealthChecks,
+    updateHealthCheck_port,
+    updateHealthCheck_healthCheckId,
+    updateHealthCheckResponse_httpStatus,
+    updateHealthCheckResponse_healthCheck,
+
+    -- ** CreateHostedZone
+    createHostedZone_delegationSetId,
+    createHostedZone_vpc,
+    createHostedZone_hostedZoneConfig,
+    createHostedZone_name,
+    createHostedZone_callerReference,
+    createHostedZoneResponse_vpc,
+    createHostedZoneResponse_httpStatus,
+    createHostedZoneResponse_hostedZone,
+    createHostedZoneResponse_changeInfo,
+    createHostedZoneResponse_delegationSet,
+    createHostedZoneResponse_location,
+
+    -- ** CreateVPCAssociationAuthorization
+    createVPCAssociationAuthorization_hostedZoneId,
+    createVPCAssociationAuthorization_vpc,
+    createVPCAssociationAuthorizationResponse_httpStatus,
+    createVPCAssociationAuthorizationResponse_hostedZoneId,
+    createVPCAssociationAuthorizationResponse_vpc,
 
     -- ** ListVPCAssociationAuthorizations
     listVPCAssociationAuthorizations_nextToken,
@@ -300,95 +199,183 @@ module Network.AWS.Route53.Lens
     listVPCAssociationAuthorizationsResponse_vPCs,
 
     -- ** ListTrafficPolicyInstancesByPolicy
-    listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesByPolicy_hostedZoneIdMarker,
     listTrafficPolicyInstancesByPolicy_maxItems,
+    listTrafficPolicyInstancesByPolicy_hostedZoneIdMarker,
+    listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByPolicy_trafficPolicyId,
     listTrafficPolicyInstancesByPolicy_trafficPolicyVersion,
-    listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByPolicyResponse_hostedZoneIdMarker,
+    listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByPolicyResponse_httpStatus,
     listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstances,
     listTrafficPolicyInstancesByPolicyResponse_isTruncated,
     listTrafficPolicyInstancesByPolicyResponse_maxItems,
 
-    -- ** ListTrafficPolicyVersions
-    listTrafficPolicyVersions_trafficPolicyVersionMarker,
-    listTrafficPolicyVersions_maxItems,
-    listTrafficPolicyVersions_id,
-    listTrafficPolicyVersionsResponse_httpStatus,
-    listTrafficPolicyVersionsResponse_trafficPolicies,
-    listTrafficPolicyVersionsResponse_isTruncated,
-    listTrafficPolicyVersionsResponse_trafficPolicyVersionMarker,
-    listTrafficPolicyVersionsResponse_maxItems,
+    -- ** DisassociateVPCFromHostedZone
+    disassociateVPCFromHostedZone_comment,
+    disassociateVPCFromHostedZone_hostedZoneId,
+    disassociateVPCFromHostedZone_vpc,
+    disassociateVPCFromHostedZoneResponse_httpStatus,
+    disassociateVPCFromHostedZoneResponse_changeInfo,
 
-    -- ** CreateVPCAssociationAuthorization
-    createVPCAssociationAuthorization_hostedZoneId,
-    createVPCAssociationAuthorization_vpc,
-    createVPCAssociationAuthorizationResponse_httpStatus,
-    createVPCAssociationAuthorizationResponse_hostedZoneId,
-    createVPCAssociationAuthorizationResponse_vpc,
+    -- ** CreateHealthCheck
+    createHealthCheck_callerReference,
+    createHealthCheck_healthCheckConfig,
+    createHealthCheckResponse_httpStatus,
+    createHealthCheckResponse_healthCheck,
+    createHealthCheckResponse_location,
 
-    -- ** CreateTrafficPolicyVersion
-    createTrafficPolicyVersion_comment,
-    createTrafficPolicyVersion_id,
-    createTrafficPolicyVersion_document,
-    createTrafficPolicyVersionResponse_httpStatus,
-    createTrafficPolicyVersionResponse_trafficPolicy,
-    createTrafficPolicyVersionResponse_location,
+    -- ** DeleteVPCAssociationAuthorization
+    deleteVPCAssociationAuthorization_hostedZoneId,
+    deleteVPCAssociationAuthorization_vpc,
+    deleteVPCAssociationAuthorizationResponse_httpStatus,
 
-    -- ** ListHealthChecks
-    listHealthChecks_maxItems,
-    listHealthChecks_marker,
-    listHealthChecksResponse_nextMarker,
-    listHealthChecksResponse_httpStatus,
-    listHealthChecksResponse_healthChecks,
-    listHealthChecksResponse_marker,
-    listHealthChecksResponse_isTruncated,
-    listHealthChecksResponse_maxItems,
+    -- ** ChangeTagsForResource
+    changeTagsForResource_removeTagKeys,
+    changeTagsForResource_addTags,
+    changeTagsForResource_resourceType,
+    changeTagsForResource_resourceId,
+    changeTagsForResourceResponse_httpStatus,
 
-    -- ** GetTrafficPolicy
-    getTrafficPolicy_id,
-    getTrafficPolicy_version,
-    getTrafficPolicyResponse_httpStatus,
-    getTrafficPolicyResponse_trafficPolicy,
+    -- ** ListHostedZones
+    listHostedZones_delegationSetId,
+    listHostedZones_marker,
+    listHostedZones_maxItems,
+    listHostedZonesResponse_marker,
+    listHostedZonesResponse_nextMarker,
+    listHostedZonesResponse_httpStatus,
+    listHostedZonesResponse_hostedZones,
+    listHostedZonesResponse_isTruncated,
+    listHostedZonesResponse_maxItems,
 
-    -- ** DeleteHealthCheck
-    deleteHealthCheck_healthCheckId,
-    deleteHealthCheckResponse_httpStatus,
+    -- ** GetTrafficPolicyInstanceCount
+    getTrafficPolicyInstanceCountResponse_httpStatus,
+    getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount,
 
-    -- ** UpdateHealthCheck
-    updateHealthCheck_failureThreshold,
-    updateHealthCheck_childHealthChecks,
-    updateHealthCheck_searchString,
-    updateHealthCheck_disabled,
-    updateHealthCheck_alarmIdentifier,
-    updateHealthCheck_enableSNI,
-    updateHealthCheck_insufficientDataHealthStatus,
-    updateHealthCheck_resourcePath,
-    updateHealthCheck_iPAddress,
-    updateHealthCheck_port,
-    updateHealthCheck_regions,
-    updateHealthCheck_inverted,
-    updateHealthCheck_fullyQualifiedDomainName,
-    updateHealthCheck_healthThreshold,
-    updateHealthCheck_healthCheckVersion,
-    updateHealthCheck_resetElements,
-    updateHealthCheck_healthCheckId,
-    updateHealthCheckResponse_httpStatus,
-    updateHealthCheckResponse_healthCheck,
+    -- ** ListGeoLocations
+    listGeoLocations_startSubdivisionCode,
+    listGeoLocations_maxItems,
+    listGeoLocations_startCountryCode,
+    listGeoLocations_startContinentCode,
+    listGeoLocationsResponse_nextContinentCode,
+    listGeoLocationsResponse_nextCountryCode,
+    listGeoLocationsResponse_nextSubdivisionCode,
+    listGeoLocationsResponse_httpStatus,
+    listGeoLocationsResponse_geoLocationDetailsList,
+    listGeoLocationsResponse_isTruncated,
+    listGeoLocationsResponse_maxItems,
 
-    -- ** CreateTrafficPolicyInstance
-    createTrafficPolicyInstance_hostedZoneId,
-    createTrafficPolicyInstance_name,
-    createTrafficPolicyInstance_ttl,
-    createTrafficPolicyInstance_trafficPolicyId,
-    createTrafficPolicyInstance_trafficPolicyVersion,
-    createTrafficPolicyInstanceResponse_httpStatus,
-    createTrafficPolicyInstanceResponse_trafficPolicyInstance,
-    createTrafficPolicyInstanceResponse_location,
+    -- ** GetHostedZone
+    getHostedZone_id,
+    getHostedZoneResponse_vPCs,
+    getHostedZoneResponse_delegationSet,
+    getHostedZoneResponse_httpStatus,
+    getHostedZoneResponse_hostedZone,
+
+    -- ** GetHealthCheck
+    getHealthCheck_healthCheckId,
+    getHealthCheckResponse_httpStatus,
+    getHealthCheckResponse_healthCheck,
+
+    -- ** ListResourceRecordSets
+    listResourceRecordSets_startRecordName,
+    listResourceRecordSets_startRecordType,
+    listResourceRecordSets_startRecordIdentifier,
+    listResourceRecordSets_maxItems,
+    listResourceRecordSets_hostedZoneId,
+    listResourceRecordSetsResponse_nextRecordType,
+    listResourceRecordSetsResponse_nextRecordName,
+    listResourceRecordSetsResponse_nextRecordIdentifier,
+    listResourceRecordSetsResponse_httpStatus,
+    listResourceRecordSetsResponse_resourceRecordSets,
+    listResourceRecordSetsResponse_isTruncated,
+    listResourceRecordSetsResponse_maxItems,
+
+    -- ** CreateReusableDelegationSet
+    createReusableDelegationSet_hostedZoneId,
+    createReusableDelegationSet_callerReference,
+    createReusableDelegationSetResponse_httpStatus,
+    createReusableDelegationSetResponse_delegationSet,
+    createReusableDelegationSetResponse_location,
+
+    -- ** CreateQueryLoggingConfig
+    createQueryLoggingConfig_hostedZoneId,
+    createQueryLoggingConfig_cloudWatchLogsLogGroupArn,
+    createQueryLoggingConfigResponse_httpStatus,
+    createQueryLoggingConfigResponse_queryLoggingConfig,
+    createQueryLoggingConfigResponse_location,
+
+    -- ** GetHealthCheckCount
+    getHealthCheckCountResponse_httpStatus,
+    getHealthCheckCountResponse_healthCheckCount,
+
+    -- ** UpdateTrafficPolicyComment
+    updateTrafficPolicyComment_id,
+    updateTrafficPolicyComment_version,
+    updateTrafficPolicyComment_comment,
+    updateTrafficPolicyCommentResponse_httpStatus,
+    updateTrafficPolicyCommentResponse_trafficPolicy,
+
+    -- ** GetHostedZoneCount
+    getHostedZoneCountResponse_httpStatus,
+    getHostedZoneCountResponse_hostedZoneCount,
+
+    -- ** DeleteKeySigningKey
+    deleteKeySigningKey_hostedZoneId,
+    deleteKeySigningKey_name,
+    deleteKeySigningKeyResponse_httpStatus,
+    deleteKeySigningKeyResponse_changeInfo,
+
+    -- ** GetDNSSEC
+    getDNSSEC_hostedZoneId,
+    getDNSSECResponse_httpStatus,
+    getDNSSECResponse_status,
+    getDNSSECResponse_keySigningKeys,
+
+    -- ** GetAccountLimit
+    getAccountLimit_type,
+    getAccountLimitResponse_httpStatus,
+    getAccountLimitResponse_limit,
+    getAccountLimitResponse_count,
+
+    -- ** EnableHostedZoneDNSSEC
+    enableHostedZoneDNSSEC_hostedZoneId,
+    enableHostedZoneDNSSECResponse_httpStatus,
+    enableHostedZoneDNSSECResponse_changeInfo,
+
+    -- ** DeleteQueryLoggingConfig
+    deleteQueryLoggingConfig_id,
+    deleteQueryLoggingConfigResponse_httpStatus,
+
+    -- ** GetQueryLoggingConfig
+    getQueryLoggingConfig_id,
+    getQueryLoggingConfigResponse_httpStatus,
+    getQueryLoggingConfigResponse_queryLoggingConfig,
+
+    -- ** GetReusableDelegationSet
+    getReusableDelegationSet_id,
+    getReusableDelegationSetResponse_httpStatus,
+    getReusableDelegationSetResponse_delegationSet,
+
+    -- ** DeleteTrafficPolicyInstance
+    deleteTrafficPolicyInstance_id,
+    deleteTrafficPolicyInstanceResponse_httpStatus,
+
+    -- ** UpdateTrafficPolicyInstance
+    updateTrafficPolicyInstance_id,
+    updateTrafficPolicyInstance_ttl,
+    updateTrafficPolicyInstance_trafficPolicyId,
+    updateTrafficPolicyInstance_trafficPolicyVersion,
+    updateTrafficPolicyInstanceResponse_httpStatus,
+    updateTrafficPolicyInstanceResponse_trafficPolicyInstance,
+
+    -- ** UpdateHostedZoneComment
+    updateHostedZoneComment_comment,
+    updateHostedZoneComment_id,
+    updateHostedZoneCommentResponse_httpStatus,
+    updateHostedZoneCommentResponse_hostedZone,
 
     -- ** GetHealthCheckStatus
     getHealthCheckStatus_healthCheckId,
@@ -405,101 +392,114 @@ module Network.AWS.Route53.Lens
     listHostedZonesByVPCResponse_hostedZoneSummaries,
     listHostedZonesByVPCResponse_maxItems,
 
-    -- ** GetChange
-    getChange_id,
-    getChangeResponse_httpStatus,
-    getChangeResponse_changeInfo,
+    -- ** GetReusableDelegationSetLimit
+    getReusableDelegationSetLimit_type,
+    getReusableDelegationSetLimit_delegationSetId,
+    getReusableDelegationSetLimitResponse_httpStatus,
+    getReusableDelegationSetLimitResponse_limit,
+    getReusableDelegationSetLimitResponse_count,
 
-    -- ** UpdateHostedZoneComment
-    updateHostedZoneComment_comment,
-    updateHostedZoneComment_id,
-    updateHostedZoneCommentResponse_httpStatus,
-    updateHostedZoneCommentResponse_hostedZone,
+    -- ** CreateTrafficPolicyVersion
+    createTrafficPolicyVersion_comment,
+    createTrafficPolicyVersion_id,
+    createTrafficPolicyVersion_document,
+    createTrafficPolicyVersionResponse_httpStatus,
+    createTrafficPolicyVersionResponse_trafficPolicy,
+    createTrafficPolicyVersionResponse_location,
 
-    -- ** ListTrafficPolicyInstances
-    listTrafficPolicyInstances_trafficPolicyInstanceNameMarker,
-    listTrafficPolicyInstances_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstances_hostedZoneIdMarker,
-    listTrafficPolicyInstances_maxItems,
-    listTrafficPolicyInstancesResponse_trafficPolicyInstanceNameMarker,
-    listTrafficPolicyInstancesResponse_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesResponse_hostedZoneIdMarker,
-    listTrafficPolicyInstancesResponse_httpStatus,
-    listTrafficPolicyInstancesResponse_trafficPolicyInstances,
-    listTrafficPolicyInstancesResponse_isTruncated,
-    listTrafficPolicyInstancesResponse_maxItems,
+    -- ** DeactivateKeySigningKey
+    deactivateKeySigningKey_hostedZoneId,
+    deactivateKeySigningKey_name,
+    deactivateKeySigningKeyResponse_httpStatus,
+    deactivateKeySigningKeyResponse_changeInfo,
 
-    -- ** DeleteTrafficPolicyInstance
-    deleteTrafficPolicyInstance_id,
-    deleteTrafficPolicyInstanceResponse_httpStatus,
+    -- ** TestDNSAnswer
+    testDNSAnswer_resolverIP,
+    testDNSAnswer_eDNS0ClientSubnetIP,
+    testDNSAnswer_eDNS0ClientSubnetMask,
+    testDNSAnswer_hostedZoneId,
+    testDNSAnswer_recordName,
+    testDNSAnswer_recordType,
+    testDNSAnswerResponse_httpStatus,
+    testDNSAnswerResponse_nameserver,
+    testDNSAnswerResponse_recordName,
+    testDNSAnswerResponse_recordType,
+    testDNSAnswerResponse_recordData,
+    testDNSAnswerResponse_responseCode,
+    testDNSAnswerResponse_protocol,
 
-    -- ** UpdateTrafficPolicyInstance
-    updateTrafficPolicyInstance_id,
-    updateTrafficPolicyInstance_ttl,
-    updateTrafficPolicyInstance_trafficPolicyId,
-    updateTrafficPolicyInstance_trafficPolicyVersion,
-    updateTrafficPolicyInstanceResponse_httpStatus,
-    updateTrafficPolicyInstanceResponse_trafficPolicyInstance,
+    -- ** ListHealthChecks
+    listHealthChecks_marker,
+    listHealthChecks_maxItems,
+    listHealthChecksResponse_nextMarker,
+    listHealthChecksResponse_httpStatus,
+    listHealthChecksResponse_healthChecks,
+    listHealthChecksResponse_marker,
+    listHealthChecksResponse_isTruncated,
+    listHealthChecksResponse_maxItems,
 
-    -- ** GetQueryLoggingConfig
-    getQueryLoggingConfig_id,
-    getQueryLoggingConfigResponse_httpStatus,
-    getQueryLoggingConfigResponse_queryLoggingConfig,
+    -- ** GetTrafficPolicy
+    getTrafficPolicy_id,
+    getTrafficPolicy_version,
+    getTrafficPolicyResponse_httpStatus,
+    getTrafficPolicyResponse_trafficPolicy,
 
-    -- ** DeleteReusableDelegationSet
-    deleteReusableDelegationSet_id,
-    deleteReusableDelegationSetResponse_httpStatus,
+    -- ** ListTrafficPolicyVersions
+    listTrafficPolicyVersions_maxItems,
+    listTrafficPolicyVersions_trafficPolicyVersionMarker,
+    listTrafficPolicyVersions_id,
+    listTrafficPolicyVersionsResponse_httpStatus,
+    listTrafficPolicyVersionsResponse_trafficPolicies,
+    listTrafficPolicyVersionsResponse_isTruncated,
+    listTrafficPolicyVersionsResponse_trafficPolicyVersionMarker,
+    listTrafficPolicyVersionsResponse_maxItems,
 
-    -- ** DeleteQueryLoggingConfig
-    deleteQueryLoggingConfig_id,
-    deleteQueryLoggingConfigResponse_httpStatus,
+    -- ** DeleteHostedZone
+    deleteHostedZone_id,
+    deleteHostedZoneResponse_httpStatus,
+    deleteHostedZoneResponse_changeInfo,
 
-    -- ** GetHostedZoneCount
-    getHostedZoneCountResponse_httpStatus,
-    getHostedZoneCountResponse_hostedZoneCount,
+    -- ** GetGeoLocation
+    getGeoLocation_subdivisionCode,
+    getGeoLocation_countryCode,
+    getGeoLocation_continentCode,
+    getGeoLocationResponse_httpStatus,
+    getGeoLocationResponse_geoLocationDetails,
 
-    -- ** EnableHostedZoneDNSSEC
-    enableHostedZoneDNSSEC_hostedZoneId,
-    enableHostedZoneDNSSECResponse_httpStatus,
-    enableHostedZoneDNSSECResponse_changeInfo,
+    -- ** ListTagsForResources
+    listTagsForResources_resourceType,
+    listTagsForResources_resourceIds,
+    listTagsForResourcesResponse_httpStatus,
+    listTagsForResourcesResponse_resourceTagSets,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceType,
-    listTagsForResource_resourceId,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_resourceTagSet,
+    -- ** CreateTrafficPolicy
+    createTrafficPolicy_comment,
+    createTrafficPolicy_name,
+    createTrafficPolicy_document,
+    createTrafficPolicyResponse_httpStatus,
+    createTrafficPolicyResponse_trafficPolicy,
+    createTrafficPolicyResponse_location,
 
-    -- ** GetHealthCheckLastFailureReason
-    getHealthCheckLastFailureReason_healthCheckId,
-    getHealthCheckLastFailureReasonResponse_httpStatus,
-    getHealthCheckLastFailureReasonResponse_healthCheckObservations,
+    -- ** ListTrafficPolicyInstancesByHostedZone
+    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker,
+    listTrafficPolicyInstancesByHostedZone_maxItems,
+    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByHostedZone_hostedZoneId,
+    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker,
+    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByHostedZoneResponse_httpStatus,
+    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstances,
+    listTrafficPolicyInstancesByHostedZoneResponse_isTruncated,
+    listTrafficPolicyInstancesByHostedZoneResponse_maxItems,
 
-    -- ** ActivateKeySigningKey
-    activateKeySigningKey_hostedZoneId,
-    activateKeySigningKey_name,
-    activateKeySigningKeyResponse_httpStatus,
-    activateKeySigningKeyResponse_changeInfo,
-
-    -- ** ListHostedZonesByName
-    listHostedZonesByName_hostedZoneId,
-    listHostedZonesByName_dNSName,
-    listHostedZonesByName_maxItems,
-    listHostedZonesByNameResponse_nextDNSName,
-    listHostedZonesByNameResponse_hostedZoneId,
-    listHostedZonesByNameResponse_dNSName,
-    listHostedZonesByNameResponse_nextHostedZoneId,
-    listHostedZonesByNameResponse_httpStatus,
-    listHostedZonesByNameResponse_hostedZones,
-    listHostedZonesByNameResponse_isTruncated,
-    listHostedZonesByNameResponse_maxItems,
-
-    -- ** ListQueryLoggingConfigs
-    listQueryLoggingConfigs_nextToken,
-    listQueryLoggingConfigs_maxResults,
-    listQueryLoggingConfigs_hostedZoneId,
-    listQueryLoggingConfigsResponse_nextToken,
-    listQueryLoggingConfigsResponse_httpStatus,
-    listQueryLoggingConfigsResponse_queryLoggingConfigs,
+    -- ** ListTrafficPolicies
+    listTrafficPolicies_trafficPolicyIdMarker,
+    listTrafficPolicies_maxItems,
+    listTrafficPoliciesResponse_httpStatus,
+    listTrafficPoliciesResponse_trafficPolicySummaries,
+    listTrafficPoliciesResponse_isTruncated,
+    listTrafficPoliciesResponse_trafficPolicyIdMarker,
+    listTrafficPoliciesResponse_maxItems,
 
     -- * Types
 
@@ -541,8 +541,8 @@ module Network.AWS.Route53.Lens
     cloudWatchAlarmConfiguration_statistic,
 
     -- ** DNSSECStatus
-    dNSSECStatus_statusMessage,
     dNSSECStatus_serveSignature,
+    dNSSECStatus_statusMessage,
 
     -- ** DelegationSet
     delegationSet_id,
@@ -554,21 +554,21 @@ module Network.AWS.Route53.Lens
     dimension_value,
 
     -- ** GeoLocation
-    geoLocation_continentCode,
     geoLocation_subdivisionCode,
     geoLocation_countryCode,
+    geoLocation_continentCode,
 
     -- ** GeoLocationDetails
-    geoLocationDetails_countryName,
-    geoLocationDetails_continentName,
-    geoLocationDetails_continentCode,
-    geoLocationDetails_subdivisionCode,
-    geoLocationDetails_countryCode,
     geoLocationDetails_subdivisionName,
+    geoLocationDetails_subdivisionCode,
+    geoLocationDetails_countryName,
+    geoLocationDetails_countryCode,
+    geoLocationDetails_continentCode,
+    geoLocationDetails_continentName,
 
     -- ** HealthCheck
-    healthCheck_cloudWatchAlarmConfiguration,
     healthCheck_linkedService,
+    healthCheck_cloudWatchAlarmConfiguration,
     healthCheck_id,
     healthCheck_callerReference,
     healthCheck_healthCheckConfig,
@@ -576,33 +576,33 @@ module Network.AWS.Route53.Lens
 
     -- ** HealthCheckConfig
     healthCheckConfig_failureThreshold,
-    healthCheckConfig_childHealthChecks,
-    healthCheckConfig_searchString,
-    healthCheckConfig_disabled,
-    healthCheckConfig_alarmIdentifier,
-    healthCheckConfig_enableSNI,
-    healthCheckConfig_insufficientDataHealthStatus,
-    healthCheckConfig_resourcePath,
     healthCheckConfig_iPAddress,
-    healthCheckConfig_port,
-    healthCheckConfig_routingControlArn,
-    healthCheckConfig_requestInterval,
+    healthCheckConfig_enableSNI,
+    healthCheckConfig_disabled,
+    healthCheckConfig_searchString,
+    healthCheckConfig_healthThreshold,
     healthCheckConfig_regions,
+    healthCheckConfig_resourcePath,
+    healthCheckConfig_insufficientDataHealthStatus,
+    healthCheckConfig_alarmIdentifier,
+    healthCheckConfig_measureLatency,
     healthCheckConfig_inverted,
     healthCheckConfig_fullyQualifiedDomainName,
-    healthCheckConfig_healthThreshold,
-    healthCheckConfig_measureLatency,
+    healthCheckConfig_childHealthChecks,
+    healthCheckConfig_routingControlArn,
+    healthCheckConfig_requestInterval,
+    healthCheckConfig_port,
     healthCheckConfig_type,
 
     -- ** HealthCheckObservation
     healthCheckObservation_iPAddress,
-    healthCheckObservation_region,
     healthCheckObservation_statusReport,
+    healthCheckObservation_region,
 
     -- ** HostedZone
-    hostedZone_resourceRecordSetCount,
-    hostedZone_config,
     hostedZone_linkedService,
+    hostedZone_config,
+    hostedZone_resourceRecordSetCount,
     hostedZone_id,
     hostedZone_name,
     hostedZone_callerReference,
@@ -625,22 +625,22 @@ module Network.AWS.Route53.Lens
     hostedZoneSummary_owner,
 
     -- ** KeySigningKey
-    keySigningKey_digestAlgorithmType,
-    keySigningKey_lastModifiedDate,
-    keySigningKey_statusMessage,
-    keySigningKey_createdDate,
-    keySigningKey_signingAlgorithmMnemonic,
     keySigningKey_status,
-    keySigningKey_publicKey,
-    keySigningKey_digestValue,
-    keySigningKey_dNSKEYRecord,
-    keySigningKey_name,
+    keySigningKey_signingAlgorithmMnemonic,
     keySigningKey_digestAlgorithmMnemonic,
-    keySigningKey_signingAlgorithmType,
-    keySigningKey_flag,
-    keySigningKey_kmsArn,
+    keySigningKey_lastModifiedDate,
     keySigningKey_keyTag,
+    keySigningKey_dNSKEYRecord,
+    keySigningKey_publicKey,
+    keySigningKey_signingAlgorithmType,
+    keySigningKey_createdDate,
+    keySigningKey_flag,
+    keySigningKey_digestAlgorithmType,
+    keySigningKey_statusMessage,
+    keySigningKey_name,
     keySigningKey_dSRecord,
+    keySigningKey_kmsArn,
+    keySigningKey_digestValue,
 
     -- ** LinkedService
     linkedService_servicePrincipal,
@@ -655,17 +655,17 @@ module Network.AWS.Route53.Lens
     resourceRecord_value,
 
     -- ** ResourceRecordSet
-    resourceRecordSet_healthCheckId,
-    resourceRecordSet_multiValueAnswer,
-    resourceRecordSet_geoLocation,
-    resourceRecordSet_weight,
-    resourceRecordSet_aliasTarget,
-    resourceRecordSet_failover,
-    resourceRecordSet_resourceRecords,
     resourceRecordSet_ttl,
-    resourceRecordSet_setIdentifier,
+    resourceRecordSet_resourceRecords,
+    resourceRecordSet_aliasTarget,
+    resourceRecordSet_weight,
     resourceRecordSet_trafficPolicyInstanceId,
+    resourceRecordSet_setIdentifier,
+    resourceRecordSet_failover,
+    resourceRecordSet_healthCheckId,
     resourceRecordSet_region,
+    resourceRecordSet_geoLocation,
+    resourceRecordSet_multiValueAnswer,
     resourceRecordSet_name,
     resourceRecordSet_type,
 
@@ -683,8 +683,8 @@ module Network.AWS.Route53.Lens
     statusReport_checkedTime,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** TrafficPolicy
     trafficPolicy_comment,

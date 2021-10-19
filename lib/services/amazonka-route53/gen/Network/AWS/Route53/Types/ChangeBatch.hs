@@ -56,7 +56,7 @@ newChangeBatch ::
 newChangeBatch pChanges_ =
   ChangeBatch'
     { comment = Prelude.Nothing,
-      changes = Lens._Coerce Lens.# pChanges_
+      changes = Lens.coerced Lens.# pChanges_
     }
 
 -- | /Optional:/ Any comments you want to include about a change batch
@@ -66,7 +66,7 @@ changeBatch_comment = Lens.lens (\ChangeBatch' {comment} -> comment) (\s@ChangeB
 
 -- | Information about the changes to make to the record sets.
 changeBatch_changes :: Lens.Lens' ChangeBatch (Prelude.NonEmpty Change)
-changeBatch_changes = Lens.lens (\ChangeBatch' {changes} -> changes) (\s@ChangeBatch' {} a -> s {changes = a} :: ChangeBatch) Prelude.. Lens._Coerce
+changeBatch_changes = Lens.lens (\ChangeBatch' {changes} -> changes) (\s@ChangeBatch' {} a -> s {changes = a} :: ChangeBatch) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ChangeBatch
 

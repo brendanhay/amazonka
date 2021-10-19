@@ -63,7 +63,7 @@ newDelegationSet pNameServers_ =
   DelegationSet'
     { id = Prelude.Nothing,
       callerReference = Prelude.Nothing,
-      nameServers = Lens._Coerce Lens.# pNameServers_
+      nameServers = Lens.coerced Lens.# pNameServers_
     }
 
 -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
@@ -78,7 +78,7 @@ delegationSet_callerReference = Lens.lens (\DelegationSet' {callerReference} -> 
 -- | A complex type that contains a list of the authoritative name servers
 -- for a hosted zone or for a reusable delegation set.
 delegationSet_nameServers :: Lens.Lens' DelegationSet (Prelude.NonEmpty Prelude.Text)
-delegationSet_nameServers = Lens.lens (\DelegationSet' {nameServers} -> nameServers) (\s@DelegationSet' {} a -> s {nameServers = a} :: DelegationSet) Prelude.. Lens._Coerce
+delegationSet_nameServers = Lens.lens (\DelegationSet' {nameServers} -> nameServers) (\s@DelegationSet' {} a -> s {nameServers = a} :: DelegationSet) Prelude.. Lens.coerced
 
 instance Core.FromXML DelegationSet where
   parseXML x =

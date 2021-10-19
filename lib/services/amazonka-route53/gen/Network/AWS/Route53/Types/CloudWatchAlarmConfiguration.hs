@@ -140,7 +140,7 @@ newCloudWatchAlarmConfiguration
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference>
 -- in the /Amazon CloudWatch User Guide/.
 cloudWatchAlarmConfiguration_dimensions :: Lens.Lens' CloudWatchAlarmConfiguration (Prelude.Maybe [Dimension])
-cloudWatchAlarmConfiguration_dimensions = Lens.lens (\CloudWatchAlarmConfiguration' {dimensions} -> dimensions) (\s@CloudWatchAlarmConfiguration' {} a -> s {dimensions = a} :: CloudWatchAlarmConfiguration) Prelude.. Lens.mapping Lens._Coerce
+cloudWatchAlarmConfiguration_dimensions = Lens.lens (\CloudWatchAlarmConfiguration' {dimensions} -> dimensions) (\s@CloudWatchAlarmConfiguration' {} a -> s {dimensions = a} :: CloudWatchAlarmConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | For the metric that the CloudWatch alarm is associated with, the number
 -- of periods that the metric is compared to the threshold.

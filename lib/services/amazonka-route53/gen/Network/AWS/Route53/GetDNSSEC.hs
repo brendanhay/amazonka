@@ -154,6 +154,6 @@ getDNSSECResponse_status = Lens.lens (\GetDNSSECResponse' {status} -> status) (\
 
 -- | The key-signing keys (KSKs) in your account.
 getDNSSECResponse_keySigningKeys :: Lens.Lens' GetDNSSECResponse [KeySigningKey]
-getDNSSECResponse_keySigningKeys = Lens.lens (\GetDNSSECResponse' {keySigningKeys} -> keySigningKeys) (\s@GetDNSSECResponse' {} a -> s {keySigningKeys = a} :: GetDNSSECResponse) Prelude.. Lens._Coerce
+getDNSSECResponse_keySigningKeys = Lens.lens (\GetDNSSECResponse' {keySigningKeys} -> keySigningKeys) (\s@GetDNSSECResponse' {} a -> s {keySigningKeys = a} :: GetDNSSECResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetDNSSECResponse

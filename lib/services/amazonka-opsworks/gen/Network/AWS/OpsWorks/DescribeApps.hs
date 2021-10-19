@@ -93,7 +93,7 @@ newDescribeApps =
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 describeApps_appIds :: Lens.Lens' DescribeApps (Prelude.Maybe [Prelude.Text])
-describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@DescribeApps' {} a -> s {appIds = a} :: DescribeApps) Prelude.. Lens.mapping Lens._Coerce
+describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@DescribeApps' {} a -> s {appIds = a} :: DescribeApps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
 -- description of the apps in the specified stack.
@@ -179,7 +179,7 @@ newDescribeAppsResponse pHttpStatus_ =
 
 -- | An array of @App@ objects that describe the specified apps.
 describeAppsResponse_apps :: Lens.Lens' DescribeAppsResponse (Prelude.Maybe [App])
-describeAppsResponse_apps = Lens.lens (\DescribeAppsResponse' {apps} -> apps) (\s@DescribeAppsResponse' {} a -> s {apps = a} :: DescribeAppsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAppsResponse_apps = Lens.lens (\DescribeAppsResponse' {apps} -> apps) (\s@DescribeAppsResponse' {} a -> s {apps = a} :: DescribeAppsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAppsResponse_httpStatus :: Lens.Lens' DescribeAppsResponse Prelude.Int

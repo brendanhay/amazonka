@@ -283,7 +283,7 @@ stack_defaultAvailabilityZone = Lens.lens (\Stack' {defaultAvailabilityZone} -> 
 
 -- | The stack\'s attributes.
 stack_attributes :: Lens.Lens' Stack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-stack_attributes = Lens.lens (\Stack' {attributes} -> attributes) (\s@Stack' {} a -> s {attributes = a} :: Stack) Prelude.. Lens.mapping Lens._Coerce
+stack_attributes = Lens.lens (\Stack' {attributes} -> attributes) (\s@Stack' {} a -> s {attributes = a} :: Stack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack name.
 stack_name :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)

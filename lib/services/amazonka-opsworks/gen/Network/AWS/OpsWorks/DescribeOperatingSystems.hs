@@ -140,7 +140,7 @@ newDescribeOperatingSystemsResponse pHttpStatus_ =
 -- | Contains information in response to a @DescribeOperatingSystems@
 -- request.
 describeOperatingSystemsResponse_operatingSystems :: Lens.Lens' DescribeOperatingSystemsResponse (Prelude.Maybe [OperatingSystem])
-describeOperatingSystemsResponse_operatingSystems = Lens.lens (\DescribeOperatingSystemsResponse' {operatingSystems} -> operatingSystems) (\s@DescribeOperatingSystemsResponse' {} a -> s {operatingSystems = a} :: DescribeOperatingSystemsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeOperatingSystemsResponse_operatingSystems = Lens.lens (\DescribeOperatingSystemsResponse' {operatingSystems} -> operatingSystems) (\s@DescribeOperatingSystemsResponse' {} a -> s {operatingSystems = a} :: DescribeOperatingSystemsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeOperatingSystemsResponse_httpStatus :: Lens.Lens' DescribeOperatingSystemsResponse Prelude.Int

@@ -210,7 +210,7 @@ createApp_sslConfiguration = Lens.lens (\CreateApp' {sslConfiguration} -> sslCon
 -- If you have specified one or more environment variables, you cannot
 -- modify the stack\'s Chef version.
 createApp_environment :: Lens.Lens' CreateApp (Prelude.Maybe [EnvironmentVariable])
-createApp_environment = Lens.lens (\CreateApp' {environment} -> environment) (\s@CreateApp' {} a -> s {environment = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+createApp_environment = Lens.lens (\CreateApp' {environment} -> environment) (\s@CreateApp' {} a -> s {environment = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to enable SSL for the app.
 createApp_enableSsl :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Bool)
@@ -222,7 +222,7 @@ createApp_shortname = Lens.lens (\CreateApp' {shortname} -> shortname) (\s@Creat
 
 -- | The app\'s data source.
 createApp_dataSources :: Lens.Lens' CreateApp (Prelude.Maybe [DataSource])
-createApp_dataSources = Lens.lens (\CreateApp' {dataSources} -> dataSources) (\s@CreateApp' {} a -> s {dataSources = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+createApp_dataSources = Lens.lens (\CreateApp' {dataSources} -> dataSources) (\s@CreateApp' {} a -> s {dataSources = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @Source@ object that specifies the app repository.
 createApp_appSource :: Lens.Lens' CreateApp (Prelude.Maybe Source)
@@ -231,12 +231,12 @@ createApp_appSource = Lens.lens (\CreateApp' {appSource} -> appSource) (\s@Creat
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 createApp_attributes :: Lens.Lens' CreateApp (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
-createApp_attributes = Lens.lens (\CreateApp' {attributes} -> attributes) (\s@CreateApp' {} a -> s {attributes = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+createApp_attributes = Lens.lens (\CreateApp' {attributes} -> attributes) (\s@CreateApp' {} a -> s {attributes = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | The app virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
 createApp_domains :: Lens.Lens' CreateApp (Prelude.Maybe [Prelude.Text])
-createApp_domains = Lens.lens (\CreateApp' {domains} -> domains) (\s@CreateApp' {} a -> s {domains = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+createApp_domains = Lens.lens (\CreateApp' {domains} -> domains) (\s@CreateApp' {} a -> s {domains = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the app.
 createApp_description :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)

@@ -248,7 +248,7 @@ layer_customInstanceProfileArn = Lens.lens (\Layer' {customInstanceProfileArn} -
 
 -- | An array containing the layer\'s custom security group IDs.
 layer_customSecurityGroupIds :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
-layer_customSecurityGroupIds = Lens.lens (\Layer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@Layer' {} a -> s {customSecurityGroupIds = a} :: Layer) Prelude.. Lens.mapping Lens._Coerce
+layer_customSecurityGroupIds = Lens.lens (\Layer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@Layer' {} a -> s {customSecurityGroupIds = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. If this value is set to
@@ -312,7 +312,7 @@ layer_customJson = Lens.lens (\Layer' {customJson} -> customJson) (\s@Layer' {} 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 layer_volumeConfigurations :: Lens.Lens' Layer (Prelude.Maybe [VolumeConfiguration])
-layer_volumeConfigurations = Lens.lens (\Layer' {volumeConfigurations} -> volumeConfigurations) (\s@Layer' {} a -> s {volumeConfigurations = a} :: Layer) Prelude.. Lens.mapping Lens._Coerce
+layer_volumeConfigurations = Lens.lens (\Layer' {volumeConfigurations} -> volumeConfigurations) (\s@Layer' {} a -> s {volumeConfigurations = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether auto healing is disabled for the layer.
 layer_enableAutoHealing :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
@@ -320,7 +320,7 @@ layer_enableAutoHealing = Lens.lens (\Layer' {enableAutoHealing} -> enableAutoHe
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
 layer_packages :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
-layer_packages = Lens.lens (\Layer' {packages} -> packages) (\s@Layer' {} a -> s {packages = a} :: Layer) Prelude.. Lens.mapping Lens._Coerce
+layer_packages = Lens.lens (\Layer' {packages} -> packages) (\s@Layer' {} a -> s {packages = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer attributes.
 --
@@ -331,7 +331,7 @@ layer_packages = Lens.lens (\Layer' {packages} -> packages) (\s@Layer' {} a -> s
 -- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
 -- attribute is set to the cluster\'s ARN.
 layer_attributes :: Lens.Lens' Layer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
-layer_attributes = Lens.lens (\Layer' {attributes} -> attributes) (\s@Layer' {} a -> s {attributes = a} :: Layer) Prelude.. Lens.mapping Lens._Coerce
+layer_attributes = Lens.lens (\Layer' {attributes} -> attributes) (\s@Layer' {} a -> s {attributes = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer name.
 layer_name :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
@@ -361,7 +361,7 @@ layer_layerId = Lens.lens (\Layer' {layerId} -> layerId) (\s@Layer' {} a -> s {l
 
 -- | An array containing the layer\'s security group names.
 layer_defaultSecurityGroupNames :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
-layer_defaultSecurityGroupNames = Lens.lens (\Layer' {defaultSecurityGroupNames} -> defaultSecurityGroupNames) (\s@Layer' {} a -> s {defaultSecurityGroupNames = a} :: Layer) Prelude.. Lens.mapping Lens._Coerce
+layer_defaultSecurityGroupNames = Lens.lens (\Layer' {defaultSecurityGroupNames} -> defaultSecurityGroupNames) (\s@Layer' {} a -> s {defaultSecurityGroupNames = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to automatically assign an
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>

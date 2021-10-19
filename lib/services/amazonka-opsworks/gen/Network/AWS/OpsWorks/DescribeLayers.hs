@@ -91,7 +91,7 @@ newDescribeLayers =
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
 describeLayers_layerIds :: Lens.Lens' DescribeLayers (Prelude.Maybe [Prelude.Text])
-describeLayers_layerIds = Lens.lens (\DescribeLayers' {layerIds} -> layerIds) (\s@DescribeLayers' {} a -> s {layerIds = a} :: DescribeLayers) Prelude.. Lens.mapping Lens._Coerce
+describeLayers_layerIds = Lens.lens (\DescribeLayers' {layerIds} -> layerIds) (\s@DescribeLayers' {} a -> s {layerIds = a} :: DescribeLayers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack ID.
 describeLayers_stackId :: Lens.Lens' DescribeLayers (Prelude.Maybe Prelude.Text)
@@ -178,7 +178,7 @@ newDescribeLayersResponse pHttpStatus_ =
 
 -- | An array of @Layer@ objects that describe the layers.
 describeLayersResponse_layers :: Lens.Lens' DescribeLayersResponse (Prelude.Maybe [Layer])
-describeLayersResponse_layers = Lens.lens (\DescribeLayersResponse' {layers} -> layers) (\s@DescribeLayersResponse' {} a -> s {layers = a} :: DescribeLayersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLayersResponse_layers = Lens.lens (\DescribeLayersResponse' {layers} -> layers) (\s@DescribeLayersResponse' {} a -> s {layers = a} :: DescribeLayersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLayersResponse_httpStatus :: Lens.Lens' DescribeLayersResponse Prelude.Int

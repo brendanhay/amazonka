@@ -583,7 +583,7 @@ cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceP
 
 -- | A list of source stack app IDs to be included in the cloned stack.
 cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Prelude.Maybe [Prelude.Text])
-cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Lens._Coerce
+cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create
@@ -700,7 +700,7 @@ cloneStack_defaultAvailabilityZone = Lens.lens (\CloneStack' {defaultAvailabilit
 -- | A list of stack attributes and values as key\/value pairs to be added to
 -- the cloned stack.
 cloneStack_attributes :: Lens.Lens' CloneStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Lens._Coerce
+cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The cloned stack name.
 cloneStack_name :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)

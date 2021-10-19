@@ -81,7 +81,7 @@ newDescribeTimeBasedAutoScaling =
 
 -- | An array of instance IDs.
 describeTimeBasedAutoScaling_instanceIds :: Lens.Lens' DescribeTimeBasedAutoScaling [Prelude.Text]
-describeTimeBasedAutoScaling_instanceIds = Lens.lens (\DescribeTimeBasedAutoScaling' {instanceIds} -> instanceIds) (\s@DescribeTimeBasedAutoScaling' {} a -> s {instanceIds = a} :: DescribeTimeBasedAutoScaling) Prelude.. Lens._Coerce
+describeTimeBasedAutoScaling_instanceIds = Lens.lens (\DescribeTimeBasedAutoScaling' {instanceIds} -> instanceIds) (\s@DescribeTimeBasedAutoScaling' {} a -> s {instanceIds = a} :: DescribeTimeBasedAutoScaling) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeTimeBasedAutoScaling where
   type
@@ -170,7 +170,7 @@ newDescribeTimeBasedAutoScalingResponse pHttpStatus_ =
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
 describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations :: Lens.Lens' DescribeTimeBasedAutoScalingResponse (Prelude.Maybe [TimeBasedAutoScalingConfiguration])
-describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations = Lens.lens (\DescribeTimeBasedAutoScalingResponse' {timeBasedAutoScalingConfigurations} -> timeBasedAutoScalingConfigurations) (\s@DescribeTimeBasedAutoScalingResponse' {} a -> s {timeBasedAutoScalingConfigurations = a} :: DescribeTimeBasedAutoScalingResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations = Lens.lens (\DescribeTimeBasedAutoScalingResponse' {timeBasedAutoScalingConfigurations} -> timeBasedAutoScalingConfigurations) (\s@DescribeTimeBasedAutoScalingResponse' {} a -> s {timeBasedAutoScalingConfigurations = a} :: DescribeTimeBasedAutoScalingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTimeBasedAutoScalingResponse_httpStatus :: Lens.Lens' DescribeTimeBasedAutoScalingResponse Prelude.Int

@@ -192,7 +192,7 @@ newDeploymentCommand pName_ =
 --
 -- @ { \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] } @
 deploymentCommand_args :: Lens.Lens' DeploymentCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@DeploymentCommand' {} a -> s {args = a} :: DeploymentCommand) Prelude.. Lens.mapping Lens._Coerce
+deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@DeploymentCommand' {} a -> s {args = a} :: DeploymentCommand) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the operation. You can specify only one command.
 --

@@ -104,7 +104,7 @@ describeRaidArrays_instanceId = Lens.lens (\DescribeRaidArrays' {instanceId} -> 
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
 describeRaidArrays_raidArrayIds :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe [Prelude.Text])
-describeRaidArrays_raidArrayIds = Lens.lens (\DescribeRaidArrays' {raidArrayIds} -> raidArrayIds) (\s@DescribeRaidArrays' {} a -> s {raidArrayIds = a} :: DescribeRaidArrays) Prelude.. Lens.mapping Lens._Coerce
+describeRaidArrays_raidArrayIds = Lens.lens (\DescribeRaidArrays' {raidArrayIds} -> raidArrayIds) (\s@DescribeRaidArrays' {} a -> s {raidArrayIds = a} :: DescribeRaidArrays) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack ID.
 describeRaidArrays_stackId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
@@ -193,7 +193,7 @@ newDescribeRaidArraysResponse pHttpStatus_ =
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
 describeRaidArraysResponse_raidArrays :: Lens.Lens' DescribeRaidArraysResponse (Prelude.Maybe [RaidArray])
-describeRaidArraysResponse_raidArrays = Lens.lens (\DescribeRaidArraysResponse' {raidArrays} -> raidArrays) (\s@DescribeRaidArraysResponse' {} a -> s {raidArrays = a} :: DescribeRaidArraysResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRaidArraysResponse_raidArrays = Lens.lens (\DescribeRaidArraysResponse' {raidArrays} -> raidArrays) (\s@DescribeRaidArraysResponse' {} a -> s {raidArrays = a} :: DescribeRaidArraysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRaidArraysResponse_httpStatus :: Lens.Lens' DescribeRaidArraysResponse Prelude.Int

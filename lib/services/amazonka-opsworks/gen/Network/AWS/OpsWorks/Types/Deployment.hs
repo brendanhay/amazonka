@@ -176,7 +176,7 @@ deployment_appId = Lens.lens (\Deployment' {appId} -> appId) (\s@Deployment' {} 
 
 -- | The IDs of the target instances.
 deployment_instanceIds :: Lens.Lens' Deployment (Prelude.Maybe [Prelude.Text])
-deployment_instanceIds = Lens.lens (\Deployment' {instanceIds} -> instanceIds) (\s@Deployment' {} a -> s {instanceIds = a} :: Deployment) Prelude.. Lens.mapping Lens._Coerce
+deployment_instanceIds = Lens.lens (\Deployment' {instanceIds} -> instanceIds) (\s@Deployment' {} a -> s {instanceIds = a} :: Deployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Date when the deployment completed.
 deployment_completedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)

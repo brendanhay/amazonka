@@ -514,7 +514,7 @@ createInstance_rootDeviceType = Lens.lens (\CreateInstance' {rootDeviceType} -> 
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
 -- Note that block device mappings are not supported for custom AMIs.
 createInstance_blockDeviceMappings :: Lens.Lens' CreateInstance (Prelude.Maybe [BlockDeviceMapping])
-createInstance_blockDeviceMappings = Lens.lens (\CreateInstance' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateInstance' {} a -> s {blockDeviceMappings = a} :: CreateInstance) Prelude.. Lens.mapping Lens._Coerce
+createInstance_blockDeviceMappings = Lens.lens (\CreateInstance' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateInstance' {} a -> s {blockDeviceMappings = a} :: CreateInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack ID.
 createInstance_stackId :: Lens.Lens' CreateInstance Prelude.Text
@@ -522,7 +522,7 @@ createInstance_stackId = Lens.lens (\CreateInstance' {stackId} -> stackId) (\s@C
 
 -- | An array that contains the instance\'s layer IDs.
 createInstance_layerIds :: Lens.Lens' CreateInstance [Prelude.Text]
-createInstance_layerIds = Lens.lens (\CreateInstance' {layerIds} -> layerIds) (\s@CreateInstance' {} a -> s {layerIds = a} :: CreateInstance) Prelude.. Lens._Coerce
+createInstance_layerIds = Lens.lens (\CreateInstance' {layerIds} -> layerIds) (\s@CreateInstance' {} a -> s {layerIds = a} :: CreateInstance) Prelude.. Lens.coerced
 
 -- | The instance type, such as @t2.micro@. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose

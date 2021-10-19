@@ -237,7 +237,7 @@ updateLayer_customInstanceProfileArn = Lens.lens (\UpdateLayer' {customInstanceP
 
 -- | An array containing the layer\'s custom security group IDs.
 updateLayer_customSecurityGroupIds :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
-updateLayer_customSecurityGroupIds = Lens.lens (\UpdateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@UpdateLayer' {} a -> s {customSecurityGroupIds = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
+updateLayer_customSecurityGroupIds = Lens.lens (\UpdateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@UpdateLayer' {} a -> s {customSecurityGroupIds = a} :: UpdateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -287,7 +287,7 @@ updateLayer_customJson = Lens.lens (\UpdateLayer' {customJson} -> customJson) (\
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 updateLayer_volumeConfigurations :: Lens.Lens' UpdateLayer (Prelude.Maybe [VolumeConfiguration])
-updateLayer_volumeConfigurations = Lens.lens (\UpdateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@UpdateLayer' {} a -> s {volumeConfigurations = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
+updateLayer_volumeConfigurations = Lens.lens (\UpdateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@UpdateLayer' {} a -> s {volumeConfigurations = a} :: UpdateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to disable auto healing for the layer.
 updateLayer_enableAutoHealing :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
@@ -295,12 +295,12 @@ updateLayer_enableAutoHealing = Lens.lens (\UpdateLayer' {enableAutoHealing} -> 
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
 updateLayer_packages :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
-updateLayer_packages = Lens.lens (\UpdateLayer' {packages} -> packages) (\s@UpdateLayer' {} a -> s {packages = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
+updateLayer_packages = Lens.lens (\UpdateLayer' {packages} -> packages) (\s@UpdateLayer' {} a -> s {packages = a} :: UpdateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 updateLayer_attributes :: Lens.Lens' UpdateLayer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
-updateLayer_attributes = Lens.lens (\UpdateLayer' {attributes} -> attributes) (\s@UpdateLayer' {} a -> s {attributes = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
+updateLayer_attributes = Lens.lens (\UpdateLayer' {attributes} -> attributes) (\s@UpdateLayer' {} a -> s {attributes = a} :: UpdateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer name, which is used by the console.
 updateLayer_name :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)

@@ -115,7 +115,7 @@ describeElasticIps_instanceId = Lens.lens (\DescribeElasticIps' {instanceId} -> 
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
 describeElasticIps_ips :: Lens.Lens' DescribeElasticIps (Prelude.Maybe [Prelude.Text])
-describeElasticIps_ips = Lens.lens (\DescribeElasticIps' {ips} -> ips) (\s@DescribeElasticIps' {} a -> s {ips = a} :: DescribeElasticIps) Prelude.. Lens.mapping Lens._Coerce
+describeElasticIps_ips = Lens.lens (\DescribeElasticIps' {ips} -> ips) (\s@DescribeElasticIps' {} a -> s {ips = a} :: DescribeElasticIps) Prelude.. Lens.mapping Lens.coerced
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
 -- a description of the Elastic IP addresses that are registered with the
@@ -209,7 +209,7 @@ newDescribeElasticIpsResponse pHttpStatus_ =
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
 describeElasticIpsResponse_elasticIps :: Lens.Lens' DescribeElasticIpsResponse (Prelude.Maybe [ElasticIp])
-describeElasticIpsResponse_elasticIps = Lens.lens (\DescribeElasticIpsResponse' {elasticIps} -> elasticIps) (\s@DescribeElasticIpsResponse' {} a -> s {elasticIps = a} :: DescribeElasticIpsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeElasticIpsResponse_elasticIps = Lens.lens (\DescribeElasticIpsResponse' {elasticIps} -> elasticIps) (\s@DescribeElasticIpsResponse' {} a -> s {elasticIps = a} :: DescribeElasticIpsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeElasticIpsResponse_httpStatus :: Lens.Lens' DescribeElasticIpsResponse Prelude.Int

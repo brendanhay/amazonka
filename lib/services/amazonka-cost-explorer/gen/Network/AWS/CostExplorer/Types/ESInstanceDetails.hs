@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newESInstanceDetails' smart constructor.
 data ESInstanceDetails = ESInstanceDetails'
-  { -- | Determines whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
-    -- | Determines whether the recommendation is for a current-generation
+  { -- | Determines whether the recommendation is for a current-generation
     -- instance.
     currentGeneration :: Prelude.Maybe Prelude.Bool,
     -- | The class of instance that Amazon Web Services recommends.
     instanceClass :: Prelude.Maybe Prelude.Text,
     -- | The size of instance that Amazon Web Services recommends.
     instanceSize :: Prelude.Maybe Prelude.Text,
+    -- | Determines whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Web Services Region of the recommended reservation.
     region :: Prelude.Maybe Prelude.Text
   }
@@ -50,8 +50,6 @@ data ESInstanceDetails = ESInstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizeFlexEligible', 'eSInstanceDetails_sizeFlexEligible' - Determines whether the recommended reservation is size flexible.
---
 -- 'currentGeneration', 'eSInstanceDetails_currentGeneration' - Determines whether the recommendation is for a current-generation
 -- instance.
 --
@@ -59,22 +57,20 @@ data ESInstanceDetails = ESInstanceDetails'
 --
 -- 'instanceSize', 'eSInstanceDetails_instanceSize' - The size of instance that Amazon Web Services recommends.
 --
+-- 'sizeFlexEligible', 'eSInstanceDetails_sizeFlexEligible' - Determines whether the recommended reservation is size flexible.
+--
 -- 'region', 'eSInstanceDetails_region' - The Amazon Web Services Region of the recommended reservation.
 newESInstanceDetails ::
   ESInstanceDetails
 newESInstanceDetails =
   ESInstanceDetails'
-    { sizeFlexEligible =
+    { currentGeneration =
         Prelude.Nothing,
-      currentGeneration = Prelude.Nothing,
       instanceClass = Prelude.Nothing,
       instanceSize = Prelude.Nothing,
+      sizeFlexEligible = Prelude.Nothing,
       region = Prelude.Nothing
     }
-
--- | Determines whether the recommended reservation is size flexible.
-eSInstanceDetails_sizeFlexEligible :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Bool)
-eSInstanceDetails_sizeFlexEligible = Lens.lens (\ESInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@ESInstanceDetails' {} a -> s {sizeFlexEligible = a} :: ESInstanceDetails)
 
 -- | Determines whether the recommendation is for a current-generation
 -- instance.
@@ -89,6 +85,10 @@ eSInstanceDetails_instanceClass = Lens.lens (\ESInstanceDetails' {instanceClass}
 eSInstanceDetails_instanceSize :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Text)
 eSInstanceDetails_instanceSize = Lens.lens (\ESInstanceDetails' {instanceSize} -> instanceSize) (\s@ESInstanceDetails' {} a -> s {instanceSize = a} :: ESInstanceDetails)
 
+-- | Determines whether the recommended reservation is size flexible.
+eSInstanceDetails_sizeFlexEligible :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Bool)
+eSInstanceDetails_sizeFlexEligible = Lens.lens (\ESInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@ESInstanceDetails' {} a -> s {sizeFlexEligible = a} :: ESInstanceDetails)
+
 -- | The Amazon Web Services Region of the recommended reservation.
 eSInstanceDetails_region :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Text)
 eSInstanceDetails_region = Lens.lens (\ESInstanceDetails' {region} -> region) (\s@ESInstanceDetails' {} a -> s {region = a} :: ESInstanceDetails)
@@ -99,10 +99,10 @@ instance Core.FromJSON ESInstanceDetails where
       "ESInstanceDetails"
       ( \x ->
           ESInstanceDetails'
-            Prelude.<$> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
+            Prelude.<$> (x Core..:? "CurrentGeneration")
             Prelude.<*> (x Core..:? "InstanceClass")
             Prelude.<*> (x Core..:? "InstanceSize")
+            Prelude.<*> (x Core..:? "SizeFlexEligible")
             Prelude.<*> (x Core..:? "Region")
       )
 

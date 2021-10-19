@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data EBSResourceUtilization = EBSResourceUtilization'
   { -- | The maximum size of write operations per second.
     ebsWriteBytesPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of read operations per second.
-    ebsReadOpsPerSecond :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of write operations per second.
     ebsWriteOpsPerSecond :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of read operations per second.
+    ebsReadOpsPerSecond :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of read operations per second
     ebsReadBytesPerSecond :: Prelude.Maybe Prelude.Text
   }
@@ -49,9 +49,9 @@ data EBSResourceUtilization = EBSResourceUtilization'
 --
 -- 'ebsWriteBytesPerSecond', 'eBSResourceUtilization_ebsWriteBytesPerSecond' - The maximum size of write operations per second.
 --
--- 'ebsReadOpsPerSecond', 'eBSResourceUtilization_ebsReadOpsPerSecond' - The maximum number of read operations per second.
---
 -- 'ebsWriteOpsPerSecond', 'eBSResourceUtilization_ebsWriteOpsPerSecond' - The maximum number of write operations per second.
+--
+-- 'ebsReadOpsPerSecond', 'eBSResourceUtilization_ebsReadOpsPerSecond' - The maximum number of read operations per second.
 --
 -- 'ebsReadBytesPerSecond', 'eBSResourceUtilization_ebsReadBytesPerSecond' - The maximum size of read operations per second
 newEBSResourceUtilization ::
@@ -60,8 +60,8 @@ newEBSResourceUtilization =
   EBSResourceUtilization'
     { ebsWriteBytesPerSecond =
         Prelude.Nothing,
-      ebsReadOpsPerSecond = Prelude.Nothing,
       ebsWriteOpsPerSecond = Prelude.Nothing,
+      ebsReadOpsPerSecond = Prelude.Nothing,
       ebsReadBytesPerSecond = Prelude.Nothing
     }
 
@@ -69,13 +69,13 @@ newEBSResourceUtilization =
 eBSResourceUtilization_ebsWriteBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
 eBSResourceUtilization_ebsWriteBytesPerSecond = Lens.lens (\EBSResourceUtilization' {ebsWriteBytesPerSecond} -> ebsWriteBytesPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsWriteBytesPerSecond = a} :: EBSResourceUtilization)
 
--- | The maximum number of read operations per second.
-eBSResourceUtilization_ebsReadOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
-eBSResourceUtilization_ebsReadOpsPerSecond = Lens.lens (\EBSResourceUtilization' {ebsReadOpsPerSecond} -> ebsReadOpsPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsReadOpsPerSecond = a} :: EBSResourceUtilization)
-
 -- | The maximum number of write operations per second.
 eBSResourceUtilization_ebsWriteOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
 eBSResourceUtilization_ebsWriteOpsPerSecond = Lens.lens (\EBSResourceUtilization' {ebsWriteOpsPerSecond} -> ebsWriteOpsPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsWriteOpsPerSecond = a} :: EBSResourceUtilization)
+
+-- | The maximum number of read operations per second.
+eBSResourceUtilization_ebsReadOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
+eBSResourceUtilization_ebsReadOpsPerSecond = Lens.lens (\EBSResourceUtilization' {ebsReadOpsPerSecond} -> ebsReadOpsPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsReadOpsPerSecond = a} :: EBSResourceUtilization)
 
 -- | The maximum size of read operations per second
 eBSResourceUtilization_ebsReadBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
@@ -88,8 +88,8 @@ instance Core.FromJSON EBSResourceUtilization where
       ( \x ->
           EBSResourceUtilization'
             Prelude.<$> (x Core..:? "EbsWriteBytesPerSecond")
-            Prelude.<*> (x Core..:? "EbsReadOpsPerSecond")
             Prelude.<*> (x Core..:? "EbsWriteOpsPerSecond")
+            Prelude.<*> (x Core..:? "EbsReadOpsPerSecond")
             Prelude.<*> (x Core..:? "EbsReadBytesPerSecond")
       )
 

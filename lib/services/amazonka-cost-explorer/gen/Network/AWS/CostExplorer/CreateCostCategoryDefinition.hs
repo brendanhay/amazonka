@@ -38,8 +38,8 @@ module Network.AWS.CostExplorer.CreateCostCategoryDefinition
     newCreateCostCategoryDefinitionResponse,
 
     -- * Response Lenses
-    createCostCategoryDefinitionResponse_costCategoryArn,
     createCostCategoryDefinitionResponse_effectiveStart,
+    createCostCategoryDefinitionResponse_costCategoryArn,
     createCostCategoryDefinitionResponse_httpStatus,
   )
 where
@@ -104,13 +104,13 @@ newCreateCostCategoryDefinition
         defaultValue = Prelude.Nothing,
         name = pName_,
         ruleVersion = pRuleVersion_,
-        rules = Lens._Coerce Lens.# pRules_
+        rules = Lens.coerced Lens.# pRules_
       }
 
 -- | The split charge rules used to allocate your charges between your Cost
 -- Category values.
 createCostCategoryDefinition_splitChargeRules :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
-createCostCategoryDefinition_splitChargeRules = Lens.lens (\CreateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@CreateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens._Coerce
+createCostCategoryDefinition_splitChargeRules = Lens.lens (\CreateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@CreateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createCostCategoryDefinition_defaultValue :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
@@ -128,7 +128,7 @@ createCostCategoryDefinition_ruleVersion = Lens.lens (\CreateCostCategoryDefinit
 -- see
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
 createCostCategoryDefinition_rules :: Lens.Lens' CreateCostCategoryDefinition (Prelude.NonEmpty CostCategoryRule)
-createCostCategoryDefinition_rules = Lens.lens (\CreateCostCategoryDefinition' {rules} -> rules) (\s@CreateCostCategoryDefinition' {} a -> s {rules = a} :: CreateCostCategoryDefinition) Prelude.. Lens._Coerce
+createCostCategoryDefinition_rules = Lens.lens (\CreateCostCategoryDefinition' {rules} -> rules) (\s@CreateCostCategoryDefinition' {} a -> s {rules = a} :: CreateCostCategoryDefinition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateCostCategoryDefinition where
   type
@@ -139,8 +139,8 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateCostCategoryDefinitionResponse'
-            Prelude.<$> (x Core..?> "CostCategoryArn")
-            Prelude.<*> (x Core..?> "EffectiveStart")
+            Prelude.<$> (x Core..?> "EffectiveStart")
+            Prelude.<*> (x Core..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,10 +186,10 @@ instance Core.ToQuery CreateCostCategoryDefinition where
 
 -- | /See:/ 'newCreateCostCategoryDefinitionResponse' smart constructor.
 data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse'
-  { -- | The unique identifier for your newly created Cost Category.
-    costCategoryArn :: Prelude.Maybe Prelude.Text,
-    -- | The Cost Category\'s effective start date.
+  { -- | The Cost Category\'s effective start date.
     effectiveStart :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for your newly created Cost Category.
+    costCategoryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,9 +203,9 @@ data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'costCategoryArn', 'createCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your newly created Cost Category.
---
 -- 'effectiveStart', 'createCostCategoryDefinitionResponse_effectiveStart' - The Cost Category\'s effective start date.
+--
+-- 'costCategoryArn', 'createCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your newly created Cost Category.
 --
 -- 'httpStatus', 'createCostCategoryDefinitionResponse_httpStatus' - The response's http status code.
 newCreateCostCategoryDefinitionResponse ::
@@ -214,19 +214,19 @@ newCreateCostCategoryDefinitionResponse ::
   CreateCostCategoryDefinitionResponse
 newCreateCostCategoryDefinitionResponse pHttpStatus_ =
   CreateCostCategoryDefinitionResponse'
-    { costCategoryArn =
+    { effectiveStart =
         Prelude.Nothing,
-      effectiveStart = Prelude.Nothing,
+      costCategoryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier for your newly created Cost Category.
-createCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
-createCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\CreateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: CreateCostCategoryDefinitionResponse)
 
 -- | The Cost Category\'s effective start date.
 createCostCategoryDefinitionResponse_effectiveStart :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
 createCostCategoryDefinitionResponse_effectiveStart = Lens.lens (\CreateCostCategoryDefinitionResponse' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinitionResponse)
+
+-- | The unique identifier for your newly created Cost Category.
+createCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\CreateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: CreateCostCategoryDefinitionResponse)
 
 -- | The response's http status code.
 createCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' CreateCostCategoryDefinitionResponse Prelude.Int

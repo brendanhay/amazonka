@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkResourceUtilization' smart constructor.
 data NetworkResourceUtilization = NetworkResourceUtilization'
-  { -- | The network inbound throughput utilization measured in Bytes per second.
-    networkInBytesPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The network outgress packets that are measured in packets per second.
+  { -- | The network outgress packets that are measured in packets per second.
     networkPacketsOutPerSecond :: Prelude.Maybe Prelude.Text,
+    -- | The network inbound throughput utilization measured in Bytes per second.
+    networkInBytesPerSecond :: Prelude.Maybe Prelude.Text,
+    -- | The network ingress packets that are measured in packets per second.
+    networkPacketsInPerSecond :: Prelude.Maybe Prelude.Text,
     -- | The network outbound throughput utilization measured in Bytes per
     -- second.
-    networkOutBytesPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The network ingress packets that are measured in packets per second.
-    networkPacketsInPerSecond :: Prelude.Maybe Prelude.Text
+    networkOutBytesPerSecond :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,41 +48,41 @@ data NetworkResourceUtilization = NetworkResourceUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkPacketsOutPerSecond', 'networkResourceUtilization_networkPacketsOutPerSecond' - The network outgress packets that are measured in packets per second.
+--
 -- 'networkInBytesPerSecond', 'networkResourceUtilization_networkInBytesPerSecond' - The network inbound throughput utilization measured in Bytes per second.
 --
--- 'networkPacketsOutPerSecond', 'networkResourceUtilization_networkPacketsOutPerSecond' - The network outgress packets that are measured in packets per second.
+-- 'networkPacketsInPerSecond', 'networkResourceUtilization_networkPacketsInPerSecond' - The network ingress packets that are measured in packets per second.
 --
 -- 'networkOutBytesPerSecond', 'networkResourceUtilization_networkOutBytesPerSecond' - The network outbound throughput utilization measured in Bytes per
 -- second.
---
--- 'networkPacketsInPerSecond', 'networkResourceUtilization_networkPacketsInPerSecond' - The network ingress packets that are measured in packets per second.
 newNetworkResourceUtilization ::
   NetworkResourceUtilization
 newNetworkResourceUtilization =
   NetworkResourceUtilization'
-    { networkInBytesPerSecond =
+    { networkPacketsOutPerSecond =
         Prelude.Nothing,
-      networkPacketsOutPerSecond = Prelude.Nothing,
-      networkOutBytesPerSecond = Prelude.Nothing,
-      networkPacketsInPerSecond = Prelude.Nothing
+      networkInBytesPerSecond = Prelude.Nothing,
+      networkPacketsInPerSecond = Prelude.Nothing,
+      networkOutBytesPerSecond = Prelude.Nothing
     }
-
--- | The network inbound throughput utilization measured in Bytes per second.
-networkResourceUtilization_networkInBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
-networkResourceUtilization_networkInBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkInBytesPerSecond} -> networkInBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkInBytesPerSecond = a} :: NetworkResourceUtilization)
 
 -- | The network outgress packets that are measured in packets per second.
 networkResourceUtilization_networkPacketsOutPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkPacketsOutPerSecond = Lens.lens (\NetworkResourceUtilization' {networkPacketsOutPerSecond} -> networkPacketsOutPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkPacketsOutPerSecond = a} :: NetworkResourceUtilization)
 
--- | The network outbound throughput utilization measured in Bytes per
--- second.
-networkResourceUtilization_networkOutBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
-networkResourceUtilization_networkOutBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkOutBytesPerSecond} -> networkOutBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkOutBytesPerSecond = a} :: NetworkResourceUtilization)
+-- | The network inbound throughput utilization measured in Bytes per second.
+networkResourceUtilization_networkInBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
+networkResourceUtilization_networkInBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkInBytesPerSecond} -> networkInBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkInBytesPerSecond = a} :: NetworkResourceUtilization)
 
 -- | The network ingress packets that are measured in packets per second.
 networkResourceUtilization_networkPacketsInPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
 networkResourceUtilization_networkPacketsInPerSecond = Lens.lens (\NetworkResourceUtilization' {networkPacketsInPerSecond} -> networkPacketsInPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkPacketsInPerSecond = a} :: NetworkResourceUtilization)
+
+-- | The network outbound throughput utilization measured in Bytes per
+-- second.
+networkResourceUtilization_networkOutBytesPerSecond :: Lens.Lens' NetworkResourceUtilization (Prelude.Maybe Prelude.Text)
+networkResourceUtilization_networkOutBytesPerSecond = Lens.lens (\NetworkResourceUtilization' {networkOutBytesPerSecond} -> networkOutBytesPerSecond) (\s@NetworkResourceUtilization' {} a -> s {networkOutBytesPerSecond = a} :: NetworkResourceUtilization)
 
 instance Core.FromJSON NetworkResourceUtilization where
   parseJSON =
@@ -90,10 +90,10 @@ instance Core.FromJSON NetworkResourceUtilization where
       "NetworkResourceUtilization"
       ( \x ->
           NetworkResourceUtilization'
-            Prelude.<$> (x Core..:? "NetworkInBytesPerSecond")
-            Prelude.<*> (x Core..:? "NetworkPacketsOutPerSecond")
-            Prelude.<*> (x Core..:? "NetworkOutBytesPerSecond")
+            Prelude.<$> (x Core..:? "NetworkPacketsOutPerSecond")
+            Prelude.<*> (x Core..:? "NetworkInBytesPerSecond")
             Prelude.<*> (x Core..:? "NetworkPacketsInPerSecond")
+            Prelude.<*> (x Core..:? "NetworkOutBytesPerSecond")
       )
 
 instance Prelude.Hashable NetworkResourceUtilization

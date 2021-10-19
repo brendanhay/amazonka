@@ -30,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEC2ResourceUtilization' smart constructor.
 data EC2ResourceUtilization = EC2ResourceUtilization'
-  { -- | The maximum observed or expected storage utilization of the instance.
+  { -- | The maximum observed or expected CPU utilization of the instance.
+    maxCpuUtilizationPercentage :: Prelude.Maybe Prelude.Text,
+    -- | The network field that contains a list of network metrics that are
+    -- associated with the current instance.
+    networkResourceUtilization :: Prelude.Maybe NetworkResourceUtilization,
+    -- | The EBS field that contains a list of EBS metrics that are associated
+    -- with the current instance.
+    eBSResourceUtilization :: Prelude.Maybe EBSResourceUtilization,
+    -- | The maximum observed or expected storage utilization of the instance.
     -- This doesn\'t include EBS storage.
     maxStorageUtilizationPercentage :: Prelude.Maybe Prelude.Text,
     -- | The maximum observed or expected memory utilization of the instance.
     maxMemoryUtilizationPercentage :: Prelude.Maybe Prelude.Text,
-    -- | The EBS field that contains a list of EBS metrics that are associated
-    -- with the current instance.
-    eBSResourceUtilization :: Prelude.Maybe EBSResourceUtilization,
-    -- | The network field that contains a list of network metrics that are
-    -- associated with the current instance.
-    networkResourceUtilization :: Prelude.Maybe NetworkResourceUtilization,
-    -- | The maximum observed or expected CPU utilization of the instance.
-    maxCpuUtilizationPercentage :: Prelude.Maybe Prelude.Text,
     -- | The field that contains a list of disk (local storage) metrics that are
     -- associated with the current instance.
     diskResourceUtilization :: Prelude.Maybe DiskResourceUtilization
@@ -57,18 +57,18 @@ data EC2ResourceUtilization = EC2ResourceUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxStorageUtilizationPercentage', 'eC2ResourceUtilization_maxStorageUtilizationPercentage' - The maximum observed or expected storage utilization of the instance.
--- This doesn\'t include EBS storage.
---
--- 'maxMemoryUtilizationPercentage', 'eC2ResourceUtilization_maxMemoryUtilizationPercentage' - The maximum observed or expected memory utilization of the instance.
---
--- 'eBSResourceUtilization', 'eC2ResourceUtilization_eBSResourceUtilization' - The EBS field that contains a list of EBS metrics that are associated
--- with the current instance.
+-- 'maxCpuUtilizationPercentage', 'eC2ResourceUtilization_maxCpuUtilizationPercentage' - The maximum observed or expected CPU utilization of the instance.
 --
 -- 'networkResourceUtilization', 'eC2ResourceUtilization_networkResourceUtilization' - The network field that contains a list of network metrics that are
 -- associated with the current instance.
 --
--- 'maxCpuUtilizationPercentage', 'eC2ResourceUtilization_maxCpuUtilizationPercentage' - The maximum observed or expected CPU utilization of the instance.
+-- 'eBSResourceUtilization', 'eC2ResourceUtilization_eBSResourceUtilization' - The EBS field that contains a list of EBS metrics that are associated
+-- with the current instance.
+--
+-- 'maxStorageUtilizationPercentage', 'eC2ResourceUtilization_maxStorageUtilizationPercentage' - The maximum observed or expected storage utilization of the instance.
+-- This doesn\'t include EBS storage.
+--
+-- 'maxMemoryUtilizationPercentage', 'eC2ResourceUtilization_maxMemoryUtilizationPercentage' - The maximum observed or expected memory utilization of the instance.
 --
 -- 'diskResourceUtilization', 'eC2ResourceUtilization_diskResourceUtilization' - The field that contains a list of disk (local storage) metrics that are
 -- associated with the current instance.
@@ -76,14 +76,28 @@ newEC2ResourceUtilization ::
   EC2ResourceUtilization
 newEC2ResourceUtilization =
   EC2ResourceUtilization'
-    { maxStorageUtilizationPercentage =
+    { maxCpuUtilizationPercentage =
         Prelude.Nothing,
-      maxMemoryUtilizationPercentage = Prelude.Nothing,
-      eBSResourceUtilization = Prelude.Nothing,
       networkResourceUtilization = Prelude.Nothing,
-      maxCpuUtilizationPercentage = Prelude.Nothing,
+      eBSResourceUtilization = Prelude.Nothing,
+      maxStorageUtilizationPercentage = Prelude.Nothing,
+      maxMemoryUtilizationPercentage = Prelude.Nothing,
       diskResourceUtilization = Prelude.Nothing
     }
+
+-- | The maximum observed or expected CPU utilization of the instance.
+eC2ResourceUtilization_maxCpuUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe Prelude.Text)
+eC2ResourceUtilization_maxCpuUtilizationPercentage = Lens.lens (\EC2ResourceUtilization' {maxCpuUtilizationPercentage} -> maxCpuUtilizationPercentage) (\s@EC2ResourceUtilization' {} a -> s {maxCpuUtilizationPercentage = a} :: EC2ResourceUtilization)
+
+-- | The network field that contains a list of network metrics that are
+-- associated with the current instance.
+eC2ResourceUtilization_networkResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe NetworkResourceUtilization)
+eC2ResourceUtilization_networkResourceUtilization = Lens.lens (\EC2ResourceUtilization' {networkResourceUtilization} -> networkResourceUtilization) (\s@EC2ResourceUtilization' {} a -> s {networkResourceUtilization = a} :: EC2ResourceUtilization)
+
+-- | The EBS field that contains a list of EBS metrics that are associated
+-- with the current instance.
+eC2ResourceUtilization_eBSResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe EBSResourceUtilization)
+eC2ResourceUtilization_eBSResourceUtilization = Lens.lens (\EC2ResourceUtilization' {eBSResourceUtilization} -> eBSResourceUtilization) (\s@EC2ResourceUtilization' {} a -> s {eBSResourceUtilization = a} :: EC2ResourceUtilization)
 
 -- | The maximum observed or expected storage utilization of the instance.
 -- This doesn\'t include EBS storage.
@@ -93,20 +107,6 @@ eC2ResourceUtilization_maxStorageUtilizationPercentage = Lens.lens (\EC2Resource
 -- | The maximum observed or expected memory utilization of the instance.
 eC2ResourceUtilization_maxMemoryUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe Prelude.Text)
 eC2ResourceUtilization_maxMemoryUtilizationPercentage = Lens.lens (\EC2ResourceUtilization' {maxMemoryUtilizationPercentage} -> maxMemoryUtilizationPercentage) (\s@EC2ResourceUtilization' {} a -> s {maxMemoryUtilizationPercentage = a} :: EC2ResourceUtilization)
-
--- | The EBS field that contains a list of EBS metrics that are associated
--- with the current instance.
-eC2ResourceUtilization_eBSResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe EBSResourceUtilization)
-eC2ResourceUtilization_eBSResourceUtilization = Lens.lens (\EC2ResourceUtilization' {eBSResourceUtilization} -> eBSResourceUtilization) (\s@EC2ResourceUtilization' {} a -> s {eBSResourceUtilization = a} :: EC2ResourceUtilization)
-
--- | The network field that contains a list of network metrics that are
--- associated with the current instance.
-eC2ResourceUtilization_networkResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe NetworkResourceUtilization)
-eC2ResourceUtilization_networkResourceUtilization = Lens.lens (\EC2ResourceUtilization' {networkResourceUtilization} -> networkResourceUtilization) (\s@EC2ResourceUtilization' {} a -> s {networkResourceUtilization = a} :: EC2ResourceUtilization)
-
--- | The maximum observed or expected CPU utilization of the instance.
-eC2ResourceUtilization_maxCpuUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe Prelude.Text)
-eC2ResourceUtilization_maxCpuUtilizationPercentage = Lens.lens (\EC2ResourceUtilization' {maxCpuUtilizationPercentage} -> maxCpuUtilizationPercentage) (\s@EC2ResourceUtilization' {} a -> s {maxCpuUtilizationPercentage = a} :: EC2ResourceUtilization)
 
 -- | The field that contains a list of disk (local storage) metrics that are
 -- associated with the current instance.
@@ -119,11 +119,11 @@ instance Core.FromJSON EC2ResourceUtilization where
       "EC2ResourceUtilization"
       ( \x ->
           EC2ResourceUtilization'
-            Prelude.<$> (x Core..:? "MaxStorageUtilizationPercentage")
-            Prelude.<*> (x Core..:? "MaxMemoryUtilizationPercentage")
-            Prelude.<*> (x Core..:? "EBSResourceUtilization")
+            Prelude.<$> (x Core..:? "MaxCpuUtilizationPercentage")
             Prelude.<*> (x Core..:? "NetworkResourceUtilization")
-            Prelude.<*> (x Core..:? "MaxCpuUtilizationPercentage")
+            Prelude.<*> (x Core..:? "EBSResourceUtilization")
+            Prelude.<*> (x Core..:? "MaxStorageUtilizationPercentage")
+            Prelude.<*> (x Core..:? "MaxMemoryUtilizationPercentage")
             Prelude.<*> (x Core..:? "DiskResourceUtilization")
       )
 

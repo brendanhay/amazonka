@@ -104,11 +104,11 @@ anomalySubscription_subscriptionArn = Lens.lens (\AnomalySubscription' {subscrip
 
 -- | A list of cost anomaly monitors.
 anomalySubscription_monitorArnList :: Lens.Lens' AnomalySubscription [Prelude.Text]
-anomalySubscription_monitorArnList = Lens.lens (\AnomalySubscription' {monitorArnList} -> monitorArnList) (\s@AnomalySubscription' {} a -> s {monitorArnList = a} :: AnomalySubscription) Prelude.. Lens._Coerce
+anomalySubscription_monitorArnList = Lens.lens (\AnomalySubscription' {monitorArnList} -> monitorArnList) (\s@AnomalySubscription' {} a -> s {monitorArnList = a} :: AnomalySubscription) Prelude.. Lens.coerced
 
 -- | A list of subscribers to notify.
 anomalySubscription_subscribers :: Lens.Lens' AnomalySubscription [Subscriber]
-anomalySubscription_subscribers = Lens.lens (\AnomalySubscription' {subscribers} -> subscribers) (\s@AnomalySubscription' {} a -> s {subscribers = a} :: AnomalySubscription) Prelude.. Lens._Coerce
+anomalySubscription_subscribers = Lens.lens (\AnomalySubscription' {subscribers} -> subscribers) (\s@AnomalySubscription' {} a -> s {subscribers = a} :: AnomalySubscription) Prelude.. Lens.coerced
 
 -- | The dollar value that triggers a notification if the threshold is
 -- exceeded.

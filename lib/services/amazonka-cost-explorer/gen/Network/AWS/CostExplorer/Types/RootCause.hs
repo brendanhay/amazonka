@@ -33,10 +33,10 @@ data RootCause = RootCause'
     service :: Prelude.Maybe Prelude.Text,
     -- | The @UsageType@ value that\'s associated with the cost anomaly.
     usageType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region that\'s associated with the cost anomaly.
-    region :: Prelude.Maybe Prelude.Text,
     -- | The member account value that\'s associated with the cost anomaly.
-    linkedAccount :: Prelude.Maybe Prelude.Text
+    linkedAccount :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region that\'s associated with the cost anomaly.
+    region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,17 +53,17 @@ data RootCause = RootCause'
 --
 -- 'usageType', 'rootCause_usageType' - The @UsageType@ value that\'s associated with the cost anomaly.
 --
--- 'region', 'rootCause_region' - The Amazon Web Services Region that\'s associated with the cost anomaly.
---
 -- 'linkedAccount', 'rootCause_linkedAccount' - The member account value that\'s associated with the cost anomaly.
+--
+-- 'region', 'rootCause_region' - The Amazon Web Services Region that\'s associated with the cost anomaly.
 newRootCause ::
   RootCause
 newRootCause =
   RootCause'
     { service = Prelude.Nothing,
       usageType = Prelude.Nothing,
-      region = Prelude.Nothing,
-      linkedAccount = Prelude.Nothing
+      linkedAccount = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | The Amazon Web Services service name that\'s associated with the cost
@@ -75,13 +75,13 @@ rootCause_service = Lens.lens (\RootCause' {service} -> service) (\s@RootCause' 
 rootCause_usageType :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
 rootCause_usageType = Lens.lens (\RootCause' {usageType} -> usageType) (\s@RootCause' {} a -> s {usageType = a} :: RootCause)
 
--- | The Amazon Web Services Region that\'s associated with the cost anomaly.
-rootCause_region :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
-rootCause_region = Lens.lens (\RootCause' {region} -> region) (\s@RootCause' {} a -> s {region = a} :: RootCause)
-
 -- | The member account value that\'s associated with the cost anomaly.
 rootCause_linkedAccount :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
 rootCause_linkedAccount = Lens.lens (\RootCause' {linkedAccount} -> linkedAccount) (\s@RootCause' {} a -> s {linkedAccount = a} :: RootCause)
+
+-- | The Amazon Web Services Region that\'s associated with the cost anomaly.
+rootCause_region :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
+rootCause_region = Lens.lens (\RootCause' {region} -> region) (\s@RootCause' {} a -> s {region = a} :: RootCause)
 
 instance Core.FromJSON RootCause where
   parseJSON =
@@ -91,8 +91,8 @@ instance Core.FromJSON RootCause where
           RootCause'
             Prelude.<$> (x Core..:? "Service")
             Prelude.<*> (x Core..:? "UsageType")
-            Prelude.<*> (x Core..:? "Region")
             Prelude.<*> (x Core..:? "LinkedAccount")
+            Prelude.<*> (x Core..:? "Region")
       )
 
 instance Prelude.Hashable RootCause

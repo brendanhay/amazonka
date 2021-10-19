@@ -33,18 +33,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansUtilizationDetail' smart constructor.
 data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
-  { -- | The amount saved by using existing Savings Plans. Savings returns both
+  { -- | The total amortized commitment for a Savings Plans. Includes the sum of
+    -- the upfront and recurring Savings Plans fees.
+    amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
+    -- | The amount saved by using existing Savings Plans. Savings returns both
     -- net savings from savings plans as well as the @onDemandCostEquivalent@
     -- of the Savings Plans when considering the utilization rate.
     savings :: Prelude.Maybe SavingsPlansSavings,
+    -- | The attribute that applies to a specific @Dimension@.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A ratio of your effectiveness of using existing Savings Plans to apply
     -- to workloads that are Savings Plans eligible.
     utilization :: Prelude.Maybe SavingsPlansUtilization,
-    -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The total amortized commitment for a Savings Plans. Includes the sum of
-    -- the upfront and recurring Savings Plans fees.
-    amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
     -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
     savingsPlanArn :: Prelude.Maybe Prelude.Text
   }
@@ -58,30 +58,35 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amortizedCommitment', 'savingsPlansUtilizationDetail_amortizedCommitment' - The total amortized commitment for a Savings Plans. Includes the sum of
+-- the upfront and recurring Savings Plans fees.
+--
 -- 'savings', 'savingsPlansUtilizationDetail_savings' - The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from savings plans as well as the @onDemandCostEquivalent@
 -- of the Savings Plans when considering the utilization rate.
 --
--- 'utilization', 'savingsPlansUtilizationDetail_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply
--- to workloads that are Savings Plans eligible.
---
 -- 'attributes', 'savingsPlansUtilizationDetail_attributes' - The attribute that applies to a specific @Dimension@.
 --
--- 'amortizedCommitment', 'savingsPlansUtilizationDetail_amortizedCommitment' - The total amortized commitment for a Savings Plans. Includes the sum of
--- the upfront and recurring Savings Plans fees.
+-- 'utilization', 'savingsPlansUtilizationDetail_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply
+-- to workloads that are Savings Plans eligible.
 --
 -- 'savingsPlanArn', 'savingsPlansUtilizationDetail_savingsPlanArn' - The unique Amazon Resource Name (ARN) for a particular Savings Plan.
 newSavingsPlansUtilizationDetail ::
   SavingsPlansUtilizationDetail
 newSavingsPlansUtilizationDetail =
   SavingsPlansUtilizationDetail'
-    { savings =
+    { amortizedCommitment =
         Prelude.Nothing,
-      utilization = Prelude.Nothing,
+      savings = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      amortizedCommitment = Prelude.Nothing,
+      utilization = Prelude.Nothing,
       savingsPlanArn = Prelude.Nothing
     }
+
+-- | The total amortized commitment for a Savings Plans. Includes the sum of
+-- the upfront and recurring Savings Plans fees.
+savingsPlansUtilizationDetail_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansAmortizedCommitment)
+savingsPlansUtilizationDetail_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationDetail' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationDetail' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationDetail)
 
 -- | The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from savings plans as well as the @onDemandCostEquivalent@
@@ -89,19 +94,14 @@ newSavingsPlansUtilizationDetail =
 savingsPlansUtilizationDetail_savings :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansSavings)
 savingsPlansUtilizationDetail_savings = Lens.lens (\SavingsPlansUtilizationDetail' {savings} -> savings) (\s@SavingsPlansUtilizationDetail' {} a -> s {savings = a} :: SavingsPlansUtilizationDetail)
 
+-- | The attribute that applies to a specific @Dimension@.
+savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Prelude.. Lens.mapping Lens.coerced
+
 -- | A ratio of your effectiveness of using existing Savings Plans to apply
 -- to workloads that are Savings Plans eligible.
 savingsPlansUtilizationDetail_utilization :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansUtilization)
 savingsPlansUtilizationDetail_utilization = Lens.lens (\SavingsPlansUtilizationDetail' {utilization} -> utilization) (\s@SavingsPlansUtilizationDetail' {} a -> s {utilization = a} :: SavingsPlansUtilizationDetail)
-
--- | The attribute that applies to a specific @Dimension@.
-savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Prelude.. Lens.mapping Lens._Coerce
-
--- | The total amortized commitment for a Savings Plans. Includes the sum of
--- the upfront and recurring Savings Plans fees.
-savingsPlansUtilizationDetail_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansAmortizedCommitment)
-savingsPlansUtilizationDetail_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationDetail' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationDetail' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationDetail)
 
 -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
 savingsPlansUtilizationDetail_savingsPlanArn :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe Prelude.Text)
@@ -113,10 +113,10 @@ instance Core.FromJSON SavingsPlansUtilizationDetail where
       "SavingsPlansUtilizationDetail"
       ( \x ->
           SavingsPlansUtilizationDetail'
-            Prelude.<$> (x Core..:? "Savings")
-            Prelude.<*> (x Core..:? "Utilization")
+            Prelude.<$> (x Core..:? "AmortizedCommitment")
+            Prelude.<*> (x Core..:? "Savings")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AmortizedCommitment")
+            Prelude.<*> (x Core..:? "Utilization")
             Prelude.<*> (x Core..:? "SavingsPlanArn")
       )
 

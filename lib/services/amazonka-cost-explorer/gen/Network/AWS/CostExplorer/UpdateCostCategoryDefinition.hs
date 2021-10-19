@@ -40,8 +40,8 @@ module Network.AWS.CostExplorer.UpdateCostCategoryDefinition
     newUpdateCostCategoryDefinitionResponse,
 
     -- * Response Lenses
-    updateCostCategoryDefinitionResponse_costCategoryArn,
     updateCostCategoryDefinitionResponse_effectiveStart,
+    updateCostCategoryDefinitionResponse_costCategoryArn,
     updateCostCategoryDefinitionResponse_httpStatus,
   )
 where
@@ -109,13 +109,13 @@ newUpdateCostCategoryDefinition
         defaultValue = Prelude.Nothing,
         costCategoryArn = pCostCategoryArn_,
         ruleVersion = pRuleVersion_,
-        rules = Lens._Coerce Lens.# pRules_
+        rules = Lens.coerced Lens.# pRules_
       }
 
 -- | The split charge rules used to allocate your charges between your Cost
 -- Category values.
 updateCostCategoryDefinition_splitChargeRules :: Lens.Lens' UpdateCostCategoryDefinition (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
-updateCostCategoryDefinition_splitChargeRules = Lens.lens (\UpdateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@UpdateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: UpdateCostCategoryDefinition) Prelude.. Lens.mapping Lens._Coerce
+updateCostCategoryDefinition_splitChargeRules = Lens.lens (\UpdateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@UpdateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: UpdateCostCategoryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateCostCategoryDefinition_defaultValue :: Lens.Lens' UpdateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
@@ -134,7 +134,7 @@ updateCostCategoryDefinition_ruleVersion = Lens.lens (\UpdateCostCategoryDefinit
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>
 -- .
 updateCostCategoryDefinition_rules :: Lens.Lens' UpdateCostCategoryDefinition (Prelude.NonEmpty CostCategoryRule)
-updateCostCategoryDefinition_rules = Lens.lens (\UpdateCostCategoryDefinition' {rules} -> rules) (\s@UpdateCostCategoryDefinition' {} a -> s {rules = a} :: UpdateCostCategoryDefinition) Prelude.. Lens._Coerce
+updateCostCategoryDefinition_rules = Lens.lens (\UpdateCostCategoryDefinition' {rules} -> rules) (\s@UpdateCostCategoryDefinition' {} a -> s {rules = a} :: UpdateCostCategoryDefinition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateCostCategoryDefinition where
   type
@@ -145,8 +145,8 @@ instance Core.AWSRequest UpdateCostCategoryDefinition where
     Response.receiveJSON
       ( \s h x ->
           UpdateCostCategoryDefinitionResponse'
-            Prelude.<$> (x Core..?> "CostCategoryArn")
-            Prelude.<*> (x Core..?> "EffectiveStart")
+            Prelude.<$> (x Core..?> "EffectiveStart")
+            Prelude.<*> (x Core..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,10 +193,10 @@ instance Core.ToQuery UpdateCostCategoryDefinition where
 
 -- | /See:/ 'newUpdateCostCategoryDefinitionResponse' smart constructor.
 data UpdateCostCategoryDefinitionResponse = UpdateCostCategoryDefinitionResponse'
-  { -- | The unique identifier for your Cost Category.
-    costCategoryArn :: Prelude.Maybe Prelude.Text,
-    -- | The Cost Category\'s effective start date.
+  { -- | The Cost Category\'s effective start date.
     effectiveStart :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for your Cost Category.
+    costCategoryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,9 +210,9 @@ data UpdateCostCategoryDefinitionResponse = UpdateCostCategoryDefinitionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'costCategoryArn', 'updateCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your Cost Category.
---
 -- 'effectiveStart', 'updateCostCategoryDefinitionResponse_effectiveStart' - The Cost Category\'s effective start date.
+--
+-- 'costCategoryArn', 'updateCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your Cost Category.
 --
 -- 'httpStatus', 'updateCostCategoryDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateCostCategoryDefinitionResponse ::
@@ -221,19 +221,19 @@ newUpdateCostCategoryDefinitionResponse ::
   UpdateCostCategoryDefinitionResponse
 newUpdateCostCategoryDefinitionResponse pHttpStatus_ =
   UpdateCostCategoryDefinitionResponse'
-    { costCategoryArn =
+    { effectiveStart =
         Prelude.Nothing,
-      effectiveStart = Prelude.Nothing,
+      costCategoryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier for your Cost Category.
-updateCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
-updateCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\UpdateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@UpdateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: UpdateCostCategoryDefinitionResponse)
 
 -- | The Cost Category\'s effective start date.
 updateCostCategoryDefinitionResponse_effectiveStart :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateCostCategoryDefinitionResponse_effectiveStart = Lens.lens (\UpdateCostCategoryDefinitionResponse' {effectiveStart} -> effectiveStart) (\s@UpdateCostCategoryDefinitionResponse' {} a -> s {effectiveStart = a} :: UpdateCostCategoryDefinitionResponse)
+
+-- | The unique identifier for your Cost Category.
+updateCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
+updateCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\UpdateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@UpdateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: UpdateCostCategoryDefinitionResponse)
 
 -- | The response's http status code.
 updateCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' UpdateCostCategoryDefinitionResponse Prelude.Int

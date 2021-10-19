@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCoverageHours' smart constructor.
 data CoverageHours = CoverageHours'
-  { -- | The number of instance running hours that reservations covered.
-    reservedHours :: Prelude.Maybe Prelude.Text,
-    -- | The total instance usage, in hours.
-    totalRunningHours :: Prelude.Maybe Prelude.Text,
+  { -- | The percentage of instance hours that a reservation covered.
+    coverageHoursPercentage :: Prelude.Maybe Prelude.Text,
     -- | The number of instance running hours that On-Demand Instances covered.
     onDemandHours :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of instance hours that a reservation covered.
-    coverageHoursPercentage :: Prelude.Maybe Prelude.Text
+    -- | The total instance usage, in hours.
+    totalRunningHours :: Prelude.Maybe Prelude.Text,
+    -- | The number of instance running hours that reservations covered.
+    reservedHours :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,39 @@ data CoverageHours = CoverageHours'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedHours', 'coverageHours_reservedHours' - The number of instance running hours that reservations covered.
---
--- 'totalRunningHours', 'coverageHours_totalRunningHours' - The total instance usage, in hours.
+-- 'coverageHoursPercentage', 'coverageHours_coverageHoursPercentage' - The percentage of instance hours that a reservation covered.
 --
 -- 'onDemandHours', 'coverageHours_onDemandHours' - The number of instance running hours that On-Demand Instances covered.
 --
--- 'coverageHoursPercentage', 'coverageHours_coverageHoursPercentage' - The percentage of instance hours that a reservation covered.
+-- 'totalRunningHours', 'coverageHours_totalRunningHours' - The total instance usage, in hours.
+--
+-- 'reservedHours', 'coverageHours_reservedHours' - The number of instance running hours that reservations covered.
 newCoverageHours ::
   CoverageHours
 newCoverageHours =
   CoverageHours'
-    { reservedHours = Prelude.Nothing,
-      totalRunningHours = Prelude.Nothing,
+    { coverageHoursPercentage =
+        Prelude.Nothing,
       onDemandHours = Prelude.Nothing,
-      coverageHoursPercentage = Prelude.Nothing
+      totalRunningHours = Prelude.Nothing,
+      reservedHours = Prelude.Nothing
     }
 
--- | The number of instance running hours that reservations covered.
-coverageHours_reservedHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
-coverageHours_reservedHours = Lens.lens (\CoverageHours' {reservedHours} -> reservedHours) (\s@CoverageHours' {} a -> s {reservedHours = a} :: CoverageHours)
-
--- | The total instance usage, in hours.
-coverageHours_totalRunningHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
-coverageHours_totalRunningHours = Lens.lens (\CoverageHours' {totalRunningHours} -> totalRunningHours) (\s@CoverageHours' {} a -> s {totalRunningHours = a} :: CoverageHours)
+-- | The percentage of instance hours that a reservation covered.
+coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_coverageHoursPercentage = Lens.lens (\CoverageHours' {coverageHoursPercentage} -> coverageHoursPercentage) (\s@CoverageHours' {} a -> s {coverageHoursPercentage = a} :: CoverageHours)
 
 -- | The number of instance running hours that On-Demand Instances covered.
 coverageHours_onDemandHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
 coverageHours_onDemandHours = Lens.lens (\CoverageHours' {onDemandHours} -> onDemandHours) (\s@CoverageHours' {} a -> s {onDemandHours = a} :: CoverageHours)
 
--- | The percentage of instance hours that a reservation covered.
-coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
-coverageHours_coverageHoursPercentage = Lens.lens (\CoverageHours' {coverageHoursPercentage} -> coverageHoursPercentage) (\s@CoverageHours' {} a -> s {coverageHoursPercentage = a} :: CoverageHours)
+-- | The total instance usage, in hours.
+coverageHours_totalRunningHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_totalRunningHours = Lens.lens (\CoverageHours' {totalRunningHours} -> totalRunningHours) (\s@CoverageHours' {} a -> s {totalRunningHours = a} :: CoverageHours)
+
+-- | The number of instance running hours that reservations covered.
+coverageHours_reservedHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_reservedHours = Lens.lens (\CoverageHours' {reservedHours} -> reservedHours) (\s@CoverageHours' {} a -> s {reservedHours = a} :: CoverageHours)
 
 instance Core.FromJSON CoverageHours where
   parseJSON =
@@ -85,10 +86,10 @@ instance Core.FromJSON CoverageHours where
       "CoverageHours"
       ( \x ->
           CoverageHours'
-            Prelude.<$> (x Core..:? "ReservedHours")
-            Prelude.<*> (x Core..:? "TotalRunningHours")
+            Prelude.<$> (x Core..:? "CoverageHoursPercentage")
             Prelude.<*> (x Core..:? "OnDemandHours")
-            Prelude.<*> (x Core..:? "CoverageHoursPercentage")
+            Prelude.<*> (x Core..:? "TotalRunningHours")
+            Prelude.<*> (x Core..:? "ReservedHours")
       )
 
 instance Prelude.Hashable CoverageHours

@@ -58,7 +58,7 @@ newCostCategorySplitChargeRuleParameter
     CostCategorySplitChargeRuleParameter'
       { type' =
           pType_,
-        values = Lens._Coerce Lens.# pValues_
+        values = Lens.coerced Lens.# pValues_
       }
 
 -- | The parameter type.
@@ -67,7 +67,7 @@ costCategorySplitChargeRuleParameter_type = Lens.lens (\CostCategorySplitChargeR
 
 -- | The parameter values.
 costCategorySplitChargeRuleParameter_values :: Lens.Lens' CostCategorySplitChargeRuleParameter (Prelude.NonEmpty Prelude.Text)
-costCategorySplitChargeRuleParameter_values = Lens.lens (\CostCategorySplitChargeRuleParameter' {values} -> values) (\s@CostCategorySplitChargeRuleParameter' {} a -> s {values = a} :: CostCategorySplitChargeRuleParameter) Prelude.. Lens._Coerce
+costCategorySplitChargeRuleParameter_values = Lens.lens (\CostCategorySplitChargeRuleParameter' {values} -> values) (\s@CostCategorySplitChargeRuleParameter' {} a -> s {values = a} :: CostCategorySplitChargeRuleParameter) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON

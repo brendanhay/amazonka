@@ -56,11 +56,11 @@ newGroup =
 
 -- | The metrics that are included in this group.
 group_metrics :: Lens.Lens' Group (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
-group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {metrics = a} :: Group) Prelude.. Lens.mapping Lens._Coerce
+group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {metrics = a} :: Group) Prelude.. Lens.mapping Lens.coerced
 
 -- | The keys that are included in this group.
 group_keys :: Lens.Lens' Group (Prelude.Maybe [Prelude.Text])
-group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Prelude.. Lens.mapping Lens._Coerce
+group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Group where
   parseJSON =

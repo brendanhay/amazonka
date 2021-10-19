@@ -434,7 +434,7 @@ newGetCostForecastResponse pHttpStatus_ =
 -- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a
 -- list of days. For @MONTHLY@ forecasts, this is a list of months.
 getCostForecastResponse_forecastResultsByTime :: Lens.Lens' GetCostForecastResponse (Prelude.Maybe [ForecastResult])
-getCostForecastResponse_forecastResultsByTime = Lens.lens (\GetCostForecastResponse' {forecastResultsByTime} -> forecastResultsByTime) (\s@GetCostForecastResponse' {} a -> s {forecastResultsByTime = a} :: GetCostForecastResponse) Prelude.. Lens.mapping Lens._Coerce
+getCostForecastResponse_forecastResultsByTime = Lens.lens (\GetCostForecastResponse' {forecastResultsByTime} -> forecastResultsByTime) (\s@GetCostForecastResponse' {} a -> s {forecastResultsByTime = a} :: GetCostForecastResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | How much you are forecasted to spend over the forecast period, in @USD@.
 getCostForecastResponse_total :: Lens.Lens' GetCostForecastResponse (Prelude.Maybe MetricValue)

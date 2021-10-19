@@ -422,7 +422,7 @@ newGetUsageForecastResponse pHttpStatus_ =
 -- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a
 -- list of days. For @MONTHLY@ forecasts, this is a list of months.
 getUsageForecastResponse_forecastResultsByTime :: Lens.Lens' GetUsageForecastResponse (Prelude.Maybe [ForecastResult])
-getUsageForecastResponse_forecastResultsByTime = Lens.lens (\GetUsageForecastResponse' {forecastResultsByTime} -> forecastResultsByTime) (\s@GetUsageForecastResponse' {} a -> s {forecastResultsByTime = a} :: GetUsageForecastResponse) Prelude.. Lens.mapping Lens._Coerce
+getUsageForecastResponse_forecastResultsByTime = Lens.lens (\GetUsageForecastResponse' {forecastResultsByTime} -> forecastResultsByTime) (\s@GetUsageForecastResponse' {} a -> s {forecastResultsByTime = a} :: GetUsageForecastResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | How much you\'re forecasted to use over the forecast period.
 getUsageForecastResponse_total :: Lens.Lens' GetUsageForecastResponse (Prelude.Maybe MetricValue)

@@ -29,12 +29,12 @@ module Network.AWS.CostExplorer.GetDimensionValues
     newGetDimensionValues,
 
     -- * Request Lenses
-    getDimensionValues_maxResults,
-    getDimensionValues_searchString,
-    getDimensionValues_context,
     getDimensionValues_nextPageToken,
-    getDimensionValues_sortBy,
+    getDimensionValues_context,
+    getDimensionValues_searchString,
     getDimensionValues_filter,
+    getDimensionValues_maxResults,
+    getDimensionValues_sortBy,
     getDimensionValues_timePeriod,
     getDimensionValues_dimension,
 
@@ -60,15 +60,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDimensionValues' smart constructor.
 data GetDimensionValues = GetDimensionValues'
-  { -- | This field is only used when SortBy is provided in the request. The
-    -- maximum number of objects that to be returned for this request. If
-    -- MaxResults is not specified with SortBy, the request will return 1000
-    -- results as the default value for this parameter.
-    --
-    -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The value that you want to search the filter values for.
-    searchString :: Prelude.Maybe Prelude.Text,
+  { -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The context for the call to @GetDimensionValues@. This can be
     -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
     -- @COST_AND_USAGE@. If the context is set to @RESERVATIONS@, the resulting
@@ -176,10 +171,16 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
     context :: Prelude.Maybe Context,
-    -- | The token to retrieve the next set of results. Amazon Web Services
-    -- provides the token when the response from a previous call has more
-    -- results than the maximum page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The value that you want to search the filter values for.
+    searchString :: Prelude.Maybe Prelude.Text,
+    filter' :: Prelude.Maybe Expression,
+    -- | This field is only used when SortBy is provided in the request. The
+    -- maximum number of objects that to be returned for this request. If
+    -- MaxResults is not specified with SortBy, the request will return 1000
+    -- results as the default value for this parameter.
+    --
+    -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -205,7 +206,6 @@ data GetDimensionValues = GetDimensionValues'
     -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
     -- @SearchString@ are not supported.
     sortBy :: Prelude.Maybe [SortDefinition],
-    filter' :: Prelude.Maybe Expression,
     -- | The start date and end date for retrieving the dimension values. The
     -- start date is inclusive, but the end date is exclusive. For example, if
     -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -226,14 +226,9 @@ data GetDimensionValues = GetDimensionValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'getDimensionValues_maxResults' - This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
--- results as the default value for this parameter.
---
--- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
---
--- 'searchString', 'getDimensionValues_searchString' - The value that you want to search the filter values for.
+-- 'nextPageToken', 'getDimensionValues_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'context', 'getDimensionValues_context' - The context for the call to @GetDimensionValues@. This can be
 -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
@@ -342,9 +337,16 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 --
--- 'nextPageToken', 'getDimensionValues_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
+-- 'searchString', 'getDimensionValues_searchString' - The value that you want to search the filter values for.
+--
+-- 'filter'', 'getDimensionValues_filter' - Undocumented member.
+--
+-- 'maxResults', 'getDimensionValues_maxResults' - This field is only used when SortBy is provided in the request. The
+-- maximum number of objects that to be returned for this request. If
+-- MaxResults is not specified with SortBy, the request will return 1000
+-- results as the default value for this parameter.
+--
+-- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
 --
 -- 'sortBy', 'getDimensionValues_sortBy' - The value by which you want to sort the data.
 --
@@ -371,8 +373,6 @@ data GetDimensionValues = GetDimensionValues'
 -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
 -- @SearchString@ are not supported.
 --
--- 'filter'', 'getDimensionValues_filter' - Undocumented member.
---
 -- 'timePeriod', 'getDimensionValues_timePeriod' - The start date and end date for retrieving the dimension values. The
 -- start date is inclusive, but the end date is exclusive. For example, if
 -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -389,28 +389,22 @@ newGetDimensionValues ::
   GetDimensionValues
 newGetDimensionValues pTimePeriod_ pDimension_ =
   GetDimensionValues'
-    { maxResults = Prelude.Nothing,
-      searchString = Prelude.Nothing,
+    { nextPageToken =
+        Prelude.Nothing,
       context = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      searchString = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       timePeriod = pTimePeriod_,
       dimension = pDimension_
     }
 
--- | This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
--- results as the default value for this parameter.
---
--- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
-getDimensionValues_maxResults :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Natural)
-getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> maxResults) (\s@GetDimensionValues' {} a -> s {maxResults = a} :: GetDimensionValues)
-
--- | The value that you want to search the filter values for.
-getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
-getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString} -> searchString) (\s@GetDimensionValues' {} a -> s {searchString = a} :: GetDimensionValues)
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getDimensionValues_nextPageToken :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
+getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToken} -> nextPageToken) (\s@GetDimensionValues' {} a -> s {nextPageToken = a} :: GetDimensionValues)
 
 -- | The context for the call to @GetDimensionValues@. This can be
 -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
@@ -521,11 +515,22 @@ getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString}
 getDimensionValues_context :: Lens.Lens' GetDimensionValues (Prelude.Maybe Context)
 getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> context) (\s@GetDimensionValues' {} a -> s {context = a} :: GetDimensionValues)
 
--- | The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
-getDimensionValues_nextPageToken :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
-getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToken} -> nextPageToken) (\s@GetDimensionValues' {} a -> s {nextPageToken = a} :: GetDimensionValues)
+-- | The value that you want to search the filter values for.
+getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
+getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString} -> searchString) (\s@GetDimensionValues' {} a -> s {searchString = a} :: GetDimensionValues)
+
+-- | Undocumented member.
+getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expression)
+getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
+
+-- | This field is only used when SortBy is provided in the request. The
+-- maximum number of objects that to be returned for this request. If
+-- MaxResults is not specified with SortBy, the request will return 1000
+-- results as the default value for this parameter.
+--
+-- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
+getDimensionValues_maxResults :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Natural)
+getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> maxResults) (\s@GetDimensionValues' {} a -> s {maxResults = a} :: GetDimensionValues)
 
 -- | The value by which you want to sort the data.
 --
@@ -552,11 +557,7 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
 -- @SearchString@ are not supported.
 getDimensionValues_sortBy :: Lens.Lens' GetDimensionValues (Prelude.Maybe [SortDefinition])
-getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) (\s@GetDimensionValues' {} a -> s {sortBy = a} :: GetDimensionValues) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expression)
-getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
+getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) (\s@GetDimensionValues' {} a -> s {sortBy = a} :: GetDimensionValues) Prelude.. Lens.mapping Lens.coerced
 
 -- | The start date and end date for retrieving the dimension values. The
 -- start date is inclusive, but the end date is exclusive. For example, if
@@ -612,12 +613,12 @@ instance Core.ToJSON GetDimensionValues where
   toJSON GetDimensionValues' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SearchString" Core..=) Prelude.<$> searchString,
+          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("Context" Core..=) Prelude.<$> context,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("SearchString" Core..=) Prelude.<$> searchString,
             ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Core..= timePeriod),
             Prelude.Just ("Dimension" Core..= dimension)
           ]
@@ -995,7 +996,7 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 getDimensionValuesResponse_dimensionValues :: Lens.Lens' GetDimensionValuesResponse [DimensionValuesWithAttributes]
-getDimensionValuesResponse_dimensionValues = Lens.lens (\GetDimensionValuesResponse' {dimensionValues} -> dimensionValues) (\s@GetDimensionValuesResponse' {} a -> s {dimensionValues = a} :: GetDimensionValuesResponse) Prelude.. Lens._Coerce
+getDimensionValuesResponse_dimensionValues = Lens.lens (\GetDimensionValuesResponse' {dimensionValues} -> dimensionValues) (\s@GetDimensionValuesResponse' {} a -> s {dimensionValues = a} :: GetDimensionValuesResponse) Prelude.. Lens.coerced
 
 -- | The number of results that Amazon Web Services returned at one time.
 getDimensionValuesResponse_returnSize :: Lens.Lens' GetDimensionValuesResponse Prelude.Int

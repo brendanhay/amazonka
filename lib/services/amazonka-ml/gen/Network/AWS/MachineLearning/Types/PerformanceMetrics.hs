@@ -63,7 +63,7 @@ newPerformanceMetrics =
 
 -- | Undocumented member.
 performanceMetrics_properties :: Lens.Lens' PerformanceMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-performanceMetrics_properties = Lens.lens (\PerformanceMetrics' {properties} -> properties) (\s@PerformanceMetrics' {} a -> s {properties = a} :: PerformanceMetrics) Prelude.. Lens.mapping Lens._Coerce
+performanceMetrics_properties = Lens.lens (\PerformanceMetrics' {properties} -> properties) (\s@PerformanceMetrics' {} a -> s {properties = a} :: PerformanceMetrics) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PerformanceMetrics where
   parseJSON =

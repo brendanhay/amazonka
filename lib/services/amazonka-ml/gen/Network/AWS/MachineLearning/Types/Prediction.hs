@@ -42,9 +42,9 @@ import qualified Network.AWS.Prelude as Prelude
 data Prediction = Prediction'
   { -- | The prediction value for @REGRESSION@ @MLModel@.
     predictedValue :: Prelude.Maybe Prelude.Double,
-    predictedScores :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
     predictedLabel :: Prelude.Maybe Prelude.Text,
+    predictedScores :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     details :: Prelude.Maybe (Prelude.HashMap DetailsAttributes Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,9 +59,9 @@ data Prediction = Prediction'
 --
 -- 'predictedValue', 'prediction_predictedValue' - The prediction value for @REGRESSION@ @MLModel@.
 --
--- 'predictedScores', 'prediction_predictedScores' - Undocumented member.
---
 -- 'predictedLabel', 'prediction_predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
+--
+-- 'predictedScores', 'prediction_predictedScores' - Undocumented member.
 --
 -- 'details', 'prediction_details' - Undocumented member.
 newPrediction ::
@@ -69,8 +69,8 @@ newPrediction ::
 newPrediction =
   Prediction'
     { predictedValue = Prelude.Nothing,
-      predictedScores = Prelude.Nothing,
       predictedLabel = Prelude.Nothing,
+      predictedScores = Prelude.Nothing,
       details = Prelude.Nothing
     }
 
@@ -78,17 +78,17 @@ newPrediction =
 prediction_predictedValue :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Double)
 prediction_predictedValue = Lens.lens (\Prediction' {predictedValue} -> predictedValue) (\s@Prediction' {} a -> s {predictedValue = a} :: Prediction)
 
--- | Undocumented member.
-prediction_predictedScores :: Lens.Lens' Prediction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-prediction_predictedScores = Lens.lens (\Prediction' {predictedScores} -> predictedScores) (\s@Prediction' {} a -> s {predictedScores = a} :: Prediction) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
 prediction_predictedLabel :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Text)
 prediction_predictedLabel = Lens.lens (\Prediction' {predictedLabel} -> predictedLabel) (\s@Prediction' {} a -> s {predictedLabel = a} :: Prediction)
 
 -- | Undocumented member.
+prediction_predictedScores :: Lens.Lens' Prediction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+prediction_predictedScores = Lens.lens (\Prediction' {predictedScores} -> predictedScores) (\s@Prediction' {} a -> s {predictedScores = a} :: Prediction) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
 prediction_details :: Lens.Lens' Prediction (Prelude.Maybe (Prelude.HashMap DetailsAttributes Prelude.Text))
-prediction_details = Lens.lens (\Prediction' {details} -> details) (\s@Prediction' {} a -> s {details = a} :: Prediction) Prelude.. Lens.mapping Lens._Coerce
+prediction_details = Lens.lens (\Prediction' {details} -> details) (\s@Prediction' {} a -> s {details = a} :: Prediction) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Prediction where
   parseJSON =
@@ -97,10 +97,10 @@ instance Core.FromJSON Prediction where
       ( \x ->
           Prediction'
             Prelude.<$> (x Core..:? "predictedValue")
+            Prelude.<*> (x Core..:? "predictedLabel")
             Prelude.<*> ( x Core..:? "predictedScores"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "predictedLabel")
             Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
       )
 

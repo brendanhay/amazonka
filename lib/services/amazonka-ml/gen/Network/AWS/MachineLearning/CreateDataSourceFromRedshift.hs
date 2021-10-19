@@ -63,8 +63,8 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     newCreateDataSourceFromRedshift,
 
     -- * Request Lenses
-    createDataSourceFromRedshift_computeStatistics,
     createDataSourceFromRedshift_dataSourceName,
+    createDataSourceFromRedshift_computeStatistics,
     createDataSourceFromRedshift_dataSourceId,
     createDataSourceFromRedshift_dataSpec,
     createDataSourceFromRedshift_roleARN,
@@ -88,14 +88,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDataSourceFromRedshift' smart constructor.
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-  { -- | The compute statistics for a @DataSource@. The statistics are generated
+  { -- | A user-supplied name or description of the @DataSource@.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The compute statistics for a @DataSource@. The statistics are generated
     -- from the observation data referenced by a @DataSource@. Amazon ML uses
     -- the statistics internally during @MLModel@ training. This parameter must
     -- be set to @true@ if the @DataSource@ needs to be used for @MLModel@
     -- training.
     computeStatistics :: Prelude.Maybe Prelude.Bool,
-    -- | A user-supplied name or description of the @DataSource@.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied ID that uniquely identifies the @DataSource@.
     dataSourceId :: Prelude.Text,
     -- | The data specification of an Amazon Redshift @DataSource@:
@@ -150,13 +150,13 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSourceName', 'createDataSourceFromRedshift_dataSourceName' - A user-supplied name or description of the @DataSource@.
+--
 -- 'computeStatistics', 'createDataSourceFromRedshift_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @DataSource@ needs to be used for @MLModel@
 -- training.
---
--- 'dataSourceName', 'createDataSourceFromRedshift_dataSourceName' - A user-supplied name or description of the @DataSource@.
 --
 -- 'dataSourceId', 'createDataSourceFromRedshift_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@.
 --
@@ -213,13 +213,17 @@ newCreateDataSourceFromRedshift
   pDataSpec_
   pRoleARN_ =
     CreateDataSourceFromRedshift'
-      { computeStatistics =
+      { dataSourceName =
           Prelude.Nothing,
-        dataSourceName = Prelude.Nothing,
+        computeStatistics = Prelude.Nothing,
         dataSourceId = pDataSourceId_,
         dataSpec = pDataSpec_,
         roleARN = pRoleARN_
       }
+
+-- | A user-supplied name or description of the @DataSource@.
+createDataSourceFromRedshift_dataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Prelude.Maybe Prelude.Text)
+createDataSourceFromRedshift_dataSourceName = Lens.lens (\CreateDataSourceFromRedshift' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromRedshift' {} a -> s {dataSourceName = a} :: CreateDataSourceFromRedshift)
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
@@ -228,10 +232,6 @@ newCreateDataSourceFromRedshift
 -- training.
 createDataSourceFromRedshift_computeStatistics :: Lens.Lens' CreateDataSourceFromRedshift (Prelude.Maybe Prelude.Bool)
 createDataSourceFromRedshift_computeStatistics = Lens.lens (\CreateDataSourceFromRedshift' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromRedshift' {} a -> s {computeStatistics = a} :: CreateDataSourceFromRedshift)
-
--- | A user-supplied name or description of the @DataSource@.
-createDataSourceFromRedshift_dataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Prelude.Maybe Prelude.Text)
-createDataSourceFromRedshift_dataSourceName = Lens.lens (\CreateDataSourceFromRedshift' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromRedshift' {} a -> s {dataSourceName = a} :: CreateDataSourceFromRedshift)
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
 createDataSourceFromRedshift_dataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Prelude.Text
@@ -320,10 +320,10 @@ instance Core.ToJSON CreateDataSourceFromRedshift where
   toJSON CreateDataSourceFromRedshift' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ComputeStatistics" Core..=)
-              Prelude.<$> computeStatistics,
-            ("DataSourceName" Core..=)
+          [ ("DataSourceName" Core..=)
               Prelude.<$> dataSourceName,
+            ("ComputeStatistics" Core..=)
+              Prelude.<$> computeStatistics,
             Prelude.Just ("DataSourceId" Core..= dataSourceId),
             Prelude.Just ("DataSpec" Core..= dataSpec),
             Prelude.Just ("RoleARN" Core..= roleARN)

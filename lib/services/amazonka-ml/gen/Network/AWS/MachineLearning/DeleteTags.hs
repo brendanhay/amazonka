@@ -91,7 +91,7 @@ newDeleteTags pResourceId_ pResourceType_ =
 
 -- | One or more tags to delete.
 deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens.coerced
 
 -- | The ID of the tagged ML object. For example, @exampleModelId@.
 deleteTags_resourceId :: Lens.Lens' DeleteTags Prelude.Text

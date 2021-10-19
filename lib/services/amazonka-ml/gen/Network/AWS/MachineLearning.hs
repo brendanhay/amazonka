@@ -19,65 +19,47 @@ module Network.AWS.MachineLearning
     -- * Errors
     -- $errors
 
-    -- ** PredictorNotMountedException
-    _PredictorNotMountedException,
-
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
     -- ** InvalidTagException
     _InvalidTagException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** PredictorNotMountedException
+    _PredictorNotMountedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- * Waiters
     -- $waiters
-
-    -- ** EvaluationAvailable
-    newEvaluationAvailable,
 
     -- ** MLModelAvailable
     newMLModelAvailable,
 
-    -- ** DataSourceAvailable
-    newDataSourceAvailable,
-
     -- ** BatchPredictionAvailable
     newBatchPredictionAvailable,
 
+    -- ** DataSourceAvailable
+    newDataSourceAvailable,
+
+    -- ** EvaluationAvailable
+    newEvaluationAvailable,
+
     -- * Operations
     -- $operations
-
-    -- ** UpdateMLModel
-    UpdateMLModel (UpdateMLModel'),
-    newUpdateMLModel,
-    UpdateMLModelResponse (UpdateMLModelResponse'),
-    newUpdateMLModelResponse,
-
-    -- ** CreateDataSourceFromS
-    CreateDataSourceFromS (CreateDataSourceFromS'),
-    newCreateDataSourceFromS,
-    CreateDataSourceFromSResponse (CreateDataSourceFromSResponse'),
-    newCreateDataSourceFromSResponse,
-
-    -- ** DeleteMLModel
-    DeleteMLModel (DeleteMLModel'),
-    newDeleteMLModel,
-    DeleteMLModelResponse (DeleteMLModelResponse'),
-    newDeleteMLModelResponse,
 
     -- ** UpdateDataSource
     UpdateDataSource (UpdateDataSource'),
@@ -85,11 +67,11 @@ module Network.AWS.MachineLearning
     UpdateDataSourceResponse (UpdateDataSourceResponse'),
     newUpdateDataSourceResponse,
 
-    -- ** CreateDataSourceFromRedshift
-    CreateDataSourceFromRedshift (CreateDataSourceFromRedshift'),
-    newCreateDataSourceFromRedshift,
-    CreateDataSourceFromRedshiftResponse (CreateDataSourceFromRedshiftResponse'),
-    newCreateDataSourceFromRedshiftResponse,
+    -- ** DeleteDataSource
+    DeleteDataSource (DeleteDataSource'),
+    newDeleteDataSource,
+    DeleteDataSourceResponse (DeleteDataSourceResponse'),
+    newDeleteDataSourceResponse,
 
     -- ** DescribeTags
     DescribeTags (DescribeTags'),
@@ -97,17 +79,23 @@ module Network.AWS.MachineLearning
     DescribeTagsResponse (DescribeTagsResponse'),
     newDescribeTagsResponse,
 
-    -- ** DeleteDataSource
-    DeleteDataSource (DeleteDataSource'),
-    newDeleteDataSource,
-    DeleteDataSourceResponse (DeleteDataSourceResponse'),
-    newDeleteDataSourceResponse,
+    -- ** CreateDataSourceFromRedshift
+    CreateDataSourceFromRedshift (CreateDataSourceFromRedshift'),
+    newCreateDataSourceFromRedshift,
+    CreateDataSourceFromRedshiftResponse (CreateDataSourceFromRedshiftResponse'),
+    newCreateDataSourceFromRedshiftResponse,
 
-    -- ** DescribeDataSources (Paginated)
-    DescribeDataSources (DescribeDataSources'),
-    newDescribeDataSources,
-    DescribeDataSourcesResponse (DescribeDataSourcesResponse'),
-    newDescribeDataSourcesResponse,
+    -- ** CreateDataSourceFromS
+    CreateDataSourceFromS (CreateDataSourceFromS'),
+    newCreateDataSourceFromS,
+    CreateDataSourceFromSResponse (CreateDataSourceFromSResponse'),
+    newCreateDataSourceFromSResponse,
+
+    -- ** CreateMLModel
+    CreateMLModel (CreateMLModel'),
+    newCreateMLModel,
+    CreateMLModelResponse (CreateMLModelResponse'),
+    newCreateMLModelResponse,
 
     -- ** DeleteTags
     DeleteTags (DeleteTags'),
@@ -115,83 +103,11 @@ module Network.AWS.MachineLearning
     DeleteTagsResponse (DeleteTagsResponse'),
     newDeleteTagsResponse,
 
-    -- ** DescribeEvaluations (Paginated)
-    DescribeEvaluations (DescribeEvaluations'),
-    newDescribeEvaluations,
-    DescribeEvaluationsResponse (DescribeEvaluationsResponse'),
-    newDescribeEvaluationsResponse,
-
-    -- ** GetMLModel
-    GetMLModel (GetMLModel'),
-    newGetMLModel,
-    GetMLModelResponse (GetMLModelResponse'),
-    newGetMLModelResponse,
-
-    -- ** GetEvaluation
-    GetEvaluation (GetEvaluation'),
-    newGetEvaluation,
-    GetEvaluationResponse (GetEvaluationResponse'),
-    newGetEvaluationResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** DeleteRealtimeEndpoint
-    DeleteRealtimeEndpoint (DeleteRealtimeEndpoint'),
-    newDeleteRealtimeEndpoint,
-    DeleteRealtimeEndpointResponse (DeleteRealtimeEndpointResponse'),
-    newDeleteRealtimeEndpointResponse,
-
-    -- ** CreateDataSourceFromRDS
-    CreateDataSourceFromRDS (CreateDataSourceFromRDS'),
-    newCreateDataSourceFromRDS,
-    CreateDataSourceFromRDSResponse (CreateDataSourceFromRDSResponse'),
-    newCreateDataSourceFromRDSResponse,
-
-    -- ** DescribeBatchPredictions (Paginated)
-    DescribeBatchPredictions (DescribeBatchPredictions'),
-    newDescribeBatchPredictions,
-    DescribeBatchPredictionsResponse (DescribeBatchPredictionsResponse'),
-    newDescribeBatchPredictionsResponse,
-
-    -- ** DeleteEvaluation
-    DeleteEvaluation (DeleteEvaluation'),
-    newDeleteEvaluation,
-    DeleteEvaluationResponse (DeleteEvaluationResponse'),
-    newDeleteEvaluationResponse,
-
-    -- ** UpdateEvaluation
-    UpdateEvaluation (UpdateEvaluation'),
-    newUpdateEvaluation,
-    UpdateEvaluationResponse (UpdateEvaluationResponse'),
-    newUpdateEvaluationResponse,
-
-    -- ** GetBatchPrediction
-    GetBatchPrediction (GetBatchPrediction'),
-    newGetBatchPrediction,
-    GetBatchPredictionResponse (GetBatchPredictionResponse'),
-    newGetBatchPredictionResponse,
-
-    -- ** GetDataSource
-    GetDataSource (GetDataSource'),
-    newGetDataSource,
-    GetDataSourceResponse (GetDataSourceResponse'),
-    newGetDataSourceResponse,
-
     -- ** DeleteBatchPrediction
     DeleteBatchPrediction (DeleteBatchPrediction'),
     newDeleteBatchPrediction,
     DeleteBatchPredictionResponse (DeleteBatchPredictionResponse'),
     newDeleteBatchPredictionResponse,
-
-    -- ** CreateRealtimeEndpoint
-    CreateRealtimeEndpoint (CreateRealtimeEndpoint'),
-    newCreateRealtimeEndpoint,
-    CreateRealtimeEndpointResponse (CreateRealtimeEndpointResponse'),
-    newCreateRealtimeEndpointResponse,
 
     -- ** UpdateBatchPrediction
     UpdateBatchPrediction (UpdateBatchPrediction'),
@@ -199,23 +115,59 @@ module Network.AWS.MachineLearning
     UpdateBatchPredictionResponse (UpdateBatchPredictionResponse'),
     newUpdateBatchPredictionResponse,
 
-    -- ** DescribeMLModels (Paginated)
-    DescribeMLModels (DescribeMLModels'),
-    newDescribeMLModels,
-    DescribeMLModelsResponse (DescribeMLModelsResponse'),
-    newDescribeMLModelsResponse,
+    -- ** GetMLModel
+    GetMLModel (GetMLModel'),
+    newGetMLModel,
+    GetMLModelResponse (GetMLModelResponse'),
+    newGetMLModelResponse,
 
-    -- ** Predict
-    Predict (Predict'),
-    newPredict,
-    PredictResponse (PredictResponse'),
-    newPredictResponse,
+    -- ** GetDataSource
+    GetDataSource (GetDataSource'),
+    newGetDataSource,
+    GetDataSourceResponse (GetDataSourceResponse'),
+    newGetDataSourceResponse,
 
-    -- ** CreateBatchPrediction
-    CreateBatchPrediction (CreateBatchPrediction'),
-    newCreateBatchPrediction,
-    CreateBatchPredictionResponse (CreateBatchPredictionResponse'),
-    newCreateBatchPredictionResponse,
+    -- ** UpdateEvaluation
+    UpdateEvaluation (UpdateEvaluation'),
+    newUpdateEvaluation,
+    UpdateEvaluationResponse (UpdateEvaluationResponse'),
+    newUpdateEvaluationResponse,
+
+    -- ** DeleteEvaluation
+    DeleteEvaluation (DeleteEvaluation'),
+    newDeleteEvaluation,
+    DeleteEvaluationResponse (DeleteEvaluationResponse'),
+    newDeleteEvaluationResponse,
+
+    -- ** DeleteMLModel
+    DeleteMLModel (DeleteMLModel'),
+    newDeleteMLModel,
+    DeleteMLModelResponse (DeleteMLModelResponse'),
+    newDeleteMLModelResponse,
+
+    -- ** UpdateMLModel
+    UpdateMLModel (UpdateMLModel'),
+    newUpdateMLModel,
+    UpdateMLModelResponse (UpdateMLModelResponse'),
+    newUpdateMLModelResponse,
+
+    -- ** GetBatchPrediction
+    GetBatchPrediction (GetBatchPrediction'),
+    newGetBatchPrediction,
+    GetBatchPredictionResponse (GetBatchPredictionResponse'),
+    newGetBatchPredictionResponse,
+
+    -- ** DescribeBatchPredictions (Paginated)
+    DescribeBatchPredictions (DescribeBatchPredictions'),
+    newDescribeBatchPredictions,
+    DescribeBatchPredictionsResponse (DescribeBatchPredictionsResponse'),
+    newDescribeBatchPredictionsResponse,
+
+    -- ** CreateDataSourceFromRDS
+    CreateDataSourceFromRDS (CreateDataSourceFromRDS'),
+    newCreateDataSourceFromRDS,
+    CreateDataSourceFromRDSResponse (CreateDataSourceFromRDSResponse'),
+    newCreateDataSourceFromRDSResponse,
 
     -- ** CreateEvaluation
     CreateEvaluation (CreateEvaluation'),
@@ -223,11 +175,59 @@ module Network.AWS.MachineLearning
     CreateEvaluationResponse (CreateEvaluationResponse'),
     newCreateEvaluationResponse,
 
-    -- ** CreateMLModel
-    CreateMLModel (CreateMLModel'),
-    newCreateMLModel,
-    CreateMLModelResponse (CreateMLModelResponse'),
-    newCreateMLModelResponse,
+    -- ** Predict
+    Predict (Predict'),
+    newPredict,
+    PredictResponse (PredictResponse'),
+    newPredictResponse,
+
+    -- ** DeleteRealtimeEndpoint
+    DeleteRealtimeEndpoint (DeleteRealtimeEndpoint'),
+    newDeleteRealtimeEndpoint,
+    DeleteRealtimeEndpointResponse (DeleteRealtimeEndpointResponse'),
+    newDeleteRealtimeEndpointResponse,
+
+    -- ** CreateBatchPrediction
+    CreateBatchPrediction (CreateBatchPrediction'),
+    newCreateBatchPrediction,
+    CreateBatchPredictionResponse (CreateBatchPredictionResponse'),
+    newCreateBatchPredictionResponse,
+
+    -- ** GetEvaluation
+    GetEvaluation (GetEvaluation'),
+    newGetEvaluation,
+    GetEvaluationResponse (GetEvaluationResponse'),
+    newGetEvaluationResponse,
+
+    -- ** DescribeEvaluations (Paginated)
+    DescribeEvaluations (DescribeEvaluations'),
+    newDescribeEvaluations,
+    DescribeEvaluationsResponse (DescribeEvaluationsResponse'),
+    newDescribeEvaluationsResponse,
+
+    -- ** CreateRealtimeEndpoint
+    CreateRealtimeEndpoint (CreateRealtimeEndpoint'),
+    newCreateRealtimeEndpoint,
+    CreateRealtimeEndpointResponse (CreateRealtimeEndpointResponse'),
+    newCreateRealtimeEndpointResponse,
+
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
+
+    -- ** DescribeMLModels (Paginated)
+    DescribeMLModels (DescribeMLModels'),
+    newDescribeMLModels,
+    DescribeMLModelsResponse (DescribeMLModelsResponse'),
+    newDescribeMLModelsResponse,
+
+    -- ** DescribeDataSources (Paginated)
+    DescribeDataSources (DescribeDataSources'),
+    newDescribeDataSources,
+    DescribeDataSourcesResponse (DescribeDataSourcesResponse'),
+    newDescribeDataSourcesResponse,
 
     -- * Types
 

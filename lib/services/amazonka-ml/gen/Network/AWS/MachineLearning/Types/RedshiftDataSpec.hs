@@ -29,7 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftDataSpec' smart constructor.
 data RedshiftDataSpec = RedshiftDataSpec'
-  { -- | A JSON string that represents the schema for an Amazon Redshift
+  { -- | Describes the schema location for an Amazon Redshift @DataSource@.
+    dataSchemaUri :: Prelude.Maybe Prelude.Text,
+    -- | A JSON string that represents the schema for an Amazon Redshift
     -- @DataSource@. The @DataSchema@ defines the structure of the observation
     -- data in the data file(s) referenced in the @DataSource@.
     --
@@ -150,8 +152,6 @@ data RedshiftDataSpec = RedshiftDataSpec'
     --     Datasource for training:
     --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
     dataRearrangement :: Prelude.Maybe Prelude.Text,
-    -- | Describes the schema location for an Amazon Redshift @DataSource@.
-    dataSchemaUri :: Prelude.Maybe Prelude.Text,
     -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
     -- Redshift @DataSource@.
     databaseInformation :: RedshiftDatabase,
@@ -174,6 +174,8 @@ data RedshiftDataSpec = RedshiftDataSpec'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataSchemaUri', 'redshiftDataSpec_dataSchemaUri' - Describes the schema location for an Amazon Redshift @DataSource@.
 --
 -- 'dataSchema', 'redshiftDataSpec_dataSchema' - A JSON string that represents the schema for an Amazon Redshift
 -- @DataSource@. The @DataSchema@ defines the structure of the observation
@@ -296,8 +298,6 @@ data RedshiftDataSpec = RedshiftDataSpec'
 --     Datasource for training:
 --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
 --
--- 'dataSchemaUri', 'redshiftDataSpec_dataSchemaUri' - Describes the schema location for an Amazon Redshift @DataSource@.
---
 -- 'databaseInformation', 'redshiftDataSpec_databaseInformation' - Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
 -- Redshift @DataSource@.
 --
@@ -325,14 +325,18 @@ newRedshiftDataSpec
   pDatabaseCredentials_
   pS3StagingLocation_ =
     RedshiftDataSpec'
-      { dataSchema = Prelude.Nothing,
+      { dataSchemaUri = Prelude.Nothing,
+        dataSchema = Prelude.Nothing,
         dataRearrangement = Prelude.Nothing,
-        dataSchemaUri = Prelude.Nothing,
         databaseInformation = pDatabaseInformation_,
         selectSqlQuery = pSelectSqlQuery_,
         databaseCredentials = pDatabaseCredentials_,
         s3StagingLocation = pS3StagingLocation_
       }
+
+-- | Describes the schema location for an Amazon Redshift @DataSource@.
+redshiftDataSpec_dataSchemaUri :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
+redshiftDataSpec_dataSchemaUri = Lens.lens (\RedshiftDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RedshiftDataSpec' {} a -> s {dataSchemaUri = a} :: RedshiftDataSpec)
 
 -- | A JSON string that represents the schema for an Amazon Redshift
 -- @DataSource@. The @DataSchema@ defines the structure of the observation
@@ -459,10 +463,6 @@ redshiftDataSpec_dataSchema = Lens.lens (\RedshiftDataSpec' {dataSchema} -> data
 redshiftDataSpec_dataRearrangement :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
 redshiftDataSpec_dataRearrangement = Lens.lens (\RedshiftDataSpec' {dataRearrangement} -> dataRearrangement) (\s@RedshiftDataSpec' {} a -> s {dataRearrangement = a} :: RedshiftDataSpec)
 
--- | Describes the schema location for an Amazon Redshift @DataSource@.
-redshiftDataSpec_dataSchemaUri :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
-redshiftDataSpec_dataSchemaUri = Lens.lens (\RedshiftDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RedshiftDataSpec' {} a -> s {dataSchemaUri = a} :: RedshiftDataSpec)
-
 -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
 -- Redshift @DataSource@.
 redshiftDataSpec_databaseInformation :: Lens.Lens' RedshiftDataSpec RedshiftDatabase
@@ -491,10 +491,10 @@ instance Core.ToJSON RedshiftDataSpec where
   toJSON RedshiftDataSpec' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataSchema" Core..=) Prelude.<$> dataSchema,
+          [ ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
+            ("DataSchema" Core..=) Prelude.<$> dataSchema,
             ("DataRearrangement" Core..=)
               Prelude.<$> dataRearrangement,
-            ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
             Prelude.Just
               ("DatabaseInformation" Core..= databaseInformation),
             Prelude.Just

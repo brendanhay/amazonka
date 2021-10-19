@@ -93,7 +93,7 @@ predict_mLModelId = Lens.lens (\Predict' {mLModelId} -> mLModelId) (\s@Predict' 
 
 -- | Undocumented member.
 predict_record :: Lens.Lens' Predict (Prelude.HashMap Prelude.Text Prelude.Text)
-predict_record = Lens.lens (\Predict' {record} -> record) (\s@Predict' {} a -> s {record = a} :: Predict) Prelude.. Lens._Coerce
+predict_record = Lens.lens (\Predict' {record} -> record) (\s@Predict' {} a -> s {record = a} :: Predict) Prelude.. Lens.coerced
 
 -- | Undocumented member.
 predict_predictEndpoint :: Lens.Lens' Predict Prelude.Text

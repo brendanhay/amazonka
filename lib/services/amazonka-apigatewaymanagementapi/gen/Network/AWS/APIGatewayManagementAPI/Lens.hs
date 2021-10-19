@@ -17,16 +17,16 @@ module Network.AWS.APIGatewayManagementAPI.Lens
     -- ** DeleteConnection
     deleteConnection_connectionId,
 
+    -- ** GetConnection
+    getConnection_connectionId,
+    getConnectionResponse_connectedAt,
+    getConnectionResponse_lastActiveAt,
+    getConnectionResponse_identity,
+    getConnectionResponse_httpStatus,
+
     -- ** PostToConnection
     postToConnection_connectionId,
     postToConnection_data,
-
-    -- ** GetConnection
-    getConnection_connectionId,
-    getConnectionResponse_identity,
-    getConnectionResponse_lastActiveAt,
-    getConnectionResponse_connectedAt,
-    getConnectionResponse_httpStatus,
 
     -- * Types
 

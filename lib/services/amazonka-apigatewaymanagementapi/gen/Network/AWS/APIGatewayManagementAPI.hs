@@ -25,14 +25,14 @@ module Network.AWS.APIGatewayManagementAPI
     -- * Errors
     -- $errors
 
-    -- ** GoneException
-    _GoneException,
-
     -- ** PayloadTooLargeException
     _PayloadTooLargeException,
 
     -- ** ForbiddenException
     _ForbiddenException,
+
+    -- ** GoneException
+    _GoneException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -49,17 +49,17 @@ module Network.AWS.APIGatewayManagementAPI
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
-    -- ** PostToConnection
-    PostToConnection (PostToConnection'),
-    newPostToConnection,
-    PostToConnectionResponse (PostToConnectionResponse'),
-    newPostToConnectionResponse,
-
     -- ** GetConnection
     GetConnection (GetConnection'),
     newGetConnection,
     GetConnectionResponse (GetConnectionResponse'),
     newGetConnectionResponse,
+
+    -- ** PostToConnection
+    PostToConnection (PostToConnection'),
+    newPostToConnection,
+    PostToConnectionResponse (PostToConnectionResponse'),
+    newPostToConnectionResponse,
 
     -- * Types
 

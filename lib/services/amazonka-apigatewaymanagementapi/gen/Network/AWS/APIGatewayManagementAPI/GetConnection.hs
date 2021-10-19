@@ -34,9 +34,9 @@ module Network.AWS.APIGatewayManagementAPI.GetConnection
     newGetConnectionResponse,
 
     -- * Response Lenses
-    getConnectionResponse_identity,
-    getConnectionResponse_lastActiveAt,
     getConnectionResponse_connectedAt,
+    getConnectionResponse_lastActiveAt,
+    getConnectionResponse_identity,
     getConnectionResponse_httpStatus,
   )
 where
@@ -83,9 +83,9 @@ instance Core.AWSRequest GetConnection where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionResponse'
-            Prelude.<$> (x Core..?> "identity")
+            Prelude.<$> (x Core..?> "connectedAt")
             Prelude.<*> (x Core..?> "lastActiveAt")
-            Prelude.<*> (x Core..?> "connectedAt")
+            Prelude.<*> (x Core..?> "identity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,11 +114,11 @@ instance Core.ToQuery GetConnection where
 
 -- | /See:/ 'newGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { identity :: Prelude.Maybe Identity,
+  { -- | The time in ISO 8601 format for when the connection was established.
+    connectedAt :: Prelude.Maybe Core.POSIX,
     -- | The time in ISO 8601 format for when the connection was last active.
     lastActiveAt :: Prelude.Maybe Core.POSIX,
-    -- | The time in ISO 8601 format for when the connection was established.
-    connectedAt :: Prelude.Maybe Core.POSIX,
+    identity :: Prelude.Maybe Identity,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -132,11 +132,11 @@ data GetConnectionResponse = GetConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identity', 'getConnectionResponse_identity' - Undocumented member.
+-- 'connectedAt', 'getConnectionResponse_connectedAt' - The time in ISO 8601 format for when the connection was established.
 --
 -- 'lastActiveAt', 'getConnectionResponse_lastActiveAt' - The time in ISO 8601 format for when the connection was last active.
 --
--- 'connectedAt', 'getConnectionResponse_connectedAt' - The time in ISO 8601 format for when the connection was established.
+-- 'identity', 'getConnectionResponse_identity' - Undocumented member.
 --
 -- 'httpStatus', 'getConnectionResponse_httpStatus' - The response's http status code.
 newGetConnectionResponse ::
@@ -145,23 +145,24 @@ newGetConnectionResponse ::
   GetConnectionResponse
 newGetConnectionResponse pHttpStatus_ =
   GetConnectionResponse'
-    { identity = Prelude.Nothing,
+    { connectedAt =
+        Prelude.Nothing,
       lastActiveAt = Prelude.Nothing,
-      connectedAt = Prelude.Nothing,
+      identity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-getConnectionResponse_identity :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Identity)
-getConnectionResponse_identity = Lens.lens (\GetConnectionResponse' {identity} -> identity) (\s@GetConnectionResponse' {} a -> s {identity = a} :: GetConnectionResponse)
+-- | The time in ISO 8601 format for when the connection was established.
+getConnectionResponse_connectedAt :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+getConnectionResponse_connectedAt = Lens.lens (\GetConnectionResponse' {connectedAt} -> connectedAt) (\s@GetConnectionResponse' {} a -> s {connectedAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time in ISO 8601 format for when the connection was last active.
 getConnectionResponse_lastActiveAt :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Prelude.UTCTime)
 getConnectionResponse_lastActiveAt = Lens.lens (\GetConnectionResponse' {lastActiveAt} -> lastActiveAt) (\s@GetConnectionResponse' {} a -> s {lastActiveAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The time in ISO 8601 format for when the connection was established.
-getConnectionResponse_connectedAt :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-getConnectionResponse_connectedAt = Lens.lens (\GetConnectionResponse' {connectedAt} -> connectedAt) (\s@GetConnectionResponse' {} a -> s {connectedAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Core._Time
+-- | Undocumented member.
+getConnectionResponse_identity :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Identity)
+getConnectionResponse_identity = Lens.lens (\GetConnectionResponse' {identity} -> identity) (\s@GetConnectionResponse' {} a -> s {identity = a} :: GetConnectionResponse)
 
 -- | The response's http status code.
 getConnectionResponse_httpStatus :: Lens.Lens' GetConnectionResponse Prelude.Int

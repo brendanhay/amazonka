@@ -30,19 +30,19 @@ module Network.AWS.RDS.DescribeExportTasks
     newDescribeExportTasks,
 
     -- * Request Lenses
-    describeExportTasks_filters,
     describeExportTasks_sourceArn,
+    describeExportTasks_filters,
+    describeExportTasks_marker,
     describeExportTasks_exportTaskIdentifier,
     describeExportTasks_maxRecords,
-    describeExportTasks_marker,
 
     -- * Destructuring the Response
     DescribeExportTasksResponse (..),
     newDescribeExportTasksResponse,
 
     -- * Response Lenses
-    describeExportTasksResponse_exportTasks,
     describeExportTasksResponse_marker,
+    describeExportTasksResponse_exportTasks,
     describeExportTasksResponse_httpStatus,
   )
 where
@@ -56,7 +56,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | Filters specify one or more snapshot exports to describe. The filters
+  { -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | Filters specify one or more snapshot exports to describe. The filters
     -- are specified as name-value pairs that define what to include in the
     -- output. Filter names and values are case-sensitive.
     --
@@ -73,8 +75,11 @@ data DescribeExportTasks = DescribeExportTasks'
     -- -   @status@ - The status of the export task. Must be lowercase, for
     --     example, @complete@.
     filters :: Prelude.Maybe [Filter],
-    -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeExportTasks@ request. If you specify this parameter, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by the @MaxRecords@ parameter.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot export task to be described.
     exportTaskIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
@@ -85,12 +90,7 @@ data DescribeExportTasks = DescribeExportTasks'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Natural,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeExportTasks@ request. If you specify this parameter, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by the @MaxRecords@ parameter.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,6 +101,8 @@ data DescribeExportTasks = DescribeExportTasks'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'sourceArn', 'describeExportTasks_sourceArn' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
 --
 -- 'filters', 'describeExportTasks_filters' - Filters specify one or more snapshot exports to describe. The filters
 -- are specified as name-value pairs that define what to include in the
@@ -119,7 +121,10 @@ data DescribeExportTasks = DescribeExportTasks'
 -- -   @status@ - The status of the export task. Must be lowercase, for
 --     example, @complete@.
 --
--- 'sourceArn', 'describeExportTasks_sourceArn' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+-- 'marker', 'describeExportTasks_marker' - An optional pagination token provided by a previous
+-- @DescribeExportTasks@ request. If you specify this parameter, the
+-- response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
 --
 -- 'exportTaskIdentifier', 'describeExportTasks_exportTaskIdentifier' - The identifier of the snapshot export task to be described.
 --
@@ -131,21 +136,20 @@ data DescribeExportTasks = DescribeExportTasks'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeExportTasks_marker' - An optional pagination token provided by a previous
--- @DescribeExportTasks@ request. If you specify this parameter, the
--- response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
 newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { filters = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
+    { sourceArn = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       exportTaskIdentifier = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      maxRecords = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+describeExportTasks_sourceArn :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_sourceArn = Lens.lens (\DescribeExportTasks' {sourceArn} -> sourceArn) (\s@DescribeExportTasks' {} a -> s {sourceArn = a} :: DescribeExportTasks)
 
 -- | Filters specify one or more snapshot exports to describe. The filters
 -- are specified as name-value pairs that define what to include in the
@@ -164,11 +168,14 @@ newDescribeExportTasks =
 -- -   @status@ - The status of the export task. Must be lowercase, for
 --     example, @complete@.
 describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
-describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens._Coerce
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
-describeExportTasks_sourceArn :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
-describeExportTasks_sourceArn = Lens.lens (\DescribeExportTasks' {sourceArn} -> sourceArn) (\s@DescribeExportTasks' {} a -> s {sourceArn = a} :: DescribeExportTasks)
+-- | An optional pagination token provided by a previous
+-- @DescribeExportTasks@ request. If you specify this parameter, the
+-- response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
+describeExportTasks_marker :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_marker = Lens.lens (\DescribeExportTasks' {marker} -> marker) (\s@DescribeExportTasks' {} a -> s {marker = a} :: DescribeExportTasks)
 
 -- | The identifier of the snapshot export task to be described.
 describeExportTasks_exportTaskIdentifier :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
@@ -184,13 +191,6 @@ describeExportTasks_exportTaskIdentifier = Lens.lens (\DescribeExportTasks' {exp
 -- Constraints: Minimum 20, maximum 100.
 describeExportTasks_maxRecords :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Natural)
 describeExportTasks_maxRecords = Lens.lens (\DescribeExportTasks' {maxRecords} -> maxRecords) (\s@DescribeExportTasks' {} a -> s {maxRecords = a} :: DescribeExportTasks)
-
--- | An optional pagination token provided by a previous
--- @DescribeExportTasks@ request. If you specify this parameter, the
--- response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
-describeExportTasks_marker :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
-describeExportTasks_marker = Lens.lens (\DescribeExportTasks' {marker} -> marker) (\s@DescribeExportTasks' {} a -> s {marker = a} :: DescribeExportTasks)
 
 instance Core.AWSPager DescribeExportTasks where
   page rq rs
@@ -224,10 +224,10 @@ instance Core.AWSRequest DescribeExportTasks where
       "DescribeExportTasksResult"
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x Core..@? "ExportTasks" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "ExportTasks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "ExportTask")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,23 +248,23 @@ instance Core.ToQuery DescribeExportTasks where
           Core.=: ("DescribeExportTasks" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "SourceArn" Core.=: sourceArn,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "SourceArn" Core.=: sourceArn,
+        "Marker" Core.=: marker,
         "ExportTaskIdentifier" Core.=: exportTaskIdentifier,
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { -- | Information about an export of a snapshot to Amazon S3.
-    exportTasks :: Prelude.Maybe [ExportTask],
-    -- | A pagination token that can be used in a later @DescribeExportTasks@
+  { -- | A pagination token that can be used in a later @DescribeExportTasks@
     -- request. A marker is used for pagination to identify the location to
     -- begin output for the next response of @DescribeExportTasks@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Information about an export of a snapshot to Amazon S3.
+    exportTasks :: Prelude.Maybe [ExportTask],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -278,11 +278,11 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportTasks', 'describeExportTasksResponse_exportTasks' - Information about an export of a snapshot to Amazon S3.
---
 -- 'marker', 'describeExportTasksResponse_marker' - A pagination token that can be used in a later @DescribeExportTasks@
 -- request. A marker is used for pagination to identify the location to
 -- begin output for the next response of @DescribeExportTasks@.
+--
+-- 'exportTasks', 'describeExportTasksResponse_exportTasks' - Information about an export of a snapshot to Amazon S3.
 --
 -- 'httpStatus', 'describeExportTasksResponse_httpStatus' - The response's http status code.
 newDescribeExportTasksResponse ::
@@ -291,21 +291,21 @@ newDescribeExportTasksResponse ::
   DescribeExportTasksResponse
 newDescribeExportTasksResponse pHttpStatus_ =
   DescribeExportTasksResponse'
-    { exportTasks =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      exportTasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about an export of a snapshot to Amazon S3.
-describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
-describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that can be used in a later @DescribeExportTasks@
 -- request. A marker is used for pagination to identify the location to
 -- begin output for the next response of @DescribeExportTasks@.
 describeExportTasksResponse_marker :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe Prelude.Text)
 describeExportTasksResponse_marker = Lens.lens (\DescribeExportTasksResponse' {marker} -> marker) (\s@DescribeExportTasksResponse' {} a -> s {marker = a} :: DescribeExportTasksResponse)
+
+-- | Information about an export of a snapshot to Amazon S3.
+describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
+describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int

@@ -31,18 +31,18 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     newDescribeDBParameterGroups,
 
     -- * Request Lenses
-    describeDBParameterGroups_dbParameterGroupName,
     describeDBParameterGroups_filters,
-    describeDBParameterGroups_maxRecords,
+    describeDBParameterGroups_dbParameterGroupName,
     describeDBParameterGroups_marker,
+    describeDBParameterGroups_maxRecords,
 
     -- * Destructuring the Response
     DescribeDBParameterGroupsResponse (..),
     newDescribeDBParameterGroupsResponse,
 
     -- * Response Lenses
-    describeDBParameterGroupsResponse_dbParameterGroups,
     describeDBParameterGroupsResponse_marker,
+    describeDBParameterGroupsResponse_dbParameterGroups,
     describeDBParameterGroupsResponse_httpStatus,
   )
 where
@@ -58,15 +58,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeDBParameterGroups' smart constructor.
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-  { -- | The name of a specific DB parameter group to return details for.
+  { -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The name of a specific DB parameter group to return details for.
     --
     -- Constraints:
     --
     -- -   If supplied, must match the name of an existing
     --     DBClusterParameterGroup.
     dbParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -75,12 +80,7 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBParameterGroups@ request. If this parameter is specified, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +92,8 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeDBParameterGroups_filters' - This parameter isn\'t currently supported.
+--
 -- 'dbParameterGroupName', 'describeDBParameterGroups_dbParameterGroupName' - The name of a specific DB parameter group to return details for.
 --
 -- Constraints:
@@ -99,7 +101,10 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 -- -   If supplied, must match the name of an existing
 --     DBClusterParameterGroup.
 --
--- 'filters', 'describeDBParameterGroups_filters' - This parameter isn\'t currently supported.
+-- 'marker', 'describeDBParameterGroups_marker' - An optional pagination token provided by a previous
+-- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeDBParameterGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -109,21 +114,20 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeDBParameterGroups_marker' - An optional pagination token provided by a previous
--- @DescribeDBParameterGroups@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
 newDescribeDBParameterGroups ::
   DescribeDBParameterGroups
 newDescribeDBParameterGroups =
   DescribeDBParameterGroups'
-    { dbParameterGroupName =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      dbParameterGroupName = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
+
+-- | This parameter isn\'t currently supported.
+describeDBParameterGroups_filters :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe [Filter])
+describeDBParameterGroups_filters = Lens.lens (\DescribeDBParameterGroups' {filters} -> filters) (\s@DescribeDBParameterGroups' {} a -> s {filters = a} :: DescribeDBParameterGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -134,9 +138,12 @@ newDescribeDBParameterGroups =
 describeDBParameterGroups_dbParameterGroupName :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Text)
 describeDBParameterGroups_dbParameterGroupName = Lens.lens (\DescribeDBParameterGroups' {dbParameterGroupName} -> dbParameterGroupName) (\s@DescribeDBParameterGroups' {} a -> s {dbParameterGroupName = a} :: DescribeDBParameterGroups)
 
--- | This parameter isn\'t currently supported.
-describeDBParameterGroups_filters :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe [Filter])
-describeDBParameterGroups_filters = Lens.lens (\DescribeDBParameterGroups' {filters} -> filters) (\s@DescribeDBParameterGroups' {} a -> s {filters = a} :: DescribeDBParameterGroups) Prelude.. Lens.mapping Lens._Coerce
+-- | An optional pagination token provided by a previous
+-- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBParameterGroups_marker :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Text)
+describeDBParameterGroups_marker = Lens.lens (\DescribeDBParameterGroups' {marker} -> marker) (\s@DescribeDBParameterGroups' {} a -> s {marker = a} :: DescribeDBParameterGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -148,13 +155,6 @@ describeDBParameterGroups_filters = Lens.lens (\DescribeDBParameterGroups' {filt
 -- Constraints: Minimum 20, maximum 100.
 describeDBParameterGroups_maxRecords :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Int)
 describeDBParameterGroups_maxRecords = Lens.lens (\DescribeDBParameterGroups' {maxRecords} -> maxRecords) (\s@DescribeDBParameterGroups' {} a -> s {maxRecords = a} :: DescribeDBParameterGroups)
-
--- | An optional pagination token provided by a previous
--- @DescribeDBParameterGroups@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBParameterGroups_marker :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Text)
-describeDBParameterGroups_marker = Lens.lens (\DescribeDBParameterGroups' {marker} -> marker) (\s@DescribeDBParameterGroups' {} a -> s {marker = a} :: DescribeDBParameterGroups)
 
 instance Core.AWSPager DescribeDBParameterGroups where
   page rq rs
@@ -188,11 +188,11 @@ instance Core.AWSRequest DescribeDBParameterGroups where
       "DescribeDBParameterGroupsResult"
       ( \s h x ->
           DescribeDBParameterGroupsResponse'
-            Prelude.<$> ( x Core..@? "DBParameterGroups"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "DBParameterGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "DBParameterGroup")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,12 +213,12 @@ instance Core.ToQuery DescribeDBParameterGroups where
           Core.=: ("DescribeDBParameterGroups" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the
@@ -226,12 +226,12 @@ instance Core.ToQuery DescribeDBParameterGroups where
 --
 -- /See:/ 'newDescribeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-  { -- | A list of @DBParameterGroup@ instances.
-    dbParameterGroups :: Prelude.Maybe [DBParameterGroup],
-    -- | An optional pagination token provided by a previous request. If this
+  { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of @DBParameterGroup@ instances.
+    dbParameterGroups :: Prelude.Maybe [DBParameterGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,11 +245,11 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbParameterGroups', 'describeDBParameterGroupsResponse_dbParameterGroups' - A list of @DBParameterGroup@ instances.
---
 -- 'marker', 'describeDBParameterGroupsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'dbParameterGroups', 'describeDBParameterGroupsResponse_dbParameterGroups' - A list of @DBParameterGroup@ instances.
 --
 -- 'httpStatus', 'describeDBParameterGroupsResponse_httpStatus' - The response's http status code.
 newDescribeDBParameterGroupsResponse ::
@@ -258,21 +258,21 @@ newDescribeDBParameterGroupsResponse ::
   DescribeDBParameterGroupsResponse
 newDescribeDBParameterGroupsResponse pHttpStatus_ =
   DescribeDBParameterGroupsResponse'
-    { dbParameterGroups =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      dbParameterGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of @DBParameterGroup@ instances.
-describeDBParameterGroupsResponse_dbParameterGroups :: Lens.Lens' DescribeDBParameterGroupsResponse (Prelude.Maybe [DBParameterGroup])
-describeDBParameterGroupsResponse_dbParameterGroups = Lens.lens (\DescribeDBParameterGroupsResponse' {dbParameterGroups} -> dbParameterGroups) (\s@DescribeDBParameterGroupsResponse' {} a -> s {dbParameterGroups = a} :: DescribeDBParameterGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeDBParameterGroupsResponse_marker :: Lens.Lens' DescribeDBParameterGroupsResponse (Prelude.Maybe Prelude.Text)
 describeDBParameterGroupsResponse_marker = Lens.lens (\DescribeDBParameterGroupsResponse' {marker} -> marker) (\s@DescribeDBParameterGroupsResponse' {} a -> s {marker = a} :: DescribeDBParameterGroupsResponse)
+
+-- | A list of @DBParameterGroup@ instances.
+describeDBParameterGroupsResponse_dbParameterGroups :: Lens.Lens' DescribeDBParameterGroupsResponse (Prelude.Maybe [DBParameterGroup])
+describeDBParameterGroupsResponse_dbParameterGroups = Lens.lens (\DescribeDBParameterGroupsResponse' {dbParameterGroups} -> dbParameterGroups) (\s@DescribeDBParameterGroupsResponse' {} a -> s {dbParameterGroups = a} :: DescribeDBParameterGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDBParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeDBParameterGroupsResponse Prelude.Int

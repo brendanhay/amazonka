@@ -91,7 +91,7 @@ newListTagsForResource pResourceName_ =
 
 -- | This parameter isn\'t currently supported.
 listTagsForResource_filters :: Lens.Lens' ListTagsForResource (Prelude.Maybe [Filter])
-listTagsForResource_filters = Lens.lens (\ListTagsForResource' {filters} -> filters) (\s@ListTagsForResource' {} a -> s {filters = a} :: ListTagsForResource) Prelude.. Lens.mapping Lens._Coerce
+listTagsForResource_filters = Lens.lens (\ListTagsForResource' {filters} -> filters) (\s@ListTagsForResource' {} a -> s {filters = a} :: ListTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
@@ -174,7 +174,7 @@ newListTagsForResourceResponse pHttpStatus_ =
 
 -- | List of tags returned by the ListTagsForResource operation.
 listTagsForResourceResponse_tagList :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int

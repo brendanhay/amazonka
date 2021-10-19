@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
   { -- | A POSIX timestamp when the last log entry was written.
     lastWritten :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the log file for the specified DB instance.
-    logFileName :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the log file for the specified DB instance.
-    size :: Prelude.Maybe Prelude.Integer
+    size :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the log file for the specified DB instance.
+    logFileName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,37 +46,37 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
 --
 -- 'lastWritten', 'describeDBLogFilesDetails_lastWritten' - A POSIX timestamp when the last log entry was written.
 --
--- 'logFileName', 'describeDBLogFilesDetails_logFileName' - The name of the log file for the specified DB instance.
---
 -- 'size', 'describeDBLogFilesDetails_size' - The size, in bytes, of the log file for the specified DB instance.
+--
+-- 'logFileName', 'describeDBLogFilesDetails_logFileName' - The name of the log file for the specified DB instance.
 newDescribeDBLogFilesDetails ::
   DescribeDBLogFilesDetails
 newDescribeDBLogFilesDetails =
   DescribeDBLogFilesDetails'
     { lastWritten =
         Prelude.Nothing,
-      logFileName = Prelude.Nothing,
-      size = Prelude.Nothing
+      size = Prelude.Nothing,
+      logFileName = Prelude.Nothing
     }
 
 -- | A POSIX timestamp when the last log entry was written.
 describeDBLogFilesDetails_lastWritten :: Lens.Lens' DescribeDBLogFilesDetails (Prelude.Maybe Prelude.Integer)
 describeDBLogFilesDetails_lastWritten = Lens.lens (\DescribeDBLogFilesDetails' {lastWritten} -> lastWritten) (\s@DescribeDBLogFilesDetails' {} a -> s {lastWritten = a} :: DescribeDBLogFilesDetails)
 
--- | The name of the log file for the specified DB instance.
-describeDBLogFilesDetails_logFileName :: Lens.Lens' DescribeDBLogFilesDetails (Prelude.Maybe Prelude.Text)
-describeDBLogFilesDetails_logFileName = Lens.lens (\DescribeDBLogFilesDetails' {logFileName} -> logFileName) (\s@DescribeDBLogFilesDetails' {} a -> s {logFileName = a} :: DescribeDBLogFilesDetails)
-
 -- | The size, in bytes, of the log file for the specified DB instance.
 describeDBLogFilesDetails_size :: Lens.Lens' DescribeDBLogFilesDetails (Prelude.Maybe Prelude.Integer)
 describeDBLogFilesDetails_size = Lens.lens (\DescribeDBLogFilesDetails' {size} -> size) (\s@DescribeDBLogFilesDetails' {} a -> s {size = a} :: DescribeDBLogFilesDetails)
+
+-- | The name of the log file for the specified DB instance.
+describeDBLogFilesDetails_logFileName :: Lens.Lens' DescribeDBLogFilesDetails (Prelude.Maybe Prelude.Text)
+describeDBLogFilesDetails_logFileName = Lens.lens (\DescribeDBLogFilesDetails' {logFileName} -> logFileName) (\s@DescribeDBLogFilesDetails' {} a -> s {logFileName = a} :: DescribeDBLogFilesDetails)
 
 instance Core.FromXML DescribeDBLogFilesDetails where
   parseXML x =
     DescribeDBLogFilesDetails'
       Prelude.<$> (x Core..@? "LastWritten")
-      Prelude.<*> (x Core..@? "LogFileName")
       Prelude.<*> (x Core..@? "Size")
+      Prelude.<*> (x Core..@? "LogFileName")
 
 instance Prelude.Hashable DescribeDBLogFilesDetails
 

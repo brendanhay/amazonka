@@ -125,7 +125,7 @@ newCreateDBSnapshot
 
 -- | Undocumented member.
 createDBSnapshot_tags :: Lens.Lens' CreateDBSnapshot (Prelude.Maybe [Tag])
-createDBSnapshot_tags = Lens.lens (\CreateDBSnapshot' {tags} -> tags) (\s@CreateDBSnapshot' {} a -> s {tags = a} :: CreateDBSnapshot) Prelude.. Lens.mapping Lens._Coerce
+createDBSnapshot_tags = Lens.lens (\CreateDBSnapshot' {tags} -> tags) (\s@CreateDBSnapshot' {} a -> s {tags = a} :: CreateDBSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the DB snapshot.
 --

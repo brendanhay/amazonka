@@ -42,10 +42,10 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     newAuthorizeDBSecurityGroupIngress,
 
     -- * Request Lenses
-    authorizeDBSecurityGroupIngress_cidrip,
     authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    authorizeDBSecurityGroupIngress_eC2SecurityGroupId,
     authorizeDBSecurityGroupIngress_eC2SecurityGroupName,
+    authorizeDBSecurityGroupIngress_cidrip,
+    authorizeDBSecurityGroupIngress_eC2SecurityGroupId,
     authorizeDBSecurityGroupIngress_dbSecurityGroupName,
 
     -- * Destructuring the Response
@@ -69,25 +69,25 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newAuthorizeDBSecurityGroupIngress' smart constructor.
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
-  { -- | The IP range to authorize.
-    cidrip :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services account number of the owner of the EC2 security
+  { -- | Amazon Web Services account number of the owner of the EC2 security
     -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
     -- Services access key ID isn\'t an acceptable value. For VPC DB security
     -- groups, @EC2SecurityGroupId@ must be provided. Otherwise,
     -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | Id of the EC2 security group to authorize. For VPC DB security groups,
-    -- @EC2SecurityGroupId@ must be provided. Otherwise,
-    -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
-    -- @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | Name of the EC2 security group to authorize. For VPC DB security groups,
     -- @EC2SecurityGroupId@ must be provided. Otherwise,
     -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
     eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The IP range to authorize.
+    cidrip :: Prelude.Maybe Prelude.Text,
+    -- | Id of the EC2 security group to authorize. For VPC DB security groups,
+    -- @EC2SecurityGroupId@ must be provided. Otherwise,
+    -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
+    -- @EC2SecurityGroupId@ must be provided.
+    eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB security group to add authorization to.
     dbSecurityGroupName :: Prelude.Text
   }
@@ -101,8 +101,6 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cidrip', 'authorizeDBSecurityGroupIngress_cidrip' - The IP range to authorize.
---
 -- 'eC2SecurityGroupOwnerId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId' - Amazon Web Services account number of the owner of the EC2 security
 -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
 -- Services access key ID isn\'t an acceptable value. For VPC DB security
@@ -110,12 +108,14 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
 -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
 --
--- 'eC2SecurityGroupId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupId' - Id of the EC2 security group to authorize. For VPC DB security groups,
+-- 'eC2SecurityGroupName', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupName' - Name of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
 --
--- 'eC2SecurityGroupName', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupName' - Name of the EC2 security group to authorize. For VPC DB security groups,
+-- 'cidrip', 'authorizeDBSecurityGroupIngress_cidrip' - The IP range to authorize.
+--
+-- 'eC2SecurityGroupId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupId' - Id of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
@@ -128,18 +128,14 @@ newAuthorizeDBSecurityGroupIngress ::
 newAuthorizeDBSecurityGroupIngress
   pDBSecurityGroupName_ =
     AuthorizeDBSecurityGroupIngress'
-      { cidrip =
+      { eC2SecurityGroupOwnerId =
           Prelude.Nothing,
-        eC2SecurityGroupOwnerId = Prelude.Nothing,
-        eC2SecurityGroupId = Prelude.Nothing,
         eC2SecurityGroupName = Prelude.Nothing,
+        cidrip = Prelude.Nothing,
+        eC2SecurityGroupId = Prelude.Nothing,
         dbSecurityGroupName =
           pDBSecurityGroupName_
       }
-
--- | The IP range to authorize.
-authorizeDBSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeDBSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeDBSecurityGroupIngress)
 
 -- | Amazon Web Services account number of the owner of the EC2 security
 -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
@@ -150,19 +146,23 @@ authorizeDBSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeDBSecurityGroupIng
 authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: AuthorizeDBSecurityGroupIngress)
 
--- | Id of the EC2 security group to authorize. For VPC DB security groups,
--- @EC2SecurityGroupId@ must be provided. Otherwise,
--- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
-authorizeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeDBSecurityGroupIngress_eC2SecurityGroupId = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupId = a} :: AuthorizeDBSecurityGroupIngress)
-
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
 authorizeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeDBSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeDBSecurityGroupIngress)
+
+-- | The IP range to authorize.
+authorizeDBSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeDBSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeDBSecurityGroupIngress)
+
+-- | Id of the EC2 security group to authorize. For VPC DB security groups,
+-- @EC2SecurityGroupId@ must be provided. Otherwise,
+-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupId@ must be provided.
+authorizeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeDBSecurityGroupIngress_eC2SecurityGroupId = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupId = a} :: AuthorizeDBSecurityGroupIngress)
 
 -- | The name of the DB security group to add authorization to.
 authorizeDBSecurityGroupIngress_dbSecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress Prelude.Text
@@ -211,11 +211,11 @@ instance Core.ToQuery AuthorizeDBSecurityGroupIngress where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "CIDRIP" Core.=: cidrip,
         "EC2SecurityGroupOwnerId"
           Core.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupId" Core.=: eC2SecurityGroupId,
         "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
+        "CIDRIP" Core.=: cidrip,
+        "EC2SecurityGroupId" Core.=: eC2SecurityGroupId,
         "DBSecurityGroupName" Core.=: dbSecurityGroupName
       ]
 

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRestoreWindow' smart constructor.
 data RestoreWindow = RestoreWindow'
-  { -- | The earliest time you can restore an instance to.
-    earliestTime :: Prelude.Maybe Core.ISO8601,
-    -- | The latest time you can restore an instance to.
-    latestTime :: Prelude.Maybe Core.ISO8601
+  { -- | The latest time you can restore an instance to.
+    latestTime :: Prelude.Maybe Core.ISO8601,
+    -- | The earliest time you can restore an instance to.
+    earliestTime :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,30 +42,30 @@ data RestoreWindow = RestoreWindow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'earliestTime', 'restoreWindow_earliestTime' - The earliest time you can restore an instance to.
---
 -- 'latestTime', 'restoreWindow_latestTime' - The latest time you can restore an instance to.
+--
+-- 'earliestTime', 'restoreWindow_earliestTime' - The earliest time you can restore an instance to.
 newRestoreWindow ::
   RestoreWindow
 newRestoreWindow =
   RestoreWindow'
-    { earliestTime = Prelude.Nothing,
-      latestTime = Prelude.Nothing
+    { latestTime = Prelude.Nothing,
+      earliestTime = Prelude.Nothing
     }
-
--- | The earliest time you can restore an instance to.
-restoreWindow_earliestTime :: Lens.Lens' RestoreWindow (Prelude.Maybe Prelude.UTCTime)
-restoreWindow_earliestTime = Lens.lens (\RestoreWindow' {earliestTime} -> earliestTime) (\s@RestoreWindow' {} a -> s {earliestTime = a} :: RestoreWindow) Prelude.. Lens.mapping Core._Time
 
 -- | The latest time you can restore an instance to.
 restoreWindow_latestTime :: Lens.Lens' RestoreWindow (Prelude.Maybe Prelude.UTCTime)
 restoreWindow_latestTime = Lens.lens (\RestoreWindow' {latestTime} -> latestTime) (\s@RestoreWindow' {} a -> s {latestTime = a} :: RestoreWindow) Prelude.. Lens.mapping Core._Time
 
+-- | The earliest time you can restore an instance to.
+restoreWindow_earliestTime :: Lens.Lens' RestoreWindow (Prelude.Maybe Prelude.UTCTime)
+restoreWindow_earliestTime = Lens.lens (\RestoreWindow' {earliestTime} -> earliestTime) (\s@RestoreWindow' {} a -> s {earliestTime = a} :: RestoreWindow) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML RestoreWindow where
   parseXML x =
     RestoreWindow'
-      Prelude.<$> (x Core..@? "EarliestTime")
-      Prelude.<*> (x Core..@? "LatestTime")
+      Prelude.<$> (x Core..@? "LatestTime")
+      Prelude.<*> (x Core..@? "EarliestTime")
 
 instance Prelude.Hashable RestoreWindow
 

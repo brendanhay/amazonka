@@ -31,18 +31,18 @@ import Network.AWS.RDS.Types.Subnet
 --
 -- /See:/ 'newDBSubnetGroup' smart constructor.
 data DBSubnetGroup = DBSubnetGroup'
-  { -- | Provides the status of the DB subnet group.
-    subnetGroupStatus :: Prelude.Maybe Prelude.Text,
-    -- | The name of the DB subnet group.
+  { -- | The name of the DB subnet group.
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the DB subnet group.
-    dbSubnetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | Provides the description of the DB subnet group.
-    dbSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | Provides the VpcId of the DB subnet group.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of @Subnet@ elements.
-    subnets :: Prelude.Maybe [Subnet]
+    subnets :: Prelude.Maybe [Subnet],
+    -- | Provides the description of the DB subnet group.
+    dbSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the DB subnet group.
+    dbSubnetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Provides the status of the DB subnet group.
+    subnetGroupStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,44 +54,32 @@ data DBSubnetGroup = DBSubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetGroupStatus', 'dbSubnetGroup_subnetGroupStatus' - Provides the status of the DB subnet group.
---
 -- 'dbSubnetGroupName', 'dbSubnetGroup_dbSubnetGroupName' - The name of the DB subnet group.
---
--- 'dbSubnetGroupArn', 'dbSubnetGroup_dbSubnetGroupArn' - The Amazon Resource Name (ARN) for the DB subnet group.
---
--- 'dbSubnetGroupDescription', 'dbSubnetGroup_dbSubnetGroupDescription' - Provides the description of the DB subnet group.
 --
 -- 'vpcId', 'dbSubnetGroup_vpcId' - Provides the VpcId of the DB subnet group.
 --
 -- 'subnets', 'dbSubnetGroup_subnets' - Contains a list of @Subnet@ elements.
+--
+-- 'dbSubnetGroupDescription', 'dbSubnetGroup_dbSubnetGroupDescription' - Provides the description of the DB subnet group.
+--
+-- 'dbSubnetGroupArn', 'dbSubnetGroup_dbSubnetGroupArn' - The Amazon Resource Name (ARN) for the DB subnet group.
+--
+-- 'subnetGroupStatus', 'dbSubnetGroup_subnetGroupStatus' - Provides the status of the DB subnet group.
 newDBSubnetGroup ::
   DBSubnetGroup
 newDBSubnetGroup =
   DBSubnetGroup'
-    { subnetGroupStatus = Prelude.Nothing,
-      dbSubnetGroupName = Prelude.Nothing,
-      dbSubnetGroupArn = Prelude.Nothing,
-      dbSubnetGroupDescription = Prelude.Nothing,
+    { dbSubnetGroupName = Prelude.Nothing,
       vpcId = Prelude.Nothing,
-      subnets = Prelude.Nothing
+      subnets = Prelude.Nothing,
+      dbSubnetGroupDescription = Prelude.Nothing,
+      dbSubnetGroupArn = Prelude.Nothing,
+      subnetGroupStatus = Prelude.Nothing
     }
-
--- | Provides the status of the DB subnet group.
-dbSubnetGroup_subnetGroupStatus :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
-dbSubnetGroup_subnetGroupStatus = Lens.lens (\DBSubnetGroup' {subnetGroupStatus} -> subnetGroupStatus) (\s@DBSubnetGroup' {} a -> s {subnetGroupStatus = a} :: DBSubnetGroup)
 
 -- | The name of the DB subnet group.
 dbSubnetGroup_dbSubnetGroupName :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
 dbSubnetGroup_dbSubnetGroupName = Lens.lens (\DBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@DBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: DBSubnetGroup)
-
--- | The Amazon Resource Name (ARN) for the DB subnet group.
-dbSubnetGroup_dbSubnetGroupArn :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
-dbSubnetGroup_dbSubnetGroupArn = Lens.lens (\DBSubnetGroup' {dbSubnetGroupArn} -> dbSubnetGroupArn) (\s@DBSubnetGroup' {} a -> s {dbSubnetGroupArn = a} :: DBSubnetGroup)
-
--- | Provides the description of the DB subnet group.
-dbSubnetGroup_dbSubnetGroupDescription :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
-dbSubnetGroup_dbSubnetGroupDescription = Lens.lens (\DBSubnetGroup' {dbSubnetGroupDescription} -> dbSubnetGroupDescription) (\s@DBSubnetGroup' {} a -> s {dbSubnetGroupDescription = a} :: DBSubnetGroup)
 
 -- | Provides the VpcId of the DB subnet group.
 dbSubnetGroup_vpcId :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
@@ -99,19 +87,31 @@ dbSubnetGroup_vpcId = Lens.lens (\DBSubnetGroup' {vpcId} -> vpcId) (\s@DBSubnetG
 
 -- | Contains a list of @Subnet@ elements.
 dbSubnetGroup_subnets :: Lens.Lens' DBSubnetGroup (Prelude.Maybe [Subnet])
-dbSubnetGroup_subnets = Lens.lens (\DBSubnetGroup' {subnets} -> subnets) (\s@DBSubnetGroup' {} a -> s {subnets = a} :: DBSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
+dbSubnetGroup_subnets = Lens.lens (\DBSubnetGroup' {subnets} -> subnets) (\s@DBSubnetGroup' {} a -> s {subnets = a} :: DBSubnetGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provides the description of the DB subnet group.
+dbSubnetGroup_dbSubnetGroupDescription :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
+dbSubnetGroup_dbSubnetGroupDescription = Lens.lens (\DBSubnetGroup' {dbSubnetGroupDescription} -> dbSubnetGroupDescription) (\s@DBSubnetGroup' {} a -> s {dbSubnetGroupDescription = a} :: DBSubnetGroup)
+
+-- | The Amazon Resource Name (ARN) for the DB subnet group.
+dbSubnetGroup_dbSubnetGroupArn :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
+dbSubnetGroup_dbSubnetGroupArn = Lens.lens (\DBSubnetGroup' {dbSubnetGroupArn} -> dbSubnetGroupArn) (\s@DBSubnetGroup' {} a -> s {dbSubnetGroupArn = a} :: DBSubnetGroup)
+
+-- | Provides the status of the DB subnet group.
+dbSubnetGroup_subnetGroupStatus :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
+dbSubnetGroup_subnetGroupStatus = Lens.lens (\DBSubnetGroup' {subnetGroupStatus} -> subnetGroupStatus) (\s@DBSubnetGroup' {} a -> s {subnetGroupStatus = a} :: DBSubnetGroup)
 
 instance Core.FromXML DBSubnetGroup where
   parseXML x =
     DBSubnetGroup'
-      Prelude.<$> (x Core..@? "SubnetGroupStatus")
-      Prelude.<*> (x Core..@? "DBSubnetGroupName")
-      Prelude.<*> (x Core..@? "DBSubnetGroupArn")
-      Prelude.<*> (x Core..@? "DBSubnetGroupDescription")
+      Prelude.<$> (x Core..@? "DBSubnetGroupName")
       Prelude.<*> (x Core..@? "VpcId")
       Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Subnet")
                   )
+      Prelude.<*> (x Core..@? "DBSubnetGroupDescription")
+      Prelude.<*> (x Core..@? "DBSubnetGroupArn")
+      Prelude.<*> (x Core..@? "SubnetGroupStatus")
 
 instance Prelude.Hashable DBSubnetGroup
 

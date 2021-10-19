@@ -66,7 +66,7 @@ dbSnapshotAttributesResult_dbSnapshotIdentifier = Lens.lens (\DBSnapshotAttribut
 
 -- | The list of attributes and values for the manual DB snapshot.
 dbSnapshotAttributesResult_dbSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe [DBSnapshotAttribute])
-dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Prelude.. Lens.mapping Lens._Coerce
+dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML DBSnapshotAttributesResult where
   parseXML x =

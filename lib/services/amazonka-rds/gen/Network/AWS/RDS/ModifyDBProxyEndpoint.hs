@@ -98,7 +98,7 @@ newModifyDBProxyEndpoint pDBProxyEndpointName_ =
 -- endpoint uses a different VPC than the original proxy, you also specify
 -- a different set of security group IDs than for the original proxy.
 modifyDBProxyEndpoint_vpcSecurityGroupIds :: Lens.Lens' ModifyDBProxyEndpoint (Prelude.Maybe [Prelude.Text])
-modifyDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\ModifyDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBProxyEndpoint) Prelude.. Lens.mapping Lens._Coerce
+modifyDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\ModifyDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBProxyEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new identifier for the @DBProxyEndpoint@. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;

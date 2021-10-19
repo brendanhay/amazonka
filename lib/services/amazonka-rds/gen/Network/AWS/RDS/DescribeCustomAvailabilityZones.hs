@@ -35,10 +35,10 @@ module Network.AWS.RDS.DescribeCustomAvailabilityZones
     newDescribeCustomAvailabilityZones,
 
     -- * Request Lenses
-    describeCustomAvailabilityZones_customAvailabilityZoneId,
     describeCustomAvailabilityZones_filters,
-    describeCustomAvailabilityZones_maxRecords,
+    describeCustomAvailabilityZones_customAvailabilityZoneId,
     describeCustomAvailabilityZones_marker,
+    describeCustomAvailabilityZones_maxRecords,
 
     -- * Destructuring the Response
     DescribeCustomAvailabilityZonesResponse (..),
@@ -60,11 +60,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCustomAvailabilityZones' smart constructor.
 data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
-  { -- | The custom AZ identifier. If this parameter is specified, information
+  { -- | A filter that specifies one or more custom AZs to describe.
+    filters :: Prelude.Maybe [Filter],
+    -- | The custom AZ identifier. If this parameter is specified, information
     -- from only the specific custom AZ is returned.
     customAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
-    -- | A filter that specifies one or more custom AZs to describe.
-    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
+    -- @DescribeCustomAvailabilityZones@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -73,12 +78,7 @@ data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeCustomAvailabilityZones@ request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,10 +90,15 @@ data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeCustomAvailabilityZones_filters' - A filter that specifies one or more custom AZs to describe.
+--
 -- 'customAvailabilityZoneId', 'describeCustomAvailabilityZones_customAvailabilityZoneId' - The custom AZ identifier. If this parameter is specified, information
 -- from only the specific custom AZ is returned.
 --
--- 'filters', 'describeCustomAvailabilityZones_filters' - A filter that specifies one or more custom AZs to describe.
+-- 'marker', 'describeCustomAvailabilityZones_marker' - An optional pagination token provided by a previous
+-- @DescribeCustomAvailabilityZones@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeCustomAvailabilityZones_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -103,30 +108,32 @@ data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeCustomAvailabilityZones_marker' - An optional pagination token provided by a previous
--- @DescribeCustomAvailabilityZones@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
 newDescribeCustomAvailabilityZones ::
   DescribeCustomAvailabilityZones
 newDescribeCustomAvailabilityZones =
   DescribeCustomAvailabilityZones'
-    { customAvailabilityZoneId =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      customAvailabilityZoneId = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
+
+-- | A filter that specifies one or more custom AZs to describe.
+describeCustomAvailabilityZones_filters :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe [Filter])
+describeCustomAvailabilityZones_filters = Lens.lens (\DescribeCustomAvailabilityZones' {filters} -> filters) (\s@DescribeCustomAvailabilityZones' {} a -> s {filters = a} :: DescribeCustomAvailabilityZones) Prelude.. Lens.mapping Lens.coerced
 
 -- | The custom AZ identifier. If this parameter is specified, information
 -- from only the specific custom AZ is returned.
 describeCustomAvailabilityZones_customAvailabilityZoneId :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Text)
 describeCustomAvailabilityZones_customAvailabilityZoneId = Lens.lens (\DescribeCustomAvailabilityZones' {customAvailabilityZoneId} -> customAvailabilityZoneId) (\s@DescribeCustomAvailabilityZones' {} a -> s {customAvailabilityZoneId = a} :: DescribeCustomAvailabilityZones)
 
--- | A filter that specifies one or more custom AZs to describe.
-describeCustomAvailabilityZones_filters :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe [Filter])
-describeCustomAvailabilityZones_filters = Lens.lens (\DescribeCustomAvailabilityZones' {filters} -> filters) (\s@DescribeCustomAvailabilityZones' {} a -> s {filters = a} :: DescribeCustomAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
+-- | An optional pagination token provided by a previous
+-- @DescribeCustomAvailabilityZones@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCustomAvailabilityZones_marker :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Text)
+describeCustomAvailabilityZones_marker = Lens.lens (\DescribeCustomAvailabilityZones' {marker} -> marker) (\s@DescribeCustomAvailabilityZones' {} a -> s {marker = a} :: DescribeCustomAvailabilityZones)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -138,13 +145,6 @@ describeCustomAvailabilityZones_filters = Lens.lens (\DescribeCustomAvailability
 -- Constraints: Minimum 20, maximum 100.
 describeCustomAvailabilityZones_maxRecords :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Int)
 describeCustomAvailabilityZones_maxRecords = Lens.lens (\DescribeCustomAvailabilityZones' {maxRecords} -> maxRecords) (\s@DescribeCustomAvailabilityZones' {} a -> s {maxRecords = a} :: DescribeCustomAvailabilityZones)
-
--- | An optional pagination token provided by a previous
--- @DescribeCustomAvailabilityZones@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeCustomAvailabilityZones_marker :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Text)
-describeCustomAvailabilityZones_marker = Lens.lens (\DescribeCustomAvailabilityZones' {marker} -> marker) (\s@DescribeCustomAvailabilityZones' {} a -> s {marker = a} :: DescribeCustomAvailabilityZones)
 
 instance
   Core.AWSPager
@@ -219,13 +219,13 @@ instance Core.ToQuery DescribeCustomAvailabilityZones where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "CustomAvailabilityZoneId"
-          Core.=: customAvailabilityZoneId,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "CustomAvailabilityZoneId"
+          Core.=: customAvailabilityZoneId,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeCustomAvailabilityZonesResponse' smart constructor.
@@ -276,7 +276,7 @@ newDescribeCustomAvailabilityZonesResponse
 -- | The list of CustomAvailabilityZone objects for the Amazon Web Services
 -- account.
 describeCustomAvailabilityZonesResponse_customAvailabilityZones :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Prelude.Maybe [CustomAvailabilityZone])
-describeCustomAvailabilityZonesResponse_customAvailabilityZones = Lens.lens (\DescribeCustomAvailabilityZonesResponse' {customAvailabilityZones} -> customAvailabilityZones) (\s@DescribeCustomAvailabilityZonesResponse' {} a -> s {customAvailabilityZones = a} :: DescribeCustomAvailabilityZonesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCustomAvailabilityZonesResponse_customAvailabilityZones = Lens.lens (\DescribeCustomAvailabilityZonesResponse' {customAvailabilityZones} -> customAvailabilityZones) (\s@DescribeCustomAvailabilityZonesResponse' {} a -> s {customAvailabilityZones = a} :: DescribeCustomAvailabilityZonesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeCustomAvailabilityZones@ request. If this parameter is

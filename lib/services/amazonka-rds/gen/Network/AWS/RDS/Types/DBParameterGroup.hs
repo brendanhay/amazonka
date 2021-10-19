@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 data DBParameterGroup = DBParameterGroup'
   { -- | The Amazon Resource Name (ARN) for the DB parameter group.
     dbParameterGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the DB parameter group.
-    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group family that this DB parameter group
     -- is compatible with.
     dbParameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    -- | The name of the DB parameter group.
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | Provides the customer-specified description for this DB parameter group.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -52,10 +52,10 @@ data DBParameterGroup = DBParameterGroup'
 --
 -- 'dbParameterGroupArn', 'dbParameterGroup_dbParameterGroupArn' - The Amazon Resource Name (ARN) for the DB parameter group.
 --
--- 'dbParameterGroupName', 'dbParameterGroup_dbParameterGroupName' - The name of the DB parameter group.
---
 -- 'dbParameterGroupFamily', 'dbParameterGroup_dbParameterGroupFamily' - The name of the DB parameter group family that this DB parameter group
 -- is compatible with.
+--
+-- 'dbParameterGroupName', 'dbParameterGroup_dbParameterGroupName' - The name of the DB parameter group.
 --
 -- 'description', 'dbParameterGroup_description' - Provides the customer-specified description for this DB parameter group.
 newDBParameterGroup ::
@@ -64,8 +64,8 @@ newDBParameterGroup =
   DBParameterGroup'
     { dbParameterGroupArn =
         Prelude.Nothing,
-      dbParameterGroupName = Prelude.Nothing,
       dbParameterGroupFamily = Prelude.Nothing,
+      dbParameterGroupName = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
@@ -73,14 +73,14 @@ newDBParameterGroup =
 dbParameterGroup_dbParameterGroupArn :: Lens.Lens' DBParameterGroup (Prelude.Maybe Prelude.Text)
 dbParameterGroup_dbParameterGroupArn = Lens.lens (\DBParameterGroup' {dbParameterGroupArn} -> dbParameterGroupArn) (\s@DBParameterGroup' {} a -> s {dbParameterGroupArn = a} :: DBParameterGroup)
 
--- | The name of the DB parameter group.
-dbParameterGroup_dbParameterGroupName :: Lens.Lens' DBParameterGroup (Prelude.Maybe Prelude.Text)
-dbParameterGroup_dbParameterGroupName = Lens.lens (\DBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@DBParameterGroup' {} a -> s {dbParameterGroupName = a} :: DBParameterGroup)
-
 -- | The name of the DB parameter group family that this DB parameter group
 -- is compatible with.
 dbParameterGroup_dbParameterGroupFamily :: Lens.Lens' DBParameterGroup (Prelude.Maybe Prelude.Text)
 dbParameterGroup_dbParameterGroupFamily = Lens.lens (\DBParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@DBParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: DBParameterGroup)
+
+-- | The name of the DB parameter group.
+dbParameterGroup_dbParameterGroupName :: Lens.Lens' DBParameterGroup (Prelude.Maybe Prelude.Text)
+dbParameterGroup_dbParameterGroupName = Lens.lens (\DBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@DBParameterGroup' {} a -> s {dbParameterGroupName = a} :: DBParameterGroup)
 
 -- | Provides the customer-specified description for this DB parameter group.
 dbParameterGroup_description :: Lens.Lens' DBParameterGroup (Prelude.Maybe Prelude.Text)
@@ -90,8 +90,8 @@ instance Core.FromXML DBParameterGroup where
   parseXML x =
     DBParameterGroup'
       Prelude.<$> (x Core..@? "DBParameterGroupArn")
-      Prelude.<*> (x Core..@? "DBParameterGroupName")
       Prelude.<*> (x Core..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Core..@? "DBParameterGroupName")
       Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable DBParameterGroup

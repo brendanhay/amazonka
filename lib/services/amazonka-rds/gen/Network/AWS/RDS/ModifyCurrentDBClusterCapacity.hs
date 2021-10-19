@@ -59,11 +59,11 @@ module Network.AWS.RDS.ModifyCurrentDBClusterCapacity
     newModifyCurrentDBClusterCapacityResponse,
 
     -- * Response Lenses
-    modifyCurrentDBClusterCapacityResponse_pendingCapacity,
-    modifyCurrentDBClusterCapacityResponse_timeoutAction,
     modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier,
-    modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout,
+    modifyCurrentDBClusterCapacityResponse_timeoutAction,
     modifyCurrentDBClusterCapacityResponse_currentCapacity,
+    modifyCurrentDBClusterCapacityResponse_pendingCapacity,
+    modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout,
     modifyCurrentDBClusterCapacityResponse_httpStatus,
   )
 where
@@ -227,11 +227,11 @@ instance
       "ModifyCurrentDBClusterCapacityResult"
       ( \s h x ->
           ModifyCurrentDBClusterCapacityResponse'
-            Prelude.<$> (x Core..@? "PendingCapacity")
+            Prelude.<$> (x Core..@? "DBClusterIdentifier")
             Prelude.<*> (x Core..@? "TimeoutAction")
-            Prelude.<*> (x Core..@? "DBClusterIdentifier")
-            Prelude.<*> (x Core..@? "SecondsBeforeTimeout")
             Prelude.<*> (x Core..@? "CurrentCapacity")
+            Prelude.<*> (x Core..@? "PendingCapacity")
+            Prelude.<*> (x Core..@? "SecondsBeforeTimeout")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,19 +269,19 @@ instance Core.ToQuery ModifyCurrentDBClusterCapacity where
 
 -- | /See:/ 'newModifyCurrentDBClusterCapacityResponse' smart constructor.
 data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResponse'
-  { -- | A value that specifies the capacity that the DB cluster scales to next.
-    pendingCapacity :: Prelude.Maybe Prelude.Int,
+  { -- | A user-supplied DB cluster identifier. This identifier is the unique key
+    -- that identifies a DB cluster.
+    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
     -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
     timeoutAction :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied DB cluster identifier. This identifier is the unique key
-    -- that identifies a DB cluster.
-    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The current capacity of the DB cluster.
+    currentCapacity :: Prelude.Maybe Prelude.Int,
+    -- | A value that specifies the capacity that the DB cluster scales to next.
+    pendingCapacity :: Prelude.Maybe Prelude.Int,
     -- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
     -- times out.
     secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
-    -- | The current capacity of the DB cluster.
-    currentCapacity :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -295,18 +295,18 @@ data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pendingCapacity', 'modifyCurrentDBClusterCapacityResponse_pendingCapacity' - A value that specifies the capacity that the DB cluster scales to next.
+-- 'dbClusterIdentifier', 'modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier' - A user-supplied DB cluster identifier. This identifier is the unique key
+-- that identifies a DB cluster.
 --
 -- 'timeoutAction', 'modifyCurrentDBClusterCapacityResponse_timeoutAction' - The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
 -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
 --
--- 'dbClusterIdentifier', 'modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier' - A user-supplied DB cluster identifier. This identifier is the unique key
--- that identifies a DB cluster.
+-- 'currentCapacity', 'modifyCurrentDBClusterCapacityResponse_currentCapacity' - The current capacity of the DB cluster.
+--
+-- 'pendingCapacity', 'modifyCurrentDBClusterCapacityResponse_pendingCapacity' - A value that specifies the capacity that the DB cluster scales to next.
 --
 -- 'secondsBeforeTimeout', 'modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout' - The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
 -- times out.
---
--- 'currentCapacity', 'modifyCurrentDBClusterCapacityResponse_currentCapacity' - The current capacity of the DB cluster.
 --
 -- 'httpStatus', 'modifyCurrentDBClusterCapacityResponse_httpStatus' - The response's http status code.
 newModifyCurrentDBClusterCapacityResponse ::
@@ -316,39 +316,38 @@ newModifyCurrentDBClusterCapacityResponse ::
 newModifyCurrentDBClusterCapacityResponse
   pHttpStatus_ =
     ModifyCurrentDBClusterCapacityResponse'
-      { pendingCapacity =
+      { dbClusterIdentifier =
           Prelude.Nothing,
         timeoutAction = Prelude.Nothing,
-        dbClusterIdentifier =
-          Prelude.Nothing,
+        currentCapacity = Prelude.Nothing,
+        pendingCapacity = Prelude.Nothing,
         secondsBeforeTimeout =
           Prelude.Nothing,
-        currentCapacity = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A value that specifies the capacity that the DB cluster scales to next.
-modifyCurrentDBClusterCapacityResponse_pendingCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
-modifyCurrentDBClusterCapacityResponse_pendingCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {pendingCapacity} -> pendingCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {pendingCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
-
--- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
--- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-modifyCurrentDBClusterCapacityResponse_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
-modifyCurrentDBClusterCapacityResponse_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | A user-supplied DB cluster identifier. This identifier is the unique key
 -- that identifies a DB cluster.
 modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
 modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {dbClusterIdentifier = a} :: ModifyCurrentDBClusterCapacityResponse)
 
--- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
--- times out.
-modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
-modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacityResponse)
+-- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
+-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+modifyCurrentDBClusterCapacityResponse_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
+modifyCurrentDBClusterCapacityResponse_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The current capacity of the DB cluster.
 modifyCurrentDBClusterCapacityResponse_currentCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
 modifyCurrentDBClusterCapacityResponse_currentCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {currentCapacity} -> currentCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {currentCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
+
+-- | A value that specifies the capacity that the DB cluster scales to next.
+modifyCurrentDBClusterCapacityResponse_pendingCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacityResponse_pendingCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {pendingCapacity} -> pendingCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {pendingCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
+
+-- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
+-- times out.
+modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The response's http status code.
 modifyCurrentDBClusterCapacityResponse_httpStatus :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse Prelude.Int

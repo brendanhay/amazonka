@@ -232,7 +232,7 @@ newCreateDBParameterGroup
 
 -- | Tags to assign to the DB parameter group.
 createDBParameterGroup_tags :: Lens.Lens' CreateDBParameterGroup (Prelude.Maybe [Tag])
-createDBParameterGroup_tags = Lens.lens (\CreateDBParameterGroup' {tags} -> tags) (\s@CreateDBParameterGroup' {} a -> s {tags = a} :: CreateDBParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+createDBParameterGroup_tags = Lens.lens (\CreateDBParameterGroup' {tags} -> tags) (\s@CreateDBParameterGroup' {} a -> s {tags = a} :: CreateDBParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DB parameter group.
 --

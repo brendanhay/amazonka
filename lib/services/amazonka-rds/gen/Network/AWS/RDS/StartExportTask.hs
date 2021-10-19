@@ -41,21 +41,21 @@ module Network.AWS.RDS.StartExportTask
     newExportTask,
 
     -- * Response Lenses
-    exportTask_taskEndTime,
+    exportTask_totalExtractedDataInGB,
     exportTask_status,
     exportTask_iamRoleArn,
-    exportTask_totalExtractedDataInGB,
+    exportTask_sourceArn,
+    exportTask_exportOnly,
+    exportTask_taskStartTime,
     exportTask_warningMessage,
     exportTask_snapshotTime,
-    exportTask_s3Bucket,
-    exportTask_exportOnly,
     exportTask_kmsKeyId,
-    exportTask_failureCause,
-    exportTask_percentProgress,
-    exportTask_sourceArn,
-    exportTask_s3Prefix,
-    exportTask_taskStartTime,
+    exportTask_taskEndTime,
     exportTask_exportTaskIdentifier,
+    exportTask_s3Prefix,
+    exportTask_percentProgress,
+    exportTask_s3Bucket,
+    exportTask_failureCause,
   )
 where
 
@@ -238,7 +238,7 @@ newStartExportTask
 --     database schema. This format is valid only for RDS for PostgreSQL
 --     and Aurora PostgreSQL.
 startExportTask_exportOnly :: Lens.Lens' StartExportTask (Prelude.Maybe [Prelude.Text])
-startExportTask_exportOnly = Lens.lens (\StartExportTask' {exportOnly} -> exportOnly) (\s@StartExportTask' {} a -> s {exportOnly = a} :: StartExportTask) Prelude.. Lens.mapping Lens._Coerce
+startExportTask_exportOnly = Lens.lens (\StartExportTask' {exportOnly} -> exportOnly) (\s@StartExportTask' {} a -> s {exportOnly = a} :: StartExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 bucket prefix to use as the file name and path of the
 -- exported snapshot.

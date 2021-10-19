@@ -29,19 +29,19 @@ import Network.AWS.RDS.Types.WriteForwardingStatus
 --
 -- /See:/ 'newGlobalClusterMember' smart constructor.
 data GlobalClusterMember = GlobalClusterMember'
-  { -- | Specifies whether a secondary cluster in an Aurora global database has
-    -- write forwarding enabled, not enabled, or is in the process of enabling
-    -- it.
-    globalWriteForwardingStatus :: Prelude.Maybe WriteForwardingStatus,
-    -- | The Amazon Resource Name (ARN) for each Aurora cluster.
-    dbClusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for each read-only secondary cluster
+  { -- | The Amazon Resource Name (ARN) for each read-only secondary cluster
     -- associated with the Aurora global database.
     readers :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) for each Aurora cluster.
+    dbClusterArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the Aurora cluster is the primary cluster (that is,
     -- has read-write capability) for the Aurora global database with which it
     -- is associated.
-    isWriter :: Prelude.Maybe Prelude.Bool
+    isWriter :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether a secondary cluster in an Aurora global database has
+    -- write forwarding enabled, not enabled, or is in the process of enabling
+    -- it.
+    globalWriteForwardingStatus :: Prelude.Maybe WriteForwardingStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,43 +53,36 @@ data GlobalClusterMember = GlobalClusterMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalWriteForwardingStatus', 'globalClusterMember_globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has
--- write forwarding enabled, not enabled, or is in the process of enabling
--- it.
---
--- 'dbClusterArn', 'globalClusterMember_dbClusterArn' - The Amazon Resource Name (ARN) for each Aurora cluster.
---
 -- 'readers', 'globalClusterMember_readers' - The Amazon Resource Name (ARN) for each read-only secondary cluster
 -- associated with the Aurora global database.
+--
+-- 'dbClusterArn', 'globalClusterMember_dbClusterArn' - The Amazon Resource Name (ARN) for each Aurora cluster.
 --
 -- 'isWriter', 'globalClusterMember_isWriter' - Specifies whether the Aurora cluster is the primary cluster (that is,
 -- has read-write capability) for the Aurora global database with which it
 -- is associated.
+--
+-- 'globalWriteForwardingStatus', 'globalClusterMember_globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has
+-- write forwarding enabled, not enabled, or is in the process of enabling
+-- it.
 newGlobalClusterMember ::
   GlobalClusterMember
 newGlobalClusterMember =
   GlobalClusterMember'
-    { globalWriteForwardingStatus =
-        Prelude.Nothing,
+    { readers = Prelude.Nothing,
       dbClusterArn = Prelude.Nothing,
-      readers = Prelude.Nothing,
-      isWriter = Prelude.Nothing
+      isWriter = Prelude.Nothing,
+      globalWriteForwardingStatus = Prelude.Nothing
     }
-
--- | Specifies whether a secondary cluster in an Aurora global database has
--- write forwarding enabled, not enabled, or is in the process of enabling
--- it.
-globalClusterMember_globalWriteForwardingStatus :: Lens.Lens' GlobalClusterMember (Prelude.Maybe WriteForwardingStatus)
-globalClusterMember_globalWriteForwardingStatus = Lens.lens (\GlobalClusterMember' {globalWriteForwardingStatus} -> globalWriteForwardingStatus) (\s@GlobalClusterMember' {} a -> s {globalWriteForwardingStatus = a} :: GlobalClusterMember)
-
--- | The Amazon Resource Name (ARN) for each Aurora cluster.
-globalClusterMember_dbClusterArn :: Lens.Lens' GlobalClusterMember (Prelude.Maybe Prelude.Text)
-globalClusterMember_dbClusterArn = Lens.lens (\GlobalClusterMember' {dbClusterArn} -> dbClusterArn) (\s@GlobalClusterMember' {} a -> s {dbClusterArn = a} :: GlobalClusterMember)
 
 -- | The Amazon Resource Name (ARN) for each read-only secondary cluster
 -- associated with the Aurora global database.
 globalClusterMember_readers :: Lens.Lens' GlobalClusterMember (Prelude.Maybe [Prelude.Text])
-globalClusterMember_readers = Lens.lens (\GlobalClusterMember' {readers} -> readers) (\s@GlobalClusterMember' {} a -> s {readers = a} :: GlobalClusterMember) Prelude.. Lens.mapping Lens._Coerce
+globalClusterMember_readers = Lens.lens (\GlobalClusterMember' {readers} -> readers) (\s@GlobalClusterMember' {} a -> s {readers = a} :: GlobalClusterMember) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) for each Aurora cluster.
+globalClusterMember_dbClusterArn :: Lens.Lens' GlobalClusterMember (Prelude.Maybe Prelude.Text)
+globalClusterMember_dbClusterArn = Lens.lens (\GlobalClusterMember' {dbClusterArn} -> dbClusterArn) (\s@GlobalClusterMember' {} a -> s {dbClusterArn = a} :: GlobalClusterMember)
 
 -- | Specifies whether the Aurora cluster is the primary cluster (that is,
 -- has read-write capability) for the Aurora global database with which it
@@ -97,15 +90,21 @@ globalClusterMember_readers = Lens.lens (\GlobalClusterMember' {readers} -> read
 globalClusterMember_isWriter :: Lens.Lens' GlobalClusterMember (Prelude.Maybe Prelude.Bool)
 globalClusterMember_isWriter = Lens.lens (\GlobalClusterMember' {isWriter} -> isWriter) (\s@GlobalClusterMember' {} a -> s {isWriter = a} :: GlobalClusterMember)
 
+-- | Specifies whether a secondary cluster in an Aurora global database has
+-- write forwarding enabled, not enabled, or is in the process of enabling
+-- it.
+globalClusterMember_globalWriteForwardingStatus :: Lens.Lens' GlobalClusterMember (Prelude.Maybe WriteForwardingStatus)
+globalClusterMember_globalWriteForwardingStatus = Lens.lens (\GlobalClusterMember' {globalWriteForwardingStatus} -> globalWriteForwardingStatus) (\s@GlobalClusterMember' {} a -> s {globalWriteForwardingStatus = a} :: GlobalClusterMember)
+
 instance Core.FromXML GlobalClusterMember where
   parseXML x =
     GlobalClusterMember'
-      Prelude.<$> (x Core..@? "GlobalWriteForwardingStatus")
-      Prelude.<*> (x Core..@? "DBClusterArn")
-      Prelude.<*> ( x Core..@? "Readers" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Readers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "DBClusterArn")
       Prelude.<*> (x Core..@? "IsWriter")
+      Prelude.<*> (x Core..@? "GlobalWriteForwardingStatus")
 
 instance Prelude.Hashable GlobalClusterMember
 

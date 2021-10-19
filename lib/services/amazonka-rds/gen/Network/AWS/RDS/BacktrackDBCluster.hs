@@ -45,11 +45,11 @@ module Network.AWS.RDS.BacktrackDBCluster
 
     -- * Response Lenses
     dbClusterBacktrack_status,
+    dbClusterBacktrack_backtrackIdentifier,
     dbClusterBacktrack_backtrackTo,
     dbClusterBacktrack_dbClusterIdentifier,
-    dbClusterBacktrack_backtrackIdentifier,
-    dbClusterBacktrack_backtrackRequestCreationTime,
     dbClusterBacktrack_backtrackedFrom,
+    dbClusterBacktrack_backtrackRequestCreationTime,
   )
 where
 

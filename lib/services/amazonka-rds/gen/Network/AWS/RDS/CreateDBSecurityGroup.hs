@@ -122,7 +122,7 @@ newCreateDBSecurityGroup
 
 -- | Tags to assign to the DB security group.
 createDBSecurityGroup_tags :: Lens.Lens' CreateDBSecurityGroup (Prelude.Maybe [Tag])
-createDBSecurityGroup_tags = Lens.lens (\CreateDBSecurityGroup' {tags} -> tags) (\s@CreateDBSecurityGroup' {} a -> s {tags = a} :: CreateDBSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
+createDBSecurityGroup_tags = Lens.lens (\CreateDBSecurityGroup' {tags} -> tags) (\s@CreateDBSecurityGroup' {} a -> s {tags = a} :: CreateDBSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string.

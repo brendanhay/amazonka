@@ -40,8 +40,8 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     newDownloadDBLogFilePortionResponse,
 
     -- * Response Lenses
-    downloadDBLogFilePortionResponse_additionalDataPending,
     downloadDBLogFilePortionResponse_logFileData,
+    downloadDBLogFilePortionResponse_additionalDataPending,
     downloadDBLogFilePortionResponse_marker,
     downloadDBLogFilePortionResponse_httpStatus,
   )
@@ -239,8 +239,8 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
       "DownloadDBLogFilePortionResult"
       ( \s h x ->
           DownloadDBLogFilePortionResponse'
-            Prelude.<$> (x Core..@? "AdditionalDataPending")
-            Prelude.<*> (x Core..@? "LogFileData")
+            Prelude.<$> (x Core..@? "LogFileData")
+            Prelude.<*> (x Core..@? "AdditionalDataPending")
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -273,11 +273,11 @@ instance Core.ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'newDownloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-  { -- | Boolean value that if true, indicates there is more data to be
+  { -- | Entries from the specified log file.
+    logFileData :: Prelude.Maybe Prelude.Text,
+    -- | Boolean value that if true, indicates there is more data to be
     -- downloaded.
     additionalDataPending :: Prelude.Maybe Prelude.Bool,
-    -- | Entries from the specified log file.
-    logFileData :: Prelude.Maybe Prelude.Text,
     -- | A pagination token that can be used in a later DownloadDBLogFilePortion
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
@@ -294,10 +294,10 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.
+--
 -- 'additionalDataPending', 'downloadDBLogFilePortionResponse_additionalDataPending' - Boolean value that if true, indicates there is more data to be
 -- downloaded.
---
--- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.
 --
 -- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later DownloadDBLogFilePortion
 -- request.
@@ -309,21 +309,21 @@ newDownloadDBLogFilePortionResponse ::
   DownloadDBLogFilePortionResponse
 newDownloadDBLogFilePortionResponse pHttpStatus_ =
   DownloadDBLogFilePortionResponse'
-    { additionalDataPending =
+    { logFileData =
         Prelude.Nothing,
-      logFileData = Prelude.Nothing,
+      additionalDataPending = Prelude.Nothing,
       marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Entries from the specified log file.
+downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortionResponse_logFileData = Lens.lens (\DownloadDBLogFilePortionResponse' {logFileData} -> logFileData) (\s@DownloadDBLogFilePortionResponse' {} a -> s {logFileData = a} :: DownloadDBLogFilePortionResponse)
 
 -- | Boolean value that if true, indicates there is more data to be
 -- downloaded.
 downloadDBLogFilePortionResponse_additionalDataPending :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Bool)
 downloadDBLogFilePortionResponse_additionalDataPending = Lens.lens (\DownloadDBLogFilePortionResponse' {additionalDataPending} -> additionalDataPending) (\s@DownloadDBLogFilePortionResponse' {} a -> s {additionalDataPending = a} :: DownloadDBLogFilePortionResponse)
-
--- | Entries from the specified log file.
-downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
-downloadDBLogFilePortionResponse_logFileData = Lens.lens (\DownloadDBLogFilePortionResponse' {logFileData} -> logFileData) (\s@DownloadDBLogFilePortionResponse' {} a -> s {logFileData = a} :: DownloadDBLogFilePortionResponse)
 
 -- | A pagination token that can be used in a later DownloadDBLogFilePortion
 -- request.

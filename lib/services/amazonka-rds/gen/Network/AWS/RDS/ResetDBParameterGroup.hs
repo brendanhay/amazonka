@@ -181,7 +181,7 @@ resetDBParameterGroup_resetAllParameters = Lens.lens (\ResetDBParameterGroup' {r
 --
 -- Valid Values (for Apply method): @pending-reboot@
 resetDBParameterGroup_parameters :: Lens.Lens' ResetDBParameterGroup (Prelude.Maybe [Parameter])
-resetDBParameterGroup_parameters = Lens.lens (\ResetDBParameterGroup' {parameters} -> parameters) (\s@ResetDBParameterGroup' {} a -> s {parameters = a} :: ResetDBParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+resetDBParameterGroup_parameters = Lens.lens (\ResetDBParameterGroup' {parameters} -> parameters) (\s@ResetDBParameterGroup' {} a -> s {parameters = a} :: ResetDBParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DB parameter group.
 --

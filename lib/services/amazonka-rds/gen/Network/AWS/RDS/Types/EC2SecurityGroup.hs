@@ -39,10 +39,10 @@ data EC2SecurityGroup = EC2SecurityGroup'
     -- | Specifies the Amazon Web Services ID of the owner of the EC2 security
     -- group specified in the @EC2SecurityGroupName@ field.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the id of the EC2 security group.
-    eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the EC2 security group.
-    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text
+    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the id of the EC2 security group.
+    eC2SecurityGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,17 +60,17 @@ data EC2SecurityGroup = EC2SecurityGroup'
 -- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - Specifies the Amazon Web Services ID of the owner of the EC2 security
 -- group specified in the @EC2SecurityGroupName@ field.
 --
--- 'eC2SecurityGroupId', 'eC2SecurityGroup_eC2SecurityGroupId' - Specifies the id of the EC2 security group.
---
 -- 'eC2SecurityGroupName', 'eC2SecurityGroup_eC2SecurityGroupName' - Specifies the name of the EC2 security group.
+--
+-- 'eC2SecurityGroupId', 'eC2SecurityGroup_eC2SecurityGroupId' - Specifies the id of the EC2 security group.
 newEC2SecurityGroup ::
   EC2SecurityGroup
 newEC2SecurityGroup =
   EC2SecurityGroup'
     { status = Prelude.Nothing,
       eC2SecurityGroupOwnerId = Prelude.Nothing,
-      eC2SecurityGroupId = Prelude.Nothing,
-      eC2SecurityGroupName = Prelude.Nothing
+      eC2SecurityGroupName = Prelude.Nothing,
+      eC2SecurityGroupId = Prelude.Nothing
     }
 
 -- | Provides the status of the EC2 security group. Status can be
@@ -83,21 +83,21 @@ eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@
 eC2SecurityGroup_eC2SecurityGroupOwnerId :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_eC2SecurityGroupOwnerId = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupOwnerId = a} :: EC2SecurityGroup)
 
--- | Specifies the id of the EC2 security group.
-eC2SecurityGroup_eC2SecurityGroupId :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
-eC2SecurityGroup_eC2SecurityGroupId = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupId = a} :: EC2SecurityGroup)
-
 -- | Specifies the name of the EC2 security group.
 eC2SecurityGroup_eC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_eC2SecurityGroupName = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupName = a} :: EC2SecurityGroup)
+
+-- | Specifies the id of the EC2 security group.
+eC2SecurityGroup_eC2SecurityGroupId :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
+eC2SecurityGroup_eC2SecurityGroupId = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupId = a} :: EC2SecurityGroup)
 
 instance Core.FromXML EC2SecurityGroup where
   parseXML x =
     EC2SecurityGroup'
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "EC2SecurityGroupOwnerId")
-      Prelude.<*> (x Core..@? "EC2SecurityGroupId")
       Prelude.<*> (x Core..@? "EC2SecurityGroupName")
+      Prelude.<*> (x Core..@? "EC2SecurityGroupId")
 
 instance Prelude.Hashable EC2SecurityGroup
 

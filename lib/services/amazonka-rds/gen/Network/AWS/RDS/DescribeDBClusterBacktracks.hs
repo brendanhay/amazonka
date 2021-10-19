@@ -37,8 +37,8 @@ module Network.AWS.RDS.DescribeDBClusterBacktracks
     -- * Request Lenses
     describeDBClusterBacktracks_backtrackIdentifier,
     describeDBClusterBacktracks_filters,
-    describeDBClusterBacktracks_maxRecords,
     describeDBClusterBacktracks_marker,
+    describeDBClusterBacktracks_maxRecords,
     describeDBClusterBacktracks_dbClusterIdentifier,
 
     -- * Destructuring the Response
@@ -46,8 +46,8 @@ module Network.AWS.RDS.DescribeDBClusterBacktracks
     newDescribeDBClusterBacktracksResponse,
 
     -- * Response Lenses
-    describeDBClusterBacktracksResponse_dbClusterBacktracks,
     describeDBClusterBacktracksResponse_marker,
+    describeDBClusterBacktracksResponse_dbClusterBacktracks,
     describeDBClusterBacktracksResponse_httpStatus,
   )
 where
@@ -95,6 +95,11 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --     The results list includes information about only the backtracks
     --     identified by these values.
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -104,11 +109,6 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier of the DB cluster to be described. This
     -- parameter is stored as a lowercase string.
     --
@@ -165,6 +165,11 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 --     The results list includes information about only the backtracks
 --     identified by these values.
 --
+-- 'marker', 'describeDBClusterBacktracks_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeDBClusterBacktracks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -173,11 +178,6 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeDBClusterBacktracks_marker' - An optional pagination token provided by a previous
--- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
 --
 -- 'dbClusterIdentifier', 'describeDBClusterBacktracks_dbClusterIdentifier' - The DB cluster identifier of the DB cluster to be described. This
 -- parameter is stored as a lowercase string.
@@ -200,8 +200,8 @@ newDescribeDBClusterBacktracks pDBClusterIdentifier_ =
     { backtrackIdentifier =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
       marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -239,7 +239,14 @@ describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterB
 --     The results list includes information about only the backtracks
 --     identified by these values.
 describeDBClusterBacktracks_filters :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe [Filter])
-describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {filters} -> filters) (\s@DescribeDBClusterBacktracks' {} a -> s {filters = a} :: DescribeDBClusterBacktracks) Prelude.. Lens.mapping Lens._Coerce
+describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {filters} -> filters) (\s@DescribeDBClusterBacktracks' {} a -> s {filters = a} :: DescribeDBClusterBacktracks) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
+describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -251,13 +258,6 @@ describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {
 -- Constraints: Minimum 20, maximum 100.
 describeDBClusterBacktracks_maxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Int)
 describeDBClusterBacktracks_maxRecords = Lens.lens (\DescribeDBClusterBacktracks' {maxRecords} -> maxRecords) (\s@DescribeDBClusterBacktracks' {} a -> s {maxRecords = a} :: DescribeDBClusterBacktracks)
-
--- | An optional pagination token provided by a previous
--- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
-describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
 
 -- | The DB cluster identifier of the DB cluster to be described. This
 -- parameter is stored as a lowercase string.
@@ -306,11 +306,11 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
       "DescribeDBClusterBacktracksResult"
       ( \s h x ->
           DescribeDBClusterBacktracksResponse'
-            Prelude.<$> ( x Core..@? "DBClusterBacktracks"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "DBClusterBacktracks"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "DBClusterBacktrack")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -337,8 +337,8 @@ instance Core.ToQuery DescribeDBClusterBacktracks where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
         "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 
@@ -347,11 +347,11 @@ instance Core.ToQuery DescribeDBClusterBacktracks where
 --
 -- /See:/ 'newDescribeDBClusterBacktracksResponse' smart constructor.
 data DescribeDBClusterBacktracksResponse = DescribeDBClusterBacktracksResponse'
-  { -- | Contains a list of backtracks for the user.
-    dbClusterBacktracks :: Prelude.Maybe [DBClusterBacktrack],
-    -- | A pagination token that can be used in a later
+  { -- | A pagination token that can be used in a later
     -- @DescribeDBClusterBacktracks@ request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Contains a list of backtracks for the user.
+    dbClusterBacktracks :: Prelude.Maybe [DBClusterBacktrack],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -365,10 +365,10 @@ data DescribeDBClusterBacktracksResponse = DescribeDBClusterBacktracksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbClusterBacktracks', 'describeDBClusterBacktracksResponse_dbClusterBacktracks' - Contains a list of backtracks for the user.
---
 -- 'marker', 'describeDBClusterBacktracksResponse_marker' - A pagination token that can be used in a later
 -- @DescribeDBClusterBacktracks@ request.
+--
+-- 'dbClusterBacktracks', 'describeDBClusterBacktracksResponse_dbClusterBacktracks' - Contains a list of backtracks for the user.
 --
 -- 'httpStatus', 'describeDBClusterBacktracksResponse_httpStatus' - The response's http status code.
 newDescribeDBClusterBacktracksResponse ::
@@ -377,20 +377,20 @@ newDescribeDBClusterBacktracksResponse ::
   DescribeDBClusterBacktracksResponse
 newDescribeDBClusterBacktracksResponse pHttpStatus_ =
   DescribeDBClusterBacktracksResponse'
-    { dbClusterBacktracks =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      dbClusterBacktracks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains a list of backtracks for the user.
-describeDBClusterBacktracksResponse_dbClusterBacktracks :: Lens.Lens' DescribeDBClusterBacktracksResponse (Prelude.Maybe [DBClusterBacktrack])
-describeDBClusterBacktracksResponse_dbClusterBacktracks = Lens.lens (\DescribeDBClusterBacktracksResponse' {dbClusterBacktracks} -> dbClusterBacktracks) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {dbClusterBacktracks = a} :: DescribeDBClusterBacktracksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that can be used in a later
 -- @DescribeDBClusterBacktracks@ request.
 describeDBClusterBacktracksResponse_marker :: Lens.Lens' DescribeDBClusterBacktracksResponse (Prelude.Maybe Prelude.Text)
 describeDBClusterBacktracksResponse_marker = Lens.lens (\DescribeDBClusterBacktracksResponse' {marker} -> marker) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {marker = a} :: DescribeDBClusterBacktracksResponse)
+
+-- | Contains a list of backtracks for the user.
+describeDBClusterBacktracksResponse_dbClusterBacktracks :: Lens.Lens' DescribeDBClusterBacktracksResponse (Prelude.Maybe [DBClusterBacktrack])
+describeDBClusterBacktracksResponse_dbClusterBacktracks = Lens.lens (\DescribeDBClusterBacktracksResponse' {dbClusterBacktracks} -> dbClusterBacktracks) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {dbClusterBacktracks = a} :: DescribeDBClusterBacktracksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDBClusterBacktracksResponse_httpStatus :: Lens.Lens' DescribeDBClusterBacktracksResponse Prelude.Int

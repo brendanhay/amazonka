@@ -38,15 +38,15 @@ module Network.AWS.RDS.DeleteDBClusterEndpoint
 
     -- * Response Lenses
     dbClusterEndpoint_status,
-    dbClusterEndpoint_dbClusterEndpointIdentifier,
-    dbClusterEndpoint_excludedMembers,
-    dbClusterEndpoint_endpointType,
-    dbClusterEndpoint_customEndpointType,
-    dbClusterEndpoint_dbClusterEndpointArn,
     dbClusterEndpoint_dbClusterIdentifier,
-    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
-    dbClusterEndpoint_endpoint,
+    dbClusterEndpoint_dbClusterEndpointArn,
+    dbClusterEndpoint_customEndpointType,
     dbClusterEndpoint_staticMembers,
+    dbClusterEndpoint_endpointType,
+    dbClusterEndpoint_dbClusterEndpointIdentifier,
+    dbClusterEndpoint_endpoint,
+    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
+    dbClusterEndpoint_excludedMembers,
   )
 where
 

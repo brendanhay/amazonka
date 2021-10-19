@@ -42,10 +42,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCloudwatchLogsExportConfiguration' smart constructor.
 data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
-  { -- | The list of log types to enable.
-    enableLogTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The list of log types to disable.
-    disableLogTypes :: Prelude.Maybe [Prelude.Text]
+  { -- | The list of log types to disable.
+    disableLogTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The list of log types to enable.
+    enableLogTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,25 +57,25 @@ data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableLogTypes', 'cloudwatchLogsExportConfiguration_enableLogTypes' - The list of log types to enable.
---
 -- 'disableLogTypes', 'cloudwatchLogsExportConfiguration_disableLogTypes' - The list of log types to disable.
+--
+-- 'enableLogTypes', 'cloudwatchLogsExportConfiguration_enableLogTypes' - The list of log types to enable.
 newCloudwatchLogsExportConfiguration ::
   CloudwatchLogsExportConfiguration
 newCloudwatchLogsExportConfiguration =
   CloudwatchLogsExportConfiguration'
-    { enableLogTypes =
+    { disableLogTypes =
         Prelude.Nothing,
-      disableLogTypes = Prelude.Nothing
+      enableLogTypes = Prelude.Nothing
     }
-
--- | The list of log types to enable.
-cloudwatchLogsExportConfiguration_enableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Prelude.Maybe [Prelude.Text])
-cloudwatchLogsExportConfiguration_enableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {enableLogTypes} -> enableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {enableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of log types to disable.
 cloudwatchLogsExportConfiguration_disableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Prelude.Maybe [Prelude.Text])
-cloudwatchLogsExportConfiguration_disableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {disableLogTypes} -> disableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {disableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens._Coerce
+cloudwatchLogsExportConfiguration_disableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {disableLogTypes} -> disableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {disableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of log types to enable.
+cloudwatchLogsExportConfiguration_enableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Prelude.Maybe [Prelude.Text])
+cloudwatchLogsExportConfiguration_enableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {enableLogTypes} -> enableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {enableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -91,14 +91,14 @@ instance
   where
   toQuery CloudwatchLogsExportConfiguration' {..} =
     Prelude.mconcat
-      [ "EnableLogTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> enableLogTypes
-            ),
-        "DisableLogTypes"
+      [ "DisableLogTypes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> disableLogTypes
+            ),
+        "EnableLogTypes"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> enableLogTypes
             )
       ]

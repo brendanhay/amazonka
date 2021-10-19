@@ -111,7 +111,7 @@ newCreateDBSubnetGroup
 
 -- | Tags to assign to the DB subnet group.
 createDBSubnetGroup_tags :: Lens.Lens' CreateDBSubnetGroup (Prelude.Maybe [Tag])
-createDBSubnetGroup_tags = Lens.lens (\CreateDBSubnetGroup' {tags} -> tags) (\s@CreateDBSubnetGroup' {} a -> s {tags = a} :: CreateDBSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
+createDBSubnetGroup_tags = Lens.lens (\CreateDBSubnetGroup' {tags} -> tags) (\s@CreateDBSubnetGroup' {} a -> s {tags = a} :: CreateDBSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -129,7 +129,7 @@ createDBSubnetGroup_dbSubnetGroupDescription = Lens.lens (\CreateDBSubnetGroup' 
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 createDBSubnetGroup_subnetIds :: Lens.Lens' CreateDBSubnetGroup [Prelude.Text]
-createDBSubnetGroup_subnetIds = Lens.lens (\CreateDBSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateDBSubnetGroup' {} a -> s {subnetIds = a} :: CreateDBSubnetGroup) Prelude.. Lens._Coerce
+createDBSubnetGroup_subnetIds = Lens.lens (\CreateDBSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateDBSubnetGroup' {} a -> s {subnetIds = a} :: CreateDBSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateDBSubnetGroup where
   type

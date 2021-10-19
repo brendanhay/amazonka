@@ -115,7 +115,7 @@ modifyDBSubnetGroup_dbSubnetGroupName = Lens.lens (\ModifyDBSubnetGroup' {dbSubn
 
 -- | The EC2 subnet IDs for the DB subnet group.
 modifyDBSubnetGroup_subnetIds :: Lens.Lens' ModifyDBSubnetGroup [Prelude.Text]
-modifyDBSubnetGroup_subnetIds = Lens.lens (\ModifyDBSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyDBSubnetGroup' {} a -> s {subnetIds = a} :: ModifyDBSubnetGroup) Prelude.. Lens._Coerce
+modifyDBSubnetGroup_subnetIds = Lens.lens (\ModifyDBSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyDBSubnetGroup' {} a -> s {subnetIds = a} :: ModifyDBSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyDBSubnetGroup where
   type

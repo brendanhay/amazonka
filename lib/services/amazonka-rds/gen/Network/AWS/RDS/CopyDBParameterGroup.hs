@@ -140,7 +140,7 @@ newCopyDBParameterGroup
 
 -- | Undocumented member.
 copyDBParameterGroup_tags :: Lens.Lens' CopyDBParameterGroup (Prelude.Maybe [Tag])
-copyDBParameterGroup_tags = Lens.lens (\CopyDBParameterGroup' {tags} -> tags) (\s@CopyDBParameterGroup' {} a -> s {tags = a} :: CopyDBParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+copyDBParameterGroup_tags = Lens.lens (\CopyDBParameterGroup' {tags} -> tags) (\s@CopyDBParameterGroup' {} a -> s {tags = a} :: CopyDBParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier or ARN for the source DB parameter group. For information
 -- about creating an ARN, see

@@ -35,14 +35,14 @@ module Network.AWS.RDS.DeleteInstallationMedia
     newInstallationMedia,
 
     -- * Response Lenses
-    installationMedia_status,
-    installationMedia_customAvailabilityZoneId,
-    installationMedia_installationMediaId,
     installationMedia_engineVersion,
-    installationMedia_failureCause,
-    installationMedia_oSInstallationMediaPath,
-    installationMedia_engine,
+    installationMedia_status,
+    installationMedia_installationMediaId,
     installationMedia_engineInstallationMediaPath,
+    installationMedia_engine,
+    installationMedia_oSInstallationMediaPath,
+    installationMedia_customAvailabilityZoneId,
+    installationMedia_failureCause,
   )
 where
 

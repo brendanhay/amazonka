@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOptionVersion' smart constructor.
 data OptionVersion = OptionVersion'
-  { -- | True if the version is the default version of the option, and otherwise
+  { -- | The version of the option.
+    version :: Prelude.Maybe Prelude.Text,
+    -- | True if the version is the default version of the option, and otherwise
     -- false.
-    isDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the option.
-    version :: Prelude.Maybe Prelude.Text
+    isDefault :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,32 @@ data OptionVersion = OptionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'version', 'optionVersion_version' - The version of the option.
+--
 -- 'isDefault', 'optionVersion_isDefault' - True if the version is the default version of the option, and otherwise
 -- false.
---
--- 'version', 'optionVersion_version' - The version of the option.
 newOptionVersion ::
   OptionVersion
 newOptionVersion =
   OptionVersion'
-    { isDefault = Prelude.Nothing,
-      version = Prelude.Nothing
+    { version = Prelude.Nothing,
+      isDefault = Prelude.Nothing
     }
+
+-- | The version of the option.
+optionVersion_version :: Lens.Lens' OptionVersion (Prelude.Maybe Prelude.Text)
+optionVersion_version = Lens.lens (\OptionVersion' {version} -> version) (\s@OptionVersion' {} a -> s {version = a} :: OptionVersion)
 
 -- | True if the version is the default version of the option, and otherwise
 -- false.
 optionVersion_isDefault :: Lens.Lens' OptionVersion (Prelude.Maybe Prelude.Bool)
 optionVersion_isDefault = Lens.lens (\OptionVersion' {isDefault} -> isDefault) (\s@OptionVersion' {} a -> s {isDefault = a} :: OptionVersion)
 
--- | The version of the option.
-optionVersion_version :: Lens.Lens' OptionVersion (Prelude.Maybe Prelude.Text)
-optionVersion_version = Lens.lens (\OptionVersion' {version} -> version) (\s@OptionVersion' {} a -> s {version = a} :: OptionVersion)
-
 instance Core.FromXML OptionVersion where
   parseXML x =
     OptionVersion'
-      Prelude.<$> (x Core..@? "IsDefault")
-      Prelude.<*> (x Core..@? "Version")
+      Prelude.<$> (x Core..@? "Version")
+      Prelude.<*> (x Core..@? "IsDefault")
 
 instance Prelude.Hashable OptionVersion
 

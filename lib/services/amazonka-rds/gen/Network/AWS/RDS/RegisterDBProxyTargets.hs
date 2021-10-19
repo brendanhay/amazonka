@@ -29,8 +29,8 @@ module Network.AWS.RDS.RegisterDBProxyTargets
 
     -- * Request Lenses
     registerDBProxyTargets_dbClusterIdentifiers,
-    registerDBProxyTargets_targetGroupName,
     registerDBProxyTargets_dbInstanceIdentifiers,
+    registerDBProxyTargets_targetGroupName,
     registerDBProxyTargets_dbProxyName,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Network.AWS.Response as Response
 data RegisterDBProxyTargets = RegisterDBProxyTargets'
   { -- | One or more DB cluster identifiers.
     dbClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of the @DBProxyTargetGroup@.
-    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | One or more DB instance identifiers.
     dbInstanceIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of the @DBProxyTargetGroup@.
+    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the @DBProxy@ that is associated with the
     -- @DBProxyTargetGroup@.
     dbProxyName :: Prelude.Text
@@ -74,9 +74,9 @@ data RegisterDBProxyTargets = RegisterDBProxyTargets'
 --
 -- 'dbClusterIdentifiers', 'registerDBProxyTargets_dbClusterIdentifiers' - One or more DB cluster identifiers.
 --
--- 'targetGroupName', 'registerDBProxyTargets_targetGroupName' - The identifier of the @DBProxyTargetGroup@.
---
 -- 'dbInstanceIdentifiers', 'registerDBProxyTargets_dbInstanceIdentifiers' - One or more DB instance identifiers.
+--
+-- 'targetGroupName', 'registerDBProxyTargets_targetGroupName' - The identifier of the @DBProxyTargetGroup@.
 --
 -- 'dbProxyName', 'registerDBProxyTargets_dbProxyName' - The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
@@ -88,22 +88,22 @@ newRegisterDBProxyTargets pDBProxyName_ =
   RegisterDBProxyTargets'
     { dbClusterIdentifiers =
         Prelude.Nothing,
-      targetGroupName = Prelude.Nothing,
       dbInstanceIdentifiers = Prelude.Nothing,
+      targetGroupName = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
 
 -- | One or more DB cluster identifiers.
 registerDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
-registerDBProxyTargets_dbClusterIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
+registerDBProxyTargets_dbClusterIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more DB instance identifiers.
+registerDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+registerDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the @DBProxyTargetGroup@.
 registerDBProxyTargets_targetGroupName :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe Prelude.Text)
 registerDBProxyTargets_targetGroupName = Lens.lens (\RegisterDBProxyTargets' {targetGroupName} -> targetGroupName) (\s@RegisterDBProxyTargets' {} a -> s {targetGroupName = a} :: RegisterDBProxyTargets)
-
--- | One or more DB instance identifiers.
-registerDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
-registerDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
@@ -148,12 +148,12 @@ instance Core.ToQuery RegisterDBProxyTargets where
             ( Core.toQueryList "member"
                 Prelude.<$> dbClusterIdentifiers
             ),
-        "TargetGroupName" Core.=: targetGroupName,
         "DBInstanceIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> dbInstanceIdentifiers
             ),
+        "TargetGroupName" Core.=: targetGroupName,
         "DBProxyName" Core.=: dbProxyName
       ]
 
@@ -193,7 +193,7 @@ newRegisterDBProxyTargetsResponse pHttpStatus_ =
 -- | One or more @DBProxyTarget@ objects that are created when you register
 -- targets with a target group.
 registerDBProxyTargetsResponse_dbProxyTargets :: Lens.Lens' RegisterDBProxyTargetsResponse (Prelude.Maybe [DBProxyTarget])
-registerDBProxyTargetsResponse_dbProxyTargets = Lens.lens (\RegisterDBProxyTargetsResponse' {dbProxyTargets} -> dbProxyTargets) (\s@RegisterDBProxyTargetsResponse' {} a -> s {dbProxyTargets = a} :: RegisterDBProxyTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
+registerDBProxyTargetsResponse_dbProxyTargets = Lens.lens (\RegisterDBProxyTargetsResponse' {dbProxyTargets} -> dbProxyTargets) (\s@RegisterDBProxyTargetsResponse' {} a -> s {dbProxyTargets = a} :: RegisterDBProxyTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 registerDBProxyTargetsResponse_httpStatus :: Lens.Lens' RegisterDBProxyTargetsResponse Prelude.Int

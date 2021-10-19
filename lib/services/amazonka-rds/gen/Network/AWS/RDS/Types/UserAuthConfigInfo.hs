@@ -30,18 +30,18 @@ import Network.AWS.RDS.Types.IAMAuthMode
 --
 -- /See:/ 'newUserAuthConfigInfo' smart constructor.
 data UserAuthConfigInfo = UserAuthConfigInfo'
-  { -- | The Amazon Resource Name (ARN) representing the secret that the proxy
-    -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
-    -- secrets are stored within Amazon Secrets Manager.
-    secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of authentication that the proxy uses for connections from the
-    -- proxy to the underlying database.
-    authScheme :: Prelude.Maybe AuthScheme,
-    -- | Whether to require or disallow Amazon Web Services Identity and Access
+  { -- | Whether to require or disallow Amazon Web Services Identity and Access
     -- Management (IAM) authentication for connections to the proxy.
     iAMAuth :: Prelude.Maybe IAMAuthMode,
     -- | The name of the database user to which the proxy connects.
     userName :: Prelude.Maybe Prelude.Text,
+    -- | The type of authentication that the proxy uses for connections from the
+    -- proxy to the underlying database.
+    authScheme :: Prelude.Maybe AuthScheme,
+    -- | The Amazon Resource Name (ARN) representing the secret that the proxy
+    -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
+    -- secrets are stored within Amazon Secrets Manager.
+    secretArn :: Prelude.Maybe Prelude.Text,
     -- | A user-specified description about the authentication used by a proxy to
     -- log in as a specific database user.
     description :: Prelude.Maybe Prelude.Text
@@ -56,17 +56,17 @@ data UserAuthConfigInfo = UserAuthConfigInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretArn', 'userAuthConfigInfo_secretArn' - The Amazon Resource Name (ARN) representing the secret that the proxy
--- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
--- secrets are stored within Amazon Secrets Manager.
---
--- 'authScheme', 'userAuthConfigInfo_authScheme' - The type of authentication that the proxy uses for connections from the
--- proxy to the underlying database.
---
 -- 'iAMAuth', 'userAuthConfigInfo_iAMAuth' - Whether to require or disallow Amazon Web Services Identity and Access
 -- Management (IAM) authentication for connections to the proxy.
 --
 -- 'userName', 'userAuthConfigInfo_userName' - The name of the database user to which the proxy connects.
+--
+-- 'authScheme', 'userAuthConfigInfo_authScheme' - The type of authentication that the proxy uses for connections from the
+-- proxy to the underlying database.
+--
+-- 'secretArn', 'userAuthConfigInfo_secretArn' - The Amazon Resource Name (ARN) representing the secret that the proxy
+-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
+-- secrets are stored within Amazon Secrets Manager.
 --
 -- 'description', 'userAuthConfigInfo_description' - A user-specified description about the authentication used by a proxy to
 -- log in as a specific database user.
@@ -74,23 +74,12 @@ newUserAuthConfigInfo ::
   UserAuthConfigInfo
 newUserAuthConfigInfo =
   UserAuthConfigInfo'
-    { secretArn = Prelude.Nothing,
-      authScheme = Prelude.Nothing,
-      iAMAuth = Prelude.Nothing,
+    { iAMAuth = Prelude.Nothing,
       userName = Prelude.Nothing,
+      authScheme = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) representing the secret that the proxy
--- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
--- secrets are stored within Amazon Secrets Manager.
-userAuthConfigInfo_secretArn :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe Prelude.Text)
-userAuthConfigInfo_secretArn = Lens.lens (\UserAuthConfigInfo' {secretArn} -> secretArn) (\s@UserAuthConfigInfo' {} a -> s {secretArn = a} :: UserAuthConfigInfo)
-
--- | The type of authentication that the proxy uses for connections from the
--- proxy to the underlying database.
-userAuthConfigInfo_authScheme :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe AuthScheme)
-userAuthConfigInfo_authScheme = Lens.lens (\UserAuthConfigInfo' {authScheme} -> authScheme) (\s@UserAuthConfigInfo' {} a -> s {authScheme = a} :: UserAuthConfigInfo)
 
 -- | Whether to require or disallow Amazon Web Services Identity and Access
 -- Management (IAM) authentication for connections to the proxy.
@@ -101,6 +90,17 @@ userAuthConfigInfo_iAMAuth = Lens.lens (\UserAuthConfigInfo' {iAMAuth} -> iAMAut
 userAuthConfigInfo_userName :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe Prelude.Text)
 userAuthConfigInfo_userName = Lens.lens (\UserAuthConfigInfo' {userName} -> userName) (\s@UserAuthConfigInfo' {} a -> s {userName = a} :: UserAuthConfigInfo)
 
+-- | The type of authentication that the proxy uses for connections from the
+-- proxy to the underlying database.
+userAuthConfigInfo_authScheme :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe AuthScheme)
+userAuthConfigInfo_authScheme = Lens.lens (\UserAuthConfigInfo' {authScheme} -> authScheme) (\s@UserAuthConfigInfo' {} a -> s {authScheme = a} :: UserAuthConfigInfo)
+
+-- | The Amazon Resource Name (ARN) representing the secret that the proxy
+-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
+-- secrets are stored within Amazon Secrets Manager.
+userAuthConfigInfo_secretArn :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe Prelude.Text)
+userAuthConfigInfo_secretArn = Lens.lens (\UserAuthConfigInfo' {secretArn} -> secretArn) (\s@UserAuthConfigInfo' {} a -> s {secretArn = a} :: UserAuthConfigInfo)
+
 -- | A user-specified description about the authentication used by a proxy to
 -- log in as a specific database user.
 userAuthConfigInfo_description :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe Prelude.Text)
@@ -109,10 +109,10 @@ userAuthConfigInfo_description = Lens.lens (\UserAuthConfigInfo' {description} -
 instance Core.FromXML UserAuthConfigInfo where
   parseXML x =
     UserAuthConfigInfo'
-      Prelude.<$> (x Core..@? "SecretArn")
-      Prelude.<*> (x Core..@? "AuthScheme")
-      Prelude.<*> (x Core..@? "IAMAuth")
+      Prelude.<$> (x Core..@? "IAMAuth")
       Prelude.<*> (x Core..@? "UserName")
+      Prelude.<*> (x Core..@? "AuthScheme")
+      Prelude.<*> (x Core..@? "SecretArn")
       Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable UserAuthConfigInfo

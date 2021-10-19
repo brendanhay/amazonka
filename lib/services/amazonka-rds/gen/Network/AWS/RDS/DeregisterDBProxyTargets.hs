@@ -29,8 +29,8 @@ module Network.AWS.RDS.DeregisterDBProxyTargets
 
     -- * Request Lenses
     deregisterDBProxyTargets_dbClusterIdentifiers,
-    deregisterDBProxyTargets_targetGroupName,
     deregisterDBProxyTargets_dbInstanceIdentifiers,
+    deregisterDBProxyTargets_targetGroupName,
     deregisterDBProxyTargets_dbProxyName,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Network.AWS.Response as Response
 data DeregisterDBProxyTargets = DeregisterDBProxyTargets'
   { -- | One or more DB cluster identifiers.
     dbClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of the @DBProxyTargetGroup@.
-    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | One or more DB instance identifiers.
     dbInstanceIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of the @DBProxyTargetGroup@.
+    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the @DBProxy@ that is associated with the
     -- @DBProxyTargetGroup@.
     dbProxyName :: Prelude.Text
@@ -73,9 +73,9 @@ data DeregisterDBProxyTargets = DeregisterDBProxyTargets'
 --
 -- 'dbClusterIdentifiers', 'deregisterDBProxyTargets_dbClusterIdentifiers' - One or more DB cluster identifiers.
 --
--- 'targetGroupName', 'deregisterDBProxyTargets_targetGroupName' - The identifier of the @DBProxyTargetGroup@.
---
 -- 'dbInstanceIdentifiers', 'deregisterDBProxyTargets_dbInstanceIdentifiers' - One or more DB instance identifiers.
+--
+-- 'targetGroupName', 'deregisterDBProxyTargets_targetGroupName' - The identifier of the @DBProxyTargetGroup@.
 --
 -- 'dbProxyName', 'deregisterDBProxyTargets_dbProxyName' - The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
@@ -87,22 +87,22 @@ newDeregisterDBProxyTargets pDBProxyName_ =
   DeregisterDBProxyTargets'
     { dbClusterIdentifiers =
         Prelude.Nothing,
-      targetGroupName = Prelude.Nothing,
       dbInstanceIdentifiers = Prelude.Nothing,
+      targetGroupName = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
 
 -- | One or more DB cluster identifiers.
 deregisterDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
-deregisterDBProxyTargets_dbClusterIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: DeregisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
+deregisterDBProxyTargets_dbClusterIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: DeregisterDBProxyTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more DB instance identifiers.
+deregisterDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+deregisterDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: DeregisterDBProxyTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the @DBProxyTargetGroup@.
 deregisterDBProxyTargets_targetGroupName :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe Prelude.Text)
 deregisterDBProxyTargets_targetGroupName = Lens.lens (\DeregisterDBProxyTargets' {targetGroupName} -> targetGroupName) (\s@DeregisterDBProxyTargets' {} a -> s {targetGroupName = a} :: DeregisterDBProxyTargets)
-
--- | One or more DB instance identifiers.
-deregisterDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
-deregisterDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: DeregisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
@@ -144,12 +144,12 @@ instance Core.ToQuery DeregisterDBProxyTargets where
             ( Core.toQueryList "member"
                 Prelude.<$> dbClusterIdentifiers
             ),
-        "TargetGroupName" Core.=: targetGroupName,
         "DBInstanceIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> dbInstanceIdentifiers
             ),
+        "TargetGroupName" Core.=: targetGroupName,
         "DBProxyName" Core.=: dbProxyName
       ]
 

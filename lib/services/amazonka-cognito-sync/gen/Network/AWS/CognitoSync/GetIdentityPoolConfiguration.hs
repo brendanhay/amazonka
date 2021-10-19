@@ -39,8 +39,8 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 
     -- * Response Lenses
     getIdentityPoolConfigurationResponse_identityPoolId,
-    getIdentityPoolConfigurationResponse_pushSync,
     getIdentityPoolConfigurationResponse_cognitoStreams,
+    getIdentityPoolConfigurationResponse_pushSync,
     getIdentityPoolConfigurationResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest GetIdentityPoolConfiguration where
       ( \s h x ->
           GetIdentityPoolConfigurationResponse'
             Prelude.<$> (x Core..?> "IdentityPoolId")
-            Prelude.<*> (x Core..?> "PushSync")
             Prelude.<*> (x Core..?> "CognitoStreams")
+            Prelude.<*> (x Core..?> "PushSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,10 +141,10 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito.
     identityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | Options to apply to this identity pool for push synchronization.
-    pushSync :: Prelude.Maybe PushSync,
     -- | Options to apply to this identity pool for Amazon Cognito streams.
     cognitoStreams :: Prelude.Maybe CognitoStreams,
+    -- | Options to apply to this identity pool for push synchronization.
+    pushSync :: Prelude.Maybe PushSync,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,9 +162,9 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito.
 --
--- 'pushSync', 'getIdentityPoolConfigurationResponse_pushSync' - Options to apply to this identity pool for push synchronization.
---
 -- 'cognitoStreams', 'getIdentityPoolConfigurationResponse_cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
+--
+-- 'pushSync', 'getIdentityPoolConfigurationResponse_pushSync' - Options to apply to this identity pool for push synchronization.
 --
 -- 'httpStatus', 'getIdentityPoolConfigurationResponse_httpStatus' - The response's http status code.
 newGetIdentityPoolConfigurationResponse ::
@@ -175,8 +175,8 @@ newGetIdentityPoolConfigurationResponse pHttpStatus_ =
   GetIdentityPoolConfigurationResponse'
     { identityPoolId =
         Prelude.Nothing,
-      pushSync = Prelude.Nothing,
       cognitoStreams = Prelude.Nothing,
+      pushSync = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -186,13 +186,13 @@ newGetIdentityPoolConfigurationResponse pHttpStatus_ =
 getIdentityPoolConfigurationResponse_identityPoolId :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe Prelude.Text)
 getIdentityPoolConfigurationResponse_identityPoolId = Lens.lens (\GetIdentityPoolConfigurationResponse' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {identityPoolId = a} :: GetIdentityPoolConfigurationResponse)
 
--- | Options to apply to this identity pool for push synchronization.
-getIdentityPoolConfigurationResponse_pushSync :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe PushSync)
-getIdentityPoolConfigurationResponse_pushSync = Lens.lens (\GetIdentityPoolConfigurationResponse' {pushSync} -> pushSync) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {pushSync = a} :: GetIdentityPoolConfigurationResponse)
-
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 getIdentityPoolConfigurationResponse_cognitoStreams :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe CognitoStreams)
 getIdentityPoolConfigurationResponse_cognitoStreams = Lens.lens (\GetIdentityPoolConfigurationResponse' {cognitoStreams} -> cognitoStreams) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {cognitoStreams = a} :: GetIdentityPoolConfigurationResponse)
+
+-- | Options to apply to this identity pool for push synchronization.
+getIdentityPoolConfigurationResponse_pushSync :: Lens.Lens' GetIdentityPoolConfigurationResponse (Prelude.Maybe PushSync)
+getIdentityPoolConfigurationResponse_pushSync = Lens.lens (\GetIdentityPoolConfigurationResponse' {pushSync} -> pushSync) (\s@GetIdentityPoolConfigurationResponse' {} a -> s {pushSync = a} :: GetIdentityPoolConfigurationResponse)
 
 -- | The response's http status code.
 getIdentityPoolConfigurationResponse_httpStatus :: Lens.Lens' GetIdentityPoolConfigurationResponse Prelude.Int

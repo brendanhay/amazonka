@@ -17,19 +17,19 @@ module Network.AWS.CognitoSync.Types
     defaultService,
 
     -- * Errors
-    _InvalidConfigurationException,
-    _ResourceConflictException,
-    _InternalErrorException,
-    _ConcurrentModificationException,
     _InvalidParameterException,
+    _NotAuthorizedException,
+    _InternalErrorException,
+    _InvalidConfigurationException,
+    _DuplicateRequestException,
+    _LambdaThrottledException,
     _AlreadyStreamedException,
     _InvalidLambdaFunctionOutputException,
-    _LambdaThrottledException,
-    _LimitExceededException,
-    _DuplicateRequestException,
-    _ResourceNotFoundException,
-    _NotAuthorizedException,
     _TooManyRequestsException,
+    _ConcurrentModificationException,
+    _ResourceConflictException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
 
     -- * BulkPublishStatus
     BulkPublishStatus (..),
@@ -46,28 +46,28 @@ module Network.AWS.CognitoSync.Types
     -- * CognitoStreams
     CognitoStreams (..),
     newCognitoStreams,
-    cognitoStreams_roleArn,
-    cognitoStreams_streamName,
     cognitoStreams_streamingStatus,
+    cognitoStreams_streamName,
+    cognitoStreams_roleArn,
 
     -- * Dataset
     Dataset (..),
     newDataset,
     dataset_lastModifiedDate,
     dataset_numRecords,
-    dataset_creationDate,
     dataset_dataStorage,
-    dataset_identityId,
-    dataset_lastModifiedBy,
     dataset_datasetName,
+    dataset_creationDate,
+    dataset_lastModifiedBy,
+    dataset_identityId,
 
     -- * IdentityPoolUsage
     IdentityPoolUsage (..),
     newIdentityPoolUsage,
     identityPoolUsage_lastModifiedDate,
     identityPoolUsage_identityPoolId,
-    identityPoolUsage_syncSessionsCount,
     identityPoolUsage_dataStorage,
+    identityPoolUsage_syncSessionsCount,
 
     -- * IdentityUsage
     IdentityUsage (..),
@@ -81,17 +81,17 @@ module Network.AWS.CognitoSync.Types
     -- * PushSync
     PushSync (..),
     newPushSync,
-    pushSync_roleArn,
     pushSync_applicationArns,
+    pushSync_roleArn,
 
     -- * Record
     Record (..),
     newRecord,
-    record_key,
+    record_syncCount,
     record_deviceLastModifiedDate,
     record_lastModifiedDate,
-    record_syncCount,
     record_value,
+    record_key,
     record_lastModifiedBy,
 
     -- * RecordPatch
@@ -147,37 +147,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -190,40 +167,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Prism for InvalidConfigurationException' errors.
-_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidConfigurationException"
-    Prelude.. Core.hasStatus 400
-
--- | Thrown if an update can\'t be applied because the resource was changed
--- by another call and this would result in a conflict.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | Indicates an internal service error.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-    Prelude.. Core.hasStatus 400
 
 -- | Thrown when a request parameter does not comply with the associated
 -- constraints.
@@ -233,6 +200,47 @@ _InvalidParameterException =
     defaultService
     "InvalidParameterException"
     Prelude.. Core.hasStatus 400
+
+-- | Thrown when a user is not authorized to access the requested resource.
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "NotAuthorizedException"
+    Prelude.. Core.hasStatus 403
+
+-- | Indicates an internal service error.
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | Prism for InvalidConfigurationException' errors.
+_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConfigurationException"
+    Prelude.. Core.hasStatus 400
+
+-- | An exception thrown when there is an IN_PROGRESS bulk publish operation
+-- for the given identity pool.
+_DuplicateRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequestException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | AWS Lambda throttled your account, please contact AWS Support
+_LambdaThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LambdaThrottledException =
+  Core._MatchServiceError
+    defaultService
+    "LambdaThrottledException"
+    Prelude.. Core.hasStatus 429
 
 -- | An exception thrown when a bulk publish operation is requested less than
 -- 24 hours after a previous bulk publish operation completed successfully.
@@ -251,31 +259,30 @@ _InvalidLambdaFunctionOutputException =
     "InvalidLambdaFunctionOutputException"
     Prelude.. Core.hasStatus 400
 
--- | AWS Lambda throttled your account, please contact AWS Support
-_LambdaThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LambdaThrottledException =
+-- | Thrown if the request is throttled.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
   Core._MatchServiceError
     defaultService
-    "LambdaThrottledException"
+    "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
 
--- | Thrown when the limit on the number of objects or operations has been
--- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "ConcurrentModificationException"
     Prelude.. Core.hasStatus 400
 
--- | An exception thrown when there is an IN_PROGRESS bulk publish operation
--- for the given identity pool.
-_DuplicateRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateRequestException =
+-- | Thrown if an update can\'t be applied because the resource was changed
+-- by another call and this would result in a conflict.
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException =
   Core._MatchServiceError
     defaultService
-    "DuplicateRequestException"
-    Prelude.. Core.hasStatus 400
+    "ResourceConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | Thrown if the resource doesn\'t exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -285,18 +292,11 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotAuthorizedException =
+-- | Thrown when the limit on the number of objects or operations has been
+-- exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "NotAuthorizedException"
-    Prelude.. Core.hasStatus 403
-
--- | Thrown if the request is throttled.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 400

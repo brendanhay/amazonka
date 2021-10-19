@@ -33,10 +33,10 @@ data IdentityPoolUsage = IdentityPoolUsage'
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
     identityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | Number of sync sessions for the identity pool.
-    syncSessionsCount :: Prelude.Maybe Prelude.Integer,
     -- | Data storage information for the identity pool.
-    dataStorage :: Prelude.Maybe Prelude.Integer
+    dataStorage :: Prelude.Maybe Prelude.Integer,
+    -- | Number of sync sessions for the identity pool.
+    syncSessionsCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,9 @@ data IdentityPoolUsage = IdentityPoolUsage'
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
 --
--- 'syncSessionsCount', 'identityPoolUsage_syncSessionsCount' - Number of sync sessions for the identity pool.
---
 -- 'dataStorage', 'identityPoolUsage_dataStorage' - Data storage information for the identity pool.
+--
+-- 'syncSessionsCount', 'identityPoolUsage_syncSessionsCount' - Number of sync sessions for the identity pool.
 newIdentityPoolUsage ::
   IdentityPoolUsage
 newIdentityPoolUsage =
@@ -64,8 +64,8 @@ newIdentityPoolUsage =
     { lastModifiedDate =
         Prelude.Nothing,
       identityPoolId = Prelude.Nothing,
-      syncSessionsCount = Prelude.Nothing,
-      dataStorage = Prelude.Nothing
+      dataStorage = Prelude.Nothing,
+      syncSessionsCount = Prelude.Nothing
     }
 
 -- | Date on which the identity pool was last modified.
@@ -78,13 +78,13 @@ identityPoolUsage_lastModifiedDate = Lens.lens (\IdentityPoolUsage' {lastModifie
 identityPoolUsage_identityPoolId :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Text)
 identityPoolUsage_identityPoolId = Lens.lens (\IdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@IdentityPoolUsage' {} a -> s {identityPoolId = a} :: IdentityPoolUsage)
 
--- | Number of sync sessions for the identity pool.
-identityPoolUsage_syncSessionsCount :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
-identityPoolUsage_syncSessionsCount = Lens.lens (\IdentityPoolUsage' {syncSessionsCount} -> syncSessionsCount) (\s@IdentityPoolUsage' {} a -> s {syncSessionsCount = a} :: IdentityPoolUsage)
-
 -- | Data storage information for the identity pool.
 identityPoolUsage_dataStorage :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
 identityPoolUsage_dataStorage = Lens.lens (\IdentityPoolUsage' {dataStorage} -> dataStorage) (\s@IdentityPoolUsage' {} a -> s {dataStorage = a} :: IdentityPoolUsage)
+
+-- | Number of sync sessions for the identity pool.
+identityPoolUsage_syncSessionsCount :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
+identityPoolUsage_syncSessionsCount = Lens.lens (\IdentityPoolUsage' {syncSessionsCount} -> syncSessionsCount) (\s@IdentityPoolUsage' {} a -> s {syncSessionsCount = a} :: IdentityPoolUsage)
 
 instance Core.FromJSON IdentityPoolUsage where
   parseJSON =
@@ -94,8 +94,8 @@ instance Core.FromJSON IdentityPoolUsage where
           IdentityPoolUsage'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "IdentityPoolId")
-            Prelude.<*> (x Core..:? "SyncSessionsCount")
             Prelude.<*> (x Core..:? "DataStorage")
+            Prelude.<*> (x Core..:? "SyncSessionsCount")
       )
 
 instance Prelude.Hashable IdentityPoolUsage

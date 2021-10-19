@@ -155,7 +155,7 @@ newUpdateRecords
 
 -- | A list of patch operations.
 updateRecords_recordPatches :: Lens.Lens' UpdateRecords (Prelude.Maybe [RecordPatch])
-updateRecords_recordPatches = Lens.lens (\UpdateRecords' {recordPatches} -> recordPatches) (\s@UpdateRecords' {} a -> s {recordPatches = a} :: UpdateRecords) Prelude.. Lens.mapping Lens._Coerce
+updateRecords_recordPatches = Lens.lens (\UpdateRecords' {recordPatches} -> recordPatches) (\s@UpdateRecords' {} a -> s {recordPatches = a} :: UpdateRecords) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID generated for this device by Cognito.
 updateRecords_deviceId :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
@@ -273,7 +273,7 @@ newUpdateRecordsResponse pHttpStatus_ =
 
 -- | A list of records that have been updated.
 updateRecordsResponse_records :: Lens.Lens' UpdateRecordsResponse (Prelude.Maybe [Record])
-updateRecordsResponse_records = Lens.lens (\UpdateRecordsResponse' {records} -> records) (\s@UpdateRecordsResponse' {} a -> s {records = a} :: UpdateRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
+updateRecordsResponse_records = Lens.lens (\UpdateRecordsResponse' {records} -> records) (\s@UpdateRecordsResponse' {} a -> s {records = a} :: UpdateRecordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateRecordsResponse_httpStatus :: Lens.Lens' UpdateRecordsResponse Prelude.Int

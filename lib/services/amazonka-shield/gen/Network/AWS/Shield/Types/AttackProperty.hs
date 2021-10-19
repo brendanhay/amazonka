@@ -31,17 +31,7 @@ import Network.AWS.Shield.Types.Unit
 --
 -- /See:/ 'newAttackProperty' smart constructor.
 data AttackProperty = AttackProperty'
-  { -- | The unit used for the @Contributor@ @Value@ property.
-    unit :: Prelude.Maybe Unit,
-    -- | The total contributions made to this Shield event by all contributors.
-    total :: Prelude.Maybe Prelude.Integer,
-    -- | Defines the Shield event property information that is provided. The
-    -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
-    -- are valid only for WordPress reflective pingback events.
-    attackPropertyIdentifier :: Prelude.Maybe AttackPropertyIdentifier,
-    -- | Contributor objects for the top five contributors to a Shield event.
-    topContributors :: Prelude.Maybe [Contributor],
-    -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
+  { -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
     -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
     --
     -- For infrastructure layer events (L3 and L4 events) after January 25,
@@ -49,7 +39,17 @@ data AttackProperty = AttackProperty'
     -- metrics. For more information, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
     -- in the /WAF Developer Guide/.
-    attackLayer :: Prelude.Maybe AttackLayer
+    attackLayer :: Prelude.Maybe AttackLayer,
+    -- | Contributor objects for the top five contributors to a Shield event.
+    topContributors :: Prelude.Maybe [Contributor],
+    -- | Defines the Shield event property information that is provided. The
+    -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
+    -- are valid only for WordPress reflective pingback events.
+    attackPropertyIdentifier :: Prelude.Maybe AttackPropertyIdentifier,
+    -- | The total contributions made to this Shield event by all contributors.
+    total :: Prelude.Maybe Prelude.Integer,
+    -- | The unit used for the @Contributor@ @Value@ property.
+    unit :: Prelude.Maybe Unit
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,16 +61,6 @@ data AttackProperty = AttackProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'attackProperty_unit' - The unit used for the @Contributor@ @Value@ property.
---
--- 'total', 'attackProperty_total' - The total contributions made to this Shield event by all contributors.
---
--- 'attackPropertyIdentifier', 'attackProperty_attackPropertyIdentifier' - Defines the Shield event property information that is provided. The
--- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
--- are valid only for WordPress reflective pingback events.
---
--- 'topContributors', 'attackProperty_topContributors' - Contributor objects for the top five contributors to a Shield event.
---
 -- 'attackLayer', 'attackProperty_attackLayer' - The type of Shield event that was observed. @NETWORK@ indicates layer 3
 -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
 --
@@ -79,34 +69,26 @@ data AttackProperty = AttackProperty'
 -- metrics. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
+--
+-- 'topContributors', 'attackProperty_topContributors' - Contributor objects for the top five contributors to a Shield event.
+--
+-- 'attackPropertyIdentifier', 'attackProperty_attackPropertyIdentifier' - Defines the Shield event property information that is provided. The
+-- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
+-- are valid only for WordPress reflective pingback events.
+--
+-- 'total', 'attackProperty_total' - The total contributions made to this Shield event by all contributors.
+--
+-- 'unit', 'attackProperty_unit' - The unit used for the @Contributor@ @Value@ property.
 newAttackProperty ::
   AttackProperty
 newAttackProperty =
   AttackProperty'
-    { unit = Prelude.Nothing,
-      total = Prelude.Nothing,
-      attackPropertyIdentifier = Prelude.Nothing,
+    { attackLayer = Prelude.Nothing,
       topContributors = Prelude.Nothing,
-      attackLayer = Prelude.Nothing
+      attackPropertyIdentifier = Prelude.Nothing,
+      total = Prelude.Nothing,
+      unit = Prelude.Nothing
     }
-
--- | The unit used for the @Contributor@ @Value@ property.
-attackProperty_unit :: Lens.Lens' AttackProperty (Prelude.Maybe Unit)
-attackProperty_unit = Lens.lens (\AttackProperty' {unit} -> unit) (\s@AttackProperty' {} a -> s {unit = a} :: AttackProperty)
-
--- | The total contributions made to this Shield event by all contributors.
-attackProperty_total :: Lens.Lens' AttackProperty (Prelude.Maybe Prelude.Integer)
-attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackProperty' {} a -> s {total = a} :: AttackProperty)
-
--- | Defines the Shield event property information that is provided. The
--- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
--- are valid only for WordPress reflective pingback events.
-attackProperty_attackPropertyIdentifier :: Lens.Lens' AttackProperty (Prelude.Maybe AttackPropertyIdentifier)
-attackProperty_attackPropertyIdentifier = Lens.lens (\AttackProperty' {attackPropertyIdentifier} -> attackPropertyIdentifier) (\s@AttackProperty' {} a -> s {attackPropertyIdentifier = a} :: AttackProperty)
-
--- | Contributor objects for the top five contributors to a Shield event.
-attackProperty_topContributors :: Lens.Lens' AttackProperty (Prelude.Maybe [Contributor])
-attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -> topContributors) (\s@AttackProperty' {} a -> s {topContributors = a} :: AttackProperty) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
 -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
@@ -119,19 +101,37 @@ attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -
 attackProperty_attackLayer :: Lens.Lens' AttackProperty (Prelude.Maybe AttackLayer)
 attackProperty_attackLayer = Lens.lens (\AttackProperty' {attackLayer} -> attackLayer) (\s@AttackProperty' {} a -> s {attackLayer = a} :: AttackProperty)
 
+-- | Contributor objects for the top five contributors to a Shield event.
+attackProperty_topContributors :: Lens.Lens' AttackProperty (Prelude.Maybe [Contributor])
+attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -> topContributors) (\s@AttackProperty' {} a -> s {topContributors = a} :: AttackProperty) Prelude.. Lens.mapping Lens.coerced
+
+-- | Defines the Shield event property information that is provided. The
+-- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
+-- are valid only for WordPress reflective pingback events.
+attackProperty_attackPropertyIdentifier :: Lens.Lens' AttackProperty (Prelude.Maybe AttackPropertyIdentifier)
+attackProperty_attackPropertyIdentifier = Lens.lens (\AttackProperty' {attackPropertyIdentifier} -> attackPropertyIdentifier) (\s@AttackProperty' {} a -> s {attackPropertyIdentifier = a} :: AttackProperty)
+
+-- | The total contributions made to this Shield event by all contributors.
+attackProperty_total :: Lens.Lens' AttackProperty (Prelude.Maybe Prelude.Integer)
+attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackProperty' {} a -> s {total = a} :: AttackProperty)
+
+-- | The unit used for the @Contributor@ @Value@ property.
+attackProperty_unit :: Lens.Lens' AttackProperty (Prelude.Maybe Unit)
+attackProperty_unit = Lens.lens (\AttackProperty' {unit} -> unit) (\s@AttackProperty' {} a -> s {unit = a} :: AttackProperty)
+
 instance Core.FromJSON AttackProperty where
   parseJSON =
     Core.withObject
       "AttackProperty"
       ( \x ->
           AttackProperty'
-            Prelude.<$> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "AttackPropertyIdentifier")
+            Prelude.<$> (x Core..:? "AttackLayer")
             Prelude.<*> ( x Core..:? "TopContributors"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AttackLayer")
+            Prelude.<*> (x Core..:? "AttackPropertyIdentifier")
+            Prelude.<*> (x Core..:? "Total")
+            Prelude.<*> (x Core..:? "Unit")
       )
 
 instance Prelude.Hashable AttackProperty

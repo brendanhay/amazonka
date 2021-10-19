@@ -184,7 +184,7 @@ protectionGroup_pattern = Lens.lens (\ProtectionGroup' {pattern'} -> pattern') (
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
 protectionGroup_members :: Lens.Lens' ProtectionGroup [Prelude.Text]
-protectionGroup_members = Lens.lens (\ProtectionGroup' {members} -> members) (\s@ProtectionGroup' {} a -> s {members = a} :: ProtectionGroup) Prelude.. Lens._Coerce
+protectionGroup_members = Lens.lens (\ProtectionGroup' {members} -> members) (\s@ProtectionGroup' {} a -> s {members = a} :: ProtectionGroup) Prelude.. Lens.coerced
 
 instance Core.FromJSON ProtectionGroup where
   parseJSON =

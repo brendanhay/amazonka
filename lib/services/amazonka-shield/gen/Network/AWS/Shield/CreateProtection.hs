@@ -140,7 +140,7 @@ newCreateProtection pName_ pResourceArn_ =
 -- | One or more tag key-value pairs for the Protection object that is
 -- created.
 createProtection_tags :: Lens.Lens' CreateProtection (Prelude.Maybe [Tag])
-createProtection_tags = Lens.lens (\CreateProtection' {tags} -> tags) (\s@CreateProtection' {} a -> s {tags = a} :: CreateProtection) Prelude.. Lens.mapping Lens._Coerce
+createProtection_tags = Lens.lens (\CreateProtection' {tags} -> tags) (\s@CreateProtection' {} a -> s {tags = a} :: CreateProtection) Prelude.. Lens.mapping Lens.coerced
 
 -- | Friendly name for the @Protection@ you are creating.
 createProtection_name :: Lens.Lens' CreateProtection Prelude.Text

@@ -28,20 +28,20 @@ import Network.AWS.Shield.Types.AttackVectorDescription
 --
 -- /See:/ 'newAttackSummary' smart constructor.
 data AttackSummary = AttackSummary'
-  { -- | The ARN (Amazon Resource Name) of the resource that was attacked.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+  { -- | The list of attacks for a specified time period.
+    attackVectors :: Prelude.Maybe [AttackVectorDescription],
+    -- | The unique identifier (ID) of the attack.
+    attackId :: Prelude.Maybe Prelude.Text,
     -- | The start time of the attack, in Unix time in seconds. For more
     -- information see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The ARN (Amazon Resource Name) of the resource that was attacked.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The end time of the attack, in Unix time in seconds. For more
     -- information see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier (ID) of the attack.
-    attackId :: Prelude.Maybe Prelude.Text,
-    -- | The list of attacks for a specified time period.
-    attackVectors :: Prelude.Maybe [AttackVectorDescription]
+    endTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,33 +53,37 @@ data AttackSummary = AttackSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'attackSummary_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
+-- 'attackVectors', 'attackSummary_attackVectors' - The list of attacks for a specified time period.
+--
+-- 'attackId', 'attackSummary_attackId' - The unique identifier (ID) of the attack.
 --
 -- 'startTime', 'attackSummary_startTime' - The start time of the attack, in Unix time in seconds. For more
 -- information see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
 --
+-- 'resourceArn', 'attackSummary_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
+--
 -- 'endTime', 'attackSummary_endTime' - The end time of the attack, in Unix time in seconds. For more
 -- information see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
---
--- 'attackId', 'attackSummary_attackId' - The unique identifier (ID) of the attack.
---
--- 'attackVectors', 'attackSummary_attackVectors' - The list of attacks for a specified time period.
 newAttackSummary ::
   AttackSummary
 newAttackSummary =
   AttackSummary'
-    { resourceArn = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { attackVectors = Prelude.Nothing,
       attackId = Prelude.Nothing,
-      attackVectors = Prelude.Nothing
+      startTime = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      endTime = Prelude.Nothing
     }
 
--- | The ARN (Amazon Resource Name) of the resource that was attacked.
-attackSummary_resourceArn :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.Text)
-attackSummary_resourceArn = Lens.lens (\AttackSummary' {resourceArn} -> resourceArn) (\s@AttackSummary' {} a -> s {resourceArn = a} :: AttackSummary)
+-- | The list of attacks for a specified time period.
+attackSummary_attackVectors :: Lens.Lens' AttackSummary (Prelude.Maybe [AttackVectorDescription])
+attackSummary_attackVectors = Lens.lens (\AttackSummary' {attackVectors} -> attackVectors) (\s@AttackSummary' {} a -> s {attackVectors = a} :: AttackSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifier (ID) of the attack.
+attackSummary_attackId :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.Text)
+attackSummary_attackId = Lens.lens (\AttackSummary' {attackId} -> attackId) (\s@AttackSummary' {} a -> s {attackId = a} :: AttackSummary)
 
 -- | The start time of the attack, in Unix time in seconds. For more
 -- information see
@@ -87,19 +91,15 @@ attackSummary_resourceArn = Lens.lens (\AttackSummary' {resourceArn} -> resource
 attackSummary_startTime :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.UTCTime)
 attackSummary_startTime = Lens.lens (\AttackSummary' {startTime} -> startTime) (\s@AttackSummary' {} a -> s {startTime = a} :: AttackSummary) Prelude.. Lens.mapping Core._Time
 
+-- | The ARN (Amazon Resource Name) of the resource that was attacked.
+attackSummary_resourceArn :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.Text)
+attackSummary_resourceArn = Lens.lens (\AttackSummary' {resourceArn} -> resourceArn) (\s@AttackSummary' {} a -> s {resourceArn = a} :: AttackSummary)
+
 -- | The end time of the attack, in Unix time in seconds. For more
 -- information see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
 attackSummary_endTime :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.UTCTime)
 attackSummary_endTime = Lens.lens (\AttackSummary' {endTime} -> endTime) (\s@AttackSummary' {} a -> s {endTime = a} :: AttackSummary) Prelude.. Lens.mapping Core._Time
-
--- | The unique identifier (ID) of the attack.
-attackSummary_attackId :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.Text)
-attackSummary_attackId = Lens.lens (\AttackSummary' {attackId} -> attackId) (\s@AttackSummary' {} a -> s {attackId = a} :: AttackSummary)
-
--- | The list of attacks for a specified time period.
-attackSummary_attackVectors :: Lens.Lens' AttackSummary (Prelude.Maybe [AttackVectorDescription])
-attackSummary_attackVectors = Lens.lens (\AttackSummary' {attackVectors} -> attackVectors) (\s@AttackSummary' {} a -> s {attackVectors = a} :: AttackSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AttackSummary where
   parseJSON =
@@ -107,11 +107,11 @@ instance Core.FromJSON AttackSummary where
       "AttackSummary"
       ( \x ->
           AttackSummary'
-            Prelude.<$> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<$> (x Core..:? "AttackVectors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AttackId")
-            Prelude.<*> (x Core..:? "AttackVectors" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "EndTime")
       )
 
 instance Prelude.Hashable AttackSummary

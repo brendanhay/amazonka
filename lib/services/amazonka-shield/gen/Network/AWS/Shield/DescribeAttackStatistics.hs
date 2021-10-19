@@ -163,7 +163,7 @@ describeAttackStatisticsResponse_timeRange = Lens.lens (\DescribeAttackStatistic
 
 -- | The data that describes the attacks detected during the time period.
 describeAttackStatisticsResponse_dataItems :: Lens.Lens' DescribeAttackStatisticsResponse [AttackStatisticsDataItem]
-describeAttackStatisticsResponse_dataItems = Lens.lens (\DescribeAttackStatisticsResponse' {dataItems} -> dataItems) (\s@DescribeAttackStatisticsResponse' {} a -> s {dataItems = a} :: DescribeAttackStatisticsResponse) Prelude.. Lens._Coerce
+describeAttackStatisticsResponse_dataItems = Lens.lens (\DescribeAttackStatisticsResponse' {dataItems} -> dataItems) (\s@DescribeAttackStatisticsResponse' {} a -> s {dataItems = a} :: DescribeAttackStatisticsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

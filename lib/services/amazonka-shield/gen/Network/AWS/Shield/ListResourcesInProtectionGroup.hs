@@ -249,7 +249,7 @@ listResourcesInProtectionGroupResponse_httpStatus = Lens.lens (\ListResourcesInP
 -- | The Amazon Resource Names (ARNs) of the resources that are included in
 -- the protection group.
 listResourcesInProtectionGroupResponse_resourceArns :: Lens.Lens' ListResourcesInProtectionGroupResponse [Prelude.Text]
-listResourcesInProtectionGroupResponse_resourceArns = Lens.lens (\ListResourcesInProtectionGroupResponse' {resourceArns} -> resourceArns) (\s@ListResourcesInProtectionGroupResponse' {} a -> s {resourceArns = a} :: ListResourcesInProtectionGroupResponse) Prelude.. Lens._Coerce
+listResourcesInProtectionGroupResponse_resourceArns = Lens.lens (\ListResourcesInProtectionGroupResponse' {resourceArns} -> resourceArns) (\s@ListResourcesInProtectionGroupResponse' {} a -> s {resourceArns = a} :: ListResourcesInProtectionGroupResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

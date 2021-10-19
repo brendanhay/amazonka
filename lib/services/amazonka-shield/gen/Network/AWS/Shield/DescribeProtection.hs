@@ -27,8 +27,8 @@ module Network.AWS.Shield.DescribeProtection
     newDescribeProtection,
 
     -- * Request Lenses
-    describeProtection_resourceArn,
     describeProtection_protectionId,
+    describeProtection_resourceArn,
 
     -- * Destructuring the Response
     DescribeProtectionResponse (..),
@@ -49,15 +49,15 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newDescribeProtection' smart constructor.
 data DescribeProtection = DescribeProtection'
-  { -- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for
+  { -- | The unique identifier (ID) for the Protection object that is described.
+    -- When submitting the @DescribeProtection@ request you must provide either
+    -- the @ResourceArn@ or the @ProtectionID@, but not both.
+    protectionId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for
     -- the Protection object that is described. When submitting the
     -- @DescribeProtection@ request you must provide either the @ResourceArn@
     -- or the @ProtectionID@, but not both.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier (ID) for the Protection object that is described.
-    -- When submitting the @DescribeProtection@ request you must provide either
-    -- the @ResourceArn@ or the @ProtectionID@, but not both.
-    protectionId :: Prelude.Maybe Prelude.Text
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,21 +69,27 @@ data DescribeProtection = DescribeProtection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'protectionId', 'describeProtection_protectionId' - The unique identifier (ID) for the Protection object that is described.
+-- When submitting the @DescribeProtection@ request you must provide either
+-- the @ResourceArn@ or the @ProtectionID@, but not both.
+--
 -- 'resourceArn', 'describeProtection_resourceArn' - The ARN (Amazon Resource Name) of the Amazon Web Services resource for
 -- the Protection object that is described. When submitting the
 -- @DescribeProtection@ request you must provide either the @ResourceArn@
 -- or the @ProtectionID@, but not both.
---
--- 'protectionId', 'describeProtection_protectionId' - The unique identifier (ID) for the Protection object that is described.
--- When submitting the @DescribeProtection@ request you must provide either
--- the @ResourceArn@ or the @ProtectionID@, but not both.
 newDescribeProtection ::
   DescribeProtection
 newDescribeProtection =
   DescribeProtection'
-    { resourceArn = Prelude.Nothing,
-      protectionId = Prelude.Nothing
+    { protectionId = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
+
+-- | The unique identifier (ID) for the Protection object that is described.
+-- When submitting the @DescribeProtection@ request you must provide either
+-- the @ResourceArn@ or the @ProtectionID@, but not both.
+describeProtection_protectionId :: Lens.Lens' DescribeProtection (Prelude.Maybe Prelude.Text)
+describeProtection_protectionId = Lens.lens (\DescribeProtection' {protectionId} -> protectionId) (\s@DescribeProtection' {} a -> s {protectionId = a} :: DescribeProtection)
 
 -- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for
 -- the Protection object that is described. When submitting the
@@ -91,12 +97,6 @@ newDescribeProtection =
 -- or the @ProtectionID@, but not both.
 describeProtection_resourceArn :: Lens.Lens' DescribeProtection (Prelude.Maybe Prelude.Text)
 describeProtection_resourceArn = Lens.lens (\DescribeProtection' {resourceArn} -> resourceArn) (\s@DescribeProtection' {} a -> s {resourceArn = a} :: DescribeProtection)
-
--- | The unique identifier (ID) for the Protection object that is described.
--- When submitting the @DescribeProtection@ request you must provide either
--- the @ResourceArn@ or the @ProtectionID@, but not both.
-describeProtection_protectionId :: Lens.Lens' DescribeProtection (Prelude.Maybe Prelude.Text)
-describeProtection_protectionId = Lens.lens (\DescribeProtection' {protectionId} -> protectionId) (\s@DescribeProtection' {} a -> s {protectionId = a} :: DescribeProtection)
 
 instance Core.AWSRequest DescribeProtection where
   type
@@ -134,8 +134,8 @@ instance Core.ToJSON DescribeProtection where
   toJSON DescribeProtection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceArn" Core..=) Prelude.<$> resourceArn,
-            ("ProtectionId" Core..=) Prelude.<$> protectionId
+          [ ("ProtectionId" Core..=) Prelude.<$> protectionId,
+            ("ResourceArn" Core..=) Prelude.<$> resourceArn
           ]
       )
 

@@ -59,7 +59,7 @@ newSummarizedAttackVector pVectorType_ =
 
 -- | The list of counters that describe the details of the attack.
 summarizedAttackVector_vectorCounters :: Lens.Lens' SummarizedAttackVector (Prelude.Maybe [SummarizedCounter])
-summarizedAttackVector_vectorCounters = Lens.lens (\SummarizedAttackVector' {vectorCounters} -> vectorCounters) (\s@SummarizedAttackVector' {} a -> s {vectorCounters = a} :: SummarizedAttackVector) Prelude.. Lens.mapping Lens._Coerce
+summarizedAttackVector_vectorCounters = Lens.lens (\SummarizedAttackVector' {vectorCounters} -> vectorCounters) (\s@SummarizedAttackVector' {} a -> s {vectorCounters = a} :: SummarizedAttackVector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The attack type, for example, SNMP reflection or SYN flood.
 summarizedAttackVector_vectorType :: Lens.Lens' SummarizedAttackVector Prelude.Text

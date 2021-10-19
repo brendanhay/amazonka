@@ -38,22 +38,22 @@ module Network.AWS.ImportExport.GetStatus
     newGetStatusResponse,
 
     -- * Response Lenses
-    getStatusResponse_trackingNumber,
-    getStatusResponse_currentManifest,
-    getStatusResponse_errorCount,
-    getStatusResponse_creationDate,
-    getStatusResponse_logBucket,
-    getStatusResponse_jobType,
-    getStatusResponse_signature,
     getStatusResponse_carrier,
-    getStatusResponse_artifactList,
-    getStatusResponse_progressMessage,
-    getStatusResponse_locationMessage,
-    getStatusResponse_logKey,
-    getStatusResponse_signatureFileContents,
-    getStatusResponse_locationCode,
-    getStatusResponse_progressCode,
+    getStatusResponse_trackingNumber,
+    getStatusResponse_signature,
+    getStatusResponse_jobType,
     getStatusResponse_jobId,
+    getStatusResponse_signatureFileContents,
+    getStatusResponse_errorCount,
+    getStatusResponse_currentManifest,
+    getStatusResponse_artifactList,
+    getStatusResponse_logBucket,
+    getStatusResponse_creationDate,
+    getStatusResponse_progressCode,
+    getStatusResponse_locationCode,
+    getStatusResponse_logKey,
+    getStatusResponse_locationMessage,
+    getStatusResponse_progressMessage,
     getStatusResponse_httpStatus,
   )
 where
@@ -111,24 +111,24 @@ instance Core.AWSRequest GetStatus where
       "GetStatusResult"
       ( \s h x ->
           GetStatusResponse'
-            Prelude.<$> (x Core..@? "TrackingNumber")
-            Prelude.<*> (x Core..@? "CurrentManifest")
-            Prelude.<*> (x Core..@? "ErrorCount")
-            Prelude.<*> (x Core..@? "CreationDate")
-            Prelude.<*> (x Core..@? "LogBucket")
-            Prelude.<*> (x Core..@? "JobType")
+            Prelude.<$> (x Core..@? "Carrier")
+            Prelude.<*> (x Core..@? "TrackingNumber")
             Prelude.<*> (x Core..@? "Signature")
-            Prelude.<*> (x Core..@? "Carrier")
+            Prelude.<*> (x Core..@? "JobType")
+            Prelude.<*> (x Core..@? "JobId")
+            Prelude.<*> (x Core..@? "SignatureFileContents")
+            Prelude.<*> (x Core..@? "ErrorCount")
+            Prelude.<*> (x Core..@? "CurrentManifest")
             Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ProgressMessage")
-            Prelude.<*> (x Core..@? "LocationMessage")
-            Prelude.<*> (x Core..@? "LogKey")
-            Prelude.<*> (x Core..@? "SignatureFileContents")
-            Prelude.<*> (x Core..@? "LocationCode")
+            Prelude.<*> (x Core..@? "LogBucket")
+            Prelude.<*> (x Core..@? "CreationDate")
             Prelude.<*> (x Core..@? "ProgressCode")
-            Prelude.<*> (x Core..@? "JobId")
+            Prelude.<*> (x Core..@? "LocationCode")
+            Prelude.<*> (x Core..@? "LogKey")
+            Prelude.<*> (x Core..@? "LocationMessage")
+            Prelude.<*> (x Core..@? "ProgressMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,22 +157,22 @@ instance Core.ToQuery GetStatus where
 --
 -- /See:/ 'newGetStatusResponse' smart constructor.
 data GetStatusResponse = GetStatusResponse'
-  { trackingNumber :: Prelude.Maybe Prelude.Text,
-    currentManifest :: Prelude.Maybe Prelude.Text,
-    errorCount :: Prelude.Maybe Prelude.Int,
-    creationDate :: Prelude.Maybe Core.ISO8601,
-    logBucket :: Prelude.Maybe Prelude.Text,
-    jobType :: Prelude.Maybe JobType,
+  { carrier :: Prelude.Maybe Prelude.Text,
+    trackingNumber :: Prelude.Maybe Prelude.Text,
     signature :: Prelude.Maybe Prelude.Text,
-    carrier :: Prelude.Maybe Prelude.Text,
-    artifactList :: Prelude.Maybe [Artifact],
-    progressMessage :: Prelude.Maybe Prelude.Text,
-    locationMessage :: Prelude.Maybe Prelude.Text,
-    logKey :: Prelude.Maybe Prelude.Text,
-    signatureFileContents :: Prelude.Maybe Prelude.Text,
-    locationCode :: Prelude.Maybe Prelude.Text,
-    progressCode :: Prelude.Maybe Prelude.Text,
+    jobType :: Prelude.Maybe JobType,
     jobId :: Prelude.Maybe Prelude.Text,
+    signatureFileContents :: Prelude.Maybe Prelude.Text,
+    errorCount :: Prelude.Maybe Prelude.Int,
+    currentManifest :: Prelude.Maybe Prelude.Text,
+    artifactList :: Prelude.Maybe [Artifact],
+    logBucket :: Prelude.Maybe Prelude.Text,
+    creationDate :: Prelude.Maybe Core.ISO8601,
+    progressCode :: Prelude.Maybe Prelude.Text,
+    locationCode :: Prelude.Maybe Prelude.Text,
+    logKey :: Prelude.Maybe Prelude.Text,
+    locationMessage :: Prelude.Maybe Prelude.Text,
+    progressMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,37 +186,37 @@ data GetStatusResponse = GetStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'carrier', 'getStatusResponse_carrier' - Undocumented member.
+--
 -- 'trackingNumber', 'getStatusResponse_trackingNumber' - Undocumented member.
---
--- 'currentManifest', 'getStatusResponse_currentManifest' - Undocumented member.
---
--- 'errorCount', 'getStatusResponse_errorCount' - Undocumented member.
---
--- 'creationDate', 'getStatusResponse_creationDate' - Undocumented member.
---
--- 'logBucket', 'getStatusResponse_logBucket' - Undocumented member.
---
--- 'jobType', 'getStatusResponse_jobType' - Undocumented member.
 --
 -- 'signature', 'getStatusResponse_signature' - Undocumented member.
 --
--- 'carrier', 'getStatusResponse_carrier' - Undocumented member.
+-- 'jobType', 'getStatusResponse_jobType' - Undocumented member.
 --
--- 'artifactList', 'getStatusResponse_artifactList' - Undocumented member.
---
--- 'progressMessage', 'getStatusResponse_progressMessage' - Undocumented member.
---
--- 'locationMessage', 'getStatusResponse_locationMessage' - Undocumented member.
---
--- 'logKey', 'getStatusResponse_logKey' - Undocumented member.
+-- 'jobId', 'getStatusResponse_jobId' - Undocumented member.
 --
 -- 'signatureFileContents', 'getStatusResponse_signatureFileContents' - Undocumented member.
 --
--- 'locationCode', 'getStatusResponse_locationCode' - Undocumented member.
+-- 'errorCount', 'getStatusResponse_errorCount' - Undocumented member.
+--
+-- 'currentManifest', 'getStatusResponse_currentManifest' - Undocumented member.
+--
+-- 'artifactList', 'getStatusResponse_artifactList' - Undocumented member.
+--
+-- 'logBucket', 'getStatusResponse_logBucket' - Undocumented member.
+--
+-- 'creationDate', 'getStatusResponse_creationDate' - Undocumented member.
 --
 -- 'progressCode', 'getStatusResponse_progressCode' - Undocumented member.
 --
--- 'jobId', 'getStatusResponse_jobId' - Undocumented member.
+-- 'locationCode', 'getStatusResponse_locationCode' - Undocumented member.
+--
+-- 'logKey', 'getStatusResponse_logKey' - Undocumented member.
+--
+-- 'locationMessage', 'getStatusResponse_locationMessage' - Undocumented member.
+--
+-- 'progressMessage', 'getStatusResponse_progressMessage' - Undocumented member.
 --
 -- 'httpStatus', 'getStatusResponse_httpStatus' - The response's http status code.
 newGetStatusResponse ::
@@ -225,89 +225,88 @@ newGetStatusResponse ::
   GetStatusResponse
 newGetStatusResponse pHttpStatus_ =
   GetStatusResponse'
-    { trackingNumber =
-        Prelude.Nothing,
-      currentManifest = Prelude.Nothing,
-      errorCount = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      logBucket = Prelude.Nothing,
-      jobType = Prelude.Nothing,
+    { carrier = Prelude.Nothing,
+      trackingNumber = Prelude.Nothing,
       signature = Prelude.Nothing,
-      carrier = Prelude.Nothing,
-      artifactList = Prelude.Nothing,
-      progressMessage = Prelude.Nothing,
-      locationMessage = Prelude.Nothing,
-      logKey = Prelude.Nothing,
-      signatureFileContents = Prelude.Nothing,
-      locationCode = Prelude.Nothing,
-      progressCode = Prelude.Nothing,
+      jobType = Prelude.Nothing,
       jobId = Prelude.Nothing,
+      signatureFileContents = Prelude.Nothing,
+      errorCount = Prelude.Nothing,
+      currentManifest = Prelude.Nothing,
+      artifactList = Prelude.Nothing,
+      logBucket = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      progressCode = Prelude.Nothing,
+      locationCode = Prelude.Nothing,
+      logKey = Prelude.Nothing,
+      locationMessage = Prelude.Nothing,
+      progressMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-getStatusResponse_trackingNumber :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_trackingNumber = Lens.lens (\GetStatusResponse' {trackingNumber} -> trackingNumber) (\s@GetStatusResponse' {} a -> s {trackingNumber = a} :: GetStatusResponse)
-
--- | Undocumented member.
-getStatusResponse_currentManifest :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_currentManifest = Lens.lens (\GetStatusResponse' {currentManifest} -> currentManifest) (\s@GetStatusResponse' {} a -> s {currentManifest = a} :: GetStatusResponse)
-
--- | Undocumented member.
-getStatusResponse_errorCount :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Int)
-getStatusResponse_errorCount = Lens.lens (\GetStatusResponse' {errorCount} -> errorCount) (\s@GetStatusResponse' {} a -> s {errorCount = a} :: GetStatusResponse)
-
--- | Undocumented member.
-getStatusResponse_creationDate :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getStatusResponse_creationDate = Lens.lens (\GetStatusResponse' {creationDate} -> creationDate) (\s@GetStatusResponse' {} a -> s {creationDate = a} :: GetStatusResponse) Prelude.. Lens.mapping Core._Time
-
--- | Undocumented member.
-getStatusResponse_logBucket :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_logBucket = Lens.lens (\GetStatusResponse' {logBucket} -> logBucket) (\s@GetStatusResponse' {} a -> s {logBucket = a} :: GetStatusResponse)
-
--- | Undocumented member.
-getStatusResponse_jobType :: Lens.Lens' GetStatusResponse (Prelude.Maybe JobType)
-getStatusResponse_jobType = Lens.lens (\GetStatusResponse' {jobType} -> jobType) (\s@GetStatusResponse' {} a -> s {jobType = a} :: GetStatusResponse)
-
--- | Undocumented member.
-getStatusResponse_signature :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_signature = Lens.lens (\GetStatusResponse' {signature} -> signature) (\s@GetStatusResponse' {} a -> s {signature = a} :: GetStatusResponse)
 
 -- | Undocumented member.
 getStatusResponse_carrier :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
 getStatusResponse_carrier = Lens.lens (\GetStatusResponse' {carrier} -> carrier) (\s@GetStatusResponse' {} a -> s {carrier = a} :: GetStatusResponse)
 
 -- | Undocumented member.
-getStatusResponse_artifactList :: Lens.Lens' GetStatusResponse (Prelude.Maybe [Artifact])
-getStatusResponse_artifactList = Lens.lens (\GetStatusResponse' {artifactList} -> artifactList) (\s@GetStatusResponse' {} a -> s {artifactList = a} :: GetStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+getStatusResponse_trackingNumber :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_trackingNumber = Lens.lens (\GetStatusResponse' {trackingNumber} -> trackingNumber) (\s@GetStatusResponse' {} a -> s {trackingNumber = a} :: GetStatusResponse)
 
 -- | Undocumented member.
-getStatusResponse_progressMessage :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_progressMessage = Lens.lens (\GetStatusResponse' {progressMessage} -> progressMessage) (\s@GetStatusResponse' {} a -> s {progressMessage = a} :: GetStatusResponse)
+getStatusResponse_signature :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_signature = Lens.lens (\GetStatusResponse' {signature} -> signature) (\s@GetStatusResponse' {} a -> s {signature = a} :: GetStatusResponse)
 
 -- | Undocumented member.
-getStatusResponse_locationMessage :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_locationMessage = Lens.lens (\GetStatusResponse' {locationMessage} -> locationMessage) (\s@GetStatusResponse' {} a -> s {locationMessage = a} :: GetStatusResponse)
+getStatusResponse_jobType :: Lens.Lens' GetStatusResponse (Prelude.Maybe JobType)
+getStatusResponse_jobType = Lens.lens (\GetStatusResponse' {jobType} -> jobType) (\s@GetStatusResponse' {} a -> s {jobType = a} :: GetStatusResponse)
 
 -- | Undocumented member.
-getStatusResponse_logKey :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_logKey = Lens.lens (\GetStatusResponse' {logKey} -> logKey) (\s@GetStatusResponse' {} a -> s {logKey = a} :: GetStatusResponse)
+getStatusResponse_jobId :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_jobId = Lens.lens (\GetStatusResponse' {jobId} -> jobId) (\s@GetStatusResponse' {} a -> s {jobId = a} :: GetStatusResponse)
 
 -- | Undocumented member.
 getStatusResponse_signatureFileContents :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
 getStatusResponse_signatureFileContents = Lens.lens (\GetStatusResponse' {signatureFileContents} -> signatureFileContents) (\s@GetStatusResponse' {} a -> s {signatureFileContents = a} :: GetStatusResponse)
 
 -- | Undocumented member.
-getStatusResponse_locationCode :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_locationCode = Lens.lens (\GetStatusResponse' {locationCode} -> locationCode) (\s@GetStatusResponse' {} a -> s {locationCode = a} :: GetStatusResponse)
+getStatusResponse_errorCount :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Int)
+getStatusResponse_errorCount = Lens.lens (\GetStatusResponse' {errorCount} -> errorCount) (\s@GetStatusResponse' {} a -> s {errorCount = a} :: GetStatusResponse)
+
+-- | Undocumented member.
+getStatusResponse_currentManifest :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_currentManifest = Lens.lens (\GetStatusResponse' {currentManifest} -> currentManifest) (\s@GetStatusResponse' {} a -> s {currentManifest = a} :: GetStatusResponse)
+
+-- | Undocumented member.
+getStatusResponse_artifactList :: Lens.Lens' GetStatusResponse (Prelude.Maybe [Artifact])
+getStatusResponse_artifactList = Lens.lens (\GetStatusResponse' {artifactList} -> artifactList) (\s@GetStatusResponse' {} a -> s {artifactList = a} :: GetStatusResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+getStatusResponse_logBucket :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_logBucket = Lens.lens (\GetStatusResponse' {logBucket} -> logBucket) (\s@GetStatusResponse' {} a -> s {logBucket = a} :: GetStatusResponse)
+
+-- | Undocumented member.
+getStatusResponse_creationDate :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.UTCTime)
+getStatusResponse_creationDate = Lens.lens (\GetStatusResponse' {creationDate} -> creationDate) (\s@GetStatusResponse' {} a -> s {creationDate = a} :: GetStatusResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 getStatusResponse_progressCode :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
 getStatusResponse_progressCode = Lens.lens (\GetStatusResponse' {progressCode} -> progressCode) (\s@GetStatusResponse' {} a -> s {progressCode = a} :: GetStatusResponse)
 
 -- | Undocumented member.
-getStatusResponse_jobId :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
-getStatusResponse_jobId = Lens.lens (\GetStatusResponse' {jobId} -> jobId) (\s@GetStatusResponse' {} a -> s {jobId = a} :: GetStatusResponse)
+getStatusResponse_locationCode :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_locationCode = Lens.lens (\GetStatusResponse' {locationCode} -> locationCode) (\s@GetStatusResponse' {} a -> s {locationCode = a} :: GetStatusResponse)
+
+-- | Undocumented member.
+getStatusResponse_logKey :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_logKey = Lens.lens (\GetStatusResponse' {logKey} -> logKey) (\s@GetStatusResponse' {} a -> s {logKey = a} :: GetStatusResponse)
+
+-- | Undocumented member.
+getStatusResponse_locationMessage :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_locationMessage = Lens.lens (\GetStatusResponse' {locationMessage} -> locationMessage) (\s@GetStatusResponse' {} a -> s {locationMessage = a} :: GetStatusResponse)
+
+-- | Undocumented member.
+getStatusResponse_progressMessage :: Lens.Lens' GetStatusResponse (Prelude.Maybe Prelude.Text)
+getStatusResponse_progressMessage = Lens.lens (\GetStatusResponse' {progressMessage} -> progressMessage) (\s@GetStatusResponse' {} a -> s {progressMessage = a} :: GetStatusResponse)
 
 -- | The response's http status code.
 getStatusResponse_httpStatus :: Lens.Lens' GetStatusResponse Prelude.Int

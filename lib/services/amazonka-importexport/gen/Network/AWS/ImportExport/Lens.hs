@@ -14,68 +14,22 @@
 module Network.AWS.ImportExport.Lens
   ( -- * Operations
 
-    -- ** CancelJob
-    cancelJob_aPIVersion,
-    cancelJob_jobId,
-    cancelJobResponse_success,
-    cancelJobResponse_httpStatus,
-
-    -- ** UpdateJob
-    updateJob_aPIVersion,
-    updateJob_jobId,
-    updateJob_manifest,
-    updateJob_jobType,
-    updateJob_validateOnly,
-    updateJobResponse_warningMessage,
-    updateJobResponse_artifactList,
-    updateJobResponse_success,
-    updateJobResponse_httpStatus,
-
-    -- ** GetStatus
-    getStatus_aPIVersion,
-    getStatus_jobId,
-    getStatusResponse_trackingNumber,
-    getStatusResponse_currentManifest,
-    getStatusResponse_errorCount,
-    getStatusResponse_creationDate,
-    getStatusResponse_logBucket,
-    getStatusResponse_jobType,
-    getStatusResponse_signature,
-    getStatusResponse_carrier,
-    getStatusResponse_artifactList,
-    getStatusResponse_progressMessage,
-    getStatusResponse_locationMessage,
-    getStatusResponse_logKey,
-    getStatusResponse_signatureFileContents,
-    getStatusResponse_locationCode,
-    getStatusResponse_progressCode,
-    getStatusResponse_jobId,
-    getStatusResponse_httpStatus,
-
     -- ** GetShippingLabel
-    getShippingLabel_company,
-    getShippingLabel_phoneNumber,
-    getShippingLabel_postalCode,
-    getShippingLabel_street1,
+    getShippingLabel_street3,
     getShippingLabel_aPIVersion,
-    getShippingLabel_city,
-    getShippingLabel_name,
-    getShippingLabel_street2,
     getShippingLabel_country,
     getShippingLabel_stateOrProvince,
-    getShippingLabel_street3,
+    getShippingLabel_postalCode,
+    getShippingLabel_street2,
+    getShippingLabel_name,
+    getShippingLabel_company,
+    getShippingLabel_phoneNumber,
+    getShippingLabel_city,
+    getShippingLabel_street1,
     getShippingLabel_jobIds,
-    getShippingLabelResponse_warning,
     getShippingLabelResponse_shippingLabelURL,
+    getShippingLabelResponse_warning,
     getShippingLabelResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_maxJobs,
-    listJobs_aPIVersion,
-    listJobs_marker,
-    listJobsResponse_isTruncated,
-    listJobsResponse_jobs,
-    listJobsResponse_httpStatus,
 
     -- ** CreateJob
     createJob_aPIVersion,
@@ -83,19 +37,65 @@ module Network.AWS.ImportExport.Lens
     createJob_jobType,
     createJob_manifest,
     createJob_validateOnly,
-    createJobResponse_warningMessage,
-    createJobResponse_jobType,
     createJobResponse_signature,
-    createJobResponse_artifactList,
-    createJobResponse_signatureFileContents,
+    createJobResponse_jobType,
     createJobResponse_jobId,
+    createJobResponse_signatureFileContents,
+    createJobResponse_warningMessage,
+    createJobResponse_artifactList,
     createJobResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_aPIVersion,
+    listJobs_marker,
+    listJobs_maxJobs,
+    listJobsResponse_jobs,
+    listJobsResponse_isTruncated,
+    listJobsResponse_httpStatus,
+
+    -- ** UpdateJob
+    updateJob_aPIVersion,
+    updateJob_jobId,
+    updateJob_manifest,
+    updateJob_jobType,
+    updateJob_validateOnly,
+    updateJobResponse_success,
+    updateJobResponse_warningMessage,
+    updateJobResponse_artifactList,
+    updateJobResponse_httpStatus,
+
+    -- ** GetStatus
+    getStatus_aPIVersion,
+    getStatus_jobId,
+    getStatusResponse_carrier,
+    getStatusResponse_trackingNumber,
+    getStatusResponse_signature,
+    getStatusResponse_jobType,
+    getStatusResponse_jobId,
+    getStatusResponse_signatureFileContents,
+    getStatusResponse_errorCount,
+    getStatusResponse_currentManifest,
+    getStatusResponse_artifactList,
+    getStatusResponse_logBucket,
+    getStatusResponse_creationDate,
+    getStatusResponse_progressCode,
+    getStatusResponse_locationCode,
+    getStatusResponse_logKey,
+    getStatusResponse_locationMessage,
+    getStatusResponse_progressMessage,
+    getStatusResponse_httpStatus,
+
+    -- ** CancelJob
+    cancelJob_aPIVersion,
+    cancelJob_jobId,
+    cancelJobResponse_success,
+    cancelJobResponse_httpStatus,
 
     -- * Types
 
     -- ** Artifact
-    artifact_description,
     artifact_url,
+    artifact_description,
 
     -- ** Job
     job_jobType,

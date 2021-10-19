@@ -85,7 +85,7 @@ deleteLoadBalancerListeners_loadBalancerName = Lens.lens (\DeleteLoadBalancerLis
 
 -- | The client port numbers of the listeners.
 deleteLoadBalancerListeners_loadBalancerPorts :: Lens.Lens' DeleteLoadBalancerListeners [Prelude.Int]
-deleteLoadBalancerListeners_loadBalancerPorts = Lens.lens (\DeleteLoadBalancerListeners' {loadBalancerPorts} -> loadBalancerPorts) (\s@DeleteLoadBalancerListeners' {} a -> s {loadBalancerPorts = a} :: DeleteLoadBalancerListeners) Prelude.. Lens._Coerce
+deleteLoadBalancerListeners_loadBalancerPorts = Lens.lens (\DeleteLoadBalancerListeners' {loadBalancerPorts} -> loadBalancerPorts) (\s@DeleteLoadBalancerListeners' {} a -> s {loadBalancerPorts = a} :: DeleteLoadBalancerListeners) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteLoadBalancerListeners where
   type

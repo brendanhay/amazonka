@@ -84,16 +84,16 @@ newAddTags ::
 newAddTags pTags_ =
   AddTags'
     { loadBalancerNames = Prelude.mempty,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The name of the load balancer. You can specify one load balancer only.
 addTags_loadBalancerNames :: Lens.Lens' AddTags [Prelude.Text]
-addTags_loadBalancerNames = Lens.lens (\AddTags' {loadBalancerNames} -> loadBalancerNames) (\s@AddTags' {} a -> s {loadBalancerNames = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_loadBalancerNames = Lens.lens (\AddTags' {loadBalancerNames} -> loadBalancerNames) (\s@AddTags' {} a -> s {loadBalancerNames = a} :: AddTags) Prelude.. Lens.coerced
 
 -- | The tags.
 addTags_tags :: Lens.Lens' AddTags (Prelude.NonEmpty Tag)
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse

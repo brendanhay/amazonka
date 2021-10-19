@@ -99,7 +99,7 @@ enableAvailabilityZonesForLoadBalancer_loadBalancerName = Lens.lens (\EnableAvai
 -- | The Availability Zones. These must be in the same region as the load
 -- balancer.
 enableAvailabilityZonesForLoadBalancer_availabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer [Prelude.Text]
-enableAvailabilityZonesForLoadBalancer_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancer' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancer' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancer) Prelude.. Lens._Coerce
+enableAvailabilityZonesForLoadBalancer_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancer' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancer' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -195,7 +195,7 @@ newEnableAvailabilityZonesForLoadBalancerResponse
 
 -- | The updated list of Availability Zones for the load balancer.
 enableAvailabilityZonesForLoadBalancerResponse_availabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse (Prelude.Maybe [Prelude.Text])
-enableAvailabilityZonesForLoadBalancerResponse_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancerResponse' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancerResponse' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+enableAvailabilityZonesForLoadBalancerResponse_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancerResponse' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancerResponse' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 enableAvailabilityZonesForLoadBalancerResponse_httpStatus :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse Prelude.Int

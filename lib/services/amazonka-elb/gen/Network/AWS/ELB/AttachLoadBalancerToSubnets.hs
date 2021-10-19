@@ -95,7 +95,7 @@ attachLoadBalancerToSubnets_loadBalancerName = Lens.lens (\AttachLoadBalancerToS
 -- | The IDs of the subnets to add. You can add only one subnet per
 -- Availability Zone.
 attachLoadBalancerToSubnets_subnets :: Lens.Lens' AttachLoadBalancerToSubnets [Prelude.Text]
-attachLoadBalancerToSubnets_subnets = Lens.lens (\AttachLoadBalancerToSubnets' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnets' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnets) Prelude.. Lens._Coerce
+attachLoadBalancerToSubnets_subnets = Lens.lens (\AttachLoadBalancerToSubnets' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnets' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnets) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AttachLoadBalancerToSubnets where
   type
@@ -171,7 +171,7 @@ newAttachLoadBalancerToSubnetsResponse pHttpStatus_ =
 
 -- | The IDs of the subnets attached to the load balancer.
 attachLoadBalancerToSubnetsResponse_subnets :: Lens.Lens' AttachLoadBalancerToSubnetsResponse (Prelude.Maybe [Prelude.Text])
-attachLoadBalancerToSubnetsResponse_subnets = Lens.lens (\AttachLoadBalancerToSubnetsResponse' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnetsResponse' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnetsResponse) Prelude.. Lens.mapping Lens._Coerce
+attachLoadBalancerToSubnetsResponse_subnets = Lens.lens (\AttachLoadBalancerToSubnetsResponse' {subnets} -> subnets) (\s@AttachLoadBalancerToSubnetsResponse' {} a -> s {subnets = a} :: AttachLoadBalancerToSubnetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 attachLoadBalancerToSubnetsResponse_httpStatus :: Lens.Lens' AttachLoadBalancerToSubnetsResponse Prelude.Int

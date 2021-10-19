@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLimit' smart constructor.
 data Limit = Limit'
-  { -- | The name of the limit. The possible values are:
+  { -- | The maximum value of the limit.
+    max :: Prelude.Maybe Prelude.Text,
+    -- | The name of the limit. The possible values are:
     --
     -- -   classic-listeners
     --
     -- -   classic-load-balancers
     --
     -- -   classic-registered-instances
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The maximum value of the limit.
-    max :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,6 +50,8 @@ data Limit = Limit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'max', 'limit_max' - The maximum value of the limit.
+--
 -- 'name', 'limit_name' - The name of the limit. The possible values are:
 --
 -- -   classic-listeners
@@ -57,15 +59,17 @@ data Limit = Limit'
 -- -   classic-load-balancers
 --
 -- -   classic-registered-instances
---
--- 'max', 'limit_max' - The maximum value of the limit.
 newLimit ::
   Limit
 newLimit =
   Limit'
-    { name = Prelude.Nothing,
-      max = Prelude.Nothing
+    { max = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | The maximum value of the limit.
+limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
+limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
 -- | The name of the limit. The possible values are:
 --
@@ -77,14 +81,10 @@ newLimit =
 limit_name :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
 limit_name = Lens.lens (\Limit' {name} -> name) (\s@Limit' {} a -> s {name = a} :: Limit)
 
--- | The maximum value of the limit.
-limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
-limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
-
 instance Core.FromXML Limit where
   parseXML x =
     Limit'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Max")
+      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Name")
 
 instance Prelude.Hashable Limit
 

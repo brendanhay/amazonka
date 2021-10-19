@@ -87,7 +87,7 @@ newDescribeInstanceHealth pLoadBalancerName_ =
 
 -- | The IDs of the instances.
 describeInstanceHealth_instances :: Lens.Lens' DescribeInstanceHealth (Prelude.Maybe [Instance])
-describeInstanceHealth_instances = Lens.lens (\DescribeInstanceHealth' {instances} -> instances) (\s@DescribeInstanceHealth' {} a -> s {instances = a} :: DescribeInstanceHealth) Prelude.. Lens.mapping Lens._Coerce
+describeInstanceHealth_instances = Lens.lens (\DescribeInstanceHealth' {instances} -> instances) (\s@DescribeInstanceHealth' {} a -> s {instances = a} :: DescribeInstanceHealth) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the load balancer.
 describeInstanceHealth_loadBalancerName :: Lens.Lens' DescribeInstanceHealth Prelude.Text
@@ -167,7 +167,7 @@ newDescribeInstanceHealthResponse pHttpStatus_ =
 
 -- | Information about the health of the instances.
 describeInstanceHealthResponse_instanceStates :: Lens.Lens' DescribeInstanceHealthResponse (Prelude.Maybe [InstanceState])
-describeInstanceHealthResponse_instanceStates = Lens.lens (\DescribeInstanceHealthResponse' {instanceStates} -> instanceStates) (\s@DescribeInstanceHealthResponse' {} a -> s {instanceStates = a} :: DescribeInstanceHealthResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstanceHealthResponse_instanceStates = Lens.lens (\DescribeInstanceHealthResponse' {instanceStates} -> instanceStates) (\s@DescribeInstanceHealthResponse' {} a -> s {instanceStates = a} :: DescribeInstanceHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceHealthResponse_httpStatus :: Lens.Lens' DescribeInstanceHealthResponse Prelude.Int

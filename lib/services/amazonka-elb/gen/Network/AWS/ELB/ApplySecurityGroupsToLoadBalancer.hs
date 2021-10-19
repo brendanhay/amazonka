@@ -96,7 +96,7 @@ applySecurityGroupsToLoadBalancer_loadBalancerName = Lens.lens (\ApplySecurityGr
 -- | The IDs of the security groups to associate with the load balancer. Note
 -- that you cannot specify the name of the security group.
 applySecurityGroupsToLoadBalancer_securityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancer [Prelude.Text]
-applySecurityGroupsToLoadBalancer_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancer' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancer' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancer) Prelude.. Lens._Coerce
+applySecurityGroupsToLoadBalancer_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancer' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancer' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -190,7 +190,7 @@ newApplySecurityGroupsToLoadBalancerResponse
 
 -- | The IDs of the security groups associated with the load balancer.
 applySecurityGroupsToLoadBalancerResponse_securityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse (Prelude.Maybe [Prelude.Text])
-applySecurityGroupsToLoadBalancerResponse_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancerResponse' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancerResponse' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+applySecurityGroupsToLoadBalancerResponse_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancerResponse' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancerResponse' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 applySecurityGroupsToLoadBalancerResponse_httpStatus :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse Prelude.Int

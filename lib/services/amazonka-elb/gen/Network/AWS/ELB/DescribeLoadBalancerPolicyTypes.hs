@@ -88,7 +88,7 @@ newDescribeLoadBalancerPolicyTypes =
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
 describeLoadBalancerPolicyTypes_policyTypeNames :: Lens.Lens' DescribeLoadBalancerPolicyTypes (Prelude.Maybe [Prelude.Text])
-describeLoadBalancerPolicyTypes_policyTypeNames = Lens.lens (\DescribeLoadBalancerPolicyTypes' {policyTypeNames} -> policyTypeNames) (\s@DescribeLoadBalancerPolicyTypes' {} a -> s {policyTypeNames = a} :: DescribeLoadBalancerPolicyTypes) Prelude.. Lens.mapping Lens._Coerce
+describeLoadBalancerPolicyTypes_policyTypeNames = Lens.lens (\DescribeLoadBalancerPolicyTypes' {policyTypeNames} -> policyTypeNames) (\s@DescribeLoadBalancerPolicyTypes' {} a -> s {policyTypeNames = a} :: DescribeLoadBalancerPolicyTypes) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -179,7 +179,7 @@ newDescribeLoadBalancerPolicyTypesResponse
 
 -- | Information about the policy types.
 describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions :: Lens.Lens' DescribeLoadBalancerPolicyTypesResponse (Prelude.Maybe [PolicyTypeDescription])
-describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions = Lens.lens (\DescribeLoadBalancerPolicyTypesResponse' {policyTypeDescriptions} -> policyTypeDescriptions) (\s@DescribeLoadBalancerPolicyTypesResponse' {} a -> s {policyTypeDescriptions = a} :: DescribeLoadBalancerPolicyTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions = Lens.lens (\DescribeLoadBalancerPolicyTypesResponse' {policyTypeDescriptions} -> policyTypeDescriptions) (\s@DescribeLoadBalancerPolicyTypesResponse' {} a -> s {policyTypeDescriptions = a} :: DescribeLoadBalancerPolicyTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLoadBalancerPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerPolicyTypesResponse Prelude.Int

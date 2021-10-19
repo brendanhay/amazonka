@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyTypeDescription' smart constructor.
 data PolicyTypeDescription = PolicyTypeDescription'
-  { -- | The description of the policy attributes associated with the policies
-    -- defined by Elastic Load Balancing.
-    policyAttributeTypeDescriptions :: Prelude.Maybe [PolicyAttributeTypeDescription],
-    -- | The name of the policy type.
+  { -- | The name of the policy type.
     policyTypeName :: Prelude.Maybe Prelude.Text,
     -- | A description of the policy type.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The description of the policy attributes associated with the policies
+    -- defined by Elastic Load Balancing.
+    policyAttributeTypeDescriptions :: Prelude.Maybe [PolicyAttributeTypeDescription]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,21 @@ data PolicyTypeDescription = PolicyTypeDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyAttributeTypeDescriptions', 'policyTypeDescription_policyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies
--- defined by Elastic Load Balancing.
---
 -- 'policyTypeName', 'policyTypeDescription_policyTypeName' - The name of the policy type.
 --
 -- 'description', 'policyTypeDescription_description' - A description of the policy type.
+--
+-- 'policyAttributeTypeDescriptions', 'policyTypeDescription_policyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies
+-- defined by Elastic Load Balancing.
 newPolicyTypeDescription ::
   PolicyTypeDescription
 newPolicyTypeDescription =
   PolicyTypeDescription'
-    { policyAttributeTypeDescriptions =
+    { policyTypeName =
         Prelude.Nothing,
-      policyTypeName = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      policyAttributeTypeDescriptions = Prelude.Nothing
     }
-
--- | The description of the policy attributes associated with the policies
--- defined by Elastic Load Balancing.
-policyTypeDescription_policyAttributeTypeDescriptions :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe [PolicyAttributeTypeDescription])
-policyTypeDescription_policyAttributeTypeDescriptions = Lens.lens (\PolicyTypeDescription' {policyAttributeTypeDescriptions} -> policyAttributeTypeDescriptions) (\s@PolicyTypeDescription' {} a -> s {policyAttributeTypeDescriptions = a} :: PolicyTypeDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the policy type.
 policyTypeDescription_policyTypeName :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
@@ -76,15 +71,20 @@ policyTypeDescription_policyTypeName = Lens.lens (\PolicyTypeDescription' {polic
 policyTypeDescription_description :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
 policyTypeDescription_description = Lens.lens (\PolicyTypeDescription' {description} -> description) (\s@PolicyTypeDescription' {} a -> s {description = a} :: PolicyTypeDescription)
 
+-- | The description of the policy attributes associated with the policies
+-- defined by Elastic Load Balancing.
+policyTypeDescription_policyAttributeTypeDescriptions :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe [PolicyAttributeTypeDescription])
+policyTypeDescription_policyAttributeTypeDescriptions = Lens.lens (\PolicyTypeDescription' {policyAttributeTypeDescriptions} -> policyAttributeTypeDescriptions) (\s@PolicyTypeDescription' {} a -> s {policyAttributeTypeDescriptions = a} :: PolicyTypeDescription) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML PolicyTypeDescription where
   parseXML x =
     PolicyTypeDescription'
-      Prelude.<$> ( x Core..@? "PolicyAttributeTypeDescriptions"
+      Prelude.<$> (x Core..@? "PolicyTypeName")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> ( x Core..@? "PolicyAttributeTypeDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PolicyTypeName")
-      Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable PolicyTypeDescription
 

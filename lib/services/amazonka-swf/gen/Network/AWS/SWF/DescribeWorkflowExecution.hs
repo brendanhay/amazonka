@@ -59,8 +59,8 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     newDescribeWorkflowExecutionResponse,
 
     -- * Response Lenses
-    describeWorkflowExecutionResponse_latestExecutionContext,
     describeWorkflowExecutionResponse_latestActivityTaskTimestamp,
+    describeWorkflowExecutionResponse_latestExecutionContext,
     describeWorkflowExecutionResponse_httpStatus,
     describeWorkflowExecutionResponse_executionInfo,
     describeWorkflowExecutionResponse_executionConfiguration,
@@ -124,8 +124,8 @@ instance Core.AWSRequest DescribeWorkflowExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkflowExecutionResponse'
-            Prelude.<$> (x Core..?> "latestExecutionContext")
-            Prelude.<*> (x Core..?> "latestActivityTaskTimestamp")
+            Prelude.<$> (x Core..?> "latestActivityTaskTimestamp")
+            Prelude.<*> (x Core..?> "latestExecutionContext")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "executionInfo")
             Prelude.<*> (x Core..:> "executionConfiguration")
@@ -170,15 +170,15 @@ instance Core.ToQuery DescribeWorkflowExecution where
 --
 -- /See:/ 'newDescribeWorkflowExecutionResponse' smart constructor.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
-  { -- | The latest executionContext provided by the decider for this workflow
-    -- execution. A decider can provide an executionContext (a free-form
-    -- string) when closing a decision task using RespondDecisionTaskCompleted.
-    latestExecutionContext :: Prelude.Maybe Prelude.Text,
-    -- | The time when the last activity task was scheduled for this workflow
+  { -- | The time when the last activity task was scheduled for this workflow
     -- execution. You can use this information to determine if the workflow has
     -- not made progress for an unusually long period of time and might require
     -- a corrective action.
     latestActivityTaskTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The latest executionContext provided by the decider for this workflow
+    -- execution. A decider can provide an executionContext (a free-form
+    -- string) when closing a decision task using RespondDecisionTaskCompleted.
+    latestExecutionContext :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Information about the workflow execution.
@@ -200,14 +200,14 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestExecutionContext', 'describeWorkflowExecutionResponse_latestExecutionContext' - The latest executionContext provided by the decider for this workflow
--- execution. A decider can provide an executionContext (a free-form
--- string) when closing a decision task using RespondDecisionTaskCompleted.
---
 -- 'latestActivityTaskTimestamp', 'describeWorkflowExecutionResponse_latestActivityTaskTimestamp' - The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
 -- not made progress for an unusually long period of time and might require
 -- a corrective action.
+--
+-- 'latestExecutionContext', 'describeWorkflowExecutionResponse_latestExecutionContext' - The latest executionContext provided by the decider for this workflow
+-- execution. A decider can provide an executionContext (a free-form
+-- string) when closing a decision task using RespondDecisionTaskCompleted.
 --
 -- 'httpStatus', 'describeWorkflowExecutionResponse_httpStatus' - The response's http status code.
 --
@@ -234,10 +234,9 @@ newDescribeWorkflowExecutionResponse
   pExecutionConfiguration_
   pOpenCounts_ =
     DescribeWorkflowExecutionResponse'
-      { latestExecutionContext =
+      { latestActivityTaskTimestamp =
           Prelude.Nothing,
-        latestActivityTaskTimestamp =
-          Prelude.Nothing,
+        latestExecutionContext = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         executionInfo = pExecutionInfo_,
         executionConfiguration =
@@ -245,18 +244,18 @@ newDescribeWorkflowExecutionResponse
         openCounts = pOpenCounts_
       }
 
--- | The latest executionContext provided by the decider for this workflow
--- execution. A decider can provide an executionContext (a free-form
--- string) when closing a decision task using RespondDecisionTaskCompleted.
-describeWorkflowExecutionResponse_latestExecutionContext :: Lens.Lens' DescribeWorkflowExecutionResponse (Prelude.Maybe Prelude.Text)
-describeWorkflowExecutionResponse_latestExecutionContext = Lens.lens (\DescribeWorkflowExecutionResponse' {latestExecutionContext} -> latestExecutionContext) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestExecutionContext = a} :: DescribeWorkflowExecutionResponse)
-
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
 -- not made progress for an unusually long period of time and might require
 -- a corrective action.
 describeWorkflowExecutionResponse_latestActivityTaskTimestamp :: Lens.Lens' DescribeWorkflowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
 describeWorkflowExecutionResponse_latestActivityTaskTimestamp = Lens.lens (\DescribeWorkflowExecutionResponse' {latestActivityTaskTimestamp} -> latestActivityTaskTimestamp) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestActivityTaskTimestamp = a} :: DescribeWorkflowExecutionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The latest executionContext provided by the decider for this workflow
+-- execution. A decider can provide an executionContext (a free-form
+-- string) when closing a decision task using RespondDecisionTaskCompleted.
+describeWorkflowExecutionResponse_latestExecutionContext :: Lens.Lens' DescribeWorkflowExecutionResponse (Prelude.Maybe Prelude.Text)
+describeWorkflowExecutionResponse_latestExecutionContext = Lens.lens (\DescribeWorkflowExecutionResponse' {latestExecutionContext} -> latestExecutionContext) (\s@DescribeWorkflowExecutionResponse' {} a -> s {latestExecutionContext = a} :: DescribeWorkflowExecutionResponse)
 
 -- | The response's http status code.
 describeWorkflowExecutionResponse_httpStatus :: Lens.Lens' DescribeWorkflowExecutionResponse Prelude.Int

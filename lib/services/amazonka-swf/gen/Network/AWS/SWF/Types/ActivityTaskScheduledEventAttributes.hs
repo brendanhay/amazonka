@@ -29,8 +29,9 @@ import Network.AWS.SWF.Types.TaskList
 --
 -- /See:/ 'newActivityTaskScheduledEventAttributes' smart constructor.
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'
-  { -- | The input provided to the activity task.
-    input :: Prelude.Maybe Prelude.Text,
+  { -- | Data attached to the event that can be used by the decider in subsequent
+    -- workflow tasks. This data isn\'t sent to the activity.
+    control :: Prelude.Maybe Prelude.Text,
     -- | The maximum time before which the worker processing this task must
     -- report progress by calling RecordActivityTaskHeartbeat. If the timeout
     -- is exceeded, the activity task is automatically timed out. If the worker
@@ -39,9 +40,8 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
     heartbeatTimeout :: Prelude.Maybe Prelude.Text,
     -- | The maximum amount of time for this activity task.
     scheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
-    -- | The maximum amount of time the activity task can wait to be assigned to
-    -- a worker.
-    scheduleToStartTimeout :: Prelude.Maybe Prelude.Text,
+    -- | The input provided to the activity task.
+    input :: Prelude.Maybe Prelude.Text,
     -- | The priority to assign to the scheduled activity task. If set, this
     -- overrides any default priority value that was assigned when the activity
     -- type was registered.
@@ -54,9 +54,9 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
     taskPriority :: Prelude.Maybe Prelude.Text,
-    -- | Data attached to the event that can be used by the decider in subsequent
-    -- workflow tasks. This data isn\'t sent to the activity.
-    control :: Prelude.Maybe Prelude.Text,
+    -- | The maximum amount of time the activity task can wait to be assigned to
+    -- a worker.
+    scheduleToStartTimeout :: Prelude.Maybe Prelude.Text,
     -- | The maximum amount of time a worker may take to process the activity
     -- task.
     startToCloseTimeout :: Prelude.Maybe Prelude.Text,
@@ -82,7 +82,8 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'input', 'activityTaskScheduledEventAttributes_input' - The input provided to the activity task.
+-- 'control', 'activityTaskScheduledEventAttributes_control' - Data attached to the event that can be used by the decider in subsequent
+-- workflow tasks. This data isn\'t sent to the activity.
 --
 -- 'heartbeatTimeout', 'activityTaskScheduledEventAttributes_heartbeatTimeout' - The maximum time before which the worker processing this task must
 -- report progress by calling RecordActivityTaskHeartbeat. If the timeout
@@ -92,8 +93,7 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 --
 -- 'scheduleToCloseTimeout', 'activityTaskScheduledEventAttributes_scheduleToCloseTimeout' - The maximum amount of time for this activity task.
 --
--- 'scheduleToStartTimeout', 'activityTaskScheduledEventAttributes_scheduleToStartTimeout' - The maximum amount of time the activity task can wait to be assigned to
--- a worker.
+-- 'input', 'activityTaskScheduledEventAttributes_input' - The input provided to the activity task.
 --
 -- 'taskPriority', 'activityTaskScheduledEventAttributes_taskPriority' - The priority to assign to the scheduled activity task. If set, this
 -- overrides any default priority value that was assigned when the activity
@@ -107,8 +107,8 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
 --
--- 'control', 'activityTaskScheduledEventAttributes_control' - Data attached to the event that can be used by the decider in subsequent
--- workflow tasks. This data isn\'t sent to the activity.
+-- 'scheduleToStartTimeout', 'activityTaskScheduledEventAttributes_scheduleToStartTimeout' - The maximum amount of time the activity task can wait to be assigned to
+-- a worker.
 --
 -- 'startToCloseTimeout', 'activityTaskScheduledEventAttributes_startToCloseTimeout' - The maximum amount of time a worker may take to process the activity
 -- task.
@@ -139,15 +139,15 @@ newActivityTaskScheduledEventAttributes
   pTaskList_
   pDecisionTaskCompletedEventId_ =
     ActivityTaskScheduledEventAttributes'
-      { input =
+      { control =
           Prelude.Nothing,
         heartbeatTimeout = Prelude.Nothing,
         scheduleToCloseTimeout =
           Prelude.Nothing,
+        input = Prelude.Nothing,
+        taskPriority = Prelude.Nothing,
         scheduleToStartTimeout =
           Prelude.Nothing,
-        taskPriority = Prelude.Nothing,
-        control = Prelude.Nothing,
         startToCloseTimeout = Prelude.Nothing,
         activityType = pActivityType_,
         activityId = pActivityId_,
@@ -156,9 +156,10 @@ newActivityTaskScheduledEventAttributes
           pDecisionTaskCompletedEventId_
       }
 
--- | The input provided to the activity task.
-activityTaskScheduledEventAttributes_input :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
-activityTaskScheduledEventAttributes_input = Lens.lens (\ActivityTaskScheduledEventAttributes' {input} -> input) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {input = a} :: ActivityTaskScheduledEventAttributes)
+-- | Data attached to the event that can be used by the decider in subsequent
+-- workflow tasks. This data isn\'t sent to the activity.
+activityTaskScheduledEventAttributes_control :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+activityTaskScheduledEventAttributes_control = Lens.lens (\ActivityTaskScheduledEventAttributes' {control} -> control) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {control = a} :: ActivityTaskScheduledEventAttributes)
 
 -- | The maximum time before which the worker processing this task must
 -- report progress by calling RecordActivityTaskHeartbeat. If the timeout
@@ -172,10 +173,9 @@ activityTaskScheduledEventAttributes_heartbeatTimeout = Lens.lens (\ActivityTask
 activityTaskScheduledEventAttributes_scheduleToCloseTimeout :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 activityTaskScheduledEventAttributes_scheduleToCloseTimeout = Lens.lens (\ActivityTaskScheduledEventAttributes' {scheduleToCloseTimeout} -> scheduleToCloseTimeout) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {scheduleToCloseTimeout = a} :: ActivityTaskScheduledEventAttributes)
 
--- | The maximum amount of time the activity task can wait to be assigned to
--- a worker.
-activityTaskScheduledEventAttributes_scheduleToStartTimeout :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
-activityTaskScheduledEventAttributes_scheduleToStartTimeout = Lens.lens (\ActivityTaskScheduledEventAttributes' {scheduleToStartTimeout} -> scheduleToStartTimeout) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {scheduleToStartTimeout = a} :: ActivityTaskScheduledEventAttributes)
+-- | The input provided to the activity task.
+activityTaskScheduledEventAttributes_input :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+activityTaskScheduledEventAttributes_input = Lens.lens (\ActivityTaskScheduledEventAttributes' {input} -> input) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {input = a} :: ActivityTaskScheduledEventAttributes)
 
 -- | The priority to assign to the scheduled activity task. If set, this
 -- overrides any default priority value that was assigned when the activity
@@ -191,10 +191,10 @@ activityTaskScheduledEventAttributes_scheduleToStartTimeout = Lens.lens (\Activi
 activityTaskScheduledEventAttributes_taskPriority :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 activityTaskScheduledEventAttributes_taskPriority = Lens.lens (\ActivityTaskScheduledEventAttributes' {taskPriority} -> taskPriority) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {taskPriority = a} :: ActivityTaskScheduledEventAttributes)
 
--- | Data attached to the event that can be used by the decider in subsequent
--- workflow tasks. This data isn\'t sent to the activity.
-activityTaskScheduledEventAttributes_control :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
-activityTaskScheduledEventAttributes_control = Lens.lens (\ActivityTaskScheduledEventAttributes' {control} -> control) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {control = a} :: ActivityTaskScheduledEventAttributes)
+-- | The maximum amount of time the activity task can wait to be assigned to
+-- a worker.
+activityTaskScheduledEventAttributes_scheduleToStartTimeout :: Lens.Lens' ActivityTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+activityTaskScheduledEventAttributes_scheduleToStartTimeout = Lens.lens (\ActivityTaskScheduledEventAttributes' {scheduleToStartTimeout} -> scheduleToStartTimeout) (\s@ActivityTaskScheduledEventAttributes' {} a -> s {scheduleToStartTimeout = a} :: ActivityTaskScheduledEventAttributes)
 
 -- | The maximum amount of time a worker may take to process the activity
 -- task.
@@ -229,12 +229,12 @@ instance
       "ActivityTaskScheduledEventAttributes"
       ( \x ->
           ActivityTaskScheduledEventAttributes'
-            Prelude.<$> (x Core..:? "input")
+            Prelude.<$> (x Core..:? "control")
             Prelude.<*> (x Core..:? "heartbeatTimeout")
             Prelude.<*> (x Core..:? "scheduleToCloseTimeout")
-            Prelude.<*> (x Core..:? "scheduleToStartTimeout")
+            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "taskPriority")
-            Prelude.<*> (x Core..:? "control")
+            Prelude.<*> (x Core..:? "scheduleToStartTimeout")
             Prelude.<*> (x Core..:? "startToCloseTimeout")
             Prelude.<*> (x Core..: "activityType")
             Prelude.<*> (x Core..: "activityId")

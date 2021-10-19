@@ -48,11 +48,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRequestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes'
-  { -- | The @runId@ of the external workflow execution to cancel.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | The data attached to the event that can be used by the decider in
+  { -- | The data attached to the event that can be used by the decider in
     -- subsequent workflow tasks.
     control :: Prelude.Maybe Prelude.Text,
+    -- | The @runId@ of the external workflow execution to cancel.
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The @workflowId@ of the external workflow execution to cancel.
     workflowId :: Prelude.Text
   }
@@ -66,10 +66,10 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'requestCancelExternalWorkflowExecutionDecisionAttributes_runId' - The @runId@ of the external workflow execution to cancel.
---
 -- 'control', 'requestCancelExternalWorkflowExecutionDecisionAttributes_control' - The data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
+--
+-- 'runId', 'requestCancelExternalWorkflowExecutionDecisionAttributes_runId' - The @runId@ of the external workflow execution to cancel.
 --
 -- 'workflowId', 'requestCancelExternalWorkflowExecutionDecisionAttributes_workflowId' - The @workflowId@ of the external workflow execution to cancel.
 newRequestCancelExternalWorkflowExecutionDecisionAttributes ::
@@ -79,22 +79,22 @@ newRequestCancelExternalWorkflowExecutionDecisionAttributes ::
 newRequestCancelExternalWorkflowExecutionDecisionAttributes
   pWorkflowId_ =
     RequestCancelExternalWorkflowExecutionDecisionAttributes'
-      { runId =
+      { control =
           Prelude.Nothing,
-        control =
+        runId =
           Prelude.Nothing,
         workflowId =
           pWorkflowId_
       }
 
--- | The @runId@ of the external workflow execution to cancel.
-requestCancelExternalWorkflowExecutionDecisionAttributes_runId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
-requestCancelExternalWorkflowExecutionDecisionAttributes_runId = Lens.lens (\RequestCancelExternalWorkflowExecutionDecisionAttributes' {runId} -> runId) (\s@RequestCancelExternalWorkflowExecutionDecisionAttributes' {} a -> s {runId = a} :: RequestCancelExternalWorkflowExecutionDecisionAttributes)
-
 -- | The data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
 requestCancelExternalWorkflowExecutionDecisionAttributes_control :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
 requestCancelExternalWorkflowExecutionDecisionAttributes_control = Lens.lens (\RequestCancelExternalWorkflowExecutionDecisionAttributes' {control} -> control) (\s@RequestCancelExternalWorkflowExecutionDecisionAttributes' {} a -> s {control = a} :: RequestCancelExternalWorkflowExecutionDecisionAttributes)
+
+-- | The @runId@ of the external workflow execution to cancel.
+requestCancelExternalWorkflowExecutionDecisionAttributes_runId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
+requestCancelExternalWorkflowExecutionDecisionAttributes_runId = Lens.lens (\RequestCancelExternalWorkflowExecutionDecisionAttributes' {runId} -> runId) (\s@RequestCancelExternalWorkflowExecutionDecisionAttributes' {} a -> s {runId = a} :: RequestCancelExternalWorkflowExecutionDecisionAttributes)
 
 -- | The @workflowId@ of the external workflow execution to cancel.
 requestCancelExternalWorkflowExecutionDecisionAttributes_workflowId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Prelude.Text
@@ -116,8 +116,8 @@ instance
     RequestCancelExternalWorkflowExecutionDecisionAttributes' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("runId" Core..=) Prelude.<$> runId,
-              ("control" Core..=) Prelude.<$> control,
+            [ ("control" Core..=) Prelude.<$> control,
+              ("runId" Core..=) Prelude.<$> runId,
               Prelude.Just ("workflowId" Core..= workflowId)
             ]
         )

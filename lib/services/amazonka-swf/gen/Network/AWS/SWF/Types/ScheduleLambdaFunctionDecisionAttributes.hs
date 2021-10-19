@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScheduleLambdaFunctionDecisionAttributes' smart constructor.
 data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
-  { -- | The optional input data to be supplied to the Lambda function.
-    input :: Prelude.Maybe Prelude.Text,
-    -- | The data attached to the event that the decider can use in subsequent
+  { -- | The data attached to the event that the decider can use in subsequent
     -- workflow tasks. This data isn\'t sent to the Lambda task.
     control :: Prelude.Maybe Prelude.Text,
+    -- | The optional input data to be supplied to the Lambda function.
+    input :: Prelude.Maybe Prelude.Text,
     -- | The timeout value, in seconds, after which the Lambda function is
     -- considered to be failed once it has started. This can be any integer
     -- from 1-300 (1s-5m). If no value is supplied, than a default value of
@@ -55,10 +55,10 @@ data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'input', 'scheduleLambdaFunctionDecisionAttributes_input' - The optional input data to be supplied to the Lambda function.
---
 -- 'control', 'scheduleLambdaFunctionDecisionAttributes_control' - The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the Lambda task.
+--
+-- 'input', 'scheduleLambdaFunctionDecisionAttributes_input' - The optional input data to be supplied to the Lambda function.
 --
 -- 'startToCloseTimeout', 'scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout' - The timeout value, in seconds, after which the Lambda function is
 -- considered to be failed once it has started. This can be any integer
@@ -79,23 +79,23 @@ newScheduleLambdaFunctionDecisionAttributes
   pId_
   pName_ =
     ScheduleLambdaFunctionDecisionAttributes'
-      { input =
+      { control =
           Prelude.Nothing,
-        control = Prelude.Nothing,
+        input = Prelude.Nothing,
         startToCloseTimeout =
           Prelude.Nothing,
         id = pId_,
         name = pName_
       }
 
--- | The optional input data to be supplied to the Lambda function.
-scheduleLambdaFunctionDecisionAttributes_input :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleLambdaFunctionDecisionAttributes_input = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {input} -> input) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {input = a} :: ScheduleLambdaFunctionDecisionAttributes)
-
 -- | The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the Lambda task.
 scheduleLambdaFunctionDecisionAttributes_control :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleLambdaFunctionDecisionAttributes_control = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {control} -> control) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {control = a} :: ScheduleLambdaFunctionDecisionAttributes)
+
+-- | The optional input data to be supplied to the Lambda function.
+scheduleLambdaFunctionDecisionAttributes_input :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleLambdaFunctionDecisionAttributes_input = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {input} -> input) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {input = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | The timeout value, in seconds, after which the Lambda function is
 -- considered to be failed once it has started. This can be any integer
@@ -128,8 +128,8 @@ instance
   toJSON ScheduleLambdaFunctionDecisionAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("input" Core..=) Prelude.<$> input,
-            ("control" Core..=) Prelude.<$> control,
+          [ ("control" Core..=) Prelude.<$> control,
+            ("input" Core..=) Prelude.<$> input,
             ("startToCloseTimeout" Core..=)
               Prelude.<$> startToCloseTimeout,
             Prelude.Just ("id" Core..= id),

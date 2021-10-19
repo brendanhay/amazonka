@@ -29,12 +29,12 @@ import Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause
 --
 -- /See:/ 'newSignalExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkflowExecutionFailedEventAttributes'
-  { -- | The @runId@ of the external workflow execution that the signal was being
-    -- delivered to.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | The data attached to the event that the decider can use in subsequent
+  { -- | The data attached to the event that the decider can use in subsequent
     -- workflow tasks. This data isn\'t sent to the workflow execution.
     control :: Prelude.Maybe Prelude.Text,
+    -- | The @runId@ of the external workflow execution that the signal was being
+    -- delivered to.
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The @workflowId@ of the external workflow execution that the signal was
     -- being delivered to.
     workflowId :: Prelude.Text,
@@ -68,11 +68,11 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'signalExternalWorkflowExecutionFailedEventAttributes_runId' - The @runId@ of the external workflow execution that the signal was being
--- delivered to.
---
 -- 'control', 'signalExternalWorkflowExecutionFailedEventAttributes_control' - The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the workflow execution.
+--
+-- 'runId', 'signalExternalWorkflowExecutionFailedEventAttributes_runId' - The @runId@ of the external workflow execution that the signal was being
+-- delivered to.
 --
 -- 'workflowId', 'signalExternalWorkflowExecutionFailedEventAttributes_workflowId' - The @workflowId@ of the external workflow execution that the signal was
 -- being delivered to.
@@ -111,9 +111,9 @@ newSignalExternalWorkflowExecutionFailedEventAttributes
   pInitiatedEventId_
   pDecisionTaskCompletedEventId_ =
     SignalExternalWorkflowExecutionFailedEventAttributes'
-      { runId =
+      { control =
           Prelude.Nothing,
-        control =
+        runId =
           Prelude.Nothing,
         workflowId =
           pWorkflowId_,
@@ -124,15 +124,15 @@ newSignalExternalWorkflowExecutionFailedEventAttributes
           pDecisionTaskCompletedEventId_
       }
 
--- | The @runId@ of the external workflow execution that the signal was being
--- delivered to.
-signalExternalWorkflowExecutionFailedEventAttributes_runId :: Lens.Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
-signalExternalWorkflowExecutionFailedEventAttributes_runId = Lens.lens (\SignalExternalWorkflowExecutionFailedEventAttributes' {runId} -> runId) (\s@SignalExternalWorkflowExecutionFailedEventAttributes' {} a -> s {runId = a} :: SignalExternalWorkflowExecutionFailedEventAttributes)
-
 -- | The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the workflow execution.
 signalExternalWorkflowExecutionFailedEventAttributes_control :: Lens.Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
 signalExternalWorkflowExecutionFailedEventAttributes_control = Lens.lens (\SignalExternalWorkflowExecutionFailedEventAttributes' {control} -> control) (\s@SignalExternalWorkflowExecutionFailedEventAttributes' {} a -> s {control = a} :: SignalExternalWorkflowExecutionFailedEventAttributes)
+
+-- | The @runId@ of the external workflow execution that the signal was being
+-- delivered to.
+signalExternalWorkflowExecutionFailedEventAttributes_runId :: Lens.Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
+signalExternalWorkflowExecutionFailedEventAttributes_runId = Lens.lens (\SignalExternalWorkflowExecutionFailedEventAttributes' {runId} -> runId) (\s@SignalExternalWorkflowExecutionFailedEventAttributes' {} a -> s {runId = a} :: SignalExternalWorkflowExecutionFailedEventAttributes)
 
 -- | The @workflowId@ of the external workflow execution that the signal was
 -- being delivered to.
@@ -173,8 +173,8 @@ instance
       "SignalExternalWorkflowExecutionFailedEventAttributes"
       ( \x ->
           SignalExternalWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "runId")
-              Prelude.<*> (x Core..:? "control")
+            Prelude.<$> (x Core..:? "control")
+              Prelude.<*> (x Core..:? "runId")
               Prelude.<*> (x Core..: "workflowId")
               Prelude.<*> (x Core..: "cause")
               Prelude.<*> (x Core..: "initiatedEventId")

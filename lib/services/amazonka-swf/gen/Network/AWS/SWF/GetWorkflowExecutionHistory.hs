@@ -55,8 +55,8 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
 
     -- * Request Lenses
     getWorkflowExecutionHistory_nextPageToken,
-    getWorkflowExecutionHistory_maximumPageSize,
     getWorkflowExecutionHistory_reverseOrder,
+    getWorkflowExecutionHistory_maximumPageSize,
     getWorkflowExecutionHistory_domain,
     getWorkflowExecutionHistory_execution,
 
@@ -90,13 +90,13 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that are returned per call. Use
-    -- @nextPageToken@ to obtain further pages of results.
-    maximumPageSize :: Prelude.Maybe Prelude.Natural,
     -- | When set to @true@, returns the events in reverse order. By default the
     -- results are returned in ascending order of the @eventTimeStamp@ of the
     -- events.
     reverseOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results that are returned per call. Use
+    -- @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Prelude.Maybe Prelude.Natural,
     -- | The name of the domain containing the workflow execution.
     domain :: Prelude.Text,
     -- | Specifies the workflow execution for which to return the history.
@@ -122,12 +122,12 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
 --
--- 'maximumPageSize', 'getWorkflowExecutionHistory_maximumPageSize' - The maximum number of results that are returned per call. Use
--- @nextPageToken@ to obtain further pages of results.
---
 -- 'reverseOrder', 'getWorkflowExecutionHistory_reverseOrder' - When set to @true@, returns the events in reverse order. By default the
 -- results are returned in ascending order of the @eventTimeStamp@ of the
 -- events.
+--
+-- 'maximumPageSize', 'getWorkflowExecutionHistory_maximumPageSize' - The maximum number of results that are returned per call. Use
+-- @nextPageToken@ to obtain further pages of results.
 --
 -- 'domain', 'getWorkflowExecutionHistory_domain' - The name of the domain containing the workflow execution.
 --
@@ -142,8 +142,8 @@ newGetWorkflowExecutionHistory pDomain_ pExecution_ =
   GetWorkflowExecutionHistory'
     { nextPageToken =
         Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
+      maximumPageSize = Prelude.Nothing,
       domain = pDomain_,
       execution = pExecution_
     }
@@ -160,16 +160,16 @@ newGetWorkflowExecutionHistory pDomain_ pExecution_ =
 getWorkflowExecutionHistory_nextPageToken :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Text)
 getWorkflowExecutionHistory_nextPageToken = Lens.lens (\GetWorkflowExecutionHistory' {nextPageToken} -> nextPageToken) (\s@GetWorkflowExecutionHistory' {} a -> s {nextPageToken = a} :: GetWorkflowExecutionHistory)
 
--- | The maximum number of results that are returned per call. Use
--- @nextPageToken@ to obtain further pages of results.
-getWorkflowExecutionHistory_maximumPageSize :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Natural)
-getWorkflowExecutionHistory_maximumPageSize = Lens.lens (\GetWorkflowExecutionHistory' {maximumPageSize} -> maximumPageSize) (\s@GetWorkflowExecutionHistory' {} a -> s {maximumPageSize = a} :: GetWorkflowExecutionHistory)
-
 -- | When set to @true@, returns the events in reverse order. By default the
 -- results are returned in ascending order of the @eventTimeStamp@ of the
 -- events.
 getWorkflowExecutionHistory_reverseOrder :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Bool)
 getWorkflowExecutionHistory_reverseOrder = Lens.lens (\GetWorkflowExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetWorkflowExecutionHistory' {} a -> s {reverseOrder = a} :: GetWorkflowExecutionHistory)
+
+-- | The maximum number of results that are returned per call. Use
+-- @nextPageToken@ to obtain further pages of results.
+getWorkflowExecutionHistory_maximumPageSize :: Lens.Lens' GetWorkflowExecutionHistory (Prelude.Maybe Prelude.Natural)
+getWorkflowExecutionHistory_maximumPageSize = Lens.lens (\GetWorkflowExecutionHistory' {maximumPageSize} -> maximumPageSize) (\s@GetWorkflowExecutionHistory' {} a -> s {maximumPageSize = a} :: GetWorkflowExecutionHistory)
 
 -- | The name of the domain containing the workflow execution.
 getWorkflowExecutionHistory_domain :: Lens.Lens' GetWorkflowExecutionHistory Prelude.Text
@@ -238,9 +238,9 @@ instance Core.ToJSON GetWorkflowExecutionHistory where
     Core.object
       ( Prelude.catMaybes
           [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("execution" Core..= execution)
           ]
@@ -320,7 +320,7 @@ getWorkflowExecutionHistoryResponse_httpStatus = Lens.lens (\GetWorkflowExecutio
 
 -- | The list of history events.
 getWorkflowExecutionHistoryResponse_events :: Lens.Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-getWorkflowExecutionHistoryResponse_events = Lens.lens (\GetWorkflowExecutionHistoryResponse' {events} -> events) (\s@GetWorkflowExecutionHistoryResponse' {} a -> s {events = a} :: GetWorkflowExecutionHistoryResponse) Prelude.. Lens._Coerce
+getWorkflowExecutionHistoryResponse_events = Lens.lens (\GetWorkflowExecutionHistoryResponse' {events} -> events) (\s@GetWorkflowExecutionHistoryResponse' {} a -> s {events = a} :: GetWorkflowExecutionHistoryResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

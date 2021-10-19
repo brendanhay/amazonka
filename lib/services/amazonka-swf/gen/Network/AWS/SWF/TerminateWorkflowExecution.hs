@@ -62,10 +62,10 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     newTerminateWorkflowExecution,
 
     -- * Request Lenses
+    terminateWorkflowExecution_reason,
     terminateWorkflowExecution_runId,
     terminateWorkflowExecution_childPolicy,
     terminateWorkflowExecution_details,
-    terminateWorkflowExecution_reason,
     terminateWorkflowExecution_domain,
     terminateWorkflowExecution_workflowId,
 
@@ -84,7 +84,9 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'newTerminateWorkflowExecution' smart constructor.
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-  { -- | The runId of the workflow execution to terminate.
+  { -- | A descriptive reason for terminating the workflow execution.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The runId of the workflow execution to terminate.
     runId :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the policy to use for the child workflow executions of
     -- the workflow execution being terminated. This policy overrides the child
@@ -110,8 +112,6 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
     childPolicy :: Prelude.Maybe ChildPolicy,
     -- | Details for terminating the workflow execution.
     details :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive reason for terminating the workflow execution.
-    reason :: Prelude.Maybe Prelude.Text,
     -- | The domain of the workflow execution to terminate.
     domain :: Prelude.Text,
     -- | The workflowId of the workflow execution to terminate.
@@ -126,6 +126,8 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'reason', 'terminateWorkflowExecution_reason' - A descriptive reason for terminating the workflow execution.
 --
 -- 'runId', 'terminateWorkflowExecution_runId' - The runId of the workflow execution to terminate.
 --
@@ -153,8 +155,6 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 --
 -- 'details', 'terminateWorkflowExecution_details' - Details for terminating the workflow execution.
 --
--- 'reason', 'terminateWorkflowExecution_reason' - A descriptive reason for terminating the workflow execution.
---
 -- 'domain', 'terminateWorkflowExecution_domain' - The domain of the workflow execution to terminate.
 --
 -- 'workflowId', 'terminateWorkflowExecution_workflowId' - The workflowId of the workflow execution to terminate.
@@ -166,14 +166,18 @@ newTerminateWorkflowExecution ::
   TerminateWorkflowExecution
 newTerminateWorkflowExecution pDomain_ pWorkflowId_ =
   TerminateWorkflowExecution'
-    { runId =
+    { reason =
         Prelude.Nothing,
+      runId = Prelude.Nothing,
       childPolicy = Prelude.Nothing,
       details = Prelude.Nothing,
-      reason = Prelude.Nothing,
       domain = pDomain_,
       workflowId = pWorkflowId_
     }
+
+-- | A descriptive reason for terminating the workflow execution.
+terminateWorkflowExecution_reason :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
+terminateWorkflowExecution_reason = Lens.lens (\TerminateWorkflowExecution' {reason} -> reason) (\s@TerminateWorkflowExecution' {} a -> s {reason = a} :: TerminateWorkflowExecution)
 
 -- | The runId of the workflow execution to terminate.
 terminateWorkflowExecution_runId :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
@@ -206,10 +210,6 @@ terminateWorkflowExecution_childPolicy = Lens.lens (\TerminateWorkflowExecution'
 -- | Details for terminating the workflow execution.
 terminateWorkflowExecution_details :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
 terminateWorkflowExecution_details = Lens.lens (\TerminateWorkflowExecution' {details} -> details) (\s@TerminateWorkflowExecution' {} a -> s {details = a} :: TerminateWorkflowExecution)
-
--- | A descriptive reason for terminating the workflow execution.
-terminateWorkflowExecution_reason :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
-terminateWorkflowExecution_reason = Lens.lens (\TerminateWorkflowExecution' {reason} -> reason) (\s@TerminateWorkflowExecution' {} a -> s {reason = a} :: TerminateWorkflowExecution)
 
 -- | The domain of the workflow execution to terminate.
 terminateWorkflowExecution_domain :: Lens.Lens' TerminateWorkflowExecution Prelude.Text
@@ -251,10 +251,10 @@ instance Core.ToJSON TerminateWorkflowExecution where
   toJSON TerminateWorkflowExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("runId" Core..=) Prelude.<$> runId,
+          [ ("reason" Core..=) Prelude.<$> reason,
+            ("runId" Core..=) Prelude.<$> runId,
             ("childPolicy" Core..=) Prelude.<$> childPolicy,
             ("details" Core..=) Prelude.<$> details,
-            ("reason" Core..=) Prelude.<$> reason,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("workflowId" Core..= workflowId)
           ]

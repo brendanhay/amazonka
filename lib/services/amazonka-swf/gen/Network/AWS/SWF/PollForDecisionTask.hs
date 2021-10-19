@@ -73,10 +73,10 @@ module Network.AWS.SWF.PollForDecisionTask
     newPollForDecisionTask,
 
     -- * Request Lenses
-    pollForDecisionTask_identity,
     pollForDecisionTask_nextPageToken,
-    pollForDecisionTask_maximumPageSize,
     pollForDecisionTask_reverseOrder,
+    pollForDecisionTask_maximumPageSize,
+    pollForDecisionTask_identity,
     pollForDecisionTask_domain,
     pollForDecisionTask_taskList,
 
@@ -85,12 +85,12 @@ module Network.AWS.SWF.PollForDecisionTask
     newPollForDecisionTaskResponse,
 
     -- * Response Lenses
-    pollForDecisionTaskResponse_previousStartedEventId,
-    pollForDecisionTaskResponse_workflowExecution,
-    pollForDecisionTaskResponse_workflowType,
     pollForDecisionTaskResponse_nextPageToken,
+    pollForDecisionTaskResponse_workflowType,
+    pollForDecisionTaskResponse_previousStartedEventId,
     pollForDecisionTaskResponse_events,
     pollForDecisionTaskResponse_taskToken,
+    pollForDecisionTaskResponse_workflowExecution,
     pollForDecisionTaskResponse_httpStatus,
     pollForDecisionTaskResponse_startedEventId,
   )
@@ -105,12 +105,7 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'newPollForDecisionTask' smart constructor.
 data PollForDecisionTask = PollForDecisionTask'
-  { -- | Identity of the decider making the request, which is recorded in the
-    -- DecisionTaskStarted event in the workflow history. This enables
-    -- diagnostic tracing when problems arise. The form of this identity is
-    -- user defined.
-    identity :: Prelude.Maybe Prelude.Text,
-    -- | If @NextPageToken@ is returned there are more results available. The
+  { -- | If @NextPageToken@ is returned there are more results available. The
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
@@ -126,16 +121,21 @@ data PollForDecisionTask = PollForDecisionTask'
     -- next page of history records. Calling PollForDecisionTask with a
     -- @nextPageToken@ doesn\'t return a new decision task.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | When set to @true@, returns the events in reverse order. By default the
+    -- results are returned in ascending order of the @eventTimestamp@ of the
+    -- events.
+    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     --
     -- This is an upper limit only; the actual number of results returned per
     -- call may be fewer than the specified maximum.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
-    -- | When set to @true@, returns the events in reverse order. By default the
-    -- results are returned in ascending order of the @eventTimestamp@ of the
-    -- events.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
+    -- | Identity of the decider making the request, which is recorded in the
+    -- DecisionTaskStarted event in the workflow history. This enables
+    -- diagnostic tracing when problems arise. The form of this identity is
+    -- user defined.
+    identity :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain containing the task lists to poll.
     domain :: Prelude.Text,
     -- | Specifies the task list to poll for decision tasks.
@@ -156,11 +156,6 @@ data PollForDecisionTask = PollForDecisionTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identity', 'pollForDecisionTask_identity' - Identity of the decider making the request, which is recorded in the
--- DecisionTaskStarted event in the workflow history. This enables
--- diagnostic tracing when problems arise. The form of this identity is
--- user defined.
---
 -- 'nextPageToken', 'pollForDecisionTask_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
@@ -177,15 +172,20 @@ data PollForDecisionTask = PollForDecisionTask'
 -- next page of history records. Calling PollForDecisionTask with a
 -- @nextPageToken@ doesn\'t return a new decision task.
 --
+-- 'reverseOrder', 'pollForDecisionTask_reverseOrder' - When set to @true@, returns the events in reverse order. By default the
+-- results are returned in ascending order of the @eventTimestamp@ of the
+-- events.
+--
 -- 'maximumPageSize', 'pollForDecisionTask_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
 --
--- 'reverseOrder', 'pollForDecisionTask_reverseOrder' - When set to @true@, returns the events in reverse order. By default the
--- results are returned in ascending order of the @eventTimestamp@ of the
--- events.
+-- 'identity', 'pollForDecisionTask_identity' - Identity of the decider making the request, which is recorded in the
+-- DecisionTaskStarted event in the workflow history. This enables
+-- diagnostic tracing when problems arise. The form of this identity is
+-- user defined.
 --
 -- 'domain', 'pollForDecisionTask_domain' - The name of the domain containing the task lists to poll.
 --
@@ -203,20 +203,14 @@ newPollForDecisionTask ::
   PollForDecisionTask
 newPollForDecisionTask pDomain_ pTaskList_ =
   PollForDecisionTask'
-    { identity = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
+    { nextPageToken =
+        Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
+      maximumPageSize = Prelude.Nothing,
+      identity = Prelude.Nothing,
       domain = pDomain_,
       taskList = pTaskList_
     }
-
--- | Identity of the decider making the request, which is recorded in the
--- DecisionTaskStarted event in the workflow history. This enables
--- diagnostic tracing when problems arise. The form of this identity is
--- user defined.
-pollForDecisionTask_identity :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Text)
-pollForDecisionTask_identity = Lens.lens (\PollForDecisionTask' {identity} -> identity) (\s@PollForDecisionTask' {} a -> s {identity = a} :: PollForDecisionTask)
 
 -- | If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -236,6 +230,12 @@ pollForDecisionTask_identity = Lens.lens (\PollForDecisionTask' {identity} -> id
 pollForDecisionTask_nextPageToken :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Text)
 pollForDecisionTask_nextPageToken = Lens.lens (\PollForDecisionTask' {nextPageToken} -> nextPageToken) (\s@PollForDecisionTask' {} a -> s {nextPageToken = a} :: PollForDecisionTask)
 
+-- | When set to @true@, returns the events in reverse order. By default the
+-- results are returned in ascending order of the @eventTimestamp@ of the
+-- events.
+pollForDecisionTask_reverseOrder :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Bool)
+pollForDecisionTask_reverseOrder = Lens.lens (\PollForDecisionTask' {reverseOrder} -> reverseOrder) (\s@PollForDecisionTask' {} a -> s {reverseOrder = a} :: PollForDecisionTask)
+
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
 --
@@ -244,11 +244,12 @@ pollForDecisionTask_nextPageToken = Lens.lens (\PollForDecisionTask' {nextPageTo
 pollForDecisionTask_maximumPageSize :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Natural)
 pollForDecisionTask_maximumPageSize = Lens.lens (\PollForDecisionTask' {maximumPageSize} -> maximumPageSize) (\s@PollForDecisionTask' {} a -> s {maximumPageSize = a} :: PollForDecisionTask)
 
--- | When set to @true@, returns the events in reverse order. By default the
--- results are returned in ascending order of the @eventTimestamp@ of the
--- events.
-pollForDecisionTask_reverseOrder :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Bool)
-pollForDecisionTask_reverseOrder = Lens.lens (\PollForDecisionTask' {reverseOrder} -> reverseOrder) (\s@PollForDecisionTask' {} a -> s {reverseOrder = a} :: PollForDecisionTask)
+-- | Identity of the decider making the request, which is recorded in the
+-- DecisionTaskStarted event in the workflow history. This enables
+-- diagnostic tracing when problems arise. The form of this identity is
+-- user defined.
+pollForDecisionTask_identity :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Text)
+pollForDecisionTask_identity = Lens.lens (\PollForDecisionTask' {identity} -> identity) (\s@PollForDecisionTask' {} a -> s {identity = a} :: PollForDecisionTask)
 
 -- | The name of the domain containing the task lists to poll.
 pollForDecisionTask_domain :: Lens.Lens' PollForDecisionTask Prelude.Text
@@ -294,12 +295,12 @@ instance Core.AWSRequest PollForDecisionTask where
     Response.receiveJSON
       ( \s h x ->
           PollForDecisionTaskResponse'
-            Prelude.<$> (x Core..?> "previousStartedEventId")
-            Prelude.<*> (x Core..?> "workflowExecution")
+            Prelude.<$> (x Core..?> "nextPageToken")
             Prelude.<*> (x Core..?> "workflowType")
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "previousStartedEventId")
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "taskToken")
+            Prelude.<*> (x Core..?> "workflowExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "startedEventId")
       )
@@ -327,11 +328,11 @@ instance Core.ToJSON PollForDecisionTask where
   toJSON PollForDecisionTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("identity" Core..=) Prelude.<$> identity,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+          [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
+            ("identity" Core..=) Prelude.<$> identity,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("taskList" Core..= taskList)
           ]
@@ -348,17 +349,7 @@ instance Core.ToQuery PollForDecisionTask where
 --
 -- /See:/ 'newPollForDecisionTaskResponse' smart constructor.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
-  { -- | The ID of the DecisionTaskStarted event of the previous decision task of
-    -- this workflow execution that was processed by the decider. This can be
-    -- used to determine the events in the history new since the last decision
-    -- task received by the decider.
-    previousStartedEventId :: Prelude.Maybe Prelude.Integer,
-    -- | The workflow execution for which this decision task was created.
-    workflowExecution :: Prelude.Maybe WorkflowExecution,
-    -- | The type of the workflow execution for which this decision task was
-    -- created.
-    workflowType :: Prelude.Maybe WorkflowType,
-    -- | If a @NextPageToken@ was returned by a previous call, there are more
+  { -- | If a @NextPageToken@ was returned by a previous call, there are more
     -- results available. To retrieve the next page of results, make the call
     -- again using the returned token in @nextPageToken@. Keep all other
     -- arguments unchanged.
@@ -366,6 +357,14 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of the workflow execution for which this decision task was
+    -- created.
+    workflowType :: Prelude.Maybe WorkflowType,
+    -- | The ID of the DecisionTaskStarted event of the previous decision task of
+    -- this workflow execution that was processed by the decider. This can be
+    -- used to determine the events in the history new since the last decision
+    -- task received by the decider.
+    previousStartedEventId :: Prelude.Maybe Prelude.Integer,
     -- | A paginated list of history events of the workflow execution. The
     -- decider uses this during the processing of the decision task.
     events :: Prelude.Maybe [HistoryEvent],
@@ -373,6 +372,8 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     -- workers to communicate progress and response information back to the
     -- system about the task.
     taskToken :: Prelude.Maybe Prelude.Text,
+    -- | The workflow execution for which this decision task was created.
+    workflowExecution :: Prelude.Maybe WorkflowExecution,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the @DecisionTaskStarted@ event recorded in the history.
@@ -388,16 +389,6 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'previousStartedEventId', 'pollForDecisionTaskResponse_previousStartedEventId' - The ID of the DecisionTaskStarted event of the previous decision task of
--- this workflow execution that was processed by the decider. This can be
--- used to determine the events in the history new since the last decision
--- task received by the decider.
---
--- 'workflowExecution', 'pollForDecisionTaskResponse_workflowExecution' - The workflow execution for which this decision task was created.
---
--- 'workflowType', 'pollForDecisionTaskResponse_workflowType' - The type of the workflow execution for which this decision task was
--- created.
---
 -- 'nextPageToken', 'pollForDecisionTaskResponse_nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
 -- again using the returned token in @nextPageToken@. Keep all other
@@ -406,12 +397,22 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
 --
+-- 'workflowType', 'pollForDecisionTaskResponse_workflowType' - The type of the workflow execution for which this decision task was
+-- created.
+--
+-- 'previousStartedEventId', 'pollForDecisionTaskResponse_previousStartedEventId' - The ID of the DecisionTaskStarted event of the previous decision task of
+-- this workflow execution that was processed by the decider. This can be
+-- used to determine the events in the history new since the last decision
+-- task received by the decider.
+--
 -- 'events', 'pollForDecisionTaskResponse_events' - A paginated list of history events of the workflow execution. The
 -- decider uses this during the processing of the decision task.
 --
 -- 'taskToken', 'pollForDecisionTaskResponse_taskToken' - The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
 -- system about the task.
+--
+-- 'workflowExecution', 'pollForDecisionTaskResponse_workflowExecution' - The workflow execution for which this decision task was created.
 --
 -- 'httpStatus', 'pollForDecisionTaskResponse_httpStatus' - The response's http status code.
 --
@@ -426,32 +427,16 @@ newPollForDecisionTaskResponse
   pHttpStatus_
   pStartedEventId_ =
     PollForDecisionTaskResponse'
-      { previousStartedEventId =
+      { nextPageToken =
           Prelude.Nothing,
-        workflowExecution = Prelude.Nothing,
         workflowType = Prelude.Nothing,
-        nextPageToken = Prelude.Nothing,
+        previousStartedEventId = Prelude.Nothing,
         events = Prelude.Nothing,
         taskToken = Prelude.Nothing,
+        workflowExecution = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         startedEventId = pStartedEventId_
       }
-
--- | The ID of the DecisionTaskStarted event of the previous decision task of
--- this workflow execution that was processed by the decider. This can be
--- used to determine the events in the history new since the last decision
--- task received by the decider.
-pollForDecisionTaskResponse_previousStartedEventId :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe Prelude.Integer)
-pollForDecisionTaskResponse_previousStartedEventId = Lens.lens (\PollForDecisionTaskResponse' {previousStartedEventId} -> previousStartedEventId) (\s@PollForDecisionTaskResponse' {} a -> s {previousStartedEventId = a} :: PollForDecisionTaskResponse)
-
--- | The workflow execution for which this decision task was created.
-pollForDecisionTaskResponse_workflowExecution :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe WorkflowExecution)
-pollForDecisionTaskResponse_workflowExecution = Lens.lens (\PollForDecisionTaskResponse' {workflowExecution} -> workflowExecution) (\s@PollForDecisionTaskResponse' {} a -> s {workflowExecution = a} :: PollForDecisionTaskResponse)
-
--- | The type of the workflow execution for which this decision task was
--- created.
-pollForDecisionTaskResponse_workflowType :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe WorkflowType)
-pollForDecisionTaskResponse_workflowType = Lens.lens (\PollForDecisionTaskResponse' {workflowType} -> workflowType) (\s@PollForDecisionTaskResponse' {} a -> s {workflowType = a} :: PollForDecisionTaskResponse)
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -463,16 +448,32 @@ pollForDecisionTaskResponse_workflowType = Lens.lens (\PollForDecisionTaskRespon
 pollForDecisionTaskResponse_nextPageToken :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe Prelude.Text)
 pollForDecisionTaskResponse_nextPageToken = Lens.lens (\PollForDecisionTaskResponse' {nextPageToken} -> nextPageToken) (\s@PollForDecisionTaskResponse' {} a -> s {nextPageToken = a} :: PollForDecisionTaskResponse)
 
+-- | The type of the workflow execution for which this decision task was
+-- created.
+pollForDecisionTaskResponse_workflowType :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe WorkflowType)
+pollForDecisionTaskResponse_workflowType = Lens.lens (\PollForDecisionTaskResponse' {workflowType} -> workflowType) (\s@PollForDecisionTaskResponse' {} a -> s {workflowType = a} :: PollForDecisionTaskResponse)
+
+-- | The ID of the DecisionTaskStarted event of the previous decision task of
+-- this workflow execution that was processed by the decider. This can be
+-- used to determine the events in the history new since the last decision
+-- task received by the decider.
+pollForDecisionTaskResponse_previousStartedEventId :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe Prelude.Integer)
+pollForDecisionTaskResponse_previousStartedEventId = Lens.lens (\PollForDecisionTaskResponse' {previousStartedEventId} -> previousStartedEventId) (\s@PollForDecisionTaskResponse' {} a -> s {previousStartedEventId = a} :: PollForDecisionTaskResponse)
+
 -- | A paginated list of history events of the workflow execution. The
 -- decider uses this during the processing of the decision task.
 pollForDecisionTaskResponse_events :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe [HistoryEvent])
-pollForDecisionTaskResponse_events = Lens.lens (\PollForDecisionTaskResponse' {events} -> events) (\s@PollForDecisionTaskResponse' {} a -> s {events = a} :: PollForDecisionTaskResponse) Prelude.. Lens.mapping Lens._Coerce
+pollForDecisionTaskResponse_events = Lens.lens (\PollForDecisionTaskResponse' {events} -> events) (\s@PollForDecisionTaskResponse' {} a -> s {events = a} :: PollForDecisionTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
 -- system about the task.
 pollForDecisionTaskResponse_taskToken :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe Prelude.Text)
 pollForDecisionTaskResponse_taskToken = Lens.lens (\PollForDecisionTaskResponse' {taskToken} -> taskToken) (\s@PollForDecisionTaskResponse' {} a -> s {taskToken = a} :: PollForDecisionTaskResponse)
+
+-- | The workflow execution for which this decision task was created.
+pollForDecisionTaskResponse_workflowExecution :: Lens.Lens' PollForDecisionTaskResponse (Prelude.Maybe WorkflowExecution)
+pollForDecisionTaskResponse_workflowExecution = Lens.lens (\PollForDecisionTaskResponse' {workflowExecution} -> workflowExecution) (\s@PollForDecisionTaskResponse' {} a -> s {workflowExecution = a} :: PollForDecisionTaskResponse)
 
 -- | The response's http status code.
 pollForDecisionTaskResponse_httpStatus :: Lens.Lens' PollForDecisionTaskResponse Prelude.Int

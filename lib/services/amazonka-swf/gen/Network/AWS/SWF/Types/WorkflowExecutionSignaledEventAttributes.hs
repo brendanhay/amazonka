@@ -28,9 +28,9 @@ import Network.AWS.SWF.Types.WorkflowExecution
 --
 -- /See:/ 'newWorkflowExecutionSignaledEventAttributes' smart constructor.
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes'
-  { -- | The inputs provided with the signal. The decider can use the signal name
-    -- and inputs to determine how to process the signal.
-    input :: Prelude.Maybe Prelude.Text,
+  { -- | The workflow execution that sent the signal. This is set only of the
+    -- signal was sent by another workflow execution.
+    externalWorkflowExecution :: Prelude.Maybe WorkflowExecution,
     -- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
     -- corresponding to the @SignalExternalWorkflow@ decision to signal this
     -- workflow execution.The source event with this ID can be found in the
@@ -39,9 +39,9 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
     -- to this event. This field is set only if the signal was initiated by
     -- another workflow execution.
     externalInitiatedEventId :: Prelude.Maybe Prelude.Integer,
-    -- | The workflow execution that sent the signal. This is set only of the
-    -- signal was sent by another workflow execution.
-    externalWorkflowExecution :: Prelude.Maybe WorkflowExecution,
+    -- | The inputs provided with the signal. The decider can use the signal name
+    -- and inputs to determine how to process the signal.
+    input :: Prelude.Maybe Prelude.Text,
     -- | The name of the signal received. The decider can use the signal name and
     -- inputs to determine how to the process the signal.
     signalName :: Prelude.Text
@@ -56,8 +56,8 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'input', 'workflowExecutionSignaledEventAttributes_input' - The inputs provided with the signal. The decider can use the signal name
--- and inputs to determine how to process the signal.
+-- 'externalWorkflowExecution', 'workflowExecutionSignaledEventAttributes_externalWorkflowExecution' - The workflow execution that sent the signal. This is set only of the
+-- signal was sent by another workflow execution.
 --
 -- 'externalInitiatedEventId', 'workflowExecutionSignaledEventAttributes_externalInitiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @SignalExternalWorkflow@ decision to signal this
@@ -67,8 +67,8 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 -- to this event. This field is set only if the signal was initiated by
 -- another workflow execution.
 --
--- 'externalWorkflowExecution', 'workflowExecutionSignaledEventAttributes_externalWorkflowExecution' - The workflow execution that sent the signal. This is set only of the
--- signal was sent by another workflow execution.
+-- 'input', 'workflowExecutionSignaledEventAttributes_input' - The inputs provided with the signal. The decider can use the signal name
+-- and inputs to determine how to process the signal.
 --
 -- 'signalName', 'workflowExecutionSignaledEventAttributes_signalName' - The name of the signal received. The decider can use the signal name and
 -- inputs to determine how to the process the signal.
@@ -79,19 +79,18 @@ newWorkflowExecutionSignaledEventAttributes ::
 newWorkflowExecutionSignaledEventAttributes
   pSignalName_ =
     WorkflowExecutionSignaledEventAttributes'
-      { input =
+      { externalWorkflowExecution =
           Prelude.Nothing,
         externalInitiatedEventId =
           Prelude.Nothing,
-        externalWorkflowExecution =
-          Prelude.Nothing,
+        input = Prelude.Nothing,
         signalName = pSignalName_
       }
 
--- | The inputs provided with the signal. The decider can use the signal name
--- and inputs to determine how to process the signal.
-workflowExecutionSignaledEventAttributes_input :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe Prelude.Text)
-workflowExecutionSignaledEventAttributes_input = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {input} -> input) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {input = a} :: WorkflowExecutionSignaledEventAttributes)
+-- | The workflow execution that sent the signal. This is set only of the
+-- signal was sent by another workflow execution.
+workflowExecutionSignaledEventAttributes_externalWorkflowExecution :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe WorkflowExecution)
+workflowExecutionSignaledEventAttributes_externalWorkflowExecution = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {externalWorkflowExecution} -> externalWorkflowExecution) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {externalWorkflowExecution = a} :: WorkflowExecutionSignaledEventAttributes)
 
 -- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @SignalExternalWorkflow@ decision to signal this
@@ -103,10 +102,10 @@ workflowExecutionSignaledEventAttributes_input = Lens.lens (\WorkflowExecutionSi
 workflowExecutionSignaledEventAttributes_externalInitiatedEventId :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe Prelude.Integer)
 workflowExecutionSignaledEventAttributes_externalInitiatedEventId = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {externalInitiatedEventId} -> externalInitiatedEventId) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {externalInitiatedEventId = a} :: WorkflowExecutionSignaledEventAttributes)
 
--- | The workflow execution that sent the signal. This is set only of the
--- signal was sent by another workflow execution.
-workflowExecutionSignaledEventAttributes_externalWorkflowExecution :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe WorkflowExecution)
-workflowExecutionSignaledEventAttributes_externalWorkflowExecution = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {externalWorkflowExecution} -> externalWorkflowExecution) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {externalWorkflowExecution = a} :: WorkflowExecutionSignaledEventAttributes)
+-- | The inputs provided with the signal. The decider can use the signal name
+-- and inputs to determine how to process the signal.
+workflowExecutionSignaledEventAttributes_input :: Lens.Lens' WorkflowExecutionSignaledEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionSignaledEventAttributes_input = Lens.lens (\WorkflowExecutionSignaledEventAttributes' {input} -> input) (\s@WorkflowExecutionSignaledEventAttributes' {} a -> s {input = a} :: WorkflowExecutionSignaledEventAttributes)
 
 -- | The name of the signal received. The decider can use the signal name and
 -- inputs to determine how to the process the signal.
@@ -122,9 +121,9 @@ instance
       "WorkflowExecutionSignaledEventAttributes"
       ( \x ->
           WorkflowExecutionSignaledEventAttributes'
-            Prelude.<$> (x Core..:? "input")
+            Prelude.<$> (x Core..:? "externalWorkflowExecution")
             Prelude.<*> (x Core..:? "externalInitiatedEventId")
-            Prelude.<*> (x Core..:? "externalWorkflowExecution")
+            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..: "signalName")
       )
 

@@ -29,11 +29,11 @@ import Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause
 --
 -- /See:/ 'newRequestCancelExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes'
-  { -- | The @runId@ of the external workflow execution.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | The data attached to the event that the decider can use in subsequent
+  { -- | The data attached to the event that the decider can use in subsequent
     -- workflow tasks. This data isn\'t sent to the workflow execution.
     control :: Prelude.Maybe Prelude.Text,
+    -- | The @runId@ of the external workflow execution.
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The @workflowId@ of the external workflow to which the cancel request
     -- was to be delivered.
     workflowId :: Prelude.Text,
@@ -69,10 +69,10 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'requestCancelExternalWorkflowExecutionFailedEventAttributes_runId' - The @runId@ of the external workflow execution.
---
 -- 'control', 'requestCancelExternalWorkflowExecutionFailedEventAttributes_control' - The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the workflow execution.
+--
+-- 'runId', 'requestCancelExternalWorkflowExecutionFailedEventAttributes_runId' - The @runId@ of the external workflow execution.
 --
 -- 'workflowId', 'requestCancelExternalWorkflowExecutionFailedEventAttributes_workflowId' - The @workflowId@ of the external workflow to which the cancel request
 -- was to be delivered.
@@ -113,9 +113,9 @@ newRequestCancelExternalWorkflowExecutionFailedEventAttributes
   pInitiatedEventId_
   pDecisionTaskCompletedEventId_ =
     RequestCancelExternalWorkflowExecutionFailedEventAttributes'
-      { runId =
+      { control =
           Prelude.Nothing,
-        control =
+        runId =
           Prelude.Nothing,
         workflowId =
           pWorkflowId_,
@@ -127,14 +127,14 @@ newRequestCancelExternalWorkflowExecutionFailedEventAttributes
           pDecisionTaskCompletedEventId_
       }
 
--- | The @runId@ of the external workflow execution.
-requestCancelExternalWorkflowExecutionFailedEventAttributes_runId :: Lens.Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
-requestCancelExternalWorkflowExecutionFailedEventAttributes_runId = Lens.lens (\RequestCancelExternalWorkflowExecutionFailedEventAttributes' {runId} -> runId) (\s@RequestCancelExternalWorkflowExecutionFailedEventAttributes' {} a -> s {runId = a} :: RequestCancelExternalWorkflowExecutionFailedEventAttributes)
-
 -- | The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the workflow execution.
 requestCancelExternalWorkflowExecutionFailedEventAttributes_control :: Lens.Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
 requestCancelExternalWorkflowExecutionFailedEventAttributes_control = Lens.lens (\RequestCancelExternalWorkflowExecutionFailedEventAttributes' {control} -> control) (\s@RequestCancelExternalWorkflowExecutionFailedEventAttributes' {} a -> s {control = a} :: RequestCancelExternalWorkflowExecutionFailedEventAttributes)
+
+-- | The @runId@ of the external workflow execution.
+requestCancelExternalWorkflowExecutionFailedEventAttributes_runId :: Lens.Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
+requestCancelExternalWorkflowExecutionFailedEventAttributes_runId = Lens.lens (\RequestCancelExternalWorkflowExecutionFailedEventAttributes' {runId} -> runId) (\s@RequestCancelExternalWorkflowExecutionFailedEventAttributes' {} a -> s {runId = a} :: RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 
 -- | The @workflowId@ of the external workflow to which the cancel request
 -- was to be delivered.
@@ -177,8 +177,8 @@ instance
       "RequestCancelExternalWorkflowExecutionFailedEventAttributes"
       ( \x ->
           RequestCancelExternalWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "runId")
-              Prelude.<*> (x Core..:? "control")
+            Prelude.<$> (x Core..:? "control")
+              Prelude.<*> (x Core..:? "runId")
               Prelude.<*> (x Core..: "workflowId")
               Prelude.<*> (x Core..: "cause")
               Prelude.<*> (x Core..: "initiatedEventId")

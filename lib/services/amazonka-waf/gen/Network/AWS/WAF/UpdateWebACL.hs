@@ -214,7 +214,7 @@ newUpdateWebACL pWebACLId_ pChangeToken_ =
 --
 -- -   WafAction: Contains @Type@
 updateWebACL_updates :: Lens.Lens' UpdateWebACL (Prelude.Maybe [WebACLUpdate])
-updateWebACL_updates = Lens.lens (\UpdateWebACL' {updates} -> updates) (\s@UpdateWebACL' {} a -> s {updates = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens._Coerce
+updateWebACL_updates = Lens.lens (\UpdateWebACL' {updates} -> updates) (\s@UpdateWebACL' {} a -> s {updates = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | A default action for the web ACL, either ALLOW or BLOCK. AWS WAF
 -- performs the default action if a request doesn\'t match the criteria in

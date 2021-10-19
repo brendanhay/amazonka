@@ -223,7 +223,7 @@ listIPSetsResponse_nextMarker = Lens.lens (\ListIPSetsResponse' {nextMarker} -> 
 
 -- | An array of IPSetSummary objects.
 listIPSetsResponse_iPSets :: Lens.Lens' ListIPSetsResponse (Prelude.Maybe [IPSetSummary])
-listIPSetsResponse_iPSets = Lens.lens (\ListIPSetsResponse' {iPSets} -> iPSets) (\s@ListIPSetsResponse' {} a -> s {iPSets = a} :: ListIPSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listIPSetsResponse_iPSets = Lens.lens (\ListIPSetsResponse' {iPSets} -> iPSets) (\s@ListIPSetsResponse' {} a -> s {iPSets = a} :: ListIPSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Prelude.Int

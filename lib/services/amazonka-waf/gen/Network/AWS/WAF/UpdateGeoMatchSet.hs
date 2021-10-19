@@ -149,7 +149,7 @@ newUpdateGeoMatchSet
     UpdateGeoMatchSet'
       { geoMatchSetId = pGeoMatchSetId_,
         changeToken = pChangeToken_,
-        updates = Lens._Coerce Lens.# pUpdates_
+        updates = Lens.coerced Lens.# pUpdates_
       }
 
 -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to update.
@@ -174,7 +174,7 @@ updateGeoMatchSet_changeToken = Lens.lens (\UpdateGeoMatchSet' {changeToken} -> 
 --     To add multiple countries, include multiple @GeoMatchSetUpdate@
 --     objects in your request.
 updateGeoMatchSet_updates :: Lens.Lens' UpdateGeoMatchSet (Prelude.NonEmpty GeoMatchSetUpdate)
-updateGeoMatchSet_updates = Lens.lens (\UpdateGeoMatchSet' {updates} -> updates) (\s@UpdateGeoMatchSet' {} a -> s {updates = a} :: UpdateGeoMatchSet) Prelude.. Lens._Coerce
+updateGeoMatchSet_updates = Lens.lens (\UpdateGeoMatchSet' {updates} -> updates) (\s@UpdateGeoMatchSet' {} a -> s {updates = a} :: UpdateGeoMatchSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateGeoMatchSet where
   type

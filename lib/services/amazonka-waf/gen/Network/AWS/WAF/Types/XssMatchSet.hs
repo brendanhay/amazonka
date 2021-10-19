@@ -109,7 +109,7 @@ xssMatchSet_xssMatchSetId = Lens.lens (\XssMatchSet' {xssMatchSetId} -> xssMatch
 -- | Specifies the parts of web requests that you want to inspect for
 -- cross-site scripting attacks.
 xssMatchSet_xssMatchTuples :: Lens.Lens' XssMatchSet [XssMatchTuple]
-xssMatchSet_xssMatchTuples = Lens.lens (\XssMatchSet' {xssMatchTuples} -> xssMatchTuples) (\s@XssMatchSet' {} a -> s {xssMatchTuples = a} :: XssMatchSet) Prelude.. Lens._Coerce
+xssMatchSet_xssMatchTuples = Lens.lens (\XssMatchSet' {xssMatchTuples} -> xssMatchTuples) (\s@XssMatchSet' {} a -> s {xssMatchTuples = a} :: XssMatchSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON XssMatchSet where
   parseJSON =

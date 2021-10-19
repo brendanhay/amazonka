@@ -166,7 +166,7 @@ newUpdateSizeConstraintSet
       { sizeConstraintSetId =
           pSizeConstraintSetId_,
         changeToken = pChangeToken_,
-        updates = Lens._Coerce Lens.# pUpdates_
+        updates = Lens.coerced Lens.# pUpdates_
       }
 
 -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to
@@ -190,7 +190,7 @@ updateSizeConstraintSet_changeToken = Lens.lens (\UpdateSizeConstraintSet' {chan
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
 updateSizeConstraintSet_updates :: Lens.Lens' UpdateSizeConstraintSet (Prelude.NonEmpty SizeConstraintSetUpdate)
-updateSizeConstraintSet_updates = Lens.lens (\UpdateSizeConstraintSet' {updates} -> updates) (\s@UpdateSizeConstraintSet' {} a -> s {updates = a} :: UpdateSizeConstraintSet) Prelude.. Lens._Coerce
+updateSizeConstraintSet_updates = Lens.lens (\UpdateSizeConstraintSet' {updates} -> updates) (\s@UpdateSizeConstraintSet' {} a -> s {updates = a} :: UpdateSizeConstraintSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateSizeConstraintSet where
   type

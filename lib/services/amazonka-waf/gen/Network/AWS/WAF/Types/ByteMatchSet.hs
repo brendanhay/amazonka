@@ -121,7 +121,7 @@ byteMatchSet_byteMatchSetId = Lens.lens (\ByteMatchSet' {byteMatchSetId} -> byte
 -- location in requests that you want AWS WAF to search, and other
 -- settings.
 byteMatchSet_byteMatchTuples :: Lens.Lens' ByteMatchSet [ByteMatchTuple]
-byteMatchSet_byteMatchTuples = Lens.lens (\ByteMatchSet' {byteMatchTuples} -> byteMatchTuples) (\s@ByteMatchSet' {} a -> s {byteMatchTuples = a} :: ByteMatchSet) Prelude.. Lens._Coerce
+byteMatchSet_byteMatchTuples = Lens.lens (\ByteMatchSet' {byteMatchTuples} -> byteMatchTuples) (\s@ByteMatchSet' {} a -> s {byteMatchTuples = a} :: ByteMatchSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON ByteMatchSet where
   parseJSON =

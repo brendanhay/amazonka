@@ -55,8 +55,8 @@ module Network.AWS.WAF.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_nextMarker,
     listTagsForResourceResponse_tagInfoForResource,
+    listTagsForResourceResponse_nextMarker,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "TagInfoForResource")
+            Prelude.<$> (x Core..?> "TagInfoForResource")
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,8 +163,8 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextMarker :: Prelude.Maybe Prelude.Text,
-    tagInfoForResource :: Prelude.Maybe TagInfoForResource,
+  { tagInfoForResource :: Prelude.Maybe TagInfoForResource,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listTagsForResourceResponse_nextMarker' -
---
 -- 'tagInfoForResource', 'listTagsForResourceResponse_tagInfoForResource' -
+--
+-- 'nextMarker', 'listTagsForResourceResponse_nextMarker' -
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -189,19 +189,19 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { nextMarker =
+    { tagInfoForResource =
         Prelude.Nothing,
-      tagInfoForResource = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-listTagsForResourceResponse_nextMarker :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
-listTagsForResourceResponse_nextMarker = Lens.lens (\ListTagsForResourceResponse' {nextMarker} -> nextMarker) (\s@ListTagsForResourceResponse' {} a -> s {nextMarker = a} :: ListTagsForResourceResponse)
-
--- |
 listTagsForResourceResponse_tagInfoForResource :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe TagInfoForResource)
 listTagsForResourceResponse_tagInfoForResource = Lens.lens (\ListTagsForResourceResponse' {tagInfoForResource} -> tagInfoForResource) (\s@ListTagsForResourceResponse' {} a -> s {tagInfoForResource = a} :: ListTagsForResourceResponse)
+
+-- |
+listTagsForResourceResponse_nextMarker :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_nextMarker = Lens.lens (\ListTagsForResourceResponse' {nextMarker} -> nextMarker) (\s@ListTagsForResourceResponse' {} a -> s {nextMarker = a} :: ListTagsForResourceResponse)
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int

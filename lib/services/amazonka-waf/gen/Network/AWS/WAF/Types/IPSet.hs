@@ -120,7 +120,7 @@ iPSet_iPSetId = Lens.lens (\IPSet' {iPSetId} -> iPSetId) (\s@IPSet' {} a -> s {i
 -- HTTP proxy or a load balancer to send the request, this is the value of
 -- the c-ip field in the CloudFront access logs.
 iPSet_iPSetDescriptors :: Lens.Lens' IPSet [IPSetDescriptor]
-iPSet_iPSetDescriptors = Lens.lens (\IPSet' {iPSetDescriptors} -> iPSetDescriptors) (\s@IPSet' {} a -> s {iPSetDescriptors = a} :: IPSet) Prelude.. Lens._Coerce
+iPSet_iPSetDescriptors = Lens.lens (\IPSet' {iPSetDescriptors} -> iPSetDescriptors) (\s@IPSet' {} a -> s {iPSetDescriptors = a} :: IPSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON IPSet where
   parseJSON =

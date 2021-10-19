@@ -165,7 +165,7 @@ updateRule_changeToken = Lens.lens (\UpdateRule' {changeToken} -> changeToken) (
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
 updateRule_updates :: Lens.Lens' UpdateRule [RuleUpdate]
-updateRule_updates = Lens.lens (\UpdateRule' {updates} -> updates) (\s@UpdateRule' {} a -> s {updates = a} :: UpdateRule) Prelude.. Lens._Coerce
+updateRule_updates = Lens.lens (\UpdateRule' {updates} -> updates) (\s@UpdateRule' {} a -> s {updates = a} :: UpdateRule) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateRule where
   type AWSResponse UpdateRule = UpdateRuleResponse

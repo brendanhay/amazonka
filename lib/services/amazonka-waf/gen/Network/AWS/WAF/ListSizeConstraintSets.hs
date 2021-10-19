@@ -244,7 +244,7 @@ newListSizeConstraintSetsResponse pHttpStatus_ =
 
 -- | An array of SizeConstraintSetSummary objects.
 listSizeConstraintSetsResponse_sizeConstraintSets :: Lens.Lens' ListSizeConstraintSetsResponse (Prelude.Maybe [SizeConstraintSetSummary])
-listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstraintSetsResponse' {sizeConstraintSets} -> sizeConstraintSets) (\s@ListSizeConstraintSetsResponse' {} a -> s {sizeConstraintSets = a} :: ListSizeConstraintSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstraintSetsResponse' {sizeConstraintSets} -> sizeConstraintSets) (\s@ListSizeConstraintSetsResponse' {} a -> s {sizeConstraintSets = a} :: ListSizeConstraintSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @SizeConstraintSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a

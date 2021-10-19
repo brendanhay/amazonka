@@ -80,7 +80,7 @@ newStopMetricStreams =
 -- to access all of the metric streams that you list here, then none of the
 -- streams that you list in the operation will stop streaming.
 stopMetricStreams_names :: Lens.Lens' StopMetricStreams [Prelude.Text]
-stopMetricStreams_names = Lens.lens (\StopMetricStreams' {names} -> names) (\s@StopMetricStreams' {} a -> s {names = a} :: StopMetricStreams) Prelude.. Lens._Coerce
+stopMetricStreams_names = Lens.lens (\StopMetricStreams' {names} -> names) (\s@StopMetricStreams' {} a -> s {names = a} :: StopMetricStreams) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StopMetricStreams where
   type

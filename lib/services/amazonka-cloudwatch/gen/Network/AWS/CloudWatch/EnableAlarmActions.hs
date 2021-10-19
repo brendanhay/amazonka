@@ -65,7 +65,7 @@ newEnableAlarmActions =
 
 -- | The names of the alarms.
 enableAlarmActions_alarmNames :: Lens.Lens' EnableAlarmActions [Prelude.Text]
-enableAlarmActions_alarmNames = Lens.lens (\EnableAlarmActions' {alarmNames} -> alarmNames) (\s@EnableAlarmActions' {} a -> s {alarmNames = a} :: EnableAlarmActions) Prelude.. Lens._Coerce
+enableAlarmActions_alarmNames = Lens.lens (\EnableAlarmActions' {alarmNames} -> alarmNames) (\s@EnableAlarmActions' {} a -> s {alarmNames = a} :: EnableAlarmActions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest EnableAlarmActions where
   type

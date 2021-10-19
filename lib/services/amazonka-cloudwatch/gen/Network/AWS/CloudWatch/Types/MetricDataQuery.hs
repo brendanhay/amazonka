@@ -56,20 +56,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetricDataQuery' smart constructor.
 data MetricDataQuery = MetricDataQuery'
-  { -- | The ID of the account where the metrics are located, if this is a
-    -- cross-account alarm.
-    --
-    -- Use this field only for @PutMetricAlarm@ operations. It is not used in
-    -- @GetMetricData@ operations.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The metric to be returned, along with statistics, period, and units. Use
-    -- this parameter only if this object is retrieving a metric and not
-    -- performing a math expression on returned data.
-    --
-    -- Within one MetricDataQuery object, you must specify either @Expression@
-    -- or @MetricStat@ but not both.
-    metricStat :: Prelude.Maybe MetricStat,
-    -- | When used in @GetMetricData@, this option indicates whether to return
+  { -- | When used in @GetMetricData@, this option indicates whether to return
     -- the timestamps and raw data values of this metric. If you are performing
     -- this call just to do math expressions and do not also need the raw data
     -- returned, you can specify @False@. If you omit this, the default of
@@ -79,16 +66,6 @@ data MetricDataQuery = MetricDataQuery'
     -- result to use as the alarm. For all other metrics and expressions in the
     -- same @PutMetricAlarm@ operation, specify @ReturnData@ as False.
     returnData :: Prelude.Maybe Prelude.Bool,
-    -- | A human-readable label for this metric or expression. This is especially
-    -- useful if this is an expression, so that you know what the value
-    -- represents. If the metric or expression is shown in a CloudWatch
-    -- dashboard widget, the label is shown. If Label is omitted, CloudWatch
-    -- generates a default.
-    --
-    -- You can put dynamic expressions into a label, so that it is more
-    -- descriptive. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
-    label :: Prelude.Maybe Prelude.Text,
     -- | The granularity, in seconds, of the returned data points. For metrics
     -- with regular resolution, a period can be as short as one minute (60
     -- seconds) and must be a multiple of 60. For high-resolution metrics that
@@ -97,6 +74,12 @@ data MetricDataQuery = MetricDataQuery'
     -- metrics stored by a @PutMetricData@ operation that includes a
     -- @StorageResolution of 1 second@.
     period :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the account where the metrics are located, if this is a
+    -- cross-account alarm.
+    --
+    -- Use this field only for @PutMetricAlarm@ operations. It is not used in
+    -- @GetMetricData@ operations.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The math expression to be performed on the returned data, if this object
     -- is performing a math expression. This expression can use the @Id@ of the
     -- other metrics to refer to those metrics, and can also use the @Id@ of
@@ -108,6 +91,23 @@ data MetricDataQuery = MetricDataQuery'
     -- Within each MetricDataQuery object, you must specify either @Expression@
     -- or @MetricStat@ but not both.
     expression :: Prelude.Maybe Prelude.Text,
+    -- | A human-readable label for this metric or expression. This is especially
+    -- useful if this is an expression, so that you know what the value
+    -- represents. If the metric or expression is shown in a CloudWatch
+    -- dashboard widget, the label is shown. If Label is omitted, CloudWatch
+    -- generates a default.
+    --
+    -- You can put dynamic expressions into a label, so that it is more
+    -- descriptive. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
+    label :: Prelude.Maybe Prelude.Text,
+    -- | The metric to be returned, along with statistics, period, and units. Use
+    -- this parameter only if this object is retrieving a metric and not
+    -- performing a math expression on returned data.
+    --
+    -- Within one MetricDataQuery object, you must specify either @Expression@
+    -- or @MetricStat@ but not both.
+    metricStat :: Prelude.Maybe MetricStat,
     -- | A short name used to tie this object to the results in the response.
     -- This name must be unique within a single call to @GetMetricData@. If you
     -- are performing math expressions on this set of data, this name
@@ -126,19 +126,6 @@ data MetricDataQuery = MetricDataQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'metricDataQuery_accountId' - The ID of the account where the metrics are located, if this is a
--- cross-account alarm.
---
--- Use this field only for @PutMetricAlarm@ operations. It is not used in
--- @GetMetricData@ operations.
---
--- 'metricStat', 'metricDataQuery_metricStat' - The metric to be returned, along with statistics, period, and units. Use
--- this parameter only if this object is retrieving a metric and not
--- performing a math expression on returned data.
---
--- Within one MetricDataQuery object, you must specify either @Expression@
--- or @MetricStat@ but not both.
---
 -- 'returnData', 'metricDataQuery_returnData' - When used in @GetMetricData@, this option indicates whether to return
 -- the timestamps and raw data values of this metric. If you are performing
 -- this call just to do math expressions and do not also need the raw data
@@ -148,6 +135,31 @@ data MetricDataQuery = MetricDataQuery'
 -- When used in @PutMetricAlarm@, specify @True@ for the one expression
 -- result to use as the alarm. For all other metrics and expressions in the
 -- same @PutMetricAlarm@ operation, specify @ReturnData@ as False.
+--
+-- 'period', 'metricDataQuery_period' - The granularity, in seconds, of the returned data points. For metrics
+-- with regular resolution, a period can be as short as one minute (60
+-- seconds) and must be a multiple of 60. For high-resolution metrics that
+-- are collected at intervals of less than one minute, the period can be 1,
+-- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those
+-- metrics stored by a @PutMetricData@ operation that includes a
+-- @StorageResolution of 1 second@.
+--
+-- 'accountId', 'metricDataQuery_accountId' - The ID of the account where the metrics are located, if this is a
+-- cross-account alarm.
+--
+-- Use this field only for @PutMetricAlarm@ operations. It is not used in
+-- @GetMetricData@ operations.
+--
+-- 'expression', 'metricDataQuery_expression' - The math expression to be performed on the returned data, if this object
+-- is performing a math expression. This expression can use the @Id@ of the
+-- other metrics to refer to those metrics, and can also use the @Id@ of
+-- other expressions to use the result of those expressions. For more
+-- information about metric math expressions, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions>
+-- in the /Amazon CloudWatch User Guide/.
+--
+-- Within each MetricDataQuery object, you must specify either @Expression@
+-- or @MetricStat@ but not both.
 --
 -- 'label', 'metricDataQuery_label' - A human-readable label for this metric or expression. This is especially
 -- useful if this is an expression, so that you know what the value
@@ -159,23 +171,11 @@ data MetricDataQuery = MetricDataQuery'
 -- descriptive. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
 --
--- 'period', 'metricDataQuery_period' - The granularity, in seconds, of the returned data points. For metrics
--- with regular resolution, a period can be as short as one minute (60
--- seconds) and must be a multiple of 60. For high-resolution metrics that
--- are collected at intervals of less than one minute, the period can be 1,
--- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those
--- metrics stored by a @PutMetricData@ operation that includes a
--- @StorageResolution of 1 second@.
+-- 'metricStat', 'metricDataQuery_metricStat' - The metric to be returned, along with statistics, period, and units. Use
+-- this parameter only if this object is retrieving a metric and not
+-- performing a math expression on returned data.
 --
--- 'expression', 'metricDataQuery_expression' - The math expression to be performed on the returned data, if this object
--- is performing a math expression. This expression can use the @Id@ of the
--- other metrics to refer to those metrics, and can also use the @Id@ of
--- other expressions to use the result of those expressions. For more
--- information about metric math expressions, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions>
--- in the /Amazon CloudWatch User Guide/.
---
--- Within each MetricDataQuery object, you must specify either @Expression@
+-- Within one MetricDataQuery object, you must specify either @Expression@
 -- or @MetricStat@ but not both.
 --
 -- 'id', 'metricDataQuery_id' - A short name used to tie this object to the results in the response.
@@ -190,31 +190,14 @@ newMetricDataQuery ::
   MetricDataQuery
 newMetricDataQuery pId_ =
   MetricDataQuery'
-    { accountId = Prelude.Nothing,
-      metricStat = Prelude.Nothing,
-      returnData = Prelude.Nothing,
-      label = Prelude.Nothing,
+    { returnData = Prelude.Nothing,
       period = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       expression = Prelude.Nothing,
+      label = Prelude.Nothing,
+      metricStat = Prelude.Nothing,
       id = pId_
     }
-
--- | The ID of the account where the metrics are located, if this is a
--- cross-account alarm.
---
--- Use this field only for @PutMetricAlarm@ operations. It is not used in
--- @GetMetricData@ operations.
-metricDataQuery_accountId :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
-metricDataQuery_accountId = Lens.lens (\MetricDataQuery' {accountId} -> accountId) (\s@MetricDataQuery' {} a -> s {accountId = a} :: MetricDataQuery)
-
--- | The metric to be returned, along with statistics, period, and units. Use
--- this parameter only if this object is retrieving a metric and not
--- performing a math expression on returned data.
---
--- Within one MetricDataQuery object, you must specify either @Expression@
--- or @MetricStat@ but not both.
-metricDataQuery_metricStat :: Lens.Lens' MetricDataQuery (Prelude.Maybe MetricStat)
-metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metricStat) (\s@MetricDataQuery' {} a -> s {metricStat = a} :: MetricDataQuery)
 
 -- | When used in @GetMetricData@, this option indicates whether to return
 -- the timestamps and raw data values of this metric. If you are performing
@@ -228,18 +211,6 @@ metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metric
 metricDataQuery_returnData :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Bool)
 metricDataQuery_returnData = Lens.lens (\MetricDataQuery' {returnData} -> returnData) (\s@MetricDataQuery' {} a -> s {returnData = a} :: MetricDataQuery)
 
--- | A human-readable label for this metric or expression. This is especially
--- useful if this is an expression, so that you know what the value
--- represents. If the metric or expression is shown in a CloudWatch
--- dashboard widget, the label is shown. If Label is omitted, CloudWatch
--- generates a default.
---
--- You can put dynamic expressions into a label, so that it is more
--- descriptive. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
-metricDataQuery_label :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
-metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@MetricDataQuery' {} a -> s {label = a} :: MetricDataQuery)
-
 -- | The granularity, in seconds, of the returned data points. For metrics
 -- with regular resolution, a period can be as short as one minute (60
 -- seconds) and must be a multiple of 60. For high-resolution metrics that
@@ -249,6 +220,14 @@ metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@Metri
 -- @StorageResolution of 1 second@.
 metricDataQuery_period :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Natural)
 metricDataQuery_period = Lens.lens (\MetricDataQuery' {period} -> period) (\s@MetricDataQuery' {} a -> s {period = a} :: MetricDataQuery)
+
+-- | The ID of the account where the metrics are located, if this is a
+-- cross-account alarm.
+--
+-- Use this field only for @PutMetricAlarm@ operations. It is not used in
+-- @GetMetricData@ operations.
+metricDataQuery_accountId :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
+metricDataQuery_accountId = Lens.lens (\MetricDataQuery' {accountId} -> accountId) (\s@MetricDataQuery' {} a -> s {accountId = a} :: MetricDataQuery)
 
 -- | The math expression to be performed on the returned data, if this object
 -- is performing a math expression. This expression can use the @Id@ of the
@@ -263,6 +242,27 @@ metricDataQuery_period = Lens.lens (\MetricDataQuery' {period} -> period) (\s@Me
 metricDataQuery_expression :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
 metricDataQuery_expression = Lens.lens (\MetricDataQuery' {expression} -> expression) (\s@MetricDataQuery' {} a -> s {expression = a} :: MetricDataQuery)
 
+-- | A human-readable label for this metric or expression. This is especially
+-- useful if this is an expression, so that you know what the value
+-- represents. If the metric or expression is shown in a CloudWatch
+-- dashboard widget, the label is shown. If Label is omitted, CloudWatch
+-- generates a default.
+--
+-- You can put dynamic expressions into a label, so that it is more
+-- descriptive. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
+metricDataQuery_label :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
+metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@MetricDataQuery' {} a -> s {label = a} :: MetricDataQuery)
+
+-- | The metric to be returned, along with statistics, period, and units. Use
+-- this parameter only if this object is retrieving a metric and not
+-- performing a math expression on returned data.
+--
+-- Within one MetricDataQuery object, you must specify either @Expression@
+-- or @MetricStat@ but not both.
+metricDataQuery_metricStat :: Lens.Lens' MetricDataQuery (Prelude.Maybe MetricStat)
+metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metricStat) (\s@MetricDataQuery' {} a -> s {metricStat = a} :: MetricDataQuery)
+
 -- | A short name used to tie this object to the results in the response.
 -- This name must be unique within a single call to @GetMetricData@. If you
 -- are performing math expressions on this set of data, this name
@@ -275,12 +275,12 @@ metricDataQuery_id = Lens.lens (\MetricDataQuery' {id} -> id) (\s@MetricDataQuer
 instance Core.FromXML MetricDataQuery where
   parseXML x =
     MetricDataQuery'
-      Prelude.<$> (x Core..@? "AccountId")
-      Prelude.<*> (x Core..@? "MetricStat")
-      Prelude.<*> (x Core..@? "ReturnData")
-      Prelude.<*> (x Core..@? "Label")
+      Prelude.<$> (x Core..@? "ReturnData")
       Prelude.<*> (x Core..@? "Period")
+      Prelude.<*> (x Core..@? "AccountId")
       Prelude.<*> (x Core..@? "Expression")
+      Prelude.<*> (x Core..@? "Label")
+      Prelude.<*> (x Core..@? "MetricStat")
       Prelude.<*> (x Core..@ "Id")
 
 instance Prelude.Hashable MetricDataQuery
@@ -290,11 +290,11 @@ instance Prelude.NFData MetricDataQuery
 instance Core.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =
     Prelude.mconcat
-      [ "AccountId" Core.=: accountId,
-        "MetricStat" Core.=: metricStat,
-        "ReturnData" Core.=: returnData,
-        "Label" Core.=: label,
+      [ "ReturnData" Core.=: returnData,
         "Period" Core.=: period,
+        "AccountId" Core.=: accountId,
         "Expression" Core.=: expression,
+        "Label" Core.=: label,
+        "MetricStat" Core.=: metricStat,
         "Id" Core.=: id
       ]

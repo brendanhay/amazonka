@@ -73,10 +73,10 @@ module Network.AWS.CloudWatch.GetMetricData
     newGetMetricData,
 
     -- * Request Lenses
+    getMetricData_maxDatapoints,
+    getMetricData_labelOptions,
     getMetricData_nextToken,
     getMetricData_scanBy,
-    getMetricData_labelOptions,
-    getMetricData_maxDatapoints,
     getMetricData_metricDataQueries,
     getMetricData_startTime,
     getMetricData_endTime,
@@ -86,8 +86,8 @@ module Network.AWS.CloudWatch.GetMetricData
     newGetMetricDataResponse,
 
     -- * Response Lenses
-    getMetricDataResponse_nextToken,
     getMetricDataResponse_metricDataResults,
+    getMetricDataResponse_nextToken,
     getMetricDataResponse_messages,
     getMetricDataResponse_httpStatus,
   )
@@ -102,7 +102,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMetricData' smart constructor.
 data GetMetricData = GetMetricData'
-  { -- | Include this value, if it was returned by the previous @GetMetricData@
+  { -- | The maximum number of data points the request should return before
+    -- paginating. If you omit this, the default of 100,800 is used.
+    maxDatapoints :: Prelude.Maybe Prelude.Int,
+    -- | This structure includes the @Timezone@ parameter, which you can use to
+    -- specify your time zone so that the labels of returned data display the
+    -- correct time for your time zone.
+    labelOptions :: Prelude.Maybe LabelOptions,
+    -- | Include this value, if it was returned by the previous @GetMetricData@
     -- operation, to get the next set of data points.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The order in which data points should be returned. @TimestampDescending@
@@ -110,13 +117,6 @@ data GetMetricData = GetMetricData'
     -- limit is reached. @TimestampAscending@ returns the oldest data first and
     -- paginates when the @MaxDatapoints@ limit is reached.
     scanBy :: Prelude.Maybe ScanBy,
-    -- | This structure includes the @Timezone@ parameter, which you can use to
-    -- specify your time zone so that the labels of returned data display the
-    -- correct time for your time zone.
-    labelOptions :: Prelude.Maybe LabelOptions,
-    -- | The maximum number of data points the request should return before
-    -- paginating. If you omit this, the default of 100,800 is used.
-    maxDatapoints :: Prelude.Maybe Prelude.Int,
     -- | The metric queries to be returned. A single @GetMetricData@ call can
     -- include as many as 500 @MetricDataQuery@ structures. Each of these
     -- structures can specify either a metric to retrieve, or a math expression
@@ -177,6 +177,13 @@ data GetMetricData = GetMetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxDatapoints', 'getMetricData_maxDatapoints' - The maximum number of data points the request should return before
+-- paginating. If you omit this, the default of 100,800 is used.
+--
+-- 'labelOptions', 'getMetricData_labelOptions' - This structure includes the @Timezone@ parameter, which you can use to
+-- specify your time zone so that the labels of returned data display the
+-- correct time for your time zone.
+--
 -- 'nextToken', 'getMetricData_nextToken' - Include this value, if it was returned by the previous @GetMetricData@
 -- operation, to get the next set of data points.
 --
@@ -184,13 +191,6 @@ data GetMetricData = GetMetricData'
 -- returns the newest data first and paginates when the @MaxDatapoints@
 -- limit is reached. @TimestampAscending@ returns the oldest data first and
 -- paginates when the @MaxDatapoints@ limit is reached.
---
--- 'labelOptions', 'getMetricData_labelOptions' - This structure includes the @Timezone@ parameter, which you can use to
--- specify your time zone so that the labels of returned data display the
--- correct time for your time zone.
---
--- 'maxDatapoints', 'getMetricData_maxDatapoints' - The maximum number of data points the request should return before
--- paginating. If you omit this, the default of 100,800 is used.
 --
 -- 'metricDataQueries', 'getMetricData_metricDataQueries' - The metric queries to be returned. A single @GetMetricData@ call can
 -- include as many as 500 @MetricDataQuery@ structures. Each of these
@@ -248,14 +248,25 @@ newGetMetricData ::
   GetMetricData
 newGetMetricData pStartTime_ pEndTime_ =
   GetMetricData'
-    { nextToken = Prelude.Nothing,
-      scanBy = Prelude.Nothing,
+    { maxDatapoints = Prelude.Nothing,
       labelOptions = Prelude.Nothing,
-      maxDatapoints = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      scanBy = Prelude.Nothing,
       metricDataQueries = Prelude.mempty,
       startTime = Core._Time Lens.# pStartTime_,
       endTime = Core._Time Lens.# pEndTime_
     }
+
+-- | The maximum number of data points the request should return before
+-- paginating. If you omit this, the default of 100,800 is used.
+getMetricData_maxDatapoints :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Int)
+getMetricData_maxDatapoints = Lens.lens (\GetMetricData' {maxDatapoints} -> maxDatapoints) (\s@GetMetricData' {} a -> s {maxDatapoints = a} :: GetMetricData)
+
+-- | This structure includes the @Timezone@ parameter, which you can use to
+-- specify your time zone so that the labels of returned data display the
+-- correct time for your time zone.
+getMetricData_labelOptions :: Lens.Lens' GetMetricData (Prelude.Maybe LabelOptions)
+getMetricData_labelOptions = Lens.lens (\GetMetricData' {labelOptions} -> labelOptions) (\s@GetMetricData' {} a -> s {labelOptions = a} :: GetMetricData)
 
 -- | Include this value, if it was returned by the previous @GetMetricData@
 -- operation, to get the next set of data points.
@@ -269,23 +280,12 @@ getMetricData_nextToken = Lens.lens (\GetMetricData' {nextToken} -> nextToken) (
 getMetricData_scanBy :: Lens.Lens' GetMetricData (Prelude.Maybe ScanBy)
 getMetricData_scanBy = Lens.lens (\GetMetricData' {scanBy} -> scanBy) (\s@GetMetricData' {} a -> s {scanBy = a} :: GetMetricData)
 
--- | This structure includes the @Timezone@ parameter, which you can use to
--- specify your time zone so that the labels of returned data display the
--- correct time for your time zone.
-getMetricData_labelOptions :: Lens.Lens' GetMetricData (Prelude.Maybe LabelOptions)
-getMetricData_labelOptions = Lens.lens (\GetMetricData' {labelOptions} -> labelOptions) (\s@GetMetricData' {} a -> s {labelOptions = a} :: GetMetricData)
-
--- | The maximum number of data points the request should return before
--- paginating. If you omit this, the default of 100,800 is used.
-getMetricData_maxDatapoints :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Int)
-getMetricData_maxDatapoints = Lens.lens (\GetMetricData' {maxDatapoints} -> maxDatapoints) (\s@GetMetricData' {} a -> s {maxDatapoints = a} :: GetMetricData)
-
 -- | The metric queries to be returned. A single @GetMetricData@ call can
 -- include as many as 500 @MetricDataQuery@ structures. Each of these
 -- structures can specify either a metric to retrieve, or a math expression
 -- to perform on retrieved data.
 getMetricData_metricDataQueries :: Lens.Lens' GetMetricData [MetricDataQuery]
-getMetricData_metricDataQueries = Lens.lens (\GetMetricData' {metricDataQueries} -> metricDataQueries) (\s@GetMetricData' {} a -> s {metricDataQueries = a} :: GetMetricData) Prelude.. Lens._Coerce
+getMetricData_metricDataQueries = Lens.lens (\GetMetricData' {metricDataQueries} -> metricDataQueries) (\s@GetMetricData' {} a -> s {metricDataQueries = a} :: GetMetricData) Prelude.. Lens.coerced
 
 -- | The time stamp indicating the earliest data to be returned.
 --
@@ -370,11 +370,11 @@ instance Core.AWSRequest GetMetricData where
       "GetMetricDataResult"
       ( \s h x ->
           GetMetricDataResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "MetricDataResults"
+            Prelude.<$> ( x Core..@? "MetricDataResults"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> ( x Core..@? "Messages" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
@@ -398,10 +398,10 @@ instance Core.ToQuery GetMetricData where
           Core.=: ("GetMetricData" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
+        "MaxDatapoints" Core.=: maxDatapoints,
+        "LabelOptions" Core.=: labelOptions,
         "NextToken" Core.=: nextToken,
         "ScanBy" Core.=: scanBy,
-        "LabelOptions" Core.=: labelOptions,
-        "MaxDatapoints" Core.=: maxDatapoints,
         "MetricDataQueries"
           Core.=: Core.toQueryList "member" metricDataQueries,
         "StartTime" Core.=: startTime,
@@ -410,11 +410,11 @@ instance Core.ToQuery GetMetricData where
 
 -- | /See:/ 'newGetMetricDataResponse' smart constructor.
 data GetMetricDataResponse = GetMetricDataResponse'
-  { -- | A token that marks the next batch of returned results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The metrics that are returned, including the metric name, namespace, and
+  { -- | The metrics that are returned, including the metric name, namespace, and
     -- dimensions.
     metricDataResults :: Prelude.Maybe [MetricDataResult],
+    -- | A token that marks the next batch of returned results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Contains a message about this @GetMetricData@ operation, if the
     -- operation results in such a message. An example of a message that might
     -- be returned is @Maximum number of allowed metrics exceeded@. If there is
@@ -438,10 +438,10 @@ data GetMetricDataResponse = GetMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getMetricDataResponse_nextToken' - A token that marks the next batch of returned results.
---
 -- 'metricDataResults', 'getMetricDataResponse_metricDataResults' - The metrics that are returned, including the metric name, namespace, and
 -- dimensions.
+--
+-- 'nextToken', 'getMetricDataResponse_nextToken' - A token that marks the next batch of returned results.
 --
 -- 'messages', 'getMetricDataResponse_messages' - Contains a message about this @GetMetricData@ operation, if the
 -- operation results in such a message. An example of a message that might
@@ -460,20 +460,21 @@ newGetMetricDataResponse ::
   GetMetricDataResponse
 newGetMetricDataResponse pHttpStatus_ =
   GetMetricDataResponse'
-    { nextToken = Prelude.Nothing,
-      metricDataResults = Prelude.Nothing,
+    { metricDataResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       messages = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that marks the next batch of returned results.
-getMetricDataResponse_nextToken :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe Prelude.Text)
-getMetricDataResponse_nextToken = Lens.lens (\GetMetricDataResponse' {nextToken} -> nextToken) (\s@GetMetricDataResponse' {} a -> s {nextToken = a} :: GetMetricDataResponse)
-
 -- | The metrics that are returned, including the metric name, namespace, and
 -- dimensions.
 getMetricDataResponse_metricDataResults :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe [MetricDataResult])
-getMetricDataResponse_metricDataResults = Lens.lens (\GetMetricDataResponse' {metricDataResults} -> metricDataResults) (\s@GetMetricDataResponse' {} a -> s {metricDataResults = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getMetricDataResponse_metricDataResults = Lens.lens (\GetMetricDataResponse' {metricDataResults} -> metricDataResults) (\s@GetMetricDataResponse' {} a -> s {metricDataResults = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that marks the next batch of returned results.
+getMetricDataResponse_nextToken :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe Prelude.Text)
+getMetricDataResponse_nextToken = Lens.lens (\GetMetricDataResponse' {nextToken} -> nextToken) (\s@GetMetricDataResponse' {} a -> s {nextToken = a} :: GetMetricDataResponse)
 
 -- | Contains a message about this @GetMetricData@ operation, if the
 -- operation results in such a message. An example of a message that might
@@ -485,7 +486,7 @@ getMetricDataResponse_metricDataResults = Lens.lens (\GetMetricDataResponse' {me
 -- by the operation appears in the @MetricDataResult@ object returned for
 -- that metric.
 getMetricDataResponse_messages :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe [MessageData])
-getMetricDataResponse_messages = Lens.lens (\GetMetricDataResponse' {messages} -> messages) (\s@GetMetricDataResponse' {} a -> s {messages = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getMetricDataResponse_messages = Lens.lens (\GetMetricDataResponse' {messages} -> messages) (\s@GetMetricDataResponse' {} a -> s {messages = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getMetricDataResponse_httpStatus :: Lens.Lens' GetMetricDataResponse Prelude.Int

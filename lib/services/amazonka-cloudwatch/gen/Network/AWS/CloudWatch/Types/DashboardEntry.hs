@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDashboardEntry' smart constructor.
 data DashboardEntry = DashboardEntry'
-  { -- | The Amazon Resource Name (ARN) of the dashboard.
-    dashboardArn :: Prelude.Maybe Prelude.Text,
+  { -- | The size of the dashboard, in bytes.
+    size :: Prelude.Maybe Prelude.Integer,
     -- | The name of the dashboard.
     dashboardName :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of when the dashboard was last modified, either by an API
     -- call or through the console. This number is expressed as the number of
     -- milliseconds since Jan 1, 1970 00:00:00 UTC.
     lastModified :: Prelude.Maybe Core.ISO8601,
-    -- | The size of the dashboard, in bytes.
-    size :: Prelude.Maybe Prelude.Integer
+    -- | The Amazon Resource Name (ARN) of the dashboard.
+    dashboardArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,7 +48,7 @@ data DashboardEntry = DashboardEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dashboardArn', 'dashboardEntry_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
+-- 'size', 'dashboardEntry_size' - The size of the dashboard, in bytes.
 --
 -- 'dashboardName', 'dashboardEntry_dashboardName' - The name of the dashboard.
 --
@@ -56,20 +56,20 @@ data DashboardEntry = DashboardEntry'
 -- call or through the console. This number is expressed as the number of
 -- milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
--- 'size', 'dashboardEntry_size' - The size of the dashboard, in bytes.
+-- 'dashboardArn', 'dashboardEntry_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
 newDashboardEntry ::
   DashboardEntry
 newDashboardEntry =
   DashboardEntry'
-    { dashboardArn = Prelude.Nothing,
+    { size = Prelude.Nothing,
       dashboardName = Prelude.Nothing,
       lastModified = Prelude.Nothing,
-      size = Prelude.Nothing
+      dashboardArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the dashboard.
-dashboardEntry_dashboardArn :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
-dashboardEntry_dashboardArn = Lens.lens (\DashboardEntry' {dashboardArn} -> dashboardArn) (\s@DashboardEntry' {} a -> s {dashboardArn = a} :: DashboardEntry)
+-- | The size of the dashboard, in bytes.
+dashboardEntry_size :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Integer)
+dashboardEntry_size = Lens.lens (\DashboardEntry' {size} -> size) (\s@DashboardEntry' {} a -> s {size = a} :: DashboardEntry)
 
 -- | The name of the dashboard.
 dashboardEntry_dashboardName :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
@@ -81,17 +81,17 @@ dashboardEntry_dashboardName = Lens.lens (\DashboardEntry' {dashboardName} -> da
 dashboardEntry_lastModified :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.UTCTime)
 dashboardEntry_lastModified = Lens.lens (\DashboardEntry' {lastModified} -> lastModified) (\s@DashboardEntry' {} a -> s {lastModified = a} :: DashboardEntry) Prelude.. Lens.mapping Core._Time
 
--- | The size of the dashboard, in bytes.
-dashboardEntry_size :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Integer)
-dashboardEntry_size = Lens.lens (\DashboardEntry' {size} -> size) (\s@DashboardEntry' {} a -> s {size = a} :: DashboardEntry)
+-- | The Amazon Resource Name (ARN) of the dashboard.
+dashboardEntry_dashboardArn :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
+dashboardEntry_dashboardArn = Lens.lens (\DashboardEntry' {dashboardArn} -> dashboardArn) (\s@DashboardEntry' {} a -> s {dashboardArn = a} :: DashboardEntry)
 
 instance Core.FromXML DashboardEntry where
   parseXML x =
     DashboardEntry'
-      Prelude.<$> (x Core..@? "DashboardArn")
+      Prelude.<$> (x Core..@? "Size")
       Prelude.<*> (x Core..@? "DashboardName")
       Prelude.<*> (x Core..@? "LastModified")
-      Prelude.<*> (x Core..@? "Size")
+      Prelude.<*> (x Core..@? "DashboardArn")
 
 instance Prelude.Hashable DashboardEntry
 

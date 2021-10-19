@@ -80,7 +80,7 @@ newStartMetricStreams =
 -- to access all of the metric streams that you list here, then none of the
 -- streams that you list in the operation will start streaming.
 startMetricStreams_names :: Lens.Lens' StartMetricStreams [Prelude.Text]
-startMetricStreams_names = Lens.lens (\StartMetricStreams' {names} -> names) (\s@StartMetricStreams' {} a -> s {names = a} :: StartMetricStreams) Prelude.. Lens._Coerce
+startMetricStreams_names = Lens.lens (\StartMetricStreams' {names} -> names) (\s@StartMetricStreams' {} a -> s {names = a} :: StartMetricStreams) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartMetricStreams where
   type

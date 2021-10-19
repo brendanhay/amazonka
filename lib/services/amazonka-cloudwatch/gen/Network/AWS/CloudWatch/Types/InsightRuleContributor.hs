@@ -79,7 +79,7 @@ newInsightRuleContributor pApproximateAggregateValue_ =
 -- | One of the log entry field keywords that is used to define contributors
 -- for this rule.
 insightRuleContributor_keys :: Lens.Lens' InsightRuleContributor [Prelude.Text]
-insightRuleContributor_keys = Lens.lens (\InsightRuleContributor' {keys} -> keys) (\s@InsightRuleContributor' {} a -> s {keys = a} :: InsightRuleContributor) Prelude.. Lens._Coerce
+insightRuleContributor_keys = Lens.lens (\InsightRuleContributor' {keys} -> keys) (\s@InsightRuleContributor' {} a -> s {keys = a} :: InsightRuleContributor) Prelude.. Lens.coerced
 
 -- | An approximation of the aggregate value that comes from this
 -- contributor.
@@ -89,7 +89,7 @@ insightRuleContributor_approximateAggregateValue = Lens.lens (\InsightRuleContri
 -- | An array of the data points where this contributor is present. Only the
 -- data points when this contributor appeared are included in the array.
 insightRuleContributor_datapoints :: Lens.Lens' InsightRuleContributor [InsightRuleContributorDatapoint]
-insightRuleContributor_datapoints = Lens.lens (\InsightRuleContributor' {datapoints} -> datapoints) (\s@InsightRuleContributor' {} a -> s {datapoints = a} :: InsightRuleContributor) Prelude.. Lens._Coerce
+insightRuleContributor_datapoints = Lens.lens (\InsightRuleContributor' {datapoints} -> datapoints) (\s@InsightRuleContributor' {} a -> s {datapoints = a} :: InsightRuleContributor) Prelude.. Lens.coerced
 
 instance Core.FromXML InsightRuleContributor where
   parseXML x =

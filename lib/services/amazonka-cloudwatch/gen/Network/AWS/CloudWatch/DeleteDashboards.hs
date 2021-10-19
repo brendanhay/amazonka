@@ -70,7 +70,7 @@ newDeleteDashboards =
 
 -- | The dashboards to be deleted. This parameter is required.
 deleteDashboards_dashboardNames :: Lens.Lens' DeleteDashboards [Prelude.Text]
-deleteDashboards_dashboardNames = Lens.lens (\DeleteDashboards' {dashboardNames} -> dashboardNames) (\s@DeleteDashboards' {} a -> s {dashboardNames = a} :: DeleteDashboards) Prelude.. Lens._Coerce
+deleteDashboards_dashboardNames = Lens.lens (\DeleteDashboards' {dashboardNames} -> dashboardNames) (\s@DeleteDashboards' {} a -> s {dashboardNames = a} :: DeleteDashboards) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteDashboards where
   type

@@ -90,7 +90,7 @@ anomalyDetectorConfiguration_metricTimezone = Lens.lens (\AnomalyDetectorConfigu
 -- unusual values for the metric, such as deployments, aren\'t used when
 -- CloudWatch creates the model.
 anomalyDetectorConfiguration_excludedTimeRanges :: Lens.Lens' AnomalyDetectorConfiguration (Prelude.Maybe [Range])
-anomalyDetectorConfiguration_excludedTimeRanges = Lens.lens (\AnomalyDetectorConfiguration' {excludedTimeRanges} -> excludedTimeRanges) (\s@AnomalyDetectorConfiguration' {} a -> s {excludedTimeRanges = a} :: AnomalyDetectorConfiguration) Prelude.. Lens.mapping Lens._Coerce
+anomalyDetectorConfiguration_excludedTimeRanges = Lens.lens (\AnomalyDetectorConfiguration' {excludedTimeRanges} -> excludedTimeRanges) (\s@AnomalyDetectorConfiguration' {} a -> s {excludedTimeRanges = a} :: AnomalyDetectorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML AnomalyDetectorConfiguration where
   parseXML x =

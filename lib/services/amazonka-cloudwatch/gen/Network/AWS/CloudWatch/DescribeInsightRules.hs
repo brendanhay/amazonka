@@ -176,7 +176,7 @@ describeInsightRulesResponse_nextToken = Lens.lens (\DescribeInsightRulesRespons
 
 -- | The rules returned by the operation.
 describeInsightRulesResponse_insightRules :: Lens.Lens' DescribeInsightRulesResponse (Prelude.Maybe [InsightRule])
-describeInsightRulesResponse_insightRules = Lens.lens (\DescribeInsightRulesResponse' {insightRules} -> insightRules) (\s@DescribeInsightRulesResponse' {} a -> s {insightRules = a} :: DescribeInsightRulesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInsightRulesResponse_insightRules = Lens.lens (\DescribeInsightRulesResponse' {insightRules} -> insightRules) (\s@DescribeInsightRulesResponse' {} a -> s {insightRules = a} :: DescribeInsightRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInsightRulesResponse_httpStatus :: Lens.Lens' DescribeInsightRulesResponse Prelude.Int

@@ -122,7 +122,7 @@ putAnomalyDetector_configuration = Lens.lens (\PutAnomalyDetector' {configuratio
 
 -- | The metric dimensions to create the anomaly detection model for.
 putAnomalyDetector_dimensions :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe [Dimension])
-putAnomalyDetector_dimensions = Lens.lens (\PutAnomalyDetector' {dimensions} -> dimensions) (\s@PutAnomalyDetector' {} a -> s {dimensions = a} :: PutAnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
+putAnomalyDetector_dimensions = Lens.lens (\PutAnomalyDetector' {dimensions} -> dimensions) (\s@PutAnomalyDetector' {} a -> s {dimensions = a} :: PutAnomalyDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace of the metric to create the anomaly detection model for.
 putAnomalyDetector_namespace :: Lens.Lens' PutAnomalyDetector Prelude.Text

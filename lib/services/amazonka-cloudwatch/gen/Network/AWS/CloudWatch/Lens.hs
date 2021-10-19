@@ -14,11 +14,185 @@
 module Network.AWS.CloudWatch.Lens
   ( -- * Operations
 
+    -- ** EnableAlarmActions
+    enableAlarmActions_alarmNames,
+
+    -- ** DisableInsightRules
+    disableInsightRules_ruleNames,
+    disableInsightRulesResponse_failures,
+    disableInsightRulesResponse_httpStatus,
+
+    -- ** PutCompositeAlarm
+    putCompositeAlarm_alarmDescription,
+    putCompositeAlarm_oKActions,
+    putCompositeAlarm_actionsEnabled,
+    putCompositeAlarm_insufficientDataActions,
+    putCompositeAlarm_alarmActions,
+    putCompositeAlarm_tags,
+    putCompositeAlarm_alarmName,
+    putCompositeAlarm_alarmRule,
+
+    -- ** DeleteAnomalyDetector
+    deleteAnomalyDetector_dimensions,
+    deleteAnomalyDetector_namespace,
+    deleteAnomalyDetector_metricName,
+    deleteAnomalyDetector_stat,
+    deleteAnomalyDetectorResponse_httpStatus,
+
+    -- ** DeleteInsightRules
+    deleteInsightRules_ruleNames,
+    deleteInsightRulesResponse_failures,
+    deleteInsightRulesResponse_httpStatus,
+
+    -- ** GetDashboard
+    getDashboard_dashboardName,
+    getDashboardResponse_dashboardName,
+    getDashboardResponse_dashboardBody,
+    getDashboardResponse_dashboardArn,
+    getDashboardResponse_httpStatus,
+
+    -- ** PutAnomalyDetector
+    putAnomalyDetector_configuration,
+    putAnomalyDetector_dimensions,
+    putAnomalyDetector_namespace,
+    putAnomalyDetector_metricName,
+    putAnomalyDetector_stat,
+    putAnomalyDetectorResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** GetMetricData
+    getMetricData_maxDatapoints,
+    getMetricData_labelOptions,
+    getMetricData_nextToken,
+    getMetricData_scanBy,
+    getMetricData_metricDataQueries,
+    getMetricData_startTime,
+    getMetricData_endTime,
+    getMetricDataResponse_metricDataResults,
+    getMetricDataResponse_nextToken,
+    getMetricDataResponse_messages,
+    getMetricDataResponse_httpStatus,
+
+    -- ** PutMetricData
+    putMetricData_namespace,
+    putMetricData_metricData,
+
+    -- ** ListDashboards
+    listDashboards_dashboardNamePrefix,
+    listDashboards_nextToken,
+    listDashboardsResponse_dashboardEntries,
+    listDashboardsResponse_nextToken,
+    listDashboardsResponse_httpStatus,
+
+    -- ** DescribeAlarms
+    describeAlarms_alarmNamePrefix,
+    describeAlarms_alarmTypes,
+    describeAlarms_actionPrefix,
+    describeAlarms_nextToken,
+    describeAlarms_stateValue,
+    describeAlarms_alarmNames,
+    describeAlarms_maxRecords,
+    describeAlarms_parentsOfAlarmName,
+    describeAlarms_childrenOfAlarmName,
+    describeAlarmsResponse_metricAlarms,
+    describeAlarmsResponse_compositeAlarms,
+    describeAlarmsResponse_nextToken,
+    describeAlarmsResponse_httpStatus,
+
+    -- ** ListMetrics
+    listMetrics_metricName,
+    listMetrics_namespace,
+    listMetrics_nextToken,
+    listMetrics_recentlyActive,
+    listMetrics_dimensions,
+    listMetricsResponse_metrics,
+    listMetricsResponse_nextToken,
+    listMetricsResponse_httpStatus,
+
+    -- ** GetInsightRuleReport
+    getInsightRuleReport_maxContributorCount,
+    getInsightRuleReport_metrics,
+    getInsightRuleReport_orderBy,
+    getInsightRuleReport_ruleName,
+    getInsightRuleReport_startTime,
+    getInsightRuleReport_endTime,
+    getInsightRuleReport_period,
+    getInsightRuleReportResponse_keyLabels,
+    getInsightRuleReportResponse_approximateUniqueCount,
+    getInsightRuleReportResponse_aggregationStatistic,
+    getInsightRuleReportResponse_aggregateValue,
+    getInsightRuleReportResponse_contributors,
+    getInsightRuleReportResponse_metricDatapoints,
+    getInsightRuleReportResponse_httpStatus,
+
+    -- ** StartMetricStreams
+    startMetricStreams_names,
+    startMetricStreamsResponse_httpStatus,
+
+    -- ** DeleteDashboards
+    deleteDashboards_dashboardNames,
+    deleteDashboardsResponse_httpStatus,
+
+    -- ** PutInsightRule
+    putInsightRule_tags,
+    putInsightRule_ruleState,
+    putInsightRule_ruleName,
+    putInsightRule_ruleDefinition,
+    putInsightRuleResponse_httpStatus,
+
+    -- ** ListMetricStreams
+    listMetricStreams_nextToken,
+    listMetricStreams_maxResults,
+    listMetricStreamsResponse_entries,
+    listMetricStreamsResponse_nextToken,
+    listMetricStreamsResponse_httpStatus,
+
+    -- ** GetMetricWidgetImage
+    getMetricWidgetImage_outputFormat,
+    getMetricWidgetImage_metricWidget,
+    getMetricWidgetImageResponse_metricWidgetImage,
+    getMetricWidgetImageResponse_httpStatus,
+
+    -- ** DeleteMetricStream
+    deleteMetricStream_name,
+    deleteMetricStreamResponse_httpStatus,
+
+    -- ** DeleteAlarms
+    deleteAlarms_alarmNames,
+
+    -- ** PutMetricStream
+    putMetricStream_includeFilters,
+    putMetricStream_excludeFilters,
+    putMetricStream_tags,
+    putMetricStream_name,
+    putMetricStream_firehoseArn,
+    putMetricStream_roleArn,
+    putMetricStream_outputFormat,
+    putMetricStreamResponse_arn,
+    putMetricStreamResponse_httpStatus,
+
+    -- ** DescribeAlarmHistory
+    describeAlarmHistory_alarmName,
+    describeAlarmHistory_historyItemType,
+    describeAlarmHistory_alarmTypes,
+    describeAlarmHistory_endDate,
+    describeAlarmHistory_startDate,
+    describeAlarmHistory_nextToken,
+    describeAlarmHistory_scanBy,
+    describeAlarmHistory_maxRecords,
+    describeAlarmHistoryResponse_alarmHistoryItems,
+    describeAlarmHistoryResponse_nextToken,
+    describeAlarmHistoryResponse_httpStatus,
+
     -- ** GetMetricStatistics
-    getMetricStatistics_unit,
+    getMetricStatistics_extendedStatistics,
     getMetricStatistics_statistics,
     getMetricStatistics_dimensions,
-    getMetricStatistics_extendedStatistics,
+    getMetricStatistics_unit,
     getMetricStatistics_namespace,
     getMetricStatistics_metricName,
     getMetricStatistics_startTime,
@@ -28,63 +202,45 @@ module Network.AWS.CloudWatch.Lens
     getMetricStatisticsResponse_label,
     getMetricStatisticsResponse_httpStatus,
 
-    -- ** EnableAlarmActions
-    enableAlarmActions_alarmNames,
+    -- ** DescribeAlarmsForMetric
+    describeAlarmsForMetric_period,
+    describeAlarmsForMetric_dimensions,
+    describeAlarmsForMetric_unit,
+    describeAlarmsForMetric_statistic,
+    describeAlarmsForMetric_extendedStatistic,
+    describeAlarmsForMetric_metricName,
+    describeAlarmsForMetric_namespace,
+    describeAlarmsForMetricResponse_metricAlarms,
+    describeAlarmsForMetricResponse_httpStatus,
 
-    -- ** GetMetricWidgetImage
-    getMetricWidgetImage_outputFormat,
-    getMetricWidgetImage_metricWidget,
-    getMetricWidgetImageResponse_metricWidgetImage,
-    getMetricWidgetImageResponse_httpStatus,
+    -- ** EnableInsightRules
+    enableInsightRules_ruleNames,
+    enableInsightRulesResponse_failures,
+    enableInsightRulesResponse_httpStatus,
 
-    -- ** PutInsightRule
-    putInsightRule_ruleState,
-    putInsightRule_tags,
-    putInsightRule_ruleName,
-    putInsightRule_ruleDefinition,
-    putInsightRuleResponse_httpStatus,
+    -- ** DisableAlarmActions
+    disableAlarmActions_alarmNames,
 
-    -- ** DeleteMetricStream
-    deleteMetricStream_name,
-    deleteMetricStreamResponse_httpStatus,
+    -- ** DescribeAnomalyDetectors
+    describeAnomalyDetectors_metricName,
+    describeAnomalyDetectors_namespace,
+    describeAnomalyDetectors_nextToken,
+    describeAnomalyDetectors_dimensions,
+    describeAnomalyDetectors_maxResults,
+    describeAnomalyDetectorsResponse_anomalyDetectors,
+    describeAnomalyDetectorsResponse_nextToken,
+    describeAnomalyDetectorsResponse_httpStatus,
 
-    -- ** DeleteAlarms
-    deleteAlarms_alarmNames,
+    -- ** PutDashboard
+    putDashboard_dashboardName,
+    putDashboard_dashboardBody,
+    putDashboardResponse_dashboardValidationMessages,
+    putDashboardResponse_httpStatus,
 
-    -- ** PutMetricAlarm
-    putMetricAlarm_threshold,
-    putMetricAlarm_datapointsToAlarm,
-    putMetricAlarm_evaluateLowSampleCountPercentile,
-    putMetricAlarm_extendedStatistic,
-    putMetricAlarm_thresholdMetricId,
-    putMetricAlarm_alarmActions,
-    putMetricAlarm_unit,
-    putMetricAlarm_metricName,
-    putMetricAlarm_insufficientDataActions,
-    putMetricAlarm_treatMissingData,
-    putMetricAlarm_metrics,
-    putMetricAlarm_tags,
-    putMetricAlarm_oKActions,
-    putMetricAlarm_statistic,
-    putMetricAlarm_namespace,
-    putMetricAlarm_dimensions,
-    putMetricAlarm_actionsEnabled,
-    putMetricAlarm_period,
-    putMetricAlarm_alarmDescription,
-    putMetricAlarm_alarmName,
-    putMetricAlarm_evaluationPeriods,
-    putMetricAlarm_comparisonOperator,
-
-    -- ** DescribeInsightRules
-    describeInsightRules_nextToken,
-    describeInsightRules_maxResults,
-    describeInsightRulesResponse_nextToken,
-    describeInsightRulesResponse_insightRules,
-    describeInsightRulesResponse_httpStatus,
-
-    -- ** StartMetricStreams
-    startMetricStreams_names,
-    startMetricStreamsResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** StopMetricStreams
     stopMetricStreams_names,
@@ -95,150 +251,43 @@ module Network.AWS.CloudWatch.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** GetInsightRuleReport
-    getInsightRuleReport_orderBy,
-    getInsightRuleReport_metrics,
-    getInsightRuleReport_maxContributorCount,
-    getInsightRuleReport_ruleName,
-    getInsightRuleReport_startTime,
-    getInsightRuleReport_endTime,
-    getInsightRuleReport_period,
-    getInsightRuleReportResponse_approximateUniqueCount,
-    getInsightRuleReportResponse_metricDatapoints,
-    getInsightRuleReportResponse_contributors,
-    getInsightRuleReportResponse_aggregateValue,
-    getInsightRuleReportResponse_keyLabels,
-    getInsightRuleReportResponse_aggregationStatistic,
-    getInsightRuleReportResponse_httpStatus,
-
-    -- ** DescribeAnomalyDetectors
-    describeAnomalyDetectors_nextToken,
-    describeAnomalyDetectors_maxResults,
-    describeAnomalyDetectors_metricName,
-    describeAnomalyDetectors_namespace,
-    describeAnomalyDetectors_dimensions,
-    describeAnomalyDetectorsResponse_nextToken,
-    describeAnomalyDetectorsResponse_anomalyDetectors,
-    describeAnomalyDetectorsResponse_httpStatus,
-
-    -- ** PutMetricData
-    putMetricData_namespace,
-    putMetricData_metricData,
-
-    -- ** ListMetrics
-    listMetrics_nextToken,
-    listMetrics_metricName,
-    listMetrics_namespace,
-    listMetrics_dimensions,
-    listMetrics_recentlyActive,
-    listMetricsResponse_nextToken,
-    listMetricsResponse_metrics,
-    listMetricsResponse_httpStatus,
-
-    -- ** PutDashboard
-    putDashboard_dashboardName,
-    putDashboard_dashboardBody,
-    putDashboardResponse_dashboardValidationMessages,
-    putDashboardResponse_httpStatus,
-
-    -- ** DeleteInsightRules
-    deleteInsightRules_ruleNames,
-    deleteInsightRulesResponse_failures,
-    deleteInsightRulesResponse_httpStatus,
-
-    -- ** GetDashboard
-    getDashboard_dashboardName,
-    getDashboardResponse_dashboardBody,
-    getDashboardResponse_dashboardArn,
-    getDashboardResponse_dashboardName,
-    getDashboardResponse_httpStatus,
-
-    -- ** DescribeAlarmsForMetric
-    describeAlarmsForMetric_extendedStatistic,
-    describeAlarmsForMetric_unit,
-    describeAlarmsForMetric_statistic,
-    describeAlarmsForMetric_dimensions,
-    describeAlarmsForMetric_period,
-    describeAlarmsForMetric_metricName,
-    describeAlarmsForMetric_namespace,
-    describeAlarmsForMetricResponse_metricAlarms,
-    describeAlarmsForMetricResponse_httpStatus,
-
-    -- ** DisableAlarmActions
-    disableAlarmActions_alarmNames,
-
-    -- ** PutAnomalyDetector
-    putAnomalyDetector_configuration,
-    putAnomalyDetector_dimensions,
-    putAnomalyDetector_namespace,
-    putAnomalyDetector_metricName,
-    putAnomalyDetector_stat,
-    putAnomalyDetectorResponse_httpStatus,
-
-    -- ** DisableInsightRules
-    disableInsightRules_ruleNames,
-    disableInsightRulesResponse_failures,
-    disableInsightRulesResponse_httpStatus,
-
-    -- ** PutCompositeAlarm
-    putCompositeAlarm_alarmActions,
-    putCompositeAlarm_insufficientDataActions,
-    putCompositeAlarm_tags,
-    putCompositeAlarm_oKActions,
-    putCompositeAlarm_actionsEnabled,
-    putCompositeAlarm_alarmDescription,
-    putCompositeAlarm_alarmName,
-    putCompositeAlarm_alarmRule,
-
-    -- ** DescribeAlarmHistory
-    describeAlarmHistory_nextToken,
-    describeAlarmHistory_startDate,
-    describeAlarmHistory_alarmTypes,
-    describeAlarmHistory_historyItemType,
-    describeAlarmHistory_scanBy,
-    describeAlarmHistory_alarmName,
-    describeAlarmHistory_endDate,
-    describeAlarmHistory_maxRecords,
-    describeAlarmHistoryResponse_nextToken,
-    describeAlarmHistoryResponse_alarmHistoryItems,
-    describeAlarmHistoryResponse_httpStatus,
-
-    -- ** PutMetricStream
-    putMetricStream_includeFilters,
-    putMetricStream_tags,
-    putMetricStream_excludeFilters,
-    putMetricStream_name,
-    putMetricStream_firehoseArn,
-    putMetricStream_roleArn,
-    putMetricStream_outputFormat,
-    putMetricStreamResponse_arn,
-    putMetricStreamResponse_httpStatus,
-
-    -- ** ListMetricStreams
-    listMetricStreams_nextToken,
-    listMetricStreams_maxResults,
-    listMetricStreamsResponse_nextToken,
-    listMetricStreamsResponse_entries,
-    listMetricStreamsResponse_httpStatus,
-
     -- ** GetMetricStream
     getMetricStream_name,
     getMetricStreamResponse_includeFilters,
-    getMetricStreamResponse_firehoseArn,
-    getMetricStreamResponse_roleArn,
-    getMetricStreamResponse_arn,
-    getMetricStreamResponse_creationDate,
-    getMetricStreamResponse_name,
-    getMetricStreamResponse_lastUpdateDate,
     getMetricStreamResponse_state,
-    getMetricStreamResponse_outputFormat,
     getMetricStreamResponse_excludeFilters,
+    getMetricStreamResponse_arn,
+    getMetricStreamResponse_firehoseArn,
+    getMetricStreamResponse_outputFormat,
+    getMetricStreamResponse_lastUpdateDate,
+    getMetricStreamResponse_name,
+    getMetricStreamResponse_creationDate,
+    getMetricStreamResponse_roleArn,
     getMetricStreamResponse_httpStatus,
+
+    -- ** PutMetricAlarm
+    putMetricAlarm_metrics,
+    putMetricAlarm_treatMissingData,
+    putMetricAlarm_period,
+    putMetricAlarm_alarmDescription,
+    putMetricAlarm_metricName,
+    putMetricAlarm_namespace,
+    putMetricAlarm_thresholdMetricId,
+    putMetricAlarm_oKActions,
+    putMetricAlarm_evaluateLowSampleCountPercentile,
+    putMetricAlarm_datapointsToAlarm,
+    putMetricAlarm_threshold,
+    putMetricAlarm_actionsEnabled,
+    putMetricAlarm_insufficientDataActions,
+    putMetricAlarm_dimensions,
+    putMetricAlarm_alarmActions,
+    putMetricAlarm_unit,
+    putMetricAlarm_statistic,
+    putMetricAlarm_tags,
+    putMetricAlarm_extendedStatistic,
+    putMetricAlarm_alarmName,
+    putMetricAlarm_evaluationPeriods,
+    putMetricAlarm_comparisonOperator,
 
     -- ** SetAlarmState
     setAlarmState_stateReasonData,
@@ -246,118 +295,69 @@ module Network.AWS.CloudWatch.Lens
     setAlarmState_stateValue,
     setAlarmState_stateReason,
 
-    -- ** DeleteDashboards
-    deleteDashboards_dashboardNames,
-    deleteDashboardsResponse_httpStatus,
-
-    -- ** ListDashboards
-    listDashboards_nextToken,
-    listDashboards_dashboardNamePrefix,
-    listDashboardsResponse_nextToken,
-    listDashboardsResponse_dashboardEntries,
-    listDashboardsResponse_httpStatus,
-
-    -- ** DescribeAlarms
-    describeAlarms_nextToken,
-    describeAlarms_alarmTypes,
-    describeAlarms_alarmNames,
-    describeAlarms_alarmNamePrefix,
-    describeAlarms_stateValue,
-    describeAlarms_actionPrefix,
-    describeAlarms_childrenOfAlarmName,
-    describeAlarms_parentsOfAlarmName,
-    describeAlarms_maxRecords,
-    describeAlarmsResponse_metricAlarms,
-    describeAlarmsResponse_nextToken,
-    describeAlarmsResponse_compositeAlarms,
-    describeAlarmsResponse_httpStatus,
-
-    -- ** EnableInsightRules
-    enableInsightRules_ruleNames,
-    enableInsightRulesResponse_failures,
-    enableInsightRulesResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteAnomalyDetector
-    deleteAnomalyDetector_dimensions,
-    deleteAnomalyDetector_namespace,
-    deleteAnomalyDetector_metricName,
-    deleteAnomalyDetector_stat,
-    deleteAnomalyDetectorResponse_httpStatus,
-
-    -- ** GetMetricData
-    getMetricData_nextToken,
-    getMetricData_scanBy,
-    getMetricData_labelOptions,
-    getMetricData_maxDatapoints,
-    getMetricData_metricDataQueries,
-    getMetricData_startTime,
-    getMetricData_endTime,
-    getMetricDataResponse_nextToken,
-    getMetricDataResponse_metricDataResults,
-    getMetricDataResponse_messages,
-    getMetricDataResponse_httpStatus,
+    -- ** DescribeInsightRules
+    describeInsightRules_nextToken,
+    describeInsightRules_maxResults,
+    describeInsightRulesResponse_nextToken,
+    describeInsightRulesResponse_insightRules,
+    describeInsightRulesResponse_httpStatus,
 
     -- * Types
 
     -- ** AlarmHistoryItem
-    alarmHistoryItem_historySummary,
-    alarmHistoryItem_historyItemType,
     alarmHistoryItem_alarmName,
-    alarmHistoryItem_timestamp,
-    alarmHistoryItem_alarmType,
+    alarmHistoryItem_historyItemType,
     alarmHistoryItem_historyData,
+    alarmHistoryItem_alarmType,
+    alarmHistoryItem_historySummary,
+    alarmHistoryItem_timestamp,
 
     -- ** AnomalyDetector
     anomalyDetector_metricName,
-    anomalyDetector_configuration,
-    anomalyDetector_stateValue,
     anomalyDetector_namespace,
-    anomalyDetector_dimensions,
+    anomalyDetector_stateValue,
     anomalyDetector_stat,
+    anomalyDetector_configuration,
+    anomalyDetector_dimensions,
 
     -- ** AnomalyDetectorConfiguration
     anomalyDetectorConfiguration_metricTimezone,
     anomalyDetectorConfiguration_excludedTimeRanges,
 
     -- ** CompositeAlarm
-    compositeAlarm_alarmActions,
-    compositeAlarm_alarmArn,
+    compositeAlarm_alarmName,
+    compositeAlarm_stateUpdatedTimestamp,
+    compositeAlarm_alarmDescription,
+    compositeAlarm_alarmRule,
+    compositeAlarm_oKActions,
+    compositeAlarm_stateValue,
+    compositeAlarm_alarmConfigurationUpdatedTimestamp,
+    compositeAlarm_actionsEnabled,
+    compositeAlarm_insufficientDataActions,
     compositeAlarm_stateReason,
     compositeAlarm_stateReasonData,
-    compositeAlarm_insufficientDataActions,
-    compositeAlarm_alarmRule,
-    compositeAlarm_alarmName,
-    compositeAlarm_stateValue,
-    compositeAlarm_stateUpdatedTimestamp,
-    compositeAlarm_oKActions,
-    compositeAlarm_actionsEnabled,
-    compositeAlarm_alarmConfigurationUpdatedTimestamp,
-    compositeAlarm_alarmDescription,
+    compositeAlarm_alarmArn,
+    compositeAlarm_alarmActions,
 
     -- ** DashboardEntry
-    dashboardEntry_dashboardArn,
+    dashboardEntry_size,
     dashboardEntry_dashboardName,
     dashboardEntry_lastModified,
-    dashboardEntry_size,
+    dashboardEntry_dashboardArn,
 
     -- ** DashboardValidationMessage
-    dashboardValidationMessage_message,
     dashboardValidationMessage_dataPath,
+    dashboardValidationMessage_message,
 
     -- ** Datapoint
-    datapoint_unit,
-    datapoint_minimum,
-    datapoint_sum,
     datapoint_sampleCount,
-    datapoint_timestamp,
-    datapoint_average,
     datapoint_maximum,
+    datapoint_average,
+    datapoint_minimum,
     datapoint_extendedStatistics,
+    datapoint_sum,
+    datapoint_unit,
+    datapoint_timestamp,
 
     -- ** Dimension
     dimension_name,
@@ -383,21 +383,21 @@ module Network.AWS.CloudWatch.Lens
     insightRuleContributorDatapoint_approximateValue,
 
     -- ** InsightRuleMetricDatapoint
-    insightRuleMetricDatapoint_minimum,
-    insightRuleMetricDatapoint_sum,
-    insightRuleMetricDatapoint_sampleCount,
     insightRuleMetricDatapoint_maxContributorValue,
-    insightRuleMetricDatapoint_average,
-    insightRuleMetricDatapoint_uniqueContributors,
+    insightRuleMetricDatapoint_sampleCount,
     insightRuleMetricDatapoint_maximum,
+    insightRuleMetricDatapoint_average,
+    insightRuleMetricDatapoint_minimum,
+    insightRuleMetricDatapoint_uniqueContributors,
+    insightRuleMetricDatapoint_sum,
     insightRuleMetricDatapoint_timestamp,
 
     -- ** LabelOptions
     labelOptions_timezone,
 
     -- ** MessageData
-    messageData_code,
     messageData_value,
+    messageData_code,
 
     -- ** Metric
     metric_metricName,
@@ -405,60 +405,60 @@ module Network.AWS.CloudWatch.Lens
     metric_dimensions,
 
     -- ** MetricAlarm
-    metricAlarm_threshold,
-    metricAlarm_datapointsToAlarm,
-    metricAlarm_evaluateLowSampleCountPercentile,
-    metricAlarm_comparisonOperator,
-    metricAlarm_extendedStatistic,
-    metricAlarm_thresholdMetricId,
-    metricAlarm_alarmActions,
-    metricAlarm_unit,
-    metricAlarm_alarmArn,
-    metricAlarm_metricName,
-    metricAlarm_stateReason,
-    metricAlarm_stateReasonData,
-    metricAlarm_insufficientDataActions,
-    metricAlarm_treatMissingData,
-    metricAlarm_metrics,
     metricAlarm_alarmName,
-    metricAlarm_stateValue,
     metricAlarm_stateUpdatedTimestamp,
-    metricAlarm_oKActions,
-    metricAlarm_statistic,
-    metricAlarm_namespace,
-    metricAlarm_dimensions,
-    metricAlarm_evaluationPeriods,
-    metricAlarm_actionsEnabled,
-    metricAlarm_alarmConfigurationUpdatedTimestamp,
+    metricAlarm_metrics,
+    metricAlarm_treatMissingData,
     metricAlarm_period,
     metricAlarm_alarmDescription,
+    metricAlarm_evaluationPeriods,
+    metricAlarm_metricName,
+    metricAlarm_namespace,
+    metricAlarm_thresholdMetricId,
+    metricAlarm_comparisonOperator,
+    metricAlarm_oKActions,
+    metricAlarm_evaluateLowSampleCountPercentile,
+    metricAlarm_stateValue,
+    metricAlarm_datapointsToAlarm,
+    metricAlarm_threshold,
+    metricAlarm_alarmConfigurationUpdatedTimestamp,
+    metricAlarm_actionsEnabled,
+    metricAlarm_insufficientDataActions,
+    metricAlarm_stateReason,
+    metricAlarm_stateReasonData,
+    metricAlarm_dimensions,
+    metricAlarm_alarmArn,
+    metricAlarm_alarmActions,
+    metricAlarm_unit,
+    metricAlarm_statistic,
+    metricAlarm_extendedStatistic,
 
     -- ** MetricDataQuery
-    metricDataQuery_accountId,
-    metricDataQuery_metricStat,
     metricDataQuery_returnData,
-    metricDataQuery_label,
     metricDataQuery_period,
+    metricDataQuery_accountId,
     metricDataQuery_expression,
+    metricDataQuery_label,
+    metricDataQuery_metricStat,
     metricDataQuery_id,
 
     -- ** MetricDataResult
     metricDataResult_values,
     metricDataResult_id,
     metricDataResult_timestamps,
-    metricDataResult_statusCode,
-    metricDataResult_label,
     metricDataResult_messages,
+    metricDataResult_label,
+    metricDataResult_statusCode,
 
     -- ** MetricDatum
-    metricDatum_storageResolution,
-    metricDatum_unit,
     metricDatum_values,
     metricDatum_counts,
-    metricDatum_statisticValues,
-    metricDatum_timestamp,
     metricDatum_value,
+    metricDatum_storageResolution,
     metricDatum_dimensions,
+    metricDatum_unit,
+    metricDatum_timestamp,
+    metricDatum_statisticValues,
     metricDatum_metricName,
 
     -- ** MetricStat
@@ -468,22 +468,22 @@ module Network.AWS.CloudWatch.Lens
     metricStat_stat,
 
     -- ** MetricStreamEntry
-    metricStreamEntry_firehoseArn,
-    metricStreamEntry_arn,
-    metricStreamEntry_creationDate,
-    metricStreamEntry_name,
-    metricStreamEntry_lastUpdateDate,
     metricStreamEntry_state,
+    metricStreamEntry_arn,
+    metricStreamEntry_firehoseArn,
     metricStreamEntry_outputFormat,
+    metricStreamEntry_lastUpdateDate,
+    metricStreamEntry_name,
+    metricStreamEntry_creationDate,
 
     -- ** MetricStreamFilter
     metricStreamFilter_namespace,
 
     -- ** PartialFailure
-    partialFailure_exceptionType,
+    partialFailure_failureResource,
     partialFailure_failureCode,
     partialFailure_failureDescription,
-    partialFailure_failureResource,
+    partialFailure_exceptionType,
 
     -- ** Range
     range_startTime,

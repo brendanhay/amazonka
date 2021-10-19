@@ -33,11 +33,11 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     newDescribeAlarmsForMetric,
 
     -- * Request Lenses
-    describeAlarmsForMetric_extendedStatistic,
+    describeAlarmsForMetric_period,
+    describeAlarmsForMetric_dimensions,
     describeAlarmsForMetric_unit,
     describeAlarmsForMetric_statistic,
-    describeAlarmsForMetric_dimensions,
-    describeAlarmsForMetric_period,
+    describeAlarmsForMetric_extendedStatistic,
     describeAlarmsForMetric_metricName,
     describeAlarmsForMetric_namespace,
 
@@ -60,20 +60,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-  { -- | The percentile statistic for the metric. Specify a value between p0.0
-    -- and p100.
-    extendedStatistic :: Prelude.Maybe Prelude.Text,
+  { -- | The period, in seconds, over which the statistic is applied.
+    period :: Prelude.Maybe Prelude.Natural,
+    -- | The dimensions associated with the metric. If the metric has any
+    -- associated dimensions, you must specify them in order for the call to
+    -- succeed.
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The unit for the metric.
     unit :: Prelude.Maybe StandardUnit,
     -- | The statistic for the metric, other than percentiles. For percentile
     -- statistics, use @ExtendedStatistics@.
     statistic :: Prelude.Maybe Statistic,
-    -- | The dimensions associated with the metric. If the metric has any
-    -- associated dimensions, you must specify them in order for the call to
-    -- succeed.
-    dimensions :: Prelude.Maybe [Dimension],
-    -- | The period, in seconds, over which the statistic is applied.
-    period :: Prelude.Maybe Prelude.Natural,
+    -- | The percentile statistic for the metric. Specify a value between p0.0
+    -- and p100.
+    extendedStatistic :: Prelude.Maybe Prelude.Text,
     -- | The name of the metric.
     metricName :: Prelude.Text,
     -- | The namespace of the metric.
@@ -89,19 +89,19 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'extendedStatistic', 'describeAlarmsForMetric_extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0
--- and p100.
+-- 'period', 'describeAlarmsForMetric_period' - The period, in seconds, over which the statistic is applied.
+--
+-- 'dimensions', 'describeAlarmsForMetric_dimensions' - The dimensions associated with the metric. If the metric has any
+-- associated dimensions, you must specify them in order for the call to
+-- succeed.
 --
 -- 'unit', 'describeAlarmsForMetric_unit' - The unit for the metric.
 --
 -- 'statistic', 'describeAlarmsForMetric_statistic' - The statistic for the metric, other than percentiles. For percentile
 -- statistics, use @ExtendedStatistics@.
 --
--- 'dimensions', 'describeAlarmsForMetric_dimensions' - The dimensions associated with the metric. If the metric has any
--- associated dimensions, you must specify them in order for the call to
--- succeed.
---
--- 'period', 'describeAlarmsForMetric_period' - The period, in seconds, over which the statistic is applied.
+-- 'extendedStatistic', 'describeAlarmsForMetric_extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0
+-- and p100.
 --
 -- 'metricName', 'describeAlarmsForMetric_metricName' - The name of the metric.
 --
@@ -114,20 +114,24 @@ newDescribeAlarmsForMetric ::
   DescribeAlarmsForMetric
 newDescribeAlarmsForMetric pMetricName_ pNamespace_ =
   DescribeAlarmsForMetric'
-    { extendedStatistic =
-        Prelude.Nothing,
+    { period = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
       unit = Prelude.Nothing,
       statistic = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
-      period = Prelude.Nothing,
+      extendedStatistic = Prelude.Nothing,
       metricName = pMetricName_,
       namespace = pNamespace_
     }
 
--- | The percentile statistic for the metric. Specify a value between p0.0
--- and p100.
-describeAlarmsForMetric_extendedStatistic :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Text)
-describeAlarmsForMetric_extendedStatistic = Lens.lens (\DescribeAlarmsForMetric' {extendedStatistic} -> extendedStatistic) (\s@DescribeAlarmsForMetric' {} a -> s {extendedStatistic = a} :: DescribeAlarmsForMetric)
+-- | The period, in seconds, over which the statistic is applied.
+describeAlarmsForMetric_period :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Natural)
+describeAlarmsForMetric_period = Lens.lens (\DescribeAlarmsForMetric' {period} -> period) (\s@DescribeAlarmsForMetric' {} a -> s {period = a} :: DescribeAlarmsForMetric)
+
+-- | The dimensions associated with the metric. If the metric has any
+-- associated dimensions, you must specify them in order for the call to
+-- succeed.
+describeAlarmsForMetric_dimensions :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe [Dimension])
+describeAlarmsForMetric_dimensions = Lens.lens (\DescribeAlarmsForMetric' {dimensions} -> dimensions) (\s@DescribeAlarmsForMetric' {} a -> s {dimensions = a} :: DescribeAlarmsForMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unit for the metric.
 describeAlarmsForMetric_unit :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe StandardUnit)
@@ -138,15 +142,10 @@ describeAlarmsForMetric_unit = Lens.lens (\DescribeAlarmsForMetric' {unit} -> un
 describeAlarmsForMetric_statistic :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Statistic)
 describeAlarmsForMetric_statistic = Lens.lens (\DescribeAlarmsForMetric' {statistic} -> statistic) (\s@DescribeAlarmsForMetric' {} a -> s {statistic = a} :: DescribeAlarmsForMetric)
 
--- | The dimensions associated with the metric. If the metric has any
--- associated dimensions, you must specify them in order for the call to
--- succeed.
-describeAlarmsForMetric_dimensions :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe [Dimension])
-describeAlarmsForMetric_dimensions = Lens.lens (\DescribeAlarmsForMetric' {dimensions} -> dimensions) (\s@DescribeAlarmsForMetric' {} a -> s {dimensions = a} :: DescribeAlarmsForMetric) Prelude.. Lens.mapping Lens._Coerce
-
--- | The period, in seconds, over which the statistic is applied.
-describeAlarmsForMetric_period :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Natural)
-describeAlarmsForMetric_period = Lens.lens (\DescribeAlarmsForMetric' {period} -> period) (\s@DescribeAlarmsForMetric' {} a -> s {period = a} :: DescribeAlarmsForMetric)
+-- | The percentile statistic for the metric. Specify a value between p0.0
+-- and p100.
+describeAlarmsForMetric_extendedStatistic :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Text)
+describeAlarmsForMetric_extendedStatistic = Lens.lens (\DescribeAlarmsForMetric' {extendedStatistic} -> extendedStatistic) (\s@DescribeAlarmsForMetric' {} a -> s {extendedStatistic = a} :: DescribeAlarmsForMetric)
 
 -- | The name of the metric.
 describeAlarmsForMetric_metricName :: Lens.Lens' DescribeAlarmsForMetric Prelude.Text
@@ -189,13 +188,13 @@ instance Core.ToQuery DescribeAlarmsForMetric where
           Core.=: ("DescribeAlarmsForMetric" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "ExtendedStatistic" Core.=: extendedStatistic,
-        "Unit" Core.=: unit,
-        "Statistic" Core.=: statistic,
+        "Period" Core.=: period,
         "Dimensions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Period" Core.=: period,
+        "Unit" Core.=: unit,
+        "Statistic" Core.=: statistic,
+        "ExtendedStatistic" Core.=: extendedStatistic,
         "MetricName" Core.=: metricName,
         "Namespace" Core.=: namespace
       ]
@@ -233,7 +232,7 @@ newDescribeAlarmsForMetricResponse pHttpStatus_ =
 
 -- | The information for each alarm with the specified metric.
 describeAlarmsForMetricResponse_metricAlarms :: Lens.Lens' DescribeAlarmsForMetricResponse (Prelude.Maybe [MetricAlarm])
-describeAlarmsForMetricResponse_metricAlarms = Lens.lens (\DescribeAlarmsForMetricResponse' {metricAlarms} -> metricAlarms) (\s@DescribeAlarmsForMetricResponse' {} a -> s {metricAlarms = a} :: DescribeAlarmsForMetricResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAlarmsForMetricResponse_metricAlarms = Lens.lens (\DescribeAlarmsForMetricResponse' {metricAlarms} -> metricAlarms) (\s@DescribeAlarmsForMetricResponse' {} a -> s {metricAlarms = a} :: DescribeAlarmsForMetricResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAlarmsForMetricResponse_httpStatus :: Lens.Lens' DescribeAlarmsForMetricResponse Prelude.Int

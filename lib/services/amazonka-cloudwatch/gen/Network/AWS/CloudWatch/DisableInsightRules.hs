@@ -76,7 +76,7 @@ newDisableInsightRules =
 -- of your rules, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules>.
 disableInsightRules_ruleNames :: Lens.Lens' DisableInsightRules [Prelude.Text]
-disableInsightRules_ruleNames = Lens.lens (\DisableInsightRules' {ruleNames} -> ruleNames) (\s@DisableInsightRules' {} a -> s {ruleNames = a} :: DisableInsightRules) Prelude.. Lens._Coerce
+disableInsightRules_ruleNames = Lens.lens (\DisableInsightRules' {ruleNames} -> ruleNames) (\s@DisableInsightRules' {} a -> s {ruleNames = a} :: DisableInsightRules) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DisableInsightRules where
   type
@@ -151,7 +151,7 @@ newDisableInsightRulesResponse pHttpStatus_ =
 -- | An array listing the rules that could not be disabled. You cannot
 -- disable built-in rules.
 disableInsightRulesResponse_failures :: Lens.Lens' DisableInsightRulesResponse (Prelude.Maybe [PartialFailure])
-disableInsightRulesResponse_failures = Lens.lens (\DisableInsightRulesResponse' {failures} -> failures) (\s@DisableInsightRulesResponse' {} a -> s {failures = a} :: DisableInsightRulesResponse) Prelude.. Lens.mapping Lens._Coerce
+disableInsightRulesResponse_failures = Lens.lens (\DisableInsightRulesResponse' {failures} -> failures) (\s@DisableInsightRulesResponse' {} a -> s {failures = a} :: DisableInsightRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 disableInsightRulesResponse_httpStatus :: Lens.Lens' DisableInsightRulesResponse Prelude.Int

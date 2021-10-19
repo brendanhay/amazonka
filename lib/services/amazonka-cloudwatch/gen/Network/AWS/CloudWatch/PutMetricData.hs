@@ -144,7 +144,7 @@ putMetricData_namespace = Lens.lens (\PutMetricData' {namespace} -> namespace) (
 -- | The data for the metric. The array can include no more than 20 metrics
 -- per call.
 putMetricData_metricData :: Lens.Lens' PutMetricData [MetricDatum]
-putMetricData_metricData = Lens.lens (\PutMetricData' {metricData} -> metricData) (\s@PutMetricData' {} a -> s {metricData = a} :: PutMetricData) Prelude.. Lens._Coerce
+putMetricData_metricData = Lens.lens (\PutMetricData' {metricData} -> metricData) (\s@PutMetricData' {} a -> s {metricData = a} :: PutMetricData) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutMetricData where
   type

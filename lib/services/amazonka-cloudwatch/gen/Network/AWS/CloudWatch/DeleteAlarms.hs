@@ -86,7 +86,7 @@ newDeleteAlarms =
 
 -- | The alarms to be deleted.
 deleteAlarms_alarmNames :: Lens.Lens' DeleteAlarms [Prelude.Text]
-deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) (\s@DeleteAlarms' {} a -> s {alarmNames = a} :: DeleteAlarms) Prelude.. Lens._Coerce
+deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) (\s@DeleteAlarms' {} a -> s {alarmNames = a} :: DeleteAlarms) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteAlarms where
   type AWSResponse DeleteAlarms = DeleteAlarmsResponse

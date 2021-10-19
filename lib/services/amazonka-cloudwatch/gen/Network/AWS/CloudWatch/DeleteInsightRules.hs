@@ -79,7 +79,7 @@ newDeleteInsightRules =
 -- of your rules, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules>.
 deleteInsightRules_ruleNames :: Lens.Lens' DeleteInsightRules [Prelude.Text]
-deleteInsightRules_ruleNames = Lens.lens (\DeleteInsightRules' {ruleNames} -> ruleNames) (\s@DeleteInsightRules' {} a -> s {ruleNames = a} :: DeleteInsightRules) Prelude.. Lens._Coerce
+deleteInsightRules_ruleNames = Lens.lens (\DeleteInsightRules' {ruleNames} -> ruleNames) (\s@DeleteInsightRules' {} a -> s {ruleNames = a} :: DeleteInsightRules) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteInsightRules where
   type
@@ -154,7 +154,7 @@ newDeleteInsightRulesResponse pHttpStatus_ =
 -- | An array listing the rules that could not be deleted. You cannot delete
 -- built-in rules.
 deleteInsightRulesResponse_failures :: Lens.Lens' DeleteInsightRulesResponse (Prelude.Maybe [PartialFailure])
-deleteInsightRulesResponse_failures = Lens.lens (\DeleteInsightRulesResponse' {failures} -> failures) (\s@DeleteInsightRulesResponse' {} a -> s {failures = a} :: DeleteInsightRulesResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteInsightRulesResponse_failures = Lens.lens (\DeleteInsightRulesResponse' {failures} -> failures) (\s@DeleteInsightRulesResponse' {} a -> s {failures = a} :: DeleteInsightRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteInsightRulesResponse_httpStatus :: Lens.Lens' DeleteInsightRulesResponse Prelude.Int

@@ -34,8 +34,8 @@ module Network.AWS.CloudWatch.PutInsightRule
     newPutInsightRule,
 
     -- * Request Lenses
-    putInsightRule_ruleState,
     putInsightRule_tags,
+    putInsightRule_ruleState,
     putInsightRule_ruleName,
     putInsightRule_ruleDefinition,
 
@@ -57,9 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutInsightRule' smart constructor.
 data PutInsightRule = PutInsightRule'
-  { -- | The state of the rule. Valid values are ENABLED and DISABLED.
-    ruleState :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs to associate with the Contributor Insights
+  { -- | A list of key-value pairs to associate with the Contributor Insights
     -- rule. You can associate as many as 50 tags with a rule.
     --
     -- Tags can help you organize and categorize your resources. You can also
@@ -75,6 +73,8 @@ data PutInsightRule = PutInsightRule'
     -- change the tags of an existing rule, use
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>.
     tags :: Prelude.Maybe [Tag],
+    -- | The state of the rule. Valid values are ENABLED and DISABLED.
+    ruleState :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the rule.
     ruleName :: Prelude.Text,
     -- | The definition of the rule, as a JSON object. For details on the valid
@@ -92,8 +92,6 @@ data PutInsightRule = PutInsightRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleState', 'putInsightRule_ruleState' - The state of the rule. Valid values are ENABLED and DISABLED.
---
 -- 'tags', 'putInsightRule_tags' - A list of key-value pairs to associate with the Contributor Insights
 -- rule. You can associate as many as 50 tags with a rule.
 --
@@ -110,6 +108,8 @@ data PutInsightRule = PutInsightRule'
 -- change the tags of an existing rule, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>.
 --
+-- 'ruleState', 'putInsightRule_ruleState' - The state of the rule. Valid values are ENABLED and DISABLED.
+--
 -- 'ruleName', 'putInsightRule_ruleName' - A unique name for the rule.
 --
 -- 'ruleDefinition', 'putInsightRule_ruleDefinition' - The definition of the rule, as a JSON object. For details on the valid
@@ -123,15 +123,11 @@ newPutInsightRule ::
   PutInsightRule
 newPutInsightRule pRuleName_ pRuleDefinition_ =
   PutInsightRule'
-    { ruleState = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      ruleState = Prelude.Nothing,
       ruleName = pRuleName_,
       ruleDefinition = pRuleDefinition_
     }
-
--- | The state of the rule. Valid values are ENABLED and DISABLED.
-putInsightRule_ruleState :: Lens.Lens' PutInsightRule (Prelude.Maybe Prelude.Text)
-putInsightRule_ruleState = Lens.lens (\PutInsightRule' {ruleState} -> ruleState) (\s@PutInsightRule' {} a -> s {ruleState = a} :: PutInsightRule)
 
 -- | A list of key-value pairs to associate with the Contributor Insights
 -- rule. You can associate as many as 50 tags with a rule.
@@ -149,7 +145,11 @@ putInsightRule_ruleState = Lens.lens (\PutInsightRule' {ruleState} -> ruleState)
 -- change the tags of an existing rule, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>.
 putInsightRule_tags :: Lens.Lens' PutInsightRule (Prelude.Maybe [Tag])
-putInsightRule_tags = Lens.lens (\PutInsightRule' {tags} -> tags) (\s@PutInsightRule' {} a -> s {tags = a} :: PutInsightRule) Prelude.. Lens.mapping Lens._Coerce
+putInsightRule_tags = Lens.lens (\PutInsightRule' {tags} -> tags) (\s@PutInsightRule' {} a -> s {tags = a} :: PutInsightRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The state of the rule. Valid values are ENABLED and DISABLED.
+putInsightRule_ruleState :: Lens.Lens' PutInsightRule (Prelude.Maybe Prelude.Text)
+putInsightRule_ruleState = Lens.lens (\PutInsightRule' {ruleState} -> ruleState) (\s@PutInsightRule' {} a -> s {ruleState = a} :: PutInsightRule)
 
 -- | A unique name for the rule.
 putInsightRule_ruleName :: Lens.Lens' PutInsightRule Prelude.Text
@@ -191,10 +191,10 @@ instance Core.ToQuery PutInsightRule where
           Core.=: ("PutInsightRule" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "RuleState" Core.=: ruleState,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "RuleState" Core.=: ruleState,
         "RuleName" Core.=: ruleName,
         "RuleDefinition" Core.=: ruleDefinition
       ]

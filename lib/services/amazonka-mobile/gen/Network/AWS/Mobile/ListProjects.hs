@@ -191,7 +191,7 @@ listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -
 
 -- | Undocumented member.
 listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int

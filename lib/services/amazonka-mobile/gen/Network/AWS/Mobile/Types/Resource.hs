@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { arn :: Prelude.Maybe Prelude.Text,
+  { feature :: Prelude.Maybe Prelude.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Maybe Prelude.Text,
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    feature :: Prelude.Maybe Prelude.Text,
     type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,25 +44,29 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'feature', 'resource_feature' - Undocumented member.
+--
 -- 'arn', 'resource_arn' - Undocumented member.
 --
 -- 'name', 'resource_name' - Undocumented member.
 --
 -- 'attributes', 'resource_attributes' - Undocumented member.
 --
--- 'feature', 'resource_feature' - Undocumented member.
---
 -- 'type'', 'resource_type' - Undocumented member.
 newResource ::
   Resource
 newResource =
   Resource'
-    { arn = Prelude.Nothing,
+    { feature = Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      feature = Prelude.Nothing,
       type' = Prelude.Nothing
     }
+
+-- | Undocumented member.
+resource_feature :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_feature = Lens.lens (\Resource' {feature} -> feature) (\s@Resource' {} a -> s {feature = a} :: Resource)
 
 -- | Undocumented member.
 resource_arn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
@@ -74,11 +78,7 @@ resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {n
 
 -- | Undocumented member.
 resource_attributes :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resource_attributes = Lens.lens (\Resource' {attributes} -> attributes) (\s@Resource' {} a -> s {attributes = a} :: Resource) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-resource_feature :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_feature = Lens.lens (\Resource' {feature} -> feature) (\s@Resource' {} a -> s {feature = a} :: Resource)
+resource_attributes = Lens.lens (\Resource' {attributes} -> attributes) (\s@Resource' {} a -> s {attributes = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
@@ -90,10 +90,10 @@ instance Core.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "feature")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "feature")
             Prelude.<*> (x Core..:? "type")
       )
 

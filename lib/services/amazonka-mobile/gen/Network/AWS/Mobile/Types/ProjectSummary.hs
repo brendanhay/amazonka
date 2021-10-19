@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-  { -- | Unique project identifier.
-    projectId :: Prelude.Maybe Prelude.Text,
-    -- | Name of the project.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | Name of the project.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Unique project identifier.
+    projectId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ProjectSummary = ProjectSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectId', 'projectSummary_projectId' - Unique project identifier.
---
 -- 'name', 'projectSummary_name' - Name of the project.
+--
+-- 'projectId', 'projectSummary_projectId' - Unique project identifier.
 newProjectSummary ::
   ProjectSummary
 newProjectSummary =
   ProjectSummary'
-    { projectId = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      projectId = Prelude.Nothing
     }
-
--- | Unique project identifier.
-projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
-projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 -- | Name of the project.
 projectSummary_name :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_name = Lens.lens (\ProjectSummary' {name} -> name) (\s@ProjectSummary' {} a -> s {name = a} :: ProjectSummary)
+
+-- | Unique project identifier.
+projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 instance Core.FromJSON ProjectSummary where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON ProjectSummary where
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "projectId")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "projectId")
       )
 
 instance Prelude.Hashable ProjectSummary

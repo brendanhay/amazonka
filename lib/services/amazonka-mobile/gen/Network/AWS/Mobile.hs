@@ -25,26 +25,26 @@ module Network.AWS.Mobile
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** UnauthorizedException
     _UnauthorizedException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
     -- ** AccountActionRequiredException
     _AccountActionRequiredException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -58,23 +58,11 @@ module Network.AWS.Mobile
     ListProjectsResponse (ListProjectsResponse'),
     newListProjectsResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
-
-    -- ** DescribeBundle
-    DescribeBundle (DescribeBundle'),
-    newDescribeBundle,
-    DescribeBundleResponse (DescribeBundleResponse'),
-    newDescribeBundleResponse,
-
-    -- ** ListBundles (Paginated)
-    ListBundles (ListBundles'),
-    newListBundles,
-    ListBundlesResponse (ListBundlesResponse'),
-    newListBundlesResponse,
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
 
     -- ** UpdateProject
     UpdateProject (UpdateProject'),
@@ -82,17 +70,11 @@ module Network.AWS.Mobile
     UpdateProjectResponse (UpdateProjectResponse'),
     newUpdateProjectResponse,
 
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** ExportProject
-    ExportProject (ExportProject'),
-    newExportProject,
-    ExportProjectResponse (ExportProjectResponse'),
-    newExportProjectResponse,
+    -- ** ListBundles (Paginated)
+    ListBundles (ListBundles'),
+    newListBundles,
+    ListBundlesResponse (ListBundlesResponse'),
+    newListBundlesResponse,
 
     -- ** DescribeProject
     DescribeProject (DescribeProject'),
@@ -100,11 +82,29 @@ module Network.AWS.Mobile
     DescribeProjectResponse (DescribeProjectResponse'),
     newDescribeProjectResponse,
 
+    -- ** ExportProject
+    ExportProject (ExportProject'),
+    newExportProject,
+    ExportProjectResponse (ExportProjectResponse'),
+    newExportProjectResponse,
+
+    -- ** DescribeBundle
+    DescribeBundle (DescribeBundle'),
+    newDescribeBundle,
+    DescribeBundleResponse (DescribeBundleResponse'),
+    newDescribeBundleResponse,
+
     -- ** ExportBundle
     ExportBundle (ExportBundle'),
     newExportBundle,
     ExportBundleResponse (ExportBundleResponse'),
     newExportBundleResponse,
+
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- * Types
 

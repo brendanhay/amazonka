@@ -83,7 +83,7 @@ newAddInstanceGroups pJobFlowId_ =
 
 -- | Instance groups to add.
 addInstanceGroups_instanceGroups :: Lens.Lens' AddInstanceGroups [InstanceGroupConfig]
-addInstanceGroups_instanceGroups = Lens.lens (\AddInstanceGroups' {instanceGroups} -> instanceGroups) (\s@AddInstanceGroups' {} a -> s {instanceGroups = a} :: AddInstanceGroups) Prelude.. Lens._Coerce
+addInstanceGroups_instanceGroups = Lens.lens (\AddInstanceGroups' {instanceGroups} -> instanceGroups) (\s@AddInstanceGroups' {} a -> s {instanceGroups = a} :: AddInstanceGroups) Prelude.. Lens.coerced
 
 -- | Job flow in which to add the instance groups.
 addInstanceGroups_jobFlowId :: Lens.Lens' AddInstanceGroups Prelude.Text
@@ -194,7 +194,7 @@ addInstanceGroupsResponse_jobFlowId = Lens.lens (\AddInstanceGroupsResponse' {jo
 
 -- | Instance group IDs of the newly created instance groups.
 addInstanceGroupsResponse_instanceGroupIds :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe [Prelude.Text])
-addInstanceGroupsResponse_instanceGroupIds = Lens.lens (\AddInstanceGroupsResponse' {instanceGroupIds} -> instanceGroupIds) (\s@AddInstanceGroupsResponse' {} a -> s {instanceGroupIds = a} :: AddInstanceGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+addInstanceGroupsResponse_instanceGroupIds = Lens.lens (\AddInstanceGroupsResponse' {instanceGroupIds} -> instanceGroupIds) (\s@AddInstanceGroupsResponse' {} a -> s {instanceGroupIds = a} :: AddInstanceGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addInstanceGroupsResponse_httpStatus :: Lens.Lens' AddInstanceGroupsResponse Prelude.Int

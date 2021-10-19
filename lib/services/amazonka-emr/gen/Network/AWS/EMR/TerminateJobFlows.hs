@@ -76,7 +76,7 @@ newTerminateJobFlows =
 
 -- | A list of job flows to be shut down.
 terminateJobFlows_jobFlowIds :: Lens.Lens' TerminateJobFlows [Prelude.Text]
-terminateJobFlows_jobFlowIds = Lens.lens (\TerminateJobFlows' {jobFlowIds} -> jobFlowIds) (\s@TerminateJobFlows' {} a -> s {jobFlowIds = a} :: TerminateJobFlows) Prelude.. Lens._Coerce
+terminateJobFlows_jobFlowIds = Lens.lens (\TerminateJobFlows' {jobFlowIds} -> jobFlowIds) (\s@TerminateJobFlows' {} a -> s {jobFlowIds = a} :: TerminateJobFlows) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TerminateJobFlows where
   type

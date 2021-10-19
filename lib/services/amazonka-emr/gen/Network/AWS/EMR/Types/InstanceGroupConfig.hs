@@ -35,28 +35,28 @@ data InstanceGroupConfig = InstanceGroupConfig'
   { -- | EBS configurations that will be attached to each EC2 instance in the
     -- instance group.
     ebsConfiguration :: Prelude.Maybe EbsConfiguration,
+    -- | If specified, indicates that the instance group uses Spot Instances.
+    -- This is the maximum price you are willing to pay for Spot Instances.
+    -- Specify @OnDemandPrice@ to set the amount equal to the On-Demand price,
+    -- or specify an amount in USD.
+    bidPrice :: Prelude.Maybe Prelude.Text,
     -- | Amazon EMR releases 4.x or later.
     --
     -- The list of configurations supplied for an EMR cluster instance group.
     -- You can specify a separate configuration for each instance group
     -- (master, core, and task).
     configurations :: Prelude.Maybe [Configuration],
-    -- | If specified, indicates that the instance group uses Spot Instances.
-    -- This is the maximum price you are willing to pay for Spot Instances.
-    -- Specify @OnDemandPrice@ to set the amount equal to the On-Demand price,
-    -- or specify an amount in USD.
-    bidPrice :: Prelude.Maybe Prelude.Text,
+    -- | The custom AMI ID to use for the provisioned instance group.
+    customAmiId :: Prelude.Maybe Prelude.Text,
+    -- | Market type of the EC2 instances used to create a cluster node.
+    market :: Prelude.Maybe MarketType,
+    -- | Friendly name given to the instance group.
+    name :: Prelude.Maybe Prelude.Text,
     -- | An automatic scaling policy for a core instance group or task instance
     -- group in an Amazon EMR cluster. The automatic scaling policy defines how
     -- an instance group dynamically adds and terminates EC2 instances in
     -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
     autoScalingPolicy :: Prelude.Maybe AutoScalingPolicy,
-    -- | Friendly name given to the instance group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Market type of the EC2 instances used to create a cluster node.
-    market :: Prelude.Maybe MarketType,
-    -- | The custom AMI ID to use for the provisioned instance group.
-    customAmiId :: Prelude.Maybe Prelude.Text,
     -- | The role of the instance group in the cluster.
     instanceRole :: InstanceRoleType,
     -- | The EC2 instance type for all instances in the instance group.
@@ -77,27 +77,27 @@ data InstanceGroupConfig = InstanceGroupConfig'
 -- 'ebsConfiguration', 'instanceGroupConfig_ebsConfiguration' - EBS configurations that will be attached to each EC2 instance in the
 -- instance group.
 --
+-- 'bidPrice', 'instanceGroupConfig_bidPrice' - If specified, indicates that the instance group uses Spot Instances.
+-- This is the maximum price you are willing to pay for Spot Instances.
+-- Specify @OnDemandPrice@ to set the amount equal to the On-Demand price,
+-- or specify an amount in USD.
+--
 -- 'configurations', 'instanceGroupConfig_configurations' - Amazon EMR releases 4.x or later.
 --
 -- The list of configurations supplied for an EMR cluster instance group.
 -- You can specify a separate configuration for each instance group
 -- (master, core, and task).
 --
--- 'bidPrice', 'instanceGroupConfig_bidPrice' - If specified, indicates that the instance group uses Spot Instances.
--- This is the maximum price you are willing to pay for Spot Instances.
--- Specify @OnDemandPrice@ to set the amount equal to the On-Demand price,
--- or specify an amount in USD.
+-- 'customAmiId', 'instanceGroupConfig_customAmiId' - The custom AMI ID to use for the provisioned instance group.
+--
+-- 'market', 'instanceGroupConfig_market' - Market type of the EC2 instances used to create a cluster node.
+--
+-- 'name', 'instanceGroupConfig_name' - Friendly name given to the instance group.
 --
 -- 'autoScalingPolicy', 'instanceGroupConfig_autoScalingPolicy' - An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
 -- an instance group dynamically adds and terminates EC2 instances in
 -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
---
--- 'name', 'instanceGroupConfig_name' - Friendly name given to the instance group.
---
--- 'market', 'instanceGroupConfig_market' - Market type of the EC2 instances used to create a cluster node.
---
--- 'customAmiId', 'instanceGroupConfig_customAmiId' - The custom AMI ID to use for the provisioned instance group.
 --
 -- 'instanceRole', 'instanceGroupConfig_instanceRole' - The role of the instance group in the cluster.
 --
@@ -119,12 +119,12 @@ newInstanceGroupConfig
     InstanceGroupConfig'
       { ebsConfiguration =
           Prelude.Nothing,
-        configurations = Prelude.Nothing,
         bidPrice = Prelude.Nothing,
-        autoScalingPolicy = Prelude.Nothing,
-        name = Prelude.Nothing,
-        market = Prelude.Nothing,
+        configurations = Prelude.Nothing,
         customAmiId = Prelude.Nothing,
+        market = Prelude.Nothing,
+        name = Prelude.Nothing,
+        autoScalingPolicy = Prelude.Nothing,
         instanceRole = pInstanceRole_,
         instanceType = pInstanceType_,
         instanceCount = pInstanceCount_
@@ -135,14 +135,6 @@ newInstanceGroupConfig
 instanceGroupConfig_ebsConfiguration :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe EbsConfiguration)
 instanceGroupConfig_ebsConfiguration = Lens.lens (\InstanceGroupConfig' {ebsConfiguration} -> ebsConfiguration) (\s@InstanceGroupConfig' {} a -> s {ebsConfiguration = a} :: InstanceGroupConfig)
 
--- | Amazon EMR releases 4.x or later.
---
--- The list of configurations supplied for an EMR cluster instance group.
--- You can specify a separate configuration for each instance group
--- (master, core, and task).
-instanceGroupConfig_configurations :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe [Configuration])
-instanceGroupConfig_configurations = Lens.lens (\InstanceGroupConfig' {configurations} -> configurations) (\s@InstanceGroupConfig' {} a -> s {configurations = a} :: InstanceGroupConfig) Prelude.. Lens.mapping Lens._Coerce
-
 -- | If specified, indicates that the instance group uses Spot Instances.
 -- This is the maximum price you are willing to pay for Spot Instances.
 -- Specify @OnDemandPrice@ to set the amount equal to the On-Demand price,
@@ -150,24 +142,32 @@ instanceGroupConfig_configurations = Lens.lens (\InstanceGroupConfig' {configura
 instanceGroupConfig_bidPrice :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe Prelude.Text)
 instanceGroupConfig_bidPrice = Lens.lens (\InstanceGroupConfig' {bidPrice} -> bidPrice) (\s@InstanceGroupConfig' {} a -> s {bidPrice = a} :: InstanceGroupConfig)
 
+-- | Amazon EMR releases 4.x or later.
+--
+-- The list of configurations supplied for an EMR cluster instance group.
+-- You can specify a separate configuration for each instance group
+-- (master, core, and task).
+instanceGroupConfig_configurations :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe [Configuration])
+instanceGroupConfig_configurations = Lens.lens (\InstanceGroupConfig' {configurations} -> configurations) (\s@InstanceGroupConfig' {} a -> s {configurations = a} :: InstanceGroupConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The custom AMI ID to use for the provisioned instance group.
+instanceGroupConfig_customAmiId :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe Prelude.Text)
+instanceGroupConfig_customAmiId = Lens.lens (\InstanceGroupConfig' {customAmiId} -> customAmiId) (\s@InstanceGroupConfig' {} a -> s {customAmiId = a} :: InstanceGroupConfig)
+
+-- | Market type of the EC2 instances used to create a cluster node.
+instanceGroupConfig_market :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe MarketType)
+instanceGroupConfig_market = Lens.lens (\InstanceGroupConfig' {market} -> market) (\s@InstanceGroupConfig' {} a -> s {market = a} :: InstanceGroupConfig)
+
+-- | Friendly name given to the instance group.
+instanceGroupConfig_name :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe Prelude.Text)
+instanceGroupConfig_name = Lens.lens (\InstanceGroupConfig' {name} -> name) (\s@InstanceGroupConfig' {} a -> s {name = a} :: InstanceGroupConfig)
+
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
 -- an instance group dynamically adds and terminates EC2 instances in
 -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
 instanceGroupConfig_autoScalingPolicy :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe AutoScalingPolicy)
 instanceGroupConfig_autoScalingPolicy = Lens.lens (\InstanceGroupConfig' {autoScalingPolicy} -> autoScalingPolicy) (\s@InstanceGroupConfig' {} a -> s {autoScalingPolicy = a} :: InstanceGroupConfig)
-
--- | Friendly name given to the instance group.
-instanceGroupConfig_name :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe Prelude.Text)
-instanceGroupConfig_name = Lens.lens (\InstanceGroupConfig' {name} -> name) (\s@InstanceGroupConfig' {} a -> s {name = a} :: InstanceGroupConfig)
-
--- | Market type of the EC2 instances used to create a cluster node.
-instanceGroupConfig_market :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe MarketType)
-instanceGroupConfig_market = Lens.lens (\InstanceGroupConfig' {market} -> market) (\s@InstanceGroupConfig' {} a -> s {market = a} :: InstanceGroupConfig)
-
--- | The custom AMI ID to use for the provisioned instance group.
-instanceGroupConfig_customAmiId :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe Prelude.Text)
-instanceGroupConfig_customAmiId = Lens.lens (\InstanceGroupConfig' {customAmiId} -> customAmiId) (\s@InstanceGroupConfig' {} a -> s {customAmiId = a} :: InstanceGroupConfig)
 
 -- | The role of the instance group in the cluster.
 instanceGroupConfig_instanceRole :: Lens.Lens' InstanceGroupConfig InstanceRoleType
@@ -191,14 +191,14 @@ instance Core.ToJSON InstanceGroupConfig where
       ( Prelude.catMaybes
           [ ("EbsConfiguration" Core..=)
               Prelude.<$> ebsConfiguration,
+            ("BidPrice" Core..=) Prelude.<$> bidPrice,
             ("Configurations" Core..=)
               Prelude.<$> configurations,
-            ("BidPrice" Core..=) Prelude.<$> bidPrice,
+            ("CustomAmiId" Core..=) Prelude.<$> customAmiId,
+            ("Market" Core..=) Prelude.<$> market,
+            ("Name" Core..=) Prelude.<$> name,
             ("AutoScalingPolicy" Core..=)
               Prelude.<$> autoScalingPolicy,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Market" Core..=) Prelude.<$> market,
-            ("CustomAmiId" Core..=) Prelude.<$> customAmiId,
             Prelude.Just ("InstanceRole" Core..= instanceRole),
             Prelude.Just ("InstanceType" Core..= instanceType),
             Prelude.Just

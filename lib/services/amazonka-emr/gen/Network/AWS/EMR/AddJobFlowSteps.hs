@@ -112,7 +112,7 @@ addJobFlowSteps_jobFlowId = Lens.lens (\AddJobFlowSteps' {jobFlowId} -> jobFlowI
 
 -- | A list of StepConfig to be executed by the job flow.
 addJobFlowSteps_steps :: Lens.Lens' AddJobFlowSteps [StepConfig]
-addJobFlowSteps_steps = Lens.lens (\AddJobFlowSteps' {steps} -> steps) (\s@AddJobFlowSteps' {} a -> s {steps = a} :: AddJobFlowSteps) Prelude.. Lens._Coerce
+addJobFlowSteps_steps = Lens.lens (\AddJobFlowSteps' {steps} -> steps) (\s@AddJobFlowSteps' {} a -> s {steps = a} :: AddJobFlowSteps) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddJobFlowSteps where
   type
@@ -195,7 +195,7 @@ newAddJobFlowStepsResponse pHttpStatus_ =
 
 -- | The identifiers of the list of steps added to the job flow.
 addJobFlowStepsResponse_stepIds :: Lens.Lens' AddJobFlowStepsResponse (Prelude.Maybe [Prelude.Text])
-addJobFlowStepsResponse_stepIds = Lens.lens (\AddJobFlowStepsResponse' {stepIds} -> stepIds) (\s@AddJobFlowStepsResponse' {} a -> s {stepIds = a} :: AddJobFlowStepsResponse) Prelude.. Lens.mapping Lens._Coerce
+addJobFlowStepsResponse_stepIds = Lens.lens (\AddJobFlowStepsResponse' {stepIds} -> stepIds) (\s@AddJobFlowStepsResponse' {} a -> s {stepIds = a} :: AddJobFlowStepsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addJobFlowStepsResponse_httpStatus :: Lens.Lens' AddJobFlowStepsResponse Prelude.Int

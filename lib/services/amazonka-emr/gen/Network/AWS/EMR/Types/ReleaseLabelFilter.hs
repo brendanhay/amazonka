@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReleaseLabelFilter' smart constructor.
 data ReleaseLabelFilter = ReleaseLabelFilter'
-  { -- | Optional release label version prefix filter. For example, @emr-5@.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | Optional release label application filter. For example, @spark\@2.1.0@.
-    application :: Prelude.Maybe Prelude.Text
+  { -- | Optional release label application filter. For example, @spark\@2.1.0@.
+    application :: Prelude.Maybe Prelude.Text,
+    -- | Optional release label version prefix filter. For example, @emr-5@.
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ReleaseLabelFilter = ReleaseLabelFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefix', 'releaseLabelFilter_prefix' - Optional release label version prefix filter. For example, @emr-5@.
---
 -- 'application', 'releaseLabelFilter_application' - Optional release label application filter. For example, @spark\@2.1.0@.
+--
+-- 'prefix', 'releaseLabelFilter_prefix' - Optional release label version prefix filter. For example, @emr-5@.
 newReleaseLabelFilter ::
   ReleaseLabelFilter
 newReleaseLabelFilter =
   ReleaseLabelFilter'
-    { prefix = Prelude.Nothing,
-      application = Prelude.Nothing
+    { application = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
-
--- | Optional release label version prefix filter. For example, @emr-5@.
-releaseLabelFilter_prefix :: Lens.Lens' ReleaseLabelFilter (Prelude.Maybe Prelude.Text)
-releaseLabelFilter_prefix = Lens.lens (\ReleaseLabelFilter' {prefix} -> prefix) (\s@ReleaseLabelFilter' {} a -> s {prefix = a} :: ReleaseLabelFilter)
 
 -- | Optional release label application filter. For example, @spark\@2.1.0@.
 releaseLabelFilter_application :: Lens.Lens' ReleaseLabelFilter (Prelude.Maybe Prelude.Text)
 releaseLabelFilter_application = Lens.lens (\ReleaseLabelFilter' {application} -> application) (\s@ReleaseLabelFilter' {} a -> s {application = a} :: ReleaseLabelFilter)
+
+-- | Optional release label version prefix filter. For example, @emr-5@.
+releaseLabelFilter_prefix :: Lens.Lens' ReleaseLabelFilter (Prelude.Maybe Prelude.Text)
+releaseLabelFilter_prefix = Lens.lens (\ReleaseLabelFilter' {prefix} -> prefix) (\s@ReleaseLabelFilter' {} a -> s {prefix = a} :: ReleaseLabelFilter)
 
 instance Prelude.Hashable ReleaseLabelFilter
 
@@ -69,7 +69,7 @@ instance Core.ToJSON ReleaseLabelFilter where
   toJSON ReleaseLabelFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Prefix" Core..=) Prelude.<$> prefix,
-            ("Application" Core..=) Prelude.<$> application
+          [ ("Application" Core..=) Prelude.<$> application,
+            ("Prefix" Core..=) Prelude.<$> prefix
           ]
       )

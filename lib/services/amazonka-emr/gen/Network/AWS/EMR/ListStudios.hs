@@ -176,7 +176,7 @@ newListStudiosResponse pHttpStatus_ =
 
 -- | The list of Studio summary objects.
 listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Prelude.Maybe [StudioSummary])
-listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens._Coerce
+listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listStudiosResponse_marker :: Lens.Lens' ListStudiosResponse (Prelude.Maybe Prelude.Text)

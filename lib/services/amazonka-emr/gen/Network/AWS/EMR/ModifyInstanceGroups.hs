@@ -82,7 +82,7 @@ modifyInstanceGroups_clusterId = Lens.lens (\ModifyInstanceGroups' {clusterId} -
 
 -- | Instance groups to change.
 modifyInstanceGroups_instanceGroups :: Lens.Lens' ModifyInstanceGroups (Prelude.Maybe [InstanceGroupModifyConfig])
-modifyInstanceGroups_instanceGroups = Lens.lens (\ModifyInstanceGroups' {instanceGroups} -> instanceGroups) (\s@ModifyInstanceGroups' {} a -> s {instanceGroups = a} :: ModifyInstanceGroups) Prelude.. Lens.mapping Lens._Coerce
+modifyInstanceGroups_instanceGroups = Lens.lens (\ModifyInstanceGroups' {instanceGroups} -> instanceGroups) (\s@ModifyInstanceGroups' {} a -> s {instanceGroups = a} :: ModifyInstanceGroups) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ModifyInstanceGroups where
   type

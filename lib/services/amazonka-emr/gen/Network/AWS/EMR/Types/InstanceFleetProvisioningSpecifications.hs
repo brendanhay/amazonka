@@ -36,17 +36,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceFleetProvisioningSpecifications' smart constructor.
 data InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecifications'
-  { -- | The launch specification for On-Demand Instances in the instance fleet,
+  { -- | The launch specification for Spot Instances in the fleet, which
+    -- determines the defined duration, provisioning timeout behavior, and
+    -- allocation strategy.
+    spotSpecification :: Prelude.Maybe SpotProvisioningSpecification,
+    -- | The launch specification for On-Demand Instances in the instance fleet,
     -- which determines the allocation strategy.
     --
     -- The instance fleet configuration is available only in Amazon EMR
     -- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
     -- allocation strategy is available in Amazon EMR version 5.12.1 and later.
-    onDemandSpecification :: Prelude.Maybe OnDemandProvisioningSpecification,
-    -- | The launch specification for Spot Instances in the fleet, which
-    -- determines the defined duration, provisioning timeout behavior, and
-    -- allocation strategy.
-    spotSpecification :: Prelude.Maybe SpotProvisioningSpecification
+    onDemandSpecification :: Prelude.Maybe OnDemandProvisioningSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,25 +58,31 @@ data InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecific
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'spotSpecification', 'instanceFleetProvisioningSpecifications_spotSpecification' - The launch specification for Spot Instances in the fleet, which
+-- determines the defined duration, provisioning timeout behavior, and
+-- allocation strategy.
+--
 -- 'onDemandSpecification', 'instanceFleetProvisioningSpecifications_onDemandSpecification' - The launch specification for On-Demand Instances in the instance fleet,
 -- which determines the allocation strategy.
 --
 -- The instance fleet configuration is available only in Amazon EMR
 -- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
 -- allocation strategy is available in Amazon EMR version 5.12.1 and later.
---
--- 'spotSpecification', 'instanceFleetProvisioningSpecifications_spotSpecification' - The launch specification for Spot Instances in the fleet, which
--- determines the defined duration, provisioning timeout behavior, and
--- allocation strategy.
 newInstanceFleetProvisioningSpecifications ::
   InstanceFleetProvisioningSpecifications
 newInstanceFleetProvisioningSpecifications =
   InstanceFleetProvisioningSpecifications'
-    { onDemandSpecification =
+    { spotSpecification =
         Prelude.Nothing,
-      spotSpecification =
+      onDemandSpecification =
         Prelude.Nothing
     }
+
+-- | The launch specification for Spot Instances in the fleet, which
+-- determines the defined duration, provisioning timeout behavior, and
+-- allocation strategy.
+instanceFleetProvisioningSpecifications_spotSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Prelude.Maybe SpotProvisioningSpecification)
+instanceFleetProvisioningSpecifications_spotSpecification = Lens.lens (\InstanceFleetProvisioningSpecifications' {spotSpecification} -> spotSpecification) (\s@InstanceFleetProvisioningSpecifications' {} a -> s {spotSpecification = a} :: InstanceFleetProvisioningSpecifications)
 
 -- | The launch specification for On-Demand Instances in the instance fleet,
 -- which determines the allocation strategy.
@@ -87,12 +93,6 @@ newInstanceFleetProvisioningSpecifications =
 instanceFleetProvisioningSpecifications_onDemandSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Prelude.Maybe OnDemandProvisioningSpecification)
 instanceFleetProvisioningSpecifications_onDemandSpecification = Lens.lens (\InstanceFleetProvisioningSpecifications' {onDemandSpecification} -> onDemandSpecification) (\s@InstanceFleetProvisioningSpecifications' {} a -> s {onDemandSpecification = a} :: InstanceFleetProvisioningSpecifications)
 
--- | The launch specification for Spot Instances in the fleet, which
--- determines the defined duration, provisioning timeout behavior, and
--- allocation strategy.
-instanceFleetProvisioningSpecifications_spotSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Prelude.Maybe SpotProvisioningSpecification)
-instanceFleetProvisioningSpecifications_spotSpecification = Lens.lens (\InstanceFleetProvisioningSpecifications' {spotSpecification} -> spotSpecification) (\s@InstanceFleetProvisioningSpecifications' {} a -> s {spotSpecification = a} :: InstanceFleetProvisioningSpecifications)
-
 instance
   Core.FromJSON
     InstanceFleetProvisioningSpecifications
@@ -102,8 +102,8 @@ instance
       "InstanceFleetProvisioningSpecifications"
       ( \x ->
           InstanceFleetProvisioningSpecifications'
-            Prelude.<$> (x Core..:? "OnDemandSpecification")
-            Prelude.<*> (x Core..:? "SpotSpecification")
+            Prelude.<$> (x Core..:? "SpotSpecification")
+            Prelude.<*> (x Core..:? "OnDemandSpecification")
       )
 
 instance
@@ -121,9 +121,9 @@ instance
   toJSON InstanceFleetProvisioningSpecifications' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OnDemandSpecification" Core..=)
-              Prelude.<$> onDemandSpecification,
-            ("SpotSpecification" Core..=)
-              Prelude.<$> spotSpecification
+          [ ("SpotSpecification" Core..=)
+              Prelude.<$> spotSpecification,
+            ("OnDemandSpecification" Core..=)
+              Prelude.<$> onDemandSpecification
           ]
       )

@@ -37,20 +37,44 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCluster' smart constructor.
 data Cluster = Cluster'
-  { -- | Applies only when @CustomAmiID@ is used. Specifies the type of updates
-    -- that are applied from the Amazon Linux AMI package repositories when an
-    -- instance boots using the AMI.
-    repoUpgradeOnBoot :: Prelude.Maybe RepoUpgradeOnBoot,
+  { -- | The KMS key used for encrypting log files. This attribute is only
+    -- available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+    logEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that Amazon EMR assumes in order to access Amazon Web
-    -- Services resources on your behalf.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | The AMI version requested for this cluster.
+    requestedAmiVersion :: Prelude.Maybe Prelude.Text,
+    -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
+    -- that is used for each EC2 instance. Available in Amazon EMR version 4.x
+    -- and later.
+    ebsRootVolumeSize :: Prelude.Maybe Prelude.Int,
+    -- | Provides information about the EC2 instances in a cluster grouped by
+    -- category. For example, key name, subnet ID, IAM instance profile, and so
+    -- on.
+    ec2InstanceAttributes :: Prelude.Maybe Ec2InstanceAttributes,
+    -- | The Amazon Resource Name (ARN) of the Outpost where the cluster is
+    -- launched.
+    outpostArn :: Prelude.Maybe Prelude.Text,
+    -- | An approximation of the cost of the cluster, represented in
+    -- m1.small\/hours. This value is incremented one time for every hour an
+    -- m1.small instance runs. Larger instances are weighted more, so an EC2
+    -- instance that is roughly four times more expensive would result in the
+    -- normalized instance hours being incremented by four. This result is only
+    -- an approximation and does not reflect the actual billing rate.
+    normalizedInstanceHours :: Prelude.Maybe Prelude.Int,
+    -- | Applies only to Amazon EMR releases 4.x and later. The list of
+    -- Configurations supplied to the EMR cluster.
+    configurations :: Prelude.Maybe [Configuration],
+    -- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
+    -- Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
+    customAmiId :: Prelude.Maybe Prelude.Text,
     -- | An IAM role for automatic scaling policies. The default role is
     -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
     -- the automatic scaling feature requires to launch and terminate EC2
     -- instances in an instance group.
     autoScalingRole :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security configuration applied to the cluster.
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The way that individual Amazon EC2 instances terminate when an automatic
     -- scale-in activity occurs or an instance group is resized.
     -- @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes
@@ -66,30 +90,13 @@ data Cluster = Cluster'
     -- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
     -- than 5.1.0.
     scaleDownBehavior :: Prelude.Maybe ScaleDownBehavior,
-    -- | The name of the security configuration applied to the cluster.
-    securityConfiguration :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
-    -- instances from being terminated by an API call or user intervention, or
-    -- in the event of a cluster error.
-    terminationProtected :: Prelude.Maybe Prelude.Bool,
-    -- | The DNS name of the master node. If the cluster is on a private subnet,
-    -- this is the private DNS name. On a public subnet, this is the public DNS
-    -- name.
-    masterPublicDnsName :: Prelude.Maybe Prelude.Text,
-    -- | Applies only to Amazon EMR releases 4.x and later. The list of
-    -- Configurations supplied to the EMR cluster.
-    configurations :: Prelude.Maybe [Configuration],
-    -- | The Amazon Resource Name (ARN) of the Outpost where the cluster is
-    -- launched.
-    outpostArn :: Prelude.Maybe Prelude.Text,
-    -- | The AMI version running on this cluster.
-    runningAmiVersion :: Prelude.Maybe Prelude.Text,
-    -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
-    -- that is used for each EC2 instance. Available in Amazon EMR version 4.x
-    -- and later.
-    ebsRootVolumeSize :: Prelude.Maybe Prelude.Int,
-    -- | The AMI version requested for this cluster.
-    requestedAmiVersion :: Prelude.Maybe Prelude.Text,
+    -- | The instance fleet configuration is available only in Amazon EMR
+    -- versions 4.8.0 and later, excluding 5.0.x versions.
+    --
+    -- The instance group configuration of the cluster. A value of
+    -- @INSTANCE_GROUP@ indicates a uniform instance group configuration. A
+    -- value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
+    instanceCollectionType :: Prelude.Maybe InstanceCollectionType,
     -- | The Amazon EMR release label, which determines the version of
     -- open-source application packages installed on the cluster. Release
     -- labels are in the form @emr-x.x.x@, where x.x.x is an Amazon EMR release
@@ -99,22 +106,30 @@ data Cluster = Cluster'
     -- label applies only to Amazon EMR releases version 4.0 and later. Earlier
     -- versions use @AmiVersion@.
     releaseLabel :: Prelude.Maybe Prelude.Text,
-    -- | The instance fleet configuration is available only in Amazon EMR
-    -- versions 4.8.0 and later, excluding 5.0.x versions.
-    --
-    -- The instance group configuration of the cluster. A value of
-    -- @INSTANCE_GROUP@ indicates a uniform instance group configuration. A
-    -- value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
-    instanceCollectionType :: Prelude.Maybe InstanceCollectionType,
-    -- | The KMS key used for encrypting log files. This attribute is only
-    -- available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-    logEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags associated with a cluster.
-    tags :: Prelude.Maybe [Tag],
-    -- | The applications installed on this cluster.
-    applications :: Prelude.Maybe [Application],
-    -- | Specifies the number of steps that can be executed concurrently.
-    stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
+    -- | Applies only when @CustomAmiID@ is used. Specifies the type of updates
+    -- that are applied from the Amazon Linux AMI package repositories when an
+    -- instance boots using the AMI.
+    repoUpgradeOnBoot :: Prelude.Maybe RepoUpgradeOnBoot,
+    -- | The path to the Amazon S3 location where logs for this cluster are
+    -- stored.
+    logUri :: Prelude.Maybe Prelude.Text,
+    -- | Attributes for Kerberos configuration when Kerberos authentication is
+    -- enabled using a security configuration. For more information see
+    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
+    -- in the /Amazon EMR Management Guide/.
+    kerberosAttributes :: Prelude.Maybe KerberosAttributes,
+    -- | Placement group configured for an Amazon EMR cluster.
+    placementGroups :: Prelude.Maybe [PlacementGroupConfig],
+    -- | The AMI version running on this cluster.
+    runningAmiVersion :: Prelude.Maybe Prelude.Text,
+    -- | The DNS name of the master node. If the cluster is on a private subnet,
+    -- this is the private DNS name. On a public subnet, this is the public DNS
+    -- name.
+    masterPublicDnsName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
+    -- instances from being terminated by an API call or user intervention, or
+    -- in the event of a cluster error.
+    terminationProtected :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the cluster is visible to IAM principals in the Amazon
     -- Web Services account associated with the cluster. When @true@, IAM
     -- principals in the Amazon Web Services account can perform EMR cluster
@@ -136,30 +151,15 @@ data Cluster = Cluster'
     -- | Specifies whether the cluster should terminate after completing all
     -- steps.
     autoTerminate :: Prelude.Maybe Prelude.Bool,
-    -- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
-    -- Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
-    customAmiId :: Prelude.Maybe Prelude.Text,
-    -- | An approximation of the cost of the cluster, represented in
-    -- m1.small\/hours. This value is incremented one time for every hour an
-    -- m1.small instance runs. Larger instances are weighted more, so an EC2
-    -- instance that is roughly four times more expensive would result in the
-    -- normalized instance hours being incremented by four. This result is only
-    -- an approximation and does not reflect the actual billing rate.
-    normalizedInstanceHours :: Prelude.Maybe Prelude.Int,
-    -- | Placement group configured for an Amazon EMR cluster.
-    placementGroups :: Prelude.Maybe [PlacementGroupConfig],
-    -- | The path to the Amazon S3 location where logs for this cluster are
-    -- stored.
-    logUri :: Prelude.Maybe Prelude.Text,
-    -- | Attributes for Kerberos configuration when Kerberos authentication is
-    -- enabled using a security configuration. For more information see
-    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
-    -- in the /Amazon EMR Management Guide/.
-    kerberosAttributes :: Prelude.Maybe KerberosAttributes,
-    -- | Provides information about the EC2 instances in a cluster grouped by
-    -- category. For example, key name, subnet ID, IAM instance profile, and so
-    -- on.
-    ec2InstanceAttributes :: Prelude.Maybe Ec2InstanceAttributes,
+    -- | Specifies the number of steps that can be executed concurrently.
+    stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
+    -- | The applications installed on this cluster.
+    applications :: Prelude.Maybe [Application],
+    -- | A list of tags associated with a cluster.
+    tags :: Prelude.Maybe [Tag],
+    -- | The IAM role that Amazon EMR assumes in order to access Amazon Web
+    -- Services resources on your behalf.
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the cluster.
     id :: Prelude.Text,
     -- | The name of the cluster.
@@ -177,19 +177,43 @@ data Cluster = Cluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repoUpgradeOnBoot', 'cluster_repoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies the type of updates
--- that are applied from the Amazon Linux AMI package repositories when an
--- instance boots using the AMI.
+-- 'logEncryptionKmsKeyId', 'cluster_logEncryptionKmsKeyId' - The KMS key used for encrypting log files. This attribute is only
+-- available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 --
 -- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name of the cluster.
 --
--- 'serviceRole', 'cluster_serviceRole' - The IAM role that Amazon EMR assumes in order to access Amazon Web
--- Services resources on your behalf.
+-- 'requestedAmiVersion', 'cluster_requestedAmiVersion' - The AMI version requested for this cluster.
+--
+-- 'ebsRootVolumeSize', 'cluster_ebsRootVolumeSize' - The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
+-- that is used for each EC2 instance. Available in Amazon EMR version 4.x
+-- and later.
+--
+-- 'ec2InstanceAttributes', 'cluster_ec2InstanceAttributes' - Provides information about the EC2 instances in a cluster grouped by
+-- category. For example, key name, subnet ID, IAM instance profile, and so
+-- on.
+--
+-- 'outpostArn', 'cluster_outpostArn' - The Amazon Resource Name (ARN) of the Outpost where the cluster is
+-- launched.
+--
+-- 'normalizedInstanceHours', 'cluster_normalizedInstanceHours' - An approximation of the cost of the cluster, represented in
+-- m1.small\/hours. This value is incremented one time for every hour an
+-- m1.small instance runs. Larger instances are weighted more, so an EC2
+-- instance that is roughly four times more expensive would result in the
+-- normalized instance hours being incremented by four. This result is only
+-- an approximation and does not reflect the actual billing rate.
+--
+-- 'configurations', 'cluster_configurations' - Applies only to Amazon EMR releases 4.x and later. The list of
+-- Configurations supplied to the EMR cluster.
+--
+-- 'customAmiId', 'cluster_customAmiId' - Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
+-- Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
 --
 -- 'autoScalingRole', 'cluster_autoScalingRole' - An IAM role for automatic scaling policies. The default role is
 -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
 -- the automatic scaling feature requires to launch and terminate EC2
 -- instances in an instance group.
+--
+-- 'securityConfiguration', 'cluster_securityConfiguration' - The name of the security configuration applied to the cluster.
 --
 -- 'scaleDownBehavior', 'cluster_scaleDownBehavior' - The way that individual Amazon EC2 instances terminate when an automatic
 -- scale-in activity occurs or an instance group is resized.
@@ -206,29 +230,12 @@ data Cluster = Cluster'
 -- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
 -- than 5.1.0.
 --
--- 'securityConfiguration', 'cluster_securityConfiguration' - The name of the security configuration applied to the cluster.
+-- 'instanceCollectionType', 'cluster_instanceCollectionType' - The instance fleet configuration is available only in Amazon EMR
+-- versions 4.8.0 and later, excluding 5.0.x versions.
 --
--- 'terminationProtected', 'cluster_terminationProtected' - Indicates whether Amazon EMR will lock the cluster to prevent the EC2
--- instances from being terminated by an API call or user intervention, or
--- in the event of a cluster error.
---
--- 'masterPublicDnsName', 'cluster_masterPublicDnsName' - The DNS name of the master node. If the cluster is on a private subnet,
--- this is the private DNS name. On a public subnet, this is the public DNS
--- name.
---
--- 'configurations', 'cluster_configurations' - Applies only to Amazon EMR releases 4.x and later. The list of
--- Configurations supplied to the EMR cluster.
---
--- 'outpostArn', 'cluster_outpostArn' - The Amazon Resource Name (ARN) of the Outpost where the cluster is
--- launched.
---
--- 'runningAmiVersion', 'cluster_runningAmiVersion' - The AMI version running on this cluster.
---
--- 'ebsRootVolumeSize', 'cluster_ebsRootVolumeSize' - The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
--- that is used for each EC2 instance. Available in Amazon EMR version 4.x
--- and later.
---
--- 'requestedAmiVersion', 'cluster_requestedAmiVersion' - The AMI version requested for this cluster.
+-- The instance group configuration of the cluster. A value of
+-- @INSTANCE_GROUP@ indicates a uniform instance group configuration. A
+-- value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
 --
 -- 'releaseLabel', 'cluster_releaseLabel' - The Amazon EMR release label, which determines the version of
 -- open-source application packages installed on the cluster. Release
@@ -239,21 +246,29 @@ data Cluster = Cluster'
 -- label applies only to Amazon EMR releases version 4.0 and later. Earlier
 -- versions use @AmiVersion@.
 --
--- 'instanceCollectionType', 'cluster_instanceCollectionType' - The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- 'repoUpgradeOnBoot', 'cluster_repoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies the type of updates
+-- that are applied from the Amazon Linux AMI package repositories when an
+-- instance boots using the AMI.
 --
--- The instance group configuration of the cluster. A value of
--- @INSTANCE_GROUP@ indicates a uniform instance group configuration. A
--- value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
+-- 'logUri', 'cluster_logUri' - The path to the Amazon S3 location where logs for this cluster are
+-- stored.
 --
--- 'logEncryptionKmsKeyId', 'cluster_logEncryptionKmsKeyId' - The KMS key used for encrypting log files. This attribute is only
--- available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+-- 'kerberosAttributes', 'cluster_kerberosAttributes' - Attributes for Kerberos configuration when Kerberos authentication is
+-- enabled using a security configuration. For more information see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
+-- in the /Amazon EMR Management Guide/.
 --
--- 'tags', 'cluster_tags' - A list of tags associated with a cluster.
+-- 'placementGroups', 'cluster_placementGroups' - Placement group configured for an Amazon EMR cluster.
 --
--- 'applications', 'cluster_applications' - The applications installed on this cluster.
+-- 'runningAmiVersion', 'cluster_runningAmiVersion' - The AMI version running on this cluster.
 --
--- 'stepConcurrencyLevel', 'cluster_stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently.
+-- 'masterPublicDnsName', 'cluster_masterPublicDnsName' - The DNS name of the master node. If the cluster is on a private subnet,
+-- this is the private DNS name. On a public subnet, this is the public DNS
+-- name.
+--
+-- 'terminationProtected', 'cluster_terminationProtected' - Indicates whether Amazon EMR will lock the cluster to prevent the EC2
+-- instances from being terminated by an API call or user intervention, or
+-- in the event of a cluster error.
 --
 -- 'visibleToAllUsers', 'cluster_visibleToAllUsers' - Indicates whether the cluster is visible to IAM principals in the Amazon
 -- Web Services account associated with the cluster. When @true@, IAM
@@ -276,29 +291,14 @@ data Cluster = Cluster'
 -- 'autoTerminate', 'cluster_autoTerminate' - Specifies whether the cluster should terminate after completing all
 -- steps.
 --
--- 'customAmiId', 'cluster_customAmiId' - Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
--- Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
+-- 'stepConcurrencyLevel', 'cluster_stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently.
 --
--- 'normalizedInstanceHours', 'cluster_normalizedInstanceHours' - An approximation of the cost of the cluster, represented in
--- m1.small\/hours. This value is incremented one time for every hour an
--- m1.small instance runs. Larger instances are weighted more, so an EC2
--- instance that is roughly four times more expensive would result in the
--- normalized instance hours being incremented by four. This result is only
--- an approximation and does not reflect the actual billing rate.
+-- 'applications', 'cluster_applications' - The applications installed on this cluster.
 --
--- 'placementGroups', 'cluster_placementGroups' - Placement group configured for an Amazon EMR cluster.
+-- 'tags', 'cluster_tags' - A list of tags associated with a cluster.
 --
--- 'logUri', 'cluster_logUri' - The path to the Amazon S3 location where logs for this cluster are
--- stored.
---
--- 'kerberosAttributes', 'cluster_kerberosAttributes' - Attributes for Kerberos configuration when Kerberos authentication is
--- enabled using a security configuration. For more information see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
--- in the /Amazon EMR Management Guide/.
---
--- 'ec2InstanceAttributes', 'cluster_ec2InstanceAttributes' - Provides information about the EC2 instances in a cluster grouped by
--- category. For example, key name, subnet ID, IAM instance profile, and so
--- on.
+-- 'serviceRole', 'cluster_serviceRole' - The IAM role that Amazon EMR assumes in order to access Amazon Web
+-- Services resources on your behalf.
 --
 -- 'id', 'cluster_id' - The unique identifier for the cluster.
 --
@@ -315,52 +315,86 @@ newCluster ::
   Cluster
 newCluster pId_ pName_ pStatus_ =
   Cluster'
-    { repoUpgradeOnBoot = Prelude.Nothing,
+    { logEncryptionKmsKeyId = Prelude.Nothing,
       clusterArn = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      autoScalingRole = Prelude.Nothing,
-      scaleDownBehavior = Prelude.Nothing,
-      securityConfiguration = Prelude.Nothing,
-      terminationProtected = Prelude.Nothing,
-      masterPublicDnsName = Prelude.Nothing,
-      configurations = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
-      runningAmiVersion = Prelude.Nothing,
-      ebsRootVolumeSize = Prelude.Nothing,
       requestedAmiVersion = Prelude.Nothing,
-      releaseLabel = Prelude.Nothing,
-      instanceCollectionType = Prelude.Nothing,
-      logEncryptionKmsKeyId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      applications = Prelude.Nothing,
-      stepConcurrencyLevel = Prelude.Nothing,
-      visibleToAllUsers = Prelude.Nothing,
-      autoTerminate = Prelude.Nothing,
-      customAmiId = Prelude.Nothing,
+      ebsRootVolumeSize = Prelude.Nothing,
+      ec2InstanceAttributes = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
       normalizedInstanceHours = Prelude.Nothing,
-      placementGroups = Prelude.Nothing,
+      configurations = Prelude.Nothing,
+      customAmiId = Prelude.Nothing,
+      autoScalingRole = Prelude.Nothing,
+      securityConfiguration = Prelude.Nothing,
+      scaleDownBehavior = Prelude.Nothing,
+      instanceCollectionType = Prelude.Nothing,
+      releaseLabel = Prelude.Nothing,
+      repoUpgradeOnBoot = Prelude.Nothing,
       logUri = Prelude.Nothing,
       kerberosAttributes = Prelude.Nothing,
-      ec2InstanceAttributes = Prelude.Nothing,
+      placementGroups = Prelude.Nothing,
+      runningAmiVersion = Prelude.Nothing,
+      masterPublicDnsName = Prelude.Nothing,
+      terminationProtected = Prelude.Nothing,
+      visibleToAllUsers = Prelude.Nothing,
+      autoTerminate = Prelude.Nothing,
+      stepConcurrencyLevel = Prelude.Nothing,
+      applications = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
       id = pId_,
       name = pName_,
       status = pStatus_
     }
 
--- | Applies only when @CustomAmiID@ is used. Specifies the type of updates
--- that are applied from the Amazon Linux AMI package repositories when an
--- instance boots using the AMI.
-cluster_repoUpgradeOnBoot :: Lens.Lens' Cluster (Prelude.Maybe RepoUpgradeOnBoot)
-cluster_repoUpgradeOnBoot = Lens.lens (\Cluster' {repoUpgradeOnBoot} -> repoUpgradeOnBoot) (\s@Cluster' {} a -> s {repoUpgradeOnBoot = a} :: Cluster)
+-- | The KMS key used for encrypting log files. This attribute is only
+-- available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+cluster_logEncryptionKmsKeyId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_logEncryptionKmsKeyId = Lens.lens (\Cluster' {logEncryptionKmsKeyId} -> logEncryptionKmsKeyId) (\s@Cluster' {} a -> s {logEncryptionKmsKeyId = a} :: Cluster)
 
 -- | The Amazon Resource Name of the cluster.
 cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluster' {} a -> s {clusterArn = a} :: Cluster)
 
--- | The IAM role that Amazon EMR assumes in order to access Amazon Web
--- Services resources on your behalf.
-cluster_serviceRole :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_serviceRole = Lens.lens (\Cluster' {serviceRole} -> serviceRole) (\s@Cluster' {} a -> s {serviceRole = a} :: Cluster)
+-- | The AMI version requested for this cluster.
+cluster_requestedAmiVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_requestedAmiVersion = Lens.lens (\Cluster' {requestedAmiVersion} -> requestedAmiVersion) (\s@Cluster' {} a -> s {requestedAmiVersion = a} :: Cluster)
+
+-- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
+-- that is used for each EC2 instance. Available in Amazon EMR version 4.x
+-- and later.
+cluster_ebsRootVolumeSize :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_ebsRootVolumeSize = Lens.lens (\Cluster' {ebsRootVolumeSize} -> ebsRootVolumeSize) (\s@Cluster' {} a -> s {ebsRootVolumeSize = a} :: Cluster)
+
+-- | Provides information about the EC2 instances in a cluster grouped by
+-- category. For example, key name, subnet ID, IAM instance profile, and so
+-- on.
+cluster_ec2InstanceAttributes :: Lens.Lens' Cluster (Prelude.Maybe Ec2InstanceAttributes)
+cluster_ec2InstanceAttributes = Lens.lens (\Cluster' {ec2InstanceAttributes} -> ec2InstanceAttributes) (\s@Cluster' {} a -> s {ec2InstanceAttributes = a} :: Cluster)
+
+-- | The Amazon Resource Name (ARN) of the Outpost where the cluster is
+-- launched.
+cluster_outpostArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_outpostArn = Lens.lens (\Cluster' {outpostArn} -> outpostArn) (\s@Cluster' {} a -> s {outpostArn = a} :: Cluster)
+
+-- | An approximation of the cost of the cluster, represented in
+-- m1.small\/hours. This value is incremented one time for every hour an
+-- m1.small instance runs. Larger instances are weighted more, so an EC2
+-- instance that is roughly four times more expensive would result in the
+-- normalized instance hours being incremented by four. This result is only
+-- an approximation and does not reflect the actual billing rate.
+cluster_normalizedInstanceHours :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_normalizedInstanceHours = Lens.lens (\Cluster' {normalizedInstanceHours} -> normalizedInstanceHours) (\s@Cluster' {} a -> s {normalizedInstanceHours = a} :: Cluster)
+
+-- | Applies only to Amazon EMR releases 4.x and later. The list of
+-- Configurations supplied to the EMR cluster.
+cluster_configurations :: Lens.Lens' Cluster (Prelude.Maybe [Configuration])
+cluster_configurations = Lens.lens (\Cluster' {configurations} -> configurations) (\s@Cluster' {} a -> s {configurations = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
+-- Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
+cluster_customAmiId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_customAmiId = Lens.lens (\Cluster' {customAmiId} -> customAmiId) (\s@Cluster' {} a -> s {customAmiId = a} :: Cluster)
 
 -- | An IAM role for automatic scaling policies. The default role is
 -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
@@ -368,6 +402,10 @@ cluster_serviceRole = Lens.lens (\Cluster' {serviceRole} -> serviceRole) (\s@Clu
 -- instances in an instance group.
 cluster_autoScalingRole :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_autoScalingRole = Lens.lens (\Cluster' {autoScalingRole} -> autoScalingRole) (\s@Cluster' {} a -> s {autoScalingRole = a} :: Cluster)
+
+-- | The name of the security configuration applied to the cluster.
+cluster_securityConfiguration :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_securityConfiguration = Lens.lens (\Cluster' {securityConfiguration} -> securityConfiguration) (\s@Cluster' {} a -> s {securityConfiguration = a} :: Cluster)
 
 -- | The way that individual Amazon EC2 instances terminate when an automatic
 -- scale-in activity occurs or an instance group is resized.
@@ -386,45 +424,14 @@ cluster_autoScalingRole = Lens.lens (\Cluster' {autoScalingRole} -> autoScalingR
 cluster_scaleDownBehavior :: Lens.Lens' Cluster (Prelude.Maybe ScaleDownBehavior)
 cluster_scaleDownBehavior = Lens.lens (\Cluster' {scaleDownBehavior} -> scaleDownBehavior) (\s@Cluster' {} a -> s {scaleDownBehavior = a} :: Cluster)
 
--- | The name of the security configuration applied to the cluster.
-cluster_securityConfiguration :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_securityConfiguration = Lens.lens (\Cluster' {securityConfiguration} -> securityConfiguration) (\s@Cluster' {} a -> s {securityConfiguration = a} :: Cluster)
-
--- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
--- instances from being terminated by an API call or user intervention, or
--- in the event of a cluster error.
-cluster_terminationProtected :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Bool)
-cluster_terminationProtected = Lens.lens (\Cluster' {terminationProtected} -> terminationProtected) (\s@Cluster' {} a -> s {terminationProtected = a} :: Cluster)
-
--- | The DNS name of the master node. If the cluster is on a private subnet,
--- this is the private DNS name. On a public subnet, this is the public DNS
--- name.
-cluster_masterPublicDnsName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_masterPublicDnsName = Lens.lens (\Cluster' {masterPublicDnsName} -> masterPublicDnsName) (\s@Cluster' {} a -> s {masterPublicDnsName = a} :: Cluster)
-
--- | Applies only to Amazon EMR releases 4.x and later. The list of
--- Configurations supplied to the EMR cluster.
-cluster_configurations :: Lens.Lens' Cluster (Prelude.Maybe [Configuration])
-cluster_configurations = Lens.lens (\Cluster' {configurations} -> configurations) (\s@Cluster' {} a -> s {configurations = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Resource Name (ARN) of the Outpost where the cluster is
--- launched.
-cluster_outpostArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_outpostArn = Lens.lens (\Cluster' {outpostArn} -> outpostArn) (\s@Cluster' {} a -> s {outpostArn = a} :: Cluster)
-
--- | The AMI version running on this cluster.
-cluster_runningAmiVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_runningAmiVersion = Lens.lens (\Cluster' {runningAmiVersion} -> runningAmiVersion) (\s@Cluster' {} a -> s {runningAmiVersion = a} :: Cluster)
-
--- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
--- that is used for each EC2 instance. Available in Amazon EMR version 4.x
--- and later.
-cluster_ebsRootVolumeSize :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
-cluster_ebsRootVolumeSize = Lens.lens (\Cluster' {ebsRootVolumeSize} -> ebsRootVolumeSize) (\s@Cluster' {} a -> s {ebsRootVolumeSize = a} :: Cluster)
-
--- | The AMI version requested for this cluster.
-cluster_requestedAmiVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_requestedAmiVersion = Lens.lens (\Cluster' {requestedAmiVersion} -> requestedAmiVersion) (\s@Cluster' {} a -> s {requestedAmiVersion = a} :: Cluster)
+-- | The instance fleet configuration is available only in Amazon EMR
+-- versions 4.8.0 and later, excluding 5.0.x versions.
+--
+-- The instance group configuration of the cluster. A value of
+-- @INSTANCE_GROUP@ indicates a uniform instance group configuration. A
+-- value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
+cluster_instanceCollectionType :: Lens.Lens' Cluster (Prelude.Maybe InstanceCollectionType)
+cluster_instanceCollectionType = Lens.lens (\Cluster' {instanceCollectionType} -> instanceCollectionType) (\s@Cluster' {} a -> s {instanceCollectionType = a} :: Cluster)
 
 -- | The Amazon EMR release label, which determines the version of
 -- open-source application packages installed on the cluster. Release
@@ -437,31 +444,43 @@ cluster_requestedAmiVersion = Lens.lens (\Cluster' {requestedAmiVersion} -> requ
 cluster_releaseLabel :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_releaseLabel = Lens.lens (\Cluster' {releaseLabel} -> releaseLabel) (\s@Cluster' {} a -> s {releaseLabel = a} :: Cluster)
 
--- | The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
---
--- The instance group configuration of the cluster. A value of
--- @INSTANCE_GROUP@ indicates a uniform instance group configuration. A
--- value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
-cluster_instanceCollectionType :: Lens.Lens' Cluster (Prelude.Maybe InstanceCollectionType)
-cluster_instanceCollectionType = Lens.lens (\Cluster' {instanceCollectionType} -> instanceCollectionType) (\s@Cluster' {} a -> s {instanceCollectionType = a} :: Cluster)
+-- | Applies only when @CustomAmiID@ is used. Specifies the type of updates
+-- that are applied from the Amazon Linux AMI package repositories when an
+-- instance boots using the AMI.
+cluster_repoUpgradeOnBoot :: Lens.Lens' Cluster (Prelude.Maybe RepoUpgradeOnBoot)
+cluster_repoUpgradeOnBoot = Lens.lens (\Cluster' {repoUpgradeOnBoot} -> repoUpgradeOnBoot) (\s@Cluster' {} a -> s {repoUpgradeOnBoot = a} :: Cluster)
 
--- | The KMS key used for encrypting log files. This attribute is only
--- available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-cluster_logEncryptionKmsKeyId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_logEncryptionKmsKeyId = Lens.lens (\Cluster' {logEncryptionKmsKeyId} -> logEncryptionKmsKeyId) (\s@Cluster' {} a -> s {logEncryptionKmsKeyId = a} :: Cluster)
+-- | The path to the Amazon S3 location where logs for this cluster are
+-- stored.
+cluster_logUri :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_logUri = Lens.lens (\Cluster' {logUri} -> logUri) (\s@Cluster' {} a -> s {logUri = a} :: Cluster)
 
--- | A list of tags associated with a cluster.
-cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
-cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
+-- | Attributes for Kerberos configuration when Kerberos authentication is
+-- enabled using a security configuration. For more information see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
+-- in the /Amazon EMR Management Guide/.
+cluster_kerberosAttributes :: Lens.Lens' Cluster (Prelude.Maybe KerberosAttributes)
+cluster_kerberosAttributes = Lens.lens (\Cluster' {kerberosAttributes} -> kerberosAttributes) (\s@Cluster' {} a -> s {kerberosAttributes = a} :: Cluster)
 
--- | The applications installed on this cluster.
-cluster_applications :: Lens.Lens' Cluster (Prelude.Maybe [Application])
-cluster_applications = Lens.lens (\Cluster' {applications} -> applications) (\s@Cluster' {} a -> s {applications = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
+-- | Placement group configured for an Amazon EMR cluster.
+cluster_placementGroups :: Lens.Lens' Cluster (Prelude.Maybe [PlacementGroupConfig])
+cluster_placementGroups = Lens.lens (\Cluster' {placementGroups} -> placementGroups) (\s@Cluster' {} a -> s {placementGroups = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the number of steps that can be executed concurrently.
-cluster_stepConcurrencyLevel :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
-cluster_stepConcurrencyLevel = Lens.lens (\Cluster' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@Cluster' {} a -> s {stepConcurrencyLevel = a} :: Cluster)
+-- | The AMI version running on this cluster.
+cluster_runningAmiVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_runningAmiVersion = Lens.lens (\Cluster' {runningAmiVersion} -> runningAmiVersion) (\s@Cluster' {} a -> s {runningAmiVersion = a} :: Cluster)
+
+-- | The DNS name of the master node. If the cluster is on a private subnet,
+-- this is the private DNS name. On a public subnet, this is the public DNS
+-- name.
+cluster_masterPublicDnsName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_masterPublicDnsName = Lens.lens (\Cluster' {masterPublicDnsName} -> masterPublicDnsName) (\s@Cluster' {} a -> s {masterPublicDnsName = a} :: Cluster)
+
+-- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
+-- instances from being terminated by an API call or user intervention, or
+-- in the event of a cluster error.
+cluster_terminationProtected :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Bool)
+cluster_terminationProtected = Lens.lens (\Cluster' {terminationProtected} -> terminationProtected) (\s@Cluster' {} a -> s {terminationProtected = a} :: Cluster)
 
 -- | Indicates whether the cluster is visible to IAM principals in the Amazon
 -- Web Services account associated with the cluster. When @true@, IAM
@@ -488,41 +507,22 @@ cluster_visibleToAllUsers = Lens.lens (\Cluster' {visibleToAllUsers} -> visibleT
 cluster_autoTerminate :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Bool)
 cluster_autoTerminate = Lens.lens (\Cluster' {autoTerminate} -> autoTerminate) (\s@Cluster' {} a -> s {autoTerminate = a} :: Cluster)
 
--- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
--- Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
-cluster_customAmiId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_customAmiId = Lens.lens (\Cluster' {customAmiId} -> customAmiId) (\s@Cluster' {} a -> s {customAmiId = a} :: Cluster)
+-- | Specifies the number of steps that can be executed concurrently.
+cluster_stepConcurrencyLevel :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_stepConcurrencyLevel = Lens.lens (\Cluster' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@Cluster' {} a -> s {stepConcurrencyLevel = a} :: Cluster)
 
--- | An approximation of the cost of the cluster, represented in
--- m1.small\/hours. This value is incremented one time for every hour an
--- m1.small instance runs. Larger instances are weighted more, so an EC2
--- instance that is roughly four times more expensive would result in the
--- normalized instance hours being incremented by four. This result is only
--- an approximation and does not reflect the actual billing rate.
-cluster_normalizedInstanceHours :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
-cluster_normalizedInstanceHours = Lens.lens (\Cluster' {normalizedInstanceHours} -> normalizedInstanceHours) (\s@Cluster' {} a -> s {normalizedInstanceHours = a} :: Cluster)
+-- | The applications installed on this cluster.
+cluster_applications :: Lens.Lens' Cluster (Prelude.Maybe [Application])
+cluster_applications = Lens.lens (\Cluster' {applications} -> applications) (\s@Cluster' {} a -> s {applications = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
--- | Placement group configured for an Amazon EMR cluster.
-cluster_placementGroups :: Lens.Lens' Cluster (Prelude.Maybe [PlacementGroupConfig])
-cluster_placementGroups = Lens.lens (\Cluster' {placementGroups} -> placementGroups) (\s@Cluster' {} a -> s {placementGroups = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of tags associated with a cluster.
+cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
+cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The path to the Amazon S3 location where logs for this cluster are
--- stored.
-cluster_logUri :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_logUri = Lens.lens (\Cluster' {logUri} -> logUri) (\s@Cluster' {} a -> s {logUri = a} :: Cluster)
-
--- | Attributes for Kerberos configuration when Kerberos authentication is
--- enabled using a security configuration. For more information see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
--- in the /Amazon EMR Management Guide/.
-cluster_kerberosAttributes :: Lens.Lens' Cluster (Prelude.Maybe KerberosAttributes)
-cluster_kerberosAttributes = Lens.lens (\Cluster' {kerberosAttributes} -> kerberosAttributes) (\s@Cluster' {} a -> s {kerberosAttributes = a} :: Cluster)
-
--- | Provides information about the EC2 instances in a cluster grouped by
--- category. For example, key name, subnet ID, IAM instance profile, and so
--- on.
-cluster_ec2InstanceAttributes :: Lens.Lens' Cluster (Prelude.Maybe Ec2InstanceAttributes)
-cluster_ec2InstanceAttributes = Lens.lens (\Cluster' {ec2InstanceAttributes} -> ec2InstanceAttributes) (\s@Cluster' {} a -> s {ec2InstanceAttributes = a} :: Cluster)
+-- | The IAM role that Amazon EMR assumes in order to access Amazon Web
+-- Services resources on your behalf.
+cluster_serviceRole :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_serviceRole = Lens.lens (\Cluster' {serviceRole} -> serviceRole) (\s@Cluster' {} a -> s {serviceRole = a} :: Cluster)
 
 -- | The unique identifier for the cluster.
 cluster_id :: Lens.Lens' Cluster Prelude.Text
@@ -542,35 +542,35 @@ instance Core.FromJSON Cluster where
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "RepoUpgradeOnBoot")
+            Prelude.<$> (x Core..:? "LogEncryptionKmsKeyId")
             Prelude.<*> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "AutoScalingRole")
-            Prelude.<*> (x Core..:? "ScaleDownBehavior")
-            Prelude.<*> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "TerminationProtected")
-            Prelude.<*> (x Core..:? "MasterPublicDnsName")
-            Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutpostArn")
-            Prelude.<*> (x Core..:? "RunningAmiVersion")
-            Prelude.<*> (x Core..:? "EbsRootVolumeSize")
             Prelude.<*> (x Core..:? "RequestedAmiVersion")
-            Prelude.<*> (x Core..:? "ReleaseLabel")
-            Prelude.<*> (x Core..:? "InstanceCollectionType")
-            Prelude.<*> (x Core..:? "LogEncryptionKmsKeyId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StepConcurrencyLevel")
-            Prelude.<*> (x Core..:? "VisibleToAllUsers")
-            Prelude.<*> (x Core..:? "AutoTerminate")
-            Prelude.<*> (x Core..:? "CustomAmiId")
+            Prelude.<*> (x Core..:? "EbsRootVolumeSize")
+            Prelude.<*> (x Core..:? "Ec2InstanceAttributes")
+            Prelude.<*> (x Core..:? "OutpostArn")
             Prelude.<*> (x Core..:? "NormalizedInstanceHours")
+            Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CustomAmiId")
+            Prelude.<*> (x Core..:? "AutoScalingRole")
+            Prelude.<*> (x Core..:? "SecurityConfiguration")
+            Prelude.<*> (x Core..:? "ScaleDownBehavior")
+            Prelude.<*> (x Core..:? "InstanceCollectionType")
+            Prelude.<*> (x Core..:? "ReleaseLabel")
+            Prelude.<*> (x Core..:? "RepoUpgradeOnBoot")
+            Prelude.<*> (x Core..:? "LogUri")
+            Prelude.<*> (x Core..:? "KerberosAttributes")
             Prelude.<*> ( x Core..:? "PlacementGroups"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LogUri")
-            Prelude.<*> (x Core..:? "KerberosAttributes")
-            Prelude.<*> (x Core..:? "Ec2InstanceAttributes")
+            Prelude.<*> (x Core..:? "RunningAmiVersion")
+            Prelude.<*> (x Core..:? "MasterPublicDnsName")
+            Prelude.<*> (x Core..:? "TerminationProtected")
+            Prelude.<*> (x Core..:? "VisibleToAllUsers")
+            Prelude.<*> (x Core..:? "AutoTerminate")
+            Prelude.<*> (x Core..:? "StepConcurrencyLevel")
+            Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Status")

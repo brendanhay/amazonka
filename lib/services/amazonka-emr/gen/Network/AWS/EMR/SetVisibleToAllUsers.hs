@@ -97,7 +97,7 @@ newSetVisibleToAllUsers pVisibleToAllUsers_ =
 
 -- | The unique identifier of the job flow (cluster).
 setVisibleToAllUsers_jobFlowIds :: Lens.Lens' SetVisibleToAllUsers [Prelude.Text]
-setVisibleToAllUsers_jobFlowIds = Lens.lens (\SetVisibleToAllUsers' {jobFlowIds} -> jobFlowIds) (\s@SetVisibleToAllUsers' {} a -> s {jobFlowIds = a} :: SetVisibleToAllUsers) Prelude.. Lens._Coerce
+setVisibleToAllUsers_jobFlowIds = Lens.lens (\SetVisibleToAllUsers' {jobFlowIds} -> jobFlowIds) (\s@SetVisibleToAllUsers' {} a -> s {jobFlowIds = a} :: SetVisibleToAllUsers) Prelude.. Lens.coerced
 
 -- | A value of @true@ indicates that an IAM principal in the Amazon Web
 -- Services account can perform EMR actions on the cluster that the IAM

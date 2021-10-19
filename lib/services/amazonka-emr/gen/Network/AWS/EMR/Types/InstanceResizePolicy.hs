@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceResizePolicy' smart constructor.
 data InstanceResizePolicy = InstanceResizePolicy'
-  { -- | Decommissioning timeout override for the specific list of instances to
-    -- be terminated.
-    instanceTerminationTimeout :: Prelude.Maybe Prelude.Int,
+  { -- | Specific list of instances to be protected when shrinking an instance
+    -- group.
+    instancesToProtect :: Prelude.Maybe [Prelude.Text],
     -- | Specific list of instances to be terminated when shrinking an instance
     -- group.
     instancesToTerminate :: Prelude.Maybe [Prelude.Text],
-    -- | Specific list of instances to be protected when shrinking an instance
-    -- group.
-    instancesToProtect :: Prelude.Maybe [Prelude.Text]
+    -- | Decommissioning timeout override for the specific list of instances to
+    -- be terminated.
+    instanceTerminationTimeout :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data InstanceResizePolicy = InstanceResizePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceTerminationTimeout', 'instanceResizePolicy_instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to
--- be terminated.
+-- 'instancesToProtect', 'instanceResizePolicy_instancesToProtect' - Specific list of instances to be protected when shrinking an instance
+-- group.
 --
 -- 'instancesToTerminate', 'instanceResizePolicy_instancesToTerminate' - Specific list of instances to be terminated when shrinking an instance
 -- group.
 --
--- 'instancesToProtect', 'instanceResizePolicy_instancesToProtect' - Specific list of instances to be protected when shrinking an instance
--- group.
+-- 'instanceTerminationTimeout', 'instanceResizePolicy_instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to
+-- be terminated.
 newInstanceResizePolicy ::
   InstanceResizePolicy
 newInstanceResizePolicy =
   InstanceResizePolicy'
-    { instanceTerminationTimeout =
+    { instancesToProtect =
         Prelude.Nothing,
       instancesToTerminate = Prelude.Nothing,
-      instancesToProtect = Prelude.Nothing
+      instanceTerminationTimeout = Prelude.Nothing
     }
+
+-- | Specific list of instances to be protected when shrinking an instance
+-- group.
+instanceResizePolicy_instancesToProtect :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
+instanceResizePolicy_instancesToProtect = Lens.lens (\InstanceResizePolicy' {instancesToProtect} -> instancesToProtect) (\s@InstanceResizePolicy' {} a -> s {instancesToProtect = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specific list of instances to be terminated when shrinking an instance
+-- group.
+instanceResizePolicy_instancesToTerminate :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
+instanceResizePolicy_instancesToTerminate = Lens.lens (\InstanceResizePolicy' {instancesToTerminate} -> instancesToTerminate) (\s@InstanceResizePolicy' {} a -> s {instancesToTerminate = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | Decommissioning timeout override for the specific list of instances to
 -- be terminated.
 instanceResizePolicy_instanceTerminationTimeout :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe Prelude.Int)
 instanceResizePolicy_instanceTerminationTimeout = Lens.lens (\InstanceResizePolicy' {instanceTerminationTimeout} -> instanceTerminationTimeout) (\s@InstanceResizePolicy' {} a -> s {instanceTerminationTimeout = a} :: InstanceResizePolicy)
-
--- | Specific list of instances to be terminated when shrinking an instance
--- group.
-instanceResizePolicy_instancesToTerminate :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
-instanceResizePolicy_instancesToTerminate = Lens.lens (\InstanceResizePolicy' {instancesToTerminate} -> instancesToTerminate) (\s@InstanceResizePolicy' {} a -> s {instancesToTerminate = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specific list of instances to be protected when shrinking an instance
--- group.
-instanceResizePolicy_instancesToProtect :: Lens.Lens' InstanceResizePolicy (Prelude.Maybe [Prelude.Text])
-instanceResizePolicy_instancesToProtect = Lens.lens (\InstanceResizePolicy' {instancesToProtect} -> instancesToProtect) (\s@InstanceResizePolicy' {} a -> s {instancesToProtect = a} :: InstanceResizePolicy) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON InstanceResizePolicy where
   parseJSON =
@@ -87,13 +87,13 @@ instance Core.FromJSON InstanceResizePolicy where
       "InstanceResizePolicy"
       ( \x ->
           InstanceResizePolicy'
-            Prelude.<$> (x Core..:? "InstanceTerminationTimeout")
+            Prelude.<$> ( x Core..:? "InstancesToProtect"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "InstancesToTerminate"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "InstancesToProtect"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Core..:? "InstanceTerminationTimeout")
       )
 
 instance Prelude.Hashable InstanceResizePolicy
@@ -104,11 +104,11 @@ instance Core.ToJSON InstanceResizePolicy where
   toJSON InstanceResizePolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceTerminationTimeout" Core..=)
-              Prelude.<$> instanceTerminationTimeout,
+          [ ("InstancesToProtect" Core..=)
+              Prelude.<$> instancesToProtect,
             ("InstancesToTerminate" Core..=)
               Prelude.<$> instancesToTerminate,
-            ("InstancesToProtect" Core..=)
-              Prelude.<$> instancesToProtect
+            ("InstanceTerminationTimeout" Core..=)
+              Prelude.<$> instanceTerminationTimeout
           ]
       )

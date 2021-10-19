@@ -14,19 +14,68 @@
 module Network.AWS.EMR.Lens
   ( -- * Operations
 
-    -- ** ModifyInstanceFleet
-    modifyInstanceFleet_clusterId,
-    modifyInstanceFleet_instanceFleet,
+    -- ** RunJobFlow
+    runJobFlow_logEncryptionKmsKeyId,
+    runJobFlow_amiVersion,
+    runJobFlow_ebsRootVolumeSize,
+    runJobFlow_additionalInfo,
+    runJobFlow_autoTerminationPolicy,
+    runJobFlow_configurations,
+    runJobFlow_customAmiId,
+    runJobFlow_autoScalingRole,
+    runJobFlow_securityConfiguration,
+    runJobFlow_scaleDownBehavior,
+    runJobFlow_steps,
+    runJobFlow_jobFlowRole,
+    runJobFlow_bootstrapActions,
+    runJobFlow_releaseLabel,
+    runJobFlow_repoUpgradeOnBoot,
+    runJobFlow_placementGroupConfigs,
+    runJobFlow_logUri,
+    runJobFlow_kerberosAttributes,
+    runJobFlow_newSupportedProducts,
+    runJobFlow_managedScalingPolicy,
+    runJobFlow_visibleToAllUsers,
+    runJobFlow_supportedProducts,
+    runJobFlow_stepConcurrencyLevel,
+    runJobFlow_applications,
+    runJobFlow_tags,
+    runJobFlow_serviceRole,
+    runJobFlow_name,
+    runJobFlow_instances,
+    runJobFlowResponse_clusterArn,
+    runJobFlowResponse_jobFlowId,
+    runJobFlowResponse_httpStatus,
 
-    -- ** DeleteSecurityConfiguration
-    deleteSecurityConfiguration_name,
-    deleteSecurityConfigurationResponse_httpStatus,
+    -- ** RemoveAutoScalingPolicy
+    removeAutoScalingPolicy_clusterId,
+    removeAutoScalingPolicy_instanceGroupId,
+    removeAutoScalingPolicyResponse_httpStatus,
 
-    -- ** ListSecurityConfigurations
-    listSecurityConfigurations_marker,
-    listSecurityConfigurationsResponse_securityConfigurations,
-    listSecurityConfigurationsResponse_marker,
-    listSecurityConfigurationsResponse_httpStatus,
+    -- ** CreateStudio
+    createStudio_idpAuthUrl,
+    createStudio_idpRelayStateParameterName,
+    createStudio_userRole,
+    createStudio_description,
+    createStudio_tags,
+    createStudio_name,
+    createStudio_authMode,
+    createStudio_vpcId,
+    createStudio_subnetIds,
+    createStudio_serviceRole,
+    createStudio_workspaceSecurityGroupId,
+    createStudio_engineSecurityGroupId,
+    createStudio_defaultS3Location,
+    createStudioResponse_studioId,
+    createStudioResponse_url,
+    createStudioResponse_httpStatus,
+
+    -- ** SetVisibleToAllUsers
+    setVisibleToAllUsers_jobFlowIds,
+    setVisibleToAllUsers_visibleToAllUsers,
+
+    -- ** TerminateJobFlows
+    terminateJobFlows_jobFlowIds,
 
     -- ** DescribeStep
     describeStep_clusterId,
@@ -39,195 +88,23 @@ module Network.AWS.EMR.Lens
     removeTags_tagKeys,
     removeTagsResponse_httpStatus,
 
-    -- ** GetStudioSessionMapping
-    getStudioSessionMapping_identityName,
-    getStudioSessionMapping_identityId,
-    getStudioSessionMapping_studioId,
-    getStudioSessionMapping_identityType,
-    getStudioSessionMappingResponse_sessionMapping,
-    getStudioSessionMappingResponse_httpStatus,
+    -- ** DescribeCluster
+    describeCluster_clusterId,
+    describeClusterResponse_httpStatus,
+    describeClusterResponse_cluster,
 
-    -- ** SetVisibleToAllUsers
-    setVisibleToAllUsers_jobFlowIds,
-    setVisibleToAllUsers_visibleToAllUsers,
+    -- ** ListSecurityConfigurations
+    listSecurityConfigurations_marker,
+    listSecurityConfigurationsResponse_securityConfigurations,
+    listSecurityConfigurationsResponse_marker,
+    listSecurityConfigurationsResponse_httpStatus,
 
-    -- ** RunJobFlow
-    runJobFlow_repoUpgradeOnBoot,
-    runJobFlow_amiVersion,
-    runJobFlow_placementGroupConfigs,
-    runJobFlow_additionalInfo,
-    runJobFlow_serviceRole,
-    runJobFlow_autoScalingRole,
-    runJobFlow_scaleDownBehavior,
-    runJobFlow_securityConfiguration,
-    runJobFlow_configurations,
-    runJobFlow_ebsRootVolumeSize,
-    runJobFlow_releaseLabel,
-    runJobFlow_bootstrapActions,
-    runJobFlow_logEncryptionKmsKeyId,
-    runJobFlow_tags,
-    runJobFlow_jobFlowRole,
-    runJobFlow_applications,
-    runJobFlow_steps,
-    runJobFlow_stepConcurrencyLevel,
-    runJobFlow_supportedProducts,
-    runJobFlow_visibleToAllUsers,
-    runJobFlow_customAmiId,
-    runJobFlow_autoTerminationPolicy,
-    runJobFlow_managedScalingPolicy,
-    runJobFlow_logUri,
-    runJobFlow_newSupportedProducts,
-    runJobFlow_kerberosAttributes,
-    runJobFlow_name,
-    runJobFlow_instances,
-    runJobFlowResponse_clusterArn,
-    runJobFlowResponse_jobFlowId,
-    runJobFlowResponse_httpStatus,
-
-    -- ** CreateStudio
-    createStudio_userRole,
-    createStudio_idpRelayStateParameterName,
-    createStudio_tags,
-    createStudio_idpAuthUrl,
-    createStudio_description,
-    createStudio_name,
-    createStudio_authMode,
-    createStudio_vpcId,
-    createStudio_subnetIds,
-    createStudio_serviceRole,
-    createStudio_workspaceSecurityGroupId,
-    createStudio_engineSecurityGroupId,
-    createStudio_defaultS3Location,
-    createStudioResponse_url,
-    createStudioResponse_studioId,
-    createStudioResponse_httpStatus,
-
-    -- ** AddInstanceGroups
-    addInstanceGroups_instanceGroups,
-    addInstanceGroups_jobFlowId,
-    addInstanceGroupsResponse_clusterArn,
-    addInstanceGroupsResponse_jobFlowId,
-    addInstanceGroupsResponse_instanceGroupIds,
-    addInstanceGroupsResponse_httpStatus,
-
-    -- ** DeleteStudio
-    deleteStudio_studioId,
-
-    -- ** UpdateStudio
-    updateStudio_defaultS3Location,
-    updateStudio_subnetIds,
-    updateStudio_name,
-    updateStudio_description,
-    updateStudio_studioId,
-
-    -- ** ListInstanceFleets
-    listInstanceFleets_marker,
-    listInstanceFleets_clusterId,
-    listInstanceFleetsResponse_instanceFleets,
-    listInstanceFleetsResponse_marker,
-    listInstanceFleetsResponse_httpStatus,
-
-    -- ** RemoveManagedScalingPolicy
-    removeManagedScalingPolicy_clusterId,
-    removeManagedScalingPolicyResponse_httpStatus,
-
-    -- ** ListReleaseLabels
-    listReleaseLabels_nextToken,
-    listReleaseLabels_maxResults,
-    listReleaseLabels_filters,
-    listReleaseLabelsResponse_releaseLabels,
-    listReleaseLabelsResponse_nextToken,
-    listReleaseLabelsResponse_httpStatus,
-
-    -- ** StopNotebookExecution
-    stopNotebookExecution_notebookExecutionId,
-
-    -- ** DescribeSecurityConfiguration
-    describeSecurityConfiguration_name,
-    describeSecurityConfigurationResponse_securityConfiguration,
-    describeSecurityConfigurationResponse_name,
-    describeSecurityConfigurationResponse_creationDateTime,
-    describeSecurityConfigurationResponse_httpStatus,
-
-    -- ** StartNotebookExecution
-    startNotebookExecution_notebookExecutionName,
-    startNotebookExecution_notebookParams,
-    startNotebookExecution_notebookInstanceSecurityGroupId,
-    startNotebookExecution_tags,
-    startNotebookExecution_editorId,
-    startNotebookExecution_relativePath,
-    startNotebookExecution_executionEngine,
-    startNotebookExecution_serviceRole,
-    startNotebookExecutionResponse_notebookExecutionId,
-    startNotebookExecutionResponse_httpStatus,
-
-    -- ** ListStudioSessionMappings
-    listStudioSessionMappings_identityType,
-    listStudioSessionMappings_studioId,
-    listStudioSessionMappings_marker,
-    listStudioSessionMappingsResponse_sessionMappings,
-    listStudioSessionMappingsResponse_marker,
-    listStudioSessionMappingsResponse_httpStatus,
-
-    -- ** ListInstances
-    listInstances_instanceFleetType,
-    listInstances_instanceGroupId,
-    listInstances_instanceStates,
-    listInstances_instanceFleetId,
-    listInstances_instanceGroupTypes,
-    listInstances_marker,
-    listInstances_clusterId,
-    listInstancesResponse_instances,
-    listInstancesResponse_marker,
-    listInstancesResponse_httpStatus,
-
-    -- ** AddTags
-    addTags_resourceId,
-    addTags_tags,
-    addTagsResponse_httpStatus,
-
-    -- ** AddJobFlowSteps
-    addJobFlowSteps_jobFlowId,
-    addJobFlowSteps_steps,
-    addJobFlowStepsResponse_stepIds,
-    addJobFlowStepsResponse_httpStatus,
-
-    -- ** ListBootstrapActions
-    listBootstrapActions_marker,
-    listBootstrapActions_clusterId,
-    listBootstrapActionsResponse_bootstrapActions,
-    listBootstrapActionsResponse_marker,
-    listBootstrapActionsResponse_httpStatus,
-
-    -- ** GetAutoTerminationPolicy
-    getAutoTerminationPolicy_clusterId,
-    getAutoTerminationPolicyResponse_autoTerminationPolicy,
-    getAutoTerminationPolicyResponse_httpStatus,
-
-    -- ** DescribeReleaseLabel
-    describeReleaseLabel_nextToken,
-    describeReleaseLabel_maxResults,
-    describeReleaseLabel_releaseLabel,
-    describeReleaseLabelResponse_nextToken,
-    describeReleaseLabelResponse_releaseLabel,
-    describeReleaseLabelResponse_applications,
-    describeReleaseLabelResponse_httpStatus,
-
-    -- ** GetBlockPublicAccessConfiguration
-    getBlockPublicAccessConfigurationResponse_httpStatus,
-    getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration,
-    getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata,
-
-    -- ** ModifyCluster
-    modifyCluster_stepConcurrencyLevel,
-    modifyCluster_clusterId,
-    modifyClusterResponse_stepConcurrencyLevel,
-    modifyClusterResponse_httpStatus,
-
-    -- ** PutAutoTerminationPolicy
-    putAutoTerminationPolicy_autoTerminationPolicy,
-    putAutoTerminationPolicy_clusterId,
-    putAutoTerminationPolicyResponse_httpStatus,
+    -- ** CancelSteps
+    cancelSteps_stepCancellationOption,
+    cancelSteps_clusterId,
+    cancelSteps_stepIds,
+    cancelStepsResponse_cancelStepsInfoList,
+    cancelStepsResponse_httpStatus,
 
     -- ** ListNotebookExecutions
     listNotebookExecutions_status,
@@ -239,52 +116,78 @@ module Network.AWS.EMR.Lens
     listNotebookExecutionsResponse_marker,
     listNotebookExecutionsResponse_httpStatus,
 
-    -- ** ListInstanceGroups
-    listInstanceGroups_marker,
-    listInstanceGroups_clusterId,
-    listInstanceGroupsResponse_instanceGroups,
-    listInstanceGroupsResponse_marker,
-    listInstanceGroupsResponse_httpStatus,
+    -- ** PutAutoTerminationPolicy
+    putAutoTerminationPolicy_autoTerminationPolicy,
+    putAutoTerminationPolicy_clusterId,
+    putAutoTerminationPolicyResponse_httpStatus,
 
-    -- ** TerminateJobFlows
-    terminateJobFlows_jobFlowIds,
+    -- ** CreateSecurityConfiguration
+    createSecurityConfiguration_name,
+    createSecurityConfiguration_securityConfiguration,
+    createSecurityConfigurationResponse_httpStatus,
+    createSecurityConfigurationResponse_name,
+    createSecurityConfigurationResponse_creationDateTime,
 
-    -- ** DescribeCluster
-    describeCluster_clusterId,
-    describeClusterResponse_httpStatus,
-    describeClusterResponse_cluster,
+    -- ** DescribeReleaseLabel
+    describeReleaseLabel_nextToken,
+    describeReleaseLabel_releaseLabel,
+    describeReleaseLabel_maxResults,
+    describeReleaseLabelResponse_nextToken,
+    describeReleaseLabelResponse_releaseLabel,
+    describeReleaseLabelResponse_applications,
+    describeReleaseLabelResponse_httpStatus,
 
-    -- ** CancelSteps
-    cancelSteps_stepCancellationOption,
-    cancelSteps_clusterId,
-    cancelSteps_stepIds,
-    cancelStepsResponse_cancelStepsInfoList,
-    cancelStepsResponse_httpStatus,
+    -- ** SetTerminationProtection
+    setTerminationProtection_jobFlowIds,
+    setTerminationProtection_terminationProtected,
 
-    -- ** RemoveAutoScalingPolicy
-    removeAutoScalingPolicy_clusterId,
-    removeAutoScalingPolicy_instanceGroupId,
-    removeAutoScalingPolicyResponse_httpStatus,
+    -- ** AddJobFlowSteps
+    addJobFlowSteps_jobFlowId,
+    addJobFlowSteps_steps,
+    addJobFlowStepsResponse_stepIds,
+    addJobFlowStepsResponse_httpStatus,
 
-    -- ** PutManagedScalingPolicy
-    putManagedScalingPolicy_clusterId,
-    putManagedScalingPolicy_managedScalingPolicy,
-    putManagedScalingPolicyResponse_httpStatus,
+    -- ** DescribeStudio
+    describeStudio_studioId,
+    describeStudioResponse_studio,
+    describeStudioResponse_httpStatus,
 
-    -- ** ListStudios
-    listStudios_marker,
-    listStudiosResponse_studios,
-    listStudiosResponse_marker,
-    listStudiosResponse_httpStatus,
+    -- ** ModifyInstanceGroups
+    modifyInstanceGroups_clusterId,
+    modifyInstanceGroups_instanceGroups,
 
-    -- ** GetManagedScalingPolicy
-    getManagedScalingPolicy_clusterId,
-    getManagedScalingPolicyResponse_managedScalingPolicy,
-    getManagedScalingPolicyResponse_httpStatus,
+    -- ** StartNotebookExecution
+    startNotebookExecution_notebookInstanceSecurityGroupId,
+    startNotebookExecution_notebookExecutionName,
+    startNotebookExecution_notebookParams,
+    startNotebookExecution_tags,
+    startNotebookExecution_editorId,
+    startNotebookExecution_relativePath,
+    startNotebookExecution_executionEngine,
+    startNotebookExecution_serviceRole,
+    startNotebookExecutionResponse_notebookExecutionId,
+    startNotebookExecutionResponse_httpStatus,
+
+    -- ** ListSteps
+    listSteps_stepIds,
+    listSteps_stepStates,
+    listSteps_marker,
+    listSteps_clusterId,
+    listStepsResponse_steps,
+    listStepsResponse_marker,
+    listStepsResponse_httpStatus,
+
+    -- ** ListReleaseLabels
+    listReleaseLabels_filters,
+    listReleaseLabels_nextToken,
+    listReleaseLabels_maxResults,
+    listReleaseLabelsResponse_releaseLabels,
+    listReleaseLabelsResponse_nextToken,
+    listReleaseLabelsResponse_httpStatus,
 
     -- ** CreateStudioSessionMapping
-    createStudioSessionMapping_identityName,
     createStudioSessionMapping_identityId,
+    createStudioSessionMapping_identityName,
     createStudioSessionMapping_studioId,
     createStudioSessionMapping_identityType,
     createStudioSessionMapping_sessionPolicyArn,
@@ -297,32 +200,105 @@ module Network.AWS.EMR.Lens
     addInstanceFleetResponse_instanceFleetId,
     addInstanceFleetResponse_httpStatus,
 
-    -- ** DescribeNotebookExecution
-    describeNotebookExecution_notebookExecutionId,
-    describeNotebookExecutionResponse_notebookExecution,
-    describeNotebookExecutionResponse_httpStatus,
+    -- ** DeleteStudio
+    deleteStudio_studioId,
 
-    -- ** UpdateStudioSessionMapping
-    updateStudioSessionMapping_identityName,
-    updateStudioSessionMapping_identityId,
-    updateStudioSessionMapping_studioId,
-    updateStudioSessionMapping_identityType,
-    updateStudioSessionMapping_sessionPolicyArn,
+    -- ** UpdateStudio
+    updateStudio_subnetIds,
+    updateStudio_defaultS3Location,
+    updateStudio_name,
+    updateStudio_description,
+    updateStudio_studioId,
 
-    -- ** DeleteStudioSessionMapping
-    deleteStudioSessionMapping_identityName,
-    deleteStudioSessionMapping_identityId,
-    deleteStudioSessionMapping_studioId,
-    deleteStudioSessionMapping_identityType,
+    -- ** ListStudios
+    listStudios_marker,
+    listStudiosResponse_studios,
+    listStudiosResponse_marker,
+    listStudiosResponse_httpStatus,
 
-    -- ** ListSteps
-    listSteps_stepIds,
-    listSteps_stepStates,
-    listSteps_marker,
-    listSteps_clusterId,
-    listStepsResponse_steps,
-    listStepsResponse_marker,
-    listStepsResponse_httpStatus,
+    -- ** PutManagedScalingPolicy
+    putManagedScalingPolicy_clusterId,
+    putManagedScalingPolicy_managedScalingPolicy,
+    putManagedScalingPolicyResponse_httpStatus,
+
+    -- ** AddInstanceGroups
+    addInstanceGroups_instanceGroups,
+    addInstanceGroups_jobFlowId,
+    addInstanceGroupsResponse_clusterArn,
+    addInstanceGroupsResponse_jobFlowId,
+    addInstanceGroupsResponse_instanceGroupIds,
+    addInstanceGroupsResponse_httpStatus,
+
+    -- ** GetStudioSessionMapping
+    getStudioSessionMapping_identityId,
+    getStudioSessionMapping_identityName,
+    getStudioSessionMapping_studioId,
+    getStudioSessionMapping_identityType,
+    getStudioSessionMappingResponse_sessionMapping,
+    getStudioSessionMappingResponse_httpStatus,
+
+    -- ** DeleteSecurityConfiguration
+    deleteSecurityConfiguration_name,
+    deleteSecurityConfigurationResponse_httpStatus,
+
+    -- ** ModifyInstanceFleet
+    modifyInstanceFleet_clusterId,
+    modifyInstanceFleet_instanceFleet,
+
+    -- ** ListInstanceGroups
+    listInstanceGroups_marker,
+    listInstanceGroups_clusterId,
+    listInstanceGroupsResponse_marker,
+    listInstanceGroupsResponse_instanceGroups,
+    listInstanceGroupsResponse_httpStatus,
+
+    -- ** GetBlockPublicAccessConfiguration
+    getBlockPublicAccessConfigurationResponse_httpStatus,
+    getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration,
+    getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata,
+
+    -- ** ModifyCluster
+    modifyCluster_stepConcurrencyLevel,
+    modifyCluster_clusterId,
+    modifyClusterResponse_stepConcurrencyLevel,
+    modifyClusterResponse_httpStatus,
+
+    -- ** GetAutoTerminationPolicy
+    getAutoTerminationPolicy_clusterId,
+    getAutoTerminationPolicyResponse_autoTerminationPolicy,
+    getAutoTerminationPolicyResponse_httpStatus,
+
+    -- ** PutBlockPublicAccessConfiguration
+    putBlockPublicAccessConfiguration_blockPublicAccessConfiguration,
+    putBlockPublicAccessConfigurationResponse_httpStatus,
+
+    -- ** ListBootstrapActions
+    listBootstrapActions_marker,
+    listBootstrapActions_clusterId,
+    listBootstrapActionsResponse_bootstrapActions,
+    listBootstrapActionsResponse_marker,
+    listBootstrapActionsResponse_httpStatus,
+
+    -- ** RemoveAutoTerminationPolicy
+    removeAutoTerminationPolicy_clusterId,
+    removeAutoTerminationPolicyResponse_httpStatus,
+
+    -- ** AddTags
+    addTags_resourceId,
+    addTags_tags,
+    addTagsResponse_httpStatus,
+
+    -- ** ListInstances
+    listInstances_instanceGroupTypes,
+    listInstances_instanceFleetType,
+    listInstances_marker,
+    listInstances_instanceFleetId,
+    listInstances_instanceStates,
+    listInstances_instanceGroupId,
+    listInstances_clusterId,
+    listInstancesResponse_marker,
+    listInstancesResponse_instances,
+    listInstancesResponse_httpStatus,
 
     -- ** PutAutoScalingPolicy
     putAutoScalingPolicy_clusterId,
@@ -330,54 +306,78 @@ module Network.AWS.EMR.Lens
     putAutoScalingPolicy_autoScalingPolicy,
     putAutoScalingPolicyResponse_clusterArn,
     putAutoScalingPolicyResponse_clusterId,
-    putAutoScalingPolicyResponse_instanceGroupId,
     putAutoScalingPolicyResponse_autoScalingPolicy,
+    putAutoScalingPolicyResponse_instanceGroupId,
     putAutoScalingPolicyResponse_httpStatus,
+
+    -- ** DeleteStudioSessionMapping
+    deleteStudioSessionMapping_identityId,
+    deleteStudioSessionMapping_identityName,
+    deleteStudioSessionMapping_studioId,
+    deleteStudioSessionMapping_identityType,
+
+    -- ** UpdateStudioSessionMapping
+    updateStudioSessionMapping_identityId,
+    updateStudioSessionMapping_identityName,
+    updateStudioSessionMapping_studioId,
+    updateStudioSessionMapping_identityType,
+    updateStudioSessionMapping_sessionPolicyArn,
 
     -- ** ListClusters
     listClusters_createdAfter,
-    listClusters_createdBefore,
-    listClusters_clusterStates,
     listClusters_marker,
-    listClustersResponse_clusters,
+    listClusters_clusterStates,
+    listClusters_createdBefore,
     listClustersResponse_marker,
+    listClustersResponse_clusters,
     listClustersResponse_httpStatus,
 
-    -- ** DescribeStudio
-    describeStudio_studioId,
-    describeStudioResponse_studio,
-    describeStudioResponse_httpStatus,
+    -- ** DescribeSecurityConfiguration
+    describeSecurityConfiguration_name,
+    describeSecurityConfigurationResponse_securityConfiguration,
+    describeSecurityConfigurationResponse_name,
+    describeSecurityConfigurationResponse_creationDateTime,
+    describeSecurityConfigurationResponse_httpStatus,
 
-    -- ** ModifyInstanceGroups
-    modifyInstanceGroups_clusterId,
-    modifyInstanceGroups_instanceGroups,
+    -- ** StopNotebookExecution
+    stopNotebookExecution_notebookExecutionId,
 
-    -- ** SetTerminationProtection
-    setTerminationProtection_jobFlowIds,
-    setTerminationProtection_terminationProtected,
+    -- ** ListStudioSessionMappings
+    listStudioSessionMappings_studioId,
+    listStudioSessionMappings_identityType,
+    listStudioSessionMappings_marker,
+    listStudioSessionMappingsResponse_sessionMappings,
+    listStudioSessionMappingsResponse_marker,
+    listStudioSessionMappingsResponse_httpStatus,
 
-    -- ** PutBlockPublicAccessConfiguration
-    putBlockPublicAccessConfiguration_blockPublicAccessConfiguration,
-    putBlockPublicAccessConfigurationResponse_httpStatus,
+    -- ** GetManagedScalingPolicy
+    getManagedScalingPolicy_clusterId,
+    getManagedScalingPolicyResponse_managedScalingPolicy,
+    getManagedScalingPolicyResponse_httpStatus,
 
-    -- ** RemoveAutoTerminationPolicy
-    removeAutoTerminationPolicy_clusterId,
-    removeAutoTerminationPolicyResponse_httpStatus,
+    -- ** ListInstanceFleets
+    listInstanceFleets_marker,
+    listInstanceFleets_clusterId,
+    listInstanceFleetsResponse_instanceFleets,
+    listInstanceFleetsResponse_marker,
+    listInstanceFleetsResponse_httpStatus,
 
-    -- ** CreateSecurityConfiguration
-    createSecurityConfiguration_name,
-    createSecurityConfiguration_securityConfiguration,
-    createSecurityConfigurationResponse_httpStatus,
-    createSecurityConfigurationResponse_name,
-    createSecurityConfigurationResponse_creationDateTime,
+    -- ** RemoveManagedScalingPolicy
+    removeManagedScalingPolicy_clusterId,
+    removeManagedScalingPolicyResponse_httpStatus,
+
+    -- ** DescribeNotebookExecution
+    describeNotebookExecution_notebookExecutionId,
+    describeNotebookExecutionResponse_notebookExecution,
+    describeNotebookExecutionResponse_httpStatus,
 
     -- * Types
 
     -- ** Application
     application_args,
     application_additionalInfo,
-    application_version,
     application_name,
+    application_version,
 
     -- ** AutoScalingPolicy
     autoScalingPolicy_constraints,
@@ -385,16 +385,16 @@ module Network.AWS.EMR.Lens
 
     -- ** AutoScalingPolicyDescription
     autoScalingPolicyDescription_status,
-    autoScalingPolicyDescription_constraints,
     autoScalingPolicyDescription_rules,
+    autoScalingPolicyDescription_constraints,
 
     -- ** AutoScalingPolicyStateChangeReason
-    autoScalingPolicyStateChangeReason_message,
     autoScalingPolicyStateChangeReason_code,
+    autoScalingPolicyStateChangeReason_message,
 
     -- ** AutoScalingPolicyStatus
-    autoScalingPolicyStatus_stateChangeReason,
     autoScalingPolicyStatus_state,
+    autoScalingPolicyStatus_stateChangeReason,
 
     -- ** AutoTerminationPolicy
     autoTerminationPolicy_idleTimeout,
@@ -412,74 +412,74 @@ module Network.AWS.EMR.Lens
     bootstrapActionConfig_scriptBootstrapAction,
 
     -- ** CancelStepsInfo
-    cancelStepsInfo_stepId,
     cancelStepsInfo_status,
+    cancelStepsInfo_stepId,
     cancelStepsInfo_reason,
 
     -- ** CloudWatchAlarmDefinition
-    cloudWatchAlarmDefinition_unit,
-    cloudWatchAlarmDefinition_statistic,
+    cloudWatchAlarmDefinition_evaluationPeriods,
     cloudWatchAlarmDefinition_namespace,
     cloudWatchAlarmDefinition_dimensions,
-    cloudWatchAlarmDefinition_evaluationPeriods,
+    cloudWatchAlarmDefinition_unit,
+    cloudWatchAlarmDefinition_statistic,
     cloudWatchAlarmDefinition_comparisonOperator,
     cloudWatchAlarmDefinition_metricName,
     cloudWatchAlarmDefinition_period,
     cloudWatchAlarmDefinition_threshold,
 
     -- ** Cluster
-    cluster_repoUpgradeOnBoot,
-    cluster_clusterArn,
-    cluster_serviceRole,
-    cluster_autoScalingRole,
-    cluster_scaleDownBehavior,
-    cluster_securityConfiguration,
-    cluster_terminationProtected,
-    cluster_masterPublicDnsName,
-    cluster_configurations,
-    cluster_outpostArn,
-    cluster_runningAmiVersion,
-    cluster_ebsRootVolumeSize,
-    cluster_requestedAmiVersion,
-    cluster_releaseLabel,
-    cluster_instanceCollectionType,
     cluster_logEncryptionKmsKeyId,
-    cluster_tags,
-    cluster_applications,
-    cluster_stepConcurrencyLevel,
-    cluster_visibleToAllUsers,
-    cluster_autoTerminate,
-    cluster_customAmiId,
+    cluster_clusterArn,
+    cluster_requestedAmiVersion,
+    cluster_ebsRootVolumeSize,
+    cluster_ec2InstanceAttributes,
+    cluster_outpostArn,
     cluster_normalizedInstanceHours,
-    cluster_placementGroups,
+    cluster_configurations,
+    cluster_customAmiId,
+    cluster_autoScalingRole,
+    cluster_securityConfiguration,
+    cluster_scaleDownBehavior,
+    cluster_instanceCollectionType,
+    cluster_releaseLabel,
+    cluster_repoUpgradeOnBoot,
     cluster_logUri,
     cluster_kerberosAttributes,
-    cluster_ec2InstanceAttributes,
+    cluster_placementGroups,
+    cluster_runningAmiVersion,
+    cluster_masterPublicDnsName,
+    cluster_terminationProtected,
+    cluster_visibleToAllUsers,
+    cluster_autoTerminate,
+    cluster_stepConcurrencyLevel,
+    cluster_applications,
+    cluster_tags,
+    cluster_serviceRole,
     cluster_id,
     cluster_name,
     cluster_status,
 
     -- ** ClusterStateChangeReason
-    clusterStateChangeReason_message,
     clusterStateChangeReason_code,
+    clusterStateChangeReason_message,
 
     -- ** ClusterStatus
-    clusterStatus_stateChangeReason,
     clusterStatus_state,
+    clusterStatus_stateChangeReason,
     clusterStatus_timeline,
 
     -- ** ClusterSummary
-    clusterSummary_clusterArn,
     clusterSummary_status,
+    clusterSummary_clusterArn,
     clusterSummary_outpostArn,
-    clusterSummary_id,
-    clusterSummary_name,
     clusterSummary_normalizedInstanceHours,
+    clusterSummary_name,
+    clusterSummary_id,
 
     -- ** ClusterTimeline
-    clusterTimeline_endDateTime,
-    clusterTimeline_creationDateTime,
     clusterTimeline_readyDateTime,
+    clusterTimeline_creationDateTime,
+    clusterTimeline_endDateTime,
 
     -- ** Command
     command_args,
@@ -495,8 +495,8 @@ module Network.AWS.EMR.Lens
 
     -- ** Configuration
     configuration_configurations,
-    configuration_properties,
     configuration_classification,
+    configuration_properties,
 
     -- ** EbsBlockDevice
     ebsBlockDevice_device,
@@ -507,8 +507,8 @@ module Network.AWS.EMR.Lens
     ebsBlockDeviceConfig_volumeSpecification,
 
     -- ** EbsConfiguration
-    ebsConfiguration_ebsBlockDeviceConfigs,
     ebsConfiguration_ebsOptimized,
+    ebsConfiguration_ebsBlockDeviceConfigs,
 
     -- ** EbsVolume
     ebsVolume_device,
@@ -516,16 +516,16 @@ module Network.AWS.EMR.Lens
 
     -- ** Ec2InstanceAttributes
     ec2InstanceAttributes_ec2KeyName,
-    ec2InstanceAttributes_additionalSlaveSecurityGroups,
-    ec2InstanceAttributes_ec2AvailabilityZone,
     ec2InstanceAttributes_emrManagedSlaveSecurityGroup,
-    ec2InstanceAttributes_requestedEc2AvailabilityZones,
-    ec2InstanceAttributes_ec2SubnetId,
-    ec2InstanceAttributes_emrManagedMasterSecurityGroup,
-    ec2InstanceAttributes_iamInstanceProfile,
-    ec2InstanceAttributes_additionalMasterSecurityGroups,
+    ec2InstanceAttributes_additionalSlaveSecurityGroups,
     ec2InstanceAttributes_requestedEc2SubnetIds,
+    ec2InstanceAttributes_additionalMasterSecurityGroups,
+    ec2InstanceAttributes_iamInstanceProfile,
+    ec2InstanceAttributes_emrManagedMasterSecurityGroup,
+    ec2InstanceAttributes_ec2SubnetId,
+    ec2InstanceAttributes_requestedEc2AvailabilityZones,
     ec2InstanceAttributes_serviceAccessSecurityGroup,
+    ec2InstanceAttributes_ec2AvailabilityZone,
 
     -- ** ExecutionEngineConfig
     executionEngineConfig_masterInstanceSecurityGroupId,
@@ -533,54 +533,54 @@ module Network.AWS.EMR.Lens
     executionEngineConfig_id,
 
     -- ** FailureDetails
-    failureDetails_message,
-    failureDetails_reason,
     failureDetails_logFile,
+    failureDetails_reason,
+    failureDetails_message,
 
     -- ** HadoopJarStepConfig
     hadoopJarStepConfig_args,
-    hadoopJarStepConfig_properties,
     hadoopJarStepConfig_mainClass,
+    hadoopJarStepConfig_properties,
     hadoopJarStepConfig_jar,
 
     -- ** HadoopStepConfig
     hadoopStepConfig_args,
-    hadoopStepConfig_properties,
     hadoopStepConfig_jar,
     hadoopStepConfig_mainClass,
+    hadoopStepConfig_properties,
 
     -- ** Instance
-    instance_ebsVolumes,
     instance_status,
-    instance_instanceType,
-    instance_instanceGroupId,
-    instance_id,
-    instance_instanceFleetId,
     instance_publicDnsName,
-    instance_market,
-    instance_publicIpAddress,
-    instance_privateDnsName,
+    instance_ebsVolumes,
     instance_ec2InstanceId,
+    instance_instanceType,
+    instance_market,
     instance_privateIpAddress,
+    instance_instanceFleetId,
+    instance_id,
+    instance_instanceGroupId,
+    instance_privateDnsName,
+    instance_publicIpAddress,
 
     -- ** InstanceFleet
-    instanceFleet_instanceFleetType,
+    instanceFleet_provisionedSpotCapacity,
     instanceFleet_status,
     instanceFleet_targetOnDemandCapacity,
+    instanceFleet_instanceFleetType,
+    instanceFleet_instanceTypeSpecifications,
+    instanceFleet_name,
+    instanceFleet_provisionedOnDemandCapacity,
     instanceFleet_targetSpotCapacity,
     instanceFleet_id,
-    instanceFleet_provisionedOnDemandCapacity,
-    instanceFleet_name,
-    instanceFleet_instanceTypeSpecifications,
-    instanceFleet_provisionedSpotCapacity,
     instanceFleet_launchSpecifications,
 
     -- ** InstanceFleetConfig
-    instanceFleetConfig_targetOnDemandCapacity,
-    instanceFleetConfig_targetSpotCapacity,
-    instanceFleetConfig_name,
-    instanceFleetConfig_launchSpecifications,
     instanceFleetConfig_instanceTypeConfigs,
+    instanceFleetConfig_targetOnDemandCapacity,
+    instanceFleetConfig_name,
+    instanceFleetConfig_targetSpotCapacity,
+    instanceFleetConfig_launchSpecifications,
     instanceFleetConfig_instanceFleetType,
 
     -- ** InstanceFleetModifyConfig
@@ -589,178 +589,178 @@ module Network.AWS.EMR.Lens
     instanceFleetModifyConfig_instanceFleetId,
 
     -- ** InstanceFleetProvisioningSpecifications
-    instanceFleetProvisioningSpecifications_onDemandSpecification,
     instanceFleetProvisioningSpecifications_spotSpecification,
+    instanceFleetProvisioningSpecifications_onDemandSpecification,
 
     -- ** InstanceFleetStateChangeReason
-    instanceFleetStateChangeReason_message,
     instanceFleetStateChangeReason_code,
+    instanceFleetStateChangeReason_message,
 
     -- ** InstanceFleetStatus
-    instanceFleetStatus_stateChangeReason,
     instanceFleetStatus_state,
+    instanceFleetStatus_stateChangeReason,
     instanceFleetStatus_timeline,
 
     -- ** InstanceFleetTimeline
-    instanceFleetTimeline_endDateTime,
-    instanceFleetTimeline_creationDateTime,
     instanceFleetTimeline_readyDateTime,
+    instanceFleetTimeline_creationDateTime,
+    instanceFleetTimeline_endDateTime,
 
     -- ** InstanceGroup
-    instanceGroup_lastSuccessfullyAppliedConfigurationsVersion,
     instanceGroup_status,
-    instanceGroup_ebsOptimized,
-    instanceGroup_instanceType,
-    instanceGroup_ebsBlockDevices,
-    instanceGroup_instanceGroupType,
-    instanceGroup_configurations,
-    instanceGroup_id,
-    instanceGroup_lastSuccessfullyAppliedConfigurations,
-    instanceGroup_shrinkPolicy,
+    instanceGroup_lastSuccessfullyAppliedConfigurationsVersion,
     instanceGroup_bidPrice,
     instanceGroup_requestedInstanceCount,
-    instanceGroup_autoScalingPolicy,
-    instanceGroup_name,
-    instanceGroup_market,
-    instanceGroup_configurationsVersion,
-    instanceGroup_customAmiId,
     instanceGroup_runningInstanceCount,
+    instanceGroup_lastSuccessfullyAppliedConfigurations,
+    instanceGroup_configurations,
+    instanceGroup_customAmiId,
+    instanceGroup_instanceGroupType,
+    instanceGroup_ebsBlockDevices,
+    instanceGroup_instanceType,
+    instanceGroup_configurationsVersion,
+    instanceGroup_ebsOptimized,
+    instanceGroup_market,
+    instanceGroup_name,
+    instanceGroup_autoScalingPolicy,
+    instanceGroup_shrinkPolicy,
+    instanceGroup_id,
 
     -- ** InstanceGroupConfig
     instanceGroupConfig_ebsConfiguration,
-    instanceGroupConfig_configurations,
     instanceGroupConfig_bidPrice,
-    instanceGroupConfig_autoScalingPolicy,
-    instanceGroupConfig_name,
-    instanceGroupConfig_market,
+    instanceGroupConfig_configurations,
     instanceGroupConfig_customAmiId,
+    instanceGroupConfig_market,
+    instanceGroupConfig_name,
+    instanceGroupConfig_autoScalingPolicy,
     instanceGroupConfig_instanceRole,
     instanceGroupConfig_instanceType,
     instanceGroupConfig_instanceCount,
 
     -- ** InstanceGroupModifyConfig
-    instanceGroupModifyConfig_configurations,
-    instanceGroupModifyConfig_shrinkPolicy,
-    instanceGroupModifyConfig_eC2InstanceIdsToTerminate,
     instanceGroupModifyConfig_instanceCount,
+    instanceGroupModifyConfig_configurations,
+    instanceGroupModifyConfig_eC2InstanceIdsToTerminate,
+    instanceGroupModifyConfig_shrinkPolicy,
     instanceGroupModifyConfig_instanceGroupId,
 
     -- ** InstanceGroupStateChangeReason
-    instanceGroupStateChangeReason_message,
     instanceGroupStateChangeReason_code,
+    instanceGroupStateChangeReason_message,
 
     -- ** InstanceGroupStatus
-    instanceGroupStatus_stateChangeReason,
     instanceGroupStatus_state,
+    instanceGroupStatus_stateChangeReason,
     instanceGroupStatus_timeline,
 
     -- ** InstanceGroupTimeline
-    instanceGroupTimeline_endDateTime,
-    instanceGroupTimeline_creationDateTime,
     instanceGroupTimeline_readyDateTime,
+    instanceGroupTimeline_creationDateTime,
+    instanceGroupTimeline_endDateTime,
 
     -- ** InstanceResizePolicy
-    instanceResizePolicy_instanceTerminationTimeout,
-    instanceResizePolicy_instancesToTerminate,
     instanceResizePolicy_instancesToProtect,
+    instanceResizePolicy_instancesToTerminate,
+    instanceResizePolicy_instanceTerminationTimeout,
 
     -- ** InstanceStateChangeReason
-    instanceStateChangeReason_message,
     instanceStateChangeReason_code,
+    instanceStateChangeReason_message,
 
     -- ** InstanceStatus
-    instanceStatus_stateChangeReason,
     instanceStatus_state,
+    instanceStatus_stateChangeReason,
     instanceStatus_timeline,
 
     -- ** InstanceTimeline
-    instanceTimeline_endDateTime,
-    instanceTimeline_creationDateTime,
     instanceTimeline_readyDateTime,
+    instanceTimeline_creationDateTime,
+    instanceTimeline_endDateTime,
 
     -- ** InstanceTypeConfig
     instanceTypeConfig_ebsConfiguration,
-    instanceTypeConfig_configurations,
     instanceTypeConfig_bidPrice,
-    instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice,
-    instanceTypeConfig_customAmiId,
     instanceTypeConfig_weightedCapacity,
+    instanceTypeConfig_configurations,
+    instanceTypeConfig_customAmiId,
+    instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice,
     instanceTypeConfig_instanceType,
 
     -- ** InstanceTypeSpecification
-    instanceTypeSpecification_ebsOptimized,
-    instanceTypeSpecification_instanceType,
-    instanceTypeSpecification_ebsBlockDevices,
-    instanceTypeSpecification_configurations,
     instanceTypeSpecification_bidPrice,
-    instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice,
-    instanceTypeSpecification_customAmiId,
     instanceTypeSpecification_weightedCapacity,
+    instanceTypeSpecification_configurations,
+    instanceTypeSpecification_customAmiId,
+    instanceTypeSpecification_ebsBlockDevices,
+    instanceTypeSpecification_instanceType,
+    instanceTypeSpecification_ebsOptimized,
+    instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice,
 
     -- ** JobFlowInstancesConfig
-    jobFlowInstancesConfig_hadoopVersion,
-    jobFlowInstancesConfig_ec2KeyName,
     jobFlowInstancesConfig_instanceFleets,
-    jobFlowInstancesConfig_placement,
-    jobFlowInstancesConfig_ec2SubnetIds,
-    jobFlowInstancesConfig_additionalSlaveSecurityGroups,
-    jobFlowInstancesConfig_terminationProtected,
+    jobFlowInstancesConfig_ec2KeyName,
+    jobFlowInstancesConfig_slaveInstanceType,
+    jobFlowInstancesConfig_instanceCount,
     jobFlowInstancesConfig_emrManagedSlaveSecurityGroup,
+    jobFlowInstancesConfig_additionalSlaveSecurityGroups,
+    jobFlowInstancesConfig_ec2SubnetIds,
+    jobFlowInstancesConfig_hadoopVersion,
+    jobFlowInstancesConfig_additionalMasterSecurityGroups,
+    jobFlowInstancesConfig_emrManagedMasterSecurityGroup,
+    jobFlowInstancesConfig_ec2SubnetId,
     jobFlowInstancesConfig_masterInstanceType,
     jobFlowInstancesConfig_instanceGroups,
-    jobFlowInstancesConfig_ec2SubnetId,
-    jobFlowInstancesConfig_emrManagedMasterSecurityGroup,
-    jobFlowInstancesConfig_additionalMasterSecurityGroups,
-    jobFlowInstancesConfig_slaveInstanceType,
-    jobFlowInstancesConfig_serviceAccessSecurityGroup,
     jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps,
-    jobFlowInstancesConfig_instanceCount,
+    jobFlowInstancesConfig_serviceAccessSecurityGroup,
+    jobFlowInstancesConfig_terminationProtected,
+    jobFlowInstancesConfig_placement,
 
     -- ** KerberosAttributes
-    kerberosAttributes_realm,
-    kerberosAttributes_aDDomainJoinUser,
     kerberosAttributes_kdcAdminPassword,
-    kerberosAttributes_crossRealmTrustPrincipalPassword,
+    kerberosAttributes_realm,
     kerberosAttributes_aDDomainJoinPassword,
+    kerberosAttributes_crossRealmTrustPrincipalPassword,
+    kerberosAttributes_aDDomainJoinUser,
 
     -- ** KeyValue
-    keyValue_key,
     keyValue_value,
+    keyValue_key,
 
     -- ** ManagedScalingPolicy
     managedScalingPolicy_computeLimits,
 
     -- ** MetricDimension
-    metricDimension_key,
     metricDimension_value,
+    metricDimension_key,
 
     -- ** NotebookExecution
-    notebookExecution_lastStateChangeReason,
     notebookExecution_status,
-    notebookExecution_notebookExecutionName,
-    notebookExecution_editorId,
-    notebookExecution_notebookExecutionId,
-    notebookExecution_arn,
-    notebookExecution_startTime,
-    notebookExecution_notebookParams,
-    notebookExecution_endTime,
     notebookExecution_executionEngine,
     notebookExecution_notebookInstanceSecurityGroupId,
-    notebookExecution_tags,
+    notebookExecution_editorId,
+    notebookExecution_startTime,
+    notebookExecution_arn,
     notebookExecution_outputNotebookURI,
+    notebookExecution_notebookExecutionId,
+    notebookExecution_notebookExecutionName,
+    notebookExecution_lastStateChangeReason,
+    notebookExecution_endTime,
+    notebookExecution_notebookParams,
+    notebookExecution_tags,
 
     -- ** NotebookExecutionSummary
     notebookExecutionSummary_status,
-    notebookExecutionSummary_notebookExecutionName,
     notebookExecutionSummary_editorId,
-    notebookExecutionSummary_notebookExecutionId,
     notebookExecutionSummary_startTime,
+    notebookExecutionSummary_notebookExecutionId,
+    notebookExecutionSummary_notebookExecutionName,
     notebookExecutionSummary_endTime,
 
     -- ** OnDemandCapacityReservationOptions
-    onDemandCapacityReservationOptions_capacityReservationPreference,
-    onDemandCapacityReservationOptions_capacityReservationResourceGroupArn,
     onDemandCapacityReservationOptions_usageStrategy,
+    onDemandCapacityReservationOptions_capacityReservationResourceGroupArn,
+    onDemandCapacityReservationOptions_capacityReservationPreference,
 
     -- ** OnDemandProvisioningSpecification
     onDemandProvisioningSpecification_capacityReservationOptions,
@@ -779,8 +779,8 @@ module Network.AWS.EMR.Lens
     portRange_minRange,
 
     -- ** ReleaseLabelFilter
-    releaseLabelFilter_prefix,
     releaseLabelFilter_application,
+    releaseLabelFilter_prefix,
 
     -- ** ScalingAction
     scalingAction_market,
@@ -809,33 +809,33 @@ module Network.AWS.EMR.Lens
 
     -- ** SessionMappingDetail
     sessionMappingDetail_creationTime,
-    sessionMappingDetail_identityName,
+    sessionMappingDetail_studioId,
     sessionMappingDetail_lastModifiedTime,
     sessionMappingDetail_identityType,
     sessionMappingDetail_identityId,
     sessionMappingDetail_sessionPolicyArn,
-    sessionMappingDetail_studioId,
+    sessionMappingDetail_identityName,
 
     -- ** SessionMappingSummary
     sessionMappingSummary_creationTime,
-    sessionMappingSummary_identityName,
+    sessionMappingSummary_studioId,
     sessionMappingSummary_identityType,
     sessionMappingSummary_identityId,
     sessionMappingSummary_sessionPolicyArn,
-    sessionMappingSummary_studioId,
+    sessionMappingSummary_identityName,
 
     -- ** ShrinkPolicy
-    shrinkPolicy_instanceResizePolicy,
     shrinkPolicy_decommissionTimeout,
+    shrinkPolicy_instanceResizePolicy,
 
     -- ** SimpleScalingPolicyConfiguration
-    simpleScalingPolicyConfiguration_coolDown,
     simpleScalingPolicyConfiguration_adjustmentType,
+    simpleScalingPolicyConfiguration_coolDown,
     simpleScalingPolicyConfiguration_scalingAdjustment,
 
     -- ** SimplifiedApplication
-    simplifiedApplication_version,
     simplifiedApplication_name,
+    simplifiedApplication_version,
 
     -- ** SpotProvisioningSpecification
     spotProvisioningSpecification_blockDurationMinutes,
@@ -845,10 +845,10 @@ module Network.AWS.EMR.Lens
 
     -- ** Step
     step_status,
-    step_id,
+    step_actionOnFailure,
     step_config,
     step_name,
-    step_actionOnFailure,
+    step_id,
 
     -- ** StepConfig
     stepConfig_actionOnFailure,
@@ -856,62 +856,62 @@ module Network.AWS.EMR.Lens
     stepConfig_hadoopJarStep,
 
     -- ** StepStateChangeReason
-    stepStateChangeReason_message,
     stepStateChangeReason_code,
+    stepStateChangeReason_message,
 
     -- ** StepStatus
-    stepStatus_stateChangeReason,
-    stepStatus_failureDetails,
     stepStatus_state,
+    stepStatus_failureDetails,
+    stepStatus_stateChangeReason,
     stepStatus_timeline,
 
     -- ** StepSummary
     stepSummary_status,
-    stepSummary_id,
+    stepSummary_actionOnFailure,
     stepSummary_config,
     stepSummary_name,
-    stepSummary_actionOnFailure,
+    stepSummary_id,
 
     -- ** StepTimeline
-    stepTimeline_startDateTime,
-    stepTimeline_endDateTime,
     stepTimeline_creationDateTime,
+    stepTimeline_endDateTime,
+    stepTimeline_startDateTime,
 
     -- ** Studio
     studio_creationTime,
-    studio_serviceRole,
-    studio_workspaceSecurityGroupId,
-    studio_defaultS3Location,
-    studio_authMode,
+    studio_engineSecurityGroupId,
     studio_subnetIds,
-    studio_userRole,
+    studio_studioId,
+    studio_vpcId,
+    studio_url,
+    studio_authMode,
+    studio_defaultS3Location,
+    studio_idpAuthUrl,
+    studio_workspaceSecurityGroupId,
     studio_name,
     studio_idpRelayStateParameterName,
-    studio_tags,
-    studio_idpAuthUrl,
-    studio_description,
-    studio_url,
-    studio_vpcId,
-    studio_studioId,
     studio_studioArn,
-    studio_engineSecurityGroupId,
+    studio_userRole,
+    studio_description,
+    studio_tags,
+    studio_serviceRole,
 
     -- ** StudioSummary
     studioSummary_creationTime,
+    studioSummary_studioId,
+    studioSummary_vpcId,
+    studioSummary_url,
     studioSummary_authMode,
     studioSummary_name,
     studioSummary_description,
-    studioSummary_url,
-    studioSummary_vpcId,
-    studioSummary_studioId,
 
     -- ** SupportedProductConfig
     supportedProductConfig_args,
     supportedProductConfig_name,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** VolumeSpecification
     volumeSpecification_iops,

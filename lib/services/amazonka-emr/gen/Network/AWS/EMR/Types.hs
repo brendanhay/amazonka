@@ -17,8 +17,8 @@ module Network.AWS.EMR.Types
     defaultService,
 
     -- * Errors
-    _InternalServerError,
     _InvalidRequestException,
+    _InternalServerError,
     _InternalServerException,
 
     -- * ActionOnFailure
@@ -137,8 +137,8 @@ module Network.AWS.EMR.Types
     newApplication,
     application_args,
     application_additionalInfo,
-    application_version,
     application_name,
+    application_version,
 
     -- * AutoScalingPolicy
     AutoScalingPolicy (..),
@@ -150,20 +150,20 @@ module Network.AWS.EMR.Types
     AutoScalingPolicyDescription (..),
     newAutoScalingPolicyDescription,
     autoScalingPolicyDescription_status,
-    autoScalingPolicyDescription_constraints,
     autoScalingPolicyDescription_rules,
+    autoScalingPolicyDescription_constraints,
 
     -- * AutoScalingPolicyStateChangeReason
     AutoScalingPolicyStateChangeReason (..),
     newAutoScalingPolicyStateChangeReason,
-    autoScalingPolicyStateChangeReason_message,
     autoScalingPolicyStateChangeReason_code,
+    autoScalingPolicyStateChangeReason_message,
 
     -- * AutoScalingPolicyStatus
     AutoScalingPolicyStatus (..),
     newAutoScalingPolicyStatus,
-    autoScalingPolicyStatus_stateChangeReason,
     autoScalingPolicyStatus_state,
+    autoScalingPolicyStatus_stateChangeReason,
 
     -- * AutoTerminationPolicy
     AutoTerminationPolicy (..),
@@ -191,18 +191,18 @@ module Network.AWS.EMR.Types
     -- * CancelStepsInfo
     CancelStepsInfo (..),
     newCancelStepsInfo,
-    cancelStepsInfo_stepId,
     cancelStepsInfo_status,
+    cancelStepsInfo_stepId,
     cancelStepsInfo_reason,
 
     -- * CloudWatchAlarmDefinition
     CloudWatchAlarmDefinition (..),
     newCloudWatchAlarmDefinition,
-    cloudWatchAlarmDefinition_unit,
-    cloudWatchAlarmDefinition_statistic,
+    cloudWatchAlarmDefinition_evaluationPeriods,
     cloudWatchAlarmDefinition_namespace,
     cloudWatchAlarmDefinition_dimensions,
-    cloudWatchAlarmDefinition_evaluationPeriods,
+    cloudWatchAlarmDefinition_unit,
+    cloudWatchAlarmDefinition_statistic,
     cloudWatchAlarmDefinition_comparisonOperator,
     cloudWatchAlarmDefinition_metricName,
     cloudWatchAlarmDefinition_period,
@@ -211,33 +211,33 @@ module Network.AWS.EMR.Types
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_repoUpgradeOnBoot,
-    cluster_clusterArn,
-    cluster_serviceRole,
-    cluster_autoScalingRole,
-    cluster_scaleDownBehavior,
-    cluster_securityConfiguration,
-    cluster_terminationProtected,
-    cluster_masterPublicDnsName,
-    cluster_configurations,
-    cluster_outpostArn,
-    cluster_runningAmiVersion,
-    cluster_ebsRootVolumeSize,
-    cluster_requestedAmiVersion,
-    cluster_releaseLabel,
-    cluster_instanceCollectionType,
     cluster_logEncryptionKmsKeyId,
-    cluster_tags,
-    cluster_applications,
-    cluster_stepConcurrencyLevel,
-    cluster_visibleToAllUsers,
-    cluster_autoTerminate,
-    cluster_customAmiId,
+    cluster_clusterArn,
+    cluster_requestedAmiVersion,
+    cluster_ebsRootVolumeSize,
+    cluster_ec2InstanceAttributes,
+    cluster_outpostArn,
     cluster_normalizedInstanceHours,
-    cluster_placementGroups,
+    cluster_configurations,
+    cluster_customAmiId,
+    cluster_autoScalingRole,
+    cluster_securityConfiguration,
+    cluster_scaleDownBehavior,
+    cluster_instanceCollectionType,
+    cluster_releaseLabel,
+    cluster_repoUpgradeOnBoot,
     cluster_logUri,
     cluster_kerberosAttributes,
-    cluster_ec2InstanceAttributes,
+    cluster_placementGroups,
+    cluster_runningAmiVersion,
+    cluster_masterPublicDnsName,
+    cluster_terminationProtected,
+    cluster_visibleToAllUsers,
+    cluster_autoTerminate,
+    cluster_stepConcurrencyLevel,
+    cluster_applications,
+    cluster_tags,
+    cluster_serviceRole,
     cluster_id,
     cluster_name,
     cluster_status,
@@ -245,32 +245,32 @@ module Network.AWS.EMR.Types
     -- * ClusterStateChangeReason
     ClusterStateChangeReason (..),
     newClusterStateChangeReason,
-    clusterStateChangeReason_message,
     clusterStateChangeReason_code,
+    clusterStateChangeReason_message,
 
     -- * ClusterStatus
     ClusterStatus (..),
     newClusterStatus,
-    clusterStatus_stateChangeReason,
     clusterStatus_state,
+    clusterStatus_stateChangeReason,
     clusterStatus_timeline,
 
     -- * ClusterSummary
     ClusterSummary (..),
     newClusterSummary,
-    clusterSummary_clusterArn,
     clusterSummary_status,
+    clusterSummary_clusterArn,
     clusterSummary_outpostArn,
-    clusterSummary_id,
-    clusterSummary_name,
     clusterSummary_normalizedInstanceHours,
+    clusterSummary_name,
+    clusterSummary_id,
 
     -- * ClusterTimeline
     ClusterTimeline (..),
     newClusterTimeline,
-    clusterTimeline_endDateTime,
-    clusterTimeline_creationDateTime,
     clusterTimeline_readyDateTime,
+    clusterTimeline_creationDateTime,
+    clusterTimeline_endDateTime,
 
     -- * Command
     Command (..),
@@ -292,8 +292,8 @@ module Network.AWS.EMR.Types
     Configuration (..),
     newConfiguration,
     configuration_configurations,
-    configuration_properties,
     configuration_classification,
+    configuration_properties,
 
     -- * EbsBlockDevice
     EbsBlockDevice (..),
@@ -310,8 +310,8 @@ module Network.AWS.EMR.Types
     -- * EbsConfiguration
     EbsConfiguration (..),
     newEbsConfiguration,
-    ebsConfiguration_ebsBlockDeviceConfigs,
     ebsConfiguration_ebsOptimized,
+    ebsConfiguration_ebsBlockDeviceConfigs,
 
     -- * EbsVolume
     EbsVolume (..),
@@ -323,16 +323,16 @@ module Network.AWS.EMR.Types
     Ec2InstanceAttributes (..),
     newEc2InstanceAttributes,
     ec2InstanceAttributes_ec2KeyName,
-    ec2InstanceAttributes_additionalSlaveSecurityGroups,
-    ec2InstanceAttributes_ec2AvailabilityZone,
     ec2InstanceAttributes_emrManagedSlaveSecurityGroup,
-    ec2InstanceAttributes_requestedEc2AvailabilityZones,
-    ec2InstanceAttributes_ec2SubnetId,
-    ec2InstanceAttributes_emrManagedMasterSecurityGroup,
-    ec2InstanceAttributes_iamInstanceProfile,
-    ec2InstanceAttributes_additionalMasterSecurityGroups,
+    ec2InstanceAttributes_additionalSlaveSecurityGroups,
     ec2InstanceAttributes_requestedEc2SubnetIds,
+    ec2InstanceAttributes_additionalMasterSecurityGroups,
+    ec2InstanceAttributes_iamInstanceProfile,
+    ec2InstanceAttributes_emrManagedMasterSecurityGroup,
+    ec2InstanceAttributes_ec2SubnetId,
+    ec2InstanceAttributes_requestedEc2AvailabilityZones,
     ec2InstanceAttributes_serviceAccessSecurityGroup,
+    ec2InstanceAttributes_ec2AvailabilityZone,
 
     -- * ExecutionEngineConfig
     ExecutionEngineConfig (..),
@@ -344,64 +344,64 @@ module Network.AWS.EMR.Types
     -- * FailureDetails
     FailureDetails (..),
     newFailureDetails,
-    failureDetails_message,
-    failureDetails_reason,
     failureDetails_logFile,
+    failureDetails_reason,
+    failureDetails_message,
 
     -- * HadoopJarStepConfig
     HadoopJarStepConfig (..),
     newHadoopJarStepConfig,
     hadoopJarStepConfig_args,
-    hadoopJarStepConfig_properties,
     hadoopJarStepConfig_mainClass,
+    hadoopJarStepConfig_properties,
     hadoopJarStepConfig_jar,
 
     -- * HadoopStepConfig
     HadoopStepConfig (..),
     newHadoopStepConfig,
     hadoopStepConfig_args,
-    hadoopStepConfig_properties,
     hadoopStepConfig_jar,
     hadoopStepConfig_mainClass,
+    hadoopStepConfig_properties,
 
     -- * Instance
     Instance (..),
     newInstance,
-    instance_ebsVolumes,
     instance_status,
-    instance_instanceType,
-    instance_instanceGroupId,
-    instance_id,
-    instance_instanceFleetId,
     instance_publicDnsName,
-    instance_market,
-    instance_publicIpAddress,
-    instance_privateDnsName,
+    instance_ebsVolumes,
     instance_ec2InstanceId,
+    instance_instanceType,
+    instance_market,
     instance_privateIpAddress,
+    instance_instanceFleetId,
+    instance_id,
+    instance_instanceGroupId,
+    instance_privateDnsName,
+    instance_publicIpAddress,
 
     -- * InstanceFleet
     InstanceFleet (..),
     newInstanceFleet,
-    instanceFleet_instanceFleetType,
+    instanceFleet_provisionedSpotCapacity,
     instanceFleet_status,
     instanceFleet_targetOnDemandCapacity,
+    instanceFleet_instanceFleetType,
+    instanceFleet_instanceTypeSpecifications,
+    instanceFleet_name,
+    instanceFleet_provisionedOnDemandCapacity,
     instanceFleet_targetSpotCapacity,
     instanceFleet_id,
-    instanceFleet_provisionedOnDemandCapacity,
-    instanceFleet_name,
-    instanceFleet_instanceTypeSpecifications,
-    instanceFleet_provisionedSpotCapacity,
     instanceFleet_launchSpecifications,
 
     -- * InstanceFleetConfig
     InstanceFleetConfig (..),
     newInstanceFleetConfig,
-    instanceFleetConfig_targetOnDemandCapacity,
-    instanceFleetConfig_targetSpotCapacity,
-    instanceFleetConfig_name,
-    instanceFleetConfig_launchSpecifications,
     instanceFleetConfig_instanceTypeConfigs,
+    instanceFleetConfig_targetOnDemandCapacity,
+    instanceFleetConfig_name,
+    instanceFleetConfig_targetSpotCapacity,
+    instanceFleetConfig_launchSpecifications,
     instanceFleetConfig_instanceFleetType,
 
     -- * InstanceFleetModifyConfig
@@ -414,61 +414,61 @@ module Network.AWS.EMR.Types
     -- * InstanceFleetProvisioningSpecifications
     InstanceFleetProvisioningSpecifications (..),
     newInstanceFleetProvisioningSpecifications,
-    instanceFleetProvisioningSpecifications_onDemandSpecification,
     instanceFleetProvisioningSpecifications_spotSpecification,
+    instanceFleetProvisioningSpecifications_onDemandSpecification,
 
     -- * InstanceFleetStateChangeReason
     InstanceFleetStateChangeReason (..),
     newInstanceFleetStateChangeReason,
-    instanceFleetStateChangeReason_message,
     instanceFleetStateChangeReason_code,
+    instanceFleetStateChangeReason_message,
 
     -- * InstanceFleetStatus
     InstanceFleetStatus (..),
     newInstanceFleetStatus,
-    instanceFleetStatus_stateChangeReason,
     instanceFleetStatus_state,
+    instanceFleetStatus_stateChangeReason,
     instanceFleetStatus_timeline,
 
     -- * InstanceFleetTimeline
     InstanceFleetTimeline (..),
     newInstanceFleetTimeline,
-    instanceFleetTimeline_endDateTime,
-    instanceFleetTimeline_creationDateTime,
     instanceFleetTimeline_readyDateTime,
+    instanceFleetTimeline_creationDateTime,
+    instanceFleetTimeline_endDateTime,
 
     -- * InstanceGroup
     InstanceGroup (..),
     newInstanceGroup,
-    instanceGroup_lastSuccessfullyAppliedConfigurationsVersion,
     instanceGroup_status,
-    instanceGroup_ebsOptimized,
-    instanceGroup_instanceType,
-    instanceGroup_ebsBlockDevices,
-    instanceGroup_instanceGroupType,
-    instanceGroup_configurations,
-    instanceGroup_id,
-    instanceGroup_lastSuccessfullyAppliedConfigurations,
-    instanceGroup_shrinkPolicy,
+    instanceGroup_lastSuccessfullyAppliedConfigurationsVersion,
     instanceGroup_bidPrice,
     instanceGroup_requestedInstanceCount,
-    instanceGroup_autoScalingPolicy,
-    instanceGroup_name,
-    instanceGroup_market,
-    instanceGroup_configurationsVersion,
-    instanceGroup_customAmiId,
     instanceGroup_runningInstanceCount,
+    instanceGroup_lastSuccessfullyAppliedConfigurations,
+    instanceGroup_configurations,
+    instanceGroup_customAmiId,
+    instanceGroup_instanceGroupType,
+    instanceGroup_ebsBlockDevices,
+    instanceGroup_instanceType,
+    instanceGroup_configurationsVersion,
+    instanceGroup_ebsOptimized,
+    instanceGroup_market,
+    instanceGroup_name,
+    instanceGroup_autoScalingPolicy,
+    instanceGroup_shrinkPolicy,
+    instanceGroup_id,
 
     -- * InstanceGroupConfig
     InstanceGroupConfig (..),
     newInstanceGroupConfig,
     instanceGroupConfig_ebsConfiguration,
-    instanceGroupConfig_configurations,
     instanceGroupConfig_bidPrice,
-    instanceGroupConfig_autoScalingPolicy,
-    instanceGroupConfig_name,
-    instanceGroupConfig_market,
+    instanceGroupConfig_configurations,
     instanceGroupConfig_customAmiId,
+    instanceGroupConfig_market,
+    instanceGroupConfig_name,
+    instanceGroupConfig_autoScalingPolicy,
     instanceGroupConfig_instanceRole,
     instanceGroupConfig_instanceType,
     instanceGroupConfig_instanceCount,
@@ -476,117 +476,117 @@ module Network.AWS.EMR.Types
     -- * InstanceGroupModifyConfig
     InstanceGroupModifyConfig (..),
     newInstanceGroupModifyConfig,
-    instanceGroupModifyConfig_configurations,
-    instanceGroupModifyConfig_shrinkPolicy,
-    instanceGroupModifyConfig_eC2InstanceIdsToTerminate,
     instanceGroupModifyConfig_instanceCount,
+    instanceGroupModifyConfig_configurations,
+    instanceGroupModifyConfig_eC2InstanceIdsToTerminate,
+    instanceGroupModifyConfig_shrinkPolicy,
     instanceGroupModifyConfig_instanceGroupId,
 
     -- * InstanceGroupStateChangeReason
     InstanceGroupStateChangeReason (..),
     newInstanceGroupStateChangeReason,
-    instanceGroupStateChangeReason_message,
     instanceGroupStateChangeReason_code,
+    instanceGroupStateChangeReason_message,
 
     -- * InstanceGroupStatus
     InstanceGroupStatus (..),
     newInstanceGroupStatus,
-    instanceGroupStatus_stateChangeReason,
     instanceGroupStatus_state,
+    instanceGroupStatus_stateChangeReason,
     instanceGroupStatus_timeline,
 
     -- * InstanceGroupTimeline
     InstanceGroupTimeline (..),
     newInstanceGroupTimeline,
-    instanceGroupTimeline_endDateTime,
-    instanceGroupTimeline_creationDateTime,
     instanceGroupTimeline_readyDateTime,
+    instanceGroupTimeline_creationDateTime,
+    instanceGroupTimeline_endDateTime,
 
     -- * InstanceResizePolicy
     InstanceResizePolicy (..),
     newInstanceResizePolicy,
-    instanceResizePolicy_instanceTerminationTimeout,
-    instanceResizePolicy_instancesToTerminate,
     instanceResizePolicy_instancesToProtect,
+    instanceResizePolicy_instancesToTerminate,
+    instanceResizePolicy_instanceTerminationTimeout,
 
     -- * InstanceStateChangeReason
     InstanceStateChangeReason (..),
     newInstanceStateChangeReason,
-    instanceStateChangeReason_message,
     instanceStateChangeReason_code,
+    instanceStateChangeReason_message,
 
     -- * InstanceStatus
     InstanceStatus (..),
     newInstanceStatus,
-    instanceStatus_stateChangeReason,
     instanceStatus_state,
+    instanceStatus_stateChangeReason,
     instanceStatus_timeline,
 
     -- * InstanceTimeline
     InstanceTimeline (..),
     newInstanceTimeline,
-    instanceTimeline_endDateTime,
-    instanceTimeline_creationDateTime,
     instanceTimeline_readyDateTime,
+    instanceTimeline_creationDateTime,
+    instanceTimeline_endDateTime,
 
     -- * InstanceTypeConfig
     InstanceTypeConfig (..),
     newInstanceTypeConfig,
     instanceTypeConfig_ebsConfiguration,
-    instanceTypeConfig_configurations,
     instanceTypeConfig_bidPrice,
-    instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice,
-    instanceTypeConfig_customAmiId,
     instanceTypeConfig_weightedCapacity,
+    instanceTypeConfig_configurations,
+    instanceTypeConfig_customAmiId,
+    instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice,
     instanceTypeConfig_instanceType,
 
     -- * InstanceTypeSpecification
     InstanceTypeSpecification (..),
     newInstanceTypeSpecification,
-    instanceTypeSpecification_ebsOptimized,
-    instanceTypeSpecification_instanceType,
-    instanceTypeSpecification_ebsBlockDevices,
-    instanceTypeSpecification_configurations,
     instanceTypeSpecification_bidPrice,
-    instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice,
-    instanceTypeSpecification_customAmiId,
     instanceTypeSpecification_weightedCapacity,
+    instanceTypeSpecification_configurations,
+    instanceTypeSpecification_customAmiId,
+    instanceTypeSpecification_ebsBlockDevices,
+    instanceTypeSpecification_instanceType,
+    instanceTypeSpecification_ebsOptimized,
+    instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice,
 
     -- * JobFlowInstancesConfig
     JobFlowInstancesConfig (..),
     newJobFlowInstancesConfig,
-    jobFlowInstancesConfig_hadoopVersion,
-    jobFlowInstancesConfig_ec2KeyName,
     jobFlowInstancesConfig_instanceFleets,
-    jobFlowInstancesConfig_placement,
-    jobFlowInstancesConfig_ec2SubnetIds,
-    jobFlowInstancesConfig_additionalSlaveSecurityGroups,
-    jobFlowInstancesConfig_terminationProtected,
+    jobFlowInstancesConfig_ec2KeyName,
+    jobFlowInstancesConfig_slaveInstanceType,
+    jobFlowInstancesConfig_instanceCount,
     jobFlowInstancesConfig_emrManagedSlaveSecurityGroup,
+    jobFlowInstancesConfig_additionalSlaveSecurityGroups,
+    jobFlowInstancesConfig_ec2SubnetIds,
+    jobFlowInstancesConfig_hadoopVersion,
+    jobFlowInstancesConfig_additionalMasterSecurityGroups,
+    jobFlowInstancesConfig_emrManagedMasterSecurityGroup,
+    jobFlowInstancesConfig_ec2SubnetId,
     jobFlowInstancesConfig_masterInstanceType,
     jobFlowInstancesConfig_instanceGroups,
-    jobFlowInstancesConfig_ec2SubnetId,
-    jobFlowInstancesConfig_emrManagedMasterSecurityGroup,
-    jobFlowInstancesConfig_additionalMasterSecurityGroups,
-    jobFlowInstancesConfig_slaveInstanceType,
-    jobFlowInstancesConfig_serviceAccessSecurityGroup,
     jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps,
-    jobFlowInstancesConfig_instanceCount,
+    jobFlowInstancesConfig_serviceAccessSecurityGroup,
+    jobFlowInstancesConfig_terminationProtected,
+    jobFlowInstancesConfig_placement,
 
     -- * KerberosAttributes
     KerberosAttributes (..),
     newKerberosAttributes,
-    kerberosAttributes_realm,
-    kerberosAttributes_aDDomainJoinUser,
     kerberosAttributes_kdcAdminPassword,
-    kerberosAttributes_crossRealmTrustPrincipalPassword,
+    kerberosAttributes_realm,
     kerberosAttributes_aDDomainJoinPassword,
+    kerberosAttributes_crossRealmTrustPrincipalPassword,
+    kerberosAttributes_aDDomainJoinUser,
 
     -- * KeyValue
     KeyValue (..),
     newKeyValue,
-    keyValue_key,
     keyValue_value,
+    keyValue_key,
 
     -- * ManagedScalingPolicy
     ManagedScalingPolicy (..),
@@ -596,42 +596,42 @@ module Network.AWS.EMR.Types
     -- * MetricDimension
     MetricDimension (..),
     newMetricDimension,
-    metricDimension_key,
     metricDimension_value,
+    metricDimension_key,
 
     -- * NotebookExecution
     NotebookExecution (..),
     newNotebookExecution,
-    notebookExecution_lastStateChangeReason,
     notebookExecution_status,
-    notebookExecution_notebookExecutionName,
-    notebookExecution_editorId,
-    notebookExecution_notebookExecutionId,
-    notebookExecution_arn,
-    notebookExecution_startTime,
-    notebookExecution_notebookParams,
-    notebookExecution_endTime,
     notebookExecution_executionEngine,
     notebookExecution_notebookInstanceSecurityGroupId,
-    notebookExecution_tags,
+    notebookExecution_editorId,
+    notebookExecution_startTime,
+    notebookExecution_arn,
     notebookExecution_outputNotebookURI,
+    notebookExecution_notebookExecutionId,
+    notebookExecution_notebookExecutionName,
+    notebookExecution_lastStateChangeReason,
+    notebookExecution_endTime,
+    notebookExecution_notebookParams,
+    notebookExecution_tags,
 
     -- * NotebookExecutionSummary
     NotebookExecutionSummary (..),
     newNotebookExecutionSummary,
     notebookExecutionSummary_status,
-    notebookExecutionSummary_notebookExecutionName,
     notebookExecutionSummary_editorId,
-    notebookExecutionSummary_notebookExecutionId,
     notebookExecutionSummary_startTime,
+    notebookExecutionSummary_notebookExecutionId,
+    notebookExecutionSummary_notebookExecutionName,
     notebookExecutionSummary_endTime,
 
     -- * OnDemandCapacityReservationOptions
     OnDemandCapacityReservationOptions (..),
     newOnDemandCapacityReservationOptions,
-    onDemandCapacityReservationOptions_capacityReservationPreference,
-    onDemandCapacityReservationOptions_capacityReservationResourceGroupArn,
     onDemandCapacityReservationOptions_usageStrategy,
+    onDemandCapacityReservationOptions_capacityReservationResourceGroupArn,
+    onDemandCapacityReservationOptions_capacityReservationPreference,
 
     -- * OnDemandProvisioningSpecification
     OnDemandProvisioningSpecification (..),
@@ -660,8 +660,8 @@ module Network.AWS.EMR.Types
     -- * ReleaseLabelFilter
     ReleaseLabelFilter (..),
     newReleaseLabelFilter,
-    releaseLabelFilter_prefix,
     releaseLabelFilter_application,
+    releaseLabelFilter_prefix,
 
     -- * ScalingAction
     ScalingAction (..),
@@ -704,41 +704,41 @@ module Network.AWS.EMR.Types
     SessionMappingDetail (..),
     newSessionMappingDetail,
     sessionMappingDetail_creationTime,
-    sessionMappingDetail_identityName,
+    sessionMappingDetail_studioId,
     sessionMappingDetail_lastModifiedTime,
     sessionMappingDetail_identityType,
     sessionMappingDetail_identityId,
     sessionMappingDetail_sessionPolicyArn,
-    sessionMappingDetail_studioId,
+    sessionMappingDetail_identityName,
 
     -- * SessionMappingSummary
     SessionMappingSummary (..),
     newSessionMappingSummary,
     sessionMappingSummary_creationTime,
-    sessionMappingSummary_identityName,
+    sessionMappingSummary_studioId,
     sessionMappingSummary_identityType,
     sessionMappingSummary_identityId,
     sessionMappingSummary_sessionPolicyArn,
-    sessionMappingSummary_studioId,
+    sessionMappingSummary_identityName,
 
     -- * ShrinkPolicy
     ShrinkPolicy (..),
     newShrinkPolicy,
-    shrinkPolicy_instanceResizePolicy,
     shrinkPolicy_decommissionTimeout,
+    shrinkPolicy_instanceResizePolicy,
 
     -- * SimpleScalingPolicyConfiguration
     SimpleScalingPolicyConfiguration (..),
     newSimpleScalingPolicyConfiguration,
-    simpleScalingPolicyConfiguration_coolDown,
     simpleScalingPolicyConfiguration_adjustmentType,
+    simpleScalingPolicyConfiguration_coolDown,
     simpleScalingPolicyConfiguration_scalingAdjustment,
 
     -- * SimplifiedApplication
     SimplifiedApplication (..),
     newSimplifiedApplication,
-    simplifiedApplication_version,
     simplifiedApplication_name,
+    simplifiedApplication_version,
 
     -- * SpotProvisioningSpecification
     SpotProvisioningSpecification (..),
@@ -752,10 +752,10 @@ module Network.AWS.EMR.Types
     Step (..),
     newStep,
     step_status,
-    step_id,
+    step_actionOnFailure,
     step_config,
     step_name,
-    step_actionOnFailure,
+    step_id,
 
     -- * StepConfig
     StepConfig (..),
@@ -767,64 +767,64 @@ module Network.AWS.EMR.Types
     -- * StepStateChangeReason
     StepStateChangeReason (..),
     newStepStateChangeReason,
-    stepStateChangeReason_message,
     stepStateChangeReason_code,
+    stepStateChangeReason_message,
 
     -- * StepStatus
     StepStatus (..),
     newStepStatus,
-    stepStatus_stateChangeReason,
-    stepStatus_failureDetails,
     stepStatus_state,
+    stepStatus_failureDetails,
+    stepStatus_stateChangeReason,
     stepStatus_timeline,
 
     -- * StepSummary
     StepSummary (..),
     newStepSummary,
     stepSummary_status,
-    stepSummary_id,
+    stepSummary_actionOnFailure,
     stepSummary_config,
     stepSummary_name,
-    stepSummary_actionOnFailure,
+    stepSummary_id,
 
     -- * StepTimeline
     StepTimeline (..),
     newStepTimeline,
-    stepTimeline_startDateTime,
-    stepTimeline_endDateTime,
     stepTimeline_creationDateTime,
+    stepTimeline_endDateTime,
+    stepTimeline_startDateTime,
 
     -- * Studio
     Studio (..),
     newStudio,
     studio_creationTime,
-    studio_serviceRole,
-    studio_workspaceSecurityGroupId,
-    studio_defaultS3Location,
-    studio_authMode,
+    studio_engineSecurityGroupId,
     studio_subnetIds,
-    studio_userRole,
+    studio_studioId,
+    studio_vpcId,
+    studio_url,
+    studio_authMode,
+    studio_defaultS3Location,
+    studio_idpAuthUrl,
+    studio_workspaceSecurityGroupId,
     studio_name,
     studio_idpRelayStateParameterName,
-    studio_tags,
-    studio_idpAuthUrl,
-    studio_description,
-    studio_url,
-    studio_vpcId,
-    studio_studioId,
     studio_studioArn,
-    studio_engineSecurityGroupId,
+    studio_userRole,
+    studio_description,
+    studio_tags,
+    studio_serviceRole,
 
     -- * StudioSummary
     StudioSummary (..),
     newStudioSummary,
     studioSummary_creationTime,
+    studioSummary_studioId,
+    studioSummary_vpcId,
+    studioSummary_url,
     studioSummary_authMode,
     studioSummary_name,
     studioSummary_description,
-    studioSummary_url,
-    studioSummary_vpcId,
-    studioSummary_studioId,
 
     -- * SupportedProductConfig
     SupportedProductConfig (..),
@@ -835,8 +835,8 @@ module Network.AWS.EMR.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
 
     -- * VolumeSpecification
     VolumeSpecification (..),
@@ -998,37 +998,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -1041,7 +1018,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | This exception occurs when there is something wrong with user input.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
 
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
@@ -1050,13 +1057,6 @@ _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
-
--- | This exception occurs when there is something wrong with user input.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
 
 -- | This exception occurs when there is an internal failure in the Amazon
 -- EMR service.

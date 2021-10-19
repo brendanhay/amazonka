@@ -60,7 +60,7 @@ newCommand =
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
 command_args :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
-command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Prelude.. Lens.mapping Lens._Coerce
+command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 location of the command script.
 command_scriptPath :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)

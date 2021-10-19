@@ -35,17 +35,17 @@ module Network.AWS.EMR.ListClusters
 
     -- * Request Lenses
     listClusters_createdAfter,
-    listClusters_createdBefore,
-    listClusters_clusterStates,
     listClusters_marker,
+    listClusters_clusterStates,
+    listClusters_createdBefore,
 
     -- * Destructuring the Response
     ListClustersResponse (..),
     newListClustersResponse,
 
     -- * Response Lenses
-    listClustersResponse_clusters,
     listClustersResponse_marker,
+    listClustersResponse_clusters,
     listClustersResponse_httpStatus,
   )
 where
@@ -64,14 +64,14 @@ import qualified Network.AWS.Response as Response
 data ListClusters = ListClusters'
   { -- | The creation date and time beginning value filter for listing clusters.
     createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The creation date and time end value filter for listing clusters.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The cluster state filters to apply when listing clusters. Clusters that
     -- change state while this action runs may be not be returned as expected
     -- in the list of clusters.
     clusterStates :: Prelude.Maybe [ClusterState],
-    -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | The creation date and time end value filter for listing clusters.
+    createdBefore :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,40 +85,40 @@ data ListClusters = ListClusters'
 --
 -- 'createdAfter', 'listClusters_createdAfter' - The creation date and time beginning value filter for listing clusters.
 --
--- 'createdBefore', 'listClusters_createdBefore' - The creation date and time end value filter for listing clusters.
+-- 'marker', 'listClusters_marker' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'clusterStates', 'listClusters_clusterStates' - The cluster state filters to apply when listing clusters. Clusters that
 -- change state while this action runs may be not be returned as expected
 -- in the list of clusters.
 --
--- 'marker', 'listClusters_marker' - The pagination token that indicates the next set of results to retrieve.
+-- 'createdBefore', 'listClusters_createdBefore' - The creation date and time end value filter for listing clusters.
 newListClusters ::
   ListClusters
 newListClusters =
   ListClusters'
     { createdAfter = Prelude.Nothing,
-      createdBefore = Prelude.Nothing,
+      marker = Prelude.Nothing,
       clusterStates = Prelude.Nothing,
-      marker = Prelude.Nothing
+      createdBefore = Prelude.Nothing
     }
 
 -- | The creation date and time beginning value filter for listing clusters.
 listClusters_createdAfter :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
 listClusters_createdAfter = Lens.lens (\ListClusters' {createdAfter} -> createdAfter) (\s@ListClusters' {} a -> s {createdAfter = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
 
--- | The creation date and time end value filter for listing clusters.
-listClusters_createdBefore :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
-listClusters_createdBefore = Lens.lens (\ListClusters' {createdBefore} -> createdBefore) (\s@ListClusters' {} a -> s {createdBefore = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
+-- | The pagination token that indicates the next set of results to retrieve.
+listClusters_marker :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
+listClusters_marker = Lens.lens (\ListClusters' {marker} -> marker) (\s@ListClusters' {} a -> s {marker = a} :: ListClusters)
 
 -- | The cluster state filters to apply when listing clusters. Clusters that
 -- change state while this action runs may be not be returned as expected
 -- in the list of clusters.
 listClusters_clusterStates :: Lens.Lens' ListClusters (Prelude.Maybe [ClusterState])
-listClusters_clusterStates = Lens.lens (\ListClusters' {clusterStates} -> clusterStates) (\s@ListClusters' {} a -> s {clusterStates = a} :: ListClusters) Prelude.. Lens.mapping Lens._Coerce
+listClusters_clusterStates = Lens.lens (\ListClusters' {clusterStates} -> clusterStates) (\s@ListClusters' {} a -> s {clusterStates = a} :: ListClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | The pagination token that indicates the next set of results to retrieve.
-listClusters_marker :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
-listClusters_marker = Lens.lens (\ListClusters' {marker} -> marker) (\s@ListClusters' {} a -> s {marker = a} :: ListClusters)
+-- | The creation date and time end value filter for listing clusters.
+listClusters_createdBefore :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
+listClusters_createdBefore = Lens.lens (\ListClusters' {createdBefore} -> createdBefore) (\s@ListClusters' {} a -> s {createdBefore = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListClusters where
   page rq rs
@@ -146,8 +146,8 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Prelude.<$> (x Core..?> "Clusters" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Clusters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,9 +175,9 @@ instance Core.ToJSON ListClusters where
     Core.object
       ( Prelude.catMaybes
           [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
+            ("Marker" Core..=) Prelude.<$> marker,
             ("ClusterStates" Core..=) Prelude.<$> clusterStates,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("CreatedBefore" Core..=) Prelude.<$> createdBefore
           ]
       )
 
@@ -192,10 +192,10 @@ instance Core.ToQuery ListClusters where
 --
 -- /See:/ 'newListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { -- | The list of clusters for the account based on the given filters.
-    clusters :: Prelude.Maybe [ClusterSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
+  { -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The list of clusters for the account based on the given filters.
+    clusters :: Prelude.Maybe [ClusterSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,9 +209,9 @@ data ListClustersResponse = ListClustersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusters', 'listClustersResponse_clusters' - The list of clusters for the account based on the given filters.
---
 -- 'marker', 'listClustersResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'clusters', 'listClustersResponse_clusters' - The list of clusters for the account based on the given filters.
 --
 -- 'httpStatus', 'listClustersResponse_httpStatus' - The response's http status code.
 newListClustersResponse ::
@@ -220,18 +220,18 @@ newListClustersResponse ::
   ListClustersResponse
 newListClustersResponse pHttpStatus_ =
   ListClustersResponse'
-    { clusters = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      clusters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of clusters for the account based on the given filters.
-listClustersResponse_clusters :: Lens.Lens' ListClustersResponse (Prelude.Maybe [ClusterSummary])
-listClustersResponse_clusters = Lens.lens (\ListClustersResponse' {clusters} -> clusters) (\s@ListClustersResponse' {} a -> s {clusters = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listClustersResponse_marker :: Lens.Lens' ListClustersResponse (Prelude.Maybe Prelude.Text)
 listClustersResponse_marker = Lens.lens (\ListClustersResponse' {marker} -> marker) (\s@ListClustersResponse' {} a -> s {marker = a} :: ListClustersResponse)
+
+-- | The list of clusters for the account based on the given filters.
+listClustersResponse_clusters :: Lens.Lens' ListClustersResponse (Prelude.Maybe [ClusterSummary])
+listClustersResponse_clusters = Lens.lens (\ListClustersResponse' {clusters} -> clusters) (\s@ListClustersResponse' {} a -> s {clusters = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Prelude.Int

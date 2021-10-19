@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newShrinkPolicy' smart constructor.
 data ShrinkPolicy = ShrinkPolicy'
-  { -- | Custom policy for requesting termination protection or termination of
-    -- specific instances when shrinking an instance group.
-    instanceResizePolicy :: Prelude.Maybe InstanceResizePolicy,
-    -- | The desired timeout for decommissioning an instance. Overrides the
+  { -- | The desired timeout for decommissioning an instance. Overrides the
     -- default YARN decommissioning timeout.
-    decommissionTimeout :: Prelude.Maybe Prelude.Int
+    decommissionTimeout :: Prelude.Maybe Prelude.Int,
+    -- | Custom policy for requesting termination protection or termination of
+    -- specific instances when shrinking an instance group.
+    instanceResizePolicy :: Prelude.Maybe InstanceResizePolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data ShrinkPolicy = ShrinkPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceResizePolicy', 'shrinkPolicy_instanceResizePolicy' - Custom policy for requesting termination protection or termination of
--- specific instances when shrinking an instance group.
---
 -- 'decommissionTimeout', 'shrinkPolicy_decommissionTimeout' - The desired timeout for decommissioning an instance. Overrides the
 -- default YARN decommissioning timeout.
+--
+-- 'instanceResizePolicy', 'shrinkPolicy_instanceResizePolicy' - Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
 newShrinkPolicy ::
   ShrinkPolicy
 newShrinkPolicy =
   ShrinkPolicy'
-    { instanceResizePolicy =
+    { decommissionTimeout =
         Prelude.Nothing,
-      decommissionTimeout = Prelude.Nothing
+      instanceResizePolicy = Prelude.Nothing
     }
-
--- | Custom policy for requesting termination protection or termination of
--- specific instances when shrinking an instance group.
-shrinkPolicy_instanceResizePolicy :: Lens.Lens' ShrinkPolicy (Prelude.Maybe InstanceResizePolicy)
-shrinkPolicy_instanceResizePolicy = Lens.lens (\ShrinkPolicy' {instanceResizePolicy} -> instanceResizePolicy) (\s@ShrinkPolicy' {} a -> s {instanceResizePolicy = a} :: ShrinkPolicy)
 
 -- | The desired timeout for decommissioning an instance. Overrides the
 -- default YARN decommissioning timeout.
 shrinkPolicy_decommissionTimeout :: Lens.Lens' ShrinkPolicy (Prelude.Maybe Prelude.Int)
 shrinkPolicy_decommissionTimeout = Lens.lens (\ShrinkPolicy' {decommissionTimeout} -> decommissionTimeout) (\s@ShrinkPolicy' {} a -> s {decommissionTimeout = a} :: ShrinkPolicy)
+
+-- | Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
+shrinkPolicy_instanceResizePolicy :: Lens.Lens' ShrinkPolicy (Prelude.Maybe InstanceResizePolicy)
+shrinkPolicy_instanceResizePolicy = Lens.lens (\ShrinkPolicy' {instanceResizePolicy} -> instanceResizePolicy) (\s@ShrinkPolicy' {} a -> s {instanceResizePolicy = a} :: ShrinkPolicy)
 
 instance Core.FromJSON ShrinkPolicy where
   parseJSON =
@@ -76,8 +76,8 @@ instance Core.FromJSON ShrinkPolicy where
       "ShrinkPolicy"
       ( \x ->
           ShrinkPolicy'
-            Prelude.<$> (x Core..:? "InstanceResizePolicy")
-            Prelude.<*> (x Core..:? "DecommissionTimeout")
+            Prelude.<$> (x Core..:? "DecommissionTimeout")
+            Prelude.<*> (x Core..:? "InstanceResizePolicy")
       )
 
 instance Prelude.Hashable ShrinkPolicy
@@ -88,9 +88,9 @@ instance Core.ToJSON ShrinkPolicy where
   toJSON ShrinkPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceResizePolicy" Core..=)
-              Prelude.<$> instanceResizePolicy,
-            ("DecommissionTimeout" Core..=)
-              Prelude.<$> decommissionTimeout
+          [ ("DecommissionTimeout" Core..=)
+              Prelude.<$> decommissionTimeout,
+            ("InstanceResizePolicy" Core..=)
+              Prelude.<$> instanceResizePolicy
           ]
       )

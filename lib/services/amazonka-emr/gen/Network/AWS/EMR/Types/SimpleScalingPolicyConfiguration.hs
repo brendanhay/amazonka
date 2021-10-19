@@ -31,11 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSimpleScalingPolicyConfiguration' smart constructor.
 data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
-  { -- | The amount of time, in seconds, after a scaling activity completes
-    -- before any further trigger-related scaling activities can start. The
-    -- default value is 0.
-    coolDown :: Prelude.Maybe Prelude.Int,
-    -- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a
+  { -- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a
     -- positive number) or terminated (if @ScalingAdjustment@ is a negative
     -- number) each time the scaling activity is triggered.
     -- @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that
@@ -48,6 +44,10 @@ data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
     -- results in an instance group with the number of EC2 instances specified
     -- by @ScalingAdjustment@, which should be expressed as a positive integer.
     adjustmentType :: Prelude.Maybe AdjustmentType,
+    -- | The amount of time, in seconds, after a scaling activity completes
+    -- before any further trigger-related scaling activities can start. The
+    -- default value is 0.
+    coolDown :: Prelude.Maybe Prelude.Int,
     -- | The amount by which to scale in or scale out, based on the specified
     -- @AdjustmentType@. A positive value adds to the instance group\'s EC2
     -- instance count while a negative number removes instances. If
@@ -68,10 +68,6 @@ data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coolDown', 'simpleScalingPolicyConfiguration_coolDown' - The amount of time, in seconds, after a scaling activity completes
--- before any further trigger-related scaling activities can start. The
--- default value is 0.
---
 -- 'adjustmentType', 'simpleScalingPolicyConfiguration_adjustmentType' - The way in which EC2 instances are added (if @ScalingAdjustment@ is a
 -- positive number) or terminated (if @ScalingAdjustment@ is a negative
 -- number) each time the scaling activity is triggered.
@@ -84,6 +80,10 @@ data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
 -- cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity
 -- results in an instance group with the number of EC2 instances specified
 -- by @ScalingAdjustment@, which should be expressed as a positive integer.
+--
+-- 'coolDown', 'simpleScalingPolicyConfiguration_coolDown' - The amount of time, in seconds, after a scaling activity completes
+-- before any further trigger-related scaling activities can start. The
+-- default value is 0.
 --
 -- 'scalingAdjustment', 'simpleScalingPolicyConfiguration_scalingAdjustment' - The amount by which to scale in or scale out, based on the specified
 -- @AdjustmentType@. A positive value adds to the instance group\'s EC2
@@ -100,17 +100,11 @@ newSimpleScalingPolicyConfiguration ::
 newSimpleScalingPolicyConfiguration
   pScalingAdjustment_ =
     SimpleScalingPolicyConfiguration'
-      { coolDown =
+      { adjustmentType =
           Prelude.Nothing,
-        adjustmentType = Prelude.Nothing,
+        coolDown = Prelude.Nothing,
         scalingAdjustment = pScalingAdjustment_
       }
-
--- | The amount of time, in seconds, after a scaling activity completes
--- before any further trigger-related scaling activities can start. The
--- default value is 0.
-simpleScalingPolicyConfiguration_coolDown :: Lens.Lens' SimpleScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
-simpleScalingPolicyConfiguration_coolDown = Lens.lens (\SimpleScalingPolicyConfiguration' {coolDown} -> coolDown) (\s@SimpleScalingPolicyConfiguration' {} a -> s {coolDown = a} :: SimpleScalingPolicyConfiguration)
 
 -- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a
 -- positive number) or terminated (if @ScalingAdjustment@ is a negative
@@ -126,6 +120,12 @@ simpleScalingPolicyConfiguration_coolDown = Lens.lens (\SimpleScalingPolicyConfi
 -- by @ScalingAdjustment@, which should be expressed as a positive integer.
 simpleScalingPolicyConfiguration_adjustmentType :: Lens.Lens' SimpleScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
 simpleScalingPolicyConfiguration_adjustmentType = Lens.lens (\SimpleScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@SimpleScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: SimpleScalingPolicyConfiguration)
+
+-- | The amount of time, in seconds, after a scaling activity completes
+-- before any further trigger-related scaling activities can start. The
+-- default value is 0.
+simpleScalingPolicyConfiguration_coolDown :: Lens.Lens' SimpleScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
+simpleScalingPolicyConfiguration_coolDown = Lens.lens (\SimpleScalingPolicyConfiguration' {coolDown} -> coolDown) (\s@SimpleScalingPolicyConfiguration' {} a -> s {coolDown = a} :: SimpleScalingPolicyConfiguration)
 
 -- | The amount by which to scale in or scale out, based on the specified
 -- @AdjustmentType@. A positive value adds to the instance group\'s EC2
@@ -147,8 +147,8 @@ instance
       "SimpleScalingPolicyConfiguration"
       ( \x ->
           SimpleScalingPolicyConfiguration'
-            Prelude.<$> (x Core..:? "CoolDown")
-            Prelude.<*> (x Core..:? "AdjustmentType")
+            Prelude.<$> (x Core..:? "AdjustmentType")
+            Prelude.<*> (x Core..:? "CoolDown")
             Prelude.<*> (x Core..: "ScalingAdjustment")
       )
 
@@ -164,9 +164,9 @@ instance Core.ToJSON SimpleScalingPolicyConfiguration where
   toJSON SimpleScalingPolicyConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CoolDown" Core..=) Prelude.<$> coolDown,
-            ("AdjustmentType" Core..=)
+          [ ("AdjustmentType" Core..=)
               Prelude.<$> adjustmentType,
+            ("CoolDown" Core..=) Prelude.<$> coolDown,
             Prelude.Just
               ("ScalingAdjustment" Core..= scalingAdjustment)
           ]

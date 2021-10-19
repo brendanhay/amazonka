@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { -- | The dimension name.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The dimension value.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The dimension value.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The dimension name.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data MetricDimension = MetricDimension'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'metricDimension_key' - The dimension name.
---
 -- 'value', 'metricDimension_value' - The dimension value.
+--
+-- 'key', 'metricDimension_key' - The dimension name.
 newMetricDimension ::
   MetricDimension
 newMetricDimension =
   MetricDimension'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The dimension name.
-metricDimension_key :: Lens.Lens' MetricDimension (Prelude.Maybe Prelude.Text)
-metricDimension_key = Lens.lens (\MetricDimension' {key} -> key) (\s@MetricDimension' {} a -> s {key = a} :: MetricDimension)
 
 -- | The dimension value.
 metricDimension_value :: Lens.Lens' MetricDimension (Prelude.Maybe Prelude.Text)
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
+
+-- | The dimension name.
+metricDimension_key :: Lens.Lens' MetricDimension (Prelude.Maybe Prelude.Text)
+metricDimension_key = Lens.lens (\MetricDimension' {key} -> key) (\s@MetricDimension' {} a -> s {key = a} :: MetricDimension)
 
 instance Core.FromJSON MetricDimension where
   parseJSON =
@@ -71,7 +71,7 @@ instance Core.FromJSON MetricDimension where
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
 instance Prelude.Hashable MetricDimension
@@ -82,7 +82,7 @@ instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

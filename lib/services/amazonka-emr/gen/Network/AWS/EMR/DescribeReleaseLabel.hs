@@ -31,8 +31,8 @@ module Network.AWS.EMR.DescribeReleaseLabel
 
     -- * Request Lenses
     describeReleaseLabel_nextToken,
-    describeReleaseLabel_maxResults,
     describeReleaseLabel_releaseLabel,
+    describeReleaseLabel_maxResults,
 
     -- * Destructuring the Response
     DescribeReleaseLabelResponse (..),
@@ -57,10 +57,10 @@ import qualified Network.AWS.Response as Response
 data DescribeReleaseLabel = DescribeReleaseLabel'
   { -- | The pagination token. Reserved for future use. Currently set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use. Currently set to null.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The target release label to be described.
-    releaseLabel :: Prelude.Maybe Prelude.Text
+    releaseLabel :: Prelude.Maybe Prelude.Text,
+    -- | Reserved for future use. Currently set to null.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,29 +74,29 @@ data DescribeReleaseLabel = DescribeReleaseLabel'
 --
 -- 'nextToken', 'describeReleaseLabel_nextToken' - The pagination token. Reserved for future use. Currently set to null.
 --
--- 'maxResults', 'describeReleaseLabel_maxResults' - Reserved for future use. Currently set to null.
---
 -- 'releaseLabel', 'describeReleaseLabel_releaseLabel' - The target release label to be described.
+--
+-- 'maxResults', 'describeReleaseLabel_maxResults' - Reserved for future use. Currently set to null.
 newDescribeReleaseLabel ::
   DescribeReleaseLabel
 newDescribeReleaseLabel =
   DescribeReleaseLabel'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      releaseLabel = Prelude.Nothing
+      releaseLabel = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The pagination token. Reserved for future use. Currently set to null.
 describeReleaseLabel_nextToken :: Lens.Lens' DescribeReleaseLabel (Prelude.Maybe Prelude.Text)
 describeReleaseLabel_nextToken = Lens.lens (\DescribeReleaseLabel' {nextToken} -> nextToken) (\s@DescribeReleaseLabel' {} a -> s {nextToken = a} :: DescribeReleaseLabel)
 
--- | Reserved for future use. Currently set to null.
-describeReleaseLabel_maxResults :: Lens.Lens' DescribeReleaseLabel (Prelude.Maybe Prelude.Natural)
-describeReleaseLabel_maxResults = Lens.lens (\DescribeReleaseLabel' {maxResults} -> maxResults) (\s@DescribeReleaseLabel' {} a -> s {maxResults = a} :: DescribeReleaseLabel)
-
 -- | The target release label to be described.
 describeReleaseLabel_releaseLabel :: Lens.Lens' DescribeReleaseLabel (Prelude.Maybe Prelude.Text)
 describeReleaseLabel_releaseLabel = Lens.lens (\DescribeReleaseLabel' {releaseLabel} -> releaseLabel) (\s@DescribeReleaseLabel' {} a -> s {releaseLabel = a} :: DescribeReleaseLabel)
+
+-- | Reserved for future use. Currently set to null.
+describeReleaseLabel_maxResults :: Lens.Lens' DescribeReleaseLabel (Prelude.Maybe Prelude.Natural)
+describeReleaseLabel_maxResults = Lens.lens (\DescribeReleaseLabel' {maxResults} -> maxResults) (\s@DescribeReleaseLabel' {} a -> s {maxResults = a} :: DescribeReleaseLabel)
 
 instance Core.AWSRequest DescribeReleaseLabel where
   type
@@ -137,8 +137,8 @@ instance Core.ToJSON DescribeReleaseLabel where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ReleaseLabel" Core..=) Prelude.<$> releaseLabel
+            ("ReleaseLabel" Core..=) Prelude.<$> releaseLabel,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -205,7 +205,7 @@ describeReleaseLabelResponse_releaseLabel = Lens.lens (\DescribeReleaseLabelResp
 -- is the name of the application. @Version@ is the concise version of the
 -- application.
 describeReleaseLabelResponse_applications :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe [SimplifiedApplication])
-describeReleaseLabelResponse_applications = Lens.lens (\DescribeReleaseLabelResponse' {applications} -> applications) (\s@DescribeReleaseLabelResponse' {} a -> s {applications = a} :: DescribeReleaseLabelResponse) Prelude.. Lens.mapping Lens._Coerce
+describeReleaseLabelResponse_applications = Lens.lens (\DescribeReleaseLabelResponse' {applications} -> applications) (\s@DescribeReleaseLabelResponse' {} a -> s {applications = a} :: DescribeReleaseLabelResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReleaseLabelResponse_httpStatus :: Lens.Lens' DescribeReleaseLabelResponse Prelude.Int

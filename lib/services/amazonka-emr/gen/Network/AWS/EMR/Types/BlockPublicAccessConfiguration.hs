@@ -99,7 +99,7 @@ newBlockPublicAccessConfiguration
 -- By default, Port 22, which is used for SSH access to the cluster EC2
 -- instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@.
 blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges :: Lens.Lens' BlockPublicAccessConfiguration (Prelude.Maybe [PortRange])
-blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges = Lens.lens (\BlockPublicAccessConfiguration' {permittedPublicSecurityGroupRuleRanges} -> permittedPublicSecurityGroupRuleRanges) (\s@BlockPublicAccessConfiguration' {} a -> s {permittedPublicSecurityGroupRuleRanges = a} :: BlockPublicAccessConfiguration) Prelude.. Lens.mapping Lens._Coerce
+blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges = Lens.lens (\BlockPublicAccessConfiguration' {permittedPublicSecurityGroupRuleRanges} -> permittedPublicSecurityGroupRuleRanges) (\s@BlockPublicAccessConfiguration' {} a -> s {permittedPublicSecurityGroupRuleRanges = a} :: BlockPublicAccessConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether Amazon EMR block public access is enabled (@true@) or
 -- disabled (@false@). By default, the value is @false@ for accounts that

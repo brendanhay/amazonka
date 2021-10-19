@@ -112,7 +112,7 @@ cancelSteps_clusterId = Lens.lens (\CancelSteps' {clusterId} -> clusterId) (\s@C
 -- | The list of @StepIDs@ to cancel. Use ListSteps to get steps and their
 -- states for the specified cluster.
 cancelSteps_stepIds :: Lens.Lens' CancelSteps [Prelude.Text]
-cancelSteps_stepIds = Lens.lens (\CancelSteps' {stepIds} -> stepIds) (\s@CancelSteps' {} a -> s {stepIds = a} :: CancelSteps) Prelude.. Lens._Coerce
+cancelSteps_stepIds = Lens.lens (\CancelSteps' {stepIds} -> stepIds) (\s@CancelSteps' {} a -> s {stepIds = a} :: CancelSteps) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CancelSteps where
   type AWSResponse CancelSteps = CancelStepsResponse
@@ -201,7 +201,7 @@ newCancelStepsResponse pHttpStatus_ =
 -- | A list of CancelStepsInfo, which shows the status of specified cancel
 -- requests for each @StepID@ specified.
 cancelStepsResponse_cancelStepsInfoList :: Lens.Lens' CancelStepsResponse (Prelude.Maybe [CancelStepsInfo])
-cancelStepsResponse_cancelStepsInfoList = Lens.lens (\CancelStepsResponse' {cancelStepsInfoList} -> cancelStepsInfoList) (\s@CancelStepsResponse' {} a -> s {cancelStepsInfoList = a} :: CancelStepsResponse) Prelude.. Lens.mapping Lens._Coerce
+cancelStepsResponse_cancelStepsInfoList = Lens.lens (\CancelStepsResponse' {cancelStepsInfoList} -> cancelStepsInfoList) (\s@CancelStepsResponse' {} a -> s {cancelStepsInfoList = a} :: CancelStepsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 cancelStepsResponse_httpStatus :: Lens.Lens' CancelStepsResponse Prelude.Int

@@ -32,16 +32,16 @@ import qualified Network.AWS.Prelude as Prelude
 data StepSummary = StepSummary'
   { -- | The current execution status details of the cluster step.
     status :: Prelude.Maybe StepStatus,
-    -- | The identifier of the cluster step.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The action to take when the cluster step fails. Possible values are
+    -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
+    -- available for backward compatibility.
+    actionOnFailure :: Prelude.Maybe ActionOnFailure,
     -- | The Hadoop job configuration of the cluster step.
     config :: Prelude.Maybe HadoopStepConfig,
     -- | The name of the cluster step.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The action to take when the cluster step fails. Possible values are
-    -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
-    -- available for backward compatibility.
-    actionOnFailure :: Prelude.Maybe ActionOnFailure
+    -- | The identifier of the cluster step.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,33 +55,35 @@ data StepSummary = StepSummary'
 --
 -- 'status', 'stepSummary_status' - The current execution status details of the cluster step.
 --
--- 'id', 'stepSummary_id' - The identifier of the cluster step.
+-- 'actionOnFailure', 'stepSummary_actionOnFailure' - The action to take when the cluster step fails. Possible values are
+-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
+-- available for backward compatibility.
 --
 -- 'config', 'stepSummary_config' - The Hadoop job configuration of the cluster step.
 --
 -- 'name', 'stepSummary_name' - The name of the cluster step.
 --
--- 'actionOnFailure', 'stepSummary_actionOnFailure' - The action to take when the cluster step fails. Possible values are
--- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
--- available for backward compatibility.
+-- 'id', 'stepSummary_id' - The identifier of the cluster step.
 newStepSummary ::
   StepSummary
 newStepSummary =
   StepSummary'
     { status = Prelude.Nothing,
-      id = Prelude.Nothing,
+      actionOnFailure = Prelude.Nothing,
       config = Prelude.Nothing,
       name = Prelude.Nothing,
-      actionOnFailure = Prelude.Nothing
+      id = Prelude.Nothing
     }
 
 -- | The current execution status details of the cluster step.
 stepSummary_status :: Lens.Lens' StepSummary (Prelude.Maybe StepStatus)
 stepSummary_status = Lens.lens (\StepSummary' {status} -> status) (\s@StepSummary' {} a -> s {status = a} :: StepSummary)
 
--- | The identifier of the cluster step.
-stepSummary_id :: Lens.Lens' StepSummary (Prelude.Maybe Prelude.Text)
-stepSummary_id = Lens.lens (\StepSummary' {id} -> id) (\s@StepSummary' {} a -> s {id = a} :: StepSummary)
+-- | The action to take when the cluster step fails. Possible values are
+-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
+-- available for backward compatibility.
+stepSummary_actionOnFailure :: Lens.Lens' StepSummary (Prelude.Maybe ActionOnFailure)
+stepSummary_actionOnFailure = Lens.lens (\StepSummary' {actionOnFailure} -> actionOnFailure) (\s@StepSummary' {} a -> s {actionOnFailure = a} :: StepSummary)
 
 -- | The Hadoop job configuration of the cluster step.
 stepSummary_config :: Lens.Lens' StepSummary (Prelude.Maybe HadoopStepConfig)
@@ -91,11 +93,9 @@ stepSummary_config = Lens.lens (\StepSummary' {config} -> config) (\s@StepSummar
 stepSummary_name :: Lens.Lens' StepSummary (Prelude.Maybe Prelude.Text)
 stepSummary_name = Lens.lens (\StepSummary' {name} -> name) (\s@StepSummary' {} a -> s {name = a} :: StepSummary)
 
--- | The action to take when the cluster step fails. Possible values are
--- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
--- available for backward compatibility.
-stepSummary_actionOnFailure :: Lens.Lens' StepSummary (Prelude.Maybe ActionOnFailure)
-stepSummary_actionOnFailure = Lens.lens (\StepSummary' {actionOnFailure} -> actionOnFailure) (\s@StepSummary' {} a -> s {actionOnFailure = a} :: StepSummary)
+-- | The identifier of the cluster step.
+stepSummary_id :: Lens.Lens' StepSummary (Prelude.Maybe Prelude.Text)
+stepSummary_id = Lens.lens (\StepSummary' {id} -> id) (\s@StepSummary' {} a -> s {id = a} :: StepSummary)
 
 instance Core.FromJSON StepSummary where
   parseJSON =
@@ -104,10 +104,10 @@ instance Core.FromJSON StepSummary where
       ( \x ->
           StepSummary'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "ActionOnFailure")
             Prelude.<*> (x Core..:? "Config")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ActionOnFailure")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable StepSummary

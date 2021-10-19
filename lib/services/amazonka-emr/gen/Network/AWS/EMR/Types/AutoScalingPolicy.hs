@@ -75,7 +75,7 @@ autoScalingPolicy_constraints = Lens.lens (\AutoScalingPolicy' {constraints} -> 
 -- | The scale-in and scale-out rules that comprise the automatic scaling
 -- policy.
 autoScalingPolicy_rules :: Lens.Lens' AutoScalingPolicy [ScalingRule]
-autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Prelude.. Lens._Coerce
+autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Prelude.. Lens.coerced
 
 instance Prelude.Hashable AutoScalingPolicy
 

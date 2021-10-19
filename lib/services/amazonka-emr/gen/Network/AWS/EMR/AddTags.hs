@@ -101,7 +101,7 @@ addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTag
 -- 128 characters, and an optional value string with a maximum of 256
 -- characters.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse

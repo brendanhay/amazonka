@@ -27,9 +27,9 @@ module Network.AWS.EMR.StartNotebookExecution
     newStartNotebookExecution,
 
     -- * Request Lenses
+    startNotebookExecution_notebookInstanceSecurityGroupId,
     startNotebookExecution_notebookExecutionName,
     startNotebookExecution_notebookParams,
-    startNotebookExecution_notebookInstanceSecurityGroupId,
     startNotebookExecution_tags,
     startNotebookExecution_editorId,
     startNotebookExecution_relativePath,
@@ -55,14 +55,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartNotebookExecution' smart constructor.
 data StartNotebookExecution = StartNotebookExecution'
-  { -- | An optional name for the notebook execution.
+  { -- | The unique identifier of the Amazon EC2 security group to associate with
+    -- the EMR Notebook for this notebook execution.
+    notebookInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
+    -- | An optional name for the notebook execution.
     notebookExecutionName :: Prelude.Maybe Prelude.Text,
     -- | Input parameters in JSON format passed to the EMR Notebook at runtime
     -- for execution.
     notebookParams :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the Amazon EC2 security group to associate with
-    -- the EMR Notebook for this notebook execution.
-    notebookInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | A list of tags associated with a notebook execution. Tags are
     -- user-defined key-value pairs that consist of a required key string with
     -- a maximum of 128 characters and an optional value string with a maximum
@@ -96,13 +96,13 @@ data StartNotebookExecution = StartNotebookExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'notebookInstanceSecurityGroupId', 'startNotebookExecution_notebookInstanceSecurityGroupId' - The unique identifier of the Amazon EC2 security group to associate with
+-- the EMR Notebook for this notebook execution.
+--
 -- 'notebookExecutionName', 'startNotebookExecution_notebookExecutionName' - An optional name for the notebook execution.
 --
 -- 'notebookParams', 'startNotebookExecution_notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime
 -- for execution.
---
--- 'notebookInstanceSecurityGroupId', 'startNotebookExecution_notebookInstanceSecurityGroupId' - The unique identifier of the Amazon EC2 security group to associate with
--- the EMR Notebook for this notebook execution.
 --
 -- 'tags', 'startNotebookExecution_tags' - A list of tags associated with a notebook execution. Tags are
 -- user-defined key-value pairs that consist of a required key string with
@@ -141,16 +141,21 @@ newStartNotebookExecution
   pExecutionEngine_
   pServiceRole_ =
     StartNotebookExecution'
-      { notebookExecutionName =
+      { notebookInstanceSecurityGroupId =
           Prelude.Nothing,
+        notebookExecutionName = Prelude.Nothing,
         notebookParams = Prelude.Nothing,
-        notebookInstanceSecurityGroupId = Prelude.Nothing,
         tags = Prelude.Nothing,
         editorId = pEditorId_,
         relativePath = pRelativePath_,
         executionEngine = pExecutionEngine_,
         serviceRole = pServiceRole_
       }
+
+-- | The unique identifier of the Amazon EC2 security group to associate with
+-- the EMR Notebook for this notebook execution.
+startNotebookExecution_notebookInstanceSecurityGroupId :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
+startNotebookExecution_notebookInstanceSecurityGroupId = Lens.lens (\StartNotebookExecution' {notebookInstanceSecurityGroupId} -> notebookInstanceSecurityGroupId) (\s@StartNotebookExecution' {} a -> s {notebookInstanceSecurityGroupId = a} :: StartNotebookExecution)
 
 -- | An optional name for the notebook execution.
 startNotebookExecution_notebookExecutionName :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
@@ -161,17 +166,12 @@ startNotebookExecution_notebookExecutionName = Lens.lens (\StartNotebookExecutio
 startNotebookExecution_notebookParams :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
 startNotebookExecution_notebookParams = Lens.lens (\StartNotebookExecution' {notebookParams} -> notebookParams) (\s@StartNotebookExecution' {} a -> s {notebookParams = a} :: StartNotebookExecution)
 
--- | The unique identifier of the Amazon EC2 security group to associate with
--- the EMR Notebook for this notebook execution.
-startNotebookExecution_notebookInstanceSecurityGroupId :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
-startNotebookExecution_notebookInstanceSecurityGroupId = Lens.lens (\StartNotebookExecution' {notebookInstanceSecurityGroupId} -> notebookInstanceSecurityGroupId) (\s@StartNotebookExecution' {} a -> s {notebookInstanceSecurityGroupId = a} :: StartNotebookExecution)
-
 -- | A list of tags associated with a notebook execution. Tags are
 -- user-defined key-value pairs that consist of a required key string with
 -- a maximum of 128 characters and an optional value string with a maximum
 -- of 256 characters.
 startNotebookExecution_tags :: Lens.Lens' StartNotebookExecution (Prelude.Maybe [Tag])
-startNotebookExecution_tags = Lens.lens (\StartNotebookExecution' {tags} -> tags) (\s@StartNotebookExecution' {} a -> s {tags = a} :: StartNotebookExecution) Prelude.. Lens.mapping Lens._Coerce
+startNotebookExecution_tags = Lens.lens (\StartNotebookExecution' {tags} -> tags) (\s@StartNotebookExecution' {} a -> s {tags = a} :: StartNotebookExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier of the EMR Notebook to use for notebook execution.
 startNotebookExecution_editorId :: Lens.Lens' StartNotebookExecution Prelude.Text
@@ -234,12 +234,12 @@ instance Core.ToJSON StartNotebookExecution where
   toJSON StartNotebookExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotebookExecutionName" Core..=)
+          [ ("NotebookInstanceSecurityGroupId" Core..=)
+              Prelude.<$> notebookInstanceSecurityGroupId,
+            ("NotebookExecutionName" Core..=)
               Prelude.<$> notebookExecutionName,
             ("NotebookParams" Core..=)
               Prelude.<$> notebookParams,
-            ("NotebookInstanceSecurityGroupId" Core..=)
-              Prelude.<$> notebookInstanceSecurityGroupId,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("EditorId" Core..= editorId),
             Prelude.Just ("RelativePath" Core..= relativePath),

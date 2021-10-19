@@ -95,7 +95,7 @@ removeTags_resourceId = Lens.lens (\RemoveTags' {resourceId} -> resourceId) (\s@
 
 -- | A list of tag keys to remove from the resource.
 removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse

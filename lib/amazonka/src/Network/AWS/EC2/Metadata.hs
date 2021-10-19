@@ -9,8 +9,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This module contains functions for retrieving various EC2 metadata from an
--- instance's local metadata endpoint using 'MonadIO' and not one of the AWS
--- specific transformers.
+-- instance's local metadata endpoint.
 --
 -- It is intended to be used when you need to make metadata calls prior to
 -- initialisation of the 'Network.AWS.Env.Env'.

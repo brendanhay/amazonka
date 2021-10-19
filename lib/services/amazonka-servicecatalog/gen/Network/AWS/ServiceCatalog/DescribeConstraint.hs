@@ -35,9 +35,9 @@ module Network.AWS.ServiceCatalog.DescribeConstraint
     newDescribeConstraintResponse,
 
     -- * Response Lenses
-    describeConstraintResponse_constraintParameters,
-    describeConstraintResponse_constraintDetail,
     describeConstraintResponse_status,
+    describeConstraintResponse_constraintDetail,
+    describeConstraintResponse_constraintParameters,
     describeConstraintResponse_httpStatus,
   )
 where
@@ -115,9 +115,9 @@ instance Core.AWSRequest DescribeConstraint where
     Response.receiveJSON
       ( \s h x ->
           DescribeConstraintResponse'
-            Prelude.<$> (x Core..?> "ConstraintParameters")
+            Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ConstraintDetail")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,12 +158,12 @@ instance Core.ToQuery DescribeConstraint where
 
 -- | /See:/ 'newDescribeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-  { -- | The constraint parameters.
-    constraintParameters :: Prelude.Maybe Prelude.Text,
+  { -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | Information about the constraint.
     constraintDetail :: Prelude.Maybe ConstraintDetail,
-    -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
+    -- | The constraint parameters.
+    constraintParameters :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,11 +177,11 @@ data DescribeConstraintResponse = DescribeConstraintResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraintParameters', 'describeConstraintResponse_constraintParameters' - The constraint parameters.
+-- 'status', 'describeConstraintResponse_status' - The status of the current request.
 --
 -- 'constraintDetail', 'describeConstraintResponse_constraintDetail' - Information about the constraint.
 --
--- 'status', 'describeConstraintResponse_status' - The status of the current request.
+-- 'constraintParameters', 'describeConstraintResponse_constraintParameters' - The constraint parameters.
 --
 -- 'httpStatus', 'describeConstraintResponse_httpStatus' - The response's http status code.
 newDescribeConstraintResponse ::
@@ -190,24 +190,24 @@ newDescribeConstraintResponse ::
   DescribeConstraintResponse
 newDescribeConstraintResponse pHttpStatus_ =
   DescribeConstraintResponse'
-    { constraintParameters =
+    { status =
         Prelude.Nothing,
       constraintDetail = Prelude.Nothing,
-      status = Prelude.Nothing,
+      constraintParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The constraint parameters.
-describeConstraintResponse_constraintParameters :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe Prelude.Text)
-describeConstraintResponse_constraintParameters = Lens.lens (\DescribeConstraintResponse' {constraintParameters} -> constraintParameters) (\s@DescribeConstraintResponse' {} a -> s {constraintParameters = a} :: DescribeConstraintResponse)
+-- | The status of the current request.
+describeConstraintResponse_status :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe RequestStatus)
+describeConstraintResponse_status = Lens.lens (\DescribeConstraintResponse' {status} -> status) (\s@DescribeConstraintResponse' {} a -> s {status = a} :: DescribeConstraintResponse)
 
 -- | Information about the constraint.
 describeConstraintResponse_constraintDetail :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe ConstraintDetail)
 describeConstraintResponse_constraintDetail = Lens.lens (\DescribeConstraintResponse' {constraintDetail} -> constraintDetail) (\s@DescribeConstraintResponse' {} a -> s {constraintDetail = a} :: DescribeConstraintResponse)
 
--- | The status of the current request.
-describeConstraintResponse_status :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe RequestStatus)
-describeConstraintResponse_status = Lens.lens (\DescribeConstraintResponse' {status} -> status) (\s@DescribeConstraintResponse' {} a -> s {status = a} :: DescribeConstraintResponse)
+-- | The constraint parameters.
+describeConstraintResponse_constraintParameters :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe Prelude.Text)
+describeConstraintResponse_constraintParameters = Lens.lens (\DescribeConstraintResponse' {constraintParameters} -> constraintParameters) (\s@DescribeConstraintResponse' {} a -> s {constraintParameters = a} :: DescribeConstraintResponse)
 
 -- | The response's http status code.
 describeConstraintResponse_httpStatus :: Lens.Lens' DescribeConstraintResponse Prelude.Int

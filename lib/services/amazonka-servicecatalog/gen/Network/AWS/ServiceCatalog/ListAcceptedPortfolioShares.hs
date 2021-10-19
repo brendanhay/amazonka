@@ -30,17 +30,17 @@ module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
 
     -- * Request Lenses
     listAcceptedPortfolioShares_portfolioShareType,
-    listAcceptedPortfolioShares_pageSize,
-    listAcceptedPortfolioShares_pageToken,
     listAcceptedPortfolioShares_acceptLanguage,
+    listAcceptedPortfolioShares_pageToken,
+    listAcceptedPortfolioShares_pageSize,
 
     -- * Destructuring the Response
     ListAcceptedPortfolioSharesResponse (..),
     newListAcceptedPortfolioSharesResponse,
 
     -- * Response Lenses
-    listAcceptedPortfolioSharesResponse_portfolioDetails,
     listAcceptedPortfolioSharesResponse_nextPageToken,
+    listAcceptedPortfolioSharesResponse_portfolioDetails,
     listAcceptedPortfolioSharesResponse_httpStatus,
   )
 where
@@ -64,11 +64,6 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     --
     -- -   @IMPORTED@ - List imported portfolios
     portfolioShareType :: Prelude.Maybe PortfolioShareType,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -76,7 +71,12 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,11 +98,6 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 --
 -- -   @IMPORTED@ - List imported portfolios
 --
--- 'pageSize', 'listAcceptedPortfolioShares_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listAcceptedPortfolioShares_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'listAcceptedPortfolioShares_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -110,15 +105,20 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'pageToken', 'listAcceptedPortfolioShares_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listAcceptedPortfolioShares_pageSize' - The maximum number of items to return with this call.
 newListAcceptedPortfolioShares ::
   ListAcceptedPortfolioShares
 newListAcceptedPortfolioShares =
   ListAcceptedPortfolioShares'
     { portfolioShareType =
         Prelude.Nothing,
-      pageSize = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
 
 -- | The type of shared portfolios to list. The default is to list imported
@@ -133,15 +133,6 @@ newListAcceptedPortfolioShares =
 listAcceptedPortfolioShares_portfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe PortfolioShareType)
 listAcceptedPortfolioShares_portfolioShareType = Lens.lens (\ListAcceptedPortfolioShares' {portfolioShareType} -> portfolioShareType) (\s@ListAcceptedPortfolioShares' {} a -> s {portfolioShareType = a} :: ListAcceptedPortfolioShares)
 
--- | The maximum number of items to return with this call.
-listAcceptedPortfolioShares_pageSize :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Natural)
-listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' {pageSize} -> pageSize) (\s@ListAcceptedPortfolioShares' {} a -> s {pageSize = a} :: ListAcceptedPortfolioShares)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listAcceptedPortfolioShares_pageToken :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
-listAcceptedPortfolioShares_pageToken = Lens.lens (\ListAcceptedPortfolioShares' {pageToken} -> pageToken) (\s@ListAcceptedPortfolioShares' {} a -> s {pageToken = a} :: ListAcceptedPortfolioShares)
-
 -- | The language code.
 --
 -- -   @en@ - English (default)
@@ -151,6 +142,15 @@ listAcceptedPortfolioShares_pageToken = Lens.lens (\ListAcceptedPortfolioShares'
 -- -   @zh@ - Chinese
 listAcceptedPortfolioShares_acceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
 listAcceptedPortfolioShares_acceptLanguage = Lens.lens (\ListAcceptedPortfolioShares' {acceptLanguage} -> acceptLanguage) (\s@ListAcceptedPortfolioShares' {} a -> s {acceptLanguage = a} :: ListAcceptedPortfolioShares)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listAcceptedPortfolioShares_pageToken :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
+listAcceptedPortfolioShares_pageToken = Lens.lens (\ListAcceptedPortfolioShares' {pageToken} -> pageToken) (\s@ListAcceptedPortfolioShares' {} a -> s {pageToken = a} :: ListAcceptedPortfolioShares)
+
+-- | The maximum number of items to return with this call.
+listAcceptedPortfolioShares_pageSize :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Natural)
+listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' {pageSize} -> pageSize) (\s@ListAcceptedPortfolioShares' {} a -> s {pageSize = a} :: ListAcceptedPortfolioShares)
 
 instance Core.AWSPager ListAcceptedPortfolioShares where
   page rq rs
@@ -183,10 +183,10 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
     Response.receiveJSON
       ( \s h x ->
           ListAcceptedPortfolioSharesResponse'
-            Prelude.<$> ( x Core..?> "PortfolioDetails"
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "PortfolioDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,10 +215,10 @@ instance Core.ToJSON ListAcceptedPortfolioShares where
       ( Prelude.catMaybes
           [ ("PortfolioShareType" Core..=)
               Prelude.<$> portfolioShareType,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
             ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+              Prelude.<$> acceptLanguage,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize
           ]
       )
 
@@ -230,11 +230,11 @@ instance Core.ToQuery ListAcceptedPortfolioShares where
 
 -- | /See:/ 'newListAcceptedPortfolioSharesResponse' smart constructor.
 data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
-  { -- | Information about the portfolios.
-    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
-    -- | The page token to use to retrieve the next set of results. If there are
+  { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the portfolios.
+    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,10 +248,10 @@ data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portfolioDetails', 'listAcceptedPortfolioSharesResponse_portfolioDetails' - Information about the portfolios.
---
 -- 'nextPageToken', 'listAcceptedPortfolioSharesResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
+--
+-- 'portfolioDetails', 'listAcceptedPortfolioSharesResponse_portfolioDetails' - Information about the portfolios.
 --
 -- 'httpStatus', 'listAcceptedPortfolioSharesResponse_httpStatus' - The response's http status code.
 newListAcceptedPortfolioSharesResponse ::
@@ -260,20 +260,20 @@ newListAcceptedPortfolioSharesResponse ::
   ListAcceptedPortfolioSharesResponse
 newListAcceptedPortfolioSharesResponse pHttpStatus_ =
   ListAcceptedPortfolioSharesResponse'
-    { portfolioDetails =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      portfolioDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the portfolios.
-listAcceptedPortfolioSharesResponse_portfolioDetails :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Prelude.Maybe [PortfolioDetail])
-listAcceptedPortfolioSharesResponse_portfolioDetails = Lens.lens (\ListAcceptedPortfolioSharesResponse' {portfolioDetails} -> portfolioDetails) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {portfolioDetails = a} :: ListAcceptedPortfolioSharesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 listAcceptedPortfolioSharesResponse_nextPageToken :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Prelude.Maybe Prelude.Text)
 listAcceptedPortfolioSharesResponse_nextPageToken = Lens.lens (\ListAcceptedPortfolioSharesResponse' {nextPageToken} -> nextPageToken) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {nextPageToken = a} :: ListAcceptedPortfolioSharesResponse)
+
+-- | Information about the portfolios.
+listAcceptedPortfolioSharesResponse_portfolioDetails :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Prelude.Maybe [PortfolioDetail])
+listAcceptedPortfolioSharesResponse_portfolioDetails = Lens.lens (\ListAcceptedPortfolioSharesResponse' {portfolioDetails} -> portfolioDetails) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {portfolioDetails = a} :: ListAcceptedPortfolioSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAcceptedPortfolioSharesResponse_httpStatus :: Lens.Lens' ListAcceptedPortfolioSharesResponse Prelude.Int

@@ -29,17 +29,17 @@ module Network.AWS.ServiceCatalog.ListPortfolios
     newListPortfolios,
 
     -- * Request Lenses
-    listPortfolios_pageSize,
-    listPortfolios_pageToken,
     listPortfolios_acceptLanguage,
+    listPortfolios_pageToken,
+    listPortfolios_pageSize,
 
     -- * Destructuring the Response
     ListPortfoliosResponse (..),
     newListPortfoliosResponse,
 
     -- * Response Lenses
-    listPortfoliosResponse_portfolioDetails,
     listPortfoliosResponse_nextPageToken,
+    listPortfoliosResponse_portfolioDetails,
     listPortfoliosResponse_httpStatus,
   )
 where
@@ -53,19 +53,19 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newListPortfolios' smart constructor.
 data ListPortfolios = ListPortfolios'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,11 +77,6 @@ data ListPortfolios = ListPortfolios'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listPortfolios_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listPortfolios_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'listPortfolios_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -89,23 +84,19 @@ data ListPortfolios = ListPortfolios'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'pageToken', 'listPortfolios_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listPortfolios_pageSize' - The maximum number of items to return with this call.
 newListPortfolios ::
   ListPortfolios
 newListPortfolios =
   ListPortfolios'
-    { pageSize = Prelude.Nothing,
+    { acceptLanguage = Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
-
--- | The maximum number of items to return with this call.
-listPortfolios_pageSize :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Natural)
-listPortfolios_pageSize = Lens.lens (\ListPortfolios' {pageSize} -> pageSize) (\s@ListPortfolios' {} a -> s {pageSize = a} :: ListPortfolios)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listPortfolios_pageToken :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Text)
-listPortfolios_pageToken = Lens.lens (\ListPortfolios' {pageToken} -> pageToken) (\s@ListPortfolios' {} a -> s {pageToken = a} :: ListPortfolios)
 
 -- | The language code.
 --
@@ -116,6 +107,15 @@ listPortfolios_pageToken = Lens.lens (\ListPortfolios' {pageToken} -> pageToken)
 -- -   @zh@ - Chinese
 listPortfolios_acceptLanguage :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Text)
 listPortfolios_acceptLanguage = Lens.lens (\ListPortfolios' {acceptLanguage} -> acceptLanguage) (\s@ListPortfolios' {} a -> s {acceptLanguage = a} :: ListPortfolios)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPortfolios_pageToken :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Text)
+listPortfolios_pageToken = Lens.lens (\ListPortfolios' {pageToken} -> pageToken) (\s@ListPortfolios' {} a -> s {pageToken = a} :: ListPortfolios)
+
+-- | The maximum number of items to return with this call.
+listPortfolios_pageSize :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Natural)
+listPortfolios_pageSize = Lens.lens (\ListPortfolios' {pageSize} -> pageSize) (\s@ListPortfolios' {} a -> s {pageSize = a} :: ListPortfolios)
 
 instance Core.AWSPager ListPortfolios where
   page rq rs
@@ -148,10 +148,10 @@ instance Core.AWSRequest ListPortfolios where
     Response.receiveJSON
       ( \s h x ->
           ListPortfoliosResponse'
-            Prelude.<$> ( x Core..?> "PortfolioDetails"
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "PortfolioDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,10 +178,10 @@ instance Core.ToJSON ListPortfolios where
   toJSON ListPortfolios' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+            ("PageSize" Core..=) Prelude.<$> pageSize
           ]
       )
 
@@ -193,11 +193,11 @@ instance Core.ToQuery ListPortfolios where
 
 -- | /See:/ 'newListPortfoliosResponse' smart constructor.
 data ListPortfoliosResponse = ListPortfoliosResponse'
-  { -- | Information about the portfolios.
-    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
-    -- | The page token to use to retrieve the next set of results. If there are
+  { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the portfolios.
+    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,10 +211,10 @@ data ListPortfoliosResponse = ListPortfoliosResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portfolioDetails', 'listPortfoliosResponse_portfolioDetails' - Information about the portfolios.
---
 -- 'nextPageToken', 'listPortfoliosResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
+--
+-- 'portfolioDetails', 'listPortfoliosResponse_portfolioDetails' - Information about the portfolios.
 --
 -- 'httpStatus', 'listPortfoliosResponse_httpStatus' - The response's http status code.
 newListPortfoliosResponse ::
@@ -223,20 +223,20 @@ newListPortfoliosResponse ::
   ListPortfoliosResponse
 newListPortfoliosResponse pHttpStatus_ =
   ListPortfoliosResponse'
-    { portfolioDetails =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      portfolioDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the portfolios.
-listPortfoliosResponse_portfolioDetails :: Lens.Lens' ListPortfoliosResponse (Prelude.Maybe [PortfolioDetail])
-listPortfoliosResponse_portfolioDetails = Lens.lens (\ListPortfoliosResponse' {portfolioDetails} -> portfolioDetails) (\s@ListPortfoliosResponse' {} a -> s {portfolioDetails = a} :: ListPortfoliosResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 listPortfoliosResponse_nextPageToken :: Lens.Lens' ListPortfoliosResponse (Prelude.Maybe Prelude.Text)
 listPortfoliosResponse_nextPageToken = Lens.lens (\ListPortfoliosResponse' {nextPageToken} -> nextPageToken) (\s@ListPortfoliosResponse' {} a -> s {nextPageToken = a} :: ListPortfoliosResponse)
+
+-- | Information about the portfolios.
+listPortfoliosResponse_portfolioDetails :: Lens.Lens' ListPortfoliosResponse (Prelude.Maybe [PortfolioDetail])
+listPortfoliosResponse_portfolioDetails = Lens.lens (\ListPortfoliosResponse' {portfolioDetails} -> portfolioDetails) (\s@ListPortfoliosResponse' {} a -> s {portfolioDetails = a} :: ListPortfoliosResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPortfoliosResponse_httpStatus :: Lens.Lens' ListPortfoliosResponse Prelude.Int

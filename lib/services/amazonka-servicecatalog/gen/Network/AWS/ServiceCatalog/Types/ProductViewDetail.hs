@@ -38,12 +38,12 @@ data ProductViewDetail = ProductViewDetail'
     --
     -- -   @FAILED@ - An action failed.
     status :: Prelude.Maybe RequestStatus,
-    -- | The ARN of the product.
-    productARN :: Prelude.Maybe Prelude.Text,
+    -- | Summary information about the product view.
+    productViewSummary :: Prelude.Maybe ProductViewSummary,
     -- | The UTC time stamp of the creation time.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | Summary information about the product view.
-    productViewSummary :: Prelude.Maybe ProductViewSummary
+    -- | The ARN of the product.
+    productARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,19 +64,19 @@ data ProductViewDetail = ProductViewDetail'
 --
 -- -   @FAILED@ - An action failed.
 --
--- 'productARN', 'productViewDetail_productARN' - The ARN of the product.
+-- 'productViewSummary', 'productViewDetail_productViewSummary' - Summary information about the product view.
 --
 -- 'createdTime', 'productViewDetail_createdTime' - The UTC time stamp of the creation time.
 --
--- 'productViewSummary', 'productViewDetail_productViewSummary' - Summary information about the product view.
+-- 'productARN', 'productViewDetail_productARN' - The ARN of the product.
 newProductViewDetail ::
   ProductViewDetail
 newProductViewDetail =
   ProductViewDetail'
     { status = Prelude.Nothing,
-      productARN = Prelude.Nothing,
+      productViewSummary = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      productViewSummary = Prelude.Nothing
+      productARN = Prelude.Nothing
     }
 
 -- | The status of the product.
@@ -90,17 +90,17 @@ newProductViewDetail =
 productViewDetail_status :: Lens.Lens' ProductViewDetail (Prelude.Maybe RequestStatus)
 productViewDetail_status = Lens.lens (\ProductViewDetail' {status} -> status) (\s@ProductViewDetail' {} a -> s {status = a} :: ProductViewDetail)
 
--- | The ARN of the product.
-productViewDetail_productARN :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.Text)
-productViewDetail_productARN = Lens.lens (\ProductViewDetail' {productARN} -> productARN) (\s@ProductViewDetail' {} a -> s {productARN = a} :: ProductViewDetail)
+-- | Summary information about the product view.
+productViewDetail_productViewSummary :: Lens.Lens' ProductViewDetail (Prelude.Maybe ProductViewSummary)
+productViewDetail_productViewSummary = Lens.lens (\ProductViewDetail' {productViewSummary} -> productViewSummary) (\s@ProductViewDetail' {} a -> s {productViewSummary = a} :: ProductViewDetail)
 
 -- | The UTC time stamp of the creation time.
 productViewDetail_createdTime :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.UTCTime)
 productViewDetail_createdTime = Lens.lens (\ProductViewDetail' {createdTime} -> createdTime) (\s@ProductViewDetail' {} a -> s {createdTime = a} :: ProductViewDetail) Prelude.. Lens.mapping Core._Time
 
--- | Summary information about the product view.
-productViewDetail_productViewSummary :: Lens.Lens' ProductViewDetail (Prelude.Maybe ProductViewSummary)
-productViewDetail_productViewSummary = Lens.lens (\ProductViewDetail' {productViewSummary} -> productViewSummary) (\s@ProductViewDetail' {} a -> s {productViewSummary = a} :: ProductViewDetail)
+-- | The ARN of the product.
+productViewDetail_productARN :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.Text)
+productViewDetail_productARN = Lens.lens (\ProductViewDetail' {productARN} -> productARN) (\s@ProductViewDetail' {} a -> s {productARN = a} :: ProductViewDetail)
 
 instance Core.FromJSON ProductViewDetail where
   parseJSON =
@@ -109,9 +109,9 @@ instance Core.FromJSON ProductViewDetail where
       ( \x ->
           ProductViewDetail'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ProductARN")
-            Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "ProductViewSummary")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "ProductARN")
       )
 
 instance Prelude.Hashable ProductViewDetail

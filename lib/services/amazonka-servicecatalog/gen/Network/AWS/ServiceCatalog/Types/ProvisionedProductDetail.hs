@@ -28,19 +28,12 @@ import Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
 --
 -- /See:/ 'newProvisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
-  { -- | The record identifier of the last successful request performed on this
-    -- provisioned product of the following types:
-    --
-    -- -   ProvisionedProduct
-    --
-    -- -   UpdateProvisionedProduct
-    --
-    -- -   ExecuteProvisionedProductPlan
-    --
-    -- -   TerminateProvisionedProduct
-    lastSuccessfulProvisioningRecordId :: Prelude.Maybe Prelude.Text,
-    -- | The current status message of the provisioned product.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the launch role associated with the provisioned product.
+    launchRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple
+    -- requests differ only by the idempotency token, the same response is
+    -- returned for each repeated request.
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | The current status of the provisioned product.
     --
     -- -   @AVAILABLE@ - Stable state, ready to perform any operation. The most
@@ -66,25 +59,36 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
     --     execute the plan. Wait for an @AVAILABLE@ status before performing
     --     operations.
     status :: Prelude.Maybe ProvisionedProductStatus,
-    -- | A unique identifier that you provide to ensure idempotency. If multiple
-    -- requests differ only by the idempotency token, the same response is
-    -- returned for each repeated request.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the provisioned product.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the provisioned product.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The record identifier of the last successful request performed on this
+    -- provisioned product of the following types:
+    --
+    -- -   ProvisionedProduct
+    --
+    -- -   UpdateProvisionedProduct
+    --
+    -- -   ExecuteProvisionedProductPlan
+    --
+    -- -   TerminateProvisionedProduct
+    lastSuccessfulProvisioningRecordId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioning artifact. For example,
     -- @pa-4abcdjnxjj6ne@.
     provisioningArtifactId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the provisioned product.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The UTC time stamp of the creation time.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The current status message of the provisioned product.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the provisioned product.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the launch role associated with the provisioned product.
-    launchRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier. For example, @prod-abcdzk7xy33qa@.
-    productId :: Prelude.Maybe Prelude.Text,
+    -- | The record identifier of the last request performed on this provisioned
+    -- product.
+    lastRecordId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the provisioned product.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The type of provisioned product. The supported values are @CFN_STACK@
+    -- and @CFN_STACKSET@.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The record identifier of the last request performed on this provisioned
     -- product of the following types:
     --
@@ -96,12 +100,8 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
     --
     -- -   TerminateProvisionedProduct
     lastProvisioningRecordId :: Prelude.Maybe Prelude.Text,
-    -- | The type of provisioned product. The supported values are @CFN_STACK@
-    -- and @CFN_STACKSET@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The record identifier of the last request performed on this provisioned
-    -- product.
-    lastRecordId :: Prelude.Maybe Prelude.Text
+    -- | The product identifier. For example, @prod-abcdzk7xy33qa@.
+    productId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,18 +113,11 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastSuccessfulProvisioningRecordId', 'provisionedProductDetail_lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this
--- provisioned product of the following types:
+-- 'launchRoleArn', 'provisionedProductDetail_launchRoleArn' - The ARN of the launch role associated with the provisioned product.
 --
--- -   ProvisionedProduct
---
--- -   UpdateProvisionedProduct
---
--- -   ExecuteProvisionedProductPlan
---
--- -   TerminateProvisionedProduct
---
--- 'statusMessage', 'provisionedProductDetail_statusMessage' - The current status message of the provisioned product.
+-- 'idempotencyToken', 'provisionedProductDetail_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
 --
 -- 'status', 'provisionedProductDetail_status' - The current status of the provisioned product.
 --
@@ -151,24 +144,35 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --     execute the plan. Wait for an @AVAILABLE@ status before performing
 --     operations.
 --
--- 'idempotencyToken', 'provisionedProductDetail_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
--- requests differ only by the idempotency token, the same response is
--- returned for each repeated request.
+-- 'lastSuccessfulProvisioningRecordId', 'provisionedProductDetail_lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this
+-- provisioned product of the following types:
 --
--- 'arn', 'provisionedProductDetail_arn' - The ARN of the provisioned product.
+-- -   ProvisionedProduct
 --
--- 'id', 'provisionedProductDetail_id' - The identifier of the provisioned product.
+-- -   UpdateProvisionedProduct
 --
--- 'createdTime', 'provisionedProductDetail_createdTime' - The UTC time stamp of the creation time.
+-- -   ExecuteProvisionedProductPlan
+--
+-- -   TerminateProvisionedProduct
 --
 -- 'provisioningArtifactId', 'provisionedProductDetail_provisioningArtifactId' - The identifier of the provisioning artifact. For example,
 -- @pa-4abcdjnxjj6ne@.
 --
+-- 'arn', 'provisionedProductDetail_arn' - The ARN of the provisioned product.
+--
+-- 'createdTime', 'provisionedProductDetail_createdTime' - The UTC time stamp of the creation time.
+--
+-- 'statusMessage', 'provisionedProductDetail_statusMessage' - The current status message of the provisioned product.
+--
 -- 'name', 'provisionedProductDetail_name' - The user-friendly name of the provisioned product.
 --
--- 'launchRoleArn', 'provisionedProductDetail_launchRoleArn' - The ARN of the launch role associated with the provisioned product.
+-- 'lastRecordId', 'provisionedProductDetail_lastRecordId' - The record identifier of the last request performed on this provisioned
+-- product.
 --
--- 'productId', 'provisionedProductDetail_productId' - The product identifier. For example, @prod-abcdzk7xy33qa@.
+-- 'id', 'provisionedProductDetail_id' - The identifier of the provisioned product.
+--
+-- 'type'', 'provisionedProductDetail_type' - The type of provisioned product. The supported values are @CFN_STACK@
+-- and @CFN_STACKSET@.
 --
 -- 'lastProvisioningRecordId', 'provisionedProductDetail_lastProvisioningRecordId' - The record identifier of the last request performed on this provisioned
 -- product of the following types:
@@ -181,48 +185,38 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- -   TerminateProvisionedProduct
 --
--- 'type'', 'provisionedProductDetail_type' - The type of provisioned product. The supported values are @CFN_STACK@
--- and @CFN_STACKSET@.
---
--- 'lastRecordId', 'provisionedProductDetail_lastRecordId' - The record identifier of the last request performed on this provisioned
--- product.
+-- 'productId', 'provisionedProductDetail_productId' - The product identifier. For example, @prod-abcdzk7xy33qa@.
 newProvisionedProductDetail ::
   ProvisionedProductDetail
 newProvisionedProductDetail =
   ProvisionedProductDetail'
-    { lastSuccessfulProvisioningRecordId =
+    { launchRoleArn =
         Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
       idempotencyToken = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      lastSuccessfulProvisioningRecordId =
+        Prelude.Nothing,
       provisioningArtifactId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       name = Prelude.Nothing,
-      launchRoleArn = Prelude.Nothing,
-      productId = Prelude.Nothing,
-      lastProvisioningRecordId = Prelude.Nothing,
+      lastRecordId = Prelude.Nothing,
+      id = Prelude.Nothing,
       type' = Prelude.Nothing,
-      lastRecordId = Prelude.Nothing
+      lastProvisioningRecordId = Prelude.Nothing,
+      productId = Prelude.Nothing
     }
 
--- | The record identifier of the last successful request performed on this
--- provisioned product of the following types:
---
--- -   ProvisionedProduct
---
--- -   UpdateProvisionedProduct
---
--- -   ExecuteProvisionedProductPlan
---
--- -   TerminateProvisionedProduct
-provisionedProductDetail_lastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_lastSuccessfulProvisioningRecordId = Lens.lens (\ProvisionedProductDetail' {lastSuccessfulProvisioningRecordId} -> lastSuccessfulProvisioningRecordId) (\s@ProvisionedProductDetail' {} a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductDetail)
+-- | The ARN of the launch role associated with the provisioned product.
+provisionedProductDetail_launchRoleArn :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_launchRoleArn = Lens.lens (\ProvisionedProductDetail' {launchRoleArn} -> launchRoleArn) (\s@ProvisionedProductDetail' {} a -> s {launchRoleArn = a} :: ProvisionedProductDetail)
 
--- | The current status message of the provisioned product.
-provisionedProductDetail_statusMessage :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {statusMessage} -> statusMessage) (\s@ProvisionedProductDetail' {} a -> s {statusMessage = a} :: ProvisionedProductDetail)
+-- | A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
+provisionedProductDetail_idempotencyToken :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_idempotencyToken = Lens.lens (\ProvisionedProductDetail' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductDetail' {} a -> s {idempotencyToken = a} :: ProvisionedProductDetail)
 
 -- | The current status of the provisioned product.
 --
@@ -251,40 +245,53 @@ provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {
 provisionedProductDetail_status :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe ProvisionedProductStatus)
 provisionedProductDetail_status = Lens.lens (\ProvisionedProductDetail' {status} -> status) (\s@ProvisionedProductDetail' {} a -> s {status = a} :: ProvisionedProductDetail)
 
--- | A unique identifier that you provide to ensure idempotency. If multiple
--- requests differ only by the idempotency token, the same response is
--- returned for each repeated request.
-provisionedProductDetail_idempotencyToken :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_idempotencyToken = Lens.lens (\ProvisionedProductDetail' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductDetail' {} a -> s {idempotencyToken = a} :: ProvisionedProductDetail)
-
--- | The ARN of the provisioned product.
-provisionedProductDetail_arn :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_arn = Lens.lens (\ProvisionedProductDetail' {arn} -> arn) (\s@ProvisionedProductDetail' {} a -> s {arn = a} :: ProvisionedProductDetail)
-
--- | The identifier of the provisioned product.
-provisionedProductDetail_id :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_id = Lens.lens (\ProvisionedProductDetail' {id} -> id) (\s@ProvisionedProductDetail' {} a -> s {id = a} :: ProvisionedProductDetail)
-
--- | The UTC time stamp of the creation time.
-provisionedProductDetail_createdTime :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.UTCTime)
-provisionedProductDetail_createdTime = Lens.lens (\ProvisionedProductDetail' {createdTime} -> createdTime) (\s@ProvisionedProductDetail' {} a -> s {createdTime = a} :: ProvisionedProductDetail) Prelude.. Lens.mapping Core._Time
+-- | The record identifier of the last successful request performed on this
+-- provisioned product of the following types:
+--
+-- -   ProvisionedProduct
+--
+-- -   UpdateProvisionedProduct
+--
+-- -   ExecuteProvisionedProductPlan
+--
+-- -   TerminateProvisionedProduct
+provisionedProductDetail_lastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_lastSuccessfulProvisioningRecordId = Lens.lens (\ProvisionedProductDetail' {lastSuccessfulProvisioningRecordId} -> lastSuccessfulProvisioningRecordId) (\s@ProvisionedProductDetail' {} a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductDetail)
 
 -- | The identifier of the provisioning artifact. For example,
 -- @pa-4abcdjnxjj6ne@.
 provisionedProductDetail_provisioningArtifactId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
 provisionedProductDetail_provisioningArtifactId = Lens.lens (\ProvisionedProductDetail' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionedProductDetail' {} a -> s {provisioningArtifactId = a} :: ProvisionedProductDetail)
 
+-- | The ARN of the provisioned product.
+provisionedProductDetail_arn :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_arn = Lens.lens (\ProvisionedProductDetail' {arn} -> arn) (\s@ProvisionedProductDetail' {} a -> s {arn = a} :: ProvisionedProductDetail)
+
+-- | The UTC time stamp of the creation time.
+provisionedProductDetail_createdTime :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.UTCTime)
+provisionedProductDetail_createdTime = Lens.lens (\ProvisionedProductDetail' {createdTime} -> createdTime) (\s@ProvisionedProductDetail' {} a -> s {createdTime = a} :: ProvisionedProductDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The current status message of the provisioned product.
+provisionedProductDetail_statusMessage :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_statusMessage = Lens.lens (\ProvisionedProductDetail' {statusMessage} -> statusMessage) (\s@ProvisionedProductDetail' {} a -> s {statusMessage = a} :: ProvisionedProductDetail)
+
 -- | The user-friendly name of the provisioned product.
 provisionedProductDetail_name :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
 provisionedProductDetail_name = Lens.lens (\ProvisionedProductDetail' {name} -> name) (\s@ProvisionedProductDetail' {} a -> s {name = a} :: ProvisionedProductDetail)
 
--- | The ARN of the launch role associated with the provisioned product.
-provisionedProductDetail_launchRoleArn :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_launchRoleArn = Lens.lens (\ProvisionedProductDetail' {launchRoleArn} -> launchRoleArn) (\s@ProvisionedProductDetail' {} a -> s {launchRoleArn = a} :: ProvisionedProductDetail)
+-- | The record identifier of the last request performed on this provisioned
+-- product.
+provisionedProductDetail_lastRecordId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_lastRecordId = Lens.lens (\ProvisionedProductDetail' {lastRecordId} -> lastRecordId) (\s@ProvisionedProductDetail' {} a -> s {lastRecordId = a} :: ProvisionedProductDetail)
 
--- | The product identifier. For example, @prod-abcdzk7xy33qa@.
-provisionedProductDetail_productId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_productId = Lens.lens (\ProvisionedProductDetail' {productId} -> productId) (\s@ProvisionedProductDetail' {} a -> s {productId = a} :: ProvisionedProductDetail)
+-- | The identifier of the provisioned product.
+provisionedProductDetail_id :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_id = Lens.lens (\ProvisionedProductDetail' {id} -> id) (\s@ProvisionedProductDetail' {} a -> s {id = a} :: ProvisionedProductDetail)
+
+-- | The type of provisioned product. The supported values are @CFN_STACK@
+-- and @CFN_STACKSET@.
+provisionedProductDetail_type :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_type = Lens.lens (\ProvisionedProductDetail' {type'} -> type') (\s@ProvisionedProductDetail' {} a -> s {type' = a} :: ProvisionedProductDetail)
 
 -- | The record identifier of the last request performed on this provisioned
 -- product of the following types:
@@ -299,15 +306,9 @@ provisionedProductDetail_productId = Lens.lens (\ProvisionedProductDetail' {prod
 provisionedProductDetail_lastProvisioningRecordId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
 provisionedProductDetail_lastProvisioningRecordId = Lens.lens (\ProvisionedProductDetail' {lastProvisioningRecordId} -> lastProvisioningRecordId) (\s@ProvisionedProductDetail' {} a -> s {lastProvisioningRecordId = a} :: ProvisionedProductDetail)
 
--- | The type of provisioned product. The supported values are @CFN_STACK@
--- and @CFN_STACKSET@.
-provisionedProductDetail_type :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_type = Lens.lens (\ProvisionedProductDetail' {type'} -> type') (\s@ProvisionedProductDetail' {} a -> s {type' = a} :: ProvisionedProductDetail)
-
--- | The record identifier of the last request performed on this provisioned
--- product.
-provisionedProductDetail_lastRecordId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
-provisionedProductDetail_lastRecordId = Lens.lens (\ProvisionedProductDetail' {lastRecordId} -> lastRecordId) (\s@ProvisionedProductDetail' {} a -> s {lastRecordId = a} :: ProvisionedProductDetail)
+-- | The product identifier. For example, @prod-abcdzk7xy33qa@.
+provisionedProductDetail_productId :: Lens.Lens' ProvisionedProductDetail (Prelude.Maybe Prelude.Text)
+provisionedProductDetail_productId = Lens.lens (\ProvisionedProductDetail' {productId} -> productId) (\s@ProvisionedProductDetail' {} a -> s {productId = a} :: ProvisionedProductDetail)
 
 instance Core.FromJSON ProvisionedProductDetail where
   parseJSON =
@@ -315,20 +316,20 @@ instance Core.FromJSON ProvisionedProductDetail where
       "ProvisionedProductDetail"
       ( \x ->
           ProvisionedProductDetail'
-            Prelude.<$> (x Core..:? "LastSuccessfulProvisioningRecordId")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "LaunchRoleArn")
             Prelude.<*> (x Core..:? "IdempotencyToken")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
             Prelude.<*> (x Core..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LaunchRoleArn")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "LastProvisioningRecordId")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "LastRecordId")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "LastProvisioningRecordId")
+            Prelude.<*> (x Core..:? "ProductId")
       )
 
 instance Prelude.Hashable ProvisionedProductDetail

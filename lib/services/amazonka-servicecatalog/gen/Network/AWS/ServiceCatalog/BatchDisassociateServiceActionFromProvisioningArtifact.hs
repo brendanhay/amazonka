@@ -92,7 +92,7 @@ newBatchDisassociateServiceActionFromProvisioningArtifact
       { acceptLanguage =
           Prelude.Nothing,
         serviceActionAssociations =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pServiceActionAssociations_
       }
 
@@ -109,7 +109,7 @@ batchDisassociateServiceActionFromProvisioningArtifact_acceptLanguage = Lens.len
 -- | One or more associations, each consisting of the Action ID, the Product
 -- ID, and the Provisioning Artifact ID.
 batchDisassociateServiceActionFromProvisioningArtifact_serviceActionAssociations :: Lens.Lens' BatchDisassociateServiceActionFromProvisioningArtifact (Prelude.NonEmpty ServiceActionAssociation)
-batchDisassociateServiceActionFromProvisioningArtifact_serviceActionAssociations = Lens.lens (\BatchDisassociateServiceActionFromProvisioningArtifact' {serviceActionAssociations} -> serviceActionAssociations) (\s@BatchDisassociateServiceActionFromProvisioningArtifact' {} a -> s {serviceActionAssociations = a} :: BatchDisassociateServiceActionFromProvisioningArtifact) Prelude.. Lens._Coerce
+batchDisassociateServiceActionFromProvisioningArtifact_serviceActionAssociations = Lens.lens (\BatchDisassociateServiceActionFromProvisioningArtifact' {serviceActionAssociations} -> serviceActionAssociations) (\s@BatchDisassociateServiceActionFromProvisioningArtifact' {} a -> s {serviceActionAssociations = a} :: BatchDisassociateServiceActionFromProvisioningArtifact) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -223,7 +223,7 @@ newBatchDisassociateServiceActionFromProvisioningArtifactResponse
 -- | An object that contains a list of errors, along with information to help
 -- you identify the self-service action.
 batchDisassociateServiceActionFromProvisioningArtifactResponse_failedServiceActionAssociations :: Lens.Lens' BatchDisassociateServiceActionFromProvisioningArtifactResponse (Prelude.Maybe [FailedServiceActionAssociation])
-batchDisassociateServiceActionFromProvisioningArtifactResponse_failedServiceActionAssociations = Lens.lens (\BatchDisassociateServiceActionFromProvisioningArtifactResponse' {failedServiceActionAssociations} -> failedServiceActionAssociations) (\s@BatchDisassociateServiceActionFromProvisioningArtifactResponse' {} a -> s {failedServiceActionAssociations = a} :: BatchDisassociateServiceActionFromProvisioningArtifactResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDisassociateServiceActionFromProvisioningArtifactResponse_failedServiceActionAssociations = Lens.lens (\BatchDisassociateServiceActionFromProvisioningArtifactResponse' {failedServiceActionAssociations} -> failedServiceActionAssociations) (\s@BatchDisassociateServiceActionFromProvisioningArtifactResponse' {} a -> s {failedServiceActionAssociations = a} :: BatchDisassociateServiceActionFromProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDisassociateServiceActionFromProvisioningArtifactResponse_httpStatus :: Lens.Lens' BatchDisassociateServiceActionFromProvisioningArtifactResponse Prelude.Int

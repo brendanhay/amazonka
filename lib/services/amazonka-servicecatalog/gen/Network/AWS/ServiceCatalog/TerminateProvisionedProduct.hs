@@ -33,10 +33,10 @@ module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
 
     -- * Request Lenses
     terminateProvisionedProduct_provisionedProductName,
-    terminateProvisionedProduct_provisionedProductId,
     terminateProvisionedProduct_retainPhysicalResources,
-    terminateProvisionedProduct_ignoreErrors,
     terminateProvisionedProduct_acceptLanguage,
+    terminateProvisionedProduct_ignoreErrors,
+    terminateProvisionedProduct_provisionedProductId,
     terminateProvisionedProduct_terminateToken,
 
     -- * Destructuring the Response
@@ -61,18 +61,12 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
   { -- | The name of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
     provisionedProductName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the provisioned product. You cannot specify both
-    -- @ProvisionedProductName@ and @ProvisionedProductId@.
-    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | When this boolean parameter is set to true, the
     -- @TerminateProvisionedProduct@ API deletes the Service Catalog
     -- provisioned product. However, it does not remove the CloudFormation
     -- stack, stack set, or the underlying resources of the deleted provisioned
     -- product. The default value is false.
     retainPhysicalResources :: Prelude.Maybe Prelude.Bool,
-    -- | If set to true, AWS Service Catalog stops managing the specified
-    -- provisioned product even if it cannot delete the underlying resources.
-    ignoreErrors :: Prelude.Maybe Prelude.Bool,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -81,6 +75,12 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | If set to true, AWS Service Catalog stops managing the specified
+    -- provisioned product even if it cannot delete the underlying resources.
+    ignoreErrors :: Prelude.Maybe Prelude.Bool,
+    -- | The identifier of the provisioned product. You cannot specify both
+    -- @ProvisionedProductName@ and @ProvisionedProductId@.
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | An idempotency token that uniquely identifies the termination request.
     -- This token is only valid during the termination process. After the
     -- provisioned product is terminated, subsequent requests to terminate the
@@ -100,17 +100,11 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- 'provisionedProductName', 'terminateProvisionedProduct_provisionedProductName' - The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
 --
--- 'provisionedProductId', 'terminateProvisionedProduct_provisionedProductId' - The identifier of the provisioned product. You cannot specify both
--- @ProvisionedProductName@ and @ProvisionedProductId@.
---
 -- 'retainPhysicalResources', 'terminateProvisionedProduct_retainPhysicalResources' - When this boolean parameter is set to true, the
 -- @TerminateProvisionedProduct@ API deletes the Service Catalog
 -- provisioned product. However, it does not remove the CloudFormation
 -- stack, stack set, or the underlying resources of the deleted provisioned
 -- product. The default value is false.
---
--- 'ignoreErrors', 'terminateProvisionedProduct_ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified
--- provisioned product even if it cannot delete the underlying resources.
 --
 -- 'acceptLanguage', 'terminateProvisionedProduct_acceptLanguage' - The language code.
 --
@@ -119,6 +113,12 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'ignoreErrors', 'terminateProvisionedProduct_ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified
+-- provisioned product even if it cannot delete the underlying resources.
+--
+-- 'provisionedProductId', 'terminateProvisionedProduct_provisionedProductId' - The identifier of the provisioned product. You cannot specify both
+-- @ProvisionedProductName@ and @ProvisionedProductId@.
 --
 -- 'terminateToken', 'terminateProvisionedProduct_terminateToken' - An idempotency token that uniquely identifies the termination request.
 -- This token is only valid during the termination process. After the
@@ -132,10 +132,10 @@ newTerminateProvisionedProduct pTerminateToken_ =
   TerminateProvisionedProduct'
     { provisionedProductName =
         Prelude.Nothing,
-      provisionedProductId = Prelude.Nothing,
       retainPhysicalResources = Prelude.Nothing,
-      ignoreErrors = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
+      ignoreErrors = Prelude.Nothing,
+      provisionedProductId = Prelude.Nothing,
       terminateToken = pTerminateToken_
     }
 
@@ -144,11 +144,6 @@ newTerminateProvisionedProduct pTerminateToken_ =
 terminateProvisionedProduct_provisionedProductName :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_provisionedProductName = Lens.lens (\TerminateProvisionedProduct' {provisionedProductName} -> provisionedProductName) (\s@TerminateProvisionedProduct' {} a -> s {provisionedProductName = a} :: TerminateProvisionedProduct)
 
--- | The identifier of the provisioned product. You cannot specify both
--- @ProvisionedProductName@ and @ProvisionedProductId@.
-terminateProvisionedProduct_provisionedProductId :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
-terminateProvisionedProduct_provisionedProductId = Lens.lens (\TerminateProvisionedProduct' {provisionedProductId} -> provisionedProductId) (\s@TerminateProvisionedProduct' {} a -> s {provisionedProductId = a} :: TerminateProvisionedProduct)
-
 -- | When this boolean parameter is set to true, the
 -- @TerminateProvisionedProduct@ API deletes the Service Catalog
 -- provisioned product. However, it does not remove the CloudFormation
@@ -156,11 +151,6 @@ terminateProvisionedProduct_provisionedProductId = Lens.lens (\TerminateProvisio
 -- product. The default value is false.
 terminateProvisionedProduct_retainPhysicalResources :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
 terminateProvisionedProduct_retainPhysicalResources = Lens.lens (\TerminateProvisionedProduct' {retainPhysicalResources} -> retainPhysicalResources) (\s@TerminateProvisionedProduct' {} a -> s {retainPhysicalResources = a} :: TerminateProvisionedProduct)
-
--- | If set to true, AWS Service Catalog stops managing the specified
--- provisioned product even if it cannot delete the underlying resources.
-terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
-terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProduct' {ignoreErrors} -> ignoreErrors) (\s@TerminateProvisionedProduct' {} a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
 
 -- | The language code.
 --
@@ -171,6 +161,16 @@ terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProdu
 -- -   @zh@ - Chinese
 terminateProvisionedProduct_acceptLanguage :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_acceptLanguage = Lens.lens (\TerminateProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@TerminateProvisionedProduct' {} a -> s {acceptLanguage = a} :: TerminateProvisionedProduct)
+
+-- | If set to true, AWS Service Catalog stops managing the specified
+-- provisioned product even if it cannot delete the underlying resources.
+terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
+terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProduct' {ignoreErrors} -> ignoreErrors) (\s@TerminateProvisionedProduct' {} a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
+
+-- | The identifier of the provisioned product. You cannot specify both
+-- @ProvisionedProductName@ and @ProvisionedProductId@.
+terminateProvisionedProduct_provisionedProductId :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
+terminateProvisionedProduct_provisionedProductId = Lens.lens (\TerminateProvisionedProduct' {provisionedProductId} -> provisionedProductId) (\s@TerminateProvisionedProduct' {} a -> s {provisionedProductId = a} :: TerminateProvisionedProduct)
 
 -- | An idempotency token that uniquely identifies the termination request.
 -- This token is only valid during the termination process. After the
@@ -217,13 +217,13 @@ instance Core.ToJSON TerminateProvisionedProduct where
       ( Prelude.catMaybes
           [ ("ProvisionedProductName" Core..=)
               Prelude.<$> provisionedProductName,
-            ("ProvisionedProductId" Core..=)
-              Prelude.<$> provisionedProductId,
             ("RetainPhysicalResources" Core..=)
               Prelude.<$> retainPhysicalResources,
-            ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
+            ("ProvisionedProductId" Core..=)
+              Prelude.<$> provisionedProductId,
             Prelude.Just
               ("TerminateToken" Core..= terminateToken)
           ]

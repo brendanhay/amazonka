@@ -38,9 +38,9 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProductProperties
 
     -- * Response Lenses
     updateProvisionedProductPropertiesResponse_status,
-    updateProvisionedProductPropertiesResponse_provisionedProductId,
-    updateProvisionedProductPropertiesResponse_recordId,
     updateProvisionedProductPropertiesResponse_provisionedProductProperties,
+    updateProvisionedProductPropertiesResponse_recordId,
+    updateProvisionedProductPropertiesResponse_provisionedProductId,
     updateProvisionedProductPropertiesResponse_httpStatus,
   )
 where
@@ -210,7 +210,7 @@ updateProvisionedProductProperties_provisionedProductId = Lens.lens (\UpdateProv
 -- no longer be able to see or perform any actions through API or the
 -- Service Catalog console on that provisioned product.
 updateProvisionedProductProperties_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductProperties (Prelude.HashMap PropertyKey Prelude.Text)
-updateProvisionedProductProperties_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductProperties' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductProperties' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties) Prelude.. Lens._Coerce
+updateProvisionedProductProperties_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductProperties' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductProperties' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties) Prelude.. Lens.coerced
 
 -- | The idempotency token that uniquely identifies the provisioning product
 -- update request.
@@ -230,11 +230,11 @@ instance
       ( \s h x ->
           UpdateProvisionedProductPropertiesResponse'
             Prelude.<$> (x Core..?> "Status")
-              Prelude.<*> (x Core..?> "ProvisionedProductId")
-              Prelude.<*> (x Core..?> "RecordId")
               Prelude.<*> ( x Core..?> "ProvisionedProductProperties"
                               Core..!@ Prelude.mempty
                           )
+              Prelude.<*> (x Core..?> "RecordId")
+              Prelude.<*> (x Core..?> "ProvisionedProductId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -302,12 +302,12 @@ instance
 data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductPropertiesResponse'
   { -- | The status of the request.
     status :: Prelude.Maybe RecordStatus,
-    -- | The provisioned product identifier.
-    provisionedProductId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the record.
-    recordId :: Prelude.Maybe Prelude.Text,
     -- | A map that contains the properties updated.
     provisionedProductProperties :: Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text),
+    -- | The identifier of the record.
+    recordId :: Prelude.Maybe Prelude.Text,
+    -- | The provisioned product identifier.
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -323,11 +323,11 @@ data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductProper
 --
 -- 'status', 'updateProvisionedProductPropertiesResponse_status' - The status of the request.
 --
--- 'provisionedProductId', 'updateProvisionedProductPropertiesResponse_provisionedProductId' - The provisioned product identifier.
+-- 'provisionedProductProperties', 'updateProvisionedProductPropertiesResponse_provisionedProductProperties' - A map that contains the properties updated.
 --
 -- 'recordId', 'updateProvisionedProductPropertiesResponse_recordId' - The identifier of the record.
 --
--- 'provisionedProductProperties', 'updateProvisionedProductPropertiesResponse_provisionedProductProperties' - A map that contains the properties updated.
+-- 'provisionedProductId', 'updateProvisionedProductPropertiesResponse_provisionedProductId' - The provisioned product identifier.
 --
 -- 'httpStatus', 'updateProvisionedProductPropertiesResponse_httpStatus' - The response's http status code.
 newUpdateProvisionedProductPropertiesResponse ::
@@ -339,10 +339,10 @@ newUpdateProvisionedProductPropertiesResponse
     UpdateProvisionedProductPropertiesResponse'
       { status =
           Prelude.Nothing,
-        provisionedProductId =
+        provisionedProductProperties =
           Prelude.Nothing,
         recordId = Prelude.Nothing,
-        provisionedProductProperties =
+        provisionedProductId =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -351,17 +351,17 @@ newUpdateProvisionedProductPropertiesResponse
 updateProvisionedProductPropertiesResponse_status :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe RecordStatus)
 updateProvisionedProductPropertiesResponse_status = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {status} -> status) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {status = a} :: UpdateProvisionedProductPropertiesResponse)
 
--- | The provisioned product identifier.
-updateProvisionedProductPropertiesResponse_provisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
-updateProvisionedProductPropertiesResponse_provisionedProductId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProductPropertiesResponse)
+-- | A map that contains the properties updated.
+updateProvisionedProductPropertiesResponse_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text))
+updateProvisionedProductPropertiesResponse_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductPropertiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the record.
 updateProvisionedProductPropertiesResponse_recordId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
 updateProvisionedProductPropertiesResponse_recordId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {recordId} -> recordId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {recordId = a} :: UpdateProvisionedProductPropertiesResponse)
 
--- | A map that contains the properties updated.
-updateProvisionedProductPropertiesResponse_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text))
-updateProvisionedProductPropertiesResponse_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductPropertiesResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The provisioned product identifier.
+updateProvisionedProductPropertiesResponse_provisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
+updateProvisionedProductPropertiesResponse_provisionedProductId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProductPropertiesResponse)
 
 -- | The response's http status code.
 updateProvisionedProductPropertiesResponse_httpStatus :: Lens.Lens' UpdateProvisionedProductPropertiesResponse Prelude.Int

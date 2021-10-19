@@ -27,8 +27,8 @@ module Network.AWS.ServiceCatalog.CreateServiceAction
     newCreateServiceAction,
 
     -- * Request Lenses
-    createServiceAction_description,
     createServiceAction_acceptLanguage,
+    createServiceAction_description,
     createServiceAction_name,
     createServiceAction_definitionType,
     createServiceAction_definition,
@@ -53,9 +53,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateServiceAction' smart constructor.
 data CreateServiceAction = CreateServiceAction'
-  { -- | The self-service action description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -63,6 +61,8 @@ data CreateServiceAction = CreateServiceAction'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The self-service action description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The self-service action name.
     name :: Prelude.Text,
     -- | The service action definition type. For example, @SSM_AUTOMATION@.
@@ -110,8 +110,6 @@ data CreateServiceAction = CreateServiceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createServiceAction_description' - The self-service action description.
---
 -- 'acceptLanguage', 'createServiceAction_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -119,6 +117,8 @@ data CreateServiceAction = CreateServiceAction'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'description', 'createServiceAction_description' - The self-service action description.
 --
 -- 'name', 'createServiceAction_name' - The self-service action name.
 --
@@ -168,17 +168,14 @@ newCreateServiceAction
   pDefinitionType_
   pIdempotencyToken_ =
     CreateServiceAction'
-      { description = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+      { acceptLanguage =
+          Prelude.Nothing,
+        description = Prelude.Nothing,
         name = pName_,
         definitionType = pDefinitionType_,
         definition = Prelude.mempty,
         idempotencyToken = pIdempotencyToken_
       }
-
--- | The self-service action description.
-createServiceAction_description :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
-createServiceAction_description = Lens.lens (\CreateServiceAction' {description} -> description) (\s@CreateServiceAction' {} a -> s {description = a} :: CreateServiceAction)
 
 -- | The language code.
 --
@@ -189,6 +186,10 @@ createServiceAction_description = Lens.lens (\CreateServiceAction' {description}
 -- -   @zh@ - Chinese
 createServiceAction_acceptLanguage :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
 createServiceAction_acceptLanguage = Lens.lens (\CreateServiceAction' {acceptLanguage} -> acceptLanguage) (\s@CreateServiceAction' {} a -> s {acceptLanguage = a} :: CreateServiceAction)
+
+-- | The self-service action description.
+createServiceAction_description :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
+createServiceAction_description = Lens.lens (\CreateServiceAction' {description} -> description) (\s@CreateServiceAction' {} a -> s {description = a} :: CreateServiceAction)
 
 -- | The self-service action name.
 createServiceAction_name :: Lens.Lens' CreateServiceAction Prelude.Text
@@ -226,7 +227,7 @@ createServiceAction_definitionType = Lens.lens (\CreateServiceAction' {definitio
 --     @[{\\\"Name\\\":\\\"InstanceId\\\",\\\"Type\\\":\\\"TARGET\\\"}]@ or
 --     @[{\\\"Name\\\":\\\"InstanceId\\\",\\\"Type\\\":\\\"TEXT_VALUE\\\"}]@.
 createServiceAction_definition :: Lens.Lens' CreateServiceAction (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text)
-createServiceAction_definition = Lens.lens (\CreateServiceAction' {definition} -> definition) (\s@CreateServiceAction' {} a -> s {definition = a} :: CreateServiceAction) Prelude.. Lens._Coerce
+createServiceAction_definition = Lens.lens (\CreateServiceAction' {definition} -> definition) (\s@CreateServiceAction' {} a -> s {definition = a} :: CreateServiceAction) Prelude.. Lens.coerced
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
@@ -270,9 +271,9 @@ instance Core.ToJSON CreateServiceAction where
   toJSON CreateServiceAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("DefinitionType" Core..= definitionType),

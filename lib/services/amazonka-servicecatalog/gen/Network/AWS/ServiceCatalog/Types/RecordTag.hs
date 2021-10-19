@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRecordTag' smart constructor.
 data RecordTag = RecordTag'
-  { -- | The key for this tag.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value for this tag.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value for this tag.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key for this tag.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data RecordTag = RecordTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'recordTag_key' - The key for this tag.
---
 -- 'value', 'recordTag_value' - The value for this tag.
+--
+-- 'key', 'recordTag_key' - The key for this tag.
 newRecordTag ::
   RecordTag
 newRecordTag =
   RecordTag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key for this tag.
-recordTag_key :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
-recordTag_key = Lens.lens (\RecordTag' {key} -> key) (\s@RecordTag' {} a -> s {key = a} :: RecordTag)
 
 -- | The value for this tag.
 recordTag_value :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
 recordTag_value = Lens.lens (\RecordTag' {value} -> value) (\s@RecordTag' {} a -> s {value = a} :: RecordTag)
+
+-- | The key for this tag.
+recordTag_key :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
+recordTag_key = Lens.lens (\RecordTag' {key} -> key) (\s@RecordTag' {} a -> s {key = a} :: RecordTag)
 
 instance Core.FromJSON RecordTag where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON RecordTag where
       "RecordTag"
       ( \x ->
           RecordTag'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
 instance Prelude.Hashable RecordTag

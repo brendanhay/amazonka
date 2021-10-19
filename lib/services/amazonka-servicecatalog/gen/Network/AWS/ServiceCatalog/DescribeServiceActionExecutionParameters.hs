@@ -231,7 +231,7 @@ newDescribeServiceActionExecutionParametersResponse
 
 -- | The parameters of the self-service action.
 describeServiceActionExecutionParametersResponse_serviceActionParameters :: Lens.Lens' DescribeServiceActionExecutionParametersResponse (Prelude.Maybe [ExecutionParameter])
-describeServiceActionExecutionParametersResponse_serviceActionParameters = Lens.lens (\DescribeServiceActionExecutionParametersResponse' {serviceActionParameters} -> serviceActionParameters) (\s@DescribeServiceActionExecutionParametersResponse' {} a -> s {serviceActionParameters = a} :: DescribeServiceActionExecutionParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeServiceActionExecutionParametersResponse_serviceActionParameters = Lens.lens (\DescribeServiceActionExecutionParametersResponse' {serviceActionParameters} -> serviceActionParameters) (\s@DescribeServiceActionExecutionParametersResponse' {} a -> s {serviceActionParameters = a} :: DescribeServiceActionExecutionParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeServiceActionExecutionParametersResponse_httpStatus :: Lens.Lens' DescribeServiceActionExecutionParametersResponse Prelude.Int

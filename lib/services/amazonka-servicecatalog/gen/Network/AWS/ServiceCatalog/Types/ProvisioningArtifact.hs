@@ -29,15 +29,15 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
 --
 -- /See:/ 'newProvisioningArtifact' smart constructor.
 data ProvisioningArtifact = ProvisioningArtifact'
-  { -- | Information set by the administrator to provide guidance to end users
-    -- about which provisioning artifacts to use.
-    guidance :: Prelude.Maybe ProvisioningArtifactGuidance,
-    -- | The identifier of the provisioning artifact.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The UTC time stamp of the creation time.
+  { -- | The UTC time stamp of the creation time.
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the provisioning artifact.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the provisioning artifact.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Information set by the administrator to provide guidance to end users
+    -- about which provisioning artifacts to use.
+    guidance :: Prelude.Maybe ProvisioningArtifactGuidance,
     -- | The description of the provisioning artifact.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -51,35 +51,27 @@ data ProvisioningArtifact = ProvisioningArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'guidance', 'provisioningArtifact_guidance' - Information set by the administrator to provide guidance to end users
--- about which provisioning artifacts to use.
---
--- 'id', 'provisioningArtifact_id' - The identifier of the provisioning artifact.
---
 -- 'createdTime', 'provisioningArtifact_createdTime' - The UTC time stamp of the creation time.
 --
 -- 'name', 'provisioningArtifact_name' - The name of the provisioning artifact.
+--
+-- 'id', 'provisioningArtifact_id' - The identifier of the provisioning artifact.
+--
+-- 'guidance', 'provisioningArtifact_guidance' - Information set by the administrator to provide guidance to end users
+-- about which provisioning artifacts to use.
 --
 -- 'description', 'provisioningArtifact_description' - The description of the provisioning artifact.
 newProvisioningArtifact ::
   ProvisioningArtifact
 newProvisioningArtifact =
   ProvisioningArtifact'
-    { guidance = Prelude.Nothing,
-      id = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+    { createdTime =
+        Prelude.Nothing,
       name = Prelude.Nothing,
+      id = Prelude.Nothing,
+      guidance = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | Information set by the administrator to provide guidance to end users
--- about which provisioning artifacts to use.
-provisioningArtifact_guidance :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe ProvisioningArtifactGuidance)
-provisioningArtifact_guidance = Lens.lens (\ProvisioningArtifact' {guidance} -> guidance) (\s@ProvisioningArtifact' {} a -> s {guidance = a} :: ProvisioningArtifact)
-
--- | The identifier of the provisioning artifact.
-provisioningArtifact_id :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe Prelude.Text)
-provisioningArtifact_id = Lens.lens (\ProvisioningArtifact' {id} -> id) (\s@ProvisioningArtifact' {} a -> s {id = a} :: ProvisioningArtifact)
 
 -- | The UTC time stamp of the creation time.
 provisioningArtifact_createdTime :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe Prelude.UTCTime)
@@ -88,6 +80,15 @@ provisioningArtifact_createdTime = Lens.lens (\ProvisioningArtifact' {createdTim
 -- | The name of the provisioning artifact.
 provisioningArtifact_name :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe Prelude.Text)
 provisioningArtifact_name = Lens.lens (\ProvisioningArtifact' {name} -> name) (\s@ProvisioningArtifact' {} a -> s {name = a} :: ProvisioningArtifact)
+
+-- | The identifier of the provisioning artifact.
+provisioningArtifact_id :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe Prelude.Text)
+provisioningArtifact_id = Lens.lens (\ProvisioningArtifact' {id} -> id) (\s@ProvisioningArtifact' {} a -> s {id = a} :: ProvisioningArtifact)
+
+-- | Information set by the administrator to provide guidance to end users
+-- about which provisioning artifacts to use.
+provisioningArtifact_guidance :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe ProvisioningArtifactGuidance)
+provisioningArtifact_guidance = Lens.lens (\ProvisioningArtifact' {guidance} -> guidance) (\s@ProvisioningArtifact' {} a -> s {guidance = a} :: ProvisioningArtifact)
 
 -- | The description of the provisioning artifact.
 provisioningArtifact_description :: Lens.Lens' ProvisioningArtifact (Prelude.Maybe Prelude.Text)
@@ -99,10 +100,10 @@ instance Core.FromJSON ProvisioningArtifact where
       "ProvisioningArtifact"
       ( \x ->
           ProvisioningArtifact'
-            Prelude.<$> (x Core..:? "Guidance")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<$> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Guidance")
             Prelude.<*> (x Core..:? "Description")
       )
 

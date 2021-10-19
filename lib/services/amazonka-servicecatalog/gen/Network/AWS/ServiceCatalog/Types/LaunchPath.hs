@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPath' smart constructor.
 data LaunchPath = LaunchPath'
-  { -- | The identifier of the launch path.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch path.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the launch path.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the launch path.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data LaunchPath = LaunchPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'launchPath_id' - The identifier of the launch path.
---
 -- 'name', 'launchPath_name' - The name of the launch path.
+--
+-- 'id', 'launchPath_id' - The identifier of the launch path.
 newLaunchPath ::
   LaunchPath
 newLaunchPath =
   LaunchPath'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The identifier of the launch path.
-launchPath_id :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
-launchPath_id = Lens.lens (\LaunchPath' {id} -> id) (\s@LaunchPath' {} a -> s {id = a} :: LaunchPath)
 
 -- | The name of the launch path.
 launchPath_name :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
 launchPath_name = Lens.lens (\LaunchPath' {name} -> name) (\s@LaunchPath' {} a -> s {name = a} :: LaunchPath)
+
+-- | The identifier of the launch path.
+launchPath_id :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
+launchPath_id = Lens.lens (\LaunchPath' {id} -> id) (\s@LaunchPath' {} a -> s {id = a} :: LaunchPath)
 
 instance Core.FromJSON LaunchPath where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON LaunchPath where
       "LaunchPath"
       ( \x ->
           LaunchPath'
-            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable LaunchPath

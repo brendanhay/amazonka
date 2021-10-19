@@ -35,18 +35,18 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     newUpdateProvisionedProduct,
 
     -- * Request Lenses
-    updateProvisionedProduct_provisionedProductName,
-    updateProvisionedProduct_provisioningPreferences,
-    updateProvisionedProduct_provisionedProductId,
-    updateProvisionedProduct_provisioningArtifactName,
-    updateProvisionedProduct_provisioningArtifactId,
     updateProvisionedProduct_productName,
-    updateProvisionedProduct_tags,
-    updateProvisionedProduct_productId,
-    updateProvisionedProduct_provisioningParameters,
-    updateProvisionedProduct_pathId,
-    updateProvisionedProduct_acceptLanguage,
+    updateProvisionedProduct_provisionedProductName,
+    updateProvisionedProduct_provisioningArtifactId,
+    updateProvisionedProduct_provisioningArtifactName,
     updateProvisionedProduct_pathName,
+    updateProvisionedProduct_acceptLanguage,
+    updateProvisionedProduct_pathId,
+    updateProvisionedProduct_provisioningParameters,
+    updateProvisionedProduct_provisionedProductId,
+    updateProvisionedProduct_productId,
+    updateProvisionedProduct_tags,
+    updateProvisionedProduct_provisioningPreferences,
     updateProvisionedProduct_updateToken,
 
     -- * Destructuring the Response
@@ -68,35 +68,18 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdateProvisionedProduct' smart constructor.
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
-  { -- | The name of the provisioned product. You cannot specify both
+  { -- | The name of the product. You must provide the name or ID, but not both.
+    productName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
     provisionedProductName :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains information about the provisioning preferences
-    -- for a stack set.
-    provisioningPreferences :: Prelude.Maybe UpdateProvisioningPreferences,
-    -- | The identifier of the provisioned product. You must provide the name or
-    -- ID, but not both.
-    provisionedProductId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The name of the provisioning artifact. You must provide the name or ID,
     -- but not both.
     provisioningArtifactName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the product. You must provide the name or ID, but not both.
-    productName :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags. Requires the product to have @RESOURCE_UPDATE@
-    -- constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to
-    -- allow tag updates.
-    tags :: Prelude.Maybe [Tag],
-    -- | The identifier of the product. You must provide the name or ID, but not
-    -- both.
-    productId :: Prelude.Maybe Prelude.Text,
-    -- | The new parameters.
-    provisioningParameters :: Prelude.Maybe [UpdateProvisioningParameter],
-    -- | The path identifier. This value is optional if the product has a default
-    -- path, and required if the product has more than one path. You must
-    -- provide the name or ID, but not both.
-    pathId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the path. You must provide the name or ID, but not both.
+    pathName :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -105,8 +88,25 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the path. You must provide the name or ID, but not both.
-    pathName :: Prelude.Maybe Prelude.Text,
+    -- | The path identifier. This value is optional if the product has a default
+    -- path, and required if the product has more than one path. You must
+    -- provide the name or ID, but not both.
+    pathId :: Prelude.Maybe Prelude.Text,
+    -- | The new parameters.
+    provisioningParameters :: Prelude.Maybe [UpdateProvisioningParameter],
+    -- | The identifier of the provisioned product. You must provide the name or
+    -- ID, but not both.
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the product. You must provide the name or ID, but not
+    -- both.
+    productId :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags. Requires the product to have @RESOURCE_UPDATE@
+    -- constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to
+    -- allow tag updates.
+    tags :: Prelude.Maybe [Tag],
+    -- | An object that contains information about the provisioning preferences
+    -- for a stack set.
+    provisioningPreferences :: Prelude.Maybe UpdateProvisioningPreferences,
     -- | The idempotency token that uniquely identifies the provisioning update
     -- request.
     updateToken :: Prelude.Text
@@ -121,34 +121,17 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'productName', 'updateProvisionedProduct_productName' - The name of the product. You must provide the name or ID, but not both.
+--
 -- 'provisionedProductName', 'updateProvisionedProduct_provisionedProductName' - The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
 --
--- 'provisioningPreferences', 'updateProvisionedProduct_provisioningPreferences' - An object that contains information about the provisioning preferences
--- for a stack set.
---
--- 'provisionedProductId', 'updateProvisionedProduct_provisionedProductId' - The identifier of the provisioned product. You must provide the name or
--- ID, but not both.
+-- 'provisioningArtifactId', 'updateProvisionedProduct_provisioningArtifactId' - The identifier of the provisioning artifact.
 --
 -- 'provisioningArtifactName', 'updateProvisionedProduct_provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID,
 -- but not both.
 --
--- 'provisioningArtifactId', 'updateProvisionedProduct_provisioningArtifactId' - The identifier of the provisioning artifact.
---
--- 'productName', 'updateProvisionedProduct_productName' - The name of the product. You must provide the name or ID, but not both.
---
--- 'tags', 'updateProvisionedProduct_tags' - One or more tags. Requires the product to have @RESOURCE_UPDATE@
--- constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to
--- allow tag updates.
---
--- 'productId', 'updateProvisionedProduct_productId' - The identifier of the product. You must provide the name or ID, but not
--- both.
---
--- 'provisioningParameters', 'updateProvisionedProduct_provisioningParameters' - The new parameters.
---
--- 'pathId', 'updateProvisionedProduct_pathId' - The path identifier. This value is optional if the product has a default
--- path, and required if the product has more than one path. You must
--- provide the name or ID, but not both.
+-- 'pathName', 'updateProvisionedProduct_pathName' - The name of the path. You must provide the name or ID, but not both.
 --
 -- 'acceptLanguage', 'updateProvisionedProduct_acceptLanguage' - The language code.
 --
@@ -158,7 +141,24 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 -- -   @zh@ - Chinese
 --
--- 'pathName', 'updateProvisionedProduct_pathName' - The name of the path. You must provide the name or ID, but not both.
+-- 'pathId', 'updateProvisionedProduct_pathId' - The path identifier. This value is optional if the product has a default
+-- path, and required if the product has more than one path. You must
+-- provide the name or ID, but not both.
+--
+-- 'provisioningParameters', 'updateProvisionedProduct_provisioningParameters' - The new parameters.
+--
+-- 'provisionedProductId', 'updateProvisionedProduct_provisionedProductId' - The identifier of the provisioned product. You must provide the name or
+-- ID, but not both.
+--
+-- 'productId', 'updateProvisionedProduct_productId' - The identifier of the product. You must provide the name or ID, but not
+-- both.
+--
+-- 'tags', 'updateProvisionedProduct_tags' - One or more tags. Requires the product to have @RESOURCE_UPDATE@
+-- constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to
+-- allow tag updates.
+--
+-- 'provisioningPreferences', 'updateProvisionedProduct_provisioningPreferences' - An object that contains information about the provisioning preferences
+-- for a stack set.
 --
 -- 'updateToken', 'updateProvisionedProduct_updateToken' - The idempotency token that uniquely identifies the provisioning update
 -- request.
@@ -168,70 +168,43 @@ newUpdateProvisionedProduct ::
   UpdateProvisionedProduct
 newUpdateProvisionedProduct pUpdateToken_ =
   UpdateProvisionedProduct'
-    { provisionedProductName =
+    { productName =
         Prelude.Nothing,
-      provisioningPreferences = Prelude.Nothing,
-      provisionedProductId = Prelude.Nothing,
-      provisioningArtifactName = Prelude.Nothing,
+      provisionedProductName = Prelude.Nothing,
       provisioningArtifactId = Prelude.Nothing,
-      productName = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      productId = Prelude.Nothing,
-      provisioningParameters = Prelude.Nothing,
-      pathId = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      provisioningArtifactName = Prelude.Nothing,
       pathName = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      pathId = Prelude.Nothing,
+      provisioningParameters = Prelude.Nothing,
+      provisionedProductId = Prelude.Nothing,
+      productId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      provisioningPreferences = Prelude.Nothing,
       updateToken = pUpdateToken_
     }
+
+-- | The name of the product. You must provide the name or ID, but not both.
+updateProvisionedProduct_productName :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
+updateProvisionedProduct_productName = Lens.lens (\UpdateProvisionedProduct' {productName} -> productName) (\s@UpdateProvisionedProduct' {} a -> s {productName = a} :: UpdateProvisionedProduct)
 
 -- | The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
 updateProvisionedProduct_provisionedProductName :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
 updateProvisionedProduct_provisionedProductName = Lens.lens (\UpdateProvisionedProduct' {provisionedProductName} -> provisionedProductName) (\s@UpdateProvisionedProduct' {} a -> s {provisionedProductName = a} :: UpdateProvisionedProduct)
 
--- | An object that contains information about the provisioning preferences
--- for a stack set.
-updateProvisionedProduct_provisioningPreferences :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe UpdateProvisioningPreferences)
-updateProvisionedProduct_provisioningPreferences = Lens.lens (\UpdateProvisionedProduct' {provisioningPreferences} -> provisioningPreferences) (\s@UpdateProvisionedProduct' {} a -> s {provisioningPreferences = a} :: UpdateProvisionedProduct)
-
--- | The identifier of the provisioned product. You must provide the name or
--- ID, but not both.
-updateProvisionedProduct_provisionedProductId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
-updateProvisionedProduct_provisionedProductId = Lens.lens (\UpdateProvisionedProduct' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProduct' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProduct)
+-- | The identifier of the provisioning artifact.
+updateProvisionedProduct_provisioningArtifactId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
+updateProvisionedProduct_provisioningArtifactId = Lens.lens (\UpdateProvisionedProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@UpdateProvisionedProduct' {} a -> s {provisioningArtifactId = a} :: UpdateProvisionedProduct)
 
 -- | The name of the provisioning artifact. You must provide the name or ID,
 -- but not both.
 updateProvisionedProduct_provisioningArtifactName :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
 updateProvisionedProduct_provisioningArtifactName = Lens.lens (\UpdateProvisionedProduct' {provisioningArtifactName} -> provisioningArtifactName) (\s@UpdateProvisionedProduct' {} a -> s {provisioningArtifactName = a} :: UpdateProvisionedProduct)
 
--- | The identifier of the provisioning artifact.
-updateProvisionedProduct_provisioningArtifactId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
-updateProvisionedProduct_provisioningArtifactId = Lens.lens (\UpdateProvisionedProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@UpdateProvisionedProduct' {} a -> s {provisioningArtifactId = a} :: UpdateProvisionedProduct)
-
--- | The name of the product. You must provide the name or ID, but not both.
-updateProvisionedProduct_productName :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
-updateProvisionedProduct_productName = Lens.lens (\UpdateProvisionedProduct' {productName} -> productName) (\s@UpdateProvisionedProduct' {} a -> s {productName = a} :: UpdateProvisionedProduct)
-
--- | One or more tags. Requires the product to have @RESOURCE_UPDATE@
--- constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to
--- allow tag updates.
-updateProvisionedProduct_tags :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe [Tag])
-updateProvisionedProduct_tags = Lens.lens (\UpdateProvisionedProduct' {tags} -> tags) (\s@UpdateProvisionedProduct' {} a -> s {tags = a} :: UpdateProvisionedProduct) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of the product. You must provide the name or ID, but not
--- both.
-updateProvisionedProduct_productId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
-updateProvisionedProduct_productId = Lens.lens (\UpdateProvisionedProduct' {productId} -> productId) (\s@UpdateProvisionedProduct' {} a -> s {productId = a} :: UpdateProvisionedProduct)
-
--- | The new parameters.
-updateProvisionedProduct_provisioningParameters :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe [UpdateProvisioningParameter])
-updateProvisionedProduct_provisioningParameters = Lens.lens (\UpdateProvisionedProduct' {provisioningParameters} -> provisioningParameters) (\s@UpdateProvisionedProduct' {} a -> s {provisioningParameters = a} :: UpdateProvisionedProduct) Prelude.. Lens.mapping Lens._Coerce
-
--- | The path identifier. This value is optional if the product has a default
--- path, and required if the product has more than one path. You must
--- provide the name or ID, but not both.
-updateProvisionedProduct_pathId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
-updateProvisionedProduct_pathId = Lens.lens (\UpdateProvisionedProduct' {pathId} -> pathId) (\s@UpdateProvisionedProduct' {} a -> s {pathId = a} :: UpdateProvisionedProduct)
+-- | The name of the path. You must provide the name or ID, but not both.
+updateProvisionedProduct_pathName :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
+updateProvisionedProduct_pathName = Lens.lens (\UpdateProvisionedProduct' {pathName} -> pathName) (\s@UpdateProvisionedProduct' {} a -> s {pathName = a} :: UpdateProvisionedProduct)
 
 -- | The language code.
 --
@@ -243,9 +216,36 @@ updateProvisionedProduct_pathId = Lens.lens (\UpdateProvisionedProduct' {pathId}
 updateProvisionedProduct_acceptLanguage :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
 updateProvisionedProduct_acceptLanguage = Lens.lens (\UpdateProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@UpdateProvisionedProduct' {} a -> s {acceptLanguage = a} :: UpdateProvisionedProduct)
 
--- | The name of the path. You must provide the name or ID, but not both.
-updateProvisionedProduct_pathName :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
-updateProvisionedProduct_pathName = Lens.lens (\UpdateProvisionedProduct' {pathName} -> pathName) (\s@UpdateProvisionedProduct' {} a -> s {pathName = a} :: UpdateProvisionedProduct)
+-- | The path identifier. This value is optional if the product has a default
+-- path, and required if the product has more than one path. You must
+-- provide the name or ID, but not both.
+updateProvisionedProduct_pathId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
+updateProvisionedProduct_pathId = Lens.lens (\UpdateProvisionedProduct' {pathId} -> pathId) (\s@UpdateProvisionedProduct' {} a -> s {pathId = a} :: UpdateProvisionedProduct)
+
+-- | The new parameters.
+updateProvisionedProduct_provisioningParameters :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe [UpdateProvisioningParameter])
+updateProvisionedProduct_provisioningParameters = Lens.lens (\UpdateProvisionedProduct' {provisioningParameters} -> provisioningParameters) (\s@UpdateProvisionedProduct' {} a -> s {provisioningParameters = a} :: UpdateProvisionedProduct) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the provisioned product. You must provide the name or
+-- ID, but not both.
+updateProvisionedProduct_provisionedProductId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
+updateProvisionedProduct_provisionedProductId = Lens.lens (\UpdateProvisionedProduct' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProduct' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProduct)
+
+-- | The identifier of the product. You must provide the name or ID, but not
+-- both.
+updateProvisionedProduct_productId :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
+updateProvisionedProduct_productId = Lens.lens (\UpdateProvisionedProduct' {productId} -> productId) (\s@UpdateProvisionedProduct' {} a -> s {productId = a} :: UpdateProvisionedProduct)
+
+-- | One or more tags. Requires the product to have @RESOURCE_UPDATE@
+-- constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to
+-- allow tag updates.
+updateProvisionedProduct_tags :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe [Tag])
+updateProvisionedProduct_tags = Lens.lens (\UpdateProvisionedProduct' {tags} -> tags) (\s@UpdateProvisionedProduct' {} a -> s {tags = a} :: UpdateProvisionedProduct) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that contains information about the provisioning preferences
+-- for a stack set.
+updateProvisionedProduct_provisioningPreferences :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe UpdateProvisioningPreferences)
+updateProvisionedProduct_provisioningPreferences = Lens.lens (\UpdateProvisionedProduct' {provisioningPreferences} -> provisioningPreferences) (\s@UpdateProvisionedProduct' {} a -> s {provisioningPreferences = a} :: UpdateProvisionedProduct)
 
 -- | The idempotency token that uniquely identifies the provisioning update
 -- request.
@@ -288,25 +288,25 @@ instance Core.ToJSON UpdateProvisionedProduct where
   toJSON UpdateProvisionedProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProvisionedProductName" Core..=)
+          [ ("ProductName" Core..=) Prelude.<$> productName,
+            ("ProvisionedProductName" Core..=)
               Prelude.<$> provisionedProductName,
-            ("ProvisioningPreferences" Core..=)
-              Prelude.<$> provisioningPreferences,
-            ("ProvisionedProductId" Core..=)
-              Prelude.<$> provisionedProductId,
-            ("ProvisioningArtifactName" Core..=)
-              Prelude.<$> provisioningArtifactName,
             ("ProvisioningArtifactId" Core..=)
               Prelude.<$> provisioningArtifactId,
-            ("ProductName" Core..=) Prelude.<$> productName,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ProductId" Core..=) Prelude.<$> productId,
-            ("ProvisioningParameters" Core..=)
-              Prelude.<$> provisioningParameters,
-            ("PathId" Core..=) Prelude.<$> pathId,
+            ("ProvisioningArtifactName" Core..=)
+              Prelude.<$> provisioningArtifactName,
+            ("PathName" Core..=) Prelude.<$> pathName,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("PathName" Core..=) Prelude.<$> pathName,
+            ("PathId" Core..=) Prelude.<$> pathId,
+            ("ProvisioningParameters" Core..=)
+              Prelude.<$> provisioningParameters,
+            ("ProvisionedProductId" Core..=)
+              Prelude.<$> provisionedProductId,
+            ("ProductId" Core..=) Prelude.<$> productId,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("ProvisioningPreferences" Core..=)
+              Prelude.<$> provisioningPreferences,
             Prelude.Just ("UpdateToken" Core..= updateToken)
           ]
       )

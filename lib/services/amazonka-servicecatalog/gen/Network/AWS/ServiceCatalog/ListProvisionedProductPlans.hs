@@ -31,10 +31,10 @@ module Network.AWS.ServiceCatalog.ListProvisionedProductPlans
 
     -- * Request Lenses
     listProvisionedProductPlans_provisionProductId,
-    listProvisionedProductPlans_pageSize,
-    listProvisionedProductPlans_pageToken,
-    listProvisionedProductPlans_accessLevelFilter,
     listProvisionedProductPlans_acceptLanguage,
+    listProvisionedProductPlans_accessLevelFilter,
+    listProvisionedProductPlans_pageToken,
+    listProvisionedProductPlans_pageSize,
 
     -- * Destructuring the Response
     ListProvisionedProductPlansResponse (..),
@@ -58,13 +58,6 @@ import Network.AWS.ServiceCatalog.Types
 data ListProvisionedProductPlans = ListProvisionedProductPlans'
   { -- | The product identifier.
     provisionProductId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The access level to use to obtain results. The default is @User@.
-    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -72,7 +65,14 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,13 +86,6 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
 --
 -- 'provisionProductId', 'listProvisionedProductPlans_provisionProductId' - The product identifier.
 --
--- 'pageSize', 'listProvisionedProductPlans_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listProvisionedProductPlans_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'accessLevelFilter', 'listProvisionedProductPlans_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
---
 -- 'acceptLanguage', 'listProvisionedProductPlans_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -100,34 +93,28 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'accessLevelFilter', 'listProvisionedProductPlans_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
+--
+-- 'pageToken', 'listProvisionedProductPlans_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listProvisionedProductPlans_pageSize' - The maximum number of items to return with this call.
 newListProvisionedProductPlans ::
   ListProvisionedProductPlans
 newListProvisionedProductPlans =
   ListProvisionedProductPlans'
     { provisionProductId =
         Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       accessLevelFilter = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      pageToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
 
 -- | The product identifier.
 listProvisionedProductPlans_provisionProductId :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
 listProvisionedProductPlans_provisionProductId = Lens.lens (\ListProvisionedProductPlans' {provisionProductId} -> provisionProductId) (\s@ListProvisionedProductPlans' {} a -> s {provisionProductId = a} :: ListProvisionedProductPlans)
-
--- | The maximum number of items to return with this call.
-listProvisionedProductPlans_pageSize :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Natural)
-listProvisionedProductPlans_pageSize = Lens.lens (\ListProvisionedProductPlans' {pageSize} -> pageSize) (\s@ListProvisionedProductPlans' {} a -> s {pageSize = a} :: ListProvisionedProductPlans)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listProvisionedProductPlans_pageToken :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
-listProvisionedProductPlans_pageToken = Lens.lens (\ListProvisionedProductPlans' {pageToken} -> pageToken) (\s@ListProvisionedProductPlans' {} a -> s {pageToken = a} :: ListProvisionedProductPlans)
-
--- | The access level to use to obtain results. The default is @User@.
-listProvisionedProductPlans_accessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe AccessLevelFilter)
-listProvisionedProductPlans_accessLevelFilter = Lens.lens (\ListProvisionedProductPlans' {accessLevelFilter} -> accessLevelFilter) (\s@ListProvisionedProductPlans' {} a -> s {accessLevelFilter = a} :: ListProvisionedProductPlans)
 
 -- | The language code.
 --
@@ -138,6 +125,19 @@ listProvisionedProductPlans_accessLevelFilter = Lens.lens (\ListProvisionedProdu
 -- -   @zh@ - Chinese
 listProvisionedProductPlans_acceptLanguage :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
 listProvisionedProductPlans_acceptLanguage = Lens.lens (\ListProvisionedProductPlans' {acceptLanguage} -> acceptLanguage) (\s@ListProvisionedProductPlans' {} a -> s {acceptLanguage = a} :: ListProvisionedProductPlans)
+
+-- | The access level to use to obtain results. The default is @User@.
+listProvisionedProductPlans_accessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe AccessLevelFilter)
+listProvisionedProductPlans_accessLevelFilter = Lens.lens (\ListProvisionedProductPlans' {accessLevelFilter} -> accessLevelFilter) (\s@ListProvisionedProductPlans' {} a -> s {accessLevelFilter = a} :: ListProvisionedProductPlans)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listProvisionedProductPlans_pageToken :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlans_pageToken = Lens.lens (\ListProvisionedProductPlans' {pageToken} -> pageToken) (\s@ListProvisionedProductPlans' {} a -> s {pageToken = a} :: ListProvisionedProductPlans)
+
+-- | The maximum number of items to return with this call.
+listProvisionedProductPlans_pageSize :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Natural)
+listProvisionedProductPlans_pageSize = Lens.lens (\ListProvisionedProductPlans' {pageSize} -> pageSize) (\s@ListProvisionedProductPlans' {} a -> s {pageSize = a} :: ListProvisionedProductPlans)
 
 instance Core.AWSPager ListProvisionedProductPlans where
   page rq rs
@@ -202,12 +202,12 @@ instance Core.ToJSON ListProvisionedProductPlans where
       ( Prelude.catMaybes
           [ ("ProvisionProductId" Core..=)
               Prelude.<$> provisionProductId,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             ("AccessLevelFilter" Core..=)
               Prelude.<$> accessLevelFilter,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize
           ]
       )
 
@@ -263,7 +263,7 @@ listProvisionedProductPlansResponse_nextPageToken = Lens.lens (\ListProvisionedP
 
 -- | Information about the plans.
 listProvisionedProductPlansResponse_provisionedProductPlans :: Lens.Lens' ListProvisionedProductPlansResponse (Prelude.Maybe [ProvisionedProductPlanSummary])
-listProvisionedProductPlansResponse_provisionedProductPlans = Lens.lens (\ListProvisionedProductPlansResponse' {provisionedProductPlans} -> provisionedProductPlans) (\s@ListProvisionedProductPlansResponse' {} a -> s {provisionedProductPlans = a} :: ListProvisionedProductPlansResponse) Prelude.. Lens.mapping Lens._Coerce
+listProvisionedProductPlansResponse_provisionedProductPlans = Lens.lens (\ListProvisionedProductPlansResponse' {provisionedProductPlans} -> provisionedProductPlans) (\s@ListProvisionedProductPlansResponse' {} a -> s {provisionedProductPlans = a} :: ListProvisionedProductPlansResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProvisionedProductPlansResponse_httpStatus :: Lens.Lens' ListProvisionedProductPlansResponse Prelude.Int

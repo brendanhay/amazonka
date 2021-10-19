@@ -29,9 +29,9 @@ module Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
     newListPrincipalsForPortfolio,
 
     -- * Request Lenses
-    listPrincipalsForPortfolio_pageSize,
-    listPrincipalsForPortfolio_pageToken,
     listPrincipalsForPortfolio_acceptLanguage,
+    listPrincipalsForPortfolio_pageToken,
+    listPrincipalsForPortfolio_pageSize,
     listPrincipalsForPortfolio_portfolioId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
     newListPrincipalsForPortfolioResponse,
 
     -- * Response Lenses
-    listPrincipalsForPortfolioResponse_principals,
     listPrincipalsForPortfolioResponse_nextPageToken,
+    listPrincipalsForPortfolioResponse_principals,
     listPrincipalsForPortfolioResponse_httpStatus,
   )
 where
@@ -54,12 +54,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newListPrincipalsForPortfolio' smart constructor.
 data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -67,6 +62,11 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -80,11 +80,6 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listPrincipalsForPortfolio_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listPrincipalsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'listPrincipalsForPortfolio_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -93,6 +88,11 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageToken', 'listPrincipalsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listPrincipalsForPortfolio_pageSize' - The maximum number of items to return with this call.
+--
 -- 'portfolioId', 'listPrincipalsForPortfolio_portfolioId' - The portfolio identifier.
 newListPrincipalsForPortfolio ::
   -- | 'portfolioId'
@@ -100,21 +100,12 @@ newListPrincipalsForPortfolio ::
   ListPrincipalsForPortfolio
 newListPrincipalsForPortfolio pPortfolioId_ =
   ListPrincipalsForPortfolio'
-    { pageSize =
+    { acceptLanguage =
         Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
-
--- | The maximum number of items to return with this call.
-listPrincipalsForPortfolio_pageSize :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Natural)
-listPrincipalsForPortfolio_pageSize = Lens.lens (\ListPrincipalsForPortfolio' {pageSize} -> pageSize) (\s@ListPrincipalsForPortfolio' {} a -> s {pageSize = a} :: ListPrincipalsForPortfolio)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listPrincipalsForPortfolio_pageToken :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
-listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {pageToken} -> pageToken) (\s@ListPrincipalsForPortfolio' {} a -> s {pageToken = a} :: ListPrincipalsForPortfolio)
 
 -- | The language code.
 --
@@ -125,6 +116,15 @@ listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {
 -- -   @zh@ - Chinese
 listPrincipalsForPortfolio_acceptLanguage :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
 listPrincipalsForPortfolio_acceptLanguage = Lens.lens (\ListPrincipalsForPortfolio' {acceptLanguage} -> acceptLanguage) (\s@ListPrincipalsForPortfolio' {} a -> s {acceptLanguage = a} :: ListPrincipalsForPortfolio)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPrincipalsForPortfolio_pageToken :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
+listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {pageToken} -> pageToken) (\s@ListPrincipalsForPortfolio' {} a -> s {pageToken = a} :: ListPrincipalsForPortfolio)
+
+-- | The maximum number of items to return with this call.
+listPrincipalsForPortfolio_pageSize :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Natural)
+listPrincipalsForPortfolio_pageSize = Lens.lens (\ListPrincipalsForPortfolio' {pageSize} -> pageSize) (\s@ListPrincipalsForPortfolio' {} a -> s {pageSize = a} :: ListPrincipalsForPortfolio)
 
 -- | The portfolio identifier.
 listPrincipalsForPortfolio_portfolioId :: Lens.Lens' ListPrincipalsForPortfolio Prelude.Text
@@ -161,8 +161,8 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
     Response.receiveJSON
       ( \s h x ->
           ListPrincipalsForPortfolioResponse'
-            Prelude.<$> (x Core..?> "Principals" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,10 +189,10 @@ instance Core.ToJSON ListPrincipalsForPortfolio where
   toJSON ListPrincipalsForPortfolio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
             Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
@@ -205,11 +205,11 @@ instance Core.ToQuery ListPrincipalsForPortfolio where
 
 -- | /See:/ 'newListPrincipalsForPortfolioResponse' smart constructor.
 data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
-  { -- | The IAM principals (users or roles) associated with the portfolio.
-    principals :: Prelude.Maybe [Principal],
-    -- | The page token to use to retrieve the next set of results. If there are
+  { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The IAM principals (users or roles) associated with the portfolio.
+    principals :: Prelude.Maybe [Principal],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,10 +223,10 @@ data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principals', 'listPrincipalsForPortfolioResponse_principals' - The IAM principals (users or roles) associated with the portfolio.
---
 -- 'nextPageToken', 'listPrincipalsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
+--
+-- 'principals', 'listPrincipalsForPortfolioResponse_principals' - The IAM principals (users or roles) associated with the portfolio.
 --
 -- 'httpStatus', 'listPrincipalsForPortfolioResponse_httpStatus' - The response's http status code.
 newListPrincipalsForPortfolioResponse ::
@@ -235,20 +235,20 @@ newListPrincipalsForPortfolioResponse ::
   ListPrincipalsForPortfolioResponse
 newListPrincipalsForPortfolioResponse pHttpStatus_ =
   ListPrincipalsForPortfolioResponse'
-    { principals =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      principals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The IAM principals (users or roles) associated with the portfolio.
-listPrincipalsForPortfolioResponse_principals :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe [Principal])
-listPrincipalsForPortfolioResponse_principals = Lens.lens (\ListPrincipalsForPortfolioResponse' {principals} -> principals) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {principals = a} :: ListPrincipalsForPortfolioResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 listPrincipalsForPortfolioResponse_nextPageToken :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe Prelude.Text)
 listPrincipalsForPortfolioResponse_nextPageToken = Lens.lens (\ListPrincipalsForPortfolioResponse' {nextPageToken} -> nextPageToken) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {nextPageToken = a} :: ListPrincipalsForPortfolioResponse)
+
+-- | The IAM principals (users or roles) associated with the portfolio.
+listPrincipalsForPortfolioResponse_principals :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe [Principal])
+listPrincipalsForPortfolioResponse_principals = Lens.lens (\ListPrincipalsForPortfolioResponse' {principals} -> principals) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {principals = a} :: ListPrincipalsForPortfolioResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPrincipalsForPortfolioResponse_httpStatus :: Lens.Lens' ListPrincipalsForPortfolioResponse Prelude.Int

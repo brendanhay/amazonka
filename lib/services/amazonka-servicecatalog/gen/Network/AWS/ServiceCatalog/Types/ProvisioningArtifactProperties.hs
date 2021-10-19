@@ -35,9 +35,6 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     -- | The name of the provisioning artifact (for example, v1 v2beta). No
     -- spaces are allowed.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the provisioning artifact, including how it differs
-    -- from the previous provisioning artifact.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The type of provisioning artifact.
     --
     -- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
@@ -46,6 +43,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     --
     -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
     type' :: Prelude.Maybe ProvisioningArtifactType,
+    -- | The description of the provisioning artifact, including how it differs
+    -- from the previous provisioning artifact.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specify the template source with one of the following options, but not
     -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
     --
@@ -76,9 +76,6 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 -- 'name', 'provisioningArtifactProperties_name' - The name of the provisioning artifact (for example, v1 v2beta). No
 -- spaces are allowed.
 --
--- 'description', 'provisioningArtifactProperties_description' - The description of the provisioning artifact, including how it differs
--- from the previous provisioning artifact.
---
 -- 'type'', 'provisioningArtifactProperties_type' - The type of provisioning artifact.
 --
 -- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
@@ -86,6 +83,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 -- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
 --
 -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+--
+-- 'description', 'provisioningArtifactProperties_description' - The description of the provisioning artifact, including how it differs
+-- from the previous provisioning artifact.
 --
 -- 'info', 'provisioningArtifactProperties_info' - Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
@@ -106,8 +106,8 @@ newProvisioningArtifactProperties =
     { disableTemplateValidation =
         Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing,
       type' = Prelude.Nothing,
+      description = Prelude.Nothing,
       info = Prelude.mempty
     }
 
@@ -121,11 +121,6 @@ provisioningArtifactProperties_disableTemplateValidation = Lens.lens (\Provision
 provisioningArtifactProperties_name :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Text)
 provisioningArtifactProperties_name = Lens.lens (\ProvisioningArtifactProperties' {name} -> name) (\s@ProvisioningArtifactProperties' {} a -> s {name = a} :: ProvisioningArtifactProperties)
 
--- | The description of the provisioning artifact, including how it differs
--- from the previous provisioning artifact.
-provisioningArtifactProperties_description :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Text)
-provisioningArtifactProperties_description = Lens.lens (\ProvisioningArtifactProperties' {description} -> description) (\s@ProvisioningArtifactProperties' {} a -> s {description = a} :: ProvisioningArtifactProperties)
-
 -- | The type of provisioning artifact.
 --
 -- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
@@ -135,6 +130,11 @@ provisioningArtifactProperties_description = Lens.lens (\ProvisioningArtifactPro
 -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
 provisioningArtifactProperties_type :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe ProvisioningArtifactType)
 provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties' {type'} -> type') (\s@ProvisioningArtifactProperties' {} a -> s {type' = a} :: ProvisioningArtifactProperties)
+
+-- | The description of the provisioning artifact, including how it differs
+-- from the previous provisioning artifact.
+provisioningArtifactProperties_description :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Text)
+provisioningArtifactProperties_description = Lens.lens (\ProvisioningArtifactProperties' {description} -> description) (\s@ProvisioningArtifactProperties' {} a -> s {description = a} :: ProvisioningArtifactProperties)
 
 -- | Specify the template source with one of the following options, but not
 -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
@@ -149,7 +149,7 @@ provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties
 -- the physical id in JSON format as follows:
 -- @ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack\/[StackName]\/[resourceId]@
 provisioningArtifactProperties_info :: Lens.Lens' ProvisioningArtifactProperties (Prelude.HashMap Prelude.Text Prelude.Text)
-provisioningArtifactProperties_info = Lens.lens (\ProvisioningArtifactProperties' {info} -> info) (\s@ProvisioningArtifactProperties' {} a -> s {info = a} :: ProvisioningArtifactProperties) Prelude.. Lens._Coerce
+provisioningArtifactProperties_info = Lens.lens (\ProvisioningArtifactProperties' {info} -> info) (\s@ProvisioningArtifactProperties' {} a -> s {info = a} :: ProvisioningArtifactProperties) Prelude.. Lens.coerced
 
 instance
   Prelude.Hashable
@@ -166,8 +166,8 @@ instance Core.ToJSON ProvisioningArtifactProperties where
           [ ("DisableTemplateValidation" Core..=)
               Prelude.<$> disableTemplateValidation,
             ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
             ("Type" Core..=) Prelude.<$> type',
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Info" Core..= info)
           ]
       )

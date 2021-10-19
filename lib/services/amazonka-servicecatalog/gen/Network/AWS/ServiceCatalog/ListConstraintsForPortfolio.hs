@@ -29,10 +29,10 @@ module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
     newListConstraintsForPortfolio,
 
     -- * Request Lenses
-    listConstraintsForPortfolio_pageSize,
-    listConstraintsForPortfolio_pageToken,
-    listConstraintsForPortfolio_productId,
     listConstraintsForPortfolio_acceptLanguage,
+    listConstraintsForPortfolio_pageToken,
+    listConstraintsForPortfolio_pageSize,
+    listConstraintsForPortfolio_productId,
     listConstraintsForPortfolio_portfolioId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
     newListConstraintsForPortfolioResponse,
 
     -- * Response Lenses
-    listConstraintsForPortfolioResponse_constraintDetails,
     listConstraintsForPortfolioResponse_nextPageToken,
+    listConstraintsForPortfolioResponse_constraintDetails,
     listConstraintsForPortfolioResponse_httpStatus,
   )
 where
@@ -55,14 +55,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newListConstraintsForPortfolio' smart constructor.
 data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier.
-    productId :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -70,6 +63,13 @@ data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The product identifier.
+    productId :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -83,13 +83,6 @@ data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listConstraintsForPortfolio_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listConstraintsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'productId', 'listConstraintsForPortfolio_productId' - The product identifier.
---
 -- 'acceptLanguage', 'listConstraintsForPortfolio_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -98,6 +91,13 @@ data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageToken', 'listConstraintsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listConstraintsForPortfolio_pageSize' - The maximum number of items to return with this call.
+--
+-- 'productId', 'listConstraintsForPortfolio_productId' - The product identifier.
+--
 -- 'portfolioId', 'listConstraintsForPortfolio_portfolioId' - The portfolio identifier.
 newListConstraintsForPortfolio ::
   -- | 'portfolioId'
@@ -105,26 +105,13 @@ newListConstraintsForPortfolio ::
   ListConstraintsForPortfolio
 newListConstraintsForPortfolio pPortfolioId_ =
   ListConstraintsForPortfolio'
-    { pageSize =
+    { acceptLanguage =
         Prelude.Nothing,
       pageToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       productId = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
-
--- | The maximum number of items to return with this call.
-listConstraintsForPortfolio_pageSize :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Natural)
-listConstraintsForPortfolio_pageSize = Lens.lens (\ListConstraintsForPortfolio' {pageSize} -> pageSize) (\s@ListConstraintsForPortfolio' {} a -> s {pageSize = a} :: ListConstraintsForPortfolio)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listConstraintsForPortfolio_pageToken :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
-listConstraintsForPortfolio_pageToken = Lens.lens (\ListConstraintsForPortfolio' {pageToken} -> pageToken) (\s@ListConstraintsForPortfolio' {} a -> s {pageToken = a} :: ListConstraintsForPortfolio)
-
--- | The product identifier.
-listConstraintsForPortfolio_productId :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
-listConstraintsForPortfolio_productId = Lens.lens (\ListConstraintsForPortfolio' {productId} -> productId) (\s@ListConstraintsForPortfolio' {} a -> s {productId = a} :: ListConstraintsForPortfolio)
 
 -- | The language code.
 --
@@ -135,6 +122,19 @@ listConstraintsForPortfolio_productId = Lens.lens (\ListConstraintsForPortfolio'
 -- -   @zh@ - Chinese
 listConstraintsForPortfolio_acceptLanguage :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
 listConstraintsForPortfolio_acceptLanguage = Lens.lens (\ListConstraintsForPortfolio' {acceptLanguage} -> acceptLanguage) (\s@ListConstraintsForPortfolio' {} a -> s {acceptLanguage = a} :: ListConstraintsForPortfolio)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listConstraintsForPortfolio_pageToken :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
+listConstraintsForPortfolio_pageToken = Lens.lens (\ListConstraintsForPortfolio' {pageToken} -> pageToken) (\s@ListConstraintsForPortfolio' {} a -> s {pageToken = a} :: ListConstraintsForPortfolio)
+
+-- | The maximum number of items to return with this call.
+listConstraintsForPortfolio_pageSize :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Natural)
+listConstraintsForPortfolio_pageSize = Lens.lens (\ListConstraintsForPortfolio' {pageSize} -> pageSize) (\s@ListConstraintsForPortfolio' {} a -> s {pageSize = a} :: ListConstraintsForPortfolio)
+
+-- | The product identifier.
+listConstraintsForPortfolio_productId :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
+listConstraintsForPortfolio_productId = Lens.lens (\ListConstraintsForPortfolio' {productId} -> productId) (\s@ListConstraintsForPortfolio' {} a -> s {productId = a} :: ListConstraintsForPortfolio)
 
 -- | The portfolio identifier.
 listConstraintsForPortfolio_portfolioId :: Lens.Lens' ListConstraintsForPortfolio Prelude.Text
@@ -171,10 +171,10 @@ instance Core.AWSRequest ListConstraintsForPortfolio where
     Response.receiveJSON
       ( \s h x ->
           ListConstraintsForPortfolioResponse'
-            Prelude.<$> ( x Core..?> "ConstraintDetails"
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "ConstraintDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,11 +201,11 @@ instance Core.ToJSON ListConstraintsForPortfolio where
   toJSON ListConstraintsForPortfolio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("ProductId" Core..=) Prelude.<$> productId,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("ProductId" Core..=) Prelude.<$> productId,
             Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
@@ -218,11 +218,11 @@ instance Core.ToQuery ListConstraintsForPortfolio where
 
 -- | /See:/ 'newListConstraintsForPortfolioResponse' smart constructor.
 data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
-  { -- | Information about the constraints.
-    constraintDetails :: Prelude.Maybe [ConstraintDetail],
-    -- | The page token to use to retrieve the next set of results. If there are
+  { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the constraints.
+    constraintDetails :: Prelude.Maybe [ConstraintDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,10 +236,10 @@ data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraintDetails', 'listConstraintsForPortfolioResponse_constraintDetails' - Information about the constraints.
---
 -- 'nextPageToken', 'listConstraintsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
+--
+-- 'constraintDetails', 'listConstraintsForPortfolioResponse_constraintDetails' - Information about the constraints.
 --
 -- 'httpStatus', 'listConstraintsForPortfolioResponse_httpStatus' - The response's http status code.
 newListConstraintsForPortfolioResponse ::
@@ -248,20 +248,20 @@ newListConstraintsForPortfolioResponse ::
   ListConstraintsForPortfolioResponse
 newListConstraintsForPortfolioResponse pHttpStatus_ =
   ListConstraintsForPortfolioResponse'
-    { constraintDetails =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      constraintDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the constraints.
-listConstraintsForPortfolioResponse_constraintDetails :: Lens.Lens' ListConstraintsForPortfolioResponse (Prelude.Maybe [ConstraintDetail])
-listConstraintsForPortfolioResponse_constraintDetails = Lens.lens (\ListConstraintsForPortfolioResponse' {constraintDetails} -> constraintDetails) (\s@ListConstraintsForPortfolioResponse' {} a -> s {constraintDetails = a} :: ListConstraintsForPortfolioResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 listConstraintsForPortfolioResponse_nextPageToken :: Lens.Lens' ListConstraintsForPortfolioResponse (Prelude.Maybe Prelude.Text)
 listConstraintsForPortfolioResponse_nextPageToken = Lens.lens (\ListConstraintsForPortfolioResponse' {nextPageToken} -> nextPageToken) (\s@ListConstraintsForPortfolioResponse' {} a -> s {nextPageToken = a} :: ListConstraintsForPortfolioResponse)
+
+-- | Information about the constraints.
+listConstraintsForPortfolioResponse_constraintDetails :: Lens.Lens' ListConstraintsForPortfolioResponse (Prelude.Maybe [ConstraintDetail])
+listConstraintsForPortfolioResponse_constraintDetails = Lens.lens (\ListConstraintsForPortfolioResponse' {constraintDetails} -> constraintDetails) (\s@ListConstraintsForPortfolioResponse' {} a -> s {constraintDetails = a} :: ListConstraintsForPortfolioResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listConstraintsForPortfolioResponse_httpStatus :: Lens.Lens' ListConstraintsForPortfolioResponse Prelude.Int

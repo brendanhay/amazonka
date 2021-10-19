@@ -27,9 +27,9 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProduct
     newDescribeProvisionedProduct,
 
     -- * Request Lenses
-    describeProvisionedProduct_id,
     describeProvisionedProduct_name,
     describeProvisionedProduct_acceptLanguage,
+    describeProvisionedProduct_id,
 
     -- * Destructuring the Response
     DescribeProvisionedProductResponse (..),
@@ -56,13 +56,7 @@ import Network.AWS.ServiceCatalog.Types
 --
 -- /See:/ 'newDescribeProvisionedProduct' smart constructor.
 data DescribeProvisionedProduct = DescribeProvisionedProduct'
-  { -- | The provisioned product identifier. You must provide the name or ID, but
-    -- not both.
-    --
-    -- If you do not provide a name or ID, or you provide both name and ID, an
-    -- @InvalidParametersException@ will occur.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the provisioned product. You must provide the name or ID,
+  { -- | The name of the provisioned product. You must provide the name or ID,
     -- but not both.
     --
     -- If you do not provide a name or ID, or you provide both name and ID, an
@@ -75,7 +69,13 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The provisioned product identifier. You must provide the name or ID, but
+    -- not both.
+    --
+    -- If you do not provide a name or ID, or you provide both name and ID, an
+    -- @InvalidParametersException@ will occur.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,12 +86,6 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'id', 'describeProvisionedProduct_id' - The provisioned product identifier. You must provide the name or ID, but
--- not both.
---
--- If you do not provide a name or ID, or you provide both name and ID, an
--- @InvalidParametersException@ will occur.
 --
 -- 'name', 'describeProvisionedProduct_name' - The name of the provisioned product. You must provide the name or ID,
 -- but not both.
@@ -106,22 +100,20 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-newDescribeProvisionedProduct ::
-  DescribeProvisionedProduct
-newDescribeProvisionedProduct =
-  DescribeProvisionedProduct'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
-    }
-
--- | The provisioned product identifier. You must provide the name or ID, but
+--
+-- 'id', 'describeProvisionedProduct_id' - The provisioned product identifier. You must provide the name or ID, but
 -- not both.
 --
 -- If you do not provide a name or ID, or you provide both name and ID, an
 -- @InvalidParametersException@ will occur.
-describeProvisionedProduct_id :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
-describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> id) (\s@DescribeProvisionedProduct' {} a -> s {id = a} :: DescribeProvisionedProduct)
+newDescribeProvisionedProduct ::
+  DescribeProvisionedProduct
+newDescribeProvisionedProduct =
+  DescribeProvisionedProduct'
+    { name = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      id = Prelude.Nothing
+    }
 
 -- | The name of the provisioned product. You must provide the name or ID,
 -- but not both.
@@ -140,6 +132,14 @@ describeProvisionedProduct_name = Lens.lens (\DescribeProvisionedProduct' {name}
 -- -   @zh@ - Chinese
 describeProvisionedProduct_acceptLanguage :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
 describeProvisionedProduct_acceptLanguage = Lens.lens (\DescribeProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisionedProduct' {} a -> s {acceptLanguage = a} :: DescribeProvisionedProduct)
+
+-- | The provisioned product identifier. You must provide the name or ID, but
+-- not both.
+--
+-- If you do not provide a name or ID, or you provide both name and ID, an
+-- @InvalidParametersException@ will occur.
+describeProvisionedProduct_id :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
+describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> id) (\s@DescribeProvisionedProduct' {} a -> s {id = a} :: DescribeProvisionedProduct)
 
 instance Core.AWSRequest DescribeProvisionedProduct where
   type
@@ -180,10 +180,10 @@ instance Core.ToJSON DescribeProvisionedProduct where
   toJSON DescribeProvisionedProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+              Prelude.<$> acceptLanguage,
+            ("Id" Core..=) Prelude.<$> id
           ]
       )
 
@@ -238,7 +238,7 @@ describeProvisionedProductResponse_provisionedProductDetail = Lens.lens (\Descri
 -- | Any CloudWatch dashboards that were created when provisioning the
 -- product.
 describeProvisionedProductResponse_cloudWatchDashboards :: Lens.Lens' DescribeProvisionedProductResponse (Prelude.Maybe [CloudWatchDashboard])
-describeProvisionedProductResponse_cloudWatchDashboards = Lens.lens (\DescribeProvisionedProductResponse' {cloudWatchDashboards} -> cloudWatchDashboards) (\s@DescribeProvisionedProductResponse' {} a -> s {cloudWatchDashboards = a} :: DescribeProvisionedProductResponse) Prelude.. Lens.mapping Lens._Coerce
+describeProvisionedProductResponse_cloudWatchDashboards = Lens.lens (\DescribeProvisionedProductResponse' {cloudWatchDashboards} -> cloudWatchDashboards) (\s@DescribeProvisionedProductResponse' {} a -> s {cloudWatchDashboards = a} :: DescribeProvisionedProductResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeProvisionedProductResponse_httpStatus :: Lens.Lens' DescribeProvisionedProductResponse Prelude.Int

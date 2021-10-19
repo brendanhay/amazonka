@@ -28,12 +28,12 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
     newDescribeProvisioningArtifact,
 
     -- * Request Lenses
-    describeProvisioningArtifact_provisioningArtifactName,
-    describeProvisioningArtifact_provisioningArtifactId,
     describeProvisioningArtifact_productName,
-    describeProvisioningArtifact_productId,
-    describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_provisioningArtifactId,
     describeProvisioningArtifact_verbose,
+    describeProvisioningArtifact_provisioningArtifactName,
+    describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_productId,
 
     -- * Destructuring the Response
     DescribeProvisioningArtifactResponse (..),
@@ -56,14 +56,14 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeProvisioningArtifact' smart constructor.
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
-  { -- | The provisioning artifact name.
-    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
+  { -- | The product name.
+    productName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioning artifact.
     provisioningArtifactId :: Prelude.Maybe Prelude.Text,
-    -- | The product name.
-    productName :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier.
-    productId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether a verbose level of detail is enabled.
+    verbose :: Prelude.Maybe Prelude.Bool,
+    -- | The provisioning artifact name.
+    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -72,8 +72,8 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether a verbose level of detail is enabled.
-    verbose :: Prelude.Maybe Prelude.Bool
+    -- | The product identifier.
+    productId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,13 +85,13 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisioningArtifactName', 'describeProvisioningArtifact_provisioningArtifactName' - The provisioning artifact name.
+-- 'productName', 'describeProvisioningArtifact_productName' - The product name.
 --
 -- 'provisioningArtifactId', 'describeProvisioningArtifact_provisioningArtifactId' - The identifier of the provisioning artifact.
 --
--- 'productName', 'describeProvisioningArtifact_productName' - The product name.
+-- 'verbose', 'describeProvisioningArtifact_verbose' - Indicates whether a verbose level of detail is enabled.
 --
--- 'productId', 'describeProvisioningArtifact_productId' - The product identifier.
+-- 'provisioningArtifactName', 'describeProvisioningArtifact_provisioningArtifactName' - The provisioning artifact name.
 --
 -- 'acceptLanguage', 'describeProvisioningArtifact_acceptLanguage' - The language code.
 --
@@ -101,35 +101,35 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 --
 -- -   @zh@ - Chinese
 --
--- 'verbose', 'describeProvisioningArtifact_verbose' - Indicates whether a verbose level of detail is enabled.
+-- 'productId', 'describeProvisioningArtifact_productId' - The product identifier.
 newDescribeProvisioningArtifact ::
   DescribeProvisioningArtifact
 newDescribeProvisioningArtifact =
   DescribeProvisioningArtifact'
-    { provisioningArtifactName =
+    { productName =
         Prelude.Nothing,
       provisioningArtifactId = Prelude.Nothing,
-      productName = Prelude.Nothing,
-      productId = Prelude.Nothing,
+      verbose = Prelude.Nothing,
+      provisioningArtifactName = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
-      verbose = Prelude.Nothing
+      productId = Prelude.Nothing
     }
-
--- | The provisioning artifact name.
-describeProvisioningArtifact_provisioningArtifactName :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
-describeProvisioningArtifact_provisioningArtifactName = Lens.lens (\DescribeProvisioningArtifact' {provisioningArtifactName} -> provisioningArtifactName) (\s@DescribeProvisioningArtifact' {} a -> s {provisioningArtifactName = a} :: DescribeProvisioningArtifact)
-
--- | The identifier of the provisioning artifact.
-describeProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
-describeProvisioningArtifact_provisioningArtifactId = Lens.lens (\DescribeProvisioningArtifact' {provisioningArtifactId} -> provisioningArtifactId) (\s@DescribeProvisioningArtifact' {} a -> s {provisioningArtifactId = a} :: DescribeProvisioningArtifact)
 
 -- | The product name.
 describeProvisioningArtifact_productName :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
 describeProvisioningArtifact_productName = Lens.lens (\DescribeProvisioningArtifact' {productName} -> productName) (\s@DescribeProvisioningArtifact' {} a -> s {productName = a} :: DescribeProvisioningArtifact)
 
--- | The product identifier.
-describeProvisioningArtifact_productId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
-describeProvisioningArtifact_productId = Lens.lens (\DescribeProvisioningArtifact' {productId} -> productId) (\s@DescribeProvisioningArtifact' {} a -> s {productId = a} :: DescribeProvisioningArtifact)
+-- | The identifier of the provisioning artifact.
+describeProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_provisioningArtifactId = Lens.lens (\DescribeProvisioningArtifact' {provisioningArtifactId} -> provisioningArtifactId) (\s@DescribeProvisioningArtifact' {} a -> s {provisioningArtifactId = a} :: DescribeProvisioningArtifact)
+
+-- | Indicates whether a verbose level of detail is enabled.
+describeProvisioningArtifact_verbose :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Bool)
+describeProvisioningArtifact_verbose = Lens.lens (\DescribeProvisioningArtifact' {verbose} -> verbose) (\s@DescribeProvisioningArtifact' {} a -> s {verbose = a} :: DescribeProvisioningArtifact)
+
+-- | The provisioning artifact name.
+describeProvisioningArtifact_provisioningArtifactName :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_provisioningArtifactName = Lens.lens (\DescribeProvisioningArtifact' {provisioningArtifactName} -> provisioningArtifactName) (\s@DescribeProvisioningArtifact' {} a -> s {provisioningArtifactName = a} :: DescribeProvisioningArtifact)
 
 -- | The language code.
 --
@@ -141,9 +141,9 @@ describeProvisioningArtifact_productId = Lens.lens (\DescribeProvisioningArtifac
 describeProvisioningArtifact_acceptLanguage :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
 describeProvisioningArtifact_acceptLanguage = Lens.lens (\DescribeProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisioningArtifact' {} a -> s {acceptLanguage = a} :: DescribeProvisioningArtifact)
 
--- | Indicates whether a verbose level of detail is enabled.
-describeProvisioningArtifact_verbose :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Bool)
-describeProvisioningArtifact_verbose = Lens.lens (\DescribeProvisioningArtifact' {verbose} -> verbose) (\s@DescribeProvisioningArtifact' {} a -> s {verbose = a} :: DescribeProvisioningArtifact)
+-- | The product identifier.
+describeProvisioningArtifact_productId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
+describeProvisioningArtifact_productId = Lens.lens (\DescribeProvisioningArtifact' {productId} -> productId) (\s@DescribeProvisioningArtifact' {} a -> s {productId = a} :: DescribeProvisioningArtifact)
 
 instance Core.AWSRequest DescribeProvisioningArtifact where
   type
@@ -185,15 +185,15 @@ instance Core.ToJSON DescribeProvisioningArtifact where
   toJSON DescribeProvisioningArtifact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProvisioningArtifactName" Core..=)
-              Prelude.<$> provisioningArtifactName,
+          [ ("ProductName" Core..=) Prelude.<$> productName,
             ("ProvisioningArtifactId" Core..=)
               Prelude.<$> provisioningArtifactId,
-            ("ProductName" Core..=) Prelude.<$> productName,
-            ("ProductId" Core..=) Prelude.<$> productId,
+            ("Verbose" Core..=) Prelude.<$> verbose,
+            ("ProvisioningArtifactName" Core..=)
+              Prelude.<$> provisioningArtifactName,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("Verbose" Core..=) Prelude.<$> verbose
+            ("ProductId" Core..=) Prelude.<$> productId
           ]
       )
 
@@ -251,7 +251,7 @@ describeProvisioningArtifactResponse_status = Lens.lens (\DescribeProvisioningAr
 
 -- | The URL of the CloudFormation template in Amazon S3.
 describeProvisioningArtifactResponse_info :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeProvisioningArtifactResponse_info = Lens.lens (\DescribeProvisioningArtifactResponse' {info} -> info) (\s@DescribeProvisioningArtifactResponse' {} a -> s {info = a} :: DescribeProvisioningArtifactResponse) Prelude.. Lens.mapping Lens._Coerce
+describeProvisioningArtifactResponse_info = Lens.lens (\DescribeProvisioningArtifactResponse' {info} -> info) (\s@DescribeProvisioningArtifactResponse' {} a -> s {info = a} :: DescribeProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the provisioning artifact.
 describeProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)

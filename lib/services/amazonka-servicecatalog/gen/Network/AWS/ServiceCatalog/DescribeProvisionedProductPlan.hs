@@ -27,9 +27,9 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
     newDescribeProvisionedProductPlan,
 
     -- * Request Lenses
-    describeProvisionedProductPlan_pageSize,
-    describeProvisionedProductPlan_pageToken,
     describeProvisionedProductPlan_acceptLanguage,
+    describeProvisionedProductPlan_pageToken,
+    describeProvisionedProductPlan_pageSize,
     describeProvisionedProductPlan_planId,
 
     -- * Destructuring the Response
@@ -37,9 +37,9 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
     newDescribeProvisionedProductPlanResponse,
 
     -- * Response Lenses
-    describeProvisionedProductPlanResponse_resourceChanges,
     describeProvisionedProductPlanResponse_nextPageToken,
     describeProvisionedProductPlanResponse_provisionedProductPlanDetails,
+    describeProvisionedProductPlanResponse_resourceChanges,
     describeProvisionedProductPlanResponse_httpStatus,
   )
 where
@@ -53,12 +53,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeProvisionedProductPlan' smart constructor.
 data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -66,6 +61,11 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The plan identifier.
     planId :: Prelude.Text
   }
@@ -79,11 +79,6 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'describeProvisionedProductPlan_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'describeProvisionedProductPlan_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'describeProvisionedProductPlan_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -92,6 +87,11 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageToken', 'describeProvisionedProductPlan_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'describeProvisionedProductPlan_pageSize' - The maximum number of items to return with this call.
+--
 -- 'planId', 'describeProvisionedProductPlan_planId' - The plan identifier.
 newDescribeProvisionedProductPlan ::
   -- | 'planId'
@@ -99,21 +99,12 @@ newDescribeProvisionedProductPlan ::
   DescribeProvisionedProductPlan
 newDescribeProvisionedProductPlan pPlanId_ =
   DescribeProvisionedProductPlan'
-    { pageSize =
+    { acceptLanguage =
         Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       planId = pPlanId_
     }
-
--- | The maximum number of items to return with this call.
-describeProvisionedProductPlan_pageSize :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Natural)
-describeProvisionedProductPlan_pageSize = Lens.lens (\DescribeProvisionedProductPlan' {pageSize} -> pageSize) (\s@DescribeProvisionedProductPlan' {} a -> s {pageSize = a} :: DescribeProvisionedProductPlan)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-describeProvisionedProductPlan_pageToken :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
-describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProductPlan' {pageToken} -> pageToken) (\s@DescribeProvisionedProductPlan' {} a -> s {pageToken = a} :: DescribeProvisionedProductPlan)
 
 -- | The language code.
 --
@@ -124,6 +115,15 @@ describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProduc
 -- -   @zh@ - Chinese
 describeProvisionedProductPlan_acceptLanguage :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 describeProvisionedProductPlan_acceptLanguage = Lens.lens (\DescribeProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: DescribeProvisionedProductPlan)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+describeProvisionedProductPlan_pageToken :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
+describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProductPlan' {pageToken} -> pageToken) (\s@DescribeProvisionedProductPlan' {} a -> s {pageToken = a} :: DescribeProvisionedProductPlan)
+
+-- | The maximum number of items to return with this call.
+describeProvisionedProductPlan_pageSize :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Natural)
+describeProvisionedProductPlan_pageSize = Lens.lens (\DescribeProvisionedProductPlan' {pageSize} -> pageSize) (\s@DescribeProvisionedProductPlan' {} a -> s {pageSize = a} :: DescribeProvisionedProductPlan)
 
 -- | The plan identifier.
 describeProvisionedProductPlan_planId :: Lens.Lens' DescribeProvisionedProductPlan Prelude.Text
@@ -141,11 +141,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisionedProductPlanResponse'
-            Prelude.<$> ( x Core..?> "ResourceChanges"
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "ProvisionedProductPlanDetails")
+            Prelude.<*> ( x Core..?> "ResourceChanges"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "ProvisionedProductPlanDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,10 +179,10 @@ instance Core.ToJSON DescribeProvisionedProductPlan where
   toJSON DescribeProvisionedProductPlan' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
             Prelude.Just ("PlanId" Core..= planId)
           ]
       )
@@ -195,14 +195,14 @@ instance Core.ToQuery DescribeProvisionedProductPlan where
 
 -- | /See:/ 'newDescribeProvisionedProductPlanResponse' smart constructor.
 data DescribeProvisionedProductPlanResponse = DescribeProvisionedProductPlanResponse'
-  { -- | Information about the resource changes that will occur when the plan is
-    -- executed.
-    resourceChanges :: Prelude.Maybe [ResourceChange],
-    -- | The page token to use to retrieve the next set of results. If there are
+  { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the plan.
     provisionedProductPlanDetails :: Prelude.Maybe ProvisionedProductPlanDetails,
+    -- | Information about the resource changes that will occur when the plan is
+    -- executed.
+    resourceChanges :: Prelude.Maybe [ResourceChange],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,13 +216,13 @@ data DescribeProvisionedProductPlanResponse = DescribeProvisionedProductPlanResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceChanges', 'describeProvisionedProductPlanResponse_resourceChanges' - Information about the resource changes that will occur when the plan is
--- executed.
---
 -- 'nextPageToken', 'describeProvisionedProductPlanResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 --
 -- 'provisionedProductPlanDetails', 'describeProvisionedProductPlanResponse_provisionedProductPlanDetails' - Information about the plan.
+--
+-- 'resourceChanges', 'describeProvisionedProductPlanResponse_resourceChanges' - Information about the resource changes that will occur when the plan is
+-- executed.
 --
 -- 'httpStatus', 'describeProvisionedProductPlanResponse_httpStatus' - The response's http status code.
 newDescribeProvisionedProductPlanResponse ::
@@ -232,18 +232,13 @@ newDescribeProvisionedProductPlanResponse ::
 newDescribeProvisionedProductPlanResponse
   pHttpStatus_ =
     DescribeProvisionedProductPlanResponse'
-      { resourceChanges =
+      { nextPageToken =
           Prelude.Nothing,
-        nextPageToken = Prelude.Nothing,
         provisionedProductPlanDetails =
           Prelude.Nothing,
+        resourceChanges = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the resource changes that will occur when the plan is
--- executed.
-describeProvisionedProductPlanResponse_resourceChanges :: Lens.Lens' DescribeProvisionedProductPlanResponse (Prelude.Maybe [ResourceChange])
-describeProvisionedProductPlanResponse_resourceChanges = Lens.lens (\DescribeProvisionedProductPlanResponse' {resourceChanges} -> resourceChanges) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {resourceChanges = a} :: DescribeProvisionedProductPlanResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
@@ -253,6 +248,11 @@ describeProvisionedProductPlanResponse_nextPageToken = Lens.lens (\DescribeProvi
 -- | Information about the plan.
 describeProvisionedProductPlanResponse_provisionedProductPlanDetails :: Lens.Lens' DescribeProvisionedProductPlanResponse (Prelude.Maybe ProvisionedProductPlanDetails)
 describeProvisionedProductPlanResponse_provisionedProductPlanDetails = Lens.lens (\DescribeProvisionedProductPlanResponse' {provisionedProductPlanDetails} -> provisionedProductPlanDetails) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {provisionedProductPlanDetails = a} :: DescribeProvisionedProductPlanResponse)
+
+-- | Information about the resource changes that will occur when the plan is
+-- executed.
+describeProvisionedProductPlanResponse_resourceChanges :: Lens.Lens' DescribeProvisionedProductPlanResponse (Prelude.Maybe [ResourceChange])
+describeProvisionedProductPlanResponse_resourceChanges = Lens.lens (\DescribeProvisionedProductPlanResponse' {resourceChanges} -> resourceChanges) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {resourceChanges = a} :: DescribeProvisionedProductPlanResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeProvisionedProductPlanResponse_httpStatus :: Lens.Lens' DescribeProvisionedProductPlanResponse Prelude.Int

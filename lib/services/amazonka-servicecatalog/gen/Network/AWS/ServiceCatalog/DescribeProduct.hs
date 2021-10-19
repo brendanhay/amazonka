@@ -27,18 +27,18 @@ module Network.AWS.ServiceCatalog.DescribeProduct
     newDescribeProduct,
 
     -- * Request Lenses
-    describeProduct_id,
     describeProduct_name,
     describeProduct_acceptLanguage,
+    describeProduct_id,
 
     -- * Destructuring the Response
     DescribeProductResponse (..),
     newDescribeProductResponse,
 
     -- * Response Lenses
+    describeProductResponse_productViewSummary,
     describeProductResponse_provisioningArtifacts,
     describeProductResponse_launchPaths,
-    describeProductResponse_productViewSummary,
     describeProductResponse_budgets,
     describeProductResponse_httpStatus,
   )
@@ -53,9 +53,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeProduct' smart constructor.
 data DescribeProduct = DescribeProduct'
-  { -- | The product identifier.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The product name.
+  { -- | The product name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
@@ -64,7 +62,9 @@ data DescribeProduct = DescribeProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,8 +76,6 @@ data DescribeProduct = DescribeProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'describeProduct_id' - The product identifier.
---
 -- 'name', 'describeProduct_name' - The product name.
 --
 -- 'acceptLanguage', 'describeProduct_acceptLanguage' - The language code.
@@ -87,18 +85,16 @@ data DescribeProduct = DescribeProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'id', 'describeProduct_id' - The product identifier.
 newDescribeProduct ::
   DescribeProduct
 newDescribeProduct =
   DescribeProduct'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+    { name = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The product identifier.
-describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
-describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
 
 -- | The product name.
 describeProduct_name :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
@@ -114,6 +110,10 @@ describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@Describe
 describeProduct_acceptLanguage :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_acceptLanguage = Lens.lens (\DescribeProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProduct' {} a -> s {acceptLanguage = a} :: DescribeProduct)
 
+-- | The product identifier.
+describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
+describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
+
 instance Core.AWSRequest DescribeProduct where
   type
     AWSResponse DescribeProduct =
@@ -123,11 +123,11 @@ instance Core.AWSRequest DescribeProduct where
     Response.receiveJSON
       ( \s h x ->
           DescribeProductResponse'
-            Prelude.<$> ( x Core..?> "ProvisioningArtifacts"
+            Prelude.<$> (x Core..?> "ProductViewSummary")
+            Prelude.<*> ( x Core..?> "ProvisioningArtifacts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "LaunchPaths" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ProductViewSummary")
             Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -155,10 +155,10 @@ instance Core.ToJSON DescribeProduct where
   toJSON DescribeProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+              Prelude.<$> acceptLanguage,
+            ("Id" Core..=) Prelude.<$> id
           ]
       )
 
@@ -170,12 +170,12 @@ instance Core.ToQuery DescribeProduct where
 
 -- | /See:/ 'newDescribeProductResponse' smart constructor.
 data DescribeProductResponse = DescribeProductResponse'
-  { -- | Information about the provisioning artifacts for the specified product.
+  { -- | Summary information about the product view.
+    productViewSummary :: Prelude.Maybe ProductViewSummary,
+    -- | Information about the provisioning artifacts for the specified product.
     provisioningArtifacts :: Prelude.Maybe [ProvisioningArtifact],
     -- | Information about the associated launch paths.
     launchPaths :: Prelude.Maybe [LaunchPath],
-    -- | Summary information about the product view.
-    productViewSummary :: Prelude.Maybe ProductViewSummary,
     -- | Information about the associated budgets.
     budgets :: Prelude.Maybe [BudgetDetail],
     -- | The response's http status code.
@@ -191,11 +191,11 @@ data DescribeProductResponse = DescribeProductResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'productViewSummary', 'describeProductResponse_productViewSummary' - Summary information about the product view.
+--
 -- 'provisioningArtifacts', 'describeProductResponse_provisioningArtifacts' - Information about the provisioning artifacts for the specified product.
 --
 -- 'launchPaths', 'describeProductResponse_launchPaths' - Information about the associated launch paths.
---
--- 'productViewSummary', 'describeProductResponse_productViewSummary' - Summary information about the product view.
 --
 -- 'budgets', 'describeProductResponse_budgets' - Information about the associated budgets.
 --
@@ -206,29 +206,29 @@ newDescribeProductResponse ::
   DescribeProductResponse
 newDescribeProductResponse pHttpStatus_ =
   DescribeProductResponse'
-    { provisioningArtifacts =
+    { productViewSummary =
         Prelude.Nothing,
+      provisioningArtifacts = Prelude.Nothing,
       launchPaths = Prelude.Nothing,
-      productViewSummary = Prelude.Nothing,
       budgets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the provisioning artifacts for the specified product.
-describeProductResponse_provisioningArtifacts :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [ProvisioningArtifact])
-describeProductResponse_provisioningArtifacts = Lens.lens (\DescribeProductResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Information about the associated launch paths.
-describeProductResponse_launchPaths :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [LaunchPath])
-describeProductResponse_launchPaths = Lens.lens (\DescribeProductResponse' {launchPaths} -> launchPaths) (\s@DescribeProductResponse' {} a -> s {launchPaths = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Summary information about the product view.
 describeProductResponse_productViewSummary :: Lens.Lens' DescribeProductResponse (Prelude.Maybe ProductViewSummary)
 describeProductResponse_productViewSummary = Lens.lens (\DescribeProductResponse' {productViewSummary} -> productViewSummary) (\s@DescribeProductResponse' {} a -> s {productViewSummary = a} :: DescribeProductResponse)
 
+-- | Information about the provisioning artifacts for the specified product.
+describeProductResponse_provisioningArtifacts :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [ProvisioningArtifact])
+describeProductResponse_provisioningArtifacts = Lens.lens (\DescribeProductResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the associated launch paths.
+describeProductResponse_launchPaths :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [LaunchPath])
+describeProductResponse_launchPaths = Lens.lens (\DescribeProductResponse' {launchPaths} -> launchPaths) (\s@DescribeProductResponse' {} a -> s {launchPaths = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Information about the associated budgets.
 describeProductResponse_budgets :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [BudgetDetail])
-describeProductResponse_budgets = Lens.lens (\DescribeProductResponse' {budgets} -> budgets) (\s@DescribeProductResponse' {} a -> s {budgets = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens._Coerce
+describeProductResponse_budgets = Lens.lens (\DescribeProductResponse' {budgets} -> budgets) (\s@DescribeProductResponse' {} a -> s {budgets = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeProductResponse_httpStatus :: Lens.Lens' DescribeProductResponse Prelude.Int

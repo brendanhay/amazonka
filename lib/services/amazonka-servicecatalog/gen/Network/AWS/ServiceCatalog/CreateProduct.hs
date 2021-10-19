@@ -34,13 +34,13 @@ module Network.AWS.ServiceCatalog.CreateProduct
     newCreateProduct,
 
     -- * Request Lenses
-    createProduct_distributor,
     createProduct_supportUrl,
+    createProduct_distributor,
+    createProduct_acceptLanguage,
+    createProduct_supportEmail,
+    createProduct_description,
     createProduct_tags,
     createProduct_supportDescription,
-    createProduct_description,
-    createProduct_supportEmail,
-    createProduct_acceptLanguage,
     createProduct_name,
     createProduct_owner,
     createProduct_productType,
@@ -68,20 +68,12 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateProduct' smart constructor.
 data CreateProduct = CreateProduct'
-  { -- | The distributor of the product.
-    distributor :: Prelude.Maybe Prelude.Text,
-    -- | The contact URL for product support.
+  { -- | The contact URL for product support.
     --
     -- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
     supportUrl :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | The support information about the product.
-    supportDescription :: Prelude.Maybe Prelude.Text,
-    -- | The description of the product.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The contact email for product support.
-    supportEmail :: Prelude.Maybe Prelude.Text,
+    -- | The distributor of the product.
+    distributor :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -90,6 +82,14 @@ data CreateProduct = CreateProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The contact email for product support.
+    supportEmail :: Prelude.Maybe Prelude.Text,
+    -- | The description of the product.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | The support information about the product.
+    supportDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the product.
     name :: Prelude.Text,
     -- | The owner of the product.
@@ -113,19 +113,11 @@ data CreateProduct = CreateProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'distributor', 'createProduct_distributor' - The distributor of the product.
---
 -- 'supportUrl', 'createProduct_supportUrl' - The contact URL for product support.
 --
 -- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
 --
--- 'tags', 'createProduct_tags' - One or more tags.
---
--- 'supportDescription', 'createProduct_supportDescription' - The support information about the product.
---
--- 'description', 'createProduct_description' - The description of the product.
---
--- 'supportEmail', 'createProduct_supportEmail' - The contact email for product support.
+-- 'distributor', 'createProduct_distributor' - The distributor of the product.
 --
 -- 'acceptLanguage', 'createProduct_acceptLanguage' - The language code.
 --
@@ -134,6 +126,14 @@ data CreateProduct = CreateProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'supportEmail', 'createProduct_supportEmail' - The contact email for product support.
+--
+-- 'description', 'createProduct_description' - The description of the product.
+--
+-- 'tags', 'createProduct_tags' - One or more tags.
+--
+-- 'supportDescription', 'createProduct_supportDescription' - The support information about the product.
 --
 -- 'name', 'createProduct_name' - The name of the product.
 --
@@ -165,13 +165,13 @@ newCreateProduct
   pProvisioningArtifactParameters_
   pIdempotencyToken_ =
     CreateProduct'
-      { distributor = Prelude.Nothing,
-        supportUrl = Prelude.Nothing,
+      { supportUrl = Prelude.Nothing,
+        distributor = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
+        supportEmail = Prelude.Nothing,
+        description = Prelude.Nothing,
         tags = Prelude.Nothing,
         supportDescription = Prelude.Nothing,
-        description = Prelude.Nothing,
-        supportEmail = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
         name = pName_,
         owner = pOwner_,
         productType = pProductType_,
@@ -180,31 +180,15 @@ newCreateProduct
         idempotencyToken = pIdempotencyToken_
       }
 
--- | The distributor of the product.
-createProduct_distributor :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_distributor = Lens.lens (\CreateProduct' {distributor} -> distributor) (\s@CreateProduct' {} a -> s {distributor = a} :: CreateProduct)
-
 -- | The contact URL for product support.
 --
 -- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
 createProduct_supportUrl :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
 createProduct_supportUrl = Lens.lens (\CreateProduct' {supportUrl} -> supportUrl) (\s@CreateProduct' {} a -> s {supportUrl = a} :: CreateProduct)
 
--- | One or more tags.
-createProduct_tags :: Lens.Lens' CreateProduct (Prelude.Maybe [Tag])
-createProduct_tags = Lens.lens (\CreateProduct' {tags} -> tags) (\s@CreateProduct' {} a -> s {tags = a} :: CreateProduct) Prelude.. Lens.mapping Lens._Coerce
-
--- | The support information about the product.
-createProduct_supportDescription :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_supportDescription = Lens.lens (\CreateProduct' {supportDescription} -> supportDescription) (\s@CreateProduct' {} a -> s {supportDescription = a} :: CreateProduct)
-
--- | The description of the product.
-createProduct_description :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_description = Lens.lens (\CreateProduct' {description} -> description) (\s@CreateProduct' {} a -> s {description = a} :: CreateProduct)
-
--- | The contact email for product support.
-createProduct_supportEmail :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_supportEmail = Lens.lens (\CreateProduct' {supportEmail} -> supportEmail) (\s@CreateProduct' {} a -> s {supportEmail = a} :: CreateProduct)
+-- | The distributor of the product.
+createProduct_distributor :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_distributor = Lens.lens (\CreateProduct' {distributor} -> distributor) (\s@CreateProduct' {} a -> s {distributor = a} :: CreateProduct)
 
 -- | The language code.
 --
@@ -215,6 +199,22 @@ createProduct_supportEmail = Lens.lens (\CreateProduct' {supportEmail} -> suppor
 -- -   @zh@ - Chinese
 createProduct_acceptLanguage :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
 createProduct_acceptLanguage = Lens.lens (\CreateProduct' {acceptLanguage} -> acceptLanguage) (\s@CreateProduct' {} a -> s {acceptLanguage = a} :: CreateProduct)
+
+-- | The contact email for product support.
+createProduct_supportEmail :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_supportEmail = Lens.lens (\CreateProduct' {supportEmail} -> supportEmail) (\s@CreateProduct' {} a -> s {supportEmail = a} :: CreateProduct)
+
+-- | The description of the product.
+createProduct_description :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_description = Lens.lens (\CreateProduct' {description} -> description) (\s@CreateProduct' {} a -> s {description = a} :: CreateProduct)
+
+-- | One or more tags.
+createProduct_tags :: Lens.Lens' CreateProduct (Prelude.Maybe [Tag])
+createProduct_tags = Lens.lens (\CreateProduct' {tags} -> tags) (\s@CreateProduct' {} a -> s {tags = a} :: CreateProduct) Prelude.. Lens.mapping Lens.coerced
+
+-- | The support information about the product.
+createProduct_supportDescription :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_supportDescription = Lens.lens (\CreateProduct' {supportDescription} -> supportDescription) (\s@CreateProduct' {} a -> s {supportDescription = a} :: CreateProduct)
 
 -- | The name of the product.
 createProduct_name :: Lens.Lens' CreateProduct Prelude.Text
@@ -276,15 +276,15 @@ instance Core.ToJSON CreateProduct where
   toJSON CreateProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Distributor" Core..=) Prelude.<$> distributor,
-            ("SupportUrl" Core..=) Prelude.<$> supportUrl,
+          [ ("SupportUrl" Core..=) Prelude.<$> supportUrl,
+            ("Distributor" Core..=) Prelude.<$> distributor,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            ("SupportEmail" Core..=) Prelude.<$> supportEmail,
+            ("Description" Core..=) Prelude.<$> description,
             ("Tags" Core..=) Prelude.<$> tags,
             ("SupportDescription" Core..=)
               Prelude.<$> supportDescription,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SupportEmail" Core..=) Prelude.<$> supportEmail,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Owner" Core..= owner),
             Prelude.Just ("ProductType" Core..= productType),
@@ -354,7 +354,7 @@ createProductResponse_provisioningArtifactDetail = Lens.lens (\CreateProductResp
 
 -- | Information about the tags associated with the product.
 createProductResponse_tags :: Lens.Lens' CreateProductResponse (Prelude.Maybe [Tag])
-createProductResponse_tags = Lens.lens (\CreateProductResponse' {tags} -> tags) (\s@CreateProductResponse' {} a -> s {tags = a} :: CreateProductResponse) Prelude.. Lens.mapping Lens._Coerce
+createProductResponse_tags = Lens.lens (\CreateProductResponse' {tags} -> tags) (\s@CreateProductResponse' {} a -> s {tags = a} :: CreateProductResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createProductResponse_httpStatus :: Lens.Lens' CreateProductResponse Prelude.Int

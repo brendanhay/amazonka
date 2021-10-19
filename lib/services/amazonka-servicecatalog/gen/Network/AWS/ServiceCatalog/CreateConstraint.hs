@@ -29,8 +29,8 @@ module Network.AWS.ServiceCatalog.CreateConstraint
     newCreateConstraint,
 
     -- * Request Lenses
-    createConstraint_description,
     createConstraint_acceptLanguage,
+    createConstraint_description,
     createConstraint_portfolioId,
     createConstraint_productId,
     createConstraint_parameters,
@@ -42,9 +42,9 @@ module Network.AWS.ServiceCatalog.CreateConstraint
     newCreateConstraintResponse,
 
     -- * Response Lenses
-    createConstraintResponse_constraintParameters,
-    createConstraintResponse_constraintDetail,
     createConstraintResponse_status,
+    createConstraintResponse_constraintDetail,
+    createConstraintResponse_constraintParameters,
     createConstraintResponse_httpStatus,
   )
 where
@@ -58,9 +58,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
-  { -- | The description of the constraint.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -68,6 +66,8 @@ data CreateConstraint = CreateConstraint'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The description of the constraint.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text,
     -- | The product identifier.
@@ -159,8 +159,6 @@ data CreateConstraint = CreateConstraint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createConstraint_description' - The description of the constraint.
---
 -- 'acceptLanguage', 'createConstraint_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -168,6 +166,8 @@ data CreateConstraint = CreateConstraint'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'description', 'createConstraint_description' - The description of the constraint.
 --
 -- 'portfolioId', 'createConstraint_portfolioId' - The portfolio identifier.
 --
@@ -267,18 +267,14 @@ newCreateConstraint
   pType_
   pIdempotencyToken_ =
     CreateConstraint'
-      { description = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+      { acceptLanguage = Prelude.Nothing,
+        description = Prelude.Nothing,
         portfolioId = pPortfolioId_,
         productId = pProductId_,
         parameters = pParameters_,
         type' = pType_,
         idempotencyToken = pIdempotencyToken_
       }
-
--- | The description of the constraint.
-createConstraint_description :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
-createConstraint_description = Lens.lens (\CreateConstraint' {description} -> description) (\s@CreateConstraint' {} a -> s {description = a} :: CreateConstraint)
 
 -- | The language code.
 --
@@ -289,6 +285,10 @@ createConstraint_description = Lens.lens (\CreateConstraint' {description} -> de
 -- -   @zh@ - Chinese
 createConstraint_acceptLanguage :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
 createConstraint_acceptLanguage = Lens.lens (\CreateConstraint' {acceptLanguage} -> acceptLanguage) (\s@CreateConstraint' {} a -> s {acceptLanguage = a} :: CreateConstraint)
+
+-- | The description of the constraint.
+createConstraint_description :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
+createConstraint_description = Lens.lens (\CreateConstraint' {description} -> description) (\s@CreateConstraint' {} a -> s {description = a} :: CreateConstraint)
 
 -- | The portfolio identifier.
 createConstraint_portfolioId :: Lens.Lens' CreateConstraint Prelude.Text
@@ -389,9 +389,9 @@ instance Core.AWSRequest CreateConstraint where
     Response.receiveJSON
       ( \s h x ->
           CreateConstraintResponse'
-            Prelude.<$> (x Core..?> "ConstraintParameters")
+            Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ConstraintDetail")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -418,9 +418,9 @@ instance Core.ToJSON CreateConstraint where
   toJSON CreateConstraint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("PortfolioId" Core..= portfolioId),
             Prelude.Just ("ProductId" Core..= productId),
             Prelude.Just ("Parameters" Core..= parameters),
@@ -438,12 +438,12 @@ instance Core.ToQuery CreateConstraint where
 
 -- | /See:/ 'newCreateConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-  { -- | The constraint parameters.
-    constraintParameters :: Prelude.Maybe Prelude.Text,
+  { -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | Information about the constraint.
     constraintDetail :: Prelude.Maybe ConstraintDetail,
-    -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
+    -- | The constraint parameters.
+    constraintParameters :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -457,11 +457,11 @@ data CreateConstraintResponse = CreateConstraintResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraintParameters', 'createConstraintResponse_constraintParameters' - The constraint parameters.
+-- 'status', 'createConstraintResponse_status' - The status of the current request.
 --
 -- 'constraintDetail', 'createConstraintResponse_constraintDetail' - Information about the constraint.
 --
--- 'status', 'createConstraintResponse_status' - The status of the current request.
+-- 'constraintParameters', 'createConstraintResponse_constraintParameters' - The constraint parameters.
 --
 -- 'httpStatus', 'createConstraintResponse_httpStatus' - The response's http status code.
 newCreateConstraintResponse ::
@@ -470,24 +470,23 @@ newCreateConstraintResponse ::
   CreateConstraintResponse
 newCreateConstraintResponse pHttpStatus_ =
   CreateConstraintResponse'
-    { constraintParameters =
-        Prelude.Nothing,
+    { status = Prelude.Nothing,
       constraintDetail = Prelude.Nothing,
-      status = Prelude.Nothing,
+      constraintParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The constraint parameters.
-createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe Prelude.Text)
-createConstraintResponse_constraintParameters = Lens.lens (\CreateConstraintResponse' {constraintParameters} -> constraintParameters) (\s@CreateConstraintResponse' {} a -> s {constraintParameters = a} :: CreateConstraintResponse)
+-- | The status of the current request.
+createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
+createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
 
 -- | Information about the constraint.
 createConstraintResponse_constraintDetail :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe ConstraintDetail)
 createConstraintResponse_constraintDetail = Lens.lens (\CreateConstraintResponse' {constraintDetail} -> constraintDetail) (\s@CreateConstraintResponse' {} a -> s {constraintDetail = a} :: CreateConstraintResponse)
 
--- | The status of the current request.
-createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
-createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
+-- | The constraint parameters.
+createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe Prelude.Text)
+createConstraintResponse_constraintParameters = Lens.lens (\CreateConstraintResponse' {constraintParameters} -> constraintParameters) (\s@CreateConstraintResponse' {} a -> s {constraintParameters = a} :: CreateConstraintResponse)
 
 -- | The response's http status code.
 createConstraintResponse_httpStatus :: Lens.Lens' CreateConstraintResponse Prelude.Int

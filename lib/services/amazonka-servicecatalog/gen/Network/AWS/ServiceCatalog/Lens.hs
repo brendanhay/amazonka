@@ -14,81 +14,6 @@
 module Network.AWS.ServiceCatalog.Lens
   ( -- * Operations
 
-    -- ** ListOrganizationPortfolioAccess
-    listOrganizationPortfolioAccess_pageSize,
-    listOrganizationPortfolioAccess_pageToken,
-    listOrganizationPortfolioAccess_acceptLanguage,
-    listOrganizationPortfolioAccess_portfolioId,
-    listOrganizationPortfolioAccess_organizationNodeType,
-    listOrganizationPortfolioAccessResponse_organizationNodes,
-    listOrganizationPortfolioAccessResponse_nextPageToken,
-    listOrganizationPortfolioAccessResponse_httpStatus,
-
-    -- ** ListAcceptedPortfolioShares
-    listAcceptedPortfolioShares_portfolioShareType,
-    listAcceptedPortfolioShares_pageSize,
-    listAcceptedPortfolioShares_pageToken,
-    listAcceptedPortfolioShares_acceptLanguage,
-    listAcceptedPortfolioSharesResponse_portfolioDetails,
-    listAcceptedPortfolioSharesResponse_nextPageToken,
-    listAcceptedPortfolioSharesResponse_httpStatus,
-
-    -- ** DisassociateTagOptionFromResource
-    disassociateTagOptionFromResource_resourceId,
-    disassociateTagOptionFromResource_tagOptionId,
-    disassociateTagOptionFromResourceResponse_httpStatus,
-
-    -- ** DescribePortfolio
-    describePortfolio_acceptLanguage,
-    describePortfolio_id,
-    describePortfolioResponse_tags,
-    describePortfolioResponse_budgets,
-    describePortfolioResponse_portfolioDetail,
-    describePortfolioResponse_tagOptions,
-    describePortfolioResponse_httpStatus,
-
-    -- ** ExecuteProvisionedProductServiceAction
-    executeProvisionedProductServiceAction_acceptLanguage,
-    executeProvisionedProductServiceAction_parameters,
-    executeProvisionedProductServiceAction_provisionedProductId,
-    executeProvisionedProductServiceAction_serviceActionId,
-    executeProvisionedProductServiceAction_executeToken,
-    executeProvisionedProductServiceActionResponse_recordDetail,
-    executeProvisionedProductServiceActionResponse_httpStatus,
-
-    -- ** ExecuteProvisionedProductPlan
-    executeProvisionedProductPlan_acceptLanguage,
-    executeProvisionedProductPlan_planId,
-    executeProvisionedProductPlan_idempotencyToken,
-    executeProvisionedProductPlanResponse_recordDetail,
-    executeProvisionedProductPlanResponse_httpStatus,
-
-    -- ** ScanProvisionedProducts
-    scanProvisionedProducts_pageSize,
-    scanProvisionedProducts_pageToken,
-    scanProvisionedProducts_accessLevelFilter,
-    scanProvisionedProducts_acceptLanguage,
-    scanProvisionedProductsResponse_provisionedProducts,
-    scanProvisionedProductsResponse_nextPageToken,
-    scanProvisionedProductsResponse_httpStatus,
-
-    -- ** AssociateProductWithPortfolio
-    associateProductWithPortfolio_acceptLanguage,
-    associateProductWithPortfolio_sourcePortfolioId,
-    associateProductWithPortfolio_productId,
-    associateProductWithPortfolio_portfolioId,
-    associateProductWithPortfolioResponse_httpStatus,
-
-    -- ** UpdateConstraint
-    updateConstraint_description,
-    updateConstraint_acceptLanguage,
-    updateConstraint_parameters,
-    updateConstraint_id,
-    updateConstraintResponse_constraintParameters,
-    updateConstraintResponse_constraintDetail,
-    updateConstraintResponse_status,
-    updateConstraintResponse_httpStatus,
-
     -- ** ImportAsProvisionedProduct
     importAsProvisionedProduct_acceptLanguage,
     importAsProvisionedProduct_productId,
@@ -99,240 +24,207 @@ module Network.AWS.ServiceCatalog.Lens
     importAsProvisionedProductResponse_recordDetail,
     importAsProvisionedProductResponse_httpStatus,
 
+    -- ** DeleteConstraint
+    deleteConstraint_acceptLanguage,
+    deleteConstraint_id,
+    deleteConstraintResponse_httpStatus,
+
+    -- ** UpdateConstraint
+    updateConstraint_acceptLanguage,
+    updateConstraint_parameters,
+    updateConstraint_description,
+    updateConstraint_id,
+    updateConstraintResponse_status,
+    updateConstraintResponse_constraintDetail,
+    updateConstraintResponse_constraintParameters,
+    updateConstraintResponse_httpStatus,
+
     -- ** CreateProvisionedProductPlan
     createProvisionedProductPlan_notificationArns,
-    createProvisionedProductPlan_tags,
-    createProvisionedProductPlan_provisioningParameters,
-    createProvisionedProductPlan_pathId,
     createProvisionedProductPlan_acceptLanguage,
+    createProvisionedProductPlan_pathId,
+    createProvisionedProductPlan_provisioningParameters,
+    createProvisionedProductPlan_tags,
     createProvisionedProductPlan_planName,
     createProvisionedProductPlan_planType,
     createProvisionedProductPlan_productId,
     createProvisionedProductPlan_provisionedProductName,
     createProvisionedProductPlan_provisioningArtifactId,
     createProvisionedProductPlan_idempotencyToken,
-    createProvisionedProductPlanResponse_provisionProductId,
     createProvisionedProductPlanResponse_provisionedProductName,
+    createProvisionedProductPlanResponse_provisionProductId,
     createProvisionedProductPlanResponse_provisioningArtifactId,
-    createProvisionedProductPlanResponse_planName,
     createProvisionedProductPlanResponse_planId,
+    createProvisionedProductPlanResponse_planName,
     createProvisionedProductPlanResponse_httpStatus,
 
-    -- ** DescribeTagOption
-    describeTagOption_id,
-    describeTagOptionResponse_tagOptionDetail,
-    describeTagOptionResponse_httpStatus,
+    -- ** ExecuteProvisionedProductServiceAction
+    executeProvisionedProductServiceAction_acceptLanguage,
+    executeProvisionedProductServiceAction_parameters,
+    executeProvisionedProductServiceAction_provisionedProductId,
+    executeProvisionedProductServiceAction_serviceActionId,
+    executeProvisionedProductServiceAction_executeToken,
+    executeProvisionedProductServiceActionResponse_recordDetail,
+    executeProvisionedProductServiceActionResponse_httpStatus,
 
-    -- ** DeleteConstraint
-    deleteConstraint_acceptLanguage,
-    deleteConstraint_id,
-    deleteConstraintResponse_httpStatus,
+    -- ** CreateProduct
+    createProduct_supportUrl,
+    createProduct_distributor,
+    createProduct_acceptLanguage,
+    createProduct_supportEmail,
+    createProduct_description,
+    createProduct_tags,
+    createProduct_supportDescription,
+    createProduct_name,
+    createProduct_owner,
+    createProduct_productType,
+    createProduct_provisioningArtifactParameters,
+    createProduct_idempotencyToken,
+    createProductResponse_productViewDetail,
+    createProductResponse_provisioningArtifactDetail,
+    createProductResponse_tags,
+    createProductResponse_httpStatus,
 
-    -- ** ListPortfolioAccess
-    listPortfolioAccess_pageSize,
-    listPortfolioAccess_pageToken,
-    listPortfolioAccess_organizationParentId,
-    listPortfolioAccess_acceptLanguage,
-    listPortfolioAccess_portfolioId,
-    listPortfolioAccessResponse_accountIds,
-    listPortfolioAccessResponse_nextPageToken,
-    listPortfolioAccessResponse_httpStatus,
+    -- ** DescribeCopyProductStatus
+    describeCopyProductStatus_acceptLanguage,
+    describeCopyProductStatus_copyProductToken,
+    describeCopyProductStatusResponse_targetProductId,
+    describeCopyProductStatusResponse_copyProductStatus,
+    describeCopyProductStatusResponse_statusDetail,
+    describeCopyProductStatusResponse_httpStatus,
 
-    -- ** DeleteProvisionedProductPlan
-    deleteProvisionedProductPlan_ignoreErrors,
-    deleteProvisionedProductPlan_acceptLanguage,
-    deleteProvisionedProductPlan_planId,
-    deleteProvisionedProductPlanResponse_httpStatus,
+    -- ** CreateServiceAction
+    createServiceAction_acceptLanguage,
+    createServiceAction_description,
+    createServiceAction_name,
+    createServiceAction_definitionType,
+    createServiceAction_definition,
+    createServiceAction_idempotencyToken,
+    createServiceActionResponse_serviceActionDetail,
+    createServiceActionResponse_httpStatus,
 
-    -- ** AssociateBudgetWithResource
-    associateBudgetWithResource_budgetName,
-    associateBudgetWithResource_resourceId,
-    associateBudgetWithResourceResponse_httpStatus,
+    -- ** TerminateProvisionedProduct
+    terminateProvisionedProduct_provisionedProductName,
+    terminateProvisionedProduct_retainPhysicalResources,
+    terminateProvisionedProduct_acceptLanguage,
+    terminateProvisionedProduct_ignoreErrors,
+    terminateProvisionedProduct_provisionedProductId,
+    terminateProvisionedProduct_terminateToken,
+    terminateProvisionedProductResponse_recordDetail,
+    terminateProvisionedProductResponse_httpStatus,
 
-    -- ** GetProvisionedProductOutputs
-    getProvisionedProductOutputs_provisionedProductName,
-    getProvisionedProductOutputs_pageSize,
-    getProvisionedProductOutputs_provisionedProductId,
-    getProvisionedProductOutputs_outputKeys,
-    getProvisionedProductOutputs_pageToken,
-    getProvisionedProductOutputs_acceptLanguage,
-    getProvisionedProductOutputsResponse_outputs,
-    getProvisionedProductOutputsResponse_nextPageToken,
-    getProvisionedProductOutputsResponse_httpStatus,
+    -- ** UpdateProvisionedProduct
+    updateProvisionedProduct_productName,
+    updateProvisionedProduct_provisionedProductName,
+    updateProvisionedProduct_provisioningArtifactId,
+    updateProvisionedProduct_provisioningArtifactName,
+    updateProvisionedProduct_pathName,
+    updateProvisionedProduct_acceptLanguage,
+    updateProvisionedProduct_pathId,
+    updateProvisionedProduct_provisioningParameters,
+    updateProvisionedProduct_provisionedProductId,
+    updateProvisionedProduct_productId,
+    updateProvisionedProduct_tags,
+    updateProvisionedProduct_provisioningPreferences,
+    updateProvisionedProduct_updateToken,
+    updateProvisionedProductResponse_recordDetail,
+    updateProvisionedProductResponse_httpStatus,
 
-    -- ** ListResourcesForTagOption
-    listResourcesForTagOption_pageSize,
-    listResourcesForTagOption_pageToken,
-    listResourcesForTagOption_resourceType,
-    listResourcesForTagOption_tagOptionId,
-    listResourcesForTagOptionResponse_pageToken,
-    listResourcesForTagOptionResponse_resourceDetails,
-    listResourcesForTagOptionResponse_httpStatus,
+    -- ** DescribeProvisioningArtifact
+    describeProvisioningArtifact_productName,
+    describeProvisioningArtifact_provisioningArtifactId,
+    describeProvisioningArtifact_verbose,
+    describeProvisioningArtifact_provisioningArtifactName,
+    describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_productId,
+    describeProvisioningArtifactResponse_status,
+    describeProvisioningArtifactResponse_info,
+    describeProvisioningArtifactResponse_provisioningArtifactDetail,
+    describeProvisioningArtifactResponse_httpStatus,
 
-    -- ** ListLaunchPaths
-    listLaunchPaths_pageSize,
-    listLaunchPaths_pageToken,
-    listLaunchPaths_acceptLanguage,
-    listLaunchPaths_productId,
-    listLaunchPathsResponse_launchPathSummaries,
-    listLaunchPathsResponse_nextPageToken,
-    listLaunchPathsResponse_httpStatus,
+    -- ** AssociateServiceActionWithProvisioningArtifact
+    associateServiceActionWithProvisioningArtifact_acceptLanguage,
+    associateServiceActionWithProvisioningArtifact_productId,
+    associateServiceActionWithProvisioningArtifact_provisioningArtifactId,
+    associateServiceActionWithProvisioningArtifact_serviceActionId,
+    associateServiceActionWithProvisioningArtifactResponse_httpStatus,
 
-    -- ** CreateConstraint
-    createConstraint_description,
-    createConstraint_acceptLanguage,
-    createConstraint_portfolioId,
-    createConstraint_productId,
-    createConstraint_parameters,
-    createConstraint_type,
-    createConstraint_idempotencyToken,
-    createConstraintResponse_constraintParameters,
-    createConstraintResponse_constraintDetail,
-    createConstraintResponse_status,
-    createConstraintResponse_httpStatus,
+    -- ** ListRecordHistory
+    listRecordHistory_searchFilter,
+    listRecordHistory_acceptLanguage,
+    listRecordHistory_accessLevelFilter,
+    listRecordHistory_pageToken,
+    listRecordHistory_pageSize,
+    listRecordHistoryResponse_nextPageToken,
+    listRecordHistoryResponse_recordDetails,
+    listRecordHistoryResponse_httpStatus,
 
-    -- ** DescribePortfolioShares
-    describePortfolioShares_pageSize,
-    describePortfolioShares_pageToken,
-    describePortfolioShares_portfolioId,
-    describePortfolioShares_type,
-    describePortfolioSharesResponse_nextPageToken,
-    describePortfolioSharesResponse_portfolioShareDetails,
-    describePortfolioSharesResponse_httpStatus,
+    -- ** DescribeProvisionedProductPlan
+    describeProvisionedProductPlan_acceptLanguage,
+    describeProvisionedProductPlan_pageToken,
+    describeProvisionedProductPlan_pageSize,
+    describeProvisionedProductPlan_planId,
+    describeProvisionedProductPlanResponse_nextPageToken,
+    describeProvisionedProductPlanResponse_provisionedProductPlanDetails,
+    describeProvisionedProductPlanResponse_resourceChanges,
+    describeProvisionedProductPlanResponse_httpStatus,
 
-    -- ** DescribeProvisioningParameters
-    describeProvisioningParameters_provisioningArtifactName,
-    describeProvisioningParameters_provisioningArtifactId,
-    describeProvisioningParameters_productName,
-    describeProvisioningParameters_productId,
-    describeProvisioningParameters_pathId,
-    describeProvisioningParameters_acceptLanguage,
-    describeProvisioningParameters_pathName,
-    describeProvisioningParametersResponse_constraintSummaries,
-    describeProvisioningParametersResponse_usageInstructions,
-    describeProvisioningParametersResponse_provisioningArtifactOutputs,
-    describeProvisioningParametersResponse_provisioningArtifactPreferences,
-    describeProvisioningParametersResponse_provisioningArtifactParameters,
-    describeProvisioningParametersResponse_tagOptions,
-    describeProvisioningParametersResponse_httpStatus,
+    -- ** AssociateTagOptionWithResource
+    associateTagOptionWithResource_resourceId,
+    associateTagOptionWithResource_tagOptionId,
+    associateTagOptionWithResourceResponse_httpStatus,
 
-    -- ** DeleteProvisioningArtifact
-    deleteProvisioningArtifact_acceptLanguage,
-    deleteProvisioningArtifact_productId,
-    deleteProvisioningArtifact_provisioningArtifactId,
-    deleteProvisioningArtifactResponse_httpStatus,
+    -- ** CreateTagOption
+    createTagOption_key,
+    createTagOption_value,
+    createTagOptionResponse_tagOptionDetail,
+    createTagOptionResponse_httpStatus,
 
-    -- ** UpdateProvisioningArtifact
-    updateProvisioningArtifact_guidance,
-    updateProvisioningArtifact_name,
-    updateProvisioningArtifact_active,
-    updateProvisioningArtifact_description,
-    updateProvisioningArtifact_acceptLanguage,
-    updateProvisioningArtifact_productId,
-    updateProvisioningArtifact_provisioningArtifactId,
-    updateProvisioningArtifactResponse_status,
-    updateProvisioningArtifactResponse_info,
-    updateProvisioningArtifactResponse_provisioningArtifactDetail,
-    updateProvisioningArtifactResponse_httpStatus,
+    -- ** ListBudgetsForResource
+    listBudgetsForResource_acceptLanguage,
+    listBudgetsForResource_pageToken,
+    listBudgetsForResource_pageSize,
+    listBudgetsForResource_resourceId,
+    listBudgetsForResourceResponse_nextPageToken,
+    listBudgetsForResourceResponse_budgets,
+    listBudgetsForResourceResponse_httpStatus,
 
-    -- ** DescribeServiceAction
-    describeServiceAction_acceptLanguage,
-    describeServiceAction_id,
-    describeServiceActionResponse_serviceActionDetail,
-    describeServiceActionResponse_httpStatus,
+    -- ** DisassociateProductFromPortfolio
+    disassociateProductFromPortfolio_acceptLanguage,
+    disassociateProductFromPortfolio_productId,
+    disassociateProductFromPortfolio_portfolioId,
+    disassociateProductFromPortfolioResponse_httpStatus,
 
-    -- ** ListServiceActionsForProvisioningArtifact
-    listServiceActionsForProvisioningArtifact_pageSize,
-    listServiceActionsForProvisioningArtifact_pageToken,
-    listServiceActionsForProvisioningArtifact_acceptLanguage,
-    listServiceActionsForProvisioningArtifact_productId,
-    listServiceActionsForProvisioningArtifact_provisioningArtifactId,
-    listServiceActionsForProvisioningArtifactResponse_nextPageToken,
-    listServiceActionsForProvisioningArtifactResponse_serviceActionSummaries,
-    listServiceActionsForProvisioningArtifactResponse_httpStatus,
+    -- ** ListConstraintsForPortfolio
+    listConstraintsForPortfolio_acceptLanguage,
+    listConstraintsForPortfolio_pageToken,
+    listConstraintsForPortfolio_pageSize,
+    listConstraintsForPortfolio_productId,
+    listConstraintsForPortfolio_portfolioId,
+    listConstraintsForPortfolioResponse_nextPageToken,
+    listConstraintsForPortfolioResponse_constraintDetails,
+    listConstraintsForPortfolioResponse_httpStatus,
 
-    -- ** DeletePortfolioShare
-    deletePortfolioShare_accountId,
-    deletePortfolioShare_organizationNode,
-    deletePortfolioShare_acceptLanguage,
-    deletePortfolioShare_portfolioId,
-    deletePortfolioShareResponse_portfolioShareToken,
-    deletePortfolioShareResponse_httpStatus,
+    -- ** DescribeRecord
+    describeRecord_acceptLanguage,
+    describeRecord_pageToken,
+    describeRecord_pageSize,
+    describeRecord_id,
+    describeRecordResponse_recordDetail,
+    describeRecordResponse_nextPageToken,
+    describeRecordResponse_recordOutputs,
+    describeRecordResponse_httpStatus,
 
-    -- ** ListProvisioningArtifacts
-    listProvisioningArtifacts_acceptLanguage,
-    listProvisioningArtifacts_productId,
-    listProvisioningArtifactsResponse_nextPageToken,
-    listProvisioningArtifactsResponse_provisioningArtifactDetails,
-    listProvisioningArtifactsResponse_httpStatus,
+    -- ** EnableAWSOrganizationsAccess
+    enableAWSOrganizationsAccessResponse_httpStatus,
 
-    -- ** DescribePortfolioShareStatus
-    describePortfolioShareStatus_portfolioShareToken,
-    describePortfolioShareStatusResponse_shareDetails,
-    describePortfolioShareStatusResponse_status,
-    describePortfolioShareStatusResponse_portfolioId,
-    describePortfolioShareStatusResponse_portfolioShareToken,
-    describePortfolioShareStatusResponse_organizationNodeValue,
-    describePortfolioShareStatusResponse_httpStatus,
-
-    -- ** DescribeProvisionedProduct
-    describeProvisionedProduct_id,
-    describeProvisionedProduct_name,
-    describeProvisionedProduct_acceptLanguage,
-    describeProvisionedProductResponse_provisionedProductDetail,
-    describeProvisionedProductResponse_cloudWatchDashboards,
-    describeProvisionedProductResponse_httpStatus,
-
-    -- ** UpdatePortfolioShare
-    updatePortfolioShare_shareTagOptions,
-    updatePortfolioShare_accountId,
-    updatePortfolioShare_organizationNode,
-    updatePortfolioShare_acceptLanguage,
-    updatePortfolioShare_portfolioId,
-    updatePortfolioShareResponse_status,
-    updatePortfolioShareResponse_portfolioShareToken,
-    updatePortfolioShareResponse_httpStatus,
-
-    -- ** SearchProvisionedProducts
-    searchProvisionedProducts_sortOrder,
-    searchProvisionedProducts_pageSize,
-    searchProvisionedProducts_pageToken,
-    searchProvisionedProducts_accessLevelFilter,
-    searchProvisionedProducts_sortBy,
-    searchProvisionedProducts_filters,
-    searchProvisionedProducts_acceptLanguage,
-    searchProvisionedProductsResponse_totalResultsCount,
-    searchProvisionedProductsResponse_provisionedProducts,
-    searchProvisionedProductsResponse_nextPageToken,
-    searchProvisionedProductsResponse_httpStatus,
-
-    -- ** ListStackInstancesForProvisionedProduct
-    listStackInstancesForProvisionedProduct_pageSize,
-    listStackInstancesForProvisionedProduct_pageToken,
-    listStackInstancesForProvisionedProduct_acceptLanguage,
-    listStackInstancesForProvisionedProduct_provisionedProductId,
-    listStackInstancesForProvisionedProductResponse_nextPageToken,
-    listStackInstancesForProvisionedProductResponse_stackInstances,
-    listStackInstancesForProvisionedProductResponse_httpStatus,
-
-    -- ** DescribeProduct
-    describeProduct_id,
-    describeProduct_name,
-    describeProduct_acceptLanguage,
-    describeProductResponse_provisioningArtifacts,
-    describeProductResponse_launchPaths,
-    describeProductResponse_productViewSummary,
-    describeProductResponse_budgets,
-    describeProductResponse_httpStatus,
-
-    -- ** CreatePortfolioShare
-    createPortfolioShare_shareTagOptions,
-    createPortfolioShare_accountId,
-    createPortfolioShare_organizationNode,
-    createPortfolioShare_acceptLanguage,
-    createPortfolioShare_portfolioId,
-    createPortfolioShareResponse_portfolioShareToken,
-    createPortfolioShareResponse_httpStatus,
+    -- ** DescribeConstraint
+    describeConstraint_acceptLanguage,
+    describeConstraint_id,
+    describeConstraintResponse_status,
+    describeConstraintResponse_constraintDetail,
+    describeConstraintResponse_constraintParameters,
+    describeConstraintResponse_httpStatus,
 
     -- ** CreateProvisioningArtifact
     createProvisioningArtifact_acceptLanguage,
@@ -344,29 +236,12 @@ module Network.AWS.ServiceCatalog.Lens
     createProvisioningArtifactResponse_provisioningArtifactDetail,
     createProvisioningArtifactResponse_httpStatus,
 
-    -- ** SearchProductsAsAdmin
-    searchProductsAsAdmin_sortOrder,
-    searchProductsAsAdmin_pageSize,
-    searchProductsAsAdmin_pageToken,
-    searchProductsAsAdmin_portfolioId,
-    searchProductsAsAdmin_sortBy,
-    searchProductsAsAdmin_productSource,
-    searchProductsAsAdmin_filters,
-    searchProductsAsAdmin_acceptLanguage,
-    searchProductsAsAdminResponse_nextPageToken,
-    searchProductsAsAdminResponse_productViewDetails,
-    searchProductsAsAdminResponse_httpStatus,
-
-    -- ** GetAWSOrganizationsAccessStatus
-    getAWSOrganizationsAccessStatusResponse_accessStatus,
-    getAWSOrganizationsAccessStatusResponse_httpStatus,
-
     -- ** ListPortfolios
-    listPortfolios_pageSize,
-    listPortfolios_pageToken,
     listPortfolios_acceptLanguage,
-    listPortfoliosResponse_portfolioDetails,
+    listPortfolios_pageToken,
+    listPortfolios_pageSize,
     listPortfoliosResponse_nextPageToken,
+    listPortfoliosResponse_portfolioDetails,
     listPortfoliosResponse_httpStatus,
 
     -- ** DisassociateBudgetFromResource
@@ -374,200 +249,145 @@ module Network.AWS.ServiceCatalog.Lens
     disassociateBudgetFromResource_resourceId,
     disassociateBudgetFromResourceResponse_httpStatus,
 
-    -- ** DeletePortfolio
-    deletePortfolio_acceptLanguage,
-    deletePortfolio_id,
-    deletePortfolioResponse_httpStatus,
+    -- ** DescribeProductView
+    describeProductView_acceptLanguage,
+    describeProductView_id,
+    describeProductViewResponse_productViewSummary,
+    describeProductViewResponse_provisioningArtifacts,
+    describeProductViewResponse_httpStatus,
 
-    -- ** UpdatePortfolio
-    updatePortfolio_removeTags,
-    updatePortfolio_providerName,
-    updatePortfolio_addTags,
-    updatePortfolio_description,
-    updatePortfolio_displayName,
-    updatePortfolio_acceptLanguage,
-    updatePortfolio_id,
-    updatePortfolioResponse_tags,
-    updatePortfolioResponse_portfolioDetail,
-    updatePortfolioResponse_httpStatus,
+    -- ** CreatePortfolioShare
+    createPortfolioShare_accountId,
+    createPortfolioShare_shareTagOptions,
+    createPortfolioShare_acceptLanguage,
+    createPortfolioShare_organizationNode,
+    createPortfolioShare_portfolioId,
+    createPortfolioShareResponse_portfolioShareToken,
+    createPortfolioShareResponse_httpStatus,
 
-    -- ** DescribeConstraint
-    describeConstraint_acceptLanguage,
-    describeConstraint_id,
-    describeConstraintResponse_constraintParameters,
-    describeConstraintResponse_constraintDetail,
-    describeConstraintResponse_status,
-    describeConstraintResponse_httpStatus,
+    -- ** ListProvisioningArtifacts
+    listProvisioningArtifacts_acceptLanguage,
+    listProvisioningArtifacts_productId,
+    listProvisioningArtifactsResponse_nextPageToken,
+    listProvisioningArtifactsResponse_provisioningArtifactDetails,
+    listProvisioningArtifactsResponse_httpStatus,
 
-    -- ** DeleteTagOption
-    deleteTagOption_id,
-    deleteTagOptionResponse_httpStatus,
+    -- ** ListServiceActionsForProvisioningArtifact
+    listServiceActionsForProvisioningArtifact_acceptLanguage,
+    listServiceActionsForProvisioningArtifact_pageToken,
+    listServiceActionsForProvisioningArtifact_pageSize,
+    listServiceActionsForProvisioningArtifact_productId,
+    listServiceActionsForProvisioningArtifact_provisioningArtifactId,
+    listServiceActionsForProvisioningArtifactResponse_nextPageToken,
+    listServiceActionsForProvisioningArtifactResponse_serviceActionSummaries,
+    listServiceActionsForProvisioningArtifactResponse_httpStatus,
 
-    -- ** DescribeRecord
-    describeRecord_pageSize,
-    describeRecord_pageToken,
-    describeRecord_acceptLanguage,
-    describeRecord_id,
-    describeRecordResponse_recordDetail,
-    describeRecordResponse_recordOutputs,
-    describeRecordResponse_nextPageToken,
-    describeRecordResponse_httpStatus,
+    -- ** SearchProducts
+    searchProducts_filters,
+    searchProducts_sortOrder,
+    searchProducts_acceptLanguage,
+    searchProducts_pageToken,
+    searchProducts_pageSize,
+    searchProducts_sortBy,
+    searchProductsResponse_nextPageToken,
+    searchProductsResponse_productViewAggregations,
+    searchProductsResponse_productViewSummaries,
+    searchProductsResponse_httpStatus,
 
-    -- ** DisassociateServiceActionFromProvisioningArtifact
-    disassociateServiceActionFromProvisioningArtifact_acceptLanguage,
-    disassociateServiceActionFromProvisioningArtifact_productId,
-    disassociateServiceActionFromProvisioningArtifact_provisioningArtifactId,
-    disassociateServiceActionFromProvisioningArtifact_serviceActionId,
-    disassociateServiceActionFromProvisioningArtifactResponse_httpStatus,
+    -- ** DescribeServiceActionExecutionParameters
+    describeServiceActionExecutionParameters_acceptLanguage,
+    describeServiceActionExecutionParameters_provisionedProductId,
+    describeServiceActionExecutionParameters_serviceActionId,
+    describeServiceActionExecutionParametersResponse_serviceActionParameters,
+    describeServiceActionExecutionParametersResponse_httpStatus,
 
-    -- ** UpdateTagOption
-    updateTagOption_active,
-    updateTagOption_value,
-    updateTagOption_id,
-    updateTagOptionResponse_tagOptionDetail,
-    updateTagOptionResponse_httpStatus,
+    -- ** SearchProvisionedProducts
+    searchProvisionedProducts_filters,
+    searchProvisionedProducts_sortOrder,
+    searchProvisionedProducts_acceptLanguage,
+    searchProvisionedProducts_accessLevelFilter,
+    searchProvisionedProducts_pageToken,
+    searchProvisionedProducts_pageSize,
+    searchProvisionedProducts_sortBy,
+    searchProvisionedProductsResponse_nextPageToken,
+    searchProvisionedProductsResponse_provisionedProducts,
+    searchProvisionedProductsResponse_totalResultsCount,
+    searchProvisionedProductsResponse_httpStatus,
 
-    -- ** EnableAWSOrganizationsAccess
-    enableAWSOrganizationsAccessResponse_httpStatus,
+    -- ** ListStackInstancesForProvisionedProduct
+    listStackInstancesForProvisionedProduct_acceptLanguage,
+    listStackInstancesForProvisionedProduct_pageToken,
+    listStackInstancesForProvisionedProduct_pageSize,
+    listStackInstancesForProvisionedProduct_provisionedProductId,
+    listStackInstancesForProvisionedProductResponse_nextPageToken,
+    listStackInstancesForProvisionedProductResponse_stackInstances,
+    listStackInstancesForProvisionedProductResponse_httpStatus,
 
-    -- ** CreateTagOption
-    createTagOption_key,
-    createTagOption_value,
-    createTagOptionResponse_tagOptionDetail,
-    createTagOptionResponse_httpStatus,
+    -- ** DescribeServiceAction
+    describeServiceAction_acceptLanguage,
+    describeServiceAction_id,
+    describeServiceActionResponse_serviceActionDetail,
+    describeServiceActionResponse_httpStatus,
 
-    -- ** ListRecordHistory
-    listRecordHistory_pageSize,
-    listRecordHistory_pageToken,
-    listRecordHistory_accessLevelFilter,
-    listRecordHistory_searchFilter,
-    listRecordHistory_acceptLanguage,
-    listRecordHistoryResponse_recordDetails,
-    listRecordHistoryResponse_nextPageToken,
-    listRecordHistoryResponse_httpStatus,
+    -- ** DescribeProduct
+    describeProduct_name,
+    describeProduct_acceptLanguage,
+    describeProduct_id,
+    describeProductResponse_productViewSummary,
+    describeProductResponse_provisioningArtifacts,
+    describeProductResponse_launchPaths,
+    describeProductResponse_budgets,
+    describeProductResponse_httpStatus,
 
-    -- ** ListConstraintsForPortfolio
-    listConstraintsForPortfolio_pageSize,
-    listConstraintsForPortfolio_pageToken,
-    listConstraintsForPortfolio_productId,
-    listConstraintsForPortfolio_acceptLanguage,
-    listConstraintsForPortfolio_portfolioId,
-    listConstraintsForPortfolioResponse_constraintDetails,
-    listConstraintsForPortfolioResponse_nextPageToken,
-    listConstraintsForPortfolioResponse_httpStatus,
+    -- ** DeleteProvisionedProductPlan
+    deleteProvisionedProductPlan_acceptLanguage,
+    deleteProvisionedProductPlan_ignoreErrors,
+    deleteProvisionedProductPlan_planId,
+    deleteProvisionedProductPlanResponse_httpStatus,
 
-    -- ** AssociateServiceActionWithProvisioningArtifact
-    associateServiceActionWithProvisioningArtifact_acceptLanguage,
-    associateServiceActionWithProvisioningArtifact_productId,
-    associateServiceActionWithProvisioningArtifact_provisioningArtifactId,
-    associateServiceActionWithProvisioningArtifact_serviceActionId,
-    associateServiceActionWithProvisioningArtifactResponse_httpStatus,
+    -- ** GetProvisionedProductOutputs
+    getProvisionedProductOutputs_provisionedProductName,
+    getProvisionedProductOutputs_outputKeys,
+    getProvisionedProductOutputs_acceptLanguage,
+    getProvisionedProductOutputs_pageToken,
+    getProvisionedProductOutputs_pageSize,
+    getProvisionedProductOutputs_provisionedProductId,
+    getProvisionedProductOutputsResponse_nextPageToken,
+    getProvisionedProductOutputsResponse_outputs,
+    getProvisionedProductOutputsResponse_httpStatus,
 
-    -- ** DeleteServiceAction
-    deleteServiceAction_acceptLanguage,
-    deleteServiceAction_id,
-    deleteServiceActionResponse_httpStatus,
+    -- ** CreateConstraint
+    createConstraint_acceptLanguage,
+    createConstraint_description,
+    createConstraint_portfolioId,
+    createConstraint_productId,
+    createConstraint_parameters,
+    createConstraint_type,
+    createConstraint_idempotencyToken,
+    createConstraintResponse_status,
+    createConstraintResponse_constraintDetail,
+    createConstraintResponse_constraintParameters,
+    createConstraintResponse_httpStatus,
 
-    -- ** UpdateProvisionedProduct
-    updateProvisionedProduct_provisionedProductName,
-    updateProvisionedProduct_provisioningPreferences,
-    updateProvisionedProduct_provisionedProductId,
-    updateProvisionedProduct_provisioningArtifactName,
-    updateProvisionedProduct_provisioningArtifactId,
-    updateProvisionedProduct_productName,
-    updateProvisionedProduct_tags,
-    updateProvisionedProduct_productId,
-    updateProvisionedProduct_provisioningParameters,
-    updateProvisionedProduct_pathId,
-    updateProvisionedProduct_acceptLanguage,
-    updateProvisionedProduct_pathName,
-    updateProvisionedProduct_updateToken,
-    updateProvisionedProductResponse_recordDetail,
-    updateProvisionedProductResponse_httpStatus,
+    -- ** ListProvisionedProductPlans
+    listProvisionedProductPlans_provisionProductId,
+    listProvisionedProductPlans_acceptLanguage,
+    listProvisionedProductPlans_accessLevelFilter,
+    listProvisionedProductPlans_pageToken,
+    listProvisionedProductPlans_pageSize,
+    listProvisionedProductPlansResponse_nextPageToken,
+    listProvisionedProductPlansResponse_provisionedProductPlans,
+    listProvisionedProductPlansResponse_httpStatus,
 
-    -- ** DeleteProduct
-    deleteProduct_acceptLanguage,
-    deleteProduct_id,
-    deleteProductResponse_httpStatus,
-
-    -- ** UpdateServiceAction
-    updateServiceAction_name,
-    updateServiceAction_description,
-    updateServiceAction_definition,
-    updateServiceAction_acceptLanguage,
-    updateServiceAction_id,
-    updateServiceActionResponse_serviceActionDetail,
-    updateServiceActionResponse_httpStatus,
-
-    -- ** DescribeProvisioningArtifact
-    describeProvisioningArtifact_provisioningArtifactName,
-    describeProvisioningArtifact_provisioningArtifactId,
-    describeProvisioningArtifact_productName,
-    describeProvisioningArtifact_productId,
-    describeProvisioningArtifact_acceptLanguage,
-    describeProvisioningArtifact_verbose,
-    describeProvisioningArtifactResponse_status,
-    describeProvisioningArtifactResponse_info,
-    describeProvisioningArtifactResponse_provisioningArtifactDetail,
-    describeProvisioningArtifactResponse_httpStatus,
-
-    -- ** UpdateProduct
-    updateProduct_distributor,
-    updateProduct_removeTags,
-    updateProduct_addTags,
-    updateProduct_name,
-    updateProduct_supportUrl,
-    updateProduct_owner,
-    updateProduct_supportDescription,
-    updateProduct_description,
-    updateProduct_supportEmail,
-    updateProduct_acceptLanguage,
-    updateProduct_id,
-    updateProductResponse_productViewDetail,
-    updateProductResponse_tags,
-    updateProductResponse_httpStatus,
-
-    -- ** CreateServiceAction
-    createServiceAction_description,
-    createServiceAction_acceptLanguage,
-    createServiceAction_name,
-    createServiceAction_definitionType,
-    createServiceAction_definition,
-    createServiceAction_idempotencyToken,
-    createServiceActionResponse_serviceActionDetail,
-    createServiceActionResponse_httpStatus,
-
-    -- ** AcceptPortfolioShare
-    acceptPortfolioShare_portfolioShareType,
-    acceptPortfolioShare_acceptLanguage,
-    acceptPortfolioShare_portfolioId,
-    acceptPortfolioShareResponse_httpStatus,
-
-    -- ** DescribeCopyProductStatus
-    describeCopyProductStatus_acceptLanguage,
-    describeCopyProductStatus_copyProductToken,
-    describeCopyProductStatusResponse_statusDetail,
-    describeCopyProductStatusResponse_targetProductId,
-    describeCopyProductStatusResponse_copyProductStatus,
-    describeCopyProductStatusResponse_httpStatus,
-
-    -- ** CreateProduct
-    createProduct_distributor,
-    createProduct_supportUrl,
-    createProduct_tags,
-    createProduct_supportDescription,
-    createProduct_description,
-    createProduct_supportEmail,
-    createProduct_acceptLanguage,
-    createProduct_name,
-    createProduct_owner,
-    createProduct_productType,
-    createProduct_provisioningArtifactParameters,
-    createProduct_idempotencyToken,
-    createProductResponse_productViewDetail,
-    createProductResponse_provisioningArtifactDetail,
-    createProductResponse_tags,
-    createProductResponse_httpStatus,
+    -- ** ListPortfolioAccess
+    listPortfolioAccess_organizationParentId,
+    listPortfolioAccess_acceptLanguage,
+    listPortfolioAccess_pageToken,
+    listPortfolioAccess_pageSize,
+    listPortfolioAccess_portfolioId,
+    listPortfolioAccessResponse_nextPageToken,
+    listPortfolioAccessResponse_accountIds,
+    listPortfolioAccessResponse_httpStatus,
 
     -- ** BatchDisassociateServiceActionFromProvisioningArtifact
     batchDisassociateServiceActionFromProvisioningArtifact_acceptLanguage,
@@ -581,43 +401,242 @@ module Network.AWS.ServiceCatalog.Lens
     disassociatePrincipalFromPortfolio_principalARN,
     disassociatePrincipalFromPortfolioResponse_httpStatus,
 
-    -- ** ListProvisionedProductPlans
-    listProvisionedProductPlans_provisionProductId,
-    listProvisionedProductPlans_pageSize,
-    listProvisionedProductPlans_pageToken,
-    listProvisionedProductPlans_accessLevelFilter,
-    listProvisionedProductPlans_acceptLanguage,
-    listProvisionedProductPlansResponse_nextPageToken,
-    listProvisionedProductPlansResponse_provisionedProductPlans,
-    listProvisionedProductPlansResponse_httpStatus,
+    -- ** DescribeTagOption
+    describeTagOption_id,
+    describeTagOptionResponse_tagOptionDetail,
+    describeTagOptionResponse_httpStatus,
 
-    -- ** SearchProducts
-    searchProducts_sortOrder,
-    searchProducts_pageSize,
-    searchProducts_pageToken,
-    searchProducts_sortBy,
-    searchProducts_filters,
-    searchProducts_acceptLanguage,
-    searchProductsResponse_nextPageToken,
-    searchProductsResponse_productViewSummaries,
-    searchProductsResponse_productViewAggregations,
-    searchProductsResponse_httpStatus,
+    -- ** DisassociateTagOptionFromResource
+    disassociateTagOptionFromResource_resourceId,
+    disassociateTagOptionFromResource_tagOptionId,
+    disassociateTagOptionFromResourceResponse_httpStatus,
 
-    -- ** ListProvisioningArtifactsForServiceAction
-    listProvisioningArtifactsForServiceAction_pageSize,
-    listProvisioningArtifactsForServiceAction_pageToken,
-    listProvisioningArtifactsForServiceAction_acceptLanguage,
-    listProvisioningArtifactsForServiceAction_serviceActionId,
-    listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews,
-    listProvisioningArtifactsForServiceActionResponse_nextPageToken,
-    listProvisioningArtifactsForServiceActionResponse_httpStatus,
+    -- ** DescribePortfolio
+    describePortfolio_acceptLanguage,
+    describePortfolio_id,
+    describePortfolioResponse_portfolioDetail,
+    describePortfolioResponse_tagOptions,
+    describePortfolioResponse_budgets,
+    describePortfolioResponse_tags,
+    describePortfolioResponse_httpStatus,
 
-    -- ** DescribeServiceActionExecutionParameters
-    describeServiceActionExecutionParameters_acceptLanguage,
-    describeServiceActionExecutionParameters_provisionedProductId,
-    describeServiceActionExecutionParameters_serviceActionId,
-    describeServiceActionExecutionParametersResponse_serviceActionParameters,
-    describeServiceActionExecutionParametersResponse_httpStatus,
+    -- ** AssociateProductWithPortfolio
+    associateProductWithPortfolio_sourcePortfolioId,
+    associateProductWithPortfolio_acceptLanguage,
+    associateProductWithPortfolio_productId,
+    associateProductWithPortfolio_portfolioId,
+    associateProductWithPortfolioResponse_httpStatus,
+
+    -- ** ListAcceptedPortfolioShares
+    listAcceptedPortfolioShares_portfolioShareType,
+    listAcceptedPortfolioShares_acceptLanguage,
+    listAcceptedPortfolioShares_pageToken,
+    listAcceptedPortfolioShares_pageSize,
+    listAcceptedPortfolioSharesResponse_nextPageToken,
+    listAcceptedPortfolioSharesResponse_portfolioDetails,
+    listAcceptedPortfolioSharesResponse_httpStatus,
+
+    -- ** ExecuteProvisionedProductPlan
+    executeProvisionedProductPlan_acceptLanguage,
+    executeProvisionedProductPlan_planId,
+    executeProvisionedProductPlan_idempotencyToken,
+    executeProvisionedProductPlanResponse_recordDetail,
+    executeProvisionedProductPlanResponse_httpStatus,
+
+    -- ** AcceptPortfolioShare
+    acceptPortfolioShare_portfolioShareType,
+    acceptPortfolioShare_acceptLanguage,
+    acceptPortfolioShare_portfolioId,
+    acceptPortfolioShareResponse_httpStatus,
+
+    -- ** ScanProvisionedProducts
+    scanProvisionedProducts_acceptLanguage,
+    scanProvisionedProducts_accessLevelFilter,
+    scanProvisionedProducts_pageToken,
+    scanProvisionedProducts_pageSize,
+    scanProvisionedProductsResponse_nextPageToken,
+    scanProvisionedProductsResponse_provisionedProducts,
+    scanProvisionedProductsResponse_httpStatus,
+
+    -- ** ListOrganizationPortfolioAccess
+    listOrganizationPortfolioAccess_acceptLanguage,
+    listOrganizationPortfolioAccess_pageToken,
+    listOrganizationPortfolioAccess_pageSize,
+    listOrganizationPortfolioAccess_portfolioId,
+    listOrganizationPortfolioAccess_organizationNodeType,
+    listOrganizationPortfolioAccessResponse_nextPageToken,
+    listOrganizationPortfolioAccessResponse_organizationNodes,
+    listOrganizationPortfolioAccessResponse_httpStatus,
+
+    -- ** ListPrincipalsForPortfolio
+    listPrincipalsForPortfolio_acceptLanguage,
+    listPrincipalsForPortfolio_pageToken,
+    listPrincipalsForPortfolio_pageSize,
+    listPrincipalsForPortfolio_portfolioId,
+    listPrincipalsForPortfolioResponse_nextPageToken,
+    listPrincipalsForPortfolioResponse_principals,
+    listPrincipalsForPortfolioResponse_httpStatus,
+
+    -- ** DeleteProduct
+    deleteProduct_acceptLanguage,
+    deleteProduct_id,
+    deleteProductResponse_httpStatus,
+
+    -- ** UpdateProduct
+    updateProduct_removeTags,
+    updateProduct_owner,
+    updateProduct_supportUrl,
+    updateProduct_distributor,
+    updateProduct_name,
+    updateProduct_acceptLanguage,
+    updateProduct_addTags,
+    updateProduct_supportEmail,
+    updateProduct_description,
+    updateProduct_supportDescription,
+    updateProduct_id,
+    updateProductResponse_productViewDetail,
+    updateProductResponse_tags,
+    updateProductResponse_httpStatus,
+
+    -- ** ListServiceActions
+    listServiceActions_acceptLanguage,
+    listServiceActions_pageToken,
+    listServiceActions_pageSize,
+    listServiceActionsResponse_nextPageToken,
+    listServiceActionsResponse_serviceActionSummaries,
+    listServiceActionsResponse_httpStatus,
+
+    -- ** ProvisionProduct
+    provisionProduct_productName,
+    provisionProduct_provisioningArtifactId,
+    provisionProduct_provisioningArtifactName,
+    provisionProduct_notificationArns,
+    provisionProduct_pathName,
+    provisionProduct_acceptLanguage,
+    provisionProduct_pathId,
+    provisionProduct_provisioningParameters,
+    provisionProduct_productId,
+    provisionProduct_tags,
+    provisionProduct_provisioningPreferences,
+    provisionProduct_provisionedProductName,
+    provisionProduct_provisionToken,
+    provisionProductResponse_recordDetail,
+    provisionProductResponse_httpStatus,
+
+    -- ** DeleteServiceAction
+    deleteServiceAction_acceptLanguage,
+    deleteServiceAction_id,
+    deleteServiceActionResponse_httpStatus,
+
+    -- ** UpdateServiceAction
+    updateServiceAction_definition,
+    updateServiceAction_name,
+    updateServiceAction_acceptLanguage,
+    updateServiceAction_description,
+    updateServiceAction_id,
+    updateServiceActionResponse_serviceActionDetail,
+    updateServiceActionResponse_httpStatus,
+
+    -- ** DisableAWSOrganizationsAccess
+    disableAWSOrganizationsAccessResponse_httpStatus,
+
+    -- ** RejectPortfolioShare
+    rejectPortfolioShare_portfolioShareType,
+    rejectPortfolioShare_acceptLanguage,
+    rejectPortfolioShare_portfolioId,
+    rejectPortfolioShareResponse_httpStatus,
+
+    -- ** DisassociateServiceActionFromProvisioningArtifact
+    disassociateServiceActionFromProvisioningArtifact_acceptLanguage,
+    disassociateServiceActionFromProvisioningArtifact_productId,
+    disassociateServiceActionFromProvisioningArtifact_provisioningArtifactId,
+    disassociateServiceActionFromProvisioningArtifact_serviceActionId,
+    disassociateServiceActionFromProvisioningArtifactResponse_httpStatus,
+
+    -- ** DeleteTagOption
+    deleteTagOption_id,
+    deleteTagOptionResponse_httpStatus,
+
+    -- ** UpdateTagOption
+    updateTagOption_value,
+    updateTagOption_active,
+    updateTagOption_id,
+    updateTagOptionResponse_tagOptionDetail,
+    updateTagOptionResponse_httpStatus,
+
+    -- ** ListTagOptions
+    listTagOptions_filters,
+    listTagOptions_pageToken,
+    listTagOptions_pageSize,
+    listTagOptionsResponse_pageToken,
+    listTagOptionsResponse_tagOptionDetails,
+    listTagOptionsResponse_httpStatus,
+
+    -- ** UpdateProvisionedProductProperties
+    updateProvisionedProductProperties_acceptLanguage,
+    updateProvisionedProductProperties_provisionedProductId,
+    updateProvisionedProductProperties_provisionedProductProperties,
+    updateProvisionedProductProperties_idempotencyToken,
+    updateProvisionedProductPropertiesResponse_status,
+    updateProvisionedProductPropertiesResponse_provisionedProductProperties,
+    updateProvisionedProductPropertiesResponse_recordId,
+    updateProvisionedProductPropertiesResponse_provisionedProductId,
+    updateProvisionedProductPropertiesResponse_httpStatus,
+
+    -- ** SearchProductsAsAdmin
+    searchProductsAsAdmin_portfolioId,
+    searchProductsAsAdmin_filters,
+    searchProductsAsAdmin_sortOrder,
+    searchProductsAsAdmin_acceptLanguage,
+    searchProductsAsAdmin_pageToken,
+    searchProductsAsAdmin_pageSize,
+    searchProductsAsAdmin_productSource,
+    searchProductsAsAdmin_sortBy,
+    searchProductsAsAdminResponse_nextPageToken,
+    searchProductsAsAdminResponse_productViewDetails,
+    searchProductsAsAdminResponse_httpStatus,
+
+    -- ** DeletePortfolio
+    deletePortfolio_acceptLanguage,
+    deletePortfolio_id,
+    deletePortfolioResponse_httpStatus,
+
+    -- ** UpdatePortfolio
+    updatePortfolio_removeTags,
+    updatePortfolio_acceptLanguage,
+    updatePortfolio_displayName,
+    updatePortfolio_addTags,
+    updatePortfolio_description,
+    updatePortfolio_providerName,
+    updatePortfolio_id,
+    updatePortfolioResponse_portfolioDetail,
+    updatePortfolioResponse_tags,
+    updatePortfolioResponse_httpStatus,
+
+    -- ** ListPortfoliosForProduct
+    listPortfoliosForProduct_acceptLanguage,
+    listPortfoliosForProduct_pageToken,
+    listPortfoliosForProduct_pageSize,
+    listPortfoliosForProduct_productId,
+    listPortfoliosForProductResponse_nextPageToken,
+    listPortfoliosForProductResponse_portfolioDetails,
+    listPortfoliosForProductResponse_httpStatus,
+
+    -- ** GetAWSOrganizationsAccessStatus
+    getAWSOrganizationsAccessStatusResponse_accessStatus,
+    getAWSOrganizationsAccessStatusResponse_httpStatus,
+
+    -- ** DescribeProductAsAdmin
+    describeProductAsAdmin_sourcePortfolioId,
+    describeProductAsAdmin_name,
+    describeProductAsAdmin_acceptLanguage,
+    describeProductAsAdmin_id,
+    describeProductAsAdminResponse_productViewDetail,
+    describeProductAsAdminResponse_tagOptions,
+    describeProductAsAdminResponse_provisioningArtifactSummaries,
+    describeProductAsAdminResponse_budgets,
+    describeProductAsAdminResponse_tags,
+    describeProductAsAdminResponse_httpStatus,
 
     -- ** BatchAssociateServiceActionWithProvisioningArtifact
     batchAssociateServiceActionWithProvisioningArtifact_acceptLanguage,
@@ -625,16 +644,21 @@ module Network.AWS.ServiceCatalog.Lens
     batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations,
     batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus,
 
-    -- ** CopyProduct
-    copyProduct_copyOptions,
-    copyProduct_targetProductName,
-    copyProduct_targetProductId,
-    copyProduct_acceptLanguage,
-    copyProduct_sourceProvisioningArtifactIdentifiers,
-    copyProduct_sourceProductArn,
-    copyProduct_idempotencyToken,
-    copyProductResponse_copyProductToken,
-    copyProductResponse_httpStatus,
+    -- ** DescribeProvisioningParameters
+    describeProvisioningParameters_productName,
+    describeProvisioningParameters_provisioningArtifactId,
+    describeProvisioningParameters_provisioningArtifactName,
+    describeProvisioningParameters_pathName,
+    describeProvisioningParameters_acceptLanguage,
+    describeProvisioningParameters_pathId,
+    describeProvisioningParameters_productId,
+    describeProvisioningParametersResponse_provisioningArtifactPreferences,
+    describeProvisioningParametersResponse_provisioningArtifactParameters,
+    describeProvisioningParametersResponse_usageInstructions,
+    describeProvisioningParametersResponse_constraintSummaries,
+    describeProvisioningParametersResponse_tagOptions,
+    describeProvisioningParametersResponse_provisioningArtifactOutputs,
+    describeProvisioningParametersResponse_httpStatus,
 
     -- ** AssociatePrincipalWithPortfolio
     associatePrincipalWithPortfolio_acceptLanguage,
@@ -643,152 +667,128 @@ module Network.AWS.ServiceCatalog.Lens
     associatePrincipalWithPortfolio_principalType,
     associatePrincipalWithPortfolioResponse_httpStatus,
 
+    -- ** DescribeProvisionedProduct
+    describeProvisionedProduct_name,
+    describeProvisionedProduct_acceptLanguage,
+    describeProvisionedProduct_id,
+    describeProvisionedProductResponse_provisionedProductDetail,
+    describeProvisionedProductResponse_cloudWatchDashboards,
+    describeProvisionedProductResponse_httpStatus,
+
+    -- ** CopyProduct
+    copyProduct_targetProductId,
+    copyProduct_sourceProvisioningArtifactIdentifiers,
+    copyProduct_targetProductName,
+    copyProduct_copyOptions,
+    copyProduct_acceptLanguage,
+    copyProduct_sourceProductArn,
+    copyProduct_idempotencyToken,
+    copyProductResponse_copyProductToken,
+    copyProductResponse_httpStatus,
+
+    -- ** DescribePortfolioShareStatus
+    describePortfolioShareStatus_portfolioShareToken,
+    describePortfolioShareStatusResponse_status,
+    describePortfolioShareStatusResponse_portfolioShareToken,
+    describePortfolioShareStatusResponse_shareDetails,
+    describePortfolioShareStatusResponse_portfolioId,
+    describePortfolioShareStatusResponse_organizationNodeValue,
+    describePortfolioShareStatusResponse_httpStatus,
+
+    -- ** UpdateProvisioningArtifact
+    updateProvisioningArtifact_active,
+    updateProvisioningArtifact_name,
+    updateProvisioningArtifact_acceptLanguage,
+    updateProvisioningArtifact_guidance,
+    updateProvisioningArtifact_description,
+    updateProvisioningArtifact_productId,
+    updateProvisioningArtifact_provisioningArtifactId,
+    updateProvisioningArtifactResponse_status,
+    updateProvisioningArtifactResponse_info,
+    updateProvisioningArtifactResponse_provisioningArtifactDetail,
+    updateProvisioningArtifactResponse_httpStatus,
+
+    -- ** DeletePortfolioShare
+    deletePortfolioShare_accountId,
+    deletePortfolioShare_acceptLanguage,
+    deletePortfolioShare_organizationNode,
+    deletePortfolioShare_portfolioId,
+    deletePortfolioShareResponse_portfolioShareToken,
+    deletePortfolioShareResponse_httpStatus,
+
+    -- ** DeleteProvisioningArtifact
+    deleteProvisioningArtifact_acceptLanguage,
+    deleteProvisioningArtifact_productId,
+    deleteProvisioningArtifact_provisioningArtifactId,
+    deleteProvisioningArtifactResponse_httpStatus,
+
+    -- ** UpdatePortfolioShare
+    updatePortfolioShare_accountId,
+    updatePortfolioShare_shareTagOptions,
+    updatePortfolioShare_acceptLanguage,
+    updatePortfolioShare_organizationNode,
+    updatePortfolioShare_portfolioId,
+    updatePortfolioShareResponse_status,
+    updatePortfolioShareResponse_portfolioShareToken,
+    updatePortfolioShareResponse_httpStatus,
+
+    -- ** ListProvisioningArtifactsForServiceAction
+    listProvisioningArtifactsForServiceAction_acceptLanguage,
+    listProvisioningArtifactsForServiceAction_pageToken,
+    listProvisioningArtifactsForServiceAction_pageSize,
+    listProvisioningArtifactsForServiceAction_serviceActionId,
+    listProvisioningArtifactsForServiceActionResponse_nextPageToken,
+    listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews,
+    listProvisioningArtifactsForServiceActionResponse_httpStatus,
+
     -- ** CreatePortfolio
-    createPortfolio_tags,
-    createPortfolio_description,
     createPortfolio_acceptLanguage,
+    createPortfolio_description,
+    createPortfolio_tags,
     createPortfolio_displayName,
     createPortfolio_providerName,
     createPortfolio_idempotencyToken,
-    createPortfolioResponse_tags,
     createPortfolioResponse_portfolioDetail,
+    createPortfolioResponse_tags,
     createPortfolioResponse_httpStatus,
 
-    -- ** DescribeProductView
-    describeProductView_acceptLanguage,
-    describeProductView_id,
-    describeProductViewResponse_provisioningArtifacts,
-    describeProductViewResponse_productViewSummary,
-    describeProductViewResponse_httpStatus,
+    -- ** ListLaunchPaths
+    listLaunchPaths_acceptLanguage,
+    listLaunchPaths_pageToken,
+    listLaunchPaths_pageSize,
+    listLaunchPaths_productId,
+    listLaunchPathsResponse_nextPageToken,
+    listLaunchPathsResponse_launchPathSummaries,
+    listLaunchPathsResponse_httpStatus,
 
-    -- ** DescribeProductAsAdmin
-    describeProductAsAdmin_id,
-    describeProductAsAdmin_name,
-    describeProductAsAdmin_acceptLanguage,
-    describeProductAsAdmin_sourcePortfolioId,
-    describeProductAsAdminResponse_productViewDetail,
-    describeProductAsAdminResponse_tags,
-    describeProductAsAdminResponse_budgets,
-    describeProductAsAdminResponse_provisioningArtifactSummaries,
-    describeProductAsAdminResponse_tagOptions,
-    describeProductAsAdminResponse_httpStatus,
+    -- ** DescribePortfolioShares
+    describePortfolioShares_pageToken,
+    describePortfolioShares_pageSize,
+    describePortfolioShares_portfolioId,
+    describePortfolioShares_type,
+    describePortfolioSharesResponse_nextPageToken,
+    describePortfolioSharesResponse_portfolioShareDetails,
+    describePortfolioSharesResponse_httpStatus,
 
-    -- ** UpdateProvisionedProductProperties
-    updateProvisionedProductProperties_acceptLanguage,
-    updateProvisionedProductProperties_provisionedProductId,
-    updateProvisionedProductProperties_provisionedProductProperties,
-    updateProvisionedProductProperties_idempotencyToken,
-    updateProvisionedProductPropertiesResponse_status,
-    updateProvisionedProductPropertiesResponse_provisionedProductId,
-    updateProvisionedProductPropertiesResponse_recordId,
-    updateProvisionedProductPropertiesResponse_provisionedProductProperties,
-    updateProvisionedProductPropertiesResponse_httpStatus,
+    -- ** ListResourcesForTagOption
+    listResourcesForTagOption_resourceType,
+    listResourcesForTagOption_pageToken,
+    listResourcesForTagOption_pageSize,
+    listResourcesForTagOption_tagOptionId,
+    listResourcesForTagOptionResponse_resourceDetails,
+    listResourcesForTagOptionResponse_pageToken,
+    listResourcesForTagOptionResponse_httpStatus,
 
-    -- ** ListPortfoliosForProduct
-    listPortfoliosForProduct_pageSize,
-    listPortfoliosForProduct_pageToken,
-    listPortfoliosForProduct_acceptLanguage,
-    listPortfoliosForProduct_productId,
-    listPortfoliosForProductResponse_portfolioDetails,
-    listPortfoliosForProductResponse_nextPageToken,
-    listPortfoliosForProductResponse_httpStatus,
-
-    -- ** ListTagOptions
-    listTagOptions_pageSize,
-    listTagOptions_pageToken,
-    listTagOptions_filters,
-    listTagOptionsResponse_pageToken,
-    listTagOptionsResponse_tagOptionDetails,
-    listTagOptionsResponse_httpStatus,
-
-    -- ** RejectPortfolioShare
-    rejectPortfolioShare_portfolioShareType,
-    rejectPortfolioShare_acceptLanguage,
-    rejectPortfolioShare_portfolioId,
-    rejectPortfolioShareResponse_httpStatus,
-
-    -- ** AssociateTagOptionWithResource
-    associateTagOptionWithResource_resourceId,
-    associateTagOptionWithResource_tagOptionId,
-    associateTagOptionWithResourceResponse_httpStatus,
-
-    -- ** ListBudgetsForResource
-    listBudgetsForResource_pageSize,
-    listBudgetsForResource_pageToken,
-    listBudgetsForResource_acceptLanguage,
-    listBudgetsForResource_resourceId,
-    listBudgetsForResourceResponse_nextPageToken,
-    listBudgetsForResourceResponse_budgets,
-    listBudgetsForResourceResponse_httpStatus,
-
-    -- ** DescribeProvisionedProductPlan
-    describeProvisionedProductPlan_pageSize,
-    describeProvisionedProductPlan_pageToken,
-    describeProvisionedProductPlan_acceptLanguage,
-    describeProvisionedProductPlan_planId,
-    describeProvisionedProductPlanResponse_resourceChanges,
-    describeProvisionedProductPlanResponse_nextPageToken,
-    describeProvisionedProductPlanResponse_provisionedProductPlanDetails,
-    describeProvisionedProductPlanResponse_httpStatus,
-
-    -- ** DisableAWSOrganizationsAccess
-    disableAWSOrganizationsAccessResponse_httpStatus,
-
-    -- ** DisassociateProductFromPortfolio
-    disassociateProductFromPortfolio_acceptLanguage,
-    disassociateProductFromPortfolio_productId,
-    disassociateProductFromPortfolio_portfolioId,
-    disassociateProductFromPortfolioResponse_httpStatus,
-
-    -- ** TerminateProvisionedProduct
-    terminateProvisionedProduct_provisionedProductName,
-    terminateProvisionedProduct_provisionedProductId,
-    terminateProvisionedProduct_retainPhysicalResources,
-    terminateProvisionedProduct_ignoreErrors,
-    terminateProvisionedProduct_acceptLanguage,
-    terminateProvisionedProduct_terminateToken,
-    terminateProvisionedProductResponse_recordDetail,
-    terminateProvisionedProductResponse_httpStatus,
-
-    -- ** ListPrincipalsForPortfolio
-    listPrincipalsForPortfolio_pageSize,
-    listPrincipalsForPortfolio_pageToken,
-    listPrincipalsForPortfolio_acceptLanguage,
-    listPrincipalsForPortfolio_portfolioId,
-    listPrincipalsForPortfolioResponse_principals,
-    listPrincipalsForPortfolioResponse_nextPageToken,
-    listPrincipalsForPortfolioResponse_httpStatus,
-
-    -- ** ProvisionProduct
-    provisionProduct_provisioningPreferences,
-    provisionProduct_notificationArns,
-    provisionProduct_provisioningArtifactName,
-    provisionProduct_provisioningArtifactId,
-    provisionProduct_productName,
-    provisionProduct_tags,
-    provisionProduct_productId,
-    provisionProduct_provisioningParameters,
-    provisionProduct_pathId,
-    provisionProduct_acceptLanguage,
-    provisionProduct_pathName,
-    provisionProduct_provisionedProductName,
-    provisionProduct_provisionToken,
-    provisionProductResponse_recordDetail,
-    provisionProductResponse_httpStatus,
-
-    -- ** ListServiceActions
-    listServiceActions_pageSize,
-    listServiceActions_pageToken,
-    listServiceActions_acceptLanguage,
-    listServiceActionsResponse_nextPageToken,
-    listServiceActionsResponse_serviceActionSummaries,
-    listServiceActionsResponse_httpStatus,
+    -- ** AssociateBudgetWithResource
+    associateBudgetWithResource_budgetName,
+    associateBudgetWithResource_resourceId,
+    associateBudgetWithResourceResponse_httpStatus,
 
     -- * Types
 
     -- ** AccessLevelFilter
-    accessLevelFilter_key,
     accessLevelFilter_value,
+    accessLevelFilter_key,
 
     -- ** BudgetDetail
     budgetDetail_budgetName,
@@ -797,47 +797,47 @@ module Network.AWS.ServiceCatalog.Lens
     cloudWatchDashboard_name,
 
     -- ** ConstraintDetail
-    constraintDetail_constraintId,
     constraintDetail_portfolioId,
+    constraintDetail_constraintId,
     constraintDetail_owner,
-    constraintDetail_productId,
-    constraintDetail_description,
     constraintDetail_type,
+    constraintDetail_description,
+    constraintDetail_productId,
 
     -- ** ConstraintSummary
-    constraintSummary_description,
     constraintSummary_type,
+    constraintSummary_description,
 
     -- ** ExecutionParameter
-    executionParameter_name,
     executionParameter_defaultValues,
+    executionParameter_name,
     executionParameter_type,
 
     -- ** FailedServiceActionAssociation
     failedServiceActionAssociation_provisioningArtifactId,
-    failedServiceActionAssociation_productId,
-    failedServiceActionAssociation_serviceActionId,
-    failedServiceActionAssociation_errorMessage,
     failedServiceActionAssociation_errorCode,
+    failedServiceActionAssociation_errorMessage,
+    failedServiceActionAssociation_serviceActionId,
+    failedServiceActionAssociation_productId,
 
     -- ** LaunchPath
-    launchPath_id,
     launchPath_name,
+    launchPath_id,
 
     -- ** LaunchPathSummary
     launchPathSummary_constraintSummaries,
-    launchPathSummary_id,
     launchPathSummary_name,
+    launchPathSummary_id,
     launchPathSummary_tags,
 
     -- ** ListRecordHistorySearchFilter
-    listRecordHistorySearchFilter_key,
     listRecordHistorySearchFilter_value,
+    listRecordHistorySearchFilter_key,
 
     -- ** ListTagOptionsFilters
-    listTagOptionsFilters_key,
-    listTagOptionsFilters_active,
     listTagOptionsFilters_value,
+    listTagOptionsFilters_active,
+    listTagOptionsFilters_key,
 
     -- ** OrganizationNode
     organizationNode_value,
@@ -845,30 +845,30 @@ module Network.AWS.ServiceCatalog.Lens
 
     -- ** ParameterConstraints
     parameterConstraints_maxValue,
+    parameterConstraints_maxLength,
+    parameterConstraints_constraintDescription,
     parameterConstraints_minLength,
+    parameterConstraints_allowedPattern,
     parameterConstraints_allowedValues,
     parameterConstraints_minValue,
-    parameterConstraints_constraintDescription,
-    parameterConstraints_maxLength,
-    parameterConstraints_allowedPattern,
 
     -- ** PortfolioDetail
-    portfolioDetail_providerName,
-    portfolioDetail_id,
-    portfolioDetail_createdTime,
     portfolioDetail_arn,
-    portfolioDetail_description,
+    portfolioDetail_createdTime,
+    portfolioDetail_id,
     portfolioDetail_displayName,
+    portfolioDetail_description,
+    portfolioDetail_providerName,
 
     -- ** PortfolioShareDetail
-    portfolioShareDetail_shareTagOptions,
     portfolioShareDetail_principalId,
-    portfolioShareDetail_accepted,
+    portfolioShareDetail_shareTagOptions,
     portfolioShareDetail_type,
+    portfolioShareDetail_accepted,
 
     -- ** Principal
-    principal_principalARN,
     principal_principalType,
+    principal_principalARN,
 
     -- ** ProductViewAggregationValue
     productViewAggregationValue_value,
@@ -876,100 +876,100 @@ module Network.AWS.ServiceCatalog.Lens
 
     -- ** ProductViewDetail
     productViewDetail_status,
-    productViewDetail_productARN,
-    productViewDetail_createdTime,
     productViewDetail_productViewSummary,
+    productViewDetail_createdTime,
+    productViewDetail_productARN,
 
     -- ** ProductViewSummary
-    productViewSummary_distributor,
-    productViewSummary_id,
-    productViewSummary_name,
+    productViewSummary_owner,
     productViewSummary_supportUrl,
     productViewSummary_shortDescription,
     productViewSummary_hasDefaultPath,
-    productViewSummary_owner,
-    productViewSummary_supportDescription,
-    productViewSummary_productId,
-    productViewSummary_supportEmail,
+    productViewSummary_distributor,
+    productViewSummary_name,
+    productViewSummary_id,
     productViewSummary_type,
+    productViewSummary_supportEmail,
+    productViewSummary_productId,
+    productViewSummary_supportDescription,
 
     -- ** ProvisionedProductAttribute
-    provisionedProductAttribute_lastSuccessfulProvisioningRecordId,
-    provisionedProductAttribute_statusMessage,
-    provisionedProductAttribute_status,
     provisionedProductAttribute_idempotencyToken,
-    provisionedProductAttribute_userArn,
-    provisionedProductAttribute_provisioningArtifactName,
-    provisionedProductAttribute_arn,
-    provisionedProductAttribute_id,
-    provisionedProductAttribute_createdTime,
-    provisionedProductAttribute_provisioningArtifactId,
-    provisionedProductAttribute_name,
+    provisionedProductAttribute_status,
     provisionedProductAttribute_productName,
-    provisionedProductAttribute_tags,
-    provisionedProductAttribute_productId,
-    provisionedProductAttribute_lastProvisioningRecordId,
-    provisionedProductAttribute_physicalId,
-    provisionedProductAttribute_type,
+    provisionedProductAttribute_lastSuccessfulProvisioningRecordId,
+    provisionedProductAttribute_provisioningArtifactId,
+    provisionedProductAttribute_arn,
+    provisionedProductAttribute_createdTime,
+    provisionedProductAttribute_provisioningArtifactName,
+    provisionedProductAttribute_userArn,
+    provisionedProductAttribute_statusMessage,
+    provisionedProductAttribute_name,
     provisionedProductAttribute_lastRecordId,
     provisionedProductAttribute_userArnSession,
+    provisionedProductAttribute_id,
+    provisionedProductAttribute_type,
+    provisionedProductAttribute_physicalId,
+    provisionedProductAttribute_lastProvisioningRecordId,
+    provisionedProductAttribute_productId,
+    provisionedProductAttribute_tags,
 
     -- ** ProvisionedProductDetail
-    provisionedProductDetail_lastSuccessfulProvisioningRecordId,
-    provisionedProductDetail_statusMessage,
-    provisionedProductDetail_status,
-    provisionedProductDetail_idempotencyToken,
-    provisionedProductDetail_arn,
-    provisionedProductDetail_id,
-    provisionedProductDetail_createdTime,
-    provisionedProductDetail_provisioningArtifactId,
-    provisionedProductDetail_name,
     provisionedProductDetail_launchRoleArn,
-    provisionedProductDetail_productId,
-    provisionedProductDetail_lastProvisioningRecordId,
-    provisionedProductDetail_type,
+    provisionedProductDetail_idempotencyToken,
+    provisionedProductDetail_status,
+    provisionedProductDetail_lastSuccessfulProvisioningRecordId,
+    provisionedProductDetail_provisioningArtifactId,
+    provisionedProductDetail_arn,
+    provisionedProductDetail_createdTime,
+    provisionedProductDetail_statusMessage,
+    provisionedProductDetail_name,
     provisionedProductDetail_lastRecordId,
+    provisionedProductDetail_id,
+    provisionedProductDetail_type,
+    provisionedProductDetail_lastProvisioningRecordId,
+    provisionedProductDetail_productId,
 
     -- ** ProvisionedProductPlanDetails
-    provisionedProductPlanDetails_provisionProductId,
-    provisionedProductPlanDetails_statusMessage,
     provisionedProductPlanDetails_status,
-    provisionedProductPlanDetails_notificationArns,
-    provisionedProductPlanDetails_updatedTime,
-    provisionedProductPlanDetails_createdTime,
+    provisionedProductPlanDetails_provisionProductId,
     provisionedProductPlanDetails_provisioningArtifactId,
-    provisionedProductPlanDetails_planName,
-    provisionedProductPlanDetails_tags,
-    provisionedProductPlanDetails_productId,
+    provisionedProductPlanDetails_provisionProductName,
+    provisionedProductPlanDetails_createdTime,
+    provisionedProductPlanDetails_notificationArns,
     provisionedProductPlanDetails_planId,
+    provisionedProductPlanDetails_planName,
+    provisionedProductPlanDetails_statusMessage,
+    provisionedProductPlanDetails_updatedTime,
+    provisionedProductPlanDetails_pathId,
     provisionedProductPlanDetails_provisioningParameters,
     provisionedProductPlanDetails_planType,
-    provisionedProductPlanDetails_pathId,
-    provisionedProductPlanDetails_provisionProductName,
+    provisionedProductPlanDetails_productId,
+    provisionedProductPlanDetails_tags,
 
     -- ** ProvisionedProductPlanSummary
     provisionedProductPlanSummary_provisionProductId,
     provisionedProductPlanSummary_provisioningArtifactId,
-    provisionedProductPlanSummary_planName,
-    provisionedProductPlanSummary_planId,
-    provisionedProductPlanSummary_planType,
     provisionedProductPlanSummary_provisionProductName,
+    provisionedProductPlanSummary_planId,
+    provisionedProductPlanSummary_planName,
+    provisionedProductPlanSummary_planType,
 
     -- ** ProvisioningArtifact
-    provisioningArtifact_guidance,
-    provisioningArtifact_id,
     provisioningArtifact_createdTime,
     provisioningArtifact_name,
+    provisioningArtifact_id,
+    provisioningArtifact_guidance,
     provisioningArtifact_description,
 
     -- ** ProvisioningArtifactDetail
-    provisioningArtifactDetail_guidance,
-    provisioningArtifactDetail_id,
     provisioningArtifactDetail_createdTime,
-    provisioningArtifactDetail_name,
     provisioningArtifactDetail_active,
-    provisioningArtifactDetail_description,
+    provisioningArtifactDetail_name,
+    provisioningArtifactDetail_id,
     provisioningArtifactDetail_type,
+    provisioningArtifactDetail_guidance,
+    provisioningArtifactDetail_description,
 
     -- ** ProvisioningArtifactOutput
     provisioningArtifactOutput_key,
@@ -977,28 +977,28 @@ module Network.AWS.ServiceCatalog.Lens
 
     -- ** ProvisioningArtifactParameter
     provisioningArtifactParameter_isNoEcho,
-    provisioningArtifactParameter_parameterConstraints,
-    provisioningArtifactParameter_parameterType,
-    provisioningArtifactParameter_description,
     provisioningArtifactParameter_parameterKey,
+    provisioningArtifactParameter_parameterType,
+    provisioningArtifactParameter_parameterConstraints,
     provisioningArtifactParameter_defaultValue,
+    provisioningArtifactParameter_description,
 
     -- ** ProvisioningArtifactPreferences
-    provisioningArtifactPreferences_stackSetAccounts,
     provisioningArtifactPreferences_stackSetRegions,
+    provisioningArtifactPreferences_stackSetAccounts,
 
     -- ** ProvisioningArtifactProperties
     provisioningArtifactProperties_disableTemplateValidation,
     provisioningArtifactProperties_name,
-    provisioningArtifactProperties_description,
     provisioningArtifactProperties_type,
+    provisioningArtifactProperties_description,
     provisioningArtifactProperties_info,
 
     -- ** ProvisioningArtifactSummary
-    provisioningArtifactSummary_id,
-    provisioningArtifactSummary_createdTime,
     provisioningArtifactSummary_provisioningArtifactMetadata,
+    provisioningArtifactSummary_createdTime,
     provisioningArtifactSummary_name,
+    provisioningArtifactSummary_id,
     provisioningArtifactSummary_description,
 
     -- ** ProvisioningArtifactView
@@ -1006,71 +1006,71 @@ module Network.AWS.ServiceCatalog.Lens
     provisioningArtifactView_provisioningArtifact,
 
     -- ** ProvisioningParameter
-    provisioningParameter_key,
     provisioningParameter_value,
+    provisioningParameter_key,
 
     -- ** ProvisioningPreferences
-    provisioningPreferences_stackSetAccounts,
+    provisioningPreferences_stackSetRegions,
+    provisioningPreferences_stackSetMaxConcurrencyPercentage,
     provisioningPreferences_stackSetFailureToleranceCount,
     provisioningPreferences_stackSetFailureTolerancePercentage,
-    provisioningPreferences_stackSetRegions,
+    provisioningPreferences_stackSetAccounts,
     provisioningPreferences_stackSetMaxConcurrencyCount,
-    provisioningPreferences_stackSetMaxConcurrencyPercentage,
 
     -- ** RecordDetail
-    recordDetail_recordTags,
+    recordDetail_launchRoleArn,
     recordDetail_status,
+    recordDetail_recordTags,
     recordDetail_provisionedProductName,
-    recordDetail_recordErrors,
-    recordDetail_provisionedProductId,
+    recordDetail_provisioningArtifactId,
+    recordDetail_createdTime,
+    recordDetail_recordType,
+    recordDetail_recordId,
     recordDetail_provisionedProductType,
     recordDetail_updatedTime,
-    recordDetail_recordId,
-    recordDetail_createdTime,
-    recordDetail_provisioningArtifactId,
-    recordDetail_launchRoleArn,
-    recordDetail_productId,
     recordDetail_pathId,
-    recordDetail_recordType,
+    recordDetail_provisionedProductId,
+    recordDetail_recordErrors,
+    recordDetail_productId,
 
     -- ** RecordError
     recordError_code,
     recordError_description,
 
     -- ** RecordOutput
-    recordOutput_outputKey,
     recordOutput_outputValue,
+    recordOutput_outputKey,
     recordOutput_description,
 
     -- ** RecordTag
-    recordTag_key,
     recordTag_value,
+    recordTag_key,
 
     -- ** ResourceChange
-    resourceChange_resourceType,
-    resourceChange_physicalResourceId,
-    resourceChange_details,
-    resourceChange_scope,
     resourceChange_logicalResourceId,
+    resourceChange_physicalResourceId,
+    resourceChange_resourceType,
     resourceChange_action,
+    resourceChange_scope,
+    resourceChange_details,
     resourceChange_replacement,
 
     -- ** ResourceChangeDetail
-    resourceChangeDetail_evaluation,
     resourceChangeDetail_causingEntity,
+    resourceChangeDetail_evaluation,
     resourceChangeDetail_target,
 
     -- ** ResourceDetail
-    resourceDetail_id,
-    resourceDetail_createdTime,
     resourceDetail_arn,
+    resourceDetail_createdTime,
     resourceDetail_name,
+    resourceDetail_id,
     resourceDetail_description,
 
     -- ** ResourceTargetDefinition
+    resourceTargetDefinition_attribute,
     resourceTargetDefinition_requiresRecreation,
     resourceTargetDefinition_name,
-    resourceTargetDefinition_attribute,
 
     -- ** ServiceActionAssociation
     serviceActionAssociation_serviceActionId,
@@ -1082,9 +1082,9 @@ module Network.AWS.ServiceCatalog.Lens
     serviceActionDetail_definition,
 
     -- ** ServiceActionSummary
-    serviceActionSummary_definitionType,
-    serviceActionSummary_id,
     serviceActionSummary_name,
+    serviceActionSummary_id,
+    serviceActionSummary_definitionType,
     serviceActionSummary_description,
 
     -- ** ShareDetails
@@ -1092,43 +1092,43 @@ module Network.AWS.ServiceCatalog.Lens
     shareDetails_successfulShares,
 
     -- ** ShareError
-    shareError_message,
     shareError_accounts,
     shareError_error,
+    shareError_message,
 
     -- ** StackInstance
-    stackInstance_stackInstanceStatus,
     stackInstance_account,
     stackInstance_region,
+    stackInstance_stackInstanceStatus,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TagOptionDetail
+    tagOptionDetail_value,
+    tagOptionDetail_owner,
+    tagOptionDetail_active,
     tagOptionDetail_key,
     tagOptionDetail_id,
-    tagOptionDetail_active,
-    tagOptionDetail_owner,
-    tagOptionDetail_value,
 
     -- ** TagOptionSummary
-    tagOptionSummary_key,
     tagOptionSummary_values,
+    tagOptionSummary_key,
 
     -- ** UpdateProvisioningParameter
+    updateProvisioningParameter_value,
     updateProvisioningParameter_key,
     updateProvisioningParameter_usePreviousValue,
-    updateProvisioningParameter_value,
 
     -- ** UpdateProvisioningPreferences
-    updateProvisioningPreferences_stackSetOperationType,
-    updateProvisioningPreferences_stackSetAccounts,
+    updateProvisioningPreferences_stackSetRegions,
+    updateProvisioningPreferences_stackSetMaxConcurrencyPercentage,
     updateProvisioningPreferences_stackSetFailureToleranceCount,
     updateProvisioningPreferences_stackSetFailureTolerancePercentage,
-    updateProvisioningPreferences_stackSetRegions,
+    updateProvisioningPreferences_stackSetAccounts,
     updateProvisioningPreferences_stackSetMaxConcurrencyCount,
-    updateProvisioningPreferences_stackSetMaxConcurrencyPercentage,
+    updateProvisioningPreferences_stackSetOperationType,
 
     -- ** UsageInstruction
     usageInstruction_value,

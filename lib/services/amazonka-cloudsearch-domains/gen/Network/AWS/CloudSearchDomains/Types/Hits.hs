@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHits' smart constructor.
 data Hits = Hits'
-  { -- | The total number of documents that match the search request.
-    found :: Prelude.Maybe Prelude.Integer,
-    -- | A document that matches the search request.
-    hit :: Prelude.Maybe [Hit],
-    -- | A cursor that can be used to retrieve the next set of matching documents
+  { -- | A cursor that can be used to retrieve the next set of matching documents
     -- when you want to page through a large result set.
     cursor :: Prelude.Maybe Prelude.Text,
+    -- | A document that matches the search request.
+    hit :: Prelude.Maybe [Hit],
     -- | The index of the first matching document.
-    start :: Prelude.Maybe Prelude.Integer
+    start :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of documents that match the search request.
+    found :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,40 @@ data Hits = Hits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'found', 'hits_found' - The total number of documents that match the search request.
---
--- 'hit', 'hits_hit' - A document that matches the search request.
---
 -- 'cursor', 'hits_cursor' - A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
 --
+-- 'hit', 'hits_hit' - A document that matches the search request.
+--
 -- 'start', 'hits_start' - The index of the first matching document.
+--
+-- 'found', 'hits_found' - The total number of documents that match the search request.
 newHits ::
   Hits
 newHits =
   Hits'
-    { found = Prelude.Nothing,
+    { cursor = Prelude.Nothing,
       hit = Prelude.Nothing,
-      cursor = Prelude.Nothing,
-      start = Prelude.Nothing
+      start = Prelude.Nothing,
+      found = Prelude.Nothing
     }
-
--- | The total number of documents that match the search request.
-hits_found :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
-hits_found = Lens.lens (\Hits' {found} -> found) (\s@Hits' {} a -> s {found = a} :: Hits)
-
--- | A document that matches the search request.
-hits_hit :: Lens.Lens' Hits (Prelude.Maybe [Hit])
-hits_hit = Lens.lens (\Hits' {hit} -> hit) (\s@Hits' {} a -> s {hit = a} :: Hits) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
 hits_cursor :: Lens.Lens' Hits (Prelude.Maybe Prelude.Text)
 hits_cursor = Lens.lens (\Hits' {cursor} -> cursor) (\s@Hits' {} a -> s {cursor = a} :: Hits)
 
+-- | A document that matches the search request.
+hits_hit :: Lens.Lens' Hits (Prelude.Maybe [Hit])
+hits_hit = Lens.lens (\Hits' {hit} -> hit) (\s@Hits' {} a -> s {hit = a} :: Hits) Prelude.. Lens.mapping Lens.coerced
+
 -- | The index of the first matching document.
 hits_start :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
 hits_start = Lens.lens (\Hits' {start} -> start) (\s@Hits' {} a -> s {start = a} :: Hits)
+
+-- | The total number of documents that match the search request.
+hits_found :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
+hits_found = Lens.lens (\Hits' {found} -> found) (\s@Hits' {} a -> s {found = a} :: Hits)
 
 instance Core.FromJSON Hits where
   parseJSON =
@@ -89,10 +89,10 @@ instance Core.FromJSON Hits where
       "Hits"
       ( \x ->
           Hits'
-            Prelude.<$> (x Core..:? "found")
+            Prelude.<$> (x Core..:? "cursor")
             Prelude.<*> (x Core..:? "hit" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "cursor")
             Prelude.<*> (x Core..:? "start")
+            Prelude.<*> (x Core..:? "found")
       )
 
 instance Prelude.Hashable Hits

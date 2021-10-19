@@ -27,37 +27,31 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUploadDocuments $
+--         [ requestSuggest $
+--             newSuggest
+--
+--         , requestUploadDocuments $
 --             newUploadDocuments
 --
 --         , requestSearch $
 --             newSearch
 --
---         , requestSuggest $
---             newSuggest
---
 --           ]
 
 --     , testGroup "response"
---         [ responseUploadDocuments $
+--         [ responseSuggest $
+--             newSuggestResponse
+--
+--         , responseUploadDocuments $
 --             newUploadDocumentsResponse
 --
 --         , responseSearch $
 --             newSearchResponse
 --
---         , responseSuggest $
---             newSuggestResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestSearch :: Search -> TestTree
-requestSearch =
-  req
-    "Search"
-    "fixture/Search.yaml"
 
 requestSuggest :: Suggest -> TestTree
 requestSuggest =
@@ -65,7 +59,21 @@ requestSuggest =
     "Suggest"
     "fixture/Suggest.yaml"
 
+requestSearch :: Search -> TestTree
+requestSearch =
+  req
+    "Search"
+    "fixture/Search.yaml"
+
 -- Responses
+
+responseSuggest :: SuggestResponse -> TestTree
+responseSuggest =
+  res
+    "SuggestResponse"
+    "fixture/SuggestResponse.proto"
+    defaultService
+    (Proxy :: Proxy Suggest)
 
 responseUploadDocuments :: UploadDocumentsResponse -> TestTree
 responseUploadDocuments =
@@ -82,11 +90,3 @@ responseSearch =
     "fixture/SearchResponse.proto"
     defaultService
     (Proxy :: Proxy Search)
-
-responseSuggest :: SuggestResponse -> TestTree
-responseSuggest =
-  res
-    "SuggestResponse"
-    "fixture/SuggestResponse.proto"
-    defaultService
-    (Proxy :: Proxy Suggest)

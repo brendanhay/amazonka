@@ -49,7 +49,7 @@ newBucketInfo =
 
 -- | A list of the calculated facet values and counts.
 bucketInfo_buckets :: Lens.Lens' BucketInfo (Prelude.Maybe [Bucket])
-bucketInfo_buckets = Lens.lens (\BucketInfo' {buckets} -> buckets) (\s@BucketInfo' {} a -> s {buckets = a} :: BucketInfo) Prelude.. Lens.mapping Lens._Coerce
+bucketInfo_buckets = Lens.lens (\BucketInfo' {buckets} -> buckets) (\s@BucketInfo' {} a -> s {buckets = a} :: BucketInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON BucketInfo where
   parseJSON =

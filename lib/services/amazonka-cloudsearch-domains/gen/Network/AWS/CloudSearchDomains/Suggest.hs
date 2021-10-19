@@ -54,8 +54,8 @@ module Network.AWS.CloudSearchDomains.Suggest
     newSuggestResponse,
 
     -- * Response Lenses
-    suggestResponse_status,
     suggestResponse_suggest,
+    suggestResponse_status,
     suggestResponse_httpStatus,
   )
 where
@@ -125,8 +125,8 @@ instance Core.AWSRequest Suggest where
     Response.receiveJSON
       ( \s h x ->
           SuggestResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "suggest")
+            Prelude.<$> (x Core..?> "suggest")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,11 +161,11 @@ instance Core.ToQuery Suggest where
 --
 -- /See:/ 'newSuggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-  { -- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
+  { -- | Container for the matching search suggestion information.
+    suggest :: Prelude.Maybe SuggestModel,
+    -- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
     -- how long it took to process the request (@timems@).
     status :: Prelude.Maybe SuggestStatus,
-    -- | Container for the matching search suggestion information.
-    suggest :: Prelude.Maybe SuggestModel,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,10 +179,10 @@ data SuggestResponse = SuggestResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'suggest', 'suggestResponse_suggest' - Container for the matching search suggestion information.
+--
 -- 'status', 'suggestResponse_status' - The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
 -- how long it took to process the request (@timems@).
---
--- 'suggest', 'suggestResponse_suggest' - Container for the matching search suggestion information.
 --
 -- 'httpStatus', 'suggestResponse_httpStatus' - The response's http status code.
 newSuggestResponse ::
@@ -191,19 +191,19 @@ newSuggestResponse ::
   SuggestResponse
 newSuggestResponse pHttpStatus_ =
   SuggestResponse'
-    { status = Prelude.Nothing,
-      suggest = Prelude.Nothing,
+    { suggest = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Container for the matching search suggestion information.
+suggestResponse_suggest :: Lens.Lens' SuggestResponse (Prelude.Maybe SuggestModel)
+suggestResponse_suggest = Lens.lens (\SuggestResponse' {suggest} -> suggest) (\s@SuggestResponse' {} a -> s {suggest = a} :: SuggestResponse)
 
 -- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
 -- how long it took to process the request (@timems@).
 suggestResponse_status :: Lens.Lens' SuggestResponse (Prelude.Maybe SuggestStatus)
 suggestResponse_status = Lens.lens (\SuggestResponse' {status} -> status) (\s@SuggestResponse' {} a -> s {status = a} :: SuggestResponse)
-
--- | Container for the matching search suggestion information.
-suggestResponse_suggest :: Lens.Lens' SuggestResponse (Prelude.Maybe SuggestModel)
-suggestResponse_suggest = Lens.lens (\SuggestResponse' {suggest} -> suggest) (\s@SuggestResponse' {} a -> s {suggest = a} :: SuggestResponse)
 
 -- | The response's http status code.
 suggestResponse_httpStatus :: Lens.Lens' SuggestResponse Prelude.Int

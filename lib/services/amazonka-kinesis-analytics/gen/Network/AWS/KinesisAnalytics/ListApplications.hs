@@ -44,8 +44,8 @@ module Network.AWS.KinesisAnalytics.ListApplications
     newListApplications,
 
     -- * Request Lenses
-    listApplications_exclusiveStartApplicationName,
     listApplications_limit,
+    listApplications_exclusiveStartApplicationName,
 
     -- * Destructuring the Response
     ListApplicationsResponse (..),
@@ -69,14 +69,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { -- | Name of the application to start the list with. When using pagination to
+  { -- | Maximum number of applications to list.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Name of the application to start the list with. When using pagination to
     -- retrieve the list, you don\'t need to specify this parameter in the
     -- first request. However, in subsequent requests, you add the last
     -- application name from the previous response to get the next page of
     -- applications.
-    exclusiveStartApplicationName :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of applications to list.
-    limit :: Prelude.Maybe Prelude.Natural
+    exclusiveStartApplicationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,21 +88,24 @@ data ListApplications = ListApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listApplications_limit' - Maximum number of applications to list.
+--
 -- 'exclusiveStartApplicationName', 'listApplications_exclusiveStartApplicationName' - Name of the application to start the list with. When using pagination to
 -- retrieve the list, you don\'t need to specify this parameter in the
 -- first request. However, in subsequent requests, you add the last
 -- application name from the previous response to get the next page of
 -- applications.
---
--- 'limit', 'listApplications_limit' - Maximum number of applications to list.
 newListApplications ::
   ListApplications
 newListApplications =
   ListApplications'
-    { exclusiveStartApplicationName =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      exclusiveStartApplicationName = Prelude.Nothing
     }
+
+-- | Maximum number of applications to list.
+listApplications_limit :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
+listApplications_limit = Lens.lens (\ListApplications' {limit} -> limit) (\s@ListApplications' {} a -> s {limit = a} :: ListApplications)
 
 -- | Name of the application to start the list with. When using pagination to
 -- retrieve the list, you don\'t need to specify this parameter in the
@@ -111,10 +114,6 @@ newListApplications =
 -- applications.
 listApplications_exclusiveStartApplicationName :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
 listApplications_exclusiveStartApplicationName = Lens.lens (\ListApplications' {exclusiveStartApplicationName} -> exclusiveStartApplicationName) (\s@ListApplications' {} a -> s {exclusiveStartApplicationName = a} :: ListApplications)
-
--- | Maximum number of applications to list.
-listApplications_limit :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
-listApplications_limit = Lens.lens (\ListApplications' {limit} -> limit) (\s@ListApplications' {} a -> s {limit = a} :: ListApplications)
 
 instance Core.AWSRequest ListApplications where
   type
@@ -155,9 +154,9 @@ instance Core.ToJSON ListApplications where
   toJSON ListApplications' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartApplicationName" Core..=)
-              Prelude.<$> exclusiveStartApplicationName,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("ExclusiveStartApplicationName" Core..=)
+              Prelude.<$> exclusiveStartApplicationName
           ]
       )
 
@@ -215,7 +214,7 @@ listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {htt
 
 -- | List of @ApplicationSummary@ objects.
 listApplicationsResponse_applicationSummaries :: Lens.Lens' ListApplicationsResponse [ApplicationSummary]
-listApplicationsResponse_applicationSummaries = Lens.lens (\ListApplicationsResponse' {applicationSummaries} -> applicationSummaries) (\s@ListApplicationsResponse' {} a -> s {applicationSummaries = a} :: ListApplicationsResponse) Prelude.. Lens._Coerce
+listApplicationsResponse_applicationSummaries = Lens.lens (\ListApplicationsResponse' {applicationSummaries} -> applicationSummaries) (\s@ListApplicationsResponse' {} a -> s {applicationSummaries = a} :: ListApplicationsResponse) Prelude.. Lens.coerced
 
 -- | Returns true if there are more applications to retrieve.
 listApplicationsResponse_hasMoreApplications :: Lens.Lens' ListApplicationsResponse Prelude.Bool

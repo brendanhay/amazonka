@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMappingParameters' smart constructor.
 data MappingParameters = MappingParameters'
-  { -- | Provides additional mapping information when JSON is the record format
-    -- on the streaming source.
-    jSONMappingParameters :: Prelude.Maybe JSONMappingParameters,
-    -- | Provides additional mapping information when the record format uses
+  { -- | Provides additional mapping information when the record format uses
     -- delimiters (for example, CSV).
-    cSVMappingParameters :: Prelude.Maybe CSVMappingParameters
+    cSVMappingParameters :: Prelude.Maybe CSVMappingParameters,
+    -- | Provides additional mapping information when JSON is the record format
+    -- on the streaming source.
+    jSONMappingParameters :: Prelude.Maybe JSONMappingParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data MappingParameters = MappingParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jSONMappingParameters', 'mappingParameters_jSONMappingParameters' - Provides additional mapping information when JSON is the record format
--- on the streaming source.
---
 -- 'cSVMappingParameters', 'mappingParameters_cSVMappingParameters' - Provides additional mapping information when the record format uses
 -- delimiters (for example, CSV).
+--
+-- 'jSONMappingParameters', 'mappingParameters_jSONMappingParameters' - Provides additional mapping information when JSON is the record format
+-- on the streaming source.
 newMappingParameters ::
   MappingParameters
 newMappingParameters =
   MappingParameters'
-    { jSONMappingParameters =
+    { cSVMappingParameters =
         Prelude.Nothing,
-      cSVMappingParameters = Prelude.Nothing
+      jSONMappingParameters = Prelude.Nothing
     }
-
--- | Provides additional mapping information when JSON is the record format
--- on the streaming source.
-mappingParameters_jSONMappingParameters :: Lens.Lens' MappingParameters (Prelude.Maybe JSONMappingParameters)
-mappingParameters_jSONMappingParameters = Lens.lens (\MappingParameters' {jSONMappingParameters} -> jSONMappingParameters) (\s@MappingParameters' {} a -> s {jSONMappingParameters = a} :: MappingParameters)
 
 -- | Provides additional mapping information when the record format uses
 -- delimiters (for example, CSV).
 mappingParameters_cSVMappingParameters :: Lens.Lens' MappingParameters (Prelude.Maybe CSVMappingParameters)
 mappingParameters_cSVMappingParameters = Lens.lens (\MappingParameters' {cSVMappingParameters} -> cSVMappingParameters) (\s@MappingParameters' {} a -> s {cSVMappingParameters = a} :: MappingParameters)
+
+-- | Provides additional mapping information when JSON is the record format
+-- on the streaming source.
+mappingParameters_jSONMappingParameters :: Lens.Lens' MappingParameters (Prelude.Maybe JSONMappingParameters)
+mappingParameters_jSONMappingParameters = Lens.lens (\MappingParameters' {jSONMappingParameters} -> jSONMappingParameters) (\s@MappingParameters' {} a -> s {jSONMappingParameters = a} :: MappingParameters)
 
 instance Core.FromJSON MappingParameters where
   parseJSON =
@@ -79,8 +79,8 @@ instance Core.FromJSON MappingParameters where
       "MappingParameters"
       ( \x ->
           MappingParameters'
-            Prelude.<$> (x Core..:? "JSONMappingParameters")
-            Prelude.<*> (x Core..:? "CSVMappingParameters")
+            Prelude.<$> (x Core..:? "CSVMappingParameters")
+            Prelude.<*> (x Core..:? "JSONMappingParameters")
       )
 
 instance Prelude.Hashable MappingParameters
@@ -91,9 +91,9 @@ instance Core.ToJSON MappingParameters where
   toJSON MappingParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JSONMappingParameters" Core..=)
-              Prelude.<$> jSONMappingParameters,
-            ("CSVMappingParameters" Core..=)
-              Prelude.<$> cSVMappingParameters
+          [ ("CSVMappingParameters" Core..=)
+              Prelude.<$> cSVMappingParameters,
+            ("JSONMappingParameters" Core..=)
+              Prelude.<$> jSONMappingParameters
           ]
       )

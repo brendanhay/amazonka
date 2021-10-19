@@ -33,24 +33,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputUpdate' smart constructor.
 data InputUpdate = InputUpdate'
-  { -- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
-    -- be updated, provides an updated stream ARN and IAM role ARN.
-    kinesisFirehoseInputUpdate :: Prelude.Maybe KinesisFirehoseInputUpdate,
-    -- | Name prefix for in-application streams that Amazon Kinesis Analytics
-    -- creates for the specific streaming source.
-    namePrefixUpdate :: Prelude.Maybe Prelude.Text,
+  { -- | Describes updates for an input processing configuration.
+    inputProcessingConfigurationUpdate :: Prelude.Maybe InputProcessingConfigurationUpdate,
     -- | If an Amazon Kinesis stream is the streaming source to be updated,
     -- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
     kinesisStreamsInputUpdate :: Prelude.Maybe KinesisStreamsInputUpdate,
-    -- | Describes updates for an input processing configuration.
-    inputProcessingConfigurationUpdate :: Prelude.Maybe InputProcessingConfigurationUpdate,
+    -- | Describes the parallelism updates (the number in-application streams
+    -- Amazon Kinesis Analytics creates for the specific streaming source).
+    inputParallelismUpdate :: Prelude.Maybe InputParallelismUpdate,
+    -- | Name prefix for in-application streams that Amazon Kinesis Analytics
+    -- creates for the specific streaming source.
+    namePrefixUpdate :: Prelude.Maybe Prelude.Text,
     -- | Describes the data format on the streaming source, and how record
     -- elements on the streaming source map to columns of the in-application
     -- stream that is created.
     inputSchemaUpdate :: Prelude.Maybe InputSchemaUpdate,
-    -- | Describes the parallelism updates (the number in-application streams
-    -- Amazon Kinesis Analytics creates for the specific streaming source).
-    inputParallelismUpdate :: Prelude.Maybe InputParallelismUpdate,
+    -- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
+    -- be updated, provides an updated stream ARN and IAM role ARN.
+    kinesisFirehoseInputUpdate :: Prelude.Maybe KinesisFirehoseInputUpdate,
     -- | Input ID of the application input to be updated.
     inputId :: Prelude.Text
   }
@@ -64,23 +64,23 @@ data InputUpdate = InputUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kinesisFirehoseInputUpdate', 'inputUpdate_kinesisFirehoseInputUpdate' - If an Amazon Kinesis Firehose delivery stream is the streaming source to
--- be updated, provides an updated stream ARN and IAM role ARN.
---
--- 'namePrefixUpdate', 'inputUpdate_namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics
--- creates for the specific streaming source.
+-- 'inputProcessingConfigurationUpdate', 'inputUpdate_inputProcessingConfigurationUpdate' - Describes updates for an input processing configuration.
 --
 -- 'kinesisStreamsInputUpdate', 'inputUpdate_kinesisStreamsInputUpdate' - If an Amazon Kinesis stream is the streaming source to be updated,
 -- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
 --
--- 'inputProcessingConfigurationUpdate', 'inputUpdate_inputProcessingConfigurationUpdate' - Describes updates for an input processing configuration.
+-- 'inputParallelismUpdate', 'inputUpdate_inputParallelismUpdate' - Describes the parallelism updates (the number in-application streams
+-- Amazon Kinesis Analytics creates for the specific streaming source).
+--
+-- 'namePrefixUpdate', 'inputUpdate_namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics
+-- creates for the specific streaming source.
 --
 -- 'inputSchemaUpdate', 'inputUpdate_inputSchemaUpdate' - Describes the data format on the streaming source, and how record
 -- elements on the streaming source map to columns of the in-application
 -- stream that is created.
 --
--- 'inputParallelismUpdate', 'inputUpdate_inputParallelismUpdate' - Describes the parallelism updates (the number in-application streams
--- Amazon Kinesis Analytics creates for the specific streaming source).
+-- 'kinesisFirehoseInputUpdate', 'inputUpdate_kinesisFirehoseInputUpdate' - If an Amazon Kinesis Firehose delivery stream is the streaming source to
+-- be updated, provides an updated stream ARN and IAM role ARN.
 --
 -- 'inputId', 'inputUpdate_inputId' - Input ID of the application input to be updated.
 newInputUpdate ::
@@ -89,34 +89,34 @@ newInputUpdate ::
   InputUpdate
 newInputUpdate pInputId_ =
   InputUpdate'
-    { kinesisFirehoseInputUpdate =
+    { inputProcessingConfigurationUpdate =
         Prelude.Nothing,
-      namePrefixUpdate = Prelude.Nothing,
       kinesisStreamsInputUpdate = Prelude.Nothing,
-      inputProcessingConfigurationUpdate = Prelude.Nothing,
-      inputSchemaUpdate = Prelude.Nothing,
       inputParallelismUpdate = Prelude.Nothing,
+      namePrefixUpdate = Prelude.Nothing,
+      inputSchemaUpdate = Prelude.Nothing,
+      kinesisFirehoseInputUpdate = Prelude.Nothing,
       inputId = pInputId_
     }
 
--- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
--- be updated, provides an updated stream ARN and IAM role ARN.
-inputUpdate_kinesisFirehoseInputUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe KinesisFirehoseInputUpdate)
-inputUpdate_kinesisFirehoseInputUpdate = Lens.lens (\InputUpdate' {kinesisFirehoseInputUpdate} -> kinesisFirehoseInputUpdate) (\s@InputUpdate' {} a -> s {kinesisFirehoseInputUpdate = a} :: InputUpdate)
-
--- | Name prefix for in-application streams that Amazon Kinesis Analytics
--- creates for the specific streaming source.
-inputUpdate_namePrefixUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe Prelude.Text)
-inputUpdate_namePrefixUpdate = Lens.lens (\InputUpdate' {namePrefixUpdate} -> namePrefixUpdate) (\s@InputUpdate' {} a -> s {namePrefixUpdate = a} :: InputUpdate)
+-- | Describes updates for an input processing configuration.
+inputUpdate_inputProcessingConfigurationUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe InputProcessingConfigurationUpdate)
+inputUpdate_inputProcessingConfigurationUpdate = Lens.lens (\InputUpdate' {inputProcessingConfigurationUpdate} -> inputProcessingConfigurationUpdate) (\s@InputUpdate' {} a -> s {inputProcessingConfigurationUpdate = a} :: InputUpdate)
 
 -- | If an Amazon Kinesis stream is the streaming source to be updated,
 -- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
 inputUpdate_kinesisStreamsInputUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe KinesisStreamsInputUpdate)
 inputUpdate_kinesisStreamsInputUpdate = Lens.lens (\InputUpdate' {kinesisStreamsInputUpdate} -> kinesisStreamsInputUpdate) (\s@InputUpdate' {} a -> s {kinesisStreamsInputUpdate = a} :: InputUpdate)
 
--- | Describes updates for an input processing configuration.
-inputUpdate_inputProcessingConfigurationUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe InputProcessingConfigurationUpdate)
-inputUpdate_inputProcessingConfigurationUpdate = Lens.lens (\InputUpdate' {inputProcessingConfigurationUpdate} -> inputProcessingConfigurationUpdate) (\s@InputUpdate' {} a -> s {inputProcessingConfigurationUpdate = a} :: InputUpdate)
+-- | Describes the parallelism updates (the number in-application streams
+-- Amazon Kinesis Analytics creates for the specific streaming source).
+inputUpdate_inputParallelismUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe InputParallelismUpdate)
+inputUpdate_inputParallelismUpdate = Lens.lens (\InputUpdate' {inputParallelismUpdate} -> inputParallelismUpdate) (\s@InputUpdate' {} a -> s {inputParallelismUpdate = a} :: InputUpdate)
+
+-- | Name prefix for in-application streams that Amazon Kinesis Analytics
+-- creates for the specific streaming source.
+inputUpdate_namePrefixUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe Prelude.Text)
+inputUpdate_namePrefixUpdate = Lens.lens (\InputUpdate' {namePrefixUpdate} -> namePrefixUpdate) (\s@InputUpdate' {} a -> s {namePrefixUpdate = a} :: InputUpdate)
 
 -- | Describes the data format on the streaming source, and how record
 -- elements on the streaming source map to columns of the in-application
@@ -124,10 +124,10 @@ inputUpdate_inputProcessingConfigurationUpdate = Lens.lens (\InputUpdate' {input
 inputUpdate_inputSchemaUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe InputSchemaUpdate)
 inputUpdate_inputSchemaUpdate = Lens.lens (\InputUpdate' {inputSchemaUpdate} -> inputSchemaUpdate) (\s@InputUpdate' {} a -> s {inputSchemaUpdate = a} :: InputUpdate)
 
--- | Describes the parallelism updates (the number in-application streams
--- Amazon Kinesis Analytics creates for the specific streaming source).
-inputUpdate_inputParallelismUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe InputParallelismUpdate)
-inputUpdate_inputParallelismUpdate = Lens.lens (\InputUpdate' {inputParallelismUpdate} -> inputParallelismUpdate) (\s@InputUpdate' {} a -> s {inputParallelismUpdate = a} :: InputUpdate)
+-- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
+-- be updated, provides an updated stream ARN and IAM role ARN.
+inputUpdate_kinesisFirehoseInputUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe KinesisFirehoseInputUpdate)
+inputUpdate_kinesisFirehoseInputUpdate = Lens.lens (\InputUpdate' {kinesisFirehoseInputUpdate} -> kinesisFirehoseInputUpdate) (\s@InputUpdate' {} a -> s {kinesisFirehoseInputUpdate = a} :: InputUpdate)
 
 -- | Input ID of the application input to be updated.
 inputUpdate_inputId :: Lens.Lens' InputUpdate Prelude.Text
@@ -141,18 +141,18 @@ instance Core.ToJSON InputUpdate where
   toJSON InputUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KinesisFirehoseInputUpdate" Core..=)
-              Prelude.<$> kinesisFirehoseInputUpdate,
-            ("NamePrefixUpdate" Core..=)
-              Prelude.<$> namePrefixUpdate,
+          [ ("InputProcessingConfigurationUpdate" Core..=)
+              Prelude.<$> inputProcessingConfigurationUpdate,
             ("KinesisStreamsInputUpdate" Core..=)
               Prelude.<$> kinesisStreamsInputUpdate,
-            ("InputProcessingConfigurationUpdate" Core..=)
-              Prelude.<$> inputProcessingConfigurationUpdate,
-            ("InputSchemaUpdate" Core..=)
-              Prelude.<$> inputSchemaUpdate,
             ("InputParallelismUpdate" Core..=)
               Prelude.<$> inputParallelismUpdate,
+            ("NamePrefixUpdate" Core..=)
+              Prelude.<$> namePrefixUpdate,
+            ("InputSchemaUpdate" Core..=)
+              Prelude.<$> inputSchemaUpdate,
+            ("KinesisFirehoseInputUpdate" Core..=)
+              Prelude.<$> kinesisFirehoseInputUpdate,
             Prelude.Just ("InputId" Core..= inputId)
           ]
       )

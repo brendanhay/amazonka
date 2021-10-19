@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 data InputSchemaUpdate = InputSchemaUpdate'
   { -- | Specifies the format of the records on the streaming source.
     recordFormatUpdate :: Prelude.Maybe RecordFormat,
+    -- | Specifies the encoding of the records in the streaming source. For
+    -- example, UTF-8.
+    recordEncodingUpdate :: Prelude.Maybe Prelude.Text,
     -- | A list of @RecordColumn@ objects. Each object describes the mapping of
     -- the streaming source element to the corresponding column in the
     -- in-application stream.
-    recordColumnUpdates :: Prelude.Maybe (Prelude.NonEmpty RecordColumn),
-    -- | Specifies the encoding of the records in the streaming source. For
-    -- example, UTF-8.
-    recordEncodingUpdate :: Prelude.Maybe Prelude.Text
+    recordColumnUpdates :: Prelude.Maybe (Prelude.NonEmpty RecordColumn)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,36 +51,36 @@ data InputSchemaUpdate = InputSchemaUpdate'
 --
 -- 'recordFormatUpdate', 'inputSchemaUpdate_recordFormatUpdate' - Specifies the format of the records on the streaming source.
 --
+-- 'recordEncodingUpdate', 'inputSchemaUpdate_recordEncodingUpdate' - Specifies the encoding of the records in the streaming source. For
+-- example, UTF-8.
+--
 -- 'recordColumnUpdates', 'inputSchemaUpdate_recordColumnUpdates' - A list of @RecordColumn@ objects. Each object describes the mapping of
 -- the streaming source element to the corresponding column in the
 -- in-application stream.
---
--- 'recordEncodingUpdate', 'inputSchemaUpdate_recordEncodingUpdate' - Specifies the encoding of the records in the streaming source. For
--- example, UTF-8.
 newInputSchemaUpdate ::
   InputSchemaUpdate
 newInputSchemaUpdate =
   InputSchemaUpdate'
     { recordFormatUpdate =
         Prelude.Nothing,
-      recordColumnUpdates = Prelude.Nothing,
-      recordEncodingUpdate = Prelude.Nothing
+      recordEncodingUpdate = Prelude.Nothing,
+      recordColumnUpdates = Prelude.Nothing
     }
 
 -- | Specifies the format of the records on the streaming source.
 inputSchemaUpdate_recordFormatUpdate :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe RecordFormat)
 inputSchemaUpdate_recordFormatUpdate = Lens.lens (\InputSchemaUpdate' {recordFormatUpdate} -> recordFormatUpdate) (\s@InputSchemaUpdate' {} a -> s {recordFormatUpdate = a} :: InputSchemaUpdate)
 
--- | A list of @RecordColumn@ objects. Each object describes the mapping of
--- the streaming source element to the corresponding column in the
--- in-application stream.
-inputSchemaUpdate_recordColumnUpdates :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe (Prelude.NonEmpty RecordColumn))
-inputSchemaUpdate_recordColumnUpdates = Lens.lens (\InputSchemaUpdate' {recordColumnUpdates} -> recordColumnUpdates) (\s@InputSchemaUpdate' {} a -> s {recordColumnUpdates = a} :: InputSchemaUpdate) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Specifies the encoding of the records in the streaming source. For
 -- example, UTF-8.
 inputSchemaUpdate_recordEncodingUpdate :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe Prelude.Text)
 inputSchemaUpdate_recordEncodingUpdate = Lens.lens (\InputSchemaUpdate' {recordEncodingUpdate} -> recordEncodingUpdate) (\s@InputSchemaUpdate' {} a -> s {recordEncodingUpdate = a} :: InputSchemaUpdate)
+
+-- | A list of @RecordColumn@ objects. Each object describes the mapping of
+-- the streaming source element to the corresponding column in the
+-- in-application stream.
+inputSchemaUpdate_recordColumnUpdates :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe (Prelude.NonEmpty RecordColumn))
+inputSchemaUpdate_recordColumnUpdates = Lens.lens (\InputSchemaUpdate' {recordColumnUpdates} -> recordColumnUpdates) (\s@InputSchemaUpdate' {} a -> s {recordColumnUpdates = a} :: InputSchemaUpdate) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable InputSchemaUpdate
 
@@ -92,9 +92,9 @@ instance Core.ToJSON InputSchemaUpdate where
       ( Prelude.catMaybes
           [ ("RecordFormatUpdate" Core..=)
               Prelude.<$> recordFormatUpdate,
-            ("RecordColumnUpdates" Core..=)
-              Prelude.<$> recordColumnUpdates,
             ("RecordEncodingUpdate" Core..=)
-              Prelude.<$> recordEncodingUpdate
+              Prelude.<$> recordEncodingUpdate,
+            ("RecordColumnUpdates" Core..=)
+              Prelude.<$> recordColumnUpdates
           ]
       )

@@ -14,96 +14,44 @@
 module Network.AWS.KinesisAnalytics.Lens
   ( -- * Operations
 
-    -- ** DeleteApplicationOutput
-    deleteApplicationOutput_applicationName,
-    deleteApplicationOutput_currentApplicationVersionId,
-    deleteApplicationOutput_outputId,
-    deleteApplicationOutputResponse_httpStatus,
-
     -- ** AddApplicationOutput
     addApplicationOutput_applicationName,
     addApplicationOutput_currentApplicationVersionId,
     addApplicationOutput_output,
     addApplicationOutputResponse_httpStatus,
 
-    -- ** CreateApplication
-    createApplication_applicationCode,
-    createApplication_applicationDescription,
-    createApplication_outputs,
-    createApplication_cloudWatchLoggingOptions,
-    createApplication_tags,
-    createApplication_inputs,
-    createApplication_applicationName,
-    createApplicationResponse_httpStatus,
-    createApplicationResponse_applicationSummary,
-
-    -- ** DeleteApplicationCloudWatchLoggingOption
-    deleteApplicationCloudWatchLoggingOption_applicationName,
-    deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId,
-    deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId,
-    deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
-
-    -- ** AddApplicationCloudWatchLoggingOption
-    addApplicationCloudWatchLoggingOption_applicationName,
-    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
-    addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
-    addApplicationCloudWatchLoggingOptionResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** StartApplication
-    startApplication_applicationName,
-    startApplication_inputConfigurations,
-    startApplicationResponse_httpStatus,
-
-    -- ** StopApplication
-    stopApplication_applicationName,
-    stopApplicationResponse_httpStatus,
+    -- ** DiscoverInputSchema
+    discoverInputSchema_inputStartingPositionConfiguration,
+    discoverInputSchema_inputProcessingConfiguration,
+    discoverInputSchema_s3Configuration,
+    discoverInputSchema_resourceARN,
+    discoverInputSchema_roleARN,
+    discoverInputSchemaResponse_rawInputRecords,
+    discoverInputSchemaResponse_inputSchema,
+    discoverInputSchemaResponse_processedInputRecords,
+    discoverInputSchemaResponse_parsedInputRecords,
+    discoverInputSchemaResponse_httpStatus,
 
     -- ** DescribeApplication
     describeApplication_applicationName,
     describeApplicationResponse_httpStatus,
     describeApplicationResponse_applicationDetail,
 
-    -- ** DiscoverInputSchema
-    discoverInputSchema_inputStartingPositionConfiguration,
-    discoverInputSchema_resourceARN,
-    discoverInputSchema_roleARN,
-    discoverInputSchema_s3Configuration,
-    discoverInputSchema_inputProcessingConfiguration,
-    discoverInputSchemaResponse_inputSchema,
-    discoverInputSchemaResponse_processedInputRecords,
-    discoverInputSchemaResponse_rawInputRecords,
-    discoverInputSchemaResponse_parsedInputRecords,
-    discoverInputSchemaResponse_httpStatus,
+    -- ** StartApplication
+    startApplication_applicationName,
+    startApplication_inputConfigurations,
+    startApplicationResponse_httpStatus,
 
-    -- ** DeleteApplicationInputProcessingConfiguration
-    deleteApplicationInputProcessingConfiguration_applicationName,
-    deleteApplicationInputProcessingConfiguration_currentApplicationVersionId,
-    deleteApplicationInputProcessingConfiguration_inputId,
-    deleteApplicationInputProcessingConfigurationResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** AddApplicationInputProcessingConfiguration
-    addApplicationInputProcessingConfiguration_applicationName,
-    addApplicationInputProcessingConfiguration_currentApplicationVersionId,
-    addApplicationInputProcessingConfiguration_inputId,
-    addApplicationInputProcessingConfiguration_inputProcessingConfiguration,
-    addApplicationInputProcessingConfigurationResponse_httpStatus,
-
-    -- ** ListApplications
-    listApplications_exclusiveStartApplicationName,
-    listApplications_limit,
-    listApplicationsResponse_httpStatus,
-    listApplicationsResponse_applicationSummaries,
-    listApplicationsResponse_hasMoreApplications,
+    -- ** DeleteApplicationReferenceDataSource
+    deleteApplicationReferenceDataSource_applicationName,
+    deleteApplicationReferenceDataSource_currentApplicationVersionId,
+    deleteApplicationReferenceDataSource_referenceId,
+    deleteApplicationReferenceDataSourceResponse_httpStatus,
 
     -- ** DeleteApplication
     deleteApplication_applicationName,
@@ -116,17 +64,45 @@ module Network.AWS.KinesisAnalytics.Lens
     updateApplication_applicationUpdate,
     updateApplicationResponse_httpStatus,
 
+    -- ** DeleteApplicationCloudWatchLoggingOption
+    deleteApplicationCloudWatchLoggingOption_applicationName,
+    deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId,
+    deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId,
+    deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
+
+    -- ** AddApplicationInputProcessingConfiguration
+    addApplicationInputProcessingConfiguration_applicationName,
+    addApplicationInputProcessingConfiguration_currentApplicationVersionId,
+    addApplicationInputProcessingConfiguration_inputId,
+    addApplicationInputProcessingConfiguration_inputProcessingConfiguration,
+    addApplicationInputProcessingConfigurationResponse_httpStatus,
+
+    -- ** CreateApplication
+    createApplication_applicationDescription,
+    createApplication_inputs,
+    createApplication_cloudWatchLoggingOptions,
+    createApplication_outputs,
+    createApplication_applicationCode,
+    createApplication_tags,
+    createApplication_applicationName,
+    createApplicationResponse_httpStatus,
+    createApplicationResponse_applicationSummary,
+
+    -- ** DeleteApplicationOutput
+    deleteApplicationOutput_applicationName,
+    deleteApplicationOutput_currentApplicationVersionId,
+    deleteApplicationOutput_outputId,
+    deleteApplicationOutputResponse_httpStatus,
+
+    -- ** StopApplication
+    stopApplication_applicationName,
+    stopApplicationResponse_httpStatus,
+
     -- ** AddApplicationReferenceDataSource
     addApplicationReferenceDataSource_applicationName,
     addApplicationReferenceDataSource_currentApplicationVersionId,
     addApplicationReferenceDataSource_referenceDataSource,
     addApplicationReferenceDataSourceResponse_httpStatus,
-
-    -- ** DeleteApplicationReferenceDataSource
-    deleteApplicationReferenceDataSource_applicationName,
-    deleteApplicationReferenceDataSource_currentApplicationVersionId,
-    deleteApplicationReferenceDataSource_referenceId,
-    deleteApplicationReferenceDataSourceResponse_httpStatus,
 
     -- ** AddApplicationInput
     addApplicationInput_applicationName,
@@ -134,21 +110,45 @@ module Network.AWS.KinesisAnalytics.Lens
     addApplicationInput_input,
     addApplicationInputResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** AddApplicationCloudWatchLoggingOption
+    addApplicationCloudWatchLoggingOption_applicationName,
+    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
+    addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
+    addApplicationCloudWatchLoggingOptionResponse_httpStatus,
+
+    -- ** ListApplications
+    listApplications_limit,
+    listApplications_exclusiveStartApplicationName,
+    listApplicationsResponse_httpStatus,
+    listApplicationsResponse_applicationSummaries,
+    listApplicationsResponse_hasMoreApplications,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** DeleteApplicationInputProcessingConfiguration
+    deleteApplicationInputProcessingConfiguration_applicationName,
+    deleteApplicationInputProcessingConfiguration_currentApplicationVersionId,
+    deleteApplicationInputProcessingConfiguration_inputId,
+    deleteApplicationInputProcessingConfigurationResponse_httpStatus,
 
     -- * Types
 
     -- ** ApplicationDetail
-    applicationDetail_applicationCode,
     applicationDetail_applicationDescription,
-    applicationDetail_cloudWatchLoggingOptionDescriptions,
     applicationDetail_outputDescriptions,
-    applicationDetail_createTimestamp,
-    applicationDetail_inputDescriptions,
+    applicationDetail_cloudWatchLoggingOptionDescriptions,
     applicationDetail_referenceDataSourceDescriptions,
+    applicationDetail_inputDescriptions,
+    applicationDetail_applicationCode,
+    applicationDetail_createTimestamp,
     applicationDetail_lastUpdateTimestamp,
     applicationDetail_applicationName,
     applicationDetail_applicationARN,
@@ -161,11 +161,11 @@ module Network.AWS.KinesisAnalytics.Lens
     applicationSummary_applicationStatus,
 
     -- ** ApplicationUpdate
-    applicationUpdate_inputUpdates,
     applicationUpdate_referenceDataSourceUpdates,
+    applicationUpdate_inputUpdates,
     applicationUpdate_cloudWatchLoggingOptionUpdates,
-    applicationUpdate_applicationCodeUpdate,
     applicationUpdate_outputUpdates,
+    applicationUpdate_applicationCodeUpdate,
 
     -- ** CSVMappingParameters
     cSVMappingParameters_recordRowDelimiter,
@@ -181,8 +181,8 @@ module Network.AWS.KinesisAnalytics.Lens
     cloudWatchLoggingOptionDescription_roleARN,
 
     -- ** CloudWatchLoggingOptionUpdate
-    cloudWatchLoggingOptionUpdate_logStreamARNUpdate,
     cloudWatchLoggingOptionUpdate_roleARNUpdate,
+    cloudWatchLoggingOptionUpdate_logStreamARNUpdate,
     cloudWatchLoggingOptionUpdate_cloudWatchLoggingOptionId,
 
     -- ** DestinationSchema
@@ -190,9 +190,9 @@ module Network.AWS.KinesisAnalytics.Lens
 
     -- ** Input
     input_inputParallelism,
-    input_kinesisFirehoseInput,
-    input_kinesisStreamsInput,
     input_inputProcessingConfiguration,
+    input_kinesisStreamsInput,
+    input_kinesisFirehoseInput,
     input_namePrefix,
     input_inputSchema,
 
@@ -201,15 +201,15 @@ module Network.AWS.KinesisAnalytics.Lens
     inputConfiguration_inputStartingPositionConfiguration,
 
     -- ** InputDescription
-    inputDescription_inputSchema,
     inputDescription_inputStartingPositionConfiguration,
-    inputDescription_inputProcessingConfigurationDescription,
     inputDescription_inputParallelism,
-    inputDescription_namePrefix,
-    inputDescription_kinesisStreamsInputDescription,
-    inputDescription_kinesisFirehoseInputDescription,
-    inputDescription_inAppStreamNames,
     inputDescription_inputId,
+    inputDescription_inAppStreamNames,
+    inputDescription_kinesisFirehoseInputDescription,
+    inputDescription_inputSchema,
+    inputDescription_kinesisStreamsInputDescription,
+    inputDescription_namePrefix,
+    inputDescription_inputProcessingConfigurationDescription,
 
     -- ** InputLambdaProcessor
     inputLambdaProcessor_resourceARN,
@@ -220,8 +220,8 @@ module Network.AWS.KinesisAnalytics.Lens
     inputLambdaProcessorDescription_roleARN,
 
     -- ** InputLambdaProcessorUpdate
-    inputLambdaProcessorUpdate_resourceARNUpdate,
     inputLambdaProcessorUpdate_roleARNUpdate,
+    inputLambdaProcessorUpdate_resourceARNUpdate,
 
     -- ** InputParallelism
     inputParallelism_count,
@@ -240,19 +240,19 @@ module Network.AWS.KinesisAnalytics.Lens
 
     -- ** InputSchemaUpdate
     inputSchemaUpdate_recordFormatUpdate,
-    inputSchemaUpdate_recordColumnUpdates,
     inputSchemaUpdate_recordEncodingUpdate,
+    inputSchemaUpdate_recordColumnUpdates,
 
     -- ** InputStartingPositionConfiguration
     inputStartingPositionConfiguration_inputStartingPosition,
 
     -- ** InputUpdate
-    inputUpdate_kinesisFirehoseInputUpdate,
-    inputUpdate_namePrefixUpdate,
-    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputProcessingConfigurationUpdate,
-    inputUpdate_inputSchemaUpdate,
+    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputParallelismUpdate,
+    inputUpdate_namePrefixUpdate,
+    inputUpdate_inputSchemaUpdate,
+    inputUpdate_kinesisFirehoseInputUpdate,
     inputUpdate_inputId,
 
     -- ** JSONMappingParameters
@@ -267,8 +267,8 @@ module Network.AWS.KinesisAnalytics.Lens
     kinesisFirehoseInputDescription_roleARN,
 
     -- ** KinesisFirehoseInputUpdate
-    kinesisFirehoseInputUpdate_resourceARNUpdate,
     kinesisFirehoseInputUpdate_roleARNUpdate,
+    kinesisFirehoseInputUpdate_resourceARNUpdate,
 
     -- ** KinesisFirehoseOutput
     kinesisFirehoseOutput_resourceARN,
@@ -279,8 +279,8 @@ module Network.AWS.KinesisAnalytics.Lens
     kinesisFirehoseOutputDescription_roleARN,
 
     -- ** KinesisFirehoseOutputUpdate
-    kinesisFirehoseOutputUpdate_resourceARNUpdate,
     kinesisFirehoseOutputUpdate_roleARNUpdate,
+    kinesisFirehoseOutputUpdate_resourceARNUpdate,
 
     -- ** KinesisStreamsInput
     kinesisStreamsInput_resourceARN,
@@ -291,8 +291,8 @@ module Network.AWS.KinesisAnalytics.Lens
     kinesisStreamsInputDescription_roleARN,
 
     -- ** KinesisStreamsInputUpdate
-    kinesisStreamsInputUpdate_resourceARNUpdate,
     kinesisStreamsInputUpdate_roleARNUpdate,
+    kinesisStreamsInputUpdate_resourceARNUpdate,
 
     -- ** KinesisStreamsOutput
     kinesisStreamsOutput_resourceARN,
@@ -303,8 +303,8 @@ module Network.AWS.KinesisAnalytics.Lens
     kinesisStreamsOutputDescription_roleARN,
 
     -- ** KinesisStreamsOutputUpdate
-    kinesisStreamsOutputUpdate_resourceARNUpdate,
     kinesisStreamsOutputUpdate_roleARNUpdate,
+    kinesisStreamsOutputUpdate_resourceARNUpdate,
 
     -- ** LambdaOutput
     lambdaOutput_resourceARN,
@@ -315,32 +315,32 @@ module Network.AWS.KinesisAnalytics.Lens
     lambdaOutputDescription_roleARN,
 
     -- ** LambdaOutputUpdate
-    lambdaOutputUpdate_resourceARNUpdate,
     lambdaOutputUpdate_roleARNUpdate,
+    lambdaOutputUpdate_resourceARNUpdate,
 
     -- ** MappingParameters
-    mappingParameters_jSONMappingParameters,
     mappingParameters_cSVMappingParameters,
+    mappingParameters_jSONMappingParameters,
 
     -- ** Output
     output_lambdaOutput,
-    output_kinesisFirehoseOutput,
     output_kinesisStreamsOutput,
+    output_kinesisFirehoseOutput,
     output_name,
     output_destinationSchema,
 
     -- ** OutputDescription
-    outputDescription_kinesisStreamsOutputDescription,
-    outputDescription_kinesisFirehoseOutputDescription,
-    outputDescription_destinationSchema,
     outputDescription_outputId,
+    outputDescription_destinationSchema,
+    outputDescription_kinesisFirehoseOutputDescription,
+    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_name,
     outputDescription_lambdaOutputDescription,
 
     -- ** OutputUpdate
-    outputUpdate_kinesisFirehoseOutputUpdate,
-    outputUpdate_destinationSchemaUpdate,
     outputUpdate_kinesisStreamsOutputUpdate,
+    outputUpdate_destinationSchemaUpdate,
+    outputUpdate_kinesisFirehoseOutputUpdate,
     outputUpdate_nameUpdate,
     outputUpdate_lambdaOutputUpdate,
     outputUpdate_outputId,
@@ -366,9 +366,9 @@ module Network.AWS.KinesisAnalytics.Lens
     referenceDataSourceDescription_s3ReferenceDataSourceDescription,
 
     -- ** ReferenceDataSourceUpdate
+    referenceDataSourceUpdate_tableNameUpdate,
     referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceSchemaUpdate,
-    referenceDataSourceUpdate_tableNameUpdate,
     referenceDataSourceUpdate_referenceId,
 
     -- ** S3Configuration
@@ -387,9 +387,9 @@ module Network.AWS.KinesisAnalytics.Lens
     s3ReferenceDataSourceDescription_referenceRoleARN,
 
     -- ** S3ReferenceDataSourceUpdate
-    s3ReferenceDataSourceUpdate_referenceRoleARNUpdate,
-    s3ReferenceDataSourceUpdate_fileKeyUpdate,
     s3ReferenceDataSourceUpdate_bucketARNUpdate,
+    s3ReferenceDataSourceUpdate_fileKeyUpdate,
+    s3ReferenceDataSourceUpdate_referenceRoleARNUpdate,
 
     -- ** SourceSchema
     sourceSchema_recordEncoding,

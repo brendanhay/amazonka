@@ -79,7 +79,7 @@ newUntagResource ::
 newUntagResource pResourceARN_ pTagKeys_ =
   UntagResource'
     { resourceARN = pResourceARN_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | The ARN of the Kinesis Analytics application from which to remove the
@@ -89,7 +89,7 @@ untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resource
 
 -- | A list of keys of tags to remove from the specified application.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

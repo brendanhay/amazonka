@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { -- | A unique integer that indicates when this option was last updated.
-    updateVersion :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates that the option will be deleted once processing is complete.
+  { -- | Indicates that the option will be deleted once processing is complete.
     pendingDeletion :: Prelude.Maybe Prelude.Bool,
+    -- | A unique integer that indicates when this option was last updated.
+    updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | A timestamp for when this option was created.
     creationDate :: Core.ISO8601,
     -- | A timestamp for when this option was last updated.
@@ -60,9 +60,9 @@ data OptionStatus = OptionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateVersion', 'optionStatus_updateVersion' - A unique integer that indicates when this option was last updated.
---
 -- 'pendingDeletion', 'optionStatus_pendingDeletion' - Indicates that the option will be deleted once processing is complete.
+--
+-- 'updateVersion', 'optionStatus_updateVersion' - A unique integer that indicates when this option was last updated.
 --
 -- 'creationDate', 'optionStatus_creationDate' - A timestamp for when this option was created.
 --
@@ -90,20 +90,20 @@ newOptionStatus ::
   OptionStatus
 newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-    { updateVersion = Prelude.Nothing,
-      pendingDeletion = Prelude.Nothing,
+    { pendingDeletion = Prelude.Nothing,
+      updateVersion = Prelude.Nothing,
       creationDate = Core._Time Lens.# pCreationDate_,
       updateDate = Core._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
--- | A unique integer that indicates when this option was last updated.
-optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
-optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
-
 -- | Indicates that the option will be deleted once processing is complete.
 optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Bool)
 optionStatus_pendingDeletion = Lens.lens (\OptionStatus' {pendingDeletion} -> pendingDeletion) (\s@OptionStatus' {} a -> s {pendingDeletion = a} :: OptionStatus)
+
+-- | A unique integer that indicates when this option was last updated.
+optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
+optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
 
 -- | A timestamp for when this option was created.
 optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
@@ -131,8 +131,8 @@ optionStatus_state = Lens.lens (\OptionStatus' {state} -> state) (\s@OptionStatu
 instance Core.FromXML OptionStatus where
   parseXML x =
     OptionStatus'
-      Prelude.<$> (x Core..@? "UpdateVersion")
-      Prelude.<*> (x Core..@? "PendingDeletion")
+      Prelude.<$> (x Core..@? "PendingDeletion")
+      Prelude.<*> (x Core..@? "UpdateVersion")
       Prelude.<*> (x Core..@ "CreationDate")
       Prelude.<*> (x Core..@ "UpdateDate")
       Prelude.<*> (x Core..@ "State")

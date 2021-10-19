@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newIntOptions' smart constructor.
 data IntOptions = IntOptions'
-  { -- | Whether the field can be used to sort the search results.
-    sortEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether facet information can be returned for the field.
-    facetEnabled :: Prelude.Maybe Prelude.Bool,
+  { -- | The name of the source field to map to the field.
+    sourceField :: Prelude.Maybe Prelude.Text,
     -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the source field to map to the field.
-    sourceField :: Prelude.Maybe Prelude.Text,
+    -- | Whether facet information can be returned for the field.
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the field can be used to sort the search results.
+    sortEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document. This can be important if you are using the field in an
     -- expression and that field is not present in every document.
@@ -54,15 +54,15 @@ data IntOptions = IntOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortEnabled', 'intOptions_sortEnabled' - Whether the field can be used to sort the search results.
---
--- 'facetEnabled', 'intOptions_facetEnabled' - Whether facet information can be returned for the field.
+-- 'sourceField', 'intOptions_sourceField' - The name of the source field to map to the field.
 --
 -- 'returnEnabled', 'intOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- 'sourceField', 'intOptions_sourceField' - The name of the source field to map to the field.
+-- 'facetEnabled', 'intOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'intOptions_searchEnabled' - Whether the contents of the field are searchable.
+--
+-- 'sortEnabled', 'intOptions_sortEnabled' - Whether the field can be used to sort the search results.
 --
 -- 'defaultValue', 'intOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
 -- document. This can be important if you are using the field in an
@@ -71,33 +71,33 @@ newIntOptions ::
   IntOptions
 newIntOptions =
   IntOptions'
-    { sortEnabled = Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
+    { sourceField = Prelude.Nothing,
       returnEnabled = Prelude.Nothing,
-      sourceField = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
+      sortEnabled = Prelude.Nothing,
       defaultValue = Prelude.Nothing
     }
-
--- | Whether the field can be used to sort the search results.
-intOptions_sortEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
-intOptions_sortEnabled = Lens.lens (\IntOptions' {sortEnabled} -> sortEnabled) (\s@IntOptions' {} a -> s {sortEnabled = a} :: IntOptions)
-
--- | Whether facet information can be returned for the field.
-intOptions_facetEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
-intOptions_facetEnabled = Lens.lens (\IntOptions' {facetEnabled} -> facetEnabled) (\s@IntOptions' {} a -> s {facetEnabled = a} :: IntOptions)
-
--- | Whether the contents of the field can be returned in the search results.
-intOptions_returnEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
-intOptions_returnEnabled = Lens.lens (\IntOptions' {returnEnabled} -> returnEnabled) (\s@IntOptions' {} a -> s {returnEnabled = a} :: IntOptions)
 
 -- | The name of the source field to map to the field.
 intOptions_sourceField :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Text)
 intOptions_sourceField = Lens.lens (\IntOptions' {sourceField} -> sourceField) (\s@IntOptions' {} a -> s {sourceField = a} :: IntOptions)
 
+-- | Whether the contents of the field can be returned in the search results.
+intOptions_returnEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
+intOptions_returnEnabled = Lens.lens (\IntOptions' {returnEnabled} -> returnEnabled) (\s@IntOptions' {} a -> s {returnEnabled = a} :: IntOptions)
+
+-- | Whether facet information can be returned for the field.
+intOptions_facetEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
+intOptions_facetEnabled = Lens.lens (\IntOptions' {facetEnabled} -> facetEnabled) (\s@IntOptions' {} a -> s {facetEnabled = a} :: IntOptions)
+
 -- | Whether the contents of the field are searchable.
 intOptions_searchEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
 intOptions_searchEnabled = Lens.lens (\IntOptions' {searchEnabled} -> searchEnabled) (\s@IntOptions' {} a -> s {searchEnabled = a} :: IntOptions)
+
+-- | Whether the field can be used to sort the search results.
+intOptions_sortEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
+intOptions_sortEnabled = Lens.lens (\IntOptions' {sortEnabled} -> sortEnabled) (\s@IntOptions' {} a -> s {sortEnabled = a} :: IntOptions)
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document. This can be important if you are using the field in an
@@ -108,11 +108,11 @@ intOptions_defaultValue = Lens.lens (\IntOptions' {defaultValue} -> defaultValue
 instance Core.FromXML IntOptions where
   parseXML x =
     IntOptions'
-      Prelude.<$> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "FacetEnabled")
+      Prelude.<$> (x Core..@? "SourceField")
       Prelude.<*> (x Core..@? "ReturnEnabled")
-      Prelude.<*> (x Core..@? "SourceField")
+      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
+      Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
 instance Prelude.Hashable IntOptions
@@ -122,10 +122,10 @@ instance Prelude.NFData IntOptions
 instance Core.ToQuery IntOptions where
   toQuery IntOptions' {..} =
     Prelude.mconcat
-      [ "SortEnabled" Core.=: sortEnabled,
-        "FacetEnabled" Core.=: facetEnabled,
+      [ "SourceField" Core.=: sourceField,
         "ReturnEnabled" Core.=: returnEnabled,
-        "SourceField" Core.=: sourceField,
+        "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
+        "SortEnabled" Core.=: sortEnabled,
         "DefaultValue" Core.=: defaultValue
       ]

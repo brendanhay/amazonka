@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 data DateArrayOptions = DateArrayOptions'
   { -- | A list of source fields to map to the field.
     sourceFields :: Prelude.Maybe Prelude.Text,
-    -- | Whether facet information can be returned for the field.
-    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether facet information can be returned for the field.
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
@@ -53,9 +53,9 @@ data DateArrayOptions = DateArrayOptions'
 --
 -- 'sourceFields', 'dateArrayOptions_sourceFields' - A list of source fields to map to the field.
 --
--- 'facetEnabled', 'dateArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
---
 -- 'returnEnabled', 'dateArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
+--
+-- 'facetEnabled', 'dateArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'dateArrayOptions_searchEnabled' - Whether the contents of the field are searchable.
 --
@@ -66,8 +66,8 @@ newDateArrayOptions ::
 newDateArrayOptions =
   DateArrayOptions'
     { sourceFields = Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
       returnEnabled = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
       defaultValue = Prelude.Nothing
     }
@@ -76,13 +76,13 @@ newDateArrayOptions =
 dateArrayOptions_sourceFields :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Text)
 dateArrayOptions_sourceFields = Lens.lens (\DateArrayOptions' {sourceFields} -> sourceFields) (\s@DateArrayOptions' {} a -> s {sourceFields = a} :: DateArrayOptions)
 
--- | Whether facet information can be returned for the field.
-dateArrayOptions_facetEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
-dateArrayOptions_facetEnabled = Lens.lens (\DateArrayOptions' {facetEnabled} -> facetEnabled) (\s@DateArrayOptions' {} a -> s {facetEnabled = a} :: DateArrayOptions)
-
 -- | Whether the contents of the field can be returned in the search results.
 dateArrayOptions_returnEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
 dateArrayOptions_returnEnabled = Lens.lens (\DateArrayOptions' {returnEnabled} -> returnEnabled) (\s@DateArrayOptions' {} a -> s {returnEnabled = a} :: DateArrayOptions)
+
+-- | Whether facet information can be returned for the field.
+dateArrayOptions_facetEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
+dateArrayOptions_facetEnabled = Lens.lens (\DateArrayOptions' {facetEnabled} -> facetEnabled) (\s@DateArrayOptions' {} a -> s {facetEnabled = a} :: DateArrayOptions)
 
 -- | Whether the contents of the field are searchable.
 dateArrayOptions_searchEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
@@ -97,8 +97,8 @@ instance Core.FromXML DateArrayOptions where
   parseXML x =
     DateArrayOptions'
       Prelude.<$> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
@@ -110,8 +110,8 @@ instance Core.ToQuery DateArrayOptions where
   toQuery DateArrayOptions' {..} =
     Prelude.mconcat
       [ "SourceFields" Core.=: sourceFields,
-        "FacetEnabled" Core.=: facetEnabled,
         "ReturnEnabled" Core.=: returnEnabled,
+        "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
         "DefaultValue" Core.=: defaultValue
       ]

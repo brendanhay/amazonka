@@ -107,7 +107,7 @@ describeIndexFields_deployed = Lens.lens (\DescribeIndexFields' {deployed} -> de
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
 describeIndexFields_fieldNames :: Lens.Lens' DescribeIndexFields (Prelude.Maybe [Prelude.Text])
-describeIndexFields_fieldNames = Lens.lens (\DescribeIndexFields' {fieldNames} -> fieldNames) (\s@DescribeIndexFields' {} a -> s {fieldNames = a} :: DescribeIndexFields) Prelude.. Lens.mapping Lens._Coerce
+describeIndexFields_fieldNames = Lens.lens (\DescribeIndexFields' {fieldNames} -> fieldNames) (\s@DescribeIndexFields' {} a -> s {fieldNames = a} :: DescribeIndexFields) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain you want to describe.
 describeIndexFields_domainName :: Lens.Lens' DescribeIndexFields Prelude.Text
@@ -193,6 +193,6 @@ describeIndexFieldsResponse_httpStatus = Lens.lens (\DescribeIndexFieldsResponse
 
 -- | The index fields configured for the domain.
 describeIndexFieldsResponse_indexFields :: Lens.Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-describeIndexFieldsResponse_indexFields = Lens.lens (\DescribeIndexFieldsResponse' {indexFields} -> indexFields) (\s@DescribeIndexFieldsResponse' {} a -> s {indexFields = a} :: DescribeIndexFieldsResponse) Prelude.. Lens._Coerce
+describeIndexFieldsResponse_indexFields = Lens.lens (\DescribeIndexFieldsResponse' {indexFields} -> indexFields) (\s@DescribeIndexFieldsResponse' {} a -> s {indexFields = a} :: DescribeIndexFieldsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeIndexFieldsResponse

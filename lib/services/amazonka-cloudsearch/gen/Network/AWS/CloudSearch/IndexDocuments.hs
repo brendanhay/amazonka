@@ -149,7 +149,7 @@ newIndexDocumentsResponse pHttpStatus_ =
 
 -- | The names of the fields that are currently being indexed.
 indexDocumentsResponse_fieldNames :: Lens.Lens' IndexDocumentsResponse (Prelude.Maybe [Prelude.Text])
-indexDocumentsResponse_fieldNames = Lens.lens (\IndexDocumentsResponse' {fieldNames} -> fieldNames) (\s@IndexDocumentsResponse' {} a -> s {fieldNames = a} :: IndexDocumentsResponse) Prelude.. Lens.mapping Lens._Coerce
+indexDocumentsResponse_fieldNames = Lens.lens (\IndexDocumentsResponse' {fieldNames} -> fieldNames) (\s@IndexDocumentsResponse' {} a -> s {fieldNames = a} :: IndexDocumentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 indexDocumentsResponse_httpStatus :: Lens.Lens' IndexDocumentsResponse Prelude.Int

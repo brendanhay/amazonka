@@ -17,14 +17,14 @@ module Network.AWS.CloudSearch.Types
     defaultService,
 
     -- * Errors
-    _InvalidTypeException,
-    _ResourceAlreadyExistsException,
-    _InternalException,
-    _BaseException,
     _ValidationException,
-    _LimitExceededException,
-    _ResourceNotFoundException,
+    _ResourceAlreadyExistsException,
+    _BaseException,
     _DisabledOperationException,
+    _InternalException,
+    _InvalidTypeException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
 
     -- * AlgorithmicStemming
     AlgorithmicStemming (..),
@@ -56,11 +56,11 @@ module Network.AWS.CloudSearch.Types
     -- * AnalysisOptions
     AnalysisOptions (..),
     newAnalysisOptions,
-    analysisOptions_stopwords,
     analysisOptions_algorithmicStemming,
+    analysisOptions_stopwords,
+    analysisOptions_japaneseTokenizationDictionary,
     analysisOptions_synonyms,
     analysisOptions_stemmingDictionary,
-    analysisOptions_japaneseTokenizationDictionary,
 
     -- * AnalysisScheme
     AnalysisScheme (..),
@@ -85,33 +85,33 @@ module Network.AWS.CloudSearch.Types
     DateArrayOptions (..),
     newDateArrayOptions,
     dateArrayOptions_sourceFields,
-    dateArrayOptions_facetEnabled,
     dateArrayOptions_returnEnabled,
+    dateArrayOptions_facetEnabled,
     dateArrayOptions_searchEnabled,
     dateArrayOptions_defaultValue,
 
     -- * DateOptions
     DateOptions (..),
     newDateOptions,
-    dateOptions_sortEnabled,
-    dateOptions_facetEnabled,
-    dateOptions_returnEnabled,
     dateOptions_sourceField,
+    dateOptions_returnEnabled,
+    dateOptions_facetEnabled,
     dateOptions_searchEnabled,
+    dateOptions_sortEnabled,
     dateOptions_defaultValue,
 
     -- * DocumentSuggesterOptions
     DocumentSuggesterOptions (..),
     newDocumentSuggesterOptions,
-    documentSuggesterOptions_fuzzyMatching,
     documentSuggesterOptions_sortExpression,
+    documentSuggesterOptions_fuzzyMatching,
     documentSuggesterOptions_sourceField,
 
     -- * DomainEndpointOptions
     DomainEndpointOptions (..),
     newDomainEndpointOptions,
-    domainEndpointOptions_tLSSecurityPolicy,
     domainEndpointOptions_enforceHTTPS,
+    domainEndpointOptions_tLSSecurityPolicy,
 
     -- * DomainEndpointOptionsStatus
     DomainEndpointOptionsStatus (..),
@@ -122,16 +122,16 @@ module Network.AWS.CloudSearch.Types
     -- * DomainStatus
     DomainStatus (..),
     newDomainStatus,
-    domainStatus_searchInstanceType,
-    domainStatus_arn,
-    domainStatus_searchPartitionCount,
     domainStatus_searchInstanceCount,
-    domainStatus_limits,
-    domainStatus_processing,
-    domainStatus_searchService,
-    domainStatus_created,
+    domainStatus_searchInstanceType,
     domainStatus_docService,
+    domainStatus_arn,
+    domainStatus_created,
+    domainStatus_searchService,
+    domainStatus_limits,
+    domainStatus_searchPartitionCount,
     domainStatus_deleted,
+    domainStatus_processing,
     domainStatus_domainId,
     domainStatus_domainName,
     domainStatus_requiresIndexDocuments,
@@ -140,19 +140,19 @@ module Network.AWS.CloudSearch.Types
     DoubleArrayOptions (..),
     newDoubleArrayOptions,
     doubleArrayOptions_sourceFields,
-    doubleArrayOptions_facetEnabled,
     doubleArrayOptions_returnEnabled,
+    doubleArrayOptions_facetEnabled,
     doubleArrayOptions_searchEnabled,
     doubleArrayOptions_defaultValue,
 
     -- * DoubleOptions
     DoubleOptions (..),
     newDoubleOptions,
-    doubleOptions_sortEnabled,
-    doubleOptions_facetEnabled,
-    doubleOptions_returnEnabled,
     doubleOptions_sourceField,
+    doubleOptions_returnEnabled,
+    doubleOptions_facetEnabled,
     doubleOptions_searchEnabled,
+    doubleOptions_sortEnabled,
     doubleOptions_defaultValue,
 
     -- * Expression
@@ -170,15 +170,15 @@ module Network.AWS.CloudSearch.Types
     -- * IndexField
     IndexField (..),
     newIndexField,
-    indexField_textArrayOptions,
-    indexField_latLonOptions,
     indexField_doubleArrayOptions,
+    indexField_dateOptions,
+    indexField_textArrayOptions,
     indexField_doubleOptions,
-    indexField_dateArrayOptions,
     indexField_textOptions,
+    indexField_latLonOptions,
     indexField_literalArrayOptions,
     indexField_intArrayOptions,
-    indexField_dateOptions,
+    indexField_dateArrayOptions,
     indexField_intOptions,
     indexField_literalOptions,
     indexField_indexFieldName,
@@ -194,29 +194,29 @@ module Network.AWS.CloudSearch.Types
     IntArrayOptions (..),
     newIntArrayOptions,
     intArrayOptions_sourceFields,
-    intArrayOptions_facetEnabled,
     intArrayOptions_returnEnabled,
+    intArrayOptions_facetEnabled,
     intArrayOptions_searchEnabled,
     intArrayOptions_defaultValue,
 
     -- * IntOptions
     IntOptions (..),
     newIntOptions,
-    intOptions_sortEnabled,
-    intOptions_facetEnabled,
-    intOptions_returnEnabled,
     intOptions_sourceField,
+    intOptions_returnEnabled,
+    intOptions_facetEnabled,
     intOptions_searchEnabled,
+    intOptions_sortEnabled,
     intOptions_defaultValue,
 
     -- * LatLonOptions
     LatLonOptions (..),
     newLatLonOptions,
-    latLonOptions_sortEnabled,
-    latLonOptions_facetEnabled,
-    latLonOptions_returnEnabled,
     latLonOptions_sourceField,
+    latLonOptions_returnEnabled,
+    latLonOptions_facetEnabled,
     latLonOptions_searchEnabled,
+    latLonOptions_sortEnabled,
     latLonOptions_defaultValue,
 
     -- * Limits
@@ -229,26 +229,26 @@ module Network.AWS.CloudSearch.Types
     LiteralArrayOptions (..),
     newLiteralArrayOptions,
     literalArrayOptions_sourceFields,
-    literalArrayOptions_facetEnabled,
     literalArrayOptions_returnEnabled,
+    literalArrayOptions_facetEnabled,
     literalArrayOptions_searchEnabled,
     literalArrayOptions_defaultValue,
 
     -- * LiteralOptions
     LiteralOptions (..),
     newLiteralOptions,
-    literalOptions_sortEnabled,
-    literalOptions_facetEnabled,
-    literalOptions_returnEnabled,
     literalOptions_sourceField,
+    literalOptions_returnEnabled,
+    literalOptions_facetEnabled,
     literalOptions_searchEnabled,
+    literalOptions_sortEnabled,
     literalOptions_defaultValue,
 
     -- * OptionStatus
     OptionStatus (..),
     newOptionStatus,
-    optionStatus_updateVersion,
     optionStatus_pendingDeletion,
+    optionStatus_updateVersion,
     optionStatus_creationDate,
     optionStatus_updateDate,
     optionStatus_state,
@@ -256,9 +256,9 @@ module Network.AWS.CloudSearch.Types
     -- * ScalingParameters
     ScalingParameters (..),
     newScalingParameters,
+    scalingParameters_desiredInstanceType,
     scalingParameters_desiredReplicationCount,
     scalingParameters_desiredPartitionCount,
-    scalingParameters_desiredInstanceType,
 
     -- * ScalingParametersStatus
     ScalingParametersStatus (..),
@@ -286,21 +286,21 @@ module Network.AWS.CloudSearch.Types
     -- * TextArrayOptions
     TextArrayOptions (..),
     newTextArrayOptions,
-    textArrayOptions_analysisScheme,
     textArrayOptions_sourceFields,
     textArrayOptions_returnEnabled,
-    textArrayOptions_defaultValue,
+    textArrayOptions_analysisScheme,
     textArrayOptions_highlightEnabled,
+    textArrayOptions_defaultValue,
 
     -- * TextOptions
     TextOptions (..),
     newTextOptions,
-    textOptions_sortEnabled,
-    textOptions_analysisScheme,
-    textOptions_returnEnabled,
     textOptions_sourceField,
-    textOptions_defaultValue,
+    textOptions_returnEnabled,
+    textOptions_analysisScheme,
     textOptions_highlightEnabled,
+    textOptions_sortEnabled,
+    textOptions_defaultValue,
   )
 where
 
@@ -374,42 +374,19 @@ defaultService =
         }
     check e
       | Lens.has
-          ( Core.hasCode "BandwidthLimitExceeded"
-              Prelude.. Core.hasStatus 509
-          )
-          e =
-        Prelude.Just "request_limit_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
-      | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "BandwidthLimitExceeded"
+              Prelude.. Core.hasStatus 509
+          )
+          e =
+        Prelude.Just "request_limit_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -422,16 +399,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request was rejected because it specified an invalid type
--- definition.
-_InvalidTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTypeException =
+-- | The request was rejected because it has invalid parameters.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InvalidType"
-    Prelude.. Core.hasStatus 409
+    "ValidationException"
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
@@ -440,6 +438,22 @@ _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExists"
+    Prelude.. Core.hasStatus 409
+
+-- | An error occurred while processing the request.
+_BaseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BaseException =
+  Core._MatchServiceError
+    defaultService
+    "BaseException"
+
+-- | The request was rejected because it attempted an operation which is not
+-- enabled.
+_DisabledOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DisabledOperationException =
+  Core._MatchServiceError
+    defaultService
+    "DisabledAction"
     Prelude.. Core.hasStatus 409
 
 -- | An internal error occurred while processing the request. If this problem
@@ -452,26 +466,13 @@ _InternalException =
     "InternalException"
     Prelude.. Core.hasStatus 500
 
--- | An error occurred while processing the request.
-_BaseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BaseException =
+-- | The request was rejected because it specified an invalid type
+-- definition.
+_InvalidTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTypeException =
   Core._MatchServiceError
     defaultService
-    "BaseException"
-
--- | The request was rejected because it has invalid parameters.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-
--- | The request was rejected because a resource limit has already been met.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceeded"
+    "InvalidType"
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because it attempted to reference a resource
@@ -483,11 +484,10 @@ _ResourceNotFoundException =
     "ResourceNotFound"
     Prelude.. Core.hasStatus 409
 
--- | The request was rejected because it attempted an operation which is not
--- enabled.
-_DisabledOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DisabledOperationException =
+-- | The request was rejected because a resource limit has already been met.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "DisabledAction"
+    "LimitExceeded"
     Prelude.. Core.hasStatus 409

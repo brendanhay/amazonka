@@ -41,9 +41,9 @@ module Network.AWS.MechanicalTurk.ListQualificationRequests
     newListQualificationRequestsResponse,
 
     -- * Response Lenses
+    listQualificationRequestsResponse_qualificationRequests,
     listQualificationRequestsResponse_nextToken,
     listQualificationRequestsResponse_numResults,
-    listQualificationRequestsResponse_qualificationRequests,
     listQualificationRequestsResponse_httpStatus,
   )
 where
@@ -131,11 +131,11 @@ instance Core.AWSRequest ListQualificationRequests where
     Response.receiveJSON
       ( \s h x ->
           ListQualificationRequestsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> ( x Core..?> "QualificationRequests"
+            Prelude.<$> ( x Core..?> "QualificationRequests"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "NumResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,15 +177,15 @@ instance Core.ToQuery ListQualificationRequests where
 
 -- | /See:/ 'newListQualificationRequestsResponse' smart constructor.
 data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The Qualification request. The response includes one
+    -- QualificationRequest element for each Qualification request returned by
+    -- the query.
+    qualificationRequests :: Prelude.Maybe [QualificationRequest],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of Qualification requests on this page in the filtered
     -- results list, equivalent to the number of Qualification requests being
     -- returned by this call.
     numResults :: Prelude.Maybe Prelude.Int,
-    -- | The Qualification request. The response includes one
-    -- QualificationRequest element for each Qualification request returned by
-    -- the query.
-    qualificationRequests :: Prelude.Maybe [QualificationRequest],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,15 +199,15 @@ data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'qualificationRequests', 'listQualificationRequestsResponse_qualificationRequests' - The Qualification request. The response includes one
+-- QualificationRequest element for each Qualification request returned by
+-- the query.
+--
 -- 'nextToken', 'listQualificationRequestsResponse_nextToken' - Undocumented member.
 --
 -- 'numResults', 'listQualificationRequestsResponse_numResults' - The number of Qualification requests on this page in the filtered
 -- results list, equivalent to the number of Qualification requests being
 -- returned by this call.
---
--- 'qualificationRequests', 'listQualificationRequestsResponse_qualificationRequests' - The Qualification request. The response includes one
--- QualificationRequest element for each Qualification request returned by
--- the query.
 --
 -- 'httpStatus', 'listQualificationRequestsResponse_httpStatus' - The response's http status code.
 newListQualificationRequestsResponse ::
@@ -216,12 +216,18 @@ newListQualificationRequestsResponse ::
   ListQualificationRequestsResponse
 newListQualificationRequestsResponse pHttpStatus_ =
   ListQualificationRequestsResponse'
-    { nextToken =
+    { qualificationRequests =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       numResults = Prelude.Nothing,
-      qualificationRequests = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Qualification request. The response includes one
+-- QualificationRequest element for each Qualification request returned by
+-- the query.
+listQualificationRequestsResponse_qualificationRequests :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe [QualificationRequest])
+listQualificationRequestsResponse_qualificationRequests = Lens.lens (\ListQualificationRequestsResponse' {qualificationRequests} -> qualificationRequests) (\s@ListQualificationRequestsResponse' {} a -> s {qualificationRequests = a} :: ListQualificationRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listQualificationRequestsResponse_nextToken :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe Prelude.Text)
@@ -232,12 +238,6 @@ listQualificationRequestsResponse_nextToken = Lens.lens (\ListQualificationReque
 -- returned by this call.
 listQualificationRequestsResponse_numResults :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe Prelude.Int)
 listQualificationRequestsResponse_numResults = Lens.lens (\ListQualificationRequestsResponse' {numResults} -> numResults) (\s@ListQualificationRequestsResponse' {} a -> s {numResults = a} :: ListQualificationRequestsResponse)
-
--- | The Qualification request. The response includes one
--- QualificationRequest element for each Qualification request returned by
--- the query.
-listQualificationRequestsResponse_qualificationRequests :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe [QualificationRequest])
-listQualificationRequestsResponse_qualificationRequests = Lens.lens (\ListQualificationRequestsResponse' {qualificationRequests} -> qualificationRequests) (\s@ListQualificationRequestsResponse' {} a -> s {qualificationRequests = a} :: ListQualificationRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listQualificationRequestsResponse_httpStatus :: Lens.Lens' ListQualificationRequestsResponse Prelude.Int

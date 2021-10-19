@@ -36,8 +36,8 @@ module Network.AWS.MechanicalTurk.GetAccountBalance
     newGetAccountBalanceResponse,
 
     -- * Response Lenses
-    getAccountBalanceResponse_onHoldBalance,
     getAccountBalanceResponse_availableBalance,
+    getAccountBalanceResponse_onHoldBalance,
     getAccountBalanceResponse_httpStatus,
   )
 where
@@ -72,8 +72,8 @@ instance Core.AWSRequest GetAccountBalance where
     Response.receiveJSON
       ( \s h x ->
           GetAccountBalanceResponse'
-            Prelude.<$> (x Core..?> "OnHoldBalance")
-            Prelude.<*> (x Core..?> "AvailableBalance")
+            Prelude.<$> (x Core..?> "AvailableBalance")
+            Prelude.<*> (x Core..?> "OnHoldBalance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,8 +107,8 @@ instance Core.ToQuery GetAccountBalance where
 
 -- | /See:/ 'newGetAccountBalanceResponse' smart constructor.
 data GetAccountBalanceResponse = GetAccountBalanceResponse'
-  { onHoldBalance :: Prelude.Maybe Prelude.Text,
-    availableBalance :: Prelude.Maybe Prelude.Text,
+  { availableBalance :: Prelude.Maybe Prelude.Text,
+    onHoldBalance :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -122,9 +122,9 @@ data GetAccountBalanceResponse = GetAccountBalanceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onHoldBalance', 'getAccountBalanceResponse_onHoldBalance' - Undocumented member.
---
 -- 'availableBalance', 'getAccountBalanceResponse_availableBalance' - Undocumented member.
+--
+-- 'onHoldBalance', 'getAccountBalanceResponse_onHoldBalance' - Undocumented member.
 --
 -- 'httpStatus', 'getAccountBalanceResponse_httpStatus' - The response's http status code.
 newGetAccountBalanceResponse ::
@@ -133,19 +133,19 @@ newGetAccountBalanceResponse ::
   GetAccountBalanceResponse
 newGetAccountBalanceResponse pHttpStatus_ =
   GetAccountBalanceResponse'
-    { onHoldBalance =
+    { availableBalance =
         Prelude.Nothing,
-      availableBalance = Prelude.Nothing,
+      onHoldBalance = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getAccountBalanceResponse_onHoldBalance :: Lens.Lens' GetAccountBalanceResponse (Prelude.Maybe Prelude.Text)
-getAccountBalanceResponse_onHoldBalance = Lens.lens (\GetAccountBalanceResponse' {onHoldBalance} -> onHoldBalance) (\s@GetAccountBalanceResponse' {} a -> s {onHoldBalance = a} :: GetAccountBalanceResponse)
-
--- | Undocumented member.
 getAccountBalanceResponse_availableBalance :: Lens.Lens' GetAccountBalanceResponse (Prelude.Maybe Prelude.Text)
 getAccountBalanceResponse_availableBalance = Lens.lens (\GetAccountBalanceResponse' {availableBalance} -> availableBalance) (\s@GetAccountBalanceResponse' {} a -> s {availableBalance = a} :: GetAccountBalanceResponse)
+
+-- | Undocumented member.
+getAccountBalanceResponse_onHoldBalance :: Lens.Lens' GetAccountBalanceResponse (Prelude.Maybe Prelude.Text)
+getAccountBalanceResponse_onHoldBalance = Lens.lens (\GetAccountBalanceResponse' {onHoldBalance} -> onHoldBalance) (\s@GetAccountBalanceResponse' {} a -> s {onHoldBalance = a} :: GetAccountBalanceResponse)
 
 -- | The response's http status code.
 getAccountBalanceResponse_httpStatus :: Lens.Lens' GetAccountBalanceResponse Prelude.Int

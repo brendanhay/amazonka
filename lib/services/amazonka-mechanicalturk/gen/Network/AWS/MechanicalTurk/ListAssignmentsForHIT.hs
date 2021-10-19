@@ -49,8 +49,8 @@ module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
     newListAssignmentsForHIT,
 
     -- * Request Lenses
-    listAssignmentsForHIT_nextToken,
     listAssignmentsForHIT_assignmentStatuses,
+    listAssignmentsForHIT_nextToken,
     listAssignmentsForHIT_maxResults,
     listAssignmentsForHIT_hITId,
 
@@ -60,8 +60,8 @@ module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
 
     -- * Response Lenses
     listAssignmentsForHITResponse_nextToken,
-    listAssignmentsForHITResponse_assignments,
     listAssignmentsForHITResponse_numResults,
+    listAssignmentsForHITResponse_assignments,
     listAssignmentsForHITResponse_httpStatus,
   )
 where
@@ -75,10 +75,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAssignmentsForHIT' smart constructor.
 data ListAssignmentsForHIT = ListAssignmentsForHIT'
-  { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The status of the assignments to return: Submitted | Approved | Rejected
+  { -- | The status of the assignments to return: Submitted | Approved | Rejected
     assignmentStatuses :: Prelude.Maybe [AssignmentStatus],
+    -- | Pagination token
+    nextToken :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the HIT.
     hITId :: Prelude.Text
@@ -93,9 +93,9 @@ data ListAssignmentsForHIT = ListAssignmentsForHIT'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssignmentsForHIT_nextToken' - Pagination token
---
 -- 'assignmentStatuses', 'listAssignmentsForHIT_assignmentStatuses' - The status of the assignments to return: Submitted | Approved | Rejected
+--
+-- 'nextToken', 'listAssignmentsForHIT_nextToken' - Pagination token
 --
 -- 'maxResults', 'listAssignmentsForHIT_maxResults' - Undocumented member.
 --
@@ -106,19 +106,20 @@ newListAssignmentsForHIT ::
   ListAssignmentsForHIT
 newListAssignmentsForHIT pHITId_ =
   ListAssignmentsForHIT'
-    { nextToken = Prelude.Nothing,
-      assignmentStatuses = Prelude.Nothing,
+    { assignmentStatuses =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       hITId = pHITId_
     }
 
+-- | The status of the assignments to return: Submitted | Approved | Rejected
+listAssignmentsForHIT_assignmentStatuses :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe [AssignmentStatus])
+listAssignmentsForHIT_assignmentStatuses = Lens.lens (\ListAssignmentsForHIT' {assignmentStatuses} -> assignmentStatuses) (\s@ListAssignmentsForHIT' {} a -> s {assignmentStatuses = a} :: ListAssignmentsForHIT) Prelude.. Lens.mapping Lens.coerced
+
 -- | Pagination token
 listAssignmentsForHIT_nextToken :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe Prelude.Text)
 listAssignmentsForHIT_nextToken = Lens.lens (\ListAssignmentsForHIT' {nextToken} -> nextToken) (\s@ListAssignmentsForHIT' {} a -> s {nextToken = a} :: ListAssignmentsForHIT)
-
--- | The status of the assignments to return: Submitted | Approved | Rejected
-listAssignmentsForHIT_assignmentStatuses :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe [AssignmentStatus])
-listAssignmentsForHIT_assignmentStatuses = Lens.lens (\ListAssignmentsForHIT' {assignmentStatuses} -> assignmentStatuses) (\s@ListAssignmentsForHIT' {} a -> s {assignmentStatuses = a} :: ListAssignmentsForHIT) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 listAssignmentsForHIT_maxResults :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe Prelude.Natural)
@@ -160,8 +161,8 @@ instance Core.AWSRequest ListAssignmentsForHIT where
       ( \s h x ->
           ListAssignmentsForHITResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Assignments" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NumResults")
+            Prelude.<*> (x Core..?> "Assignments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,9 +189,9 @@ instance Core.ToJSON ListAssignmentsForHIT where
   toJSON ListAssignmentsForHIT' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AssignmentStatuses" Core..=)
+          [ ("AssignmentStatuses" Core..=)
               Prelude.<$> assignmentStatuses,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("HITId" Core..= hITId)
           ]
@@ -205,11 +206,11 @@ instance Core.ToQuery ListAssignmentsForHIT where
 -- | /See:/ 'newListAssignmentsForHITResponse' smart constructor.
 data ListAssignmentsForHITResponse = ListAssignmentsForHITResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The collection of Assignment data structures returned by this call.
-    assignments :: Prelude.Maybe [Assignment],
     -- | The number of assignments on the page in the filtered results list,
     -- equivalent to the number of assignments returned by this call.
     numResults :: Prelude.Maybe Prelude.Int,
+    -- | The collection of Assignment data structures returned by this call.
+    assignments :: Prelude.Maybe [Assignment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,10 +226,10 @@ data ListAssignmentsForHITResponse = ListAssignmentsForHITResponse'
 --
 -- 'nextToken', 'listAssignmentsForHITResponse_nextToken' - Undocumented member.
 --
--- 'assignments', 'listAssignmentsForHITResponse_assignments' - The collection of Assignment data structures returned by this call.
---
 -- 'numResults', 'listAssignmentsForHITResponse_numResults' - The number of assignments on the page in the filtered results list,
 -- equivalent to the number of assignments returned by this call.
+--
+-- 'assignments', 'listAssignmentsForHITResponse_assignments' - The collection of Assignment data structures returned by this call.
 --
 -- 'httpStatus', 'listAssignmentsForHITResponse_httpStatus' - The response's http status code.
 newListAssignmentsForHITResponse ::
@@ -239,8 +240,8 @@ newListAssignmentsForHITResponse pHttpStatus_ =
   ListAssignmentsForHITResponse'
     { nextToken =
         Prelude.Nothing,
-      assignments = Prelude.Nothing,
       numResults = Prelude.Nothing,
+      assignments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -248,14 +249,14 @@ newListAssignmentsForHITResponse pHttpStatus_ =
 listAssignmentsForHITResponse_nextToken :: Lens.Lens' ListAssignmentsForHITResponse (Prelude.Maybe Prelude.Text)
 listAssignmentsForHITResponse_nextToken = Lens.lens (\ListAssignmentsForHITResponse' {nextToken} -> nextToken) (\s@ListAssignmentsForHITResponse' {} a -> s {nextToken = a} :: ListAssignmentsForHITResponse)
 
--- | The collection of Assignment data structures returned by this call.
-listAssignmentsForHITResponse_assignments :: Lens.Lens' ListAssignmentsForHITResponse (Prelude.Maybe [Assignment])
-listAssignmentsForHITResponse_assignments = Lens.lens (\ListAssignmentsForHITResponse' {assignments} -> assignments) (\s@ListAssignmentsForHITResponse' {} a -> s {assignments = a} :: ListAssignmentsForHITResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The number of assignments on the page in the filtered results list,
 -- equivalent to the number of assignments returned by this call.
 listAssignmentsForHITResponse_numResults :: Lens.Lens' ListAssignmentsForHITResponse (Prelude.Maybe Prelude.Int)
 listAssignmentsForHITResponse_numResults = Lens.lens (\ListAssignmentsForHITResponse' {numResults} -> numResults) (\s@ListAssignmentsForHITResponse' {} a -> s {numResults = a} :: ListAssignmentsForHITResponse)
+
+-- | The collection of Assignment data structures returned by this call.
+listAssignmentsForHITResponse_assignments :: Lens.Lens' ListAssignmentsForHITResponse (Prelude.Maybe [Assignment])
+listAssignmentsForHITResponse_assignments = Lens.lens (\ListAssignmentsForHITResponse' {assignments} -> assignments) (\s@ListAssignmentsForHITResponse' {} a -> s {assignments = a} :: ListAssignmentsForHITResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssignmentsForHITResponse_httpStatus :: Lens.Lens' ListAssignmentsForHITResponse Prelude.Int

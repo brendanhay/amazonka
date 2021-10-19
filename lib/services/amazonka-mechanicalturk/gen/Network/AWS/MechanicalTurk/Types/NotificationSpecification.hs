@@ -129,7 +129,7 @@ notificationSpecification_version = Lens.lens (\NotificationSpecification' {vers
 -- Ping. The Ping event is only valid for the SendTestEventNotification
 -- operation.
 notificationSpecification_eventTypes :: Lens.Lens' NotificationSpecification [EventType]
-notificationSpecification_eventTypes = Lens.lens (\NotificationSpecification' {eventTypes} -> eventTypes) (\s@NotificationSpecification' {} a -> s {eventTypes = a} :: NotificationSpecification) Prelude.. Lens._Coerce
+notificationSpecification_eventTypes = Lens.lens (\NotificationSpecification' {eventTypes} -> eventTypes) (\s@NotificationSpecification' {} a -> s {eventTypes = a} :: NotificationSpecification) Prelude.. Lens.coerced
 
 instance Prelude.Hashable NotificationSpecification
 

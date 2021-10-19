@@ -61,14 +61,14 @@ module Network.AWS.MechanicalTurk.UpdateQualificationType
     newUpdateQualificationType,
 
     -- * Request Lenses
-    updateQualificationType_retryDelayInSeconds,
-    updateQualificationType_autoGranted,
-    updateQualificationType_qualificationTypeStatus,
     updateQualificationType_testDurationInSeconds,
-    updateQualificationType_test,
-    updateQualificationType_description,
-    updateQualificationType_autoGrantedValue,
+    updateQualificationType_qualificationTypeStatus,
     updateQualificationType_answerKey,
+    updateQualificationType_test,
+    updateQualificationType_autoGranted,
+    updateQualificationType_autoGrantedValue,
+    updateQualificationType_description,
+    updateQualificationType_retryDelayInSeconds,
     updateQualificationType_qualificationTypeId,
 
     -- * Destructuring the Response
@@ -90,26 +90,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQualificationType' smart constructor.
 data UpdateQualificationType = UpdateQualificationType'
-  { -- | The amount of time, in seconds, that Workers must wait after requesting
-    -- a Qualification of the specified Qualification type before they can
-    -- retry the Qualification request. It is not possible to disable retries
-    -- for a Qualification type after it has been created with retries enabled.
-    -- If you want to disable retries, you must dispose of the existing
-    -- retry-enabled Qualification type using DisposeQualificationType and then
-    -- create a new Qualification type with retries disabled using
-    -- CreateQualificationType.
-    retryDelayInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | Specifies whether requests for the Qualification type are granted
-    -- immediately, without prompting the Worker with a Qualification test.
-    --
-    -- Constraints: If the Test parameter is specified, this parameter cannot
-    -- be true.
-    autoGranted :: Prelude.Maybe Prelude.Bool,
-    -- | The new status of the Qualification type - Active | Inactive
-    qualificationTypeStatus :: Prelude.Maybe QualificationTypeStatus,
-    -- | The number of seconds the Worker has to complete the Qualification test,
+  { -- | The number of seconds the Worker has to complete the Qualification test,
     -- starting from the time the Worker requests the Qualification.
     testDurationInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The new status of the Qualification type - Active | Inactive
+    qualificationTypeStatus :: Prelude.Maybe QualificationTypeStatus,
+    -- | The answers to the Qualification test specified in the Test parameter,
+    -- in the form of an AnswerKey data structure.
+    answerKey :: Prelude.Maybe Prelude.Text,
     -- | The questions for the Qualification test a Worker must answer correctly
     -- to obtain a Qualification of this type. If this parameter is specified,
     -- @TestDurationInSeconds@ must also be specified.
@@ -121,14 +109,26 @@ data UpdateQualificationType = UpdateQualificationType'
     -- Constraints: None. If not specified, the Worker may request the
     -- Qualification without answering any questions.
     test :: Prelude.Maybe Prelude.Text,
-    -- | The new description of the Qualification type.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether requests for the Qualification type are granted
+    -- immediately, without prompting the Worker with a Qualification test.
+    --
+    -- Constraints: If the Test parameter is specified, this parameter cannot
+    -- be true.
+    autoGranted :: Prelude.Maybe Prelude.Bool,
     -- | The Qualification value to use for automatically granted Qualifications.
     -- This parameter is used only if the AutoGranted parameter is true.
     autoGrantedValue :: Prelude.Maybe Prelude.Int,
-    -- | The answers to the Qualification test specified in the Test parameter,
-    -- in the form of an AnswerKey data structure.
-    answerKey :: Prelude.Maybe Prelude.Text,
+    -- | The new description of the Qualification type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time, in seconds, that Workers must wait after requesting
+    -- a Qualification of the specified Qualification type before they can
+    -- retry the Qualification request. It is not possible to disable retries
+    -- for a Qualification type after it has been created with retries enabled.
+    -- If you want to disable retries, you must dispose of the existing
+    -- retry-enabled Qualification type using DisposeQualificationType and then
+    -- create a new Qualification type with retries disabled using
+    -- CreateQualificationType.
+    retryDelayInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The ID of the Qualification type to update.
     qualificationTypeId :: Prelude.Text
   }
@@ -142,25 +142,13 @@ data UpdateQualificationType = UpdateQualificationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retryDelayInSeconds', 'updateQualificationType_retryDelayInSeconds' - The amount of time, in seconds, that Workers must wait after requesting
--- a Qualification of the specified Qualification type before they can
--- retry the Qualification request. It is not possible to disable retries
--- for a Qualification type after it has been created with retries enabled.
--- If you want to disable retries, you must dispose of the existing
--- retry-enabled Qualification type using DisposeQualificationType and then
--- create a new Qualification type with retries disabled using
--- CreateQualificationType.
---
--- 'autoGranted', 'updateQualificationType_autoGranted' - Specifies whether requests for the Qualification type are granted
--- immediately, without prompting the Worker with a Qualification test.
---
--- Constraints: If the Test parameter is specified, this parameter cannot
--- be true.
+-- 'testDurationInSeconds', 'updateQualificationType_testDurationInSeconds' - The number of seconds the Worker has to complete the Qualification test,
+-- starting from the time the Worker requests the Qualification.
 --
 -- 'qualificationTypeStatus', 'updateQualificationType_qualificationTypeStatus' - The new status of the Qualification type - Active | Inactive
 --
--- 'testDurationInSeconds', 'updateQualificationType_testDurationInSeconds' - The number of seconds the Worker has to complete the Qualification test,
--- starting from the time the Worker requests the Qualification.
+-- 'answerKey', 'updateQualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter,
+-- in the form of an AnswerKey data structure.
 --
 -- 'test', 'updateQualificationType_test' - The questions for the Qualification test a Worker must answer correctly
 -- to obtain a Qualification of this type. If this parameter is specified,
@@ -173,13 +161,25 @@ data UpdateQualificationType = UpdateQualificationType'
 -- Constraints: None. If not specified, the Worker may request the
 -- Qualification without answering any questions.
 --
--- 'description', 'updateQualificationType_description' - The new description of the Qualification type.
+-- 'autoGranted', 'updateQualificationType_autoGranted' - Specifies whether requests for the Qualification type are granted
+-- immediately, without prompting the Worker with a Qualification test.
+--
+-- Constraints: If the Test parameter is specified, this parameter cannot
+-- be true.
 --
 -- 'autoGrantedValue', 'updateQualificationType_autoGrantedValue' - The Qualification value to use for automatically granted Qualifications.
 -- This parameter is used only if the AutoGranted parameter is true.
 --
--- 'answerKey', 'updateQualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter,
--- in the form of an AnswerKey data structure.
+-- 'description', 'updateQualificationType_description' - The new description of the Qualification type.
+--
+-- 'retryDelayInSeconds', 'updateQualificationType_retryDelayInSeconds' - The amount of time, in seconds, that Workers must wait after requesting
+-- a Qualification of the specified Qualification type before they can
+-- retry the Qualification request. It is not possible to disable retries
+-- for a Qualification type after it has been created with retries enabled.
+-- If you want to disable retries, you must dispose of the existing
+-- retry-enabled Qualification type using DisposeQualificationType and then
+-- create a new Qualification type with retries disabled using
+-- CreateQualificationType.
 --
 -- 'qualificationTypeId', 'updateQualificationType_qualificationTypeId' - The ID of the Qualification type to update.
 newUpdateQualificationType ::
@@ -188,45 +188,31 @@ newUpdateQualificationType ::
   UpdateQualificationType
 newUpdateQualificationType pQualificationTypeId_ =
   UpdateQualificationType'
-    { retryDelayInSeconds =
+    { testDurationInSeconds =
         Prelude.Nothing,
-      autoGranted = Prelude.Nothing,
       qualificationTypeStatus = Prelude.Nothing,
-      testDurationInSeconds = Prelude.Nothing,
-      test = Prelude.Nothing,
-      description = Prelude.Nothing,
-      autoGrantedValue = Prelude.Nothing,
       answerKey = Prelude.Nothing,
+      test = Prelude.Nothing,
+      autoGranted = Prelude.Nothing,
+      autoGrantedValue = Prelude.Nothing,
+      description = Prelude.Nothing,
+      retryDelayInSeconds = Prelude.Nothing,
       qualificationTypeId = pQualificationTypeId_
     }
-
--- | The amount of time, in seconds, that Workers must wait after requesting
--- a Qualification of the specified Qualification type before they can
--- retry the Qualification request. It is not possible to disable retries
--- for a Qualification type after it has been created with retries enabled.
--- If you want to disable retries, you must dispose of the existing
--- retry-enabled Qualification type using DisposeQualificationType and then
--- create a new Qualification type with retries disabled using
--- CreateQualificationType.
-updateQualificationType_retryDelayInSeconds :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Integer)
-updateQualificationType_retryDelayInSeconds = Lens.lens (\UpdateQualificationType' {retryDelayInSeconds} -> retryDelayInSeconds) (\s@UpdateQualificationType' {} a -> s {retryDelayInSeconds = a} :: UpdateQualificationType)
-
--- | Specifies whether requests for the Qualification type are granted
--- immediately, without prompting the Worker with a Qualification test.
---
--- Constraints: If the Test parameter is specified, this parameter cannot
--- be true.
-updateQualificationType_autoGranted :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Bool)
-updateQualificationType_autoGranted = Lens.lens (\UpdateQualificationType' {autoGranted} -> autoGranted) (\s@UpdateQualificationType' {} a -> s {autoGranted = a} :: UpdateQualificationType)
-
--- | The new status of the Qualification type - Active | Inactive
-updateQualificationType_qualificationTypeStatus :: Lens.Lens' UpdateQualificationType (Prelude.Maybe QualificationTypeStatus)
-updateQualificationType_qualificationTypeStatus = Lens.lens (\UpdateQualificationType' {qualificationTypeStatus} -> qualificationTypeStatus) (\s@UpdateQualificationType' {} a -> s {qualificationTypeStatus = a} :: UpdateQualificationType)
 
 -- | The number of seconds the Worker has to complete the Qualification test,
 -- starting from the time the Worker requests the Qualification.
 updateQualificationType_testDurationInSeconds :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Integer)
 updateQualificationType_testDurationInSeconds = Lens.lens (\UpdateQualificationType' {testDurationInSeconds} -> testDurationInSeconds) (\s@UpdateQualificationType' {} a -> s {testDurationInSeconds = a} :: UpdateQualificationType)
+
+-- | The new status of the Qualification type - Active | Inactive
+updateQualificationType_qualificationTypeStatus :: Lens.Lens' UpdateQualificationType (Prelude.Maybe QualificationTypeStatus)
+updateQualificationType_qualificationTypeStatus = Lens.lens (\UpdateQualificationType' {qualificationTypeStatus} -> qualificationTypeStatus) (\s@UpdateQualificationType' {} a -> s {qualificationTypeStatus = a} :: UpdateQualificationType)
+
+-- | The answers to the Qualification test specified in the Test parameter,
+-- in the form of an AnswerKey data structure.
+updateQualificationType_answerKey :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
+updateQualificationType_answerKey = Lens.lens (\UpdateQualificationType' {answerKey} -> answerKey) (\s@UpdateQualificationType' {} a -> s {answerKey = a} :: UpdateQualificationType)
 
 -- | The questions for the Qualification test a Worker must answer correctly
 -- to obtain a Qualification of this type. If this parameter is specified,
@@ -241,19 +227,33 @@ updateQualificationType_testDurationInSeconds = Lens.lens (\UpdateQualificationT
 updateQualificationType_test :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
 updateQualificationType_test = Lens.lens (\UpdateQualificationType' {test} -> test) (\s@UpdateQualificationType' {} a -> s {test = a} :: UpdateQualificationType)
 
--- | The new description of the Qualification type.
-updateQualificationType_description :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
-updateQualificationType_description = Lens.lens (\UpdateQualificationType' {description} -> description) (\s@UpdateQualificationType' {} a -> s {description = a} :: UpdateQualificationType)
+-- | Specifies whether requests for the Qualification type are granted
+-- immediately, without prompting the Worker with a Qualification test.
+--
+-- Constraints: If the Test parameter is specified, this parameter cannot
+-- be true.
+updateQualificationType_autoGranted :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Bool)
+updateQualificationType_autoGranted = Lens.lens (\UpdateQualificationType' {autoGranted} -> autoGranted) (\s@UpdateQualificationType' {} a -> s {autoGranted = a} :: UpdateQualificationType)
 
 -- | The Qualification value to use for automatically granted Qualifications.
 -- This parameter is used only if the AutoGranted parameter is true.
 updateQualificationType_autoGrantedValue :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Int)
 updateQualificationType_autoGrantedValue = Lens.lens (\UpdateQualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@UpdateQualificationType' {} a -> s {autoGrantedValue = a} :: UpdateQualificationType)
 
--- | The answers to the Qualification test specified in the Test parameter,
--- in the form of an AnswerKey data structure.
-updateQualificationType_answerKey :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
-updateQualificationType_answerKey = Lens.lens (\UpdateQualificationType' {answerKey} -> answerKey) (\s@UpdateQualificationType' {} a -> s {answerKey = a} :: UpdateQualificationType)
+-- | The new description of the Qualification type.
+updateQualificationType_description :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
+updateQualificationType_description = Lens.lens (\UpdateQualificationType' {description} -> description) (\s@UpdateQualificationType' {} a -> s {description = a} :: UpdateQualificationType)
+
+-- | The amount of time, in seconds, that Workers must wait after requesting
+-- a Qualification of the specified Qualification type before they can
+-- retry the Qualification request. It is not possible to disable retries
+-- for a Qualification type after it has been created with retries enabled.
+-- If you want to disable retries, you must dispose of the existing
+-- retry-enabled Qualification type using DisposeQualificationType and then
+-- create a new Qualification type with retries disabled using
+-- CreateQualificationType.
+updateQualificationType_retryDelayInSeconds :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Integer)
+updateQualificationType_retryDelayInSeconds = Lens.lens (\UpdateQualificationType' {retryDelayInSeconds} -> retryDelayInSeconds) (\s@UpdateQualificationType' {} a -> s {retryDelayInSeconds = a} :: UpdateQualificationType)
 
 -- | The ID of the Qualification type to update.
 updateQualificationType_qualificationTypeId :: Lens.Lens' UpdateQualificationType Prelude.Text
@@ -295,18 +295,18 @@ instance Core.ToJSON UpdateQualificationType where
   toJSON UpdateQualificationType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RetryDelayInSeconds" Core..=)
-              Prelude.<$> retryDelayInSeconds,
-            ("AutoGranted" Core..=) Prelude.<$> autoGranted,
+          [ ("TestDurationInSeconds" Core..=)
+              Prelude.<$> testDurationInSeconds,
             ("QualificationTypeStatus" Core..=)
               Prelude.<$> qualificationTypeStatus,
-            ("TestDurationInSeconds" Core..=)
-              Prelude.<$> testDurationInSeconds,
+            ("AnswerKey" Core..=) Prelude.<$> answerKey,
             ("Test" Core..=) Prelude.<$> test,
-            ("Description" Core..=) Prelude.<$> description,
+            ("AutoGranted" Core..=) Prelude.<$> autoGranted,
             ("AutoGrantedValue" Core..=)
               Prelude.<$> autoGrantedValue,
-            ("AnswerKey" Core..=) Prelude.<$> answerKey,
+            ("Description" Core..=) Prelude.<$> description,
+            ("RetryDelayInSeconds" Core..=)
+              Prelude.<$> retryDelayInSeconds,
             Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId)
           ]

@@ -108,7 +108,7 @@ notifyWorkers_messageText = Lens.lens (\NotifyWorkers' {messageText} -> messageT
 -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers
 -- at a time.
 notifyWorkers_workerIds :: Lens.Lens' NotifyWorkers [Prelude.Text]
-notifyWorkers_workerIds = Lens.lens (\NotifyWorkers' {workerIds} -> workerIds) (\s@NotifyWorkers' {} a -> s {workerIds = a} :: NotifyWorkers) Prelude.. Lens._Coerce
+notifyWorkers_workerIds = Lens.lens (\NotifyWorkers' {workerIds} -> workerIds) (\s@NotifyWorkers' {} a -> s {workerIds = a} :: NotifyWorkers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest NotifyWorkers where
   type
@@ -199,7 +199,7 @@ newNotifyWorkersResponse pHttpStatus_ =
 -- any failures it encounters in this list of NotifyWorkersFailureStatus
 -- objects.
 notifyWorkersResponse_notifyWorkersFailureStatuses :: Lens.Lens' NotifyWorkersResponse (Prelude.Maybe [NotifyWorkersFailureStatus])
-notifyWorkersResponse_notifyWorkersFailureStatuses = Lens.lens (\NotifyWorkersResponse' {notifyWorkersFailureStatuses} -> notifyWorkersFailureStatuses) (\s@NotifyWorkersResponse' {} a -> s {notifyWorkersFailureStatuses = a} :: NotifyWorkersResponse) Prelude.. Lens.mapping Lens._Coerce
+notifyWorkersResponse_notifyWorkersFailureStatuses = Lens.lens (\NotifyWorkersResponse' {notifyWorkersFailureStatuses} -> notifyWorkersFailureStatuses) (\s@NotifyWorkersResponse' {} a -> s {notifyWorkersFailureStatuses = a} :: NotifyWorkersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 notifyWorkersResponse_httpStatus :: Lens.Lens' NotifyWorkersResponse Prelude.Int

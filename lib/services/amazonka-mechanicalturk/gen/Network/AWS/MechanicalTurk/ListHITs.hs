@@ -40,8 +40,8 @@ module Network.AWS.MechanicalTurk.ListHITs
 
     -- * Response Lenses
     listHITsResponse_nextToken,
-    listHITsResponse_hITs,
     listHITsResponse_numResults,
+    listHITsResponse_hITs,
     listHITsResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest ListHITs where
       ( \s h x ->
           ListHITsResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NumResults")
+            Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance Core.ToQuery ListHITs where
 -- | /See:/ 'newListHITsResponse' smart constructor.
 data ListHITsResponse = ListHITsResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of HIT elements returned by the query.
-    hITs :: Prelude.Maybe [HIT],
     -- | The number of HITs on this page in the filtered results list, equivalent
     -- to the number of HITs being returned by this call.
     numResults :: Prelude.Maybe Prelude.Int,
+    -- | The list of HIT elements returned by the query.
+    hITs :: Prelude.Maybe [HIT],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data ListHITsResponse = ListHITsResponse'
 --
 -- 'nextToken', 'listHITsResponse_nextToken' - Undocumented member.
 --
--- 'hITs', 'listHITsResponse_hITs' - The list of HIT elements returned by the query.
---
 -- 'numResults', 'listHITsResponse_numResults' - The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
+--
+-- 'hITs', 'listHITsResponse_hITs' - The list of HIT elements returned by the query.
 --
 -- 'httpStatus', 'listHITsResponse_httpStatus' - The response's http status code.
 newListHITsResponse ::
@@ -190,8 +190,8 @@ newListHITsResponse ::
 newListHITsResponse pHttpStatus_ =
   ListHITsResponse'
     { nextToken = Prelude.Nothing,
-      hITs = Prelude.Nothing,
       numResults = Prelude.Nothing,
+      hITs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -199,14 +199,14 @@ newListHITsResponse pHttpStatus_ =
 listHITsResponse_nextToken :: Lens.Lens' ListHITsResponse (Prelude.Maybe Prelude.Text)
 listHITsResponse_nextToken = Lens.lens (\ListHITsResponse' {nextToken} -> nextToken) (\s@ListHITsResponse' {} a -> s {nextToken = a} :: ListHITsResponse)
 
--- | The list of HIT elements returned by the query.
-listHITsResponse_hITs :: Lens.Lens' ListHITsResponse (Prelude.Maybe [HIT])
-listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHITsResponse' {} a -> s {hITs = a} :: ListHITsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
 listHITsResponse_numResults :: Lens.Lens' ListHITsResponse (Prelude.Maybe Prelude.Int)
 listHITsResponse_numResults = Lens.lens (\ListHITsResponse' {numResults} -> numResults) (\s@ListHITsResponse' {} a -> s {numResults = a} :: ListHITsResponse)
+
+-- | The list of HIT elements returned by the query.
+listHITsResponse_hITs :: Lens.Lens' ListHITsResponse (Prelude.Maybe [HIT])
+listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHITsResponse' {} a -> s {hITs = a} :: ListHITsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listHITsResponse_httpStatus :: Lens.Lens' ListHITsResponse Prelude.Int

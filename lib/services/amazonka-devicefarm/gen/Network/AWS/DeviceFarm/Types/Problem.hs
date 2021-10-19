@@ -30,8 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProblem' smart constructor.
 data Problem = Problem'
-  { -- | Information about the associated job.
-    job :: Prelude.Maybe ProblemDetail,
+  { -- | Information about the associated device.
+    device :: Prelude.Maybe Device,
+    -- | Information about the associated test.
+    test :: Prelude.Maybe ProblemDetail,
     -- | The problem\'s result.
     --
     -- Allowed values include:
@@ -50,16 +52,14 @@ data Problem = Problem'
     --
     -- -   STOPPED
     result :: Prelude.Maybe ExecutionResult,
-    -- | A message about the problem\'s result.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Information about the associated device.
-    device :: Prelude.Maybe Device,
     -- | Information about the associated run.
     run :: Prelude.Maybe ProblemDetail,
+    -- | Information about the associated job.
+    job :: Prelude.Maybe ProblemDetail,
+    -- | A message about the problem\'s result.
+    message :: Prelude.Maybe Prelude.Text,
     -- | Information about the associated suite.
-    suite :: Prelude.Maybe ProblemDetail,
-    -- | Information about the associated test.
-    test :: Prelude.Maybe ProblemDetail
+    suite :: Prelude.Maybe ProblemDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,7 +71,9 @@ data Problem = Problem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'job', 'problem_job' - Information about the associated job.
+-- 'device', 'problem_device' - Information about the associated device.
+--
+-- 'test', 'problem_test' - Information about the associated test.
 --
 -- 'result', 'problem_result' - The problem\'s result.
 --
@@ -91,31 +93,33 @@ data Problem = Problem'
 --
 -- -   STOPPED
 --
--- 'message', 'problem_message' - A message about the problem\'s result.
---
--- 'device', 'problem_device' - Information about the associated device.
---
 -- 'run', 'problem_run' - Information about the associated run.
 --
--- 'suite', 'problem_suite' - Information about the associated suite.
+-- 'job', 'problem_job' - Information about the associated job.
 --
--- 'test', 'problem_test' - Information about the associated test.
+-- 'message', 'problem_message' - A message about the problem\'s result.
+--
+-- 'suite', 'problem_suite' - Information about the associated suite.
 newProblem ::
   Problem
 newProblem =
   Problem'
-    { job = Prelude.Nothing,
+    { device = Prelude.Nothing,
+      test = Prelude.Nothing,
       result = Prelude.Nothing,
-      message = Prelude.Nothing,
-      device = Prelude.Nothing,
       run = Prelude.Nothing,
-      suite = Prelude.Nothing,
-      test = Prelude.Nothing
+      job = Prelude.Nothing,
+      message = Prelude.Nothing,
+      suite = Prelude.Nothing
     }
 
--- | Information about the associated job.
-problem_job :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
-problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a} :: Problem)
+-- | Information about the associated device.
+problem_device :: Lens.Lens' Problem (Prelude.Maybe Device)
+problem_device = Lens.lens (\Problem' {device} -> device) (\s@Problem' {} a -> s {device = a} :: Problem)
+
+-- | Information about the associated test.
+problem_test :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
+problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test = a} :: Problem)
 
 -- | The problem\'s result.
 --
@@ -137,25 +141,21 @@ problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a
 problem_result :: Lens.Lens' Problem (Prelude.Maybe ExecutionResult)
 problem_result = Lens.lens (\Problem' {result} -> result) (\s@Problem' {} a -> s {result = a} :: Problem)
 
--- | A message about the problem\'s result.
-problem_message :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
-problem_message = Lens.lens (\Problem' {message} -> message) (\s@Problem' {} a -> s {message = a} :: Problem)
-
--- | Information about the associated device.
-problem_device :: Lens.Lens' Problem (Prelude.Maybe Device)
-problem_device = Lens.lens (\Problem' {device} -> device) (\s@Problem' {} a -> s {device = a} :: Problem)
-
 -- | Information about the associated run.
 problem_run :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_run = Lens.lens (\Problem' {run} -> run) (\s@Problem' {} a -> s {run = a} :: Problem)
 
+-- | Information about the associated job.
+problem_job :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
+problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a} :: Problem)
+
+-- | A message about the problem\'s result.
+problem_message :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
+problem_message = Lens.lens (\Problem' {message} -> message) (\s@Problem' {} a -> s {message = a} :: Problem)
+
 -- | Information about the associated suite.
 problem_suite :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_suite = Lens.lens (\Problem' {suite} -> suite) (\s@Problem' {} a -> s {suite = a} :: Problem)
-
--- | Information about the associated test.
-problem_test :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
-problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test = a} :: Problem)
 
 instance Core.FromJSON Problem where
   parseJSON =
@@ -163,13 +163,13 @@ instance Core.FromJSON Problem where
       "Problem"
       ( \x ->
           Problem'
-            Prelude.<$> (x Core..:? "job")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "run")
-            Prelude.<*> (x Core..:? "suite")
+            Prelude.<$> (x Core..:? "device")
             Prelude.<*> (x Core..:? "test")
+            Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "run")
+            Prelude.<*> (x Core..:? "job")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "suite")
       )
 
 instance Prelude.Hashable Problem

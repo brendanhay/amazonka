@@ -31,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 data OfferingTransaction = OfferingTransaction'
   { -- | The status of an offering transaction.
     offeringStatus :: Prelude.Maybe OfferingStatus,
-    -- | The date on which an offering transaction was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
     -- | The cost of an offering transaction.
     cost :: Prelude.Maybe MonetaryAmount,
     -- | The transaction ID of the offering transaction.
     transactionId :: Prelude.Maybe Prelude.Text,
     -- | The ID that corresponds to a device offering promotion.
-    offeringPromotionId :: Prelude.Maybe Prelude.Text
+    offeringPromotionId :: Prelude.Maybe Prelude.Text,
+    -- | The date on which an offering transaction was created.
+    createdOn :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,32 +52,28 @@ data OfferingTransaction = OfferingTransaction'
 --
 -- 'offeringStatus', 'offeringTransaction_offeringStatus' - The status of an offering transaction.
 --
--- 'createdOn', 'offeringTransaction_createdOn' - The date on which an offering transaction was created.
---
 -- 'cost', 'offeringTransaction_cost' - The cost of an offering transaction.
 --
 -- 'transactionId', 'offeringTransaction_transactionId' - The transaction ID of the offering transaction.
 --
 -- 'offeringPromotionId', 'offeringTransaction_offeringPromotionId' - The ID that corresponds to a device offering promotion.
+--
+-- 'createdOn', 'offeringTransaction_createdOn' - The date on which an offering transaction was created.
 newOfferingTransaction ::
   OfferingTransaction
 newOfferingTransaction =
   OfferingTransaction'
     { offeringStatus =
         Prelude.Nothing,
-      createdOn = Prelude.Nothing,
       cost = Prelude.Nothing,
       transactionId = Prelude.Nothing,
-      offeringPromotionId = Prelude.Nothing
+      offeringPromotionId = Prelude.Nothing,
+      createdOn = Prelude.Nothing
     }
 
 -- | The status of an offering transaction.
 offeringTransaction_offeringStatus :: Lens.Lens' OfferingTransaction (Prelude.Maybe OfferingStatus)
 offeringTransaction_offeringStatus = Lens.lens (\OfferingTransaction' {offeringStatus} -> offeringStatus) (\s@OfferingTransaction' {} a -> s {offeringStatus = a} :: OfferingTransaction)
-
--- | The date on which an offering transaction was created.
-offeringTransaction_createdOn :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.UTCTime)
-offeringTransaction_createdOn = Lens.lens (\OfferingTransaction' {createdOn} -> createdOn) (\s@OfferingTransaction' {} a -> s {createdOn = a} :: OfferingTransaction) Prelude.. Lens.mapping Core._Time
 
 -- | The cost of an offering transaction.
 offeringTransaction_cost :: Lens.Lens' OfferingTransaction (Prelude.Maybe MonetaryAmount)
@@ -91,6 +87,10 @@ offeringTransaction_transactionId = Lens.lens (\OfferingTransaction' {transactio
 offeringTransaction_offeringPromotionId :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.Text)
 offeringTransaction_offeringPromotionId = Lens.lens (\OfferingTransaction' {offeringPromotionId} -> offeringPromotionId) (\s@OfferingTransaction' {} a -> s {offeringPromotionId = a} :: OfferingTransaction)
 
+-- | The date on which an offering transaction was created.
+offeringTransaction_createdOn :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.UTCTime)
+offeringTransaction_createdOn = Lens.lens (\OfferingTransaction' {createdOn} -> createdOn) (\s@OfferingTransaction' {} a -> s {createdOn = a} :: OfferingTransaction) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON OfferingTransaction where
   parseJSON =
     Core.withObject
@@ -98,10 +98,10 @@ instance Core.FromJSON OfferingTransaction where
       ( \x ->
           OfferingTransaction'
             Prelude.<$> (x Core..:? "offeringStatus")
-            Prelude.<*> (x Core..:? "createdOn")
             Prelude.<*> (x Core..:? "cost")
             Prelude.<*> (x Core..:? "transactionId")
             Prelude.<*> (x Core..:? "offeringPromotionId")
+            Prelude.<*> (x Core..:? "createdOn")
       )
 
 instance Prelude.Hashable OfferingTransaction

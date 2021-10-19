@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDevicePoolCompatibilityResult' smart constructor.
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-  { -- | Information about the compatibility.
-    incompatibilityMessages :: Prelude.Maybe [IncompatibilityMessage],
+  { -- | The device (phone or tablet) to return information about.
+    device :: Prelude.Maybe Device,
     -- | Whether the result was compatible with the device pool.
     compatible :: Prelude.Maybe Prelude.Bool,
-    -- | The device (phone or tablet) to return information about.
-    device :: Prelude.Maybe Device
+    -- | Information about the compatibility.
+    incompatibilityMessages :: Prelude.Maybe [IncompatibilityMessage]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,32 @@ data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'incompatibilityMessages', 'devicePoolCompatibilityResult_incompatibilityMessages' - Information about the compatibility.
+-- 'device', 'devicePoolCompatibilityResult_device' - The device (phone or tablet) to return information about.
 --
 -- 'compatible', 'devicePoolCompatibilityResult_compatible' - Whether the result was compatible with the device pool.
 --
--- 'device', 'devicePoolCompatibilityResult_device' - The device (phone or tablet) to return information about.
+-- 'incompatibilityMessages', 'devicePoolCompatibilityResult_incompatibilityMessages' - Information about the compatibility.
 newDevicePoolCompatibilityResult ::
   DevicePoolCompatibilityResult
 newDevicePoolCompatibilityResult =
   DevicePoolCompatibilityResult'
-    { incompatibilityMessages =
+    { device =
         Prelude.Nothing,
       compatible = Prelude.Nothing,
-      device = Prelude.Nothing
+      incompatibilityMessages = Prelude.Nothing
     }
 
--- | Information about the compatibility.
-devicePoolCompatibilityResult_incompatibilityMessages :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe [IncompatibilityMessage])
-devicePoolCompatibilityResult_incompatibilityMessages = Lens.lens (\DevicePoolCompatibilityResult' {incompatibilityMessages} -> incompatibilityMessages) (\s@DevicePoolCompatibilityResult' {} a -> s {incompatibilityMessages = a} :: DevicePoolCompatibilityResult) Prelude.. Lens.mapping Lens._Coerce
+-- | The device (phone or tablet) to return information about.
+devicePoolCompatibilityResult_device :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe Device)
+devicePoolCompatibilityResult_device = Lens.lens (\DevicePoolCompatibilityResult' {device} -> device) (\s@DevicePoolCompatibilityResult' {} a -> s {device = a} :: DevicePoolCompatibilityResult)
 
 -- | Whether the result was compatible with the device pool.
 devicePoolCompatibilityResult_compatible :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe Prelude.Bool)
 devicePoolCompatibilityResult_compatible = Lens.lens (\DevicePoolCompatibilityResult' {compatible} -> compatible) (\s@DevicePoolCompatibilityResult' {} a -> s {compatible = a} :: DevicePoolCompatibilityResult)
 
--- | The device (phone or tablet) to return information about.
-devicePoolCompatibilityResult_device :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe Device)
-devicePoolCompatibilityResult_device = Lens.lens (\DevicePoolCompatibilityResult' {device} -> device) (\s@DevicePoolCompatibilityResult' {} a -> s {device = a} :: DevicePoolCompatibilityResult)
+-- | Information about the compatibility.
+devicePoolCompatibilityResult_incompatibilityMessages :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe [IncompatibilityMessage])
+devicePoolCompatibilityResult_incompatibilityMessages = Lens.lens (\DevicePoolCompatibilityResult' {incompatibilityMessages} -> incompatibilityMessages) (\s@DevicePoolCompatibilityResult' {} a -> s {incompatibilityMessages = a} :: DevicePoolCompatibilityResult) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DevicePoolCompatibilityResult where
   parseJSON =
@@ -79,11 +79,11 @@ instance Core.FromJSON DevicePoolCompatibilityResult where
       "DevicePoolCompatibilityResult"
       ( \x ->
           DevicePoolCompatibilityResult'
-            Prelude.<$> ( x Core..:? "incompatibilityMessages"
+            Prelude.<$> (x Core..:? "device")
+            Prelude.<*> (x Core..:? "compatible")
+            Prelude.<*> ( x Core..:? "incompatibilityMessages"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "compatible")
-            Prelude.<*> (x Core..:? "device")
       )
 
 instance

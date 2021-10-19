@@ -27,10 +27,10 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     newGetDevicePoolCompatibility,
 
     -- * Request Lenses
-    getDevicePoolCompatibility_testType,
-    getDevicePoolCompatibility_configuration,
-    getDevicePoolCompatibility_appArn,
     getDevicePoolCompatibility_test,
+    getDevicePoolCompatibility_appArn,
+    getDevicePoolCompatibility_configuration,
+    getDevicePoolCompatibility_testType,
     getDevicePoolCompatibility_devicePoolArn,
 
     -- * Destructuring the Response
@@ -55,7 +55,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-  { -- | The test type for the specified device pool.
+  { -- | Information about the uploaded test to be run against the device pool.
+    test :: Prelude.Maybe ScheduleRunTest,
+    -- | The ARN of the app that is associated with the specified device pool.
+    appArn :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains information about the settings for a run.
+    configuration :: Prelude.Maybe ScheduleRunConfiguration,
+    -- | The test type for the specified device pool.
     --
     -- Allowed values include the following:
     --
@@ -97,12 +103,6 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
     --
     -- -   XCTEST_UI.
     testType :: Prelude.Maybe TestType,
-    -- | An object that contains information about the settings for a run.
-    configuration :: Prelude.Maybe ScheduleRunConfiguration,
-    -- | The ARN of the app that is associated with the specified device pool.
-    appArn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the uploaded test to be run against the device pool.
-    test :: Prelude.Maybe ScheduleRunTest,
     -- | The device pool\'s ARN.
     devicePoolArn :: Prelude.Text
   }
@@ -115,6 +115,12 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'test', 'getDevicePoolCompatibility_test' - Information about the uploaded test to be run against the device pool.
+--
+-- 'appArn', 'getDevicePoolCompatibility_appArn' - The ARN of the app that is associated with the specified device pool.
+--
+-- 'configuration', 'getDevicePoolCompatibility_configuration' - An object that contains information about the settings for a run.
 --
 -- 'testType', 'getDevicePoolCompatibility_testType' - The test type for the specified device pool.
 --
@@ -158,12 +164,6 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
 --
 -- -   XCTEST_UI.
 --
--- 'configuration', 'getDevicePoolCompatibility_configuration' - An object that contains information about the settings for a run.
---
--- 'appArn', 'getDevicePoolCompatibility_appArn' - The ARN of the app that is associated with the specified device pool.
---
--- 'test', 'getDevicePoolCompatibility_test' - Information about the uploaded test to be run against the device pool.
---
 -- 'devicePoolArn', 'getDevicePoolCompatibility_devicePoolArn' - The device pool\'s ARN.
 newGetDevicePoolCompatibility ::
   -- | 'devicePoolArn'
@@ -171,13 +171,24 @@ newGetDevicePoolCompatibility ::
   GetDevicePoolCompatibility
 newGetDevicePoolCompatibility pDevicePoolArn_ =
   GetDevicePoolCompatibility'
-    { testType =
-        Prelude.Nothing,
-      configuration = Prelude.Nothing,
+    { test = Prelude.Nothing,
       appArn = Prelude.Nothing,
-      test = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      testType = Prelude.Nothing,
       devicePoolArn = pDevicePoolArn_
     }
+
+-- | Information about the uploaded test to be run against the device pool.
+getDevicePoolCompatibility_test :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe ScheduleRunTest)
+getDevicePoolCompatibility_test = Lens.lens (\GetDevicePoolCompatibility' {test} -> test) (\s@GetDevicePoolCompatibility' {} a -> s {test = a} :: GetDevicePoolCompatibility)
+
+-- | The ARN of the app that is associated with the specified device pool.
+getDevicePoolCompatibility_appArn :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe Prelude.Text)
+getDevicePoolCompatibility_appArn = Lens.lens (\GetDevicePoolCompatibility' {appArn} -> appArn) (\s@GetDevicePoolCompatibility' {} a -> s {appArn = a} :: GetDevicePoolCompatibility)
+
+-- | An object that contains information about the settings for a run.
+getDevicePoolCompatibility_configuration :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe ScheduleRunConfiguration)
+getDevicePoolCompatibility_configuration = Lens.lens (\GetDevicePoolCompatibility' {configuration} -> configuration) (\s@GetDevicePoolCompatibility' {} a -> s {configuration = a} :: GetDevicePoolCompatibility)
 
 -- | The test type for the specified device pool.
 --
@@ -222,18 +233,6 @@ newGetDevicePoolCompatibility pDevicePoolArn_ =
 -- -   XCTEST_UI.
 getDevicePoolCompatibility_testType :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe TestType)
 getDevicePoolCompatibility_testType = Lens.lens (\GetDevicePoolCompatibility' {testType} -> testType) (\s@GetDevicePoolCompatibility' {} a -> s {testType = a} :: GetDevicePoolCompatibility)
-
--- | An object that contains information about the settings for a run.
-getDevicePoolCompatibility_configuration :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe ScheduleRunConfiguration)
-getDevicePoolCompatibility_configuration = Lens.lens (\GetDevicePoolCompatibility' {configuration} -> configuration) (\s@GetDevicePoolCompatibility' {} a -> s {configuration = a} :: GetDevicePoolCompatibility)
-
--- | The ARN of the app that is associated with the specified device pool.
-getDevicePoolCompatibility_appArn :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe Prelude.Text)
-getDevicePoolCompatibility_appArn = Lens.lens (\GetDevicePoolCompatibility' {appArn} -> appArn) (\s@GetDevicePoolCompatibility' {} a -> s {appArn = a} :: GetDevicePoolCompatibility)
-
--- | Information about the uploaded test to be run against the device pool.
-getDevicePoolCompatibility_test :: Lens.Lens' GetDevicePoolCompatibility (Prelude.Maybe ScheduleRunTest)
-getDevicePoolCompatibility_test = Lens.lens (\GetDevicePoolCompatibility' {test} -> test) (\s@GetDevicePoolCompatibility' {} a -> s {test = a} :: GetDevicePoolCompatibility)
 
 -- | The device pool\'s ARN.
 getDevicePoolCompatibility_devicePoolArn :: Lens.Lens' GetDevicePoolCompatibility Prelude.Text
@@ -280,10 +279,10 @@ instance Core.ToJSON GetDevicePoolCompatibility where
   toJSON GetDevicePoolCompatibility' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("testType" Core..=) Prelude.<$> testType,
-            ("configuration" Core..=) Prelude.<$> configuration,
+          [ ("test" Core..=) Prelude.<$> test,
             ("appArn" Core..=) Prelude.<$> appArn,
-            ("test" Core..=) Prelude.<$> test,
+            ("configuration" Core..=) Prelude.<$> configuration,
+            ("testType" Core..=) Prelude.<$> testType,
             Prelude.Just
               ("devicePoolArn" Core..= devicePoolArn)
           ]
@@ -335,11 +334,11 @@ newGetDevicePoolCompatibilityResponse pHttpStatus_ =
 
 -- | Information about incompatible devices.
 getDevicePoolCompatibilityResponse_incompatibleDevices :: Lens.Lens' GetDevicePoolCompatibilityResponse (Prelude.Maybe [DevicePoolCompatibilityResult])
-getDevicePoolCompatibilityResponse_incompatibleDevices = Lens.lens (\GetDevicePoolCompatibilityResponse' {incompatibleDevices} -> incompatibleDevices) (\s@GetDevicePoolCompatibilityResponse' {} a -> s {incompatibleDevices = a} :: GetDevicePoolCompatibilityResponse) Prelude.. Lens.mapping Lens._Coerce
+getDevicePoolCompatibilityResponse_incompatibleDevices = Lens.lens (\GetDevicePoolCompatibilityResponse' {incompatibleDevices} -> incompatibleDevices) (\s@GetDevicePoolCompatibilityResponse' {} a -> s {incompatibleDevices = a} :: GetDevicePoolCompatibilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about compatible devices.
 getDevicePoolCompatibilityResponse_compatibleDevices :: Lens.Lens' GetDevicePoolCompatibilityResponse (Prelude.Maybe [DevicePoolCompatibilityResult])
-getDevicePoolCompatibilityResponse_compatibleDevices = Lens.lens (\GetDevicePoolCompatibilityResponse' {compatibleDevices} -> compatibleDevices) (\s@GetDevicePoolCompatibilityResponse' {} a -> s {compatibleDevices = a} :: GetDevicePoolCompatibilityResponse) Prelude.. Lens.mapping Lens._Coerce
+getDevicePoolCompatibilityResponse_compatibleDevices = Lens.lens (\GetDevicePoolCompatibilityResponse' {compatibleDevices} -> compatibleDevices) (\s@GetDevicePoolCompatibilityResponse' {} a -> s {compatibleDevices = a} :: GetDevicePoolCompatibilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDevicePoolCompatibilityResponse_httpStatus :: Lens.Lens' GetDevicePoolCompatibilityResponse Prelude.Int

@@ -29,8 +29,8 @@ module Network.AWS.DeviceFarm.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_arn,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
@@ -54,14 +54,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
+  { -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
     -- Farm returns a list of all projects for the AWS account. You can also
     -- specify a project ARN.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,32 +73,32 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProjects_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
---
 -- 'arn', 'listProjects_arn' - Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
 -- Farm returns a list of all projects for the AWS account. You can also
 -- specify a project ARN.
+--
+-- 'nextToken', 'listProjects_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
-listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
-listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
 -- Farm returns a list of all projects for the AWS account. You can also
 -- specify a project ARN.
 listProjects_arn :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_arn = Lens.lens (\ListProjects' {arn} -> arn) (\s@ListProjects' {} a -> s {arn = a} :: ListProjects)
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -154,8 +154,8 @@ instance Core.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("arn" Core..=) Prelude.<$> arn
+          [ ("arn" Core..=) Prelude.<$> arn,
+            ("nextToken" Core..=) Prelude.<$> nextToken
           ]
       )
 
@@ -214,7 +214,7 @@ listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -
 
 -- | Information about the projects.
 listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [Project])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int

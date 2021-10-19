@@ -359,7 +359,7 @@ deviceFilter_operator = Lens.lens (\DeviceFilter' {operator} -> operator) (\s@De
 --
 -- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
 deviceFilter_values :: Lens.Lens' DeviceFilter [Prelude.Text]
-deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFilter' {} a -> s {values = a} :: DeviceFilter) Prelude.. Lens._Coerce
+deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFilter' {} a -> s {values = a} :: DeviceFilter) Prelude.. Lens.coerced
 
 instance Core.FromJSON DeviceFilter where
   parseJSON =

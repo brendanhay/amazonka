@@ -203,7 +203,7 @@ listOfferingPromotionsResponse_nextToken = Lens.lens (\ListOfferingPromotionsRes
 
 -- | Information about the offering promotions.
 listOfferingPromotionsResponse_offeringPromotions :: Lens.Lens' ListOfferingPromotionsResponse (Prelude.Maybe [OfferingPromotion])
-listOfferingPromotionsResponse_offeringPromotions = Lens.lens (\ListOfferingPromotionsResponse' {offeringPromotions} -> offeringPromotions) (\s@ListOfferingPromotionsResponse' {} a -> s {offeringPromotions = a} :: ListOfferingPromotionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listOfferingPromotionsResponse_offeringPromotions = Lens.lens (\ListOfferingPromotionsResponse' {offeringPromotions} -> offeringPromotions) (\s@ListOfferingPromotionsResponse' {} a -> s {offeringPromotions = a} :: ListOfferingPromotionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOfferingPromotionsResponse_httpStatus :: Lens.Lens' ListOfferingPromotionsResponse Prelude.Int

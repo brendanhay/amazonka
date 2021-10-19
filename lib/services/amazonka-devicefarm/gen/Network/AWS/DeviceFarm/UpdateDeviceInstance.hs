@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.UpdateDeviceInstance
     newUpdateDeviceInstance,
 
     -- * Request Lenses
-    updateDeviceInstance_labels,
     updateDeviceInstance_profileArn,
+    updateDeviceInstance_labels,
     updateDeviceInstance_arn,
 
     -- * Destructuring the Response
@@ -50,11 +50,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDeviceInstance' smart constructor.
 data UpdateDeviceInstance = UpdateDeviceInstance'
-  { -- | An array of strings that you want to associate with the device instance.
-    labels :: Prelude.Maybe [Prelude.Text],
-    -- | The ARN of the profile that you want to associate with the device
+  { -- | The ARN of the profile that you want to associate with the device
     -- instance.
     profileArn :: Prelude.Maybe Prelude.Text,
+    -- | An array of strings that you want to associate with the device instance.
+    labels :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the device instance.
     arn :: Prelude.Text
   }
@@ -68,10 +68,10 @@ data UpdateDeviceInstance = UpdateDeviceInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.
---
 -- 'profileArn', 'updateDeviceInstance_profileArn' - The ARN of the profile that you want to associate with the device
 -- instance.
+--
+-- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.
 --
 -- 'arn', 'updateDeviceInstance_arn' - The Amazon Resource Name (ARN) of the device instance.
 newUpdateDeviceInstance ::
@@ -80,19 +80,19 @@ newUpdateDeviceInstance ::
   UpdateDeviceInstance
 newUpdateDeviceInstance pArn_ =
   UpdateDeviceInstance'
-    { labels = Prelude.Nothing,
-      profileArn = Prelude.Nothing,
+    { profileArn = Prelude.Nothing,
+      labels = Prelude.Nothing,
       arn = pArn_
     }
-
--- | An array of strings that you want to associate with the device instance.
-updateDeviceInstance_labels :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe [Prelude.Text])
-updateDeviceInstance_labels = Lens.lens (\UpdateDeviceInstance' {labels} -> labels) (\s@UpdateDeviceInstance' {} a -> s {labels = a} :: UpdateDeviceInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the profile that you want to associate with the device
 -- instance.
 updateDeviceInstance_profileArn :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe Prelude.Text)
 updateDeviceInstance_profileArn = Lens.lens (\UpdateDeviceInstance' {profileArn} -> profileArn) (\s@UpdateDeviceInstance' {} a -> s {profileArn = a} :: UpdateDeviceInstance)
+
+-- | An array of strings that you want to associate with the device instance.
+updateDeviceInstance_labels :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe [Prelude.Text])
+updateDeviceInstance_labels = Lens.lens (\UpdateDeviceInstance' {labels} -> labels) (\s@UpdateDeviceInstance' {} a -> s {labels = a} :: UpdateDeviceInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the device instance.
 updateDeviceInstance_arn :: Lens.Lens' UpdateDeviceInstance Prelude.Text
@@ -134,8 +134,8 @@ instance Core.ToJSON UpdateDeviceInstance where
   toJSON UpdateDeviceInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("labels" Core..=) Prelude.<$> labels,
-            ("profileArn" Core..=) Prelude.<$> profileArn,
+          [ ("profileArn" Core..=) Prelude.<$> profileArn,
+            ("labels" Core..=) Prelude.<$> labels,
             Prelude.Just ("arn" Core..= arn)
           ]
       )

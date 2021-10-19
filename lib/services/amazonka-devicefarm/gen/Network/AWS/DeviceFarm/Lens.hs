@@ -14,6 +14,83 @@
 module Network.AWS.DeviceFarm.Lens
   ( -- * Operations
 
+    -- ** ListProjects
+    listProjects_arn,
+    listProjects_nextToken,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
+    listProjectsResponse_httpStatus,
+
+    -- ** DeleteProject
+    deleteProject_arn,
+    deleteProjectResponse_httpStatus,
+
+    -- ** UpdateProject
+    updateProject_name,
+    updateProject_defaultJobTimeoutMinutes,
+    updateProject_arn,
+    updateProjectResponse_project,
+    updateProjectResponse_httpStatus,
+
+    -- ** UpdateNetworkProfile
+    updateNetworkProfile_uplinkJitterMs,
+    updateNetworkProfile_uplinkLossPercent,
+    updateNetworkProfile_downlinkJitterMs,
+    updateNetworkProfile_name,
+    updateNetworkProfile_downlinkLossPercent,
+    updateNetworkProfile_type,
+    updateNetworkProfile_uplinkDelayMs,
+    updateNetworkProfile_uplinkBandwidthBits,
+    updateNetworkProfile_description,
+    updateNetworkProfile_downlinkDelayMs,
+    updateNetworkProfile_downlinkBandwidthBits,
+    updateNetworkProfile_arn,
+    updateNetworkProfileResponse_networkProfile,
+    updateNetworkProfileResponse_httpStatus,
+
+    -- ** DeleteNetworkProfile
+    deleteNetworkProfile_arn,
+    deleteNetworkProfileResponse_httpStatus,
+
+    -- ** GetDevicePoolCompatibility
+    getDevicePoolCompatibility_test,
+    getDevicePoolCompatibility_appArn,
+    getDevicePoolCompatibility_configuration,
+    getDevicePoolCompatibility_testType,
+    getDevicePoolCompatibility_devicePoolArn,
+    getDevicePoolCompatibilityResponse_incompatibleDevices,
+    getDevicePoolCompatibilityResponse_compatibleDevices,
+    getDevicePoolCompatibilityResponse_httpStatus,
+
+    -- ** InstallToRemoteAccessSession
+    installToRemoteAccessSession_remoteAccessSessionArn,
+    installToRemoteAccessSession_appArn,
+    installToRemoteAccessSessionResponse_appUpload,
+    installToRemoteAccessSessionResponse_httpStatus,
+
+    -- ** ListTests
+    listTests_nextToken,
+    listTests_arn,
+    listTestsResponse_tests,
+    listTestsResponse_nextToken,
+    listTestsResponse_httpStatus,
+
+    -- ** ListArtifacts
+    listArtifacts_nextToken,
+    listArtifacts_arn,
+    listArtifacts_type,
+    listArtifactsResponse_artifacts,
+    listArtifactsResponse_nextToken,
+    listArtifactsResponse_httpStatus,
+
+    -- ** ListTestGridSessionActions
+    listTestGridSessionActions_maxResult,
+    listTestGridSessionActions_nextToken,
+    listTestGridSessionActions_sessionArn,
+    listTestGridSessionActionsResponse_actions,
+    listTestGridSessionActionsResponse_nextToken,
+    listTestGridSessionActionsResponse_httpStatus,
+
     -- ** CreateUpload
     createUpload_contentType,
     createUpload_projectArn,
@@ -22,210 +99,102 @@ module Network.AWS.DeviceFarm.Lens
     createUploadResponse_upload,
     createUploadResponse_httpStatus,
 
-    -- ** CreateTestGridProject
-    createTestGridProject_vpcConfig,
-    createTestGridProject_description,
-    createTestGridProject_name,
-    createTestGridProjectResponse_testGridProject,
-    createTestGridProjectResponse_httpStatus,
+    -- ** GetDeviceInstance
+    getDeviceInstance_arn,
+    getDeviceInstanceResponse_deviceInstance,
+    getDeviceInstanceResponse_httpStatus,
+
+    -- ** StopJob
+    stopJob_arn,
+    stopJobResponse_job,
+    stopJobResponse_httpStatus,
+
+    -- ** DeleteRemoteAccessSession
+    deleteRemoteAccessSession_arn,
+    deleteRemoteAccessSessionResponse_httpStatus,
 
     -- ** ListTestGridSessionArtifacts
-    listTestGridSessionArtifacts_nextToken,
     listTestGridSessionArtifacts_maxResult,
+    listTestGridSessionArtifacts_nextToken,
     listTestGridSessionArtifacts_type,
     listTestGridSessionArtifacts_sessionArn,
-    listTestGridSessionArtifactsResponse_nextToken,
     listTestGridSessionArtifactsResponse_artifacts,
+    listTestGridSessionArtifactsResponse_nextToken,
     listTestGridSessionArtifactsResponse_httpStatus,
 
-    -- ** ListTestGridSessionActions
-    listTestGridSessionActions_nextToken,
-    listTestGridSessionActions_maxResult,
-    listTestGridSessionActions_sessionArn,
-    listTestGridSessionActionsResponse_nextToken,
-    listTestGridSessionActionsResponse_actions,
-    listTestGridSessionActionsResponse_httpStatus,
+    -- ** ListTestGridProjects
+    listTestGridProjects_maxResult,
+    listTestGridProjects_nextToken,
+    listTestGridProjectsResponse_testGridProjects,
+    listTestGridProjectsResponse_nextToken,
+    listTestGridProjectsResponse_httpStatus,
 
-    -- ** ListSamples
-    listSamples_nextToken,
-    listSamples_arn,
-    listSamplesResponse_nextToken,
-    listSamplesResponse_samples,
-    listSamplesResponse_httpStatus,
+    -- ** DeleteUpload
+    deleteUpload_arn,
+    deleteUploadResponse_httpStatus,
 
-    -- ** ScheduleRun
-    scheduleRun_devicePoolArn,
-    scheduleRun_configuration,
-    scheduleRun_deviceSelectionConfiguration,
-    scheduleRun_executionConfiguration,
-    scheduleRun_name,
-    scheduleRun_appArn,
-    scheduleRun_projectArn,
-    scheduleRun_test,
-    scheduleRunResponse_run,
-    scheduleRunResponse_httpStatus,
+    -- ** UpdateUpload
+    updateUpload_editContent,
+    updateUpload_name,
+    updateUpload_contentType,
+    updateUpload_arn,
+    updateUploadResponse_upload,
+    updateUploadResponse_httpStatus,
 
-    -- ** ListProjects
-    listProjects_nextToken,
-    listProjects_arn,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_projects,
-    listProjectsResponse_httpStatus,
+    -- ** DeleteTestGridProject
+    deleteTestGridProject_projectArn,
+    deleteTestGridProjectResponse_httpStatus,
 
-    -- ** GetDevicePoolCompatibility
-    getDevicePoolCompatibility_testType,
-    getDevicePoolCompatibility_configuration,
-    getDevicePoolCompatibility_appArn,
-    getDevicePoolCompatibility_test,
-    getDevicePoolCompatibility_devicePoolArn,
-    getDevicePoolCompatibilityResponse_incompatibleDevices,
-    getDevicePoolCompatibilityResponse_compatibleDevices,
-    getDevicePoolCompatibilityResponse_httpStatus,
+    -- ** UpdateTestGridProject
+    updateTestGridProject_name,
+    updateTestGridProject_vpcConfig,
+    updateTestGridProject_description,
+    updateTestGridProject_projectArn,
+    updateTestGridProjectResponse_testGridProject,
+    updateTestGridProjectResponse_httpStatus,
 
-    -- ** CreateVPCEConfiguration
-    createVPCEConfiguration_vpceConfigurationDescription,
-    createVPCEConfiguration_vpceConfigurationName,
-    createVPCEConfiguration_vpceServiceName,
-    createVPCEConfiguration_serviceDnsName,
-    createVPCEConfigurationResponse_vpceConfiguration,
-    createVPCEConfigurationResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** UpdateNetworkProfile
-    updateNetworkProfile_uplinkJitterMs,
-    updateNetworkProfile_downlinkBandwidthBits,
-    updateNetworkProfile_downlinkDelayMs,
-    updateNetworkProfile_downlinkJitterMs,
-    updateNetworkProfile_uplinkLossPercent,
-    updateNetworkProfile_downlinkLossPercent,
-    updateNetworkProfile_name,
-    updateNetworkProfile_uplinkBandwidthBits,
-    updateNetworkProfile_uplinkDelayMs,
-    updateNetworkProfile_description,
-    updateNetworkProfile_type,
-    updateNetworkProfile_arn,
-    updateNetworkProfileResponse_networkProfile,
-    updateNetworkProfileResponse_httpStatus,
+    -- ** GetDevicePool
+    getDevicePool_arn,
+    getDevicePoolResponse_devicePool,
+    getDevicePoolResponse_httpStatus,
 
-    -- ** ListNetworkProfiles
-    listNetworkProfiles_nextToken,
-    listNetworkProfiles_type,
-    listNetworkProfiles_arn,
-    listNetworkProfilesResponse_nextToken,
-    listNetworkProfilesResponse_networkProfiles,
-    listNetworkProfilesResponse_httpStatus,
+    -- ** ListDevicePools
+    listDevicePools_nextToken,
+    listDevicePools_type,
+    listDevicePools_arn,
+    listDevicePoolsResponse_devicePools,
+    listDevicePoolsResponse_nextToken,
+    listDevicePoolsResponse_httpStatus,
 
-    -- ** DeleteNetworkProfile
-    deleteNetworkProfile_arn,
-    deleteNetworkProfileResponse_httpStatus,
+    -- ** UpdateDevicePool
+    updateDevicePool_rules,
+    updateDevicePool_clearMaxDevices,
+    updateDevicePool_name,
+    updateDevicePool_maxDevices,
+    updateDevicePool_description,
+    updateDevicePool_arn,
+    updateDevicePoolResponse_devicePool,
+    updateDevicePoolResponse_httpStatus,
 
-    -- ** InstallToRemoteAccessSession
-    installToRemoteAccessSession_remoteAccessSessionArn,
-    installToRemoteAccessSession_appArn,
-    installToRemoteAccessSessionResponse_appUpload,
-    installToRemoteAccessSessionResponse_httpStatus,
+    -- ** DeleteDevicePool
+    deleteDevicePool_arn,
+    deleteDevicePoolResponse_httpStatus,
 
-    -- ** StopRun
-    stopRun_arn,
-    stopRunResponse_run,
-    stopRunResponse_httpStatus,
+    -- ** GetUpload
+    getUpload_arn,
+    getUploadResponse_upload,
+    getUploadResponse_httpStatus,
 
-    -- ** ListOfferings
-    listOfferings_nextToken,
-    listOfferingsResponse_nextToken,
-    listOfferingsResponse_offerings,
-    listOfferingsResponse_httpStatus,
-
-    -- ** CreateProject
-    createProject_defaultJobTimeoutMinutes,
-    createProject_name,
-    createProjectResponse_project,
-    createProjectResponse_httpStatus,
-
-    -- ** GetJob
-    getJob_arn,
-    getJobResponse_job,
-    getJobResponse_httpStatus,
-
-    -- ** ListDevices
-    listDevices_nextToken,
-    listDevices_arn,
-    listDevices_filters,
-    listDevicesResponse_nextToken,
-    listDevicesResponse_devices,
-    listDevicesResponse_httpStatus,
-
-    -- ** CreateTestGridUrl
-    createTestGridUrl_projectArn,
-    createTestGridUrl_expiresInSeconds,
-    createTestGridUrlResponse_url,
-    createTestGridUrlResponse_expires,
-    createTestGridUrlResponse_httpStatus,
-
-    -- ** CreateNetworkProfile
-    createNetworkProfile_uplinkJitterMs,
-    createNetworkProfile_downlinkBandwidthBits,
-    createNetworkProfile_downlinkDelayMs,
-    createNetworkProfile_downlinkJitterMs,
-    createNetworkProfile_uplinkLossPercent,
-    createNetworkProfile_downlinkLossPercent,
-    createNetworkProfile_uplinkBandwidthBits,
-    createNetworkProfile_uplinkDelayMs,
-    createNetworkProfile_description,
-    createNetworkProfile_type,
-    createNetworkProfile_projectArn,
-    createNetworkProfile_name,
-    createNetworkProfileResponse_networkProfile,
-    createNetworkProfileResponse_httpStatus,
-
-    -- ** GetDevice
-    getDevice_arn,
-    getDeviceResponse_device,
-    getDeviceResponse_httpStatus,
-
-    -- ** CreateInstanceProfile
-    createInstanceProfile_excludeAppPackagesFromCleanup,
-    createInstanceProfile_description,
-    createInstanceProfile_rebootAfterUse,
-    createInstanceProfile_packageCleanup,
-    createInstanceProfile_name,
-    createInstanceProfileResponse_instanceProfile,
-    createInstanceProfileResponse_httpStatus,
-
-    -- ** StopRemoteAccessSession
-    stopRemoteAccessSession_arn,
-    stopRemoteAccessSessionResponse_remoteAccessSession,
-    stopRemoteAccessSessionResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** ListRuns
-    listRuns_nextToken,
-    listRuns_arn,
-    listRunsResponse_nextToken,
-    listRunsResponse_runs,
-    listRunsResponse_httpStatus,
-
-    -- ** UpdateDeviceInstance
-    updateDeviceInstance_labels,
-    updateDeviceInstance_profileArn,
-    updateDeviceInstance_arn,
-    updateDeviceInstanceResponse_deviceInstance,
-    updateDeviceInstanceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** ListDeviceInstances
-    listDeviceInstances_nextToken,
-    listDeviceInstances_maxResults,
-    listDeviceInstancesResponse_nextToken,
-    listDeviceInstancesResponse_deviceInstances,
-    listDeviceInstancesResponse_httpStatus,
+    -- ** ListOfferingTransactions
+    listOfferingTransactions_nextToken,
+    listOfferingTransactionsResponse_offeringTransactions,
+    listOfferingTransactionsResponse_nextToken,
+    listOfferingTransactionsResponse_httpStatus,
 
     -- ** CreateDevicePool
     createDevicePool_maxDevices,
@@ -236,65 +205,224 @@ module Network.AWS.DeviceFarm.Lens
     createDevicePoolResponse_devicePool,
     createDevicePoolResponse_httpStatus,
 
-    -- ** ListDevicePools
-    listDevicePools_nextToken,
-    listDevicePools_type,
-    listDevicePools_arn,
-    listDevicePoolsResponse_nextToken,
-    listDevicePoolsResponse_devicePools,
-    listDevicePoolsResponse_httpStatus,
+    -- ** DeleteRun
+    deleteRun_arn,
+    deleteRunResponse_httpStatus,
 
-    -- ** GetTestGridProject
-    getTestGridProject_projectArn,
-    getTestGridProjectResponse_testGridProject,
-    getTestGridProjectResponse_httpStatus,
+    -- ** ListRuns
+    listRuns_nextToken,
+    listRuns_arn,
+    listRunsResponse_runs,
+    listRunsResponse_nextToken,
+    listRunsResponse_httpStatus,
 
-    -- ** GetUpload
-    getUpload_arn,
-    getUploadResponse_upload,
-    getUploadResponse_httpStatus,
+    -- ** GetTest
+    getTest_arn,
+    getTestResponse_test,
+    getTestResponse_httpStatus,
 
-    -- ** UpdateUpload
-    updateUpload_contentType,
-    updateUpload_editContent,
-    updateUpload_name,
-    updateUpload_arn,
-    updateUploadResponse_upload,
-    updateUploadResponse_httpStatus,
+    -- ** UpdateDeviceInstance
+    updateDeviceInstance_profileArn,
+    updateDeviceInstance_labels,
+    updateDeviceInstance_arn,
+    updateDeviceInstanceResponse_deviceInstance,
+    updateDeviceInstanceResponse_httpStatus,
 
-    -- ** GetOfferingStatus
-    getOfferingStatus_nextToken,
-    getOfferingStatusResponse_nextToken,
-    getOfferingStatusResponse_nextPeriod,
-    getOfferingStatusResponse_current,
-    getOfferingStatusResponse_httpStatus,
+    -- ** GetNetworkProfile
+    getNetworkProfile_arn,
+    getNetworkProfileResponse_networkProfile,
+    getNetworkProfileResponse_httpStatus,
 
-    -- ** DeleteUpload
-    deleteUpload_arn,
-    deleteUploadResponse_httpStatus,
+    -- ** RenewOffering
+    renewOffering_offeringId,
+    renewOffering_quantity,
+    renewOfferingResponse_offeringTransaction,
+    renewOfferingResponse_httpStatus,
+
+    -- ** DeleteInstanceProfile
+    deleteInstanceProfile_arn,
+    deleteInstanceProfileResponse_httpStatus,
+
+    -- ** UpdateInstanceProfile
+    updateInstanceProfile_rebootAfterUse,
+    updateInstanceProfile_name,
+    updateInstanceProfile_packageCleanup,
+    updateInstanceProfile_excludeAppPackagesFromCleanup,
+    updateInstanceProfile_description,
+    updateInstanceProfile_arn,
+    updateInstanceProfileResponse_instanceProfile,
+    updateInstanceProfileResponse_httpStatus,
+
+    -- ** CreateInstanceProfile
+    createInstanceProfile_rebootAfterUse,
+    createInstanceProfile_packageCleanup,
+    createInstanceProfile_excludeAppPackagesFromCleanup,
+    createInstanceProfile_description,
+    createInstanceProfile_name,
+    createInstanceProfileResponse_instanceProfile,
+    createInstanceProfileResponse_httpStatus,
+
+    -- ** GetDevice
+    getDevice_arn,
+    getDeviceResponse_device,
+    getDeviceResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_arn,
+    listJobsResponse_jobs,
+    listJobsResponse_nextToken,
+    listJobsResponse_httpStatus,
+
+    -- ** GetTestGridSession
+    getTestGridSession_sessionArn,
+    getTestGridSession_projectArn,
+    getTestGridSession_sessionId,
+    getTestGridSessionResponse_testGridSession,
+    getTestGridSessionResponse_httpStatus,
+
+    -- ** GetVPCEConfiguration
+    getVPCEConfiguration_arn,
+    getVPCEConfigurationResponse_vpceConfiguration,
+    getVPCEConfigurationResponse_httpStatus,
+
+    -- ** StopRemoteAccessSession
+    stopRemoteAccessSession_arn,
+    stopRemoteAccessSessionResponse_remoteAccessSession,
+    stopRemoteAccessSessionResponse_httpStatus,
+
+    -- ** CreateNetworkProfile
+    createNetworkProfile_uplinkJitterMs,
+    createNetworkProfile_uplinkLossPercent,
+    createNetworkProfile_downlinkJitterMs,
+    createNetworkProfile_downlinkLossPercent,
+    createNetworkProfile_type,
+    createNetworkProfile_uplinkDelayMs,
+    createNetworkProfile_uplinkBandwidthBits,
+    createNetworkProfile_description,
+    createNetworkProfile_downlinkDelayMs,
+    createNetworkProfile_downlinkBandwidthBits,
+    createNetworkProfile_projectArn,
+    createNetworkProfile_name,
+    createNetworkProfileResponse_networkProfile,
+    createNetworkProfileResponse_httpStatus,
+
+    -- ** DeleteVPCEConfiguration
+    deleteVPCEConfiguration_arn,
+    deleteVPCEConfigurationResponse_httpStatus,
+
+    -- ** UpdateVPCEConfiguration
+    updateVPCEConfiguration_vpceServiceName,
+    updateVPCEConfiguration_vpceConfigurationName,
+    updateVPCEConfiguration_serviceDnsName,
+    updateVPCEConfiguration_vpceConfigurationDescription,
+    updateVPCEConfiguration_arn,
+    updateVPCEConfigurationResponse_vpceConfiguration,
+    updateVPCEConfigurationResponse_httpStatus,
+
+    -- ** GetJob
+    getJob_arn,
+    getJobResponse_job,
+    getJobResponse_httpStatus,
+
+    -- ** GetInstanceProfile
+    getInstanceProfile_arn,
+    getInstanceProfileResponse_instanceProfile,
+    getInstanceProfileResponse_httpStatus,
+
+    -- ** ListNetworkProfiles
+    listNetworkProfiles_nextToken,
+    listNetworkProfiles_type,
+    listNetworkProfiles_arn,
+    listNetworkProfilesResponse_networkProfiles,
+    listNetworkProfilesResponse_nextToken,
+    listNetworkProfilesResponse_httpStatus,
+
+    -- ** CreateVPCEConfiguration
+    createVPCEConfiguration_vpceConfigurationDescription,
+    createVPCEConfiguration_vpceConfigurationName,
+    createVPCEConfiguration_vpceServiceName,
+    createVPCEConfiguration_serviceDnsName,
+    createVPCEConfigurationResponse_vpceConfiguration,
+    createVPCEConfigurationResponse_httpStatus,
+
+    -- ** ScheduleRun
+    scheduleRun_executionConfiguration,
+    scheduleRun_deviceSelectionConfiguration,
+    scheduleRun_appArn,
+    scheduleRun_name,
+    scheduleRun_configuration,
+    scheduleRun_devicePoolArn,
+    scheduleRun_projectArn,
+    scheduleRun_test,
+    scheduleRunResponse_run,
+    scheduleRunResponse_httpStatus,
+
+    -- ** CreateTestGridProject
+    createTestGridProject_vpcConfig,
+    createTestGridProject_description,
+    createTestGridProject_name,
+    createTestGridProjectResponse_testGridProject,
+    createTestGridProjectResponse_httpStatus,
+
+    -- ** GetRun
+    getRun_arn,
+    getRunResponse_run,
+    getRunResponse_httpStatus,
+
+    -- ** ListSamples
+    listSamples_nextToken,
+    listSamples_arn,
+    listSamplesResponse_nextToken,
+    listSamplesResponse_samples,
+    listSamplesResponse_httpStatus,
+
+    -- ** ListSuites
+    listSuites_nextToken,
+    listSuites_arn,
+    listSuitesResponse_nextToken,
+    listSuitesResponse_suites,
+    listSuitesResponse_httpStatus,
+
+    -- ** ListRemoteAccessSessions
+    listRemoteAccessSessions_nextToken,
+    listRemoteAccessSessions_arn,
+    listRemoteAccessSessionsResponse_nextToken,
+    listRemoteAccessSessionsResponse_remoteAccessSessions,
+    listRemoteAccessSessionsResponse_httpStatus,
+
+    -- ** GetAccountSettings
+    getAccountSettingsResponse_accountSettings,
+    getAccountSettingsResponse_httpStatus,
 
     -- ** CreateRemoteAccessSession
     createRemoteAccessSession_clientId,
-    createRemoteAccessSession_interactionMode,
-    createRemoteAccessSession_configuration,
-    createRemoteAccessSession_name,
-    createRemoteAccessSession_remoteRecordEnabled,
-    createRemoteAccessSession_instanceArn,
     createRemoteAccessSession_skipAppResign,
-    createRemoteAccessSession_sshPublicKey,
-    createRemoteAccessSession_remoteDebugEnabled,
+    createRemoteAccessSession_instanceArn,
+    createRemoteAccessSession_remoteRecordEnabled,
     createRemoteAccessSession_remoteRecordAppArn,
+    createRemoteAccessSession_sshPublicKey,
+    createRemoteAccessSession_name,
+    createRemoteAccessSession_remoteDebugEnabled,
+    createRemoteAccessSession_configuration,
+    createRemoteAccessSession_interactionMode,
     createRemoteAccessSession_projectArn,
     createRemoteAccessSession_deviceArn,
     createRemoteAccessSessionResponse_remoteAccessSession,
     createRemoteAccessSessionResponse_httpStatus,
 
-    -- ** ListTestGridProjects
-    listTestGridProjects_nextToken,
-    listTestGridProjects_maxResult,
-    listTestGridProjectsResponse_nextToken,
-    listTestGridProjectsResponse_testGridProjects,
-    listTestGridProjectsResponse_httpStatus,
+    -- ** ListOfferingPromotions
+    listOfferingPromotions_nextToken,
+    listOfferingPromotionsResponse_nextToken,
+    listOfferingPromotionsResponse_offeringPromotions,
+    listOfferingPromotionsResponse_httpStatus,
+
+    -- ** GetOfferingStatus
+    getOfferingStatus_nextToken,
+    getOfferingStatusResponse_nextPeriod,
+    getOfferingStatusResponse_current,
+    getOfferingStatusResponse_nextToken,
+    getOfferingStatusResponse_httpStatus,
 
     -- ** ListUploads
     listUploads_nextToken,
@@ -304,165 +432,32 @@ module Network.AWS.DeviceFarm.Lens
     listUploadsResponse_uploads,
     listUploadsResponse_httpStatus,
 
-    -- ** ListTests
-    listTests_nextToken,
-    listTests_arn,
-    listTestsResponse_nextToken,
-    listTestsResponse_tests,
-    listTestsResponse_httpStatus,
+    -- ** GetTestGridProject
+    getTestGridProject_projectArn,
+    getTestGridProjectResponse_testGridProject,
+    getTestGridProjectResponse_httpStatus,
 
-    -- ** ListRemoteAccessSessions
-    listRemoteAccessSessions_nextToken,
-    listRemoteAccessSessions_arn,
-    listRemoteAccessSessionsResponse_nextToken,
-    listRemoteAccessSessionsResponse_remoteAccessSessions,
-    listRemoteAccessSessionsResponse_httpStatus,
+    -- ** GetSuite
+    getSuite_arn,
+    getSuiteResponse_suite,
+    getSuiteResponse_httpStatus,
 
-    -- ** GetRun
-    getRun_arn,
-    getRunResponse_run,
-    getRunResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
-    -- ** DeleteRemoteAccessSession
-    deleteRemoteAccessSession_arn,
-    deleteRemoteAccessSessionResponse_httpStatus,
+    -- ** GetRemoteAccessSession
+    getRemoteAccessSession_arn,
+    getRemoteAccessSessionResponse_remoteAccessSession,
+    getRemoteAccessSessionResponse_httpStatus,
 
-    -- ** GetDeviceInstance
-    getDeviceInstance_arn,
-    getDeviceInstanceResponse_deviceInstance,
-    getDeviceInstanceResponse_httpStatus,
-
-    -- ** ListSuites
-    listSuites_nextToken,
-    listSuites_arn,
-    listSuitesResponse_nextToken,
-    listSuitesResponse_suites,
-    listSuitesResponse_httpStatus,
-
-    -- ** ListArtifacts
-    listArtifacts_nextToken,
-    listArtifacts_arn,
-    listArtifacts_type,
-    listArtifactsResponse_nextToken,
-    listArtifactsResponse_artifacts,
-    listArtifactsResponse_httpStatus,
-
-    -- ** StopJob
-    stopJob_arn,
-    stopJobResponse_job,
-    stopJobResponse_httpStatus,
-
-    -- ** UpdateProject
-    updateProject_name,
-    updateProject_defaultJobTimeoutMinutes,
-    updateProject_arn,
-    updateProjectResponse_project,
-    updateProjectResponse_httpStatus,
-
-    -- ** DeleteProject
-    deleteProject_arn,
-    deleteProjectResponse_httpStatus,
-
-    -- ** GetInstanceProfile
-    getInstanceProfile_arn,
-    getInstanceProfileResponse_instanceProfile,
-    getInstanceProfileResponse_httpStatus,
-
-    -- ** UpdateVPCEConfiguration
-    updateVPCEConfiguration_vpceConfigurationName,
-    updateVPCEConfiguration_vpceConfigurationDescription,
-    updateVPCEConfiguration_serviceDnsName,
-    updateVPCEConfiguration_vpceServiceName,
-    updateVPCEConfiguration_arn,
-    updateVPCEConfigurationResponse_vpceConfiguration,
-    updateVPCEConfigurationResponse_httpStatus,
-
-    -- ** ListVPCEConfigurations
-    listVPCEConfigurations_nextToken,
-    listVPCEConfigurations_maxResults,
-    listVPCEConfigurationsResponse_nextToken,
-    listVPCEConfigurationsResponse_vpceConfigurations,
-    listVPCEConfigurationsResponse_httpStatus,
-
-    -- ** ListTestGridSessions
-    listTestGridSessions_nextToken,
-    listTestGridSessions_status,
-    listTestGridSessions_creationTimeBefore,
-    listTestGridSessions_maxResult,
-    listTestGridSessions_endTimeAfter,
-    listTestGridSessions_endTimeBefore,
-    listTestGridSessions_creationTimeAfter,
-    listTestGridSessions_projectArn,
-    listTestGridSessionsResponse_nextToken,
-    listTestGridSessionsResponse_testGridSessions,
-    listTestGridSessionsResponse_httpStatus,
-
-    -- ** DeleteVPCEConfiguration
-    deleteVPCEConfiguration_arn,
-    deleteVPCEConfigurationResponse_httpStatus,
-
-    -- ** ListUniqueProblems
-    listUniqueProblems_nextToken,
-    listUniqueProblems_arn,
-    listUniqueProblemsResponse_nextToken,
-    listUniqueProblemsResponse_uniqueProblems,
-    listUniqueProblemsResponse_httpStatus,
-
-    -- ** GetVPCEConfiguration
-    getVPCEConfiguration_arn,
-    getVPCEConfigurationResponse_vpceConfiguration,
-    getVPCEConfigurationResponse_httpStatus,
-
-    -- ** GetTestGridSession
-    getTestGridSession_sessionArn,
-    getTestGridSession_sessionId,
-    getTestGridSession_projectArn,
-    getTestGridSessionResponse_testGridSession,
-    getTestGridSessionResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_arn,
-    listJobsResponse_nextToken,
-    listJobsResponse_jobs,
-    listJobsResponse_httpStatus,
-
-    -- ** GetNetworkProfile
-    getNetworkProfile_arn,
-    getNetworkProfileResponse_networkProfile,
-    getNetworkProfileResponse_httpStatus,
-
-    -- ** GetProject
-    getProject_arn,
-    getProjectResponse_project,
-    getProjectResponse_httpStatus,
-
-    -- ** UpdateInstanceProfile
-    updateInstanceProfile_excludeAppPackagesFromCleanup,
-    updateInstanceProfile_name,
-    updateInstanceProfile_description,
-    updateInstanceProfile_rebootAfterUse,
-    updateInstanceProfile_packageCleanup,
-    updateInstanceProfile_arn,
-    updateInstanceProfileResponse_instanceProfile,
-    updateInstanceProfileResponse_httpStatus,
-
-    -- ** ListInstanceProfiles
-    listInstanceProfiles_nextToken,
-    listInstanceProfiles_maxResults,
-    listInstanceProfilesResponse_nextToken,
-    listInstanceProfilesResponse_instanceProfiles,
-    listInstanceProfilesResponse_httpStatus,
-
-    -- ** DeleteInstanceProfile
-    deleteInstanceProfile_arn,
-    deleteInstanceProfileResponse_httpStatus,
-
-    -- ** RenewOffering
-    renewOffering_offeringId,
-    renewOffering_quantity,
-    renewOfferingResponse_offeringTransaction,
-    renewOfferingResponse_httpStatus,
+    -- ** ListDeviceInstances
+    listDeviceInstances_nextToken,
+    listDeviceInstances_maxResults,
+    listDeviceInstancesResponse_nextToken,
+    listDeviceInstancesResponse_deviceInstances,
+    listDeviceInstancesResponse_httpStatus,
 
     -- ** PurchaseOffering
     purchaseOffering_offeringPromotionId,
@@ -471,141 +466,146 @@ module Network.AWS.DeviceFarm.Lens
     purchaseOfferingResponse_offeringTransaction,
     purchaseOfferingResponse_httpStatus,
 
-    -- ** DeleteRun
-    deleteRun_arn,
-    deleteRunResponse_httpStatus,
+    -- ** ListInstanceProfiles
+    listInstanceProfiles_nextToken,
+    listInstanceProfiles_maxResults,
+    listInstanceProfilesResponse_nextToken,
+    listInstanceProfilesResponse_instanceProfiles,
+    listInstanceProfilesResponse_httpStatus,
 
-    -- ** GetRemoteAccessSession
-    getRemoteAccessSession_arn,
-    getRemoteAccessSessionResponse_remoteAccessSession,
-    getRemoteAccessSessionResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** GetSuite
-    getSuite_arn,
-    getSuiteResponse_suite,
-    getSuiteResponse_httpStatus,
+    -- ** GetProject
+    getProject_arn,
+    getProjectResponse_project,
+    getProjectResponse_httpStatus,
 
-    -- ** GetTest
-    getTest_arn,
-    getTestResponse_test,
-    getTestResponse_httpStatus,
+    -- ** ListUniqueProblems
+    listUniqueProblems_nextToken,
+    listUniqueProblems_arn,
+    listUniqueProblemsResponse_nextToken,
+    listUniqueProblemsResponse_uniqueProblems,
+    listUniqueProblemsResponse_httpStatus,
 
-    -- ** ListOfferingTransactions
-    listOfferingTransactions_nextToken,
-    listOfferingTransactionsResponse_offeringTransactions,
-    listOfferingTransactionsResponse_nextToken,
-    listOfferingTransactionsResponse_httpStatus,
+    -- ** ListVPCEConfigurations
+    listVPCEConfigurations_nextToken,
+    listVPCEConfigurations_maxResults,
+    listVPCEConfigurationsResponse_nextToken,
+    listVPCEConfigurationsResponse_vpceConfigurations,
+    listVPCEConfigurationsResponse_httpStatus,
 
-    -- ** DeleteDevicePool
-    deleteDevicePool_arn,
-    deleteDevicePoolResponse_httpStatus,
+    -- ** StopRun
+    stopRun_arn,
+    stopRunResponse_run,
+    stopRunResponse_httpStatus,
 
-    -- ** UpdateDevicePool
-    updateDevicePool_clearMaxDevices,
-    updateDevicePool_rules,
-    updateDevicePool_maxDevices,
-    updateDevicePool_name,
-    updateDevicePool_description,
-    updateDevicePool_arn,
-    updateDevicePoolResponse_devicePool,
-    updateDevicePoolResponse_httpStatus,
+    -- ** ListDevices
+    listDevices_arn,
+    listDevices_filters,
+    listDevices_nextToken,
+    listDevicesResponse_nextToken,
+    listDevicesResponse_devices,
+    listDevicesResponse_httpStatus,
 
-    -- ** GetDevicePool
-    getDevicePool_arn,
-    getDevicePoolResponse_devicePool,
-    getDevicePoolResponse_httpStatus,
+    -- ** CreateProject
+    createProject_defaultJobTimeoutMinutes,
+    createProject_name,
+    createProjectResponse_project,
+    createProjectResponse_httpStatus,
 
-    -- ** DeleteTestGridProject
-    deleteTestGridProject_projectArn,
-    deleteTestGridProjectResponse_httpStatus,
+    -- ** ListTestGridSessions
+    listTestGridSessions_status,
+    listTestGridSessions_maxResult,
+    listTestGridSessions_creationTimeAfter,
+    listTestGridSessions_endTimeBefore,
+    listTestGridSessions_endTimeAfter,
+    listTestGridSessions_nextToken,
+    listTestGridSessions_creationTimeBefore,
+    listTestGridSessions_projectArn,
+    listTestGridSessionsResponse_nextToken,
+    listTestGridSessionsResponse_testGridSessions,
+    listTestGridSessionsResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CreateTestGridUrl
+    createTestGridUrl_projectArn,
+    createTestGridUrl_expiresInSeconds,
+    createTestGridUrlResponse_expires,
+    createTestGridUrlResponse_url,
+    createTestGridUrlResponse_httpStatus,
 
-    -- ** UpdateTestGridProject
-    updateTestGridProject_vpcConfig,
-    updateTestGridProject_name,
-    updateTestGridProject_description,
-    updateTestGridProject_projectArn,
-    updateTestGridProjectResponse_testGridProject,
-    updateTestGridProjectResponse_httpStatus,
-
-    -- ** GetAccountSettings
-    getAccountSettingsResponse_accountSettings,
-    getAccountSettingsResponse_httpStatus,
-
-    -- ** ListOfferingPromotions
-    listOfferingPromotions_nextToken,
-    listOfferingPromotionsResponse_nextToken,
-    listOfferingPromotionsResponse_offeringPromotions,
-    listOfferingPromotionsResponse_httpStatus,
+    -- ** ListOfferings
+    listOfferings_nextToken,
+    listOfferingsResponse_nextToken,
+    listOfferingsResponse_offerings,
+    listOfferingsResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountSettings
+    accountSettings_skipAppResign,
     accountSettings_awsAccountNumber,
+    accountSettings_maxJobTimeoutMinutes,
     accountSettings_maxSlots,
     accountSettings_trialMinutes,
-    accountSettings_skipAppResign,
-    accountSettings_maxJobTimeoutMinutes,
     accountSettings_unmeteredDevices,
     accountSettings_unmeteredRemoteAccessDevices,
     accountSettings_defaultJobTimeoutMinutes,
 
     -- ** Artifact
     artifact_arn,
-    artifact_name,
-    artifact_extension,
     artifact_url,
+    artifact_extension,
+    artifact_name,
     artifact_type,
 
     -- ** CPU
-    cpu_architecture,
     cpu_frequency,
     cpu_clock,
+    cpu_architecture,
 
     -- ** Counters
-    counters_errored,
-    counters_warned,
     counters_passed,
-    counters_total,
-    counters_stopped,
-    counters_failed,
     counters_skipped,
+    counters_warned,
+    counters_stopped,
+    counters_total,
+    counters_failed,
+    counters_errored,
 
     -- ** CreateRemoteAccessSessionConfiguration
     createRemoteAccessSessionConfiguration_billingMethod,
     createRemoteAccessSessionConfiguration_vpceConfigurationArns,
 
     -- ** CustomerArtifactPaths
+    customerArtifactPaths_androidPaths,
     customerArtifactPaths_deviceHostPaths,
     customerArtifactPaths_iosPaths,
-    customerArtifactPaths_androidPaths,
 
     -- ** Device
-    device_platform,
-    device_manufacturer,
-    device_model,
-    device_memory,
-    device_availability,
-    device_fleetName,
-    device_fleetType,
-    device_formFactor,
-    device_arn,
-    device_remoteAccessEnabled,
-    device_instances,
-    device_name,
-    device_image,
     device_carrier,
-    device_os,
-    device_heapSize,
-    device_radio,
-    device_resolution,
-    device_cpu,
-    device_remoteDebugEnabled,
+    device_image,
+    device_manufacturer,
+    device_platform,
     device_modelId,
+    device_remoteAccessEnabled,
+    device_arn,
+    device_formFactor,
+    device_fleetType,
+    device_resolution,
+    device_availability,
+    device_memory,
+    device_radio,
+    device_os,
+    device_name,
+    device_model,
+    device_instances,
+    device_remoteDebugEnabled,
+    device_cpu,
+    device_heapSize,
+    device_fleetName,
 
     -- ** DeviceFilter
     deviceFilter_attribute,
@@ -615,73 +615,73 @@ module Network.AWS.DeviceFarm.Lens
     -- ** DeviceInstance
     deviceInstance_status,
     deviceInstance_udid,
-    deviceInstance_deviceArn,
-    deviceInstance_arn,
-    deviceInstance_labels,
     deviceInstance_instanceProfile,
+    deviceInstance_arn,
+    deviceInstance_deviceArn,
+    deviceInstance_labels,
 
     -- ** DeviceMinutes
-    deviceMinutes_unmetered,
     deviceMinutes_metered,
     deviceMinutes_total,
+    deviceMinutes_unmetered,
 
     -- ** DevicePool
     devicePool_arn,
     devicePool_rules,
-    devicePool_maxDevices,
     devicePool_name,
-    devicePool_description,
+    devicePool_maxDevices,
     devicePool_type,
+    devicePool_description,
 
     -- ** DevicePoolCompatibilityResult
-    devicePoolCompatibilityResult_incompatibilityMessages,
-    devicePoolCompatibilityResult_compatible,
     devicePoolCompatibilityResult_device,
+    devicePoolCompatibilityResult_compatible,
+    devicePoolCompatibilityResult_incompatibilityMessages,
 
     -- ** DeviceSelectionConfiguration
     deviceSelectionConfiguration_filters,
     deviceSelectionConfiguration_maxDevices,
 
     -- ** DeviceSelectionResult
-    deviceSelectionResult_maxDevices,
-    deviceSelectionResult_filters,
     deviceSelectionResult_matchedDevicesCount,
+    deviceSelectionResult_filters,
+    deviceSelectionResult_maxDevices,
 
     -- ** ExecutionConfiguration
-    executionConfiguration_appPackagesCleanup,
-    executionConfiguration_videoCapture,
     executionConfiguration_skipAppResign,
-    executionConfiguration_jobTimeoutMinutes,
     executionConfiguration_accountsCleanup,
+    executionConfiguration_appPackagesCleanup,
+    executionConfiguration_jobTimeoutMinutes,
+    executionConfiguration_videoCapture,
 
     -- ** IncompatibilityMessage
-    incompatibilityMessage_message,
     incompatibilityMessage_type,
+    incompatibilityMessage_message,
 
     -- ** InstanceProfile
-    instanceProfile_excludeAppPackagesFromCleanup,
     instanceProfile_arn,
-    instanceProfile_name,
-    instanceProfile_description,
     instanceProfile_rebootAfterUse,
+    instanceProfile_name,
     instanceProfile_packageCleanup,
+    instanceProfile_excludeAppPackagesFromCleanup,
+    instanceProfile_description,
 
     -- ** Job
-    job_counters,
-    job_status,
-    job_started,
-    job_result,
-    job_message,
-    job_device,
-    job_arn,
-    job_videoCapture,
-    job_videoEndpoint,
-    job_name,
     job_instanceArn,
-    job_stopped,
-    job_type,
+    job_status,
+    job_counters,
+    job_arn,
     job_created,
+    job_device,
+    job_stopped,
+    job_result,
+    job_name,
+    job_videoEndpoint,
     job_deviceMinutes,
+    job_videoCapture,
+    job_type,
+    job_message,
+    job_started,
 
     -- ** Location
     location_latitude,
@@ -693,50 +693,50 @@ module Network.AWS.DeviceFarm.Lens
 
     -- ** NetworkProfile
     networkProfile_uplinkJitterMs,
-    networkProfile_downlinkBandwidthBits,
-    networkProfile_downlinkDelayMs,
-    networkProfile_downlinkJitterMs,
-    networkProfile_uplinkLossPercent,
     networkProfile_arn,
-    networkProfile_downlinkLossPercent,
+    networkProfile_uplinkLossPercent,
+    networkProfile_downlinkJitterMs,
     networkProfile_name,
-    networkProfile_uplinkBandwidthBits,
-    networkProfile_uplinkDelayMs,
-    networkProfile_description,
+    networkProfile_downlinkLossPercent,
     networkProfile_type,
+    networkProfile_uplinkDelayMs,
+    networkProfile_uplinkBandwidthBits,
+    networkProfile_description,
+    networkProfile_downlinkDelayMs,
+    networkProfile_downlinkBandwidthBits,
 
     -- ** Offering
     offering_platform,
     offering_id,
-    offering_description,
-    offering_type,
     offering_recurringCharges,
+    offering_type,
+    offering_description,
 
     -- ** OfferingPromotion
     offeringPromotion_id,
     offeringPromotion_description,
 
     -- ** OfferingStatus
-    offeringStatus_quantity,
-    offeringStatus_offering,
     offeringStatus_effectiveOn,
+    offeringStatus_offering,
+    offeringStatus_quantity,
     offeringStatus_type,
 
     -- ** OfferingTransaction
     offeringTransaction_offeringStatus,
-    offeringTransaction_createdOn,
     offeringTransaction_cost,
     offeringTransaction_transactionId,
     offeringTransaction_offeringPromotionId,
+    offeringTransaction_createdOn,
 
     -- ** Problem
-    problem_job,
-    problem_result,
-    problem_message,
     problem_device,
-    problem_run,
-    problem_suite,
     problem_test,
+    problem_result,
+    problem_run,
+    problem_job,
+    problem_message,
+    problem_suite,
 
     -- ** ProblemDetail
     problemDetail_arn,
@@ -744,84 +744,84 @@ module Network.AWS.DeviceFarm.Lens
 
     -- ** Project
     project_arn,
-    project_name,
     project_created,
+    project_name,
     project_defaultJobTimeoutMinutes,
 
     -- ** Radios
-    radios_gps,
-    radios_wifi,
-    radios_bluetooth,
     radios_nfc,
+    radios_gps,
+    radios_bluetooth,
+    radios_wifi,
 
     -- ** RecurringCharge
-    recurringCharge_cost,
     recurringCharge_frequency,
+    recurringCharge_cost,
 
     -- ** RemoteAccessSession
-    remoteAccessSession_deviceUdid,
-    remoteAccessSession_status,
+    remoteAccessSession_billingMethod,
     remoteAccessSession_clientId,
+    remoteAccessSession_deviceUdid,
+    remoteAccessSession_skipAppResign,
+    remoteAccessSession_instanceArn,
+    remoteAccessSession_status,
+    remoteAccessSession_remoteRecordEnabled,
+    remoteAccessSession_arn,
+    remoteAccessSession_remoteRecordAppArn,
+    remoteAccessSession_created,
+    remoteAccessSession_device,
+    remoteAccessSession_stopped,
+    remoteAccessSession_result,
+    remoteAccessSession_name,
+    remoteAccessSession_deviceMinutes,
+    remoteAccessSession_remoteDebugEnabled,
+    remoteAccessSession_endpoint,
+    remoteAccessSession_message,
+    remoteAccessSession_hostAddress,
     remoteAccessSession_interactionMode,
     remoteAccessSession_started,
-    remoteAccessSession_result,
-    remoteAccessSession_message,
-    remoteAccessSession_device,
-    remoteAccessSession_arn,
-    remoteAccessSession_name,
-    remoteAccessSession_remoteRecordEnabled,
-    remoteAccessSession_instanceArn,
-    remoteAccessSession_billingMethod,
-    remoteAccessSession_skipAppResign,
-    remoteAccessSession_stopped,
-    remoteAccessSession_hostAddress,
-    remoteAccessSession_endpoint,
-    remoteAccessSession_remoteDebugEnabled,
-    remoteAccessSession_created,
-    remoteAccessSession_deviceMinutes,
-    remoteAccessSession_remoteRecordAppArn,
 
     -- ** Resolution
     resolution_height,
     resolution_width,
 
     -- ** Rule
-    rule_operator,
     rule_attribute,
+    rule_operator,
     rule_value,
 
     -- ** Run
-    run_platform,
-    run_counters,
-    run_seed,
-    run_eventCount,
+    run_billingMethod,
+    run_skipAppResign,
     run_status,
+    run_customerArtifactPaths,
+    run_eventCount,
+    run_counters,
+    run_platform,
+    run_seed,
+    run_radios,
+    run_arn,
+    run_location,
+    run_created,
+    run_locale,
+    run_testSpecArn,
+    run_stopped,
+    run_result,
+    run_jobTimeoutMinutes,
+    run_completedJobs,
+    run_resultCode,
+    run_name,
+    run_appUpload,
+    run_parsingResultUrl,
+    run_networkProfile,
+    run_deviceMinutes,
+    run_type,
+    run_message,
+    run_webUrl,
+    run_totalJobs,
+    run_devicePoolArn,
     run_started,
     run_deviceSelectionResult,
-    run_result,
-    run_devicePoolArn,
-    run_testSpecArn,
-    run_message,
-    run_locale,
-    run_networkProfile,
-    run_arn,
-    run_radios,
-    run_appUpload,
-    run_name,
-    run_billingMethod,
-    run_resultCode,
-    run_skipAppResign,
-    run_customerArtifactPaths,
-    run_completedJobs,
-    run_jobTimeoutMinutes,
-    run_stopped,
-    run_totalJobs,
-    run_webUrl,
-    run_type,
-    run_created,
-    run_deviceMinutes,
-    run_location,
-    run_parsingResultUrl,
 
     -- ** Sample
     sample_arn,
@@ -829,79 +829,79 @@ module Network.AWS.DeviceFarm.Lens
     sample_type,
 
     -- ** ScheduleRunConfiguration
-    scheduleRunConfiguration_auxiliaryApps,
-    scheduleRunConfiguration_locale,
-    scheduleRunConfiguration_radios,
     scheduleRunConfiguration_billingMethod,
     scheduleRunConfiguration_customerArtifactPaths,
-    scheduleRunConfiguration_vpceConfigurationArns,
+    scheduleRunConfiguration_radios,
+    scheduleRunConfiguration_location,
+    scheduleRunConfiguration_locale,
     scheduleRunConfiguration_networkProfileArn,
     scheduleRunConfiguration_extraDataPackageArn,
-    scheduleRunConfiguration_location,
+    scheduleRunConfiguration_auxiliaryApps,
+    scheduleRunConfiguration_vpceConfigurationArns,
 
     -- ** ScheduleRunTest
-    scheduleRunTest_testPackageArn,
     scheduleRunTest_testSpecArn,
-    scheduleRunTest_filter,
+    scheduleRunTest_testPackageArn,
     scheduleRunTest_parameters,
+    scheduleRunTest_filter,
     scheduleRunTest_type,
 
     -- ** Suite
-    suite_counters,
     suite_status,
-    suite_started,
-    suite_result,
-    suite_message,
+    suite_counters,
     suite_arn,
-    suite_name,
-    suite_stopped,
-    suite_type,
     suite_created,
+    suite_stopped,
+    suite_result,
+    suite_name,
     suite_deviceMinutes,
+    suite_type,
+    suite_message,
+    suite_started,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** Test
-    test_counters,
     test_status,
-    test_started,
-    test_result,
-    test_message,
+    test_counters,
     test_arn,
-    test_name,
-    test_stopped,
-    test_type,
     test_created,
+    test_stopped,
+    test_result,
+    test_name,
     test_deviceMinutes,
+    test_type,
+    test_message,
+    test_started,
 
     -- ** TestGridProject
-    testGridProject_vpcConfig,
     testGridProject_arn,
-    testGridProject_name,
-    testGridProject_description,
     testGridProject_created,
+    testGridProject_name,
+    testGridProject_vpcConfig,
+    testGridProject_description,
 
     -- ** TestGridSession
     testGridSession_status,
     testGridSession_arn,
-    testGridSession_seleniumProperties,
-    testGridSession_ended,
-    testGridSession_billingMinutes,
     testGridSession_created,
+    testGridSession_billingMinutes,
+    testGridSession_ended,
+    testGridSession_seleniumProperties,
 
     -- ** TestGridSessionAction
-    testGridSessionAction_started,
-    testGridSessionAction_duration,
-    testGridSessionAction_statusCode,
     testGridSessionAction_action,
+    testGridSessionAction_duration,
     testGridSessionAction_requestMethod,
+    testGridSessionAction_started,
+    testGridSessionAction_statusCode,
 
     -- ** TestGridSessionArtifact
-    testGridSessionArtifact_filename,
     testGridSessionArtifact_url,
     testGridSessionArtifact_type,
+    testGridSessionArtifact_filename,
 
     -- ** TestGridVpcConfig
     testGridVpcConfig_securityGroupIds,
@@ -909,31 +909,31 @@ module Network.AWS.DeviceFarm.Lens
     testGridVpcConfig_vpcId,
 
     -- ** TrialMinutes
-    trialMinutes_total,
     trialMinutes_remaining,
+    trialMinutes_total,
 
     -- ** UniqueProblem
-    uniqueProblem_message,
     uniqueProblem_problems,
+    uniqueProblem_message,
 
     -- ** Upload
     upload_status,
-    upload_contentType,
-    upload_message,
-    upload_category,
     upload_arn,
-    upload_metadata,
-    upload_name,
-    upload_url,
-    upload_type,
     upload_created,
+    upload_category,
+    upload_url,
+    upload_name,
+    upload_metadata,
+    upload_type,
+    upload_message,
+    upload_contentType,
 
     -- ** VPCEConfiguration
-    vPCEConfiguration_vpceConfigurationName,
-    vPCEConfiguration_vpceConfigurationDescription,
-    vPCEConfiguration_arn,
-    vPCEConfiguration_serviceDnsName,
     vPCEConfiguration_vpceServiceName,
+    vPCEConfiguration_arn,
+    vPCEConfiguration_vpceConfigurationName,
+    vPCEConfiguration_serviceDnsName,
+    vPCEConfiguration_vpceConfigurationDescription,
   )
 where
 

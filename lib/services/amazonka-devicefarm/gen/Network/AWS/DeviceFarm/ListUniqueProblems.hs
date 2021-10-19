@@ -271,7 +271,7 @@ listUniqueProblemsResponse_nextToken = Lens.lens (\ListUniqueProblemsResponse' {
 --
 -- -   STOPPED
 listUniqueProblemsResponse_uniqueProblems :: Lens.Lens' ListUniqueProblemsResponse (Prelude.Maybe (Prelude.HashMap ExecutionResult [UniqueProblem]))
-listUniqueProblemsResponse_uniqueProblems = Lens.lens (\ListUniqueProblemsResponse' {uniqueProblems} -> uniqueProblems) (\s@ListUniqueProblemsResponse' {} a -> s {uniqueProblems = a} :: ListUniqueProblemsResponse) Prelude.. Lens.mapping Lens._Coerce
+listUniqueProblemsResponse_uniqueProblems = Lens.lens (\ListUniqueProblemsResponse' {uniqueProblems} -> uniqueProblems) (\s@ListUniqueProblemsResponse' {} a -> s {uniqueProblems = a} :: ListUniqueProblemsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUniqueProblemsResponse_httpStatus :: Lens.Lens' ListUniqueProblemsResponse Prelude.Int

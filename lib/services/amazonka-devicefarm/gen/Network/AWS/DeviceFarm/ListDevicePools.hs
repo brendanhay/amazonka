@@ -38,8 +38,8 @@ module Network.AWS.DeviceFarm.ListDevicePools
     newListDevicePoolsResponse,
 
     -- * Response Lenses
-    listDevicePoolsResponse_nextToken,
     listDevicePoolsResponse_devicePools,
+    listDevicePoolsResponse_nextToken,
     listDevicePoolsResponse_httpStatus,
   )
 where
@@ -161,8 +161,8 @@ instance Core.AWSRequest ListDevicePools where
     Response.receiveJSON
       ( \s h x ->
           ListDevicePoolsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "devicePools" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "devicePools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,12 +205,12 @@ instance Core.ToQuery ListDevicePools where
 --
 -- /See:/ 'newListDevicePoolsResponse' smart constructor.
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
-  { -- | If the number of items that are returned is significantly large, this is
+  { -- | Information about the device pools.
+    devicePools :: Prelude.Maybe [DevicePool],
+    -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the device pools.
-    devicePools :: Prelude.Maybe [DevicePool],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,11 +224,11 @@ data ListDevicePoolsResponse = ListDevicePoolsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'devicePools', 'listDevicePoolsResponse_devicePools' - Information about the device pools.
+--
 -- 'nextToken', 'listDevicePoolsResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
---
--- 'devicePools', 'listDevicePoolsResponse_devicePools' - Information about the device pools.
 --
 -- 'httpStatus', 'listDevicePoolsResponse_httpStatus' - The response's http status code.
 newListDevicePoolsResponse ::
@@ -237,21 +237,21 @@ newListDevicePoolsResponse ::
   ListDevicePoolsResponse
 newListDevicePoolsResponse pHttpStatus_ =
   ListDevicePoolsResponse'
-    { nextToken =
+    { devicePools =
         Prelude.Nothing,
-      devicePools = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the device pools.
+listDevicePoolsResponse_devicePools :: Lens.Lens' ListDevicePoolsResponse (Prelude.Maybe [DevicePool])
+listDevicePoolsResponse_devicePools = Lens.lens (\ListDevicePoolsResponse' {devicePools} -> devicePools) (\s@ListDevicePoolsResponse' {} a -> s {devicePools = a} :: ListDevicePoolsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
 listDevicePoolsResponse_nextToken :: Lens.Lens' ListDevicePoolsResponse (Prelude.Maybe Prelude.Text)
 listDevicePoolsResponse_nextToken = Lens.lens (\ListDevicePoolsResponse' {nextToken} -> nextToken) (\s@ListDevicePoolsResponse' {} a -> s {nextToken = a} :: ListDevicePoolsResponse)
-
--- | Information about the device pools.
-listDevicePoolsResponse_devicePools :: Lens.Lens' ListDevicePoolsResponse (Prelude.Maybe [DevicePool])
-listDevicePoolsResponse_devicePools = Lens.lens (\ListDevicePoolsResponse' {devicePools} -> devicePools) (\s@ListDevicePoolsResponse' {} a -> s {devicePools = a} :: ListDevicePoolsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDevicePoolsResponse_httpStatus :: Lens.Lens' ListDevicePoolsResponse Prelude.Int

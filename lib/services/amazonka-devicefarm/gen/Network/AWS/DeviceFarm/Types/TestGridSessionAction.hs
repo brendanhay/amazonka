@@ -27,17 +27,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTestGridSessionAction' smart constructor.
 data TestGridSessionAction = TestGridSessionAction'
-  { -- | The time that the session invoked the action.
-    started :: Prelude.Maybe Core.POSIX,
+  { -- | The action taken by the session.
+    action :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds, that the action took to complete in the
     -- browser.
     duration :: Prelude.Maybe Prelude.Integer,
-    -- | HTTP status code returned to the browser when the action was taken.
-    statusCode :: Prelude.Maybe Prelude.Text,
-    -- | The action taken by the session.
-    action :: Prelude.Maybe Prelude.Text,
     -- | HTTP method that the browser used to make the request.
-    requestMethod :: Prelude.Maybe Prelude.Text
+    requestMethod :: Prelude.Maybe Prelude.Text,
+    -- | The time that the session invoked the action.
+    started :: Prelude.Maybe Core.POSIX,
+    -- | HTTP status code returned to the browser when the action was taken.
+    statusCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,47 +49,47 @@ data TestGridSessionAction = TestGridSessionAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'started', 'testGridSessionAction_started' - The time that the session invoked the action.
+-- 'action', 'testGridSessionAction_action' - The action taken by the session.
 --
 -- 'duration', 'testGridSessionAction_duration' - The time, in milliseconds, that the action took to complete in the
 -- browser.
 --
--- 'statusCode', 'testGridSessionAction_statusCode' - HTTP status code returned to the browser when the action was taken.
---
--- 'action', 'testGridSessionAction_action' - The action taken by the session.
---
 -- 'requestMethod', 'testGridSessionAction_requestMethod' - HTTP method that the browser used to make the request.
+--
+-- 'started', 'testGridSessionAction_started' - The time that the session invoked the action.
+--
+-- 'statusCode', 'testGridSessionAction_statusCode' - HTTP status code returned to the browser when the action was taken.
 newTestGridSessionAction ::
   TestGridSessionAction
 newTestGridSessionAction =
   TestGridSessionAction'
-    { started = Prelude.Nothing,
+    { action = Prelude.Nothing,
       duration = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      action = Prelude.Nothing,
-      requestMethod = Prelude.Nothing
+      requestMethod = Prelude.Nothing,
+      started = Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
 
--- | The time that the session invoked the action.
-testGridSessionAction_started :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.UTCTime)
-testGridSessionAction_started = Lens.lens (\TestGridSessionAction' {started} -> started) (\s@TestGridSessionAction' {} a -> s {started = a} :: TestGridSessionAction) Prelude.. Lens.mapping Core._Time
+-- | The action taken by the session.
+testGridSessionAction_action :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
+testGridSessionAction_action = Lens.lens (\TestGridSessionAction' {action} -> action) (\s@TestGridSessionAction' {} a -> s {action = a} :: TestGridSessionAction)
 
 -- | The time, in milliseconds, that the action took to complete in the
 -- browser.
 testGridSessionAction_duration :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Integer)
 testGridSessionAction_duration = Lens.lens (\TestGridSessionAction' {duration} -> duration) (\s@TestGridSessionAction' {} a -> s {duration = a} :: TestGridSessionAction)
 
--- | HTTP status code returned to the browser when the action was taken.
-testGridSessionAction_statusCode :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
-testGridSessionAction_statusCode = Lens.lens (\TestGridSessionAction' {statusCode} -> statusCode) (\s@TestGridSessionAction' {} a -> s {statusCode = a} :: TestGridSessionAction)
-
--- | The action taken by the session.
-testGridSessionAction_action :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
-testGridSessionAction_action = Lens.lens (\TestGridSessionAction' {action} -> action) (\s@TestGridSessionAction' {} a -> s {action = a} :: TestGridSessionAction)
-
 -- | HTTP method that the browser used to make the request.
 testGridSessionAction_requestMethod :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
 testGridSessionAction_requestMethod = Lens.lens (\TestGridSessionAction' {requestMethod} -> requestMethod) (\s@TestGridSessionAction' {} a -> s {requestMethod = a} :: TestGridSessionAction)
+
+-- | The time that the session invoked the action.
+testGridSessionAction_started :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.UTCTime)
+testGridSessionAction_started = Lens.lens (\TestGridSessionAction' {started} -> started) (\s@TestGridSessionAction' {} a -> s {started = a} :: TestGridSessionAction) Prelude.. Lens.mapping Core._Time
+
+-- | HTTP status code returned to the browser when the action was taken.
+testGridSessionAction_statusCode :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
+testGridSessionAction_statusCode = Lens.lens (\TestGridSessionAction' {statusCode} -> statusCode) (\s@TestGridSessionAction' {} a -> s {statusCode = a} :: TestGridSessionAction)
 
 instance Core.FromJSON TestGridSessionAction where
   parseJSON =
@@ -97,11 +97,11 @@ instance Core.FromJSON TestGridSessionAction where
       "TestGridSessionAction"
       ( \x ->
           TestGridSessionAction'
-            Prelude.<$> (x Core..:? "started")
+            Prelude.<$> (x Core..:? "action")
             Prelude.<*> (x Core..:? "duration")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "action")
             Prelude.<*> (x Core..:? "requestMethod")
+            Prelude.<*> (x Core..:? "started")
+            Prelude.<*> (x Core..:? "statusCode")
       )
 
 instance Prelude.Hashable TestGridSessionAction

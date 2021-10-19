@@ -201,7 +201,7 @@ listOfferingsResponse_nextToken = Lens.lens (\ListOfferingsResponse' {nextToken}
 
 -- | A value that represents the list offering results.
 listOfferingsResponse_offerings :: Lens.Lens' ListOfferingsResponse (Prelude.Maybe [Offering])
-listOfferingsResponse_offerings = Lens.lens (\ListOfferingsResponse' {offerings} -> offerings) (\s@ListOfferingsResponse' {} a -> s {offerings = a} :: ListOfferingsResponse) Prelude.. Lens.mapping Lens._Coerce
+listOfferingsResponse_offerings = Lens.lens (\ListOfferingsResponse' {offerings} -> offerings) (\s@ListOfferingsResponse' {} a -> s {offerings = a} :: ListOfferingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOfferingsResponse_httpStatus :: Lens.Lens' ListOfferingsResponse Prelude.Int

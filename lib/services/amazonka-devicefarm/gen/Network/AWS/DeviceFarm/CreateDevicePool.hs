@@ -138,7 +138,7 @@ createDevicePool_name = Lens.lens (\CreateDevicePool' {name} -> name) (\s@Create
 
 -- | The device pool\'s rules.
 createDevicePool_rules :: Lens.Lens' CreateDevicePool [Rule]
-createDevicePool_rules = Lens.lens (\CreateDevicePool' {rules} -> rules) (\s@CreateDevicePool' {} a -> s {rules = a} :: CreateDevicePool) Prelude.. Lens._Coerce
+createDevicePool_rules = Lens.lens (\CreateDevicePool' {rules} -> rules) (\s@CreateDevicePool' {} a -> s {rules = a} :: CreateDevicePool) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateDevicePool where
   type

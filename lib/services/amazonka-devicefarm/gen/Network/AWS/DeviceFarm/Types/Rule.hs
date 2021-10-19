@@ -29,11 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | Specifies how Device Farm compares the rule\'s attribute to the value.
-    -- For the operators that are supported by each attribute, see the
-    -- attribute descriptions.
-    operator :: Prelude.Maybe RuleOperator,
-    -- | The rule\'s stringified attribute. For example, specify the value as
+  { -- | The rule\'s stringified attribute. For example, specify the value as
     -- @\"\\\"abc\\\"\"@.
     --
     -- The supported operators for each attribute are provided in the following
@@ -114,6 +110,10 @@ data Rule = Rule'
     --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>,
     --     this filter is ignored.
     attribute :: Prelude.Maybe DeviceAttribute,
+    -- | Specifies how Device Farm compares the rule\'s attribute to the value.
+    -- For the operators that are supported by each attribute, see the
+    -- attribute descriptions.
+    operator :: Prelude.Maybe RuleOperator,
     -- | The rule\'s value.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -126,10 +126,6 @@ data Rule = Rule'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'operator', 'rule_operator' - Specifies how Device Farm compares the rule\'s attribute to the value.
--- For the operators that are supported by each attribute, see the
--- attribute descriptions.
 --
 -- 'attribute', 'rule_attribute' - The rule\'s stringified attribute. For example, specify the value as
 -- @\"\\\"abc\\\"\"@.
@@ -212,21 +208,19 @@ data Rule = Rule'
 --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>,
 --     this filter is ignored.
 --
+-- 'operator', 'rule_operator' - Specifies how Device Farm compares the rule\'s attribute to the value.
+-- For the operators that are supported by each attribute, see the
+-- attribute descriptions.
+--
 -- 'value', 'rule_value' - The rule\'s value.
 newRule ::
   Rule
 newRule =
   Rule'
-    { operator = Prelude.Nothing,
-      attribute = Prelude.Nothing,
+    { attribute = Prelude.Nothing,
+      operator = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | Specifies how Device Farm compares the rule\'s attribute to the value.
--- For the operators that are supported by each attribute, see the
--- attribute descriptions.
-rule_operator :: Lens.Lens' Rule (Prelude.Maybe RuleOperator)
-rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {operator = a} :: Rule)
 
 -- | The rule\'s stringified attribute. For example, specify the value as
 -- @\"\\\"abc\\\"\"@.
@@ -311,6 +305,12 @@ rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {o
 rule_attribute :: Lens.Lens' Rule (Prelude.Maybe DeviceAttribute)
 rule_attribute = Lens.lens (\Rule' {attribute} -> attribute) (\s@Rule' {} a -> s {attribute = a} :: Rule)
 
+-- | Specifies how Device Farm compares the rule\'s attribute to the value.
+-- For the operators that are supported by each attribute, see the
+-- attribute descriptions.
+rule_operator :: Lens.Lens' Rule (Prelude.Maybe RuleOperator)
+rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {operator = a} :: Rule)
+
 -- | The rule\'s value.
 rule_value :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_value = Lens.lens (\Rule' {value} -> value) (\s@Rule' {} a -> s {value = a} :: Rule)
@@ -321,8 +321,8 @@ instance Core.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "operator")
-            Prelude.<*> (x Core..:? "attribute")
+            Prelude.<$> (x Core..:? "attribute")
+            Prelude.<*> (x Core..:? "operator")
             Prelude.<*> (x Core..:? "value")
       )
 
@@ -334,8 +334,8 @@ instance Core.ToJSON Rule where
   toJSON Rule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("operator" Core..=) Prelude.<$> operator,
-            ("attribute" Core..=) Prelude.<$> attribute,
+          [ ("attribute" Core..=) Prelude.<$> attribute,
+            ("operator" Core..=) Prelude.<$> operator,
             ("value" Core..=) Prelude.<$> value
           ]
       )

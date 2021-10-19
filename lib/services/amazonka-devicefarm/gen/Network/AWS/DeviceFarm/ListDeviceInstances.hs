@@ -213,7 +213,7 @@ listDeviceInstancesResponse_nextToken = Lens.lens (\ListDeviceInstancesResponse'
 
 -- | An object that contains information about your device instances.
 listDeviceInstancesResponse_deviceInstances :: Lens.Lens' ListDeviceInstancesResponse (Prelude.Maybe [DeviceInstance])
-listDeviceInstancesResponse_deviceInstances = Lens.lens (\ListDeviceInstancesResponse' {deviceInstances} -> deviceInstances) (\s@ListDeviceInstancesResponse' {} a -> s {deviceInstances = a} :: ListDeviceInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+listDeviceInstancesResponse_deviceInstances = Lens.lens (\ListDeviceInstancesResponse' {deviceInstances} -> deviceInstances) (\s@ListDeviceInstancesResponse' {} a -> s {deviceInstances = a} :: ListDeviceInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeviceInstancesResponse_httpStatus :: Lens.Lens' ListDeviceInstancesResponse Prelude.Int

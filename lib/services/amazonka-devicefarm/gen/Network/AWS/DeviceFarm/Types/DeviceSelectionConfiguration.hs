@@ -304,7 +304,7 @@ newDeviceSelectionConfiguration pMaxDevices_ =
 --
 --     -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
 deviceSelectionConfiguration_filters :: Lens.Lens' DeviceSelectionConfiguration [DeviceFilter]
-deviceSelectionConfiguration_filters = Lens.lens (\DeviceSelectionConfiguration' {filters} -> filters) (\s@DeviceSelectionConfiguration' {} a -> s {filters = a} :: DeviceSelectionConfiguration) Prelude.. Lens._Coerce
+deviceSelectionConfiguration_filters = Lens.lens (\DeviceSelectionConfiguration' {filters} -> filters) (\s@DeviceSelectionConfiguration' {} a -> s {filters = a} :: DeviceSelectionConfiguration) Prelude.. Lens.coerced
 
 -- | The maximum number of devices to be included in a test run.
 deviceSelectionConfiguration_maxDevices :: Lens.Lens' DeviceSelectionConfiguration Prelude.Int

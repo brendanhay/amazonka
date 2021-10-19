@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Artifact = Artifact'
   { -- | The artifact\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The artifact\'s name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The artifact\'s file extension.
-    extension :: Prelude.Maybe Prelude.Text,
     -- | The presigned Amazon S3 URL that can be used with a GET request to
     -- download the artifact\'s file.
     url :: Prelude.Maybe Prelude.Text,
+    -- | The artifact\'s file extension.
+    extension :: Prelude.Maybe Prelude.Text,
+    -- | The artifact\'s name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The artifact\'s type.
     --
     -- Allowed values include the following:
@@ -112,12 +112,12 @@ data Artifact = Artifact'
 --
 -- 'arn', 'artifact_arn' - The artifact\'s ARN.
 --
--- 'name', 'artifact_name' - The artifact\'s name.
+-- 'url', 'artifact_url' - The presigned Amazon S3 URL that can be used with a GET request to
+-- download the artifact\'s file.
 --
 -- 'extension', 'artifact_extension' - The artifact\'s file extension.
 --
--- 'url', 'artifact_url' - The presigned Amazon S3 URL that can be used with a GET request to
--- download the artifact\'s file.
+-- 'name', 'artifact_name' - The artifact\'s name.
 --
 -- 'type'', 'artifact_type' - The artifact\'s type.
 --
@@ -184,9 +184,9 @@ newArtifact ::
 newArtifact =
   Artifact'
     { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      extension = Prelude.Nothing,
       url = Prelude.Nothing,
+      extension = Prelude.Nothing,
+      name = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -194,18 +194,18 @@ newArtifact =
 artifact_arn :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
 artifact_arn = Lens.lens (\Artifact' {arn} -> arn) (\s@Artifact' {} a -> s {arn = a} :: Artifact)
 
--- | The artifact\'s name.
-artifact_name :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
-artifact_name = Lens.lens (\Artifact' {name} -> name) (\s@Artifact' {} a -> s {name = a} :: Artifact)
+-- | The presigned Amazon S3 URL that can be used with a GET request to
+-- download the artifact\'s file.
+artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url = a} :: Artifact)
 
 -- | The artifact\'s file extension.
 artifact_extension :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
 artifact_extension = Lens.lens (\Artifact' {extension} -> extension) (\s@Artifact' {} a -> s {extension = a} :: Artifact)
 
--- | The presigned Amazon S3 URL that can be used with a GET request to
--- download the artifact\'s file.
-artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
-artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url = a} :: Artifact)
+-- | The artifact\'s name.
+artifact_name :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_name = Lens.lens (\Artifact' {name} -> name) (\s@Artifact' {} a -> s {name = a} :: Artifact)
 
 -- | The artifact\'s type.
 --
@@ -277,9 +277,9 @@ instance Core.FromJSON Artifact where
       ( \x ->
           Artifact'
             Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "extension")
             Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..:? "extension")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "type")
       )
 

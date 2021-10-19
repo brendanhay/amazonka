@@ -70,12 +70,12 @@ newDescribeClientProperties ::
 newDescribeClientProperties pResourceIds_ =
   DescribeClientProperties'
     { resourceIds =
-        Lens._Coerce Lens.# pResourceIds_
+        Lens.coerced Lens.# pResourceIds_
     }
 
 -- | The resource identifier, in the form of directory IDs.
 describeClientProperties_resourceIds :: Lens.Lens' DescribeClientProperties (Prelude.NonEmpty Prelude.Text)
-describeClientProperties_resourceIds = Lens.lens (\DescribeClientProperties' {resourceIds} -> resourceIds) (\s@DescribeClientProperties' {} a -> s {resourceIds = a} :: DescribeClientProperties) Prelude.. Lens._Coerce
+describeClientProperties_resourceIds = Lens.lens (\DescribeClientProperties' {resourceIds} -> resourceIds) (\s@DescribeClientProperties' {} a -> s {resourceIds = a} :: DescribeClientProperties) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeClientProperties where
   type
@@ -157,7 +157,7 @@ newDescribeClientPropertiesResponse pHttpStatus_ =
 
 -- | Information about the specified Amazon WorkSpaces clients.
 describeClientPropertiesResponse_clientPropertiesList :: Lens.Lens' DescribeClientPropertiesResponse (Prelude.Maybe [ClientPropertiesResult])
-describeClientPropertiesResponse_clientPropertiesList = Lens.lens (\DescribeClientPropertiesResponse' {clientPropertiesList} -> clientPropertiesList) (\s@DescribeClientPropertiesResponse' {} a -> s {clientPropertiesList = a} :: DescribeClientPropertiesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeClientPropertiesResponse_clientPropertiesList = Lens.lens (\DescribeClientPropertiesResponse' {clientPropertiesList} -> clientPropertiesList) (\s@DescribeClientPropertiesResponse' {} a -> s {clientPropertiesList = a} :: DescribeClientPropertiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClientPropertiesResponse_httpStatus :: Lens.Lens' DescribeClientPropertiesResponse Prelude.Int

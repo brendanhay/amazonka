@@ -30,11 +30,11 @@ import Network.AWS.WorkSpaces.Types.WorkspaceRequest
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
   { -- | Information about the WorkSpace.
     workspaceRequest :: Prelude.Maybe WorkspaceRequest,
+    -- | The error code that is returned if the WorkSpace cannot be created.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The text of the error message that is returned if the WorkSpace cannot
     -- be created.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code that is returned if the WorkSpace cannot be created.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,32 +48,32 @@ data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
 --
 -- 'workspaceRequest', 'failedCreateWorkspaceRequest_workspaceRequest' - Information about the WorkSpace.
 --
+-- 'errorCode', 'failedCreateWorkspaceRequest_errorCode' - The error code that is returned if the WorkSpace cannot be created.
+--
 -- 'errorMessage', 'failedCreateWorkspaceRequest_errorMessage' - The text of the error message that is returned if the WorkSpace cannot
 -- be created.
---
--- 'errorCode', 'failedCreateWorkspaceRequest_errorCode' - The error code that is returned if the WorkSpace cannot be created.
 newFailedCreateWorkspaceRequest ::
   FailedCreateWorkspaceRequest
 newFailedCreateWorkspaceRequest =
   FailedCreateWorkspaceRequest'
     { workspaceRequest =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | Information about the WorkSpace.
 failedCreateWorkspaceRequest_workspaceRequest :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe WorkspaceRequest)
 failedCreateWorkspaceRequest_workspaceRequest = Lens.lens (\FailedCreateWorkspaceRequest' {workspaceRequest} -> workspaceRequest) (\s@FailedCreateWorkspaceRequest' {} a -> s {workspaceRequest = a} :: FailedCreateWorkspaceRequest)
 
+-- | The error code that is returned if the WorkSpace cannot be created.
+failedCreateWorkspaceRequest_errorCode :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe Prelude.Text)
+failedCreateWorkspaceRequest_errorCode = Lens.lens (\FailedCreateWorkspaceRequest' {errorCode} -> errorCode) (\s@FailedCreateWorkspaceRequest' {} a -> s {errorCode = a} :: FailedCreateWorkspaceRequest)
+
 -- | The text of the error message that is returned if the WorkSpace cannot
 -- be created.
 failedCreateWorkspaceRequest_errorMessage :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe Prelude.Text)
 failedCreateWorkspaceRequest_errorMessage = Lens.lens (\FailedCreateWorkspaceRequest' {errorMessage} -> errorMessage) (\s@FailedCreateWorkspaceRequest' {} a -> s {errorMessage = a} :: FailedCreateWorkspaceRequest)
-
--- | The error code that is returned if the WorkSpace cannot be created.
-failedCreateWorkspaceRequest_errorCode :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe Prelude.Text)
-failedCreateWorkspaceRequest_errorCode = Lens.lens (\FailedCreateWorkspaceRequest' {errorCode} -> errorCode) (\s@FailedCreateWorkspaceRequest' {} a -> s {errorCode = a} :: FailedCreateWorkspaceRequest)
 
 instance Core.FromJSON FailedCreateWorkspaceRequest where
   parseJSON =
@@ -82,8 +82,8 @@ instance Core.FromJSON FailedCreateWorkspaceRequest where
       ( \x ->
           FailedCreateWorkspaceRequest'
             Prelude.<$> (x Core..:? "WorkspaceRequest")
-            Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
 instance

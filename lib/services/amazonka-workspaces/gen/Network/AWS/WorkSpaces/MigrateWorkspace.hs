@@ -48,8 +48,8 @@ module Network.AWS.WorkSpaces.MigrateWorkspace
     newMigrateWorkspaceResponse,
 
     -- * Response Lenses
-    migrateWorkspaceResponse_targetWorkspaceId,
     migrateWorkspaceResponse_sourceWorkspaceId,
+    migrateWorkspaceResponse_targetWorkspaceId,
     migrateWorkspaceResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest MigrateWorkspace where
     Response.receiveJSON
       ( \s h x ->
           MigrateWorkspaceResponse'
-            Prelude.<$> (x Core..?> "TargetWorkspaceId")
-            Prelude.<*> (x Core..?> "SourceWorkspaceId")
+            Prelude.<$> (x Core..?> "SourceWorkspaceId")
+            Prelude.<*> (x Core..?> "TargetWorkspaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,12 +153,12 @@ instance Core.ToQuery MigrateWorkspace where
 
 -- | /See:/ 'newMigrateWorkspaceResponse' smart constructor.
 data MigrateWorkspaceResponse = MigrateWorkspaceResponse'
-  { -- | The new identifier of the WorkSpace that is being migrated. If the
+  { -- | The original identifier of the WorkSpace that is being migrated.
+    sourceWorkspaceId :: Prelude.Maybe Prelude.Text,
+    -- | The new identifier of the WorkSpace that is being migrated. If the
     -- migration does not succeed, the target WorkSpace ID will not be used,
     -- and the WorkSpace will still have the original WorkSpace ID.
     targetWorkspaceId :: Prelude.Maybe Prelude.Text,
-    -- | The original identifier of the WorkSpace that is being migrated.
-    sourceWorkspaceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,11 +172,11 @@ data MigrateWorkspaceResponse = MigrateWorkspaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceWorkspaceId', 'migrateWorkspaceResponse_sourceWorkspaceId' - The original identifier of the WorkSpace that is being migrated.
+--
 -- 'targetWorkspaceId', 'migrateWorkspaceResponse_targetWorkspaceId' - The new identifier of the WorkSpace that is being migrated. If the
 -- migration does not succeed, the target WorkSpace ID will not be used,
 -- and the WorkSpace will still have the original WorkSpace ID.
---
--- 'sourceWorkspaceId', 'migrateWorkspaceResponse_sourceWorkspaceId' - The original identifier of the WorkSpace that is being migrated.
 --
 -- 'httpStatus', 'migrateWorkspaceResponse_httpStatus' - The response's http status code.
 newMigrateWorkspaceResponse ::
@@ -185,21 +185,21 @@ newMigrateWorkspaceResponse ::
   MigrateWorkspaceResponse
 newMigrateWorkspaceResponse pHttpStatus_ =
   MigrateWorkspaceResponse'
-    { targetWorkspaceId =
+    { sourceWorkspaceId =
         Prelude.Nothing,
-      sourceWorkspaceId = Prelude.Nothing,
+      targetWorkspaceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The original identifier of the WorkSpace that is being migrated.
+migrateWorkspaceResponse_sourceWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Prelude.Maybe Prelude.Text)
+migrateWorkspaceResponse_sourceWorkspaceId = Lens.lens (\MigrateWorkspaceResponse' {sourceWorkspaceId} -> sourceWorkspaceId) (\s@MigrateWorkspaceResponse' {} a -> s {sourceWorkspaceId = a} :: MigrateWorkspaceResponse)
 
 -- | The new identifier of the WorkSpace that is being migrated. If the
 -- migration does not succeed, the target WorkSpace ID will not be used,
 -- and the WorkSpace will still have the original WorkSpace ID.
 migrateWorkspaceResponse_targetWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Prelude.Maybe Prelude.Text)
 migrateWorkspaceResponse_targetWorkspaceId = Lens.lens (\MigrateWorkspaceResponse' {targetWorkspaceId} -> targetWorkspaceId) (\s@MigrateWorkspaceResponse' {} a -> s {targetWorkspaceId = a} :: MigrateWorkspaceResponse)
-
--- | The original identifier of the WorkSpace that is being migrated.
-migrateWorkspaceResponse_sourceWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Prelude.Maybe Prelude.Text)
-migrateWorkspaceResponse_sourceWorkspaceId = Lens.lens (\MigrateWorkspaceResponse' {sourceWorkspaceId} -> sourceWorkspaceId) (\s@MigrateWorkspaceResponse' {} a -> s {sourceWorkspaceId = a} :: MigrateWorkspaceResponse)
 
 -- | The response's http status code.
 migrateWorkspaceResponse_httpStatus :: Lens.Lens' MigrateWorkspaceResponse Prelude.Int

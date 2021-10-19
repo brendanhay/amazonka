@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the permissions that the owner of a connection alias has
--- granted to another AWS account for the specified connection alias. For
--- more information, see
+-- granted to another Amazon Web Services account for the specified
+-- connection alias. For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces>.
 module Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
   ( -- * Creating a Request
@@ -39,8 +39,8 @@ module Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
     newDescribeConnectionAliasPermissionsResponse,
 
     -- * Response Lenses
-    describeConnectionAliasPermissionsResponse_nextToken,
     describeConnectionAliasPermissionsResponse_aliasId,
+    describeConnectionAliasPermissionsResponse_nextToken,
     describeConnectionAliasPermissionsResponse_connectionAliasPermissions,
     describeConnectionAliasPermissionsResponse_httpStatus,
   )
@@ -116,8 +116,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionAliasPermissionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "AliasId")
+            Prelude.<$> (x Core..?> "AliasId")
+              Prelude.<*> (x Core..?> "NextToken")
               Prelude.<*> (x Core..?> "ConnectionAliasPermissions")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -175,11 +175,11 @@ instance
 
 -- | /See:/ 'newDescribeConnectionAliasPermissionsResponse' smart constructor.
 data DescribeConnectionAliasPermissionsResponse = DescribeConnectionAliasPermissionsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The identifier of the connection alias.
+    aliasId :: Prelude.Maybe Prelude.Text,
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the connection alias.
-    aliasId :: Prelude.Maybe Prelude.Text,
     -- | The permissions associated with a connection alias.
     connectionAliasPermissions :: Prelude.Maybe (Prelude.NonEmpty ConnectionAliasPermission),
     -- | The response's http status code.
@@ -195,10 +195,10 @@ data DescribeConnectionAliasPermissionsResponse = DescribeConnectionAliasPermiss
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aliasId', 'describeConnectionAliasPermissionsResponse_aliasId' - The identifier of the connection alias.
+--
 -- 'nextToken', 'describeConnectionAliasPermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'aliasId', 'describeConnectionAliasPermissionsResponse_aliasId' - The identifier of the connection alias.
 --
 -- 'connectionAliasPermissions', 'describeConnectionAliasPermissionsResponse_connectionAliasPermissions' - The permissions associated with a connection alias.
 --
@@ -210,26 +210,26 @@ newDescribeConnectionAliasPermissionsResponse ::
 newDescribeConnectionAliasPermissionsResponse
   pHttpStatus_ =
     DescribeConnectionAliasPermissionsResponse'
-      { nextToken =
+      { aliasId =
           Prelude.Nothing,
-        aliasId = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         connectionAliasPermissions =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The identifier of the connection alias.
+describeConnectionAliasPermissionsResponse_aliasId :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeConnectionAliasPermissionsResponse_aliasId = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {aliasId} -> aliasId) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {aliasId = a} :: DescribeConnectionAliasPermissionsResponse)
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeConnectionAliasPermissionsResponse_nextToken :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeConnectionAliasPermissionsResponse_nextToken = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {nextToken} -> nextToken) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {nextToken = a} :: DescribeConnectionAliasPermissionsResponse)
 
--- | The identifier of the connection alias.
-describeConnectionAliasPermissionsResponse_aliasId :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeConnectionAliasPermissionsResponse_aliasId = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {aliasId} -> aliasId) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {aliasId = a} :: DescribeConnectionAliasPermissionsResponse)
-
 -- | The permissions associated with a connection alias.
 describeConnectionAliasPermissionsResponse_connectionAliasPermissions :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ConnectionAliasPermission))
-describeConnectionAliasPermissionsResponse_connectionAliasPermissions = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {connectionAliasPermissions} -> connectionAliasPermissions) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {connectionAliasPermissions = a} :: DescribeConnectionAliasPermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConnectionAliasPermissionsResponse_connectionAliasPermissions = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {connectionAliasPermissions} -> connectionAliasPermissions) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {connectionAliasPermissions = a} :: DescribeConnectionAliasPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConnectionAliasPermissionsResponse_httpStatus :: Lens.Lens' DescribeConnectionAliasPermissionsResponse Prelude.Int

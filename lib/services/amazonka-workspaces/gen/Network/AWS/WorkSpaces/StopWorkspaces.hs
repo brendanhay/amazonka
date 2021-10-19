@@ -72,12 +72,12 @@ newStopWorkspaces ::
 newStopWorkspaces pStopWorkspaceRequests_ =
   StopWorkspaces'
     { stopWorkspaceRequests =
-        Lens._Coerce Lens.# pStopWorkspaceRequests_
+        Lens.coerced Lens.# pStopWorkspaceRequests_
     }
 
 -- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
 stopWorkspaces_stopWorkspaceRequests :: Lens.Lens' StopWorkspaces (Prelude.NonEmpty StopRequest)
-stopWorkspaces_stopWorkspaceRequests = Lens.lens (\StopWorkspaces' {stopWorkspaceRequests} -> stopWorkspaceRequests) (\s@StopWorkspaces' {} a -> s {stopWorkspaceRequests = a} :: StopWorkspaces) Prelude.. Lens._Coerce
+stopWorkspaces_stopWorkspaceRequests = Lens.lens (\StopWorkspaces' {stopWorkspaceRequests} -> stopWorkspaceRequests) (\s@StopWorkspaces' {} a -> s {stopWorkspaceRequests = a} :: StopWorkspaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StopWorkspaces where
   type
@@ -161,7 +161,7 @@ newStopWorkspacesResponse pHttpStatus_ =
 
 -- | Information about the WorkSpaces that could not be stopped.
 stopWorkspacesResponse_failedRequests :: Lens.Lens' StopWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-stopWorkspacesResponse_failedRequests = Lens.lens (\StopWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StopWorkspacesResponse' {} a -> s {failedRequests = a} :: StopWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+stopWorkspacesResponse_failedRequests = Lens.lens (\StopWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StopWorkspacesResponse' {} a -> s {failedRequests = a} :: StopWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 stopWorkspacesResponse_httpStatus :: Lens.Lens' StopWorkspacesResponse Prelude.Int

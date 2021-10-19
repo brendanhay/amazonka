@@ -70,7 +70,7 @@ data UpdateConnectionAliasPermission = UpdateConnectionAliasPermission'
     -- permissions for.
     aliasId :: Prelude.Text,
     -- | Indicates whether to share or unshare the connection alias with the
-    -- specified AWS account.
+    -- specified Amazon Web Services account.
     connectionAliasPermission :: ConnectionAliasPermission
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data UpdateConnectionAliasPermission = UpdateConnectionAliasPermission'
 -- permissions for.
 --
 -- 'connectionAliasPermission', 'updateConnectionAliasPermission_connectionAliasPermission' - Indicates whether to share or unshare the connection alias with the
--- specified AWS account.
+-- specified Amazon Web Services account.
 newUpdateConnectionAliasPermission ::
   -- | 'aliasId'
   Prelude.Text ->
@@ -110,7 +110,7 @@ updateConnectionAliasPermission_aliasId :: Lens.Lens' UpdateConnectionAliasPermi
 updateConnectionAliasPermission_aliasId = Lens.lens (\UpdateConnectionAliasPermission' {aliasId} -> aliasId) (\s@UpdateConnectionAliasPermission' {} a -> s {aliasId = a} :: UpdateConnectionAliasPermission)
 
 -- | Indicates whether to share or unshare the connection alias with the
--- specified AWS account.
+-- specified Amazon Web Services account.
 updateConnectionAliasPermission_connectionAliasPermission :: Lens.Lens' UpdateConnectionAliasPermission ConnectionAliasPermission
 updateConnectionAliasPermission_connectionAliasPermission = Lens.lens (\UpdateConnectionAliasPermission' {connectionAliasPermission} -> connectionAliasPermission) (\s@UpdateConnectionAliasPermission' {} a -> s {connectionAliasPermission = a} :: UpdateConnectionAliasPermission)
 

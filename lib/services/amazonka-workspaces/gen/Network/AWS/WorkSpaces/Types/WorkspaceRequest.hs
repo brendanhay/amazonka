@@ -33,20 +33,18 @@ data WorkspaceRequest = WorkspaceRequest'
     workspaceProperties :: Prelude.Maybe WorkspaceProperties,
     -- | Indicates whether the data stored on the root volume is encrypted.
     rootVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The symmetric KMS key used to encrypt data stored on your WorkSpace.
+    -- Amazon WorkSpaces does not support asymmetric KMS keys.
+    volumeEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the data stored on the user volume is encrypted.
     userVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The symmetric AWS KMS customer master key (CMK) used to encrypt data
-    -- stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric
-    -- CMKs.
-    volumeEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The tags for the WorkSpace.
     tags :: Prelude.Maybe [Tag],
-    -- | The identifier of the AWS Directory Service directory for the WorkSpace.
-    -- You can use DescribeWorkspaceDirectories to list the available
-    -- directories.
+    -- | The identifier of the Directory Service directory for the WorkSpace. You
+    -- can use DescribeWorkspaceDirectories to list the available directories.
     directoryId :: Prelude.Text,
     -- | The user name of the user for the WorkSpace. This user name must exist
-    -- in the AWS Directory Service directory for the WorkSpace.
+    -- in the Directory Service directory for the WorkSpace.
     userName :: Prelude.Text,
     -- | The identifier of the bundle for the WorkSpace. You can use
     -- DescribeWorkspaceBundles to list the available bundles.
@@ -66,20 +64,18 @@ data WorkspaceRequest = WorkspaceRequest'
 --
 -- 'rootVolumeEncryptionEnabled', 'workspaceRequest_rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
 --
--- 'userVolumeEncryptionEnabled', 'workspaceRequest_userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
+-- 'volumeEncryptionKey', 'workspaceRequest_volumeEncryptionKey' - The symmetric KMS key used to encrypt data stored on your WorkSpace.
+-- Amazon WorkSpaces does not support asymmetric KMS keys.
 --
--- 'volumeEncryptionKey', 'workspaceRequest_volumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data
--- stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric
--- CMKs.
+-- 'userVolumeEncryptionEnabled', 'workspaceRequest_userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
 --
 -- 'tags', 'workspaceRequest_tags' - The tags for the WorkSpace.
 --
--- 'directoryId', 'workspaceRequest_directoryId' - The identifier of the AWS Directory Service directory for the WorkSpace.
--- You can use DescribeWorkspaceDirectories to list the available
--- directories.
+-- 'directoryId', 'workspaceRequest_directoryId' - The identifier of the Directory Service directory for the WorkSpace. You
+-- can use DescribeWorkspaceDirectories to list the available directories.
 --
 -- 'userName', 'workspaceRequest_userName' - The user name of the user for the WorkSpace. This user name must exist
--- in the AWS Directory Service directory for the WorkSpace.
+-- in the Directory Service directory for the WorkSpace.
 --
 -- 'bundleId', 'workspaceRequest_bundleId' - The identifier of the bundle for the WorkSpace. You can use
 -- DescribeWorkspaceBundles to list the available bundles.
@@ -99,8 +95,8 @@ newWorkspaceRequest
       { workspaceProperties =
           Prelude.Nothing,
         rootVolumeEncryptionEnabled = Prelude.Nothing,
-        userVolumeEncryptionEnabled = Prelude.Nothing,
         volumeEncryptionKey = Prelude.Nothing,
+        userVolumeEncryptionEnabled = Prelude.Nothing,
         tags = Prelude.Nothing,
         directoryId = pDirectoryId_,
         userName = pUserName_,
@@ -115,28 +111,26 @@ workspaceRequest_workspaceProperties = Lens.lens (\WorkspaceRequest' {workspaceP
 workspaceRequest_rootVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
 workspaceRequest_rootVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {rootVolumeEncryptionEnabled} -> rootVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {rootVolumeEncryptionEnabled = a} :: WorkspaceRequest)
 
+-- | The symmetric KMS key used to encrypt data stored on your WorkSpace.
+-- Amazon WorkSpaces does not support asymmetric KMS keys.
+workspaceRequest_volumeEncryptionKey :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Text)
+workspaceRequest_volumeEncryptionKey = Lens.lens (\WorkspaceRequest' {volumeEncryptionKey} -> volumeEncryptionKey) (\s@WorkspaceRequest' {} a -> s {volumeEncryptionKey = a} :: WorkspaceRequest)
+
 -- | Indicates whether the data stored on the user volume is encrypted.
 workspaceRequest_userVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
 workspaceRequest_userVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {userVolumeEncryptionEnabled} -> userVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {userVolumeEncryptionEnabled = a} :: WorkspaceRequest)
 
--- | The symmetric AWS KMS customer master key (CMK) used to encrypt data
--- stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric
--- CMKs.
-workspaceRequest_volumeEncryptionKey :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Text)
-workspaceRequest_volumeEncryptionKey = Lens.lens (\WorkspaceRequest' {volumeEncryptionKey} -> volumeEncryptionKey) (\s@WorkspaceRequest' {} a -> s {volumeEncryptionKey = a} :: WorkspaceRequest)
-
 -- | The tags for the WorkSpace.
 workspaceRequest_tags :: Lens.Lens' WorkspaceRequest (Prelude.Maybe [Tag])
-workspaceRequest_tags = Lens.lens (\WorkspaceRequest' {tags} -> tags) (\s@WorkspaceRequest' {} a -> s {tags = a} :: WorkspaceRequest) Prelude.. Lens.mapping Lens._Coerce
+workspaceRequest_tags = Lens.lens (\WorkspaceRequest' {tags} -> tags) (\s@WorkspaceRequest' {} a -> s {tags = a} :: WorkspaceRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the AWS Directory Service directory for the WorkSpace.
--- You can use DescribeWorkspaceDirectories to list the available
--- directories.
+-- | The identifier of the Directory Service directory for the WorkSpace. You
+-- can use DescribeWorkspaceDirectories to list the available directories.
 workspaceRequest_directoryId :: Lens.Lens' WorkspaceRequest Prelude.Text
 workspaceRequest_directoryId = Lens.lens (\WorkspaceRequest' {directoryId} -> directoryId) (\s@WorkspaceRequest' {} a -> s {directoryId = a} :: WorkspaceRequest)
 
 -- | The user name of the user for the WorkSpace. This user name must exist
--- in the AWS Directory Service directory for the WorkSpace.
+-- in the Directory Service directory for the WorkSpace.
 workspaceRequest_userName :: Lens.Lens' WorkspaceRequest Prelude.Text
 workspaceRequest_userName = Lens.lens (\WorkspaceRequest' {userName} -> userName) (\s@WorkspaceRequest' {} a -> s {userName = a} :: WorkspaceRequest)
 
@@ -153,8 +147,8 @@ instance Core.FromJSON WorkspaceRequest where
           WorkspaceRequest'
             Prelude.<$> (x Core..:? "WorkspaceProperties")
             Prelude.<*> (x Core..:? "RootVolumeEncryptionEnabled")
-            Prelude.<*> (x Core..:? "UserVolumeEncryptionEnabled")
             Prelude.<*> (x Core..:? "VolumeEncryptionKey")
+            Prelude.<*> (x Core..:? "UserVolumeEncryptionEnabled")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "DirectoryId")
             Prelude.<*> (x Core..: "UserName")
@@ -173,10 +167,10 @@ instance Core.ToJSON WorkspaceRequest where
               Prelude.<$> workspaceProperties,
             ("RootVolumeEncryptionEnabled" Core..=)
               Prelude.<$> rootVolumeEncryptionEnabled,
-            ("UserVolumeEncryptionEnabled" Core..=)
-              Prelude.<$> userVolumeEncryptionEnabled,
             ("VolumeEncryptionKey" Core..=)
               Prelude.<$> volumeEncryptionKey,
+            ("UserVolumeEncryptionEnabled" Core..=)
+              Prelude.<$> userVolumeEncryptionEnabled,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("DirectoryId" Core..= directoryId),
             Prelude.Just ("UserName" Core..= userName),

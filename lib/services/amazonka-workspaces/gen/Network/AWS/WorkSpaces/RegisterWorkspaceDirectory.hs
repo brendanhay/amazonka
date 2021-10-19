@@ -33,9 +33,9 @@ module Network.AWS.WorkSpaces.RegisterWorkspaceDirectory
 
     -- * Request Lenses
     registerWorkspaceDirectory_subnetIds,
+    registerWorkspaceDirectory_enableSelfService,
     registerWorkspaceDirectory_tenancy,
     registerWorkspaceDirectory_tags,
-    registerWorkspaceDirectory_enableSelfService,
     registerWorkspaceDirectory_directoryId,
     registerWorkspaceDirectory_enableWorkDocs,
 
@@ -62,18 +62,18 @@ data RegisterWorkspaceDirectory = RegisterWorkspaceDirectory'
     -- subnets must also be in separate Availability Zones. If these conditions
     -- are not met, you will receive an OperationNotSupportedException error.
     subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether self-service capabilities are enabled or disabled.
+    enableSelfService :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether your WorkSpace directory is dedicated or shared. To
     -- use Bring Your Own License (BYOL) images, this value must be set to
-    -- @DEDICATED@ and your AWS account must be enabled for BYOL. If your
-    -- account has not been enabled for BYOL, you will receive an
+    -- @DEDICATED@ and your Amazon Web Services account must be enabled for
+    -- BYOL. If your account has not been enabled for BYOL, you will receive an
     -- InvalidParameterValuesException error. For more information about BYOL
     -- images, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
     tenancy :: Prelude.Maybe Tenancy,
     -- | The tags associated with the directory.
     tags :: Prelude.Maybe [Tag],
-    -- | Indicates whether self-service capabilities are enabled or disabled.
-    enableSelfService :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the directory. You cannot register a directory if it
     -- does not have a status of Active. If the directory does not have a
     -- status of Active, you will receive an InvalidResourceStateException
@@ -103,17 +103,17 @@ data RegisterWorkspaceDirectory = RegisterWorkspaceDirectory'
 -- subnets must also be in separate Availability Zones. If these conditions
 -- are not met, you will receive an OperationNotSupportedException error.
 --
+-- 'enableSelfService', 'registerWorkspaceDirectory_enableSelfService' - Indicates whether self-service capabilities are enabled or disabled.
+--
 -- 'tenancy', 'registerWorkspaceDirectory_tenancy' - Indicates whether your WorkSpace directory is dedicated or shared. To
 -- use Bring Your Own License (BYOL) images, this value must be set to
--- @DEDICATED@ and your AWS account must be enabled for BYOL. If your
--- account has not been enabled for BYOL, you will receive an
+-- @DEDICATED@ and your Amazon Web Services account must be enabled for
+-- BYOL. If your account has not been enabled for BYOL, you will receive an
 -- InvalidParameterValuesException error. For more information about BYOL
 -- images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
 --
 -- 'tags', 'registerWorkspaceDirectory_tags' - The tags associated with the directory.
---
--- 'enableSelfService', 'registerWorkspaceDirectory_enableSelfService' - Indicates whether self-service capabilities are enabled or disabled.
 --
 -- 'directoryId', 'registerWorkspaceDirectory_directoryId' - The identifier of the directory. You cannot register a directory if it
 -- does not have a status of Active. If the directory does not have a
@@ -139,9 +139,9 @@ newRegisterWorkspaceDirectory
     RegisterWorkspaceDirectory'
       { subnetIds =
           Prelude.Nothing,
+        enableSelfService = Prelude.Nothing,
         tenancy = Prelude.Nothing,
         tags = Prelude.Nothing,
-        enableSelfService = Prelude.Nothing,
         directoryId = pDirectoryId_,
         enableWorkDocs = pEnableWorkDocs_
       }
@@ -151,12 +151,16 @@ newRegisterWorkspaceDirectory
 -- subnets must also be in separate Availability Zones. If these conditions
 -- are not met, you will receive an OperationNotSupportedException error.
 registerWorkspaceDirectory_subnetIds :: Lens.Lens' RegisterWorkspaceDirectory (Prelude.Maybe [Prelude.Text])
-registerWorkspaceDirectory_subnetIds = Lens.lens (\RegisterWorkspaceDirectory' {subnetIds} -> subnetIds) (\s@RegisterWorkspaceDirectory' {} a -> s {subnetIds = a} :: RegisterWorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
+registerWorkspaceDirectory_subnetIds = Lens.lens (\RegisterWorkspaceDirectory' {subnetIds} -> subnetIds) (\s@RegisterWorkspaceDirectory' {} a -> s {subnetIds = a} :: RegisterWorkspaceDirectory) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether self-service capabilities are enabled or disabled.
+registerWorkspaceDirectory_enableSelfService :: Lens.Lens' RegisterWorkspaceDirectory (Prelude.Maybe Prelude.Bool)
+registerWorkspaceDirectory_enableSelfService = Lens.lens (\RegisterWorkspaceDirectory' {enableSelfService} -> enableSelfService) (\s@RegisterWorkspaceDirectory' {} a -> s {enableSelfService = a} :: RegisterWorkspaceDirectory)
 
 -- | Indicates whether your WorkSpace directory is dedicated or shared. To
 -- use Bring Your Own License (BYOL) images, this value must be set to
--- @DEDICATED@ and your AWS account must be enabled for BYOL. If your
--- account has not been enabled for BYOL, you will receive an
+-- @DEDICATED@ and your Amazon Web Services account must be enabled for
+-- BYOL. If your account has not been enabled for BYOL, you will receive an
 -- InvalidParameterValuesException error. For more information about BYOL
 -- images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
@@ -165,11 +169,7 @@ registerWorkspaceDirectory_tenancy = Lens.lens (\RegisterWorkspaceDirectory' {te
 
 -- | The tags associated with the directory.
 registerWorkspaceDirectory_tags :: Lens.Lens' RegisterWorkspaceDirectory (Prelude.Maybe [Tag])
-registerWorkspaceDirectory_tags = Lens.lens (\RegisterWorkspaceDirectory' {tags} -> tags) (\s@RegisterWorkspaceDirectory' {} a -> s {tags = a} :: RegisterWorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates whether self-service capabilities are enabled or disabled.
-registerWorkspaceDirectory_enableSelfService :: Lens.Lens' RegisterWorkspaceDirectory (Prelude.Maybe Prelude.Bool)
-registerWorkspaceDirectory_enableSelfService = Lens.lens (\RegisterWorkspaceDirectory' {enableSelfService} -> enableSelfService) (\s@RegisterWorkspaceDirectory' {} a -> s {enableSelfService = a} :: RegisterWorkspaceDirectory)
+registerWorkspaceDirectory_tags = Lens.lens (\RegisterWorkspaceDirectory' {tags} -> tags) (\s@RegisterWorkspaceDirectory' {} a -> s {tags = a} :: RegisterWorkspaceDirectory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the directory. You cannot register a directory if it
 -- does not have a status of Active. If the directory does not have a
@@ -224,10 +224,10 @@ instance Core.ToJSON RegisterWorkspaceDirectory where
     Core.object
       ( Prelude.catMaybes
           [ ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            ("Tenancy" Core..=) Prelude.<$> tenancy,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("EnableSelfService" Core..=)
               Prelude.<$> enableSelfService,
+            ("Tenancy" Core..=) Prelude.<$> tenancy,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("DirectoryId" Core..= directoryId),
             Prelude.Just
               ("EnableWorkDocs" Core..= enableWorkDocs)

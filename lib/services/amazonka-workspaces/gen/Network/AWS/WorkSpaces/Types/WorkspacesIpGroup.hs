@@ -28,14 +28,14 @@ import Network.AWS.WorkSpaces.Types.IpRuleItem
 --
 -- /See:/ 'newWorkspacesIpGroup' smart constructor.
 data WorkspacesIpGroup = WorkspacesIpGroup'
-  { -- | The rules.
-    userRules :: Prelude.Maybe [IpRuleItem],
-    -- | The description of the group.
+  { -- | The description of the group.
     groupDesc :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The rules.
+    userRules :: Prelude.Maybe [IpRuleItem],
     -- | The identifier of the group.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data WorkspacesIpGroup = WorkspacesIpGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userRules', 'workspacesIpGroup_userRules' - The rules.
---
 -- 'groupDesc', 'workspacesIpGroup_groupDesc' - The description of the group.
 --
--- 'groupName', 'workspacesIpGroup_groupName' - The name of the group.
+-- 'userRules', 'workspacesIpGroup_userRules' - The rules.
 --
 -- 'groupId', 'workspacesIpGroup_groupId' - The identifier of the group.
+--
+-- 'groupName', 'workspacesIpGroup_groupName' - The name of the group.
 newWorkspacesIpGroup ::
   WorkspacesIpGroup
 newWorkspacesIpGroup =
   WorkspacesIpGroup'
-    { userRules = Prelude.Nothing,
-      groupDesc = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { groupDesc = Prelude.Nothing,
+      userRules = Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
-
--- | The rules.
-workspacesIpGroup_userRules :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe [IpRuleItem])
-workspacesIpGroup_userRules = Lens.lens (\WorkspacesIpGroup' {userRules} -> userRules) (\s@WorkspacesIpGroup' {} a -> s {userRules = a} :: WorkspacesIpGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the group.
 workspacesIpGroup_groupDesc :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
 workspacesIpGroup_groupDesc = Lens.lens (\WorkspacesIpGroup' {groupDesc} -> groupDesc) (\s@WorkspacesIpGroup' {} a -> s {groupDesc = a} :: WorkspacesIpGroup)
 
--- | The name of the group.
-workspacesIpGroup_groupName :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
-workspacesIpGroup_groupName = Lens.lens (\WorkspacesIpGroup' {groupName} -> groupName) (\s@WorkspacesIpGroup' {} a -> s {groupName = a} :: WorkspacesIpGroup)
+-- | The rules.
+workspacesIpGroup_userRules :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe [IpRuleItem])
+workspacesIpGroup_userRules = Lens.lens (\WorkspacesIpGroup' {userRules} -> userRules) (\s@WorkspacesIpGroup' {} a -> s {userRules = a} :: WorkspacesIpGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the group.
 workspacesIpGroup_groupId :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
 workspacesIpGroup_groupId = Lens.lens (\WorkspacesIpGroup' {groupId} -> groupId) (\s@WorkspacesIpGroup' {} a -> s {groupId = a} :: WorkspacesIpGroup)
+
+-- | The name of the group.
+workspacesIpGroup_groupName :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
+workspacesIpGroup_groupName = Lens.lens (\WorkspacesIpGroup' {groupName} -> groupName) (\s@WorkspacesIpGroup' {} a -> s {groupName = a} :: WorkspacesIpGroup)
 
 instance Core.FromJSON WorkspacesIpGroup where
   parseJSON =
@@ -86,10 +86,10 @@ instance Core.FromJSON WorkspacesIpGroup where
       "WorkspacesIpGroup"
       ( \x ->
           WorkspacesIpGroup'
-            Prelude.<$> (x Core..:? "userRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "groupDesc")
-            Prelude.<*> (x Core..:? "groupName")
+            Prelude.<$> (x Core..:? "groupDesc")
+            Prelude.<*> (x Core..:? "userRules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "groupId")
+            Prelude.<*> (x Core..:? "groupName")
       )
 
 instance Prelude.Hashable WorkspacesIpGroup

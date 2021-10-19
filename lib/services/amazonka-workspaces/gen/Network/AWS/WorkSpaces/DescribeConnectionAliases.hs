@@ -30,8 +30,8 @@ module Network.AWS.WorkSpaces.DescribeConnectionAliases
 
     -- * Request Lenses
     describeConnectionAliases_resourceId,
-    describeConnectionAliases_nextToken,
     describeConnectionAliases_aliasIds,
+    describeConnectionAliases_nextToken,
     describeConnectionAliases_limit,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Network.AWS.WorkSpaces.DescribeConnectionAliases
     newDescribeConnectionAliasesResponse,
 
     -- * Response Lenses
-    describeConnectionAliasesResponse_nextToken,
     describeConnectionAliasesResponse_connectionAliases,
+    describeConnectionAliasesResponse_nextToken,
     describeConnectionAliasesResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import Network.AWS.WorkSpaces.Types
 data DescribeConnectionAliases = DescribeConnectionAliases'
   { -- | The identifier of the directory associated with the connection alias.
     resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers of the connection aliases to describe.
+    aliasIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifiers of the connection aliases to describe.
-    aliasIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of connection aliases to return.
     limit :: Prelude.Maybe Prelude.Natural
   }
@@ -76,10 +76,10 @@ data DescribeConnectionAliases = DescribeConnectionAliases'
 --
 -- 'resourceId', 'describeConnectionAliases_resourceId' - The identifier of the directory associated with the connection alias.
 --
+-- 'aliasIds', 'describeConnectionAliases_aliasIds' - The identifiers of the connection aliases to describe.
+--
 -- 'nextToken', 'describeConnectionAliases_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
---
--- 'aliasIds', 'describeConnectionAliases_aliasIds' - The identifiers of the connection aliases to describe.
 --
 -- 'limit', 'describeConnectionAliases_limit' - The maximum number of connection aliases to return.
 newDescribeConnectionAliases ::
@@ -88,8 +88,8 @@ newDescribeConnectionAliases =
   DescribeConnectionAliases'
     { resourceId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       aliasIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       limit = Prelude.Nothing
     }
 
@@ -97,14 +97,14 @@ newDescribeConnectionAliases =
 describeConnectionAliases_resourceId :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe Prelude.Text)
 describeConnectionAliases_resourceId = Lens.lens (\DescribeConnectionAliases' {resourceId} -> resourceId) (\s@DescribeConnectionAliases' {} a -> s {resourceId = a} :: DescribeConnectionAliases)
 
+-- | The identifiers of the connection aliases to describe.
+describeConnectionAliases_aliasIds :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeConnectionAliases_aliasIds = Lens.lens (\DescribeConnectionAliases' {aliasIds} -> aliasIds) (\s@DescribeConnectionAliases' {} a -> s {aliasIds = a} :: DescribeConnectionAliases) Prelude.. Lens.mapping Lens.coerced
+
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
 describeConnectionAliases_nextToken :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe Prelude.Text)
 describeConnectionAliases_nextToken = Lens.lens (\DescribeConnectionAliases' {nextToken} -> nextToken) (\s@DescribeConnectionAliases' {} a -> s {nextToken = a} :: DescribeConnectionAliases)
-
--- | The identifiers of the connection aliases to describe.
-describeConnectionAliases_aliasIds :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeConnectionAliases_aliasIds = Lens.lens (\DescribeConnectionAliases' {aliasIds} -> aliasIds) (\s@DescribeConnectionAliases' {} a -> s {aliasIds = a} :: DescribeConnectionAliases) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of connection aliases to return.
 describeConnectionAliases_limit :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe Prelude.Natural)
@@ -119,8 +119,8 @@ instance Core.AWSRequest DescribeConnectionAliases where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionAliasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ConnectionAliases")
+            Prelude.<$> (x Core..?> "ConnectionAliases")
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,8 +148,8 @@ instance Core.ToJSON DescribeConnectionAliases where
     Core.object
       ( Prelude.catMaybes
           [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("AliasIds" Core..=) Prelude.<$> aliasIds,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -162,11 +162,11 @@ instance Core.ToQuery DescribeConnectionAliases where
 
 -- | /See:/ 'newDescribeConnectionAliasesResponse' smart constructor.
 data DescribeConnectionAliasesResponse = DescribeConnectionAliasesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the specified connection aliases.
+    connectionAliases :: Prelude.Maybe (Prelude.NonEmpty ConnectionAlias),
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the specified connection aliases.
-    connectionAliases :: Prelude.Maybe (Prelude.NonEmpty ConnectionAlias),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,10 +180,10 @@ data DescribeConnectionAliasesResponse = DescribeConnectionAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionAliases', 'describeConnectionAliasesResponse_connectionAliases' - Information about the specified connection aliases.
+--
 -- 'nextToken', 'describeConnectionAliasesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'connectionAliases', 'describeConnectionAliasesResponse_connectionAliases' - Information about the specified connection aliases.
 --
 -- 'httpStatus', 'describeConnectionAliasesResponse_httpStatus' - The response's http status code.
 newDescribeConnectionAliasesResponse ::
@@ -192,20 +192,20 @@ newDescribeConnectionAliasesResponse ::
   DescribeConnectionAliasesResponse
 newDescribeConnectionAliasesResponse pHttpStatus_ =
   DescribeConnectionAliasesResponse'
-    { nextToken =
+    { connectionAliases =
         Prelude.Nothing,
-      connectionAliases = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the specified connection aliases.
+describeConnectionAliasesResponse_connectionAliases :: Lens.Lens' DescribeConnectionAliasesResponse (Prelude.Maybe (Prelude.NonEmpty ConnectionAlias))
+describeConnectionAliasesResponse_connectionAliases = Lens.lens (\DescribeConnectionAliasesResponse' {connectionAliases} -> connectionAliases) (\s@DescribeConnectionAliasesResponse' {} a -> s {connectionAliases = a} :: DescribeConnectionAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeConnectionAliasesResponse_nextToken :: Lens.Lens' DescribeConnectionAliasesResponse (Prelude.Maybe Prelude.Text)
 describeConnectionAliasesResponse_nextToken = Lens.lens (\DescribeConnectionAliasesResponse' {nextToken} -> nextToken) (\s@DescribeConnectionAliasesResponse' {} a -> s {nextToken = a} :: DescribeConnectionAliasesResponse)
-
--- | Information about the specified connection aliases.
-describeConnectionAliasesResponse_connectionAliases :: Lens.Lens' DescribeConnectionAliasesResponse (Prelude.Maybe (Prelude.NonEmpty ConnectionAlias))
-describeConnectionAliasesResponse_connectionAliases = Lens.lens (\DescribeConnectionAliasesResponse' {connectionAliases} -> connectionAliases) (\s@DescribeConnectionAliasesResponse' {} a -> s {connectionAliases = a} :: DescribeConnectionAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeConnectionAliasesResponse_httpStatus :: Lens.Lens' DescribeConnectionAliasesResponse Prelude.Int

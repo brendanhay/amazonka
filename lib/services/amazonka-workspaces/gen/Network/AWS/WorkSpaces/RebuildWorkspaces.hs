@@ -79,12 +79,12 @@ newRebuildWorkspaces ::
 newRebuildWorkspaces pRebuildWorkspaceRequests_ =
   RebuildWorkspaces'
     { rebuildWorkspaceRequests =
-        Lens._Coerce Lens.# pRebuildWorkspaceRequests_
+        Lens.coerced Lens.# pRebuildWorkspaceRequests_
     }
 
 -- | The WorkSpace to rebuild. You can specify a single WorkSpace.
 rebuildWorkspaces_rebuildWorkspaceRequests :: Lens.Lens' RebuildWorkspaces (Prelude.NonEmpty RebuildRequest)
-rebuildWorkspaces_rebuildWorkspaceRequests = Lens.lens (\RebuildWorkspaces' {rebuildWorkspaceRequests} -> rebuildWorkspaceRequests) (\s@RebuildWorkspaces' {} a -> s {rebuildWorkspaceRequests = a} :: RebuildWorkspaces) Prelude.. Lens._Coerce
+rebuildWorkspaces_rebuildWorkspaceRequests = Lens.lens (\RebuildWorkspaces' {rebuildWorkspaceRequests} -> rebuildWorkspaceRequests) (\s@RebuildWorkspaces' {} a -> s {rebuildWorkspaceRequests = a} :: RebuildWorkspaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RebuildWorkspaces where
   type
@@ -168,7 +168,7 @@ newRebuildWorkspacesResponse pHttpStatus_ =
 
 -- | Information about the WorkSpace that could not be rebuilt.
 rebuildWorkspacesResponse_failedRequests :: Lens.Lens' RebuildWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-rebuildWorkspacesResponse_failedRequests = Lens.lens (\RebuildWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebuildWorkspacesResponse' {} a -> s {failedRequests = a} :: RebuildWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+rebuildWorkspacesResponse_failedRequests = Lens.lens (\RebuildWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebuildWorkspacesResponse' {} a -> s {failedRequests = a} :: RebuildWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 rebuildWorkspacesResponse_httpStatus :: Lens.Lens' RebuildWorkspacesResponse Prelude.Int

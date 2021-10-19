@@ -88,7 +88,7 @@ createTags_resourceId = Lens.lens (\CreateTags' {resourceId} -> resourceId) (\s@
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse

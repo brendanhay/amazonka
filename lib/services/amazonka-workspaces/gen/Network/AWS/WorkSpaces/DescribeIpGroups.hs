@@ -29,8 +29,8 @@ module Network.AWS.WorkSpaces.DescribeIpGroups
     newDescribeIpGroups,
 
     -- * Request Lenses
-    describeIpGroups_nextToken,
     describeIpGroups_groupIds,
+    describeIpGroups_nextToken,
     describeIpGroups_maxResults,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Network.AWS.WorkSpaces.DescribeIpGroups
     newDescribeIpGroupsResponse,
 
     -- * Response Lenses
-    describeIpGroupsResponse_nextToken,
     describeIpGroupsResponse_result,
+    describeIpGroupsResponse_nextToken,
     describeIpGroupsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeIpGroups' smart constructor.
 data DescribeIpGroups = DescribeIpGroups'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
+  { -- | The identifiers of one or more IP access control groups.
+    groupIds :: Prelude.Maybe [Prelude.Text],
+    -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifiers of one or more IP access control groups.
-    groupIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -71,29 +71,29 @@ data DescribeIpGroups = DescribeIpGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groupIds', 'describeIpGroups_groupIds' - The identifiers of one or more IP access control groups.
+--
 -- 'nextToken', 'describeIpGroups_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
---
--- 'groupIds', 'describeIpGroups_groupIds' - The identifiers of one or more IP access control groups.
 --
 -- 'maxResults', 'describeIpGroups_maxResults' - The maximum number of items to return.
 newDescribeIpGroups ::
   DescribeIpGroups
 newDescribeIpGroups =
   DescribeIpGroups'
-    { nextToken = Prelude.Nothing,
-      groupIds = Prelude.Nothing,
+    { groupIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The identifiers of one or more IP access control groups.
+describeIpGroups_groupIds :: Lens.Lens' DescribeIpGroups (Prelude.Maybe [Prelude.Text])
+describeIpGroups_groupIds = Lens.lens (\DescribeIpGroups' {groupIds} -> groupIds) (\s@DescribeIpGroups' {} a -> s {groupIds = a} :: DescribeIpGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
 describeIpGroups_nextToken :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Text)
 describeIpGroups_nextToken = Lens.lens (\DescribeIpGroups' {nextToken} -> nextToken) (\s@DescribeIpGroups' {} a -> s {nextToken = a} :: DescribeIpGroups)
-
--- | The identifiers of one or more IP access control groups.
-describeIpGroups_groupIds :: Lens.Lens' DescribeIpGroups (Prelude.Maybe [Prelude.Text])
-describeIpGroups_groupIds = Lens.lens (\DescribeIpGroups' {groupIds} -> groupIds) (\s@DescribeIpGroups' {} a -> s {groupIds = a} :: DescribeIpGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return.
 describeIpGroups_maxResults :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Natural)
@@ -129,8 +129,8 @@ instance Core.AWSRequest DescribeIpGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeIpGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Result" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Result" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,8 +157,8 @@ instance Core.ToJSON DescribeIpGroups where
   toJSON DescribeIpGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("GroupIds" Core..=) Prelude.<$> groupIds,
+          [ ("GroupIds" Core..=) Prelude.<$> groupIds,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -171,11 +171,11 @@ instance Core.ToQuery DescribeIpGroups where
 
 -- | /See:/ 'newDescribeIpGroupsResponse' smart constructor.
 data DescribeIpGroupsResponse = DescribeIpGroupsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the IP access control groups.
+    result :: Prelude.Maybe [WorkspacesIpGroup],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the IP access control groups.
-    result :: Prelude.Maybe [WorkspacesIpGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +189,10 @@ data DescribeIpGroupsResponse = DescribeIpGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'result', 'describeIpGroupsResponse_result' - Information about the IP access control groups.
+--
 -- 'nextToken', 'describeIpGroupsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'result', 'describeIpGroupsResponse_result' - Information about the IP access control groups.
 --
 -- 'httpStatus', 'describeIpGroupsResponse_httpStatus' - The response's http status code.
 newDescribeIpGroupsResponse ::
@@ -201,20 +201,19 @@ newDescribeIpGroupsResponse ::
   DescribeIpGroupsResponse
 newDescribeIpGroupsResponse pHttpStatus_ =
   DescribeIpGroupsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      result = Prelude.Nothing,
+    { result = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the IP access control groups.
+describeIpGroupsResponse_result :: Lens.Lens' DescribeIpGroupsResponse (Prelude.Maybe [WorkspacesIpGroup])
+describeIpGroupsResponse_result = Lens.lens (\DescribeIpGroupsResponse' {result} -> result) (\s@DescribeIpGroupsResponse' {} a -> s {result = a} :: DescribeIpGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeIpGroupsResponse_nextToken :: Lens.Lens' DescribeIpGroupsResponse (Prelude.Maybe Prelude.Text)
 describeIpGroupsResponse_nextToken = Lens.lens (\DescribeIpGroupsResponse' {nextToken} -> nextToken) (\s@DescribeIpGroupsResponse' {} a -> s {nextToken = a} :: DescribeIpGroupsResponse)
-
--- | Information about the IP access control groups.
-describeIpGroupsResponse_result :: Lens.Lens' DescribeIpGroupsResponse (Prelude.Maybe [WorkspacesIpGroup])
-describeIpGroupsResponse_result = Lens.lens (\DescribeIpGroupsResponse' {result} -> result) (\s@DescribeIpGroupsResponse' {} a -> s {result = a} :: DescribeIpGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeIpGroupsResponse_httpStatus :: Lens.Lens' DescribeIpGroupsResponse Prelude.Int

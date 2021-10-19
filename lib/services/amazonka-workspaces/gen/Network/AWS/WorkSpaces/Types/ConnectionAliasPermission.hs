@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConnectionAliasPermission' smart constructor.
 data ConnectionAliasPermission = ConnectionAliasPermission'
-  { -- | The identifier of the AWS account that the connection alias is shared
-    -- with.
+  { -- | The identifier of the Amazon Web Services account that the connection
+    -- alias is shared with.
     sharedAccountId :: Prelude.Text,
-    -- | Indicates whether the specified AWS account is allowed to associate the
-    -- connection alias with a directory.
+    -- | Indicates whether the specified Amazon Web Services account is allowed
+    -- to associate the connection alias with a directory.
     allowAssociation :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,11 +46,11 @@ data ConnectionAliasPermission = ConnectionAliasPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sharedAccountId', 'connectionAliasPermission_sharedAccountId' - The identifier of the AWS account that the connection alias is shared
--- with.
+-- 'sharedAccountId', 'connectionAliasPermission_sharedAccountId' - The identifier of the Amazon Web Services account that the connection
+-- alias is shared with.
 --
--- 'allowAssociation', 'connectionAliasPermission_allowAssociation' - Indicates whether the specified AWS account is allowed to associate the
--- connection alias with a directory.
+-- 'allowAssociation', 'connectionAliasPermission_allowAssociation' - Indicates whether the specified Amazon Web Services account is allowed
+-- to associate the connection alias with a directory.
 newConnectionAliasPermission ::
   -- | 'sharedAccountId'
   Prelude.Text ->
@@ -66,13 +66,13 @@ newConnectionAliasPermission
         allowAssociation = pAllowAssociation_
       }
 
--- | The identifier of the AWS account that the connection alias is shared
--- with.
+-- | The identifier of the Amazon Web Services account that the connection
+-- alias is shared with.
 connectionAliasPermission_sharedAccountId :: Lens.Lens' ConnectionAliasPermission Prelude.Text
 connectionAliasPermission_sharedAccountId = Lens.lens (\ConnectionAliasPermission' {sharedAccountId} -> sharedAccountId) (\s@ConnectionAliasPermission' {} a -> s {sharedAccountId = a} :: ConnectionAliasPermission)
 
--- | Indicates whether the specified AWS account is allowed to associate the
--- connection alias with a directory.
+-- | Indicates whether the specified Amazon Web Services account is allowed
+-- to associate the connection alias with a directory.
 connectionAliasPermission_allowAssociation :: Lens.Lens' ConnectionAliasPermission Prelude.Bool
 connectionAliasPermission_allowAssociation = Lens.lens (\ConnectionAliasPermission' {allowAssociation} -> allowAssociation) (\s@ConnectionAliasPermission' {} a -> s {allowAssociation = a} :: ConnectionAliasPermission)
 

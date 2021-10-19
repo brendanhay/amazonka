@@ -138,7 +138,7 @@ createWorkspaceBundle_rootStorage = Lens.lens (\CreateWorkspaceBundle' {rootStor
 -- create an IAM policy that grants your IAM user permissions to use
 -- @workspaces:CreateTags@.
 createWorkspaceBundle_tags :: Lens.Lens' CreateWorkspaceBundle (Prelude.Maybe [Tag])
-createWorkspaceBundle_tags = Lens.lens (\CreateWorkspaceBundle' {tags} -> tags) (\s@CreateWorkspaceBundle' {} a -> s {tags = a} :: CreateWorkspaceBundle) Prelude.. Lens.mapping Lens._Coerce
+createWorkspaceBundle_tags = Lens.lens (\CreateWorkspaceBundle' {tags} -> tags) (\s@CreateWorkspaceBundle' {} a -> s {tags = a} :: CreateWorkspaceBundle) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the bundle.
 createWorkspaceBundle_bundleName :: Lens.Lens' CreateWorkspaceBundle Prelude.Text

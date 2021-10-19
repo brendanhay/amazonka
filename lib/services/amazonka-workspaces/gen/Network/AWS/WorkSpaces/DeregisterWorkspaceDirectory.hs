@@ -30,7 +30,7 @@
 -- Simple AD or AD Connector directory for 30 consecutive days, this
 -- directory will be automatically deregistered for use with Amazon
 -- WorkSpaces, and you will be charged for this directory as per the
--- <http://aws.amazon.com/directoryservice/pricing/ AWS Directory Services pricing terms>.
+-- <http://aws.amazon.com/directoryservice/pricing/ Directory Service pricing terms>.
 --
 -- To delete empty directories, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html Delete the Directory for Your WorkSpaces>.

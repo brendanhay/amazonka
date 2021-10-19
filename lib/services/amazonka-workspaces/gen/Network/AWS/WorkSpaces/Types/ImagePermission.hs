@@ -23,13 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes the AWS accounts that have been granted permission to use a
--- shared image. For more information about sharing images, see
+-- | Describes the Amazon Web Services accounts that have been granted
+-- permission to use a shared image. For more information about sharing
+-- images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html Share or Unshare a Custom WorkSpaces Image>.
 --
 -- /See:/ 'newImagePermission' smart constructor.
 data ImagePermission = ImagePermission'
-  { -- | The identifier of the AWS account that an image has been shared with.
+  { -- | The identifier of the Amazon Web Services account that an image has been
+    -- shared with.
     sharedAccountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,13 +44,15 @@ data ImagePermission = ImagePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sharedAccountId', 'imagePermission_sharedAccountId' - The identifier of the AWS account that an image has been shared with.
+-- 'sharedAccountId', 'imagePermission_sharedAccountId' - The identifier of the Amazon Web Services account that an image has been
+-- shared with.
 newImagePermission ::
   ImagePermission
 newImagePermission =
   ImagePermission' {sharedAccountId = Prelude.Nothing}
 
--- | The identifier of the AWS account that an image has been shared with.
+-- | The identifier of the Amazon Web Services account that an image has been
+-- shared with.
 imagePermission_sharedAccountId :: Lens.Lens' ImagePermission (Prelude.Maybe Prelude.Text)
 imagePermission_sharedAccountId = Lens.lens (\ImagePermission' {sharedAccountId} -> sharedAccountId) (\s@ImagePermission' {} a -> s {sharedAccountId = a} :: ImagePermission)
 

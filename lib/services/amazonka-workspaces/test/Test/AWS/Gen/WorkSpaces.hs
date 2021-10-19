@@ -27,101 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAuthorizeIpRules $
---             newAuthorizeIpRules
---
---         , requestImportWorkspaceImage $
---             newImportWorkspaceImage
---
---         , requestDescribeWorkspaceDirectories $
---             newDescribeWorkspaceDirectories
---
---         , requestDescribeWorkspaceBundles $
---             newDescribeWorkspaceBundles
---
---         , requestDeleteIpGroup $
---             newDeleteIpGroup
---
---         , requestTerminateWorkspaces $
---             newTerminateWorkspaces
---
---         , requestDisassociateIpGroups $
---             newDisassociateIpGroups
---
---         , requestDeregisterWorkspaceDirectory $
---             newDeregisterWorkspaceDirectory
---
---         , requestAssociateConnectionAlias $
+--         [ requestAssociateConnectionAlias $
 --             newAssociateConnectionAlias
---
---         , requestCreateConnectionAlias $
---             newCreateConnectionAlias
---
---         , requestMigrateWorkspace $
---             newMigrateWorkspace
---
---         , requestDescribeTags $
---             newDescribeTags
---
---         , requestModifySelfservicePermissions $
---             newModifySelfservicePermissions
---
---         , requestDescribeWorkspacesConnectionStatus $
---             newDescribeWorkspacesConnectionStatus
---
---         , requestModifyAccount $
---             newModifyAccount
---
---         , requestDescribeConnectionAliases $
---             newDescribeConnectionAliases
---
---         , requestDeleteWorkspaceImage $
---             newDeleteWorkspaceImage
---
---         , requestUpdateRulesOfIpGroup $
---             newUpdateRulesOfIpGroup
---
---         , requestUpdateWorkspaceBundle $
---             newUpdateWorkspaceBundle
---
---         , requestDeleteWorkspaceBundle $
---             newDeleteWorkspaceBundle
---
---         , requestDeleteTags $
---             newDeleteTags
---
---         , requestListAvailableManagementCidrRanges $
---             newListAvailableManagementCidrRanges
---
---         , requestDescribeClientProperties $
---             newDescribeClientProperties
---
---         , requestCreateWorkspaceBundle $
---             newCreateWorkspaceBundle
---
---         , requestModifyWorkspaceCreationProperties $
---             newModifyWorkspaceCreationProperties
---
---         , requestModifyWorkspaceState $
---             newModifyWorkspaceState
---
---         , requestUpdateConnectionAliasPermission $
---             newUpdateConnectionAliasPermission
---
---         , requestCopyWorkspaceImage $
---             newCopyWorkspaceImage
---
---         , requestRebuildWorkspaces $
---             newRebuildWorkspaces
---
---         , requestDescribeWorkspaceSnapshots $
---             newDescribeWorkspaceSnapshots
---
---         , requestDescribeWorkspaceImagePermissions $
---             newDescribeWorkspaceImagePermissions
---
---         , requestRebootWorkspaces $
---             newRebootWorkspaces
 --
 --         , requestDescribeAccount $
 --             newDescribeAccount
@@ -129,53 +36,44 @@ import Test.Tasty
 --         , requestRevokeIpRules $
 --             newRevokeIpRules
 --
---         , requestModifyWorkspaceProperties $
---             newModifyWorkspaceProperties
---
 --         , requestDescribeWorkspaceImages $
 --             newDescribeWorkspaceImages
 --
---         , requestDescribeAccountModifications $
---             newDescribeAccountModifications
+--         , requestModifyWorkspaceProperties $
+--             newModifyWorkspaceProperties
 --
---         , requestAssociateIpGroups $
---             newAssociateIpGroups
+--         , requestDeregisterWorkspaceDirectory $
+--             newDeregisterWorkspaceDirectory
 --
---         , requestDeleteConnectionAlias $
---             newDeleteConnectionAlias
+--         , requestMigrateWorkspace $
+--             newMigrateWorkspace
 --
---         , requestStartWorkspaces $
---             newStartWorkspaces
+--         , requestDescribeTags $
+--             newDescribeTags
 --
---         , requestStopWorkspaces $
---             newStopWorkspaces
+--         , requestDescribeWorkspaceDirectories $
+--             newDescribeWorkspaceDirectories
 --
---         , requestDescribeWorkspaces $
---             newDescribeWorkspaces
+--         , requestDisassociateIpGroups $
+--             newDisassociateIpGroups
 --
---         , requestModifyClientProperties $
---             newModifyClientProperties
+--         , requestDescribeWorkspaceBundles $
+--             newDescribeWorkspaceBundles
 --
---         , requestUpdateWorkspaceImagePermission $
---             newUpdateWorkspaceImagePermission
+--         , requestAuthorizeIpRules $
+--             newAuthorizeIpRules
 --
---         , requestDescribeIpGroups $
---             newDescribeIpGroups
+--         , requestDescribeWorkspaceImagePermissions $
+--             newDescribeWorkspaceImagePermissions
 --
---         , requestModifyWorkspaceAccessProperties $
---             newModifyWorkspaceAccessProperties
+--         , requestRebuildWorkspaces $
+--             newRebuildWorkspaces
 --
---         , requestRestoreWorkspace $
---             newRestoreWorkspace
+--         , requestImportWorkspaceImage $
+--             newImportWorkspaceImage
 --
---         , requestRegisterWorkspaceDirectory $
---             newRegisterWorkspaceDirectory
---
---         , requestCreateTags $
---             newCreateTags
---
---         , requestDescribeConnectionAliasPermissions $
---             newDescribeConnectionAliasPermissions
+--         , requestModifyWorkspaceState $
+--             newModifyWorkspaceState
 --
 --         , requestCreateIpGroup $
 --             newCreateIpGroup
@@ -183,107 +81,119 @@ import Test.Tasty
 --         , requestDisassociateConnectionAlias $
 --             newDisassociateConnectionAlias
 --
+--         , requestModifyWorkspaceCreationProperties $
+--             newModifyWorkspaceCreationProperties
+--
+--         , requestRegisterWorkspaceDirectory $
+--             newRegisterWorkspaceDirectory
+--
+--         , requestRestoreWorkspace $
+--             newRestoreWorkspace
+--
+--         , requestDescribeConnectionAliasPermissions $
+--             newDescribeConnectionAliasPermissions
+--
+--         , requestCreateTags $
+--             newCreateTags
+--
+--         , requestCreateWorkspaceBundle $
+--             newCreateWorkspaceBundle
+--
+--         , requestDeleteTags $
+--             newDeleteTags
+--
+--         , requestModifyWorkspaceAccessProperties $
+--             newModifyWorkspaceAccessProperties
+--
+--         , requestUpdateRulesOfIpGroup $
+--             newUpdateRulesOfIpGroup
+--
+--         , requestDeleteWorkspaceImage $
+--             newDeleteWorkspaceImage
+--
+--         , requestStopWorkspaces $
+--             newStopWorkspaces
+--
+--         , requestAssociateIpGroups $
+--             newAssociateIpGroups
+--
+--         , requestModifySelfservicePermissions $
+--             newModifySelfservicePermissions
+--
+--         , requestDeleteConnectionAlias $
+--             newDeleteConnectionAlias
+--
+--         , requestDescribeWorkspacesConnectionStatus $
+--             newDescribeWorkspacesConnectionStatus
+--
+--         , requestCreateConnectionAlias $
+--             newCreateConnectionAlias
+--
+--         , requestRebootWorkspaces $
+--             newRebootWorkspaces
+--
+--         , requestDeleteIpGroup $
+--             newDeleteIpGroup
+--
+--         , requestCopyWorkspaceImage $
+--             newCopyWorkspaceImage
+--
+--         , requestDescribeWorkspaceSnapshots $
+--             newDescribeWorkspaceSnapshots
+--
+--         , requestTerminateWorkspaces $
+--             newTerminateWorkspaces
+--
+--         , requestUpdateConnectionAliasPermission $
+--             newUpdateConnectionAliasPermission
+--
 --         , requestCreateWorkspaces $
 --             newCreateWorkspaces
+--
+--         , requestDescribeClientProperties $
+--             newDescribeClientProperties
+--
+--         , requestModifyClientProperties $
+--             newModifyClientProperties
+--
+--         , requestDescribeIpGroups $
+--             newDescribeIpGroups
+--
+--         , requestDeleteWorkspaceBundle $
+--             newDeleteWorkspaceBundle
+--
+--         , requestUpdateWorkspaceBundle $
+--             newUpdateWorkspaceBundle
+--
+--         , requestListAvailableManagementCidrRanges $
+--             newListAvailableManagementCidrRanges
+--
+--         , requestUpdateWorkspaceImagePermission $
+--             newUpdateWorkspaceImagePermission
+--
+--         , requestCreateUpdatedWorkspaceImage $
+--             newCreateUpdatedWorkspaceImage
+--
+--         , requestDescribeWorkspaces $
+--             newDescribeWorkspaces
+--
+--         , requestDescribeConnectionAliases $
+--             newDescribeConnectionAliases
+--
+--         , requestStartWorkspaces $
+--             newStartWorkspaces
+--
+--         , requestDescribeAccountModifications $
+--             newDescribeAccountModifications
+--
+--         , requestModifyAccount $
+--             newModifyAccount
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseAuthorizeIpRules $
---             newAuthorizeIpRulesResponse
---
---         , responseImportWorkspaceImage $
---             newImportWorkspaceImageResponse
---
---         , responseDescribeWorkspaceDirectories $
---             newDescribeWorkspaceDirectoriesResponse
---
---         , responseDescribeWorkspaceBundles $
---             newDescribeWorkspaceBundlesResponse
---
---         , responseDeleteIpGroup $
---             newDeleteIpGroupResponse
---
---         , responseTerminateWorkspaces $
---             newTerminateWorkspacesResponse
---
---         , responseDisassociateIpGroups $
---             newDisassociateIpGroupsResponse
---
---         , responseDeregisterWorkspaceDirectory $
---             newDeregisterWorkspaceDirectoryResponse
---
---         , responseAssociateConnectionAlias $
+--         [ responseAssociateConnectionAlias $
 --             newAssociateConnectionAliasResponse
---
---         , responseCreateConnectionAlias $
---             newCreateConnectionAliasResponse
---
---         , responseMigrateWorkspace $
---             newMigrateWorkspaceResponse
---
---         , responseDescribeTags $
---             newDescribeTagsResponse
---
---         , responseModifySelfservicePermissions $
---             newModifySelfservicePermissionsResponse
---
---         , responseDescribeWorkspacesConnectionStatus $
---             newDescribeWorkspacesConnectionStatusResponse
---
---         , responseModifyAccount $
---             newModifyAccountResponse
---
---         , responseDescribeConnectionAliases $
---             newDescribeConnectionAliasesResponse
---
---         , responseDeleteWorkspaceImage $
---             newDeleteWorkspaceImageResponse
---
---         , responseUpdateRulesOfIpGroup $
---             newUpdateRulesOfIpGroupResponse
---
---         , responseUpdateWorkspaceBundle $
---             newUpdateWorkspaceBundleResponse
---
---         , responseDeleteWorkspaceBundle $
---             newDeleteWorkspaceBundleResponse
---
---         , responseDeleteTags $
---             newDeleteTagsResponse
---
---         , responseListAvailableManagementCidrRanges $
---             newListAvailableManagementCidrRangesResponse
---
---         , responseDescribeClientProperties $
---             newDescribeClientPropertiesResponse
---
---         , responseCreateWorkspaceBundle $
---             newCreateWorkspaceBundleResponse
---
---         , responseModifyWorkspaceCreationProperties $
---             newModifyWorkspaceCreationPropertiesResponse
---
---         , responseModifyWorkspaceState $
---             newModifyWorkspaceStateResponse
---
---         , responseUpdateConnectionAliasPermission $
---             newUpdateConnectionAliasPermissionResponse
---
---         , responseCopyWorkspaceImage $
---             newCopyWorkspaceImageResponse
---
---         , responseRebuildWorkspaces $
---             newRebuildWorkspacesResponse
---
---         , responseDescribeWorkspaceSnapshots $
---             newDescribeWorkspaceSnapshotsResponse
---
---         , responseDescribeWorkspaceImagePermissions $
---             newDescribeWorkspaceImagePermissionsResponse
---
---         , responseRebootWorkspaces $
---             newRebootWorkspacesResponse
 --
 --         , responseDescribeAccount $
 --             newDescribeAccountResponse
@@ -291,53 +201,44 @@ import Test.Tasty
 --         , responseRevokeIpRules $
 --             newRevokeIpRulesResponse
 --
---         , responseModifyWorkspaceProperties $
---             newModifyWorkspacePropertiesResponse
---
 --         , responseDescribeWorkspaceImages $
 --             newDescribeWorkspaceImagesResponse
 --
---         , responseDescribeAccountModifications $
---             newDescribeAccountModificationsResponse
+--         , responseModifyWorkspaceProperties $
+--             newModifyWorkspacePropertiesResponse
 --
---         , responseAssociateIpGroups $
---             newAssociateIpGroupsResponse
+--         , responseDeregisterWorkspaceDirectory $
+--             newDeregisterWorkspaceDirectoryResponse
 --
---         , responseDeleteConnectionAlias $
---             newDeleteConnectionAliasResponse
+--         , responseMigrateWorkspace $
+--             newMigrateWorkspaceResponse
 --
---         , responseStartWorkspaces $
---             newStartWorkspacesResponse
+--         , responseDescribeTags $
+--             newDescribeTagsResponse
 --
---         , responseStopWorkspaces $
---             newStopWorkspacesResponse
+--         , responseDescribeWorkspaceDirectories $
+--             newDescribeWorkspaceDirectoriesResponse
 --
---         , responseDescribeWorkspaces $
---             newDescribeWorkspacesResponse
+--         , responseDisassociateIpGroups $
+--             newDisassociateIpGroupsResponse
 --
---         , responseModifyClientProperties $
---             newModifyClientPropertiesResponse
+--         , responseDescribeWorkspaceBundles $
+--             newDescribeWorkspaceBundlesResponse
 --
---         , responseUpdateWorkspaceImagePermission $
---             newUpdateWorkspaceImagePermissionResponse
+--         , responseAuthorizeIpRules $
+--             newAuthorizeIpRulesResponse
 --
---         , responseDescribeIpGroups $
---             newDescribeIpGroupsResponse
+--         , responseDescribeWorkspaceImagePermissions $
+--             newDescribeWorkspaceImagePermissionsResponse
 --
---         , responseModifyWorkspaceAccessProperties $
---             newModifyWorkspaceAccessPropertiesResponse
+--         , responseRebuildWorkspaces $
+--             newRebuildWorkspacesResponse
 --
---         , responseRestoreWorkspace $
---             newRestoreWorkspaceResponse
+--         , responseImportWorkspaceImage $
+--             newImportWorkspaceImageResponse
 --
---         , responseRegisterWorkspaceDirectory $
---             newRegisterWorkspaceDirectoryResponse
---
---         , responseCreateTags $
---             newCreateTagsResponse
---
---         , responseDescribeConnectionAliasPermissions $
---             newDescribeConnectionAliasPermissionsResponse
+--         , responseModifyWorkspaceState $
+--             newModifyWorkspaceStateResponse
 --
 --         , responseCreateIpGroup $
 --             newCreateIpGroupResponse
@@ -345,205 +246,124 @@ import Test.Tasty
 --         , responseDisassociateConnectionAlias $
 --             newDisassociateConnectionAliasResponse
 --
+--         , responseModifyWorkspaceCreationProperties $
+--             newModifyWorkspaceCreationPropertiesResponse
+--
+--         , responseRegisterWorkspaceDirectory $
+--             newRegisterWorkspaceDirectoryResponse
+--
+--         , responseRestoreWorkspace $
+--             newRestoreWorkspaceResponse
+--
+--         , responseDescribeConnectionAliasPermissions $
+--             newDescribeConnectionAliasPermissionsResponse
+--
+--         , responseCreateTags $
+--             newCreateTagsResponse
+--
+--         , responseCreateWorkspaceBundle $
+--             newCreateWorkspaceBundleResponse
+--
+--         , responseDeleteTags $
+--             newDeleteTagsResponse
+--
+--         , responseModifyWorkspaceAccessProperties $
+--             newModifyWorkspaceAccessPropertiesResponse
+--
+--         , responseUpdateRulesOfIpGroup $
+--             newUpdateRulesOfIpGroupResponse
+--
+--         , responseDeleteWorkspaceImage $
+--             newDeleteWorkspaceImageResponse
+--
+--         , responseStopWorkspaces $
+--             newStopWorkspacesResponse
+--
+--         , responseAssociateIpGroups $
+--             newAssociateIpGroupsResponse
+--
+--         , responseModifySelfservicePermissions $
+--             newModifySelfservicePermissionsResponse
+--
+--         , responseDeleteConnectionAlias $
+--             newDeleteConnectionAliasResponse
+--
+--         , responseDescribeWorkspacesConnectionStatus $
+--             newDescribeWorkspacesConnectionStatusResponse
+--
+--         , responseCreateConnectionAlias $
+--             newCreateConnectionAliasResponse
+--
+--         , responseRebootWorkspaces $
+--             newRebootWorkspacesResponse
+--
+--         , responseDeleteIpGroup $
+--             newDeleteIpGroupResponse
+--
+--         , responseCopyWorkspaceImage $
+--             newCopyWorkspaceImageResponse
+--
+--         , responseDescribeWorkspaceSnapshots $
+--             newDescribeWorkspaceSnapshotsResponse
+--
+--         , responseTerminateWorkspaces $
+--             newTerminateWorkspacesResponse
+--
+--         , responseUpdateConnectionAliasPermission $
+--             newUpdateConnectionAliasPermissionResponse
+--
 --         , responseCreateWorkspaces $
 --             newCreateWorkspacesResponse
+--
+--         , responseDescribeClientProperties $
+--             newDescribeClientPropertiesResponse
+--
+--         , responseModifyClientProperties $
+--             newModifyClientPropertiesResponse
+--
+--         , responseDescribeIpGroups $
+--             newDescribeIpGroupsResponse
+--
+--         , responseDeleteWorkspaceBundle $
+--             newDeleteWorkspaceBundleResponse
+--
+--         , responseUpdateWorkspaceBundle $
+--             newUpdateWorkspaceBundleResponse
+--
+--         , responseListAvailableManagementCidrRanges $
+--             newListAvailableManagementCidrRangesResponse
+--
+--         , responseUpdateWorkspaceImagePermission $
+--             newUpdateWorkspaceImagePermissionResponse
+--
+--         , responseCreateUpdatedWorkspaceImage $
+--             newCreateUpdatedWorkspaceImageResponse
+--
+--         , responseDescribeWorkspaces $
+--             newDescribeWorkspacesResponse
+--
+--         , responseDescribeConnectionAliases $
+--             newDescribeConnectionAliasesResponse
+--
+--         , responseStartWorkspaces $
+--             newStartWorkspacesResponse
+--
+--         , responseDescribeAccountModifications $
+--             newDescribeAccountModificationsResponse
+--
+--         , responseModifyAccount $
+--             newModifyAccountResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestAuthorizeIpRules :: AuthorizeIpRules -> TestTree
-requestAuthorizeIpRules =
-  req
-    "AuthorizeIpRules"
-    "fixture/AuthorizeIpRules.yaml"
-
-requestImportWorkspaceImage :: ImportWorkspaceImage -> TestTree
-requestImportWorkspaceImage =
-  req
-    "ImportWorkspaceImage"
-    "fixture/ImportWorkspaceImage.yaml"
-
-requestDescribeWorkspaceDirectories :: DescribeWorkspaceDirectories -> TestTree
-requestDescribeWorkspaceDirectories =
-  req
-    "DescribeWorkspaceDirectories"
-    "fixture/DescribeWorkspaceDirectories.yaml"
-
-requestDescribeWorkspaceBundles :: DescribeWorkspaceBundles -> TestTree
-requestDescribeWorkspaceBundles =
-  req
-    "DescribeWorkspaceBundles"
-    "fixture/DescribeWorkspaceBundles.yaml"
-
-requestDeleteIpGroup :: DeleteIpGroup -> TestTree
-requestDeleteIpGroup =
-  req
-    "DeleteIpGroup"
-    "fixture/DeleteIpGroup.yaml"
-
-requestTerminateWorkspaces :: TerminateWorkspaces -> TestTree
-requestTerminateWorkspaces =
-  req
-    "TerminateWorkspaces"
-    "fixture/TerminateWorkspaces.yaml"
-
-requestDisassociateIpGroups :: DisassociateIpGroups -> TestTree
-requestDisassociateIpGroups =
-  req
-    "DisassociateIpGroups"
-    "fixture/DisassociateIpGroups.yaml"
-
-requestDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectory -> TestTree
-requestDeregisterWorkspaceDirectory =
-  req
-    "DeregisterWorkspaceDirectory"
-    "fixture/DeregisterWorkspaceDirectory.yaml"
-
 requestAssociateConnectionAlias :: AssociateConnectionAlias -> TestTree
 requestAssociateConnectionAlias =
   req
     "AssociateConnectionAlias"
     "fixture/AssociateConnectionAlias.yaml"
-
-requestCreateConnectionAlias :: CreateConnectionAlias -> TestTree
-requestCreateConnectionAlias =
-  req
-    "CreateConnectionAlias"
-    "fixture/CreateConnectionAlias.yaml"
-
-requestMigrateWorkspace :: MigrateWorkspace -> TestTree
-requestMigrateWorkspace =
-  req
-    "MigrateWorkspace"
-    "fixture/MigrateWorkspace.yaml"
-
-requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
-    "DescribeTags"
-    "fixture/DescribeTags.yaml"
-
-requestModifySelfservicePermissions :: ModifySelfservicePermissions -> TestTree
-requestModifySelfservicePermissions =
-  req
-    "ModifySelfservicePermissions"
-    "fixture/ModifySelfservicePermissions.yaml"
-
-requestDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatus -> TestTree
-requestDescribeWorkspacesConnectionStatus =
-  req
-    "DescribeWorkspacesConnectionStatus"
-    "fixture/DescribeWorkspacesConnectionStatus.yaml"
-
-requestModifyAccount :: ModifyAccount -> TestTree
-requestModifyAccount =
-  req
-    "ModifyAccount"
-    "fixture/ModifyAccount.yaml"
-
-requestDescribeConnectionAliases :: DescribeConnectionAliases -> TestTree
-requestDescribeConnectionAliases =
-  req
-    "DescribeConnectionAliases"
-    "fixture/DescribeConnectionAliases.yaml"
-
-requestDeleteWorkspaceImage :: DeleteWorkspaceImage -> TestTree
-requestDeleteWorkspaceImage =
-  req
-    "DeleteWorkspaceImage"
-    "fixture/DeleteWorkspaceImage.yaml"
-
-requestUpdateRulesOfIpGroup :: UpdateRulesOfIpGroup -> TestTree
-requestUpdateRulesOfIpGroup =
-  req
-    "UpdateRulesOfIpGroup"
-    "fixture/UpdateRulesOfIpGroup.yaml"
-
-requestUpdateWorkspaceBundle :: UpdateWorkspaceBundle -> TestTree
-requestUpdateWorkspaceBundle =
-  req
-    "UpdateWorkspaceBundle"
-    "fixture/UpdateWorkspaceBundle.yaml"
-
-requestDeleteWorkspaceBundle :: DeleteWorkspaceBundle -> TestTree
-requestDeleteWorkspaceBundle =
-  req
-    "DeleteWorkspaceBundle"
-    "fixture/DeleteWorkspaceBundle.yaml"
-
-requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
-  req
-    "DeleteTags"
-    "fixture/DeleteTags.yaml"
-
-requestListAvailableManagementCidrRanges :: ListAvailableManagementCidrRanges -> TestTree
-requestListAvailableManagementCidrRanges =
-  req
-    "ListAvailableManagementCidrRanges"
-    "fixture/ListAvailableManagementCidrRanges.yaml"
-
-requestDescribeClientProperties :: DescribeClientProperties -> TestTree
-requestDescribeClientProperties =
-  req
-    "DescribeClientProperties"
-    "fixture/DescribeClientProperties.yaml"
-
-requestCreateWorkspaceBundle :: CreateWorkspaceBundle -> TestTree
-requestCreateWorkspaceBundle =
-  req
-    "CreateWorkspaceBundle"
-    "fixture/CreateWorkspaceBundle.yaml"
-
-requestModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationProperties -> TestTree
-requestModifyWorkspaceCreationProperties =
-  req
-    "ModifyWorkspaceCreationProperties"
-    "fixture/ModifyWorkspaceCreationProperties.yaml"
-
-requestModifyWorkspaceState :: ModifyWorkspaceState -> TestTree
-requestModifyWorkspaceState =
-  req
-    "ModifyWorkspaceState"
-    "fixture/ModifyWorkspaceState.yaml"
-
-requestUpdateConnectionAliasPermission :: UpdateConnectionAliasPermission -> TestTree
-requestUpdateConnectionAliasPermission =
-  req
-    "UpdateConnectionAliasPermission"
-    "fixture/UpdateConnectionAliasPermission.yaml"
-
-requestCopyWorkspaceImage :: CopyWorkspaceImage -> TestTree
-requestCopyWorkspaceImage =
-  req
-    "CopyWorkspaceImage"
-    "fixture/CopyWorkspaceImage.yaml"
-
-requestRebuildWorkspaces :: RebuildWorkspaces -> TestTree
-requestRebuildWorkspaces =
-  req
-    "RebuildWorkspaces"
-    "fixture/RebuildWorkspaces.yaml"
-
-requestDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshots -> TestTree
-requestDescribeWorkspaceSnapshots =
-  req
-    "DescribeWorkspaceSnapshots"
-    "fixture/DescribeWorkspaceSnapshots.yaml"
-
-requestDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissions -> TestTree
-requestDescribeWorkspaceImagePermissions =
-  req
-    "DescribeWorkspaceImagePermissions"
-    "fixture/DescribeWorkspaceImagePermissions.yaml"
-
-requestRebootWorkspaces :: RebootWorkspaces -> TestTree
-requestRebootWorkspaces =
-  req
-    "RebootWorkspaces"
-    "fixture/RebootWorkspaces.yaml"
 
 requestDescribeAccount :: DescribeAccount -> TestTree
 requestDescribeAccount =
@@ -557,101 +377,83 @@ requestRevokeIpRules =
     "RevokeIpRules"
     "fixture/RevokeIpRules.yaml"
 
-requestModifyWorkspaceProperties :: ModifyWorkspaceProperties -> TestTree
-requestModifyWorkspaceProperties =
-  req
-    "ModifyWorkspaceProperties"
-    "fixture/ModifyWorkspaceProperties.yaml"
-
 requestDescribeWorkspaceImages :: DescribeWorkspaceImages -> TestTree
 requestDescribeWorkspaceImages =
   req
     "DescribeWorkspaceImages"
     "fixture/DescribeWorkspaceImages.yaml"
 
-requestDescribeAccountModifications :: DescribeAccountModifications -> TestTree
-requestDescribeAccountModifications =
+requestModifyWorkspaceProperties :: ModifyWorkspaceProperties -> TestTree
+requestModifyWorkspaceProperties =
   req
-    "DescribeAccountModifications"
-    "fixture/DescribeAccountModifications.yaml"
+    "ModifyWorkspaceProperties"
+    "fixture/ModifyWorkspaceProperties.yaml"
 
-requestAssociateIpGroups :: AssociateIpGroups -> TestTree
-requestAssociateIpGroups =
+requestDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectory -> TestTree
+requestDeregisterWorkspaceDirectory =
   req
-    "AssociateIpGroups"
-    "fixture/AssociateIpGroups.yaml"
+    "DeregisterWorkspaceDirectory"
+    "fixture/DeregisterWorkspaceDirectory.yaml"
 
-requestDeleteConnectionAlias :: DeleteConnectionAlias -> TestTree
-requestDeleteConnectionAlias =
+requestMigrateWorkspace :: MigrateWorkspace -> TestTree
+requestMigrateWorkspace =
   req
-    "DeleteConnectionAlias"
-    "fixture/DeleteConnectionAlias.yaml"
+    "MigrateWorkspace"
+    "fixture/MigrateWorkspace.yaml"
 
-requestStartWorkspaces :: StartWorkspaces -> TestTree
-requestStartWorkspaces =
+requestDescribeTags :: DescribeTags -> TestTree
+requestDescribeTags =
   req
-    "StartWorkspaces"
-    "fixture/StartWorkspaces.yaml"
+    "DescribeTags"
+    "fixture/DescribeTags.yaml"
 
-requestStopWorkspaces :: StopWorkspaces -> TestTree
-requestStopWorkspaces =
+requestDescribeWorkspaceDirectories :: DescribeWorkspaceDirectories -> TestTree
+requestDescribeWorkspaceDirectories =
   req
-    "StopWorkspaces"
-    "fixture/StopWorkspaces.yaml"
+    "DescribeWorkspaceDirectories"
+    "fixture/DescribeWorkspaceDirectories.yaml"
 
-requestDescribeWorkspaces :: DescribeWorkspaces -> TestTree
-requestDescribeWorkspaces =
+requestDisassociateIpGroups :: DisassociateIpGroups -> TestTree
+requestDisassociateIpGroups =
   req
-    "DescribeWorkspaces"
-    "fixture/DescribeWorkspaces.yaml"
+    "DisassociateIpGroups"
+    "fixture/DisassociateIpGroups.yaml"
 
-requestModifyClientProperties :: ModifyClientProperties -> TestTree
-requestModifyClientProperties =
+requestDescribeWorkspaceBundles :: DescribeWorkspaceBundles -> TestTree
+requestDescribeWorkspaceBundles =
   req
-    "ModifyClientProperties"
-    "fixture/ModifyClientProperties.yaml"
+    "DescribeWorkspaceBundles"
+    "fixture/DescribeWorkspaceBundles.yaml"
 
-requestUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermission -> TestTree
-requestUpdateWorkspaceImagePermission =
+requestAuthorizeIpRules :: AuthorizeIpRules -> TestTree
+requestAuthorizeIpRules =
   req
-    "UpdateWorkspaceImagePermission"
-    "fixture/UpdateWorkspaceImagePermission.yaml"
+    "AuthorizeIpRules"
+    "fixture/AuthorizeIpRules.yaml"
 
-requestDescribeIpGroups :: DescribeIpGroups -> TestTree
-requestDescribeIpGroups =
+requestDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissions -> TestTree
+requestDescribeWorkspaceImagePermissions =
   req
-    "DescribeIpGroups"
-    "fixture/DescribeIpGroups.yaml"
+    "DescribeWorkspaceImagePermissions"
+    "fixture/DescribeWorkspaceImagePermissions.yaml"
 
-requestModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessProperties -> TestTree
-requestModifyWorkspaceAccessProperties =
+requestRebuildWorkspaces :: RebuildWorkspaces -> TestTree
+requestRebuildWorkspaces =
   req
-    "ModifyWorkspaceAccessProperties"
-    "fixture/ModifyWorkspaceAccessProperties.yaml"
+    "RebuildWorkspaces"
+    "fixture/RebuildWorkspaces.yaml"
 
-requestRestoreWorkspace :: RestoreWorkspace -> TestTree
-requestRestoreWorkspace =
+requestImportWorkspaceImage :: ImportWorkspaceImage -> TestTree
+requestImportWorkspaceImage =
   req
-    "RestoreWorkspace"
-    "fixture/RestoreWorkspace.yaml"
+    "ImportWorkspaceImage"
+    "fixture/ImportWorkspaceImage.yaml"
 
-requestRegisterWorkspaceDirectory :: RegisterWorkspaceDirectory -> TestTree
-requestRegisterWorkspaceDirectory =
+requestModifyWorkspaceState :: ModifyWorkspaceState -> TestTree
+requestModifyWorkspaceState =
   req
-    "RegisterWorkspaceDirectory"
-    "fixture/RegisterWorkspaceDirectory.yaml"
-
-requestCreateTags :: CreateTags -> TestTree
-requestCreateTags =
-  req
-    "CreateTags"
-    "fixture/CreateTags.yaml"
-
-requestDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissions -> TestTree
-requestDescribeConnectionAliasPermissions =
-  req
-    "DescribeConnectionAliasPermissions"
-    "fixture/DescribeConnectionAliasPermissions.yaml"
+    "ModifyWorkspaceState"
+    "fixture/ModifyWorkspaceState.yaml"
 
 requestCreateIpGroup :: CreateIpGroup -> TestTree
 requestCreateIpGroup =
@@ -665,77 +467,223 @@ requestDisassociateConnectionAlias =
     "DisassociateConnectionAlias"
     "fixture/DisassociateConnectionAlias.yaml"
 
+requestModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationProperties -> TestTree
+requestModifyWorkspaceCreationProperties =
+  req
+    "ModifyWorkspaceCreationProperties"
+    "fixture/ModifyWorkspaceCreationProperties.yaml"
+
+requestRegisterWorkspaceDirectory :: RegisterWorkspaceDirectory -> TestTree
+requestRegisterWorkspaceDirectory =
+  req
+    "RegisterWorkspaceDirectory"
+    "fixture/RegisterWorkspaceDirectory.yaml"
+
+requestRestoreWorkspace :: RestoreWorkspace -> TestTree
+requestRestoreWorkspace =
+  req
+    "RestoreWorkspace"
+    "fixture/RestoreWorkspace.yaml"
+
+requestDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissions -> TestTree
+requestDescribeConnectionAliasPermissions =
+  req
+    "DescribeConnectionAliasPermissions"
+    "fixture/DescribeConnectionAliasPermissions.yaml"
+
+requestCreateTags :: CreateTags -> TestTree
+requestCreateTags =
+  req
+    "CreateTags"
+    "fixture/CreateTags.yaml"
+
+requestCreateWorkspaceBundle :: CreateWorkspaceBundle -> TestTree
+requestCreateWorkspaceBundle =
+  req
+    "CreateWorkspaceBundle"
+    "fixture/CreateWorkspaceBundle.yaml"
+
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags =
+  req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
+
+requestModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessProperties -> TestTree
+requestModifyWorkspaceAccessProperties =
+  req
+    "ModifyWorkspaceAccessProperties"
+    "fixture/ModifyWorkspaceAccessProperties.yaml"
+
+requestUpdateRulesOfIpGroup :: UpdateRulesOfIpGroup -> TestTree
+requestUpdateRulesOfIpGroup =
+  req
+    "UpdateRulesOfIpGroup"
+    "fixture/UpdateRulesOfIpGroup.yaml"
+
+requestDeleteWorkspaceImage :: DeleteWorkspaceImage -> TestTree
+requestDeleteWorkspaceImage =
+  req
+    "DeleteWorkspaceImage"
+    "fixture/DeleteWorkspaceImage.yaml"
+
+requestStopWorkspaces :: StopWorkspaces -> TestTree
+requestStopWorkspaces =
+  req
+    "StopWorkspaces"
+    "fixture/StopWorkspaces.yaml"
+
+requestAssociateIpGroups :: AssociateIpGroups -> TestTree
+requestAssociateIpGroups =
+  req
+    "AssociateIpGroups"
+    "fixture/AssociateIpGroups.yaml"
+
+requestModifySelfservicePermissions :: ModifySelfservicePermissions -> TestTree
+requestModifySelfservicePermissions =
+  req
+    "ModifySelfservicePermissions"
+    "fixture/ModifySelfservicePermissions.yaml"
+
+requestDeleteConnectionAlias :: DeleteConnectionAlias -> TestTree
+requestDeleteConnectionAlias =
+  req
+    "DeleteConnectionAlias"
+    "fixture/DeleteConnectionAlias.yaml"
+
+requestDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatus -> TestTree
+requestDescribeWorkspacesConnectionStatus =
+  req
+    "DescribeWorkspacesConnectionStatus"
+    "fixture/DescribeWorkspacesConnectionStatus.yaml"
+
+requestCreateConnectionAlias :: CreateConnectionAlias -> TestTree
+requestCreateConnectionAlias =
+  req
+    "CreateConnectionAlias"
+    "fixture/CreateConnectionAlias.yaml"
+
+requestRebootWorkspaces :: RebootWorkspaces -> TestTree
+requestRebootWorkspaces =
+  req
+    "RebootWorkspaces"
+    "fixture/RebootWorkspaces.yaml"
+
+requestDeleteIpGroup :: DeleteIpGroup -> TestTree
+requestDeleteIpGroup =
+  req
+    "DeleteIpGroup"
+    "fixture/DeleteIpGroup.yaml"
+
+requestCopyWorkspaceImage :: CopyWorkspaceImage -> TestTree
+requestCopyWorkspaceImage =
+  req
+    "CopyWorkspaceImage"
+    "fixture/CopyWorkspaceImage.yaml"
+
+requestDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshots -> TestTree
+requestDescribeWorkspaceSnapshots =
+  req
+    "DescribeWorkspaceSnapshots"
+    "fixture/DescribeWorkspaceSnapshots.yaml"
+
+requestTerminateWorkspaces :: TerminateWorkspaces -> TestTree
+requestTerminateWorkspaces =
+  req
+    "TerminateWorkspaces"
+    "fixture/TerminateWorkspaces.yaml"
+
+requestUpdateConnectionAliasPermission :: UpdateConnectionAliasPermission -> TestTree
+requestUpdateConnectionAliasPermission =
+  req
+    "UpdateConnectionAliasPermission"
+    "fixture/UpdateConnectionAliasPermission.yaml"
+
 requestCreateWorkspaces :: CreateWorkspaces -> TestTree
 requestCreateWorkspaces =
   req
     "CreateWorkspaces"
     "fixture/CreateWorkspaces.yaml"
 
+requestDescribeClientProperties :: DescribeClientProperties -> TestTree
+requestDescribeClientProperties =
+  req
+    "DescribeClientProperties"
+    "fixture/DescribeClientProperties.yaml"
+
+requestModifyClientProperties :: ModifyClientProperties -> TestTree
+requestModifyClientProperties =
+  req
+    "ModifyClientProperties"
+    "fixture/ModifyClientProperties.yaml"
+
+requestDescribeIpGroups :: DescribeIpGroups -> TestTree
+requestDescribeIpGroups =
+  req
+    "DescribeIpGroups"
+    "fixture/DescribeIpGroups.yaml"
+
+requestDeleteWorkspaceBundle :: DeleteWorkspaceBundle -> TestTree
+requestDeleteWorkspaceBundle =
+  req
+    "DeleteWorkspaceBundle"
+    "fixture/DeleteWorkspaceBundle.yaml"
+
+requestUpdateWorkspaceBundle :: UpdateWorkspaceBundle -> TestTree
+requestUpdateWorkspaceBundle =
+  req
+    "UpdateWorkspaceBundle"
+    "fixture/UpdateWorkspaceBundle.yaml"
+
+requestListAvailableManagementCidrRanges :: ListAvailableManagementCidrRanges -> TestTree
+requestListAvailableManagementCidrRanges =
+  req
+    "ListAvailableManagementCidrRanges"
+    "fixture/ListAvailableManagementCidrRanges.yaml"
+
+requestUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermission -> TestTree
+requestUpdateWorkspaceImagePermission =
+  req
+    "UpdateWorkspaceImagePermission"
+    "fixture/UpdateWorkspaceImagePermission.yaml"
+
+requestCreateUpdatedWorkspaceImage :: CreateUpdatedWorkspaceImage -> TestTree
+requestCreateUpdatedWorkspaceImage =
+  req
+    "CreateUpdatedWorkspaceImage"
+    "fixture/CreateUpdatedWorkspaceImage.yaml"
+
+requestDescribeWorkspaces :: DescribeWorkspaces -> TestTree
+requestDescribeWorkspaces =
+  req
+    "DescribeWorkspaces"
+    "fixture/DescribeWorkspaces.yaml"
+
+requestDescribeConnectionAliases :: DescribeConnectionAliases -> TestTree
+requestDescribeConnectionAliases =
+  req
+    "DescribeConnectionAliases"
+    "fixture/DescribeConnectionAliases.yaml"
+
+requestStartWorkspaces :: StartWorkspaces -> TestTree
+requestStartWorkspaces =
+  req
+    "StartWorkspaces"
+    "fixture/StartWorkspaces.yaml"
+
+requestDescribeAccountModifications :: DescribeAccountModifications -> TestTree
+requestDescribeAccountModifications =
+  req
+    "DescribeAccountModifications"
+    "fixture/DescribeAccountModifications.yaml"
+
+requestModifyAccount :: ModifyAccount -> TestTree
+requestModifyAccount =
+  req
+    "ModifyAccount"
+    "fixture/ModifyAccount.yaml"
+
 -- Responses
-
-responseAuthorizeIpRules :: AuthorizeIpRulesResponse -> TestTree
-responseAuthorizeIpRules =
-  res
-    "AuthorizeIpRulesResponse"
-    "fixture/AuthorizeIpRulesResponse.proto"
-    defaultService
-    (Proxy :: Proxy AuthorizeIpRules)
-
-responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
-responseImportWorkspaceImage =
-  res
-    "ImportWorkspaceImageResponse"
-    "fixture/ImportWorkspaceImageResponse.proto"
-    defaultService
-    (Proxy :: Proxy ImportWorkspaceImage)
-
-responseDescribeWorkspaceDirectories :: DescribeWorkspaceDirectoriesResponse -> TestTree
-responseDescribeWorkspaceDirectories =
-  res
-    "DescribeWorkspaceDirectoriesResponse"
-    "fixture/DescribeWorkspaceDirectoriesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkspaceDirectories)
-
-responseDescribeWorkspaceBundles :: DescribeWorkspaceBundlesResponse -> TestTree
-responseDescribeWorkspaceBundles =
-  res
-    "DescribeWorkspaceBundlesResponse"
-    "fixture/DescribeWorkspaceBundlesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkspaceBundles)
-
-responseDeleteIpGroup :: DeleteIpGroupResponse -> TestTree
-responseDeleteIpGroup =
-  res
-    "DeleteIpGroupResponse"
-    "fixture/DeleteIpGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteIpGroup)
-
-responseTerminateWorkspaces :: TerminateWorkspacesResponse -> TestTree
-responseTerminateWorkspaces =
-  res
-    "TerminateWorkspacesResponse"
-    "fixture/TerminateWorkspacesResponse.proto"
-    defaultService
-    (Proxy :: Proxy TerminateWorkspaces)
-
-responseDisassociateIpGroups :: DisassociateIpGroupsResponse -> TestTree
-responseDisassociateIpGroups =
-  res
-    "DisassociateIpGroupsResponse"
-    "fixture/DisassociateIpGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateIpGroups)
-
-responseDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectoryResponse -> TestTree
-responseDeregisterWorkspaceDirectory =
-  res
-    "DeregisterWorkspaceDirectoryResponse"
-    "fixture/DeregisterWorkspaceDirectoryResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeregisterWorkspaceDirectory)
 
 responseAssociateConnectionAlias :: AssociateConnectionAliasResponse -> TestTree
 responseAssociateConnectionAlias =
@@ -744,190 +692,6 @@ responseAssociateConnectionAlias =
     "fixture/AssociateConnectionAliasResponse.proto"
     defaultService
     (Proxy :: Proxy AssociateConnectionAlias)
-
-responseCreateConnectionAlias :: CreateConnectionAliasResponse -> TestTree
-responseCreateConnectionAlias =
-  res
-    "CreateConnectionAliasResponse"
-    "fixture/CreateConnectionAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateConnectionAlias)
-
-responseMigrateWorkspace :: MigrateWorkspaceResponse -> TestTree
-responseMigrateWorkspace =
-  res
-    "MigrateWorkspaceResponse"
-    "fixture/MigrateWorkspaceResponse.proto"
-    defaultService
-    (Proxy :: Proxy MigrateWorkspace)
-
-responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
-    "DescribeTagsResponse"
-    "fixture/DescribeTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeTags)
-
-responseModifySelfservicePermissions :: ModifySelfservicePermissionsResponse -> TestTree
-responseModifySelfservicePermissions =
-  res
-    "ModifySelfservicePermissionsResponse"
-    "fixture/ModifySelfservicePermissionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ModifySelfservicePermissions)
-
-responseDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> TestTree
-responseDescribeWorkspacesConnectionStatus =
-  res
-    "DescribeWorkspacesConnectionStatusResponse"
-    "fixture/DescribeWorkspacesConnectionStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkspacesConnectionStatus)
-
-responseModifyAccount :: ModifyAccountResponse -> TestTree
-responseModifyAccount =
-  res
-    "ModifyAccountResponse"
-    "fixture/ModifyAccountResponse.proto"
-    defaultService
-    (Proxy :: Proxy ModifyAccount)
-
-responseDescribeConnectionAliases :: DescribeConnectionAliasesResponse -> TestTree
-responseDescribeConnectionAliases =
-  res
-    "DescribeConnectionAliasesResponse"
-    "fixture/DescribeConnectionAliasesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeConnectionAliases)
-
-responseDeleteWorkspaceImage :: DeleteWorkspaceImageResponse -> TestTree
-responseDeleteWorkspaceImage =
-  res
-    "DeleteWorkspaceImageResponse"
-    "fixture/DeleteWorkspaceImageResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteWorkspaceImage)
-
-responseUpdateRulesOfIpGroup :: UpdateRulesOfIpGroupResponse -> TestTree
-responseUpdateRulesOfIpGroup =
-  res
-    "UpdateRulesOfIpGroupResponse"
-    "fixture/UpdateRulesOfIpGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateRulesOfIpGroup)
-
-responseUpdateWorkspaceBundle :: UpdateWorkspaceBundleResponse -> TestTree
-responseUpdateWorkspaceBundle =
-  res
-    "UpdateWorkspaceBundleResponse"
-    "fixture/UpdateWorkspaceBundleResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateWorkspaceBundle)
-
-responseDeleteWorkspaceBundle :: DeleteWorkspaceBundleResponse -> TestTree
-responseDeleteWorkspaceBundle =
-  res
-    "DeleteWorkspaceBundleResponse"
-    "fixture/DeleteWorkspaceBundleResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteWorkspaceBundle)
-
-responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
-  res
-    "DeleteTagsResponse"
-    "fixture/DeleteTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTags)
-
-responseListAvailableManagementCidrRanges :: ListAvailableManagementCidrRangesResponse -> TestTree
-responseListAvailableManagementCidrRanges =
-  res
-    "ListAvailableManagementCidrRangesResponse"
-    "fixture/ListAvailableManagementCidrRangesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAvailableManagementCidrRanges)
-
-responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
-responseDescribeClientProperties =
-  res
-    "DescribeClientPropertiesResponse"
-    "fixture/DescribeClientPropertiesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeClientProperties)
-
-responseCreateWorkspaceBundle :: CreateWorkspaceBundleResponse -> TestTree
-responseCreateWorkspaceBundle =
-  res
-    "CreateWorkspaceBundleResponse"
-    "fixture/CreateWorkspaceBundleResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateWorkspaceBundle)
-
-responseModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationPropertiesResponse -> TestTree
-responseModifyWorkspaceCreationProperties =
-  res
-    "ModifyWorkspaceCreationPropertiesResponse"
-    "fixture/ModifyWorkspaceCreationPropertiesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ModifyWorkspaceCreationProperties)
-
-responseModifyWorkspaceState :: ModifyWorkspaceStateResponse -> TestTree
-responseModifyWorkspaceState =
-  res
-    "ModifyWorkspaceStateResponse"
-    "fixture/ModifyWorkspaceStateResponse.proto"
-    defaultService
-    (Proxy :: Proxy ModifyWorkspaceState)
-
-responseUpdateConnectionAliasPermission :: UpdateConnectionAliasPermissionResponse -> TestTree
-responseUpdateConnectionAliasPermission =
-  res
-    "UpdateConnectionAliasPermissionResponse"
-    "fixture/UpdateConnectionAliasPermissionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateConnectionAliasPermission)
-
-responseCopyWorkspaceImage :: CopyWorkspaceImageResponse -> TestTree
-responseCopyWorkspaceImage =
-  res
-    "CopyWorkspaceImageResponse"
-    "fixture/CopyWorkspaceImageResponse.proto"
-    defaultService
-    (Proxy :: Proxy CopyWorkspaceImage)
-
-responseRebuildWorkspaces :: RebuildWorkspacesResponse -> TestTree
-responseRebuildWorkspaces =
-  res
-    "RebuildWorkspacesResponse"
-    "fixture/RebuildWorkspacesResponse.proto"
-    defaultService
-    (Proxy :: Proxy RebuildWorkspaces)
-
-responseDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshotsResponse -> TestTree
-responseDescribeWorkspaceSnapshots =
-  res
-    "DescribeWorkspaceSnapshotsResponse"
-    "fixture/DescribeWorkspaceSnapshotsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkspaceSnapshots)
-
-responseDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissionsResponse -> TestTree
-responseDescribeWorkspaceImagePermissions =
-  res
-    "DescribeWorkspaceImagePermissionsResponse"
-    "fixture/DescribeWorkspaceImagePermissionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkspaceImagePermissions)
-
-responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
-responseRebootWorkspaces =
-  res
-    "RebootWorkspacesResponse"
-    "fixture/RebootWorkspacesResponse.proto"
-    defaultService
-    (Proxy :: Proxy RebootWorkspaces)
 
 responseDescribeAccount :: DescribeAccountResponse -> TestTree
 responseDescribeAccount =
@@ -945,14 +709,6 @@ responseRevokeIpRules =
     defaultService
     (Proxy :: Proxy RevokeIpRules)
 
-responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
-responseModifyWorkspaceProperties =
-  res
-    "ModifyWorkspacePropertiesResponse"
-    "fixture/ModifyWorkspacePropertiesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ModifyWorkspaceProperties)
-
 responseDescribeWorkspaceImages :: DescribeWorkspaceImagesResponse -> TestTree
 responseDescribeWorkspaceImages =
   res
@@ -961,117 +717,101 @@ responseDescribeWorkspaceImages =
     defaultService
     (Proxy :: Proxy DescribeWorkspaceImages)
 
-responseDescribeAccountModifications :: DescribeAccountModificationsResponse -> TestTree
-responseDescribeAccountModifications =
+responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
+responseModifyWorkspaceProperties =
   res
-    "DescribeAccountModificationsResponse"
-    "fixture/DescribeAccountModificationsResponse.proto"
+    "ModifyWorkspacePropertiesResponse"
+    "fixture/ModifyWorkspacePropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountModifications)
+    (Proxy :: Proxy ModifyWorkspaceProperties)
 
-responseAssociateIpGroups :: AssociateIpGroupsResponse -> TestTree
-responseAssociateIpGroups =
+responseDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectoryResponse -> TestTree
+responseDeregisterWorkspaceDirectory =
   res
-    "AssociateIpGroupsResponse"
-    "fixture/AssociateIpGroupsResponse.proto"
+    "DeregisterWorkspaceDirectoryResponse"
+    "fixture/DeregisterWorkspaceDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateIpGroups)
+    (Proxy :: Proxy DeregisterWorkspaceDirectory)
 
-responseDeleteConnectionAlias :: DeleteConnectionAliasResponse -> TestTree
-responseDeleteConnectionAlias =
+responseMigrateWorkspace :: MigrateWorkspaceResponse -> TestTree
+responseMigrateWorkspace =
   res
-    "DeleteConnectionAliasResponse"
-    "fixture/DeleteConnectionAliasResponse.proto"
+    "MigrateWorkspaceResponse"
+    "fixture/MigrateWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnectionAlias)
+    (Proxy :: Proxy MigrateWorkspace)
 
-responseStartWorkspaces :: StartWorkspacesResponse -> TestTree
-responseStartWorkspaces =
+responseDescribeTags :: DescribeTagsResponse -> TestTree
+responseDescribeTags =
   res
-    "StartWorkspacesResponse"
-    "fixture/StartWorkspacesResponse.proto"
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy StartWorkspaces)
+    (Proxy :: Proxy DescribeTags)
 
-responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
-responseStopWorkspaces =
+responseDescribeWorkspaceDirectories :: DescribeWorkspaceDirectoriesResponse -> TestTree
+responseDescribeWorkspaceDirectories =
   res
-    "StopWorkspacesResponse"
-    "fixture/StopWorkspacesResponse.proto"
+    "DescribeWorkspaceDirectoriesResponse"
+    "fixture/DescribeWorkspaceDirectoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy StopWorkspaces)
+    (Proxy :: Proxy DescribeWorkspaceDirectories)
 
-responseDescribeWorkspaces :: DescribeWorkspacesResponse -> TestTree
-responseDescribeWorkspaces =
+responseDisassociateIpGroups :: DisassociateIpGroupsResponse -> TestTree
+responseDisassociateIpGroups =
   res
-    "DescribeWorkspacesResponse"
-    "fixture/DescribeWorkspacesResponse.proto"
+    "DisassociateIpGroupsResponse"
+    "fixture/DisassociateIpGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaces)
+    (Proxy :: Proxy DisassociateIpGroups)
 
-responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
-responseModifyClientProperties =
+responseDescribeWorkspaceBundles :: DescribeWorkspaceBundlesResponse -> TestTree
+responseDescribeWorkspaceBundles =
   res
-    "ModifyClientPropertiesResponse"
-    "fixture/ModifyClientPropertiesResponse.proto"
+    "DescribeWorkspaceBundlesResponse"
+    "fixture/DescribeWorkspaceBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClientProperties)
+    (Proxy :: Proxy DescribeWorkspaceBundles)
 
-responseUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermissionResponse -> TestTree
-responseUpdateWorkspaceImagePermission =
+responseAuthorizeIpRules :: AuthorizeIpRulesResponse -> TestTree
+responseAuthorizeIpRules =
   res
-    "UpdateWorkspaceImagePermissionResponse"
-    "fixture/UpdateWorkspaceImagePermissionResponse.proto"
+    "AuthorizeIpRulesResponse"
+    "fixture/AuthorizeIpRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkspaceImagePermission)
+    (Proxy :: Proxy AuthorizeIpRules)
 
-responseDescribeIpGroups :: DescribeIpGroupsResponse -> TestTree
-responseDescribeIpGroups =
+responseDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissionsResponse -> TestTree
+responseDescribeWorkspaceImagePermissions =
   res
-    "DescribeIpGroupsResponse"
-    "fixture/DescribeIpGroupsResponse.proto"
+    "DescribeWorkspaceImagePermissionsResponse"
+    "fixture/DescribeWorkspaceImagePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIpGroups)
+    (Proxy :: Proxy DescribeWorkspaceImagePermissions)
 
-responseModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessPropertiesResponse -> TestTree
-responseModifyWorkspaceAccessProperties =
+responseRebuildWorkspaces :: RebuildWorkspacesResponse -> TestTree
+responseRebuildWorkspaces =
   res
-    "ModifyWorkspaceAccessPropertiesResponse"
-    "fixture/ModifyWorkspaceAccessPropertiesResponse.proto"
+    "RebuildWorkspacesResponse"
+    "fixture/RebuildWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyWorkspaceAccessProperties)
+    (Proxy :: Proxy RebuildWorkspaces)
 
-responseRestoreWorkspace :: RestoreWorkspaceResponse -> TestTree
-responseRestoreWorkspace =
+responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
+responseImportWorkspaceImage =
   res
-    "RestoreWorkspaceResponse"
-    "fixture/RestoreWorkspaceResponse.proto"
+    "ImportWorkspaceImageResponse"
+    "fixture/ImportWorkspaceImageResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreWorkspace)
+    (Proxy :: Proxy ImportWorkspaceImage)
 
-responseRegisterWorkspaceDirectory :: RegisterWorkspaceDirectoryResponse -> TestTree
-responseRegisterWorkspaceDirectory =
+responseModifyWorkspaceState :: ModifyWorkspaceStateResponse -> TestTree
+responseModifyWorkspaceState =
   res
-    "RegisterWorkspaceDirectoryResponse"
-    "fixture/RegisterWorkspaceDirectoryResponse.proto"
+    "ModifyWorkspaceStateResponse"
+    "fixture/ModifyWorkspaceStateResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterWorkspaceDirectory)
-
-responseCreateTags :: CreateTagsResponse -> TestTree
-responseCreateTags =
-  res
-    "CreateTagsResponse"
-    "fixture/CreateTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTags)
-
-responseDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> TestTree
-responseDescribeConnectionAliasPermissions =
-  res
-    "DescribeConnectionAliasPermissionsResponse"
-    "fixture/DescribeConnectionAliasPermissionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeConnectionAliasPermissions)
+    (Proxy :: Proxy ModifyWorkspaceState)
 
 responseCreateIpGroup :: CreateIpGroupResponse -> TestTree
 responseCreateIpGroup =
@@ -1089,6 +829,182 @@ responseDisassociateConnectionAlias =
     defaultService
     (Proxy :: Proxy DisassociateConnectionAlias)
 
+responseModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationPropertiesResponse -> TestTree
+responseModifyWorkspaceCreationProperties =
+  res
+    "ModifyWorkspaceCreationPropertiesResponse"
+    "fixture/ModifyWorkspaceCreationPropertiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifyWorkspaceCreationProperties)
+
+responseRegisterWorkspaceDirectory :: RegisterWorkspaceDirectoryResponse -> TestTree
+responseRegisterWorkspaceDirectory =
+  res
+    "RegisterWorkspaceDirectoryResponse"
+    "fixture/RegisterWorkspaceDirectoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterWorkspaceDirectory)
+
+responseRestoreWorkspace :: RestoreWorkspaceResponse -> TestTree
+responseRestoreWorkspace =
+  res
+    "RestoreWorkspaceResponse"
+    "fixture/RestoreWorkspaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy RestoreWorkspace)
+
+responseDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> TestTree
+responseDescribeConnectionAliasPermissions =
+  res
+    "DescribeConnectionAliasPermissionsResponse"
+    "fixture/DescribeConnectionAliasPermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeConnectionAliasPermissions)
+
+responseCreateTags :: CreateTagsResponse -> TestTree
+responseCreateTags =
+  res
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTags)
+
+responseCreateWorkspaceBundle :: CreateWorkspaceBundleResponse -> TestTree
+responseCreateWorkspaceBundle =
+  res
+    "CreateWorkspaceBundleResponse"
+    "fixture/CreateWorkspaceBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateWorkspaceBundle)
+
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags =
+  res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTags)
+
+responseModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessPropertiesResponse -> TestTree
+responseModifyWorkspaceAccessProperties =
+  res
+    "ModifyWorkspaceAccessPropertiesResponse"
+    "fixture/ModifyWorkspaceAccessPropertiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifyWorkspaceAccessProperties)
+
+responseUpdateRulesOfIpGroup :: UpdateRulesOfIpGroupResponse -> TestTree
+responseUpdateRulesOfIpGroup =
+  res
+    "UpdateRulesOfIpGroupResponse"
+    "fixture/UpdateRulesOfIpGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRulesOfIpGroup)
+
+responseDeleteWorkspaceImage :: DeleteWorkspaceImageResponse -> TestTree
+responseDeleteWorkspaceImage =
+  res
+    "DeleteWorkspaceImageResponse"
+    "fixture/DeleteWorkspaceImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteWorkspaceImage)
+
+responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
+responseStopWorkspaces =
+  res
+    "StopWorkspacesResponse"
+    "fixture/StopWorkspacesResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopWorkspaces)
+
+responseAssociateIpGroups :: AssociateIpGroupsResponse -> TestTree
+responseAssociateIpGroups =
+  res
+    "AssociateIpGroupsResponse"
+    "fixture/AssociateIpGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateIpGroups)
+
+responseModifySelfservicePermissions :: ModifySelfservicePermissionsResponse -> TestTree
+responseModifySelfservicePermissions =
+  res
+    "ModifySelfservicePermissionsResponse"
+    "fixture/ModifySelfservicePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifySelfservicePermissions)
+
+responseDeleteConnectionAlias :: DeleteConnectionAliasResponse -> TestTree
+responseDeleteConnectionAlias =
+  res
+    "DeleteConnectionAliasResponse"
+    "fixture/DeleteConnectionAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConnectionAlias)
+
+responseDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> TestTree
+responseDescribeWorkspacesConnectionStatus =
+  res
+    "DescribeWorkspacesConnectionStatusResponse"
+    "fixture/DescribeWorkspacesConnectionStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeWorkspacesConnectionStatus)
+
+responseCreateConnectionAlias :: CreateConnectionAliasResponse -> TestTree
+responseCreateConnectionAlias =
+  res
+    "CreateConnectionAliasResponse"
+    "fixture/CreateConnectionAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConnectionAlias)
+
+responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
+responseRebootWorkspaces =
+  res
+    "RebootWorkspacesResponse"
+    "fixture/RebootWorkspacesResponse.proto"
+    defaultService
+    (Proxy :: Proxy RebootWorkspaces)
+
+responseDeleteIpGroup :: DeleteIpGroupResponse -> TestTree
+responseDeleteIpGroup =
+  res
+    "DeleteIpGroupResponse"
+    "fixture/DeleteIpGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteIpGroup)
+
+responseCopyWorkspaceImage :: CopyWorkspaceImageResponse -> TestTree
+responseCopyWorkspaceImage =
+  res
+    "CopyWorkspaceImageResponse"
+    "fixture/CopyWorkspaceImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy CopyWorkspaceImage)
+
+responseDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshotsResponse -> TestTree
+responseDescribeWorkspaceSnapshots =
+  res
+    "DescribeWorkspaceSnapshotsResponse"
+    "fixture/DescribeWorkspaceSnapshotsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeWorkspaceSnapshots)
+
+responseTerminateWorkspaces :: TerminateWorkspacesResponse -> TestTree
+responseTerminateWorkspaces =
+  res
+    "TerminateWorkspacesResponse"
+    "fixture/TerminateWorkspacesResponse.proto"
+    defaultService
+    (Proxy :: Proxy TerminateWorkspaces)
+
+responseUpdateConnectionAliasPermission :: UpdateConnectionAliasPermissionResponse -> TestTree
+responseUpdateConnectionAliasPermission =
+  res
+    "UpdateConnectionAliasPermissionResponse"
+    "fixture/UpdateConnectionAliasPermissionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateConnectionAliasPermission)
+
 responseCreateWorkspaces :: CreateWorkspacesResponse -> TestTree
 responseCreateWorkspaces =
   res
@@ -1096,3 +1012,107 @@ responseCreateWorkspaces =
     "fixture/CreateWorkspacesResponse.proto"
     defaultService
     (Proxy :: Proxy CreateWorkspaces)
+
+responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
+responseDescribeClientProperties =
+  res
+    "DescribeClientPropertiesResponse"
+    "fixture/DescribeClientPropertiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeClientProperties)
+
+responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
+responseModifyClientProperties =
+  res
+    "ModifyClientPropertiesResponse"
+    "fixture/ModifyClientPropertiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifyClientProperties)
+
+responseDescribeIpGroups :: DescribeIpGroupsResponse -> TestTree
+responseDescribeIpGroups =
+  res
+    "DescribeIpGroupsResponse"
+    "fixture/DescribeIpGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeIpGroups)
+
+responseDeleteWorkspaceBundle :: DeleteWorkspaceBundleResponse -> TestTree
+responseDeleteWorkspaceBundle =
+  res
+    "DeleteWorkspaceBundleResponse"
+    "fixture/DeleteWorkspaceBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteWorkspaceBundle)
+
+responseUpdateWorkspaceBundle :: UpdateWorkspaceBundleResponse -> TestTree
+responseUpdateWorkspaceBundle =
+  res
+    "UpdateWorkspaceBundleResponse"
+    "fixture/UpdateWorkspaceBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateWorkspaceBundle)
+
+responseListAvailableManagementCidrRanges :: ListAvailableManagementCidrRangesResponse -> TestTree
+responseListAvailableManagementCidrRanges =
+  res
+    "ListAvailableManagementCidrRangesResponse"
+    "fixture/ListAvailableManagementCidrRangesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAvailableManagementCidrRanges)
+
+responseUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermissionResponse -> TestTree
+responseUpdateWorkspaceImagePermission =
+  res
+    "UpdateWorkspaceImagePermissionResponse"
+    "fixture/UpdateWorkspaceImagePermissionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateWorkspaceImagePermission)
+
+responseCreateUpdatedWorkspaceImage :: CreateUpdatedWorkspaceImageResponse -> TestTree
+responseCreateUpdatedWorkspaceImage =
+  res
+    "CreateUpdatedWorkspaceImageResponse"
+    "fixture/CreateUpdatedWorkspaceImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUpdatedWorkspaceImage)
+
+responseDescribeWorkspaces :: DescribeWorkspacesResponse -> TestTree
+responseDescribeWorkspaces =
+  res
+    "DescribeWorkspacesResponse"
+    "fixture/DescribeWorkspacesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeWorkspaces)
+
+responseDescribeConnectionAliases :: DescribeConnectionAliasesResponse -> TestTree
+responseDescribeConnectionAliases =
+  res
+    "DescribeConnectionAliasesResponse"
+    "fixture/DescribeConnectionAliasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeConnectionAliases)
+
+responseStartWorkspaces :: StartWorkspacesResponse -> TestTree
+responseStartWorkspaces =
+  res
+    "StartWorkspacesResponse"
+    "fixture/StartWorkspacesResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartWorkspaces)
+
+responseDescribeAccountModifications :: DescribeAccountModificationsResponse -> TestTree
+responseDescribeAccountModifications =
+  res
+    "DescribeAccountModificationsResponse"
+    "fixture/DescribeAccountModificationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAccountModifications)
+
+responseModifyAccount :: ModifyAccountResponse -> TestTree
+responseModifyAccount =
+  res
+    "ModifyAccountResponse"
+    "fixture/ModifyAccountResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifyAccount)

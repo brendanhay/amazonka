@@ -83,7 +83,7 @@ updateRulesOfIpGroup_groupId = Lens.lens (\UpdateRulesOfIpGroup' {groupId} -> gr
 
 -- | One or more rules.
 updateRulesOfIpGroup_userRules :: Lens.Lens' UpdateRulesOfIpGroup [IpRuleItem]
-updateRulesOfIpGroup_userRules = Lens.lens (\UpdateRulesOfIpGroup' {userRules} -> userRules) (\s@UpdateRulesOfIpGroup' {} a -> s {userRules = a} :: UpdateRulesOfIpGroup) Prelude.. Lens._Coerce
+updateRulesOfIpGroup_userRules = Lens.lens (\UpdateRulesOfIpGroup' {userRules} -> userRules) (\s@UpdateRulesOfIpGroup' {} a -> s {userRules = a} :: UpdateRulesOfIpGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateRulesOfIpGroup where
   type

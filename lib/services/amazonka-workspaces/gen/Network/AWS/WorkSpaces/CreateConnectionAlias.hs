@@ -57,10 +57,10 @@ data CreateConnectionAlias = CreateConnectionAlias'
     -- such as @www.example.com@.
     --
     -- After you create a connection string, it is always associated to your
-    -- AWS account. You cannot recreate the same connection string with a
-    -- different account, even if you delete all instances of it from the
-    -- original account. The connection string is globally reserved for your
-    -- account.
+    -- Amazon Web Services account. You cannot recreate the same connection
+    -- string with a different account, even if you delete all instances of it
+    -- from the original account. The connection string is globally reserved
+    -- for your account.
     connectionString :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,10 +79,10 @@ data CreateConnectionAlias = CreateConnectionAlias'
 -- such as @www.example.com@.
 --
 -- After you create a connection string, it is always associated to your
--- AWS account. You cannot recreate the same connection string with a
--- different account, even if you delete all instances of it from the
--- original account. The connection string is globally reserved for your
--- account.
+-- Amazon Web Services account. You cannot recreate the same connection
+-- string with a different account, even if you delete all instances of it
+-- from the original account. The connection string is globally reserved
+-- for your account.
 newCreateConnectionAlias ::
   -- | 'connectionString'
   Prelude.Text ->
@@ -95,16 +95,16 @@ newCreateConnectionAlias pConnectionString_ =
 
 -- | The tags to associate with the connection alias.
 createConnectionAlias_tags :: Lens.Lens' CreateConnectionAlias (Prelude.Maybe [Tag])
-createConnectionAlias_tags = Lens.lens (\CreateConnectionAlias' {tags} -> tags) (\s@CreateConnectionAlias' {} a -> s {tags = a} :: CreateConnectionAlias) Prelude.. Lens.mapping Lens._Coerce
+createConnectionAlias_tags = Lens.lens (\CreateConnectionAlias' {tags} -> tags) (\s@CreateConnectionAlias' {} a -> s {tags = a} :: CreateConnectionAlias) Prelude.. Lens.mapping Lens.coerced
 
 -- | A connection string in the form of a fully qualified domain name (FQDN),
 -- such as @www.example.com@.
 --
 -- After you create a connection string, it is always associated to your
--- AWS account. You cannot recreate the same connection string with a
--- different account, even if you delete all instances of it from the
--- original account. The connection string is globally reserved for your
--- account.
+-- Amazon Web Services account. You cannot recreate the same connection
+-- string with a different account, even if you delete all instances of it
+-- from the original account. The connection string is globally reserved
+-- for your account.
 createConnectionAlias_connectionString :: Lens.Lens' CreateConnectionAlias Prelude.Text
 createConnectionAlias_connectionString = Lens.lens (\CreateConnectionAlias' {connectionString} -> connectionString) (\s@CreateConnectionAlias' {} a -> s {connectionString = a} :: CreateConnectionAlias)
 

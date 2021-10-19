@@ -85,7 +85,7 @@ authorizeIpRules_groupId = Lens.lens (\AuthorizeIpRules' {groupId} -> groupId) (
 
 -- | The rules to add to the group.
 authorizeIpRules_userRules :: Lens.Lens' AuthorizeIpRules [IpRuleItem]
-authorizeIpRules_userRules = Lens.lens (\AuthorizeIpRules' {userRules} -> userRules) (\s@AuthorizeIpRules' {} a -> s {userRules = a} :: AuthorizeIpRules) Prelude.. Lens._Coerce
+authorizeIpRules_userRules = Lens.lens (\AuthorizeIpRules' {userRules} -> userRules) (\s@AuthorizeIpRules' {} a -> s {userRules = a} :: AuthorizeIpRules) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AuthorizeIpRules where
   type

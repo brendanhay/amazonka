@@ -17,20 +17,20 @@ module Network.AWS.WorkSpaces.Types
     defaultService,
 
     -- * Errors
-    _ResourceUnavailableException,
     _UnsupportedNetworkConfigurationException,
-    _OperationNotSupportedException,
-    _ResourceLimitExceededException,
-    _ResourceAlreadyExistsException,
-    _OperationInProgressException,
-    _WorkspacesDefaultRoleNotFoundException,
-    _ResourceAssociatedException,
-    _UnsupportedWorkspaceConfigurationException,
-    _InvalidParameterValuesException,
-    _ResourceCreationFailedException,
     _AccessDeniedException,
-    _ResourceNotFoundException,
+    _ResourceCreationFailedException,
+    _ResourceUnavailableException,
+    _InvalidParameterValuesException,
+    _ResourceAssociatedException,
+    _OperationInProgressException,
+    _ResourceAlreadyExistsException,
+    _ResourceLimitExceededException,
     _InvalidResourceStateException,
+    _OperationNotSupportedException,
+    _UnsupportedWorkspaceConfigurationException,
+    _WorkspacesDefaultRoleNotFoundException,
+    _ResourceNotFoundException,
 
     -- * AccessPropertyValue
     AccessPropertyValue (..),
@@ -104,12 +104,12 @@ module Network.AWS.WorkSpaces.Types
     -- * AccountModification
     AccountModification (..),
     newAccountModification,
-    accountModification_dedicatedTenancySupport,
     accountModification_startTime,
+    accountModification_dedicatedTenancySupport,
     accountModification_modificationState,
     accountModification_dedicatedTenancyManagementCidrRange,
-    accountModification_errorMessage,
     accountModification_errorCode,
+    accountModification_errorMessage,
 
     -- * ClientProperties
     ClientProperties (..),
@@ -131,18 +131,18 @@ module Network.AWS.WorkSpaces.Types
     ConnectionAlias (..),
     newConnectionAlias,
     connectionAlias_state,
-    connectionAlias_connectionString,
-    connectionAlias_aliasId,
     connectionAlias_ownerAccountId,
+    connectionAlias_aliasId,
     connectionAlias_associations,
+    connectionAlias_connectionString,
 
     -- * ConnectionAliasAssociation
     ConnectionAliasAssociation (..),
     newConnectionAliasAssociation,
-    connectionAliasAssociation_resourceId,
-    connectionAliasAssociation_connectionIdentifier,
     connectionAliasAssociation_associatedAccountId,
+    connectionAliasAssociation_resourceId,
     connectionAliasAssociation_associationStatus,
+    connectionAliasAssociation_connectionIdentifier,
 
     -- * ConnectionAliasPermission
     ConnectionAliasPermission (..),
@@ -153,26 +153,26 @@ module Network.AWS.WorkSpaces.Types
     -- * DefaultWorkspaceCreationProperties
     DefaultWorkspaceCreationProperties (..),
     newDefaultWorkspaceCreationProperties,
-    defaultWorkspaceCreationProperties_enableMaintenanceMode,
-    defaultWorkspaceCreationProperties_defaultOu,
-    defaultWorkspaceCreationProperties_enableInternetAccess,
-    defaultWorkspaceCreationProperties_enableWorkDocs,
     defaultWorkspaceCreationProperties_customSecurityGroupId,
     defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator,
+    defaultWorkspaceCreationProperties_enableWorkDocs,
+    defaultWorkspaceCreationProperties_enableMaintenanceMode,
+    defaultWorkspaceCreationProperties_enableInternetAccess,
+    defaultWorkspaceCreationProperties_defaultOu,
 
     -- * FailedCreateWorkspaceRequest
     FailedCreateWorkspaceRequest (..),
     newFailedCreateWorkspaceRequest,
     failedCreateWorkspaceRequest_workspaceRequest,
-    failedCreateWorkspaceRequest_errorMessage,
     failedCreateWorkspaceRequest_errorCode,
+    failedCreateWorkspaceRequest_errorMessage,
 
     -- * FailedWorkspaceChangeRequest
     FailedWorkspaceChangeRequest (..),
     newFailedWorkspaceChangeRequest,
+    failedWorkspaceChangeRequest_errorCode,
     failedWorkspaceChangeRequest_workspaceId,
     failedWorkspaceChangeRequest_errorMessage,
-    failedWorkspaceChangeRequest_errorCode,
 
     -- * ImagePermission
     ImagePermission (..),
@@ -214,11 +214,11 @@ module Network.AWS.WorkSpaces.Types
     -- * SelfservicePermissions
     SelfservicePermissions (..),
     newSelfservicePermissions,
-    selfservicePermissions_switchRunningMode,
     selfservicePermissions_restartWorkspace,
+    selfservicePermissions_changeComputeType,
+    selfservicePermissions_switchRunningMode,
     selfservicePermissions_rebuildWorkspace,
     selfservicePermissions_increaseVolumeSize,
-    selfservicePermissions_changeComputeType,
 
     -- * Snapshot
     Snapshot (..),
@@ -246,6 +246,12 @@ module Network.AWS.WorkSpaces.Types
     newTerminateRequest,
     terminateRequest_workspaceId,
 
+    -- * UpdateResult
+    UpdateResult (..),
+    newUpdateResult,
+    updateResult_updateAvailable,
+    updateResult_description,
+
     -- * UserStorage
     UserStorage (..),
     newUserStorage,
@@ -254,116 +260,117 @@ module Network.AWS.WorkSpaces.Types
     -- * Workspace
     Workspace (..),
     newWorkspace,
-    workspace_workspaceProperties,
-    workspace_rootVolumeEncryptionEnabled,
-    workspace_bundleId,
-    workspace_userVolumeEncryptionEnabled,
-    workspace_volumeEncryptionKey,
-    workspace_workspaceId,
-    workspace_modificationStates,
+    workspace_directoryId,
     workspace_state,
     workspace_ipAddress,
-    workspace_directoryId,
+    workspace_modificationStates,
     workspace_userName,
     workspace_subnetId,
-    workspace_errorMessage,
-    workspace_computerName,
+    workspace_bundleId,
+    workspace_workspaceProperties,
+    workspace_rootVolumeEncryptionEnabled,
     workspace_errorCode,
+    workspace_volumeEncryptionKey,
+    workspace_computerName,
+    workspace_workspaceId,
+    workspace_userVolumeEncryptionEnabled,
+    workspace_errorMessage,
 
     -- * WorkspaceAccessProperties
     WorkspaceAccessProperties (..),
     newWorkspaceAccessProperties,
-    workspaceAccessProperties_deviceTypeOsx,
-    workspaceAccessProperties_deviceTypeLinux,
     workspaceAccessProperties_deviceTypeWindows,
-    workspaceAccessProperties_deviceTypeZeroClient,
-    workspaceAccessProperties_deviceTypeAndroid,
     workspaceAccessProperties_deviceTypeWeb,
-    workspaceAccessProperties_deviceTypeIos,
+    workspaceAccessProperties_deviceTypeAndroid,
+    workspaceAccessProperties_deviceTypeLinux,
+    workspaceAccessProperties_deviceTypeOsx,
     workspaceAccessProperties_deviceTypeChromeOs,
+    workspaceAccessProperties_deviceTypeIos,
+    workspaceAccessProperties_deviceTypeZeroClient,
 
     -- * WorkspaceBundle
     WorkspaceBundle (..),
     newWorkspaceBundle,
-    workspaceBundle_rootStorage,
     workspaceBundle_creationTime,
-    workspaceBundle_bundleId,
-    workspaceBundle_userStorage,
-    workspaceBundle_imageId,
-    workspaceBundle_name,
-    workspaceBundle_owner,
-    workspaceBundle_description,
-    workspaceBundle_computeType,
     workspaceBundle_lastUpdatedTime,
+    workspaceBundle_bundleId,
+    workspaceBundle_owner,
+    workspaceBundle_rootStorage,
+    workspaceBundle_name,
+    workspaceBundle_imageId,
+    workspaceBundle_computeType,
+    workspaceBundle_userStorage,
+    workspaceBundle_description,
 
     -- * WorkspaceConnectionStatus
     WorkspaceConnectionStatus (..),
     newWorkspaceConnectionStatus,
-    workspaceConnectionStatus_connectionState,
-    workspaceConnectionStatus_workspaceId,
     workspaceConnectionStatus_lastKnownUserConnectionTimestamp,
     workspaceConnectionStatus_connectionStateCheckTimestamp,
+    workspaceConnectionStatus_workspaceId,
+    workspaceConnectionStatus_connectionState,
 
     -- * WorkspaceCreationProperties
     WorkspaceCreationProperties (..),
     newWorkspaceCreationProperties,
-    workspaceCreationProperties_enableMaintenanceMode,
-    workspaceCreationProperties_defaultOu,
-    workspaceCreationProperties_enableInternetAccess,
-    workspaceCreationProperties_enableWorkDocs,
     workspaceCreationProperties_customSecurityGroupId,
     workspaceCreationProperties_userEnabledAsLocalAdministrator,
+    workspaceCreationProperties_enableWorkDocs,
+    workspaceCreationProperties_enableMaintenanceMode,
+    workspaceCreationProperties_enableInternetAccess,
+    workspaceCreationProperties_defaultOu,
 
     -- * WorkspaceDirectory
     WorkspaceDirectory (..),
     newWorkspaceDirectory,
     workspaceDirectory_registrationCode,
-    workspaceDirectory_workspaceSecurityGroupId,
-    workspaceDirectory_alias,
-    workspaceDirectory_workspaceAccessProperties,
-    workspaceDirectory_ipGroupIds,
-    workspaceDirectory_subnetIds,
-    workspaceDirectory_customerUserName,
-    workspaceDirectory_tenancy,
-    workspaceDirectory_state,
-    workspaceDirectory_directoryId,
     workspaceDirectory_iamRoleId,
+    workspaceDirectory_directoryId,
+    workspaceDirectory_state,
+    workspaceDirectory_customerUserName,
+    workspaceDirectory_subnetIds,
+    workspaceDirectory_ipGroupIds,
+    workspaceDirectory_alias,
+    workspaceDirectory_workspaceSecurityGroupId,
     workspaceDirectory_directoryType,
-    workspaceDirectory_selfservicePermissions,
-    workspaceDirectory_directoryName,
-    workspaceDirectory_dnsIpAddresses,
+    workspaceDirectory_tenancy,
     workspaceDirectory_workspaceCreationProperties,
+    workspaceDirectory_dnsIpAddresses,
+    workspaceDirectory_workspaceAccessProperties,
+    workspaceDirectory_directoryName,
+    workspaceDirectory_selfservicePermissions,
 
     -- * WorkspaceImage
     WorkspaceImage (..),
     newWorkspaceImage,
-    workspaceImage_imageId,
-    workspaceImage_name,
     workspaceImage_state,
-    workspaceImage_description,
-    workspaceImage_requiredTenancy,
-    workspaceImage_errorMessage,
-    workspaceImage_created,
-    workspaceImage_operatingSystem,
     workspaceImage_ownerAccountId,
+    workspaceImage_operatingSystem,
+    workspaceImage_created,
+    workspaceImage_requiredTenancy,
+    workspaceImage_name,
+    workspaceImage_updates,
+    workspaceImage_imageId,
     workspaceImage_errorCode,
+    workspaceImage_errorMessage,
+    workspaceImage_description,
 
     -- * WorkspaceProperties
     WorkspaceProperties (..),
     newWorkspaceProperties,
-    workspaceProperties_rootVolumeSizeGib,
-    workspaceProperties_runningMode,
-    workspaceProperties_userVolumeSizeGib,
-    workspaceProperties_runningModeAutoStopTimeoutInMinutes,
     workspaceProperties_computeTypeName,
+    workspaceProperties_runningMode,
+    workspaceProperties_rootVolumeSizeGib,
+    workspaceProperties_runningModeAutoStopTimeoutInMinutes,
+    workspaceProperties_userVolumeSizeGib,
 
     -- * WorkspaceRequest
     WorkspaceRequest (..),
     newWorkspaceRequest,
     workspaceRequest_workspaceProperties,
     workspaceRequest_rootVolumeEncryptionEnabled,
-    workspaceRequest_userVolumeEncryptionEnabled,
     workspaceRequest_volumeEncryptionKey,
+    workspaceRequest_userVolumeEncryptionEnabled,
     workspaceRequest_tags,
     workspaceRequest_directoryId,
     workspaceRequest_userName,
@@ -372,10 +379,10 @@ module Network.AWS.WorkSpaces.Types
     -- * WorkspacesIpGroup
     WorkspacesIpGroup (..),
     newWorkspacesIpGroup,
-    workspacesIpGroup_userRules,
     workspacesIpGroup_groupDesc,
-    workspacesIpGroup_groupName,
+    workspacesIpGroup_userRules,
     workspacesIpGroup_groupId,
+    workspacesIpGroup_groupName,
   )
 where
 
@@ -423,6 +430,7 @@ import Network.AWS.WorkSpaces.Types.Tag
 import Network.AWS.WorkSpaces.Types.TargetWorkspaceState
 import Network.AWS.WorkSpaces.Types.Tenancy
 import Network.AWS.WorkSpaces.Types.TerminateRequest
+import Network.AWS.WorkSpaces.Types.UpdateResult
 import Network.AWS.WorkSpaces.Types.UserStorage
 import Network.AWS.WorkSpaces.Types.Workspace
 import Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties
@@ -467,37 +475,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -510,14 +495,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified resource is not available.
-_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceUnavailableException"
 
 -- | The configuration of this network is not supported for this operation,
 -- or your network configuration conflicts with the Amazon WorkSpaces
@@ -529,26 +530,40 @@ _UnsupportedNetworkConfigurationException =
     defaultService
     "UnsupportedNetworkConfigurationException"
 
--- | This operation is not supported.
-_OperationNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotSupportedException =
+-- | The user is not authorized to access a resource.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "OperationNotSupportedException"
+    "AccessDeniedException"
 
--- | Your resource limits have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
+-- | The resource could not be created.
+_ResourceCreationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceCreationFailedException =
   Core._MatchServiceError
     defaultService
-    "ResourceLimitExceededException"
+    "ResourceCreationFailedException"
 
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | The specified resource is not available.
+_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
+    "ResourceUnavailableException"
+
+-- | One or more parameter values are not valid.
+_InvalidParameterValuesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValuesException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValuesException"
+
+-- | The resource is associated with a directory.
+_ResourceAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAssociatedException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAssociatedException"
 
 -- | The properties of this WorkSpace are currently being modified. Try again
 -- in a moment.
@@ -557,6 +572,44 @@ _OperationInProgressException =
   Core._MatchServiceError
     defaultService
     "OperationInProgressException"
+
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+
+-- | Your resource limits have been exceeded.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceededException"
+
+-- | The state of the resource is not valid for this operation.
+_InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceStateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResourceStateException"
+
+-- | This operation is not supported.
+_OperationNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotSupportedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotSupportedException"
+
+-- | The configuration of this WorkSpace is not supported for this operation.
+-- For more information, see
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html Required Configuration and Service Components for WorkSpaces>
+-- .
+_UnsupportedWorkspaceConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedWorkspaceConfigurationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedWorkspaceConfigurationException"
 
 -- | The workspaces_DefaultRole role could not be found. If this is the first
 -- time you are registering a directory, you will need to create the
@@ -569,54 +622,9 @@ _WorkspacesDefaultRoleNotFoundException =
     defaultService
     "WorkspacesDefaultRoleNotFoundException"
 
--- | The resource is associated with a directory.
-_ResourceAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAssociatedException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAssociatedException"
-
--- | The configuration of this WorkSpace is not supported for this operation.
--- For more information, see
--- <https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html Required Configuration and Service Components for WorkSpaces>
--- .
-_UnsupportedWorkspaceConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedWorkspaceConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedWorkspaceConfigurationException"
-
--- | One or more parameter values are not valid.
-_InvalidParameterValuesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValuesException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterValuesException"
-
--- | The resource could not be created.
-_ResourceCreationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceCreationFailedException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceCreationFailedException"
-
--- | The user is not authorized to access a resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-
 -- | The resource could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-
--- | The state of the resource is not valid for this operation.
-_InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourceStateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResourceStateException"
